@@ -38,6 +38,7 @@ if [ "$(uname)" == Darwin ]; then
     brew install googler
     brew install poco boost thrift swig
     brew install boost_python --with-python3
+    sudo ln -f -s $script_dir/motd /etc/motd
 else
     echo_sh "WARNING: NOT Darwin"
 fi

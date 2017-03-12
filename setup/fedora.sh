@@ -25,6 +25,7 @@ if [ "$(uname)" == Linux ]; then
         sudo dnf install -y poppler automake
         sudo dnf install -y arduino
         sudo dnf install -y docker
+        sudo ln -f -s $script_dir/issue /etc/issue
     else
         echo_sh "INFO: NOT Fedora"
     fi
