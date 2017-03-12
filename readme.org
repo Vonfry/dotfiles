@@ -8,7 +8,7 @@
     - [X] macOS
     - [ ] Fedora
 
-* 编辑器[2/2]
+* 编辑器 [2/2]
     - [X] Vim
     - [X] Emacs
 
