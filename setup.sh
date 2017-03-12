@@ -27,6 +27,7 @@ mkdir ~/.config
 ln -f -s $script_dir/config/* ~/.config/
 mkdir ~/.ssh
 ln -f -s $dropbox_dir/ssh/vonfry/* ~/.ssh/
+ln -f -s $script_dir/ghci ~/.ghci
 
 # alert
 echo "
