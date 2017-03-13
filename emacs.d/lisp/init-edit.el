@@ -33,7 +33,7 @@
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)
-(visual-line-mode t)
+(global-visual-line-mode t)
 (transient-mark-mode t)
 
 ;;----------------------------------------------------------------------------
