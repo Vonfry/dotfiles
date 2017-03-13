@@ -39,8 +39,8 @@
   (with-eval-after-load 'company
     (push '(company-cabal)
       company-backends-haskell-cabal-mode))
-  (setq tab-width 2)
-  (setq evil-shift-width 2))
+  (setq tab-width 4)
+  (setq evil-shift-width 4))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
 
 (provide 'init-haskell)

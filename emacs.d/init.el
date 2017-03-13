@@ -44,6 +44,7 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-mmm-mode)
 
 (require 'init-edit)
+(require 'init-func)
 (require 'init-whitespace)
 
 (require 'init-vc)
