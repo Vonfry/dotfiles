@@ -2,6 +2,7 @@
 (require-package 'cmake-mode)
 
 (defun vonfry/setup-cfamily-mode ()
+  (rainbow-turn-off)
   (require 'disaster)
   (require 'cc-mode)
   (require 'compile)
