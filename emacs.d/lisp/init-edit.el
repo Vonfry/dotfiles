@@ -127,7 +127,7 @@
              (buffer-name))))
 (global-set-key (kbd "C-c <down>") 'vonfry/toggle-current-window-dedication)
 
-(require-package 'pretty-mode)
-(global-pretty-mode t)
+; (require-package 'pretty-mode)
+; (global-pretty-mode t)
 
 (provide 'init-edit)
