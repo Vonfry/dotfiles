@@ -32,10 +32,10 @@
 (require-package 'company-ycmd)
 (require 'company-ycmd)
 (company-ycmd-setup)
-(add-hook 'ycmd-mode
+(add-hook 'ycmd-mode-hook
   (lambda ()
     (add-hook 'evil-local-mode-hook
-      (evil-leader/set-key
-        "."  'ycmd-goto))))
+      (lambda () (evil-leader/set-key
+        "."  'ycmd-goto)))))
 
 (provide 'init-company)

@@ -12,7 +12,8 @@
   (add-hook 'evil-local-mode-hook
    (lambda ())
       (evil-leader/set-key ;; for mode
-        "D" 'disaster))
+        "D" 'disaster
+        "h" 'ff-find-other-file))
   (setq
    ;; use gdb-many-windows by default when `M-x gdb'
    gdb-many-windows t
