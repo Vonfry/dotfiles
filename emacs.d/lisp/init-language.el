@@ -17,5 +17,6 @@
 (require 'init-arduino)
 (require 'init-yaml)
 (require 'init-markdown)
+(require 'init-dot)
 
 (provide 'init-language)
