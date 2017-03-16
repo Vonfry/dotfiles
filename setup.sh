@@ -22,12 +22,13 @@ bash $script_dir/setup/git.sh
 
 # copy other dotfiles
 echo_sh "** copy other dotfiles"
-ln -f -s $script_dir/ackrc ~
+ln -f -s $script_dir/ackrc ~/.ackrc
 mkdir ~/.config
 ln -f -s $script_dir/config/* ~/.config/
 mkdir ~/.ssh
 ln -f -s $dropbox_dir/ssh/vonfry/* ~/.ssh/
 ln -f -s $script_dir/ghci ~/.ghci
+ln -f -s $script_dir/rtorrent.rc ~/.rtorrent.rc
 
 # alert
 echo "
