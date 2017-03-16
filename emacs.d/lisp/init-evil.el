@@ -23,6 +23,8 @@
   "m"  'evil-show-marks
   "u"  'undo-tree-visualize
   "'"  'ielm
+  "w"  'delete-windows
+  "o"  'delete-other-windows
 ;; setting for evil-nerd-commenter
   "ci" 'evilnc-comment-or-uncomment-lines
   "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
