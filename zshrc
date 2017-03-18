@@ -135,7 +135,7 @@ function vonfry-update()
         sudo dnf upgrade -y
         sudo dnf clean all
     fi
-    print "\e[31m Make sure the python url is needed to be rewriten in emacs configure."
+    print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
     pip3 install --upgrade pip setuptools wheel
     pip3 install --upgrade pytz mysqlclient pygments psycopg2
