@@ -192,7 +192,7 @@ autocmd Filetype python set foldmethod=indent
 autocmd Filetype vim    set foldmethod=marker
 set nobackup
 if has("persistent_undo")
-    set undodir=expand("$TMPDIR/vim-undodir")
+    set undodir=expand("$HOME/.cache/vim/undodir")
     set undofile
 endif
 
