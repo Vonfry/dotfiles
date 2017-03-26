@@ -119,7 +119,7 @@ export BOARD_TAG=mega2560
 alias make-ctags="ctags -R --fields=+latinKS --extra=+qf ."
 alias make-gtags="gtags"
 
-alias build-xelatex="mkdir build; xelatex output-directory=./build/ "
+alias build-xelatex="mkdir build; xelatex -output-directory=./build "
 
 function vonfry-update()
 {
