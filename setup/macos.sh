@@ -32,6 +32,7 @@ if [ "$(uname)" == Darwin ]; then
     brew cask install arduino
     brew cask install java
     brew cask install xquartz
+    brew cask install gitter
     brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
     brew install neovim/neovim/neovim
     brew install autojump
