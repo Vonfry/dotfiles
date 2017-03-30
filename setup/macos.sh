@@ -28,6 +28,7 @@ if [ "$(uname)" == Darwin ]; then
     brew linkapp emacs
     brew install Homebrew/emacs/irony-mode
     brew install smartypants
+    brew install fortune cmatrix figlet # 诗词，代码雨，ascii-art
     brew cask install mactex
     brew cask install arduino
     brew cask install java
