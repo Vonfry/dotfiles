@@ -22,7 +22,7 @@ if [ "$(uname)" == Darwin ]; then
     brew install wireshark
     brew install thefuck
     brew install sqlite mysql postgresql redis
-    brew install graphviz xdot
+    brew install graphviz
     brew install poppler automake
     brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --devel
     brew linkapp emacs
