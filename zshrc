@@ -56,13 +56,17 @@ plugins=(git git-extras gitignore vundle osx xcode autojump sudo brew brew-cask 
 
 # User configuration
 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
+export PATH=/usr/local/sbin:$PATH
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export PATH=$PATH:/usr/local/opt/sqlite/bin
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
+setopt rm_star_silent
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,10 +108,6 @@ alias switch-python2="alias python=python2 && alias pip=pip2"
 alias unchange-python="unalias python pip"
 alias create_projectile_file="touch .projectile"
 
-setopt rm_star_silent
-
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export ARDMK_DIR=/usr/local/opt/arduino-mk/Arduino.mk
 export ARDUINO_DIR=/Applications/Arduino.app/Contents/Java
 export ARDUINO_HOME=$ARDUINO_DIR
