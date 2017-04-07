@@ -101,6 +101,9 @@ setopt rm_star_silent
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 alias switch-python3="alias python=python3 && alias pip=pip3"

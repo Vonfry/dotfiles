@@ -5,6 +5,7 @@ if [ "$(uname)" == Darwin ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update && brew update && brew upgrade
     brew install zsh wget git git-extras
+    brew install fzf && /usr/local/opt/fzf/install
     brew install gcc cmake
     brew install llvm --universal --with-python --with-clang
     brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
