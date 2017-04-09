@@ -7,6 +7,7 @@
 (require-package 'intero)
 (require-package 'hindent)
 (defun vonfry/setup-haskell-mode ()
+  (setq haskell-indentation-electric-flag t)
   ; (setq ghc-ghc-options '("-idir1" "-idir2"))
   (require 'ghc)
   (require 'haskell-snippets)
