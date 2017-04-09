@@ -1,14 +1,19 @@
 (require-package 'haskell-mode )
 (require-package 'ghc)
 (require-package 'company-ghc)
-(require-package 'company-ghci)
 (require-package 'company-cabal)
 (require-package 'haskell-snippets)
+(require-package 'flycheck-haskell)
 (require-package 'intero)
 (require-package 'hindent)
 (defun vonfry/setup-haskell-mode ()
+  ; (setq ghc-ghc-options '("-idir1" "-idir2"))
+  (require 'ghc)
+  (require 'haskell-snippets)
+  ; (yas-recompile-all)
+  ; (yas-reload-all)
   (hindent-mode)
-  (intero-mode)
+  ; Only use this if the project using with stack.
   (with-eval-after-load 'yasnippet (haskell-snippets-initialize))
   (with-eval-after-load 'align
     (add-to-list 'align-rules-list
@@ -35,12 +40,17 @@
     "A"  'intero-apply-suggestions
     "gi" 'haskell-navigate-imports
     "F"  'haskell-mode-stylish-buffer)
-  (bind-key "C-c C-l" 'haskell-process-load-file haskell-mode-map)
   (with-eval-after-load 'company
-    (push '(company-cabal)
-      company-backends-haskell-cabal-mode))
+    (add-to-list 'company-backends 'company-ghc))
+  (ghc-comp-init)
+  (eval-after-load 'flycheck
+    '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+  (intero-mode)
   (setq tab-width 4)
   (setq evil-shift-width 4))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (provide 'init-haskell)

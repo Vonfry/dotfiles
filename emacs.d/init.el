@@ -30,6 +30,7 @@ re-downloaded in order to locate PACKAGE."
 
 
 ;; require submodules
+(require 'init-func)
 (require 'init-theme)
 (require 'init-gui)
 (require 'init-neotree)
@@ -44,7 +45,6 @@ re-downloaded in order to locate PACKAGE."
 (require 'init-mmm-mode)
 
 (require 'init-edit)
-(require 'init-func)
 (require 'init-whitespace)
 
 (require 'init-vc)
@@ -73,7 +73,7 @@ re-downloaded in order to locate PACKAGE."
  '(fic-highlighted-words (quote ("FIXME" "TODO" "BUG" "KLUDGE" "IMPORTANT")))
  '(package-selected-packages
    (quote
-    (company-inf-ruby company-anaconda yaml-mode company-arduino arduino-mode rainbow-mode kurecolor bundler cmake-mode solarized-theme use-package))))
+    (flycheck-haskell helm-hoogle company-inf-ruby company-anaconda yaml-mode company-arduino arduino-mode rainbow-mode kurecolor bundler cmake-mode solarized-theme use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

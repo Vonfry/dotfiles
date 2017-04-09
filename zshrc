@@ -111,6 +111,9 @@ alias switch-python2="alias python=python2 && alias pip=pip2"
 alias unchange-python="unalias python pip"
 alias create_projectile_file="touch .projectile"
 
+alias semacs="screen -S emacs"
+alias rsemacs="screen -r emacs"
+
 export ARDMK_DIR=/usr/local/opt/arduino-mk/Arduino.mk
 export ARDUINO_DIR=/Applications/Arduino.app/Contents/Java
 export ARDUINO_HOME=$ARDUINO_DIR

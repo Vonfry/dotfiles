@@ -25,6 +25,8 @@ echo_sh "** copy other dotfiles"
 ln -f -s $script_dir/ackrc ~/.ackrc
 mkdir ~/.config
 ln -f -s $script_dir/config/* ~/.config/
+mkdir ~/.stack
+ln -f -s $script_dir/stack/* ~/.stack/
 mkdir ~/.ssh
 ln -f -s $script_dir/ghci ~/.ghci
 ln -f -s $script_dir/rtorrent.rc ~/.rtorrent.rc
