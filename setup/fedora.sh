@@ -10,6 +10,7 @@ if [ "$(uname)" == Linux ]; then
         sudo dnf install -y global
         sudo dnf install -y sbcl gcl clisp
         sudo dnf install -y ghc cabal-install
+        sudo dnf copr enable petersen/stack && stack upgrade
         sudo dnf install -y httpd nginx
         sudo dnf install -y vim neovim emacs
         sudo dnf install -y python python-devel python3 python3-devel
