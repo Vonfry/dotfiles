@@ -7,6 +7,7 @@ if command -v npm > /dev/null 2>&1; then
     npm install -g npm-check
     npm install -g font-spider
     npm install -g diff-so-fancy
+    npm install -g @angular/cli
 else
     echo_sh "ERROR: NO npm"
     exit
