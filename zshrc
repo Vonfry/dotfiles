@@ -145,6 +145,7 @@ function vonfry-update()
     fi
     print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
+    stack upgrade
     hoogle generate
     pip3 install --upgrade pip setuptools wheel
     pip3 install --upgrade pytz mysqlclient pygments psycopg2
