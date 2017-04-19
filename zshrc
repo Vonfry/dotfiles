@@ -127,6 +127,8 @@ alias make-gtags="gtags"
 
 alias build-xelatex="mkdir build; xelatex -output-directory=./build "
 
+# self function
+
 function vonfry-update()
 {
     source /etc/os-release
@@ -160,6 +162,26 @@ function vonfry-update()
     ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
 
     emacs --eval "(package-list-packages)" # Then U-x
+}
+
+function jekyll-new-post()
+{
+    echo -n "input slug: "
+    read slug
+    postfile=$(date +%F)-$slug.md
+    touch $postfile
+    echo "---" > $postfile
+    echo -n "input title: "
+    read title
+    echo "title: $title" >> $postfile
+    echo "date: $(date "+%Y-%m-%d %H:%M:%S %z")" >> $postfile
+    echo -n "input categories: "
+    read categories
+    echo "categories: $categories" >> $postfile
+    echo -n "input tags: "
+    read tags
+    echo "tags: $tags" >> $postfile
+    echo "---" >> $postfile
 }
 
 function codechecker-setup()
