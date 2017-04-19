@@ -10,14 +10,18 @@
 (set-face-attribute
  'default nil :font "Hack 11")
 ;; Chinese Font 配制中文字体
-(defmacro chinese-font (font-name)
+(defmacro chinese-font (font-name font-size)
   `(dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
-                      (font-spec :family ,font-name :size 11))))
+                      (font-spec :family ,font-name :size ,font-size))))
 (if *is-a-mac*
-  (chinese-font "Hei")
+  (chinese-font "Hei" 11)
   f)
+(add-hook 'org-mode-hook
+  (if *is-a-mac*
+      (chinese-font "Hei" 14)
+    f))
 
 (setq display-time-format "%T")
 (display-time-mode 1)
