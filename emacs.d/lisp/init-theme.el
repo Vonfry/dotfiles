@@ -14,7 +14,7 @@
   `(dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
-                      (font-spec :family ,font-name :size 11))))
+                      (font-spec :family ,font-name :size 14))))
 (if *is-a-mac*
   (chinese-font "Hei")
   f)
