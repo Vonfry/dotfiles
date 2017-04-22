@@ -18,10 +18,6 @@
 (if *is-a-mac*
   (chinese-font "Hei" 11)
   f)
-(add-hook 'org-mode-hook
-  (if *is-a-mac*
-      (chinese-font "Hei" 14)
-    f))
 
 (setq display-time-format "%T")
 (display-time-mode 1)
