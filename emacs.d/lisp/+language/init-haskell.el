@@ -35,6 +35,7 @@
                    (modes . haskell-modes))))
   (evil-leader/set-key-for-mode 'haskell-mode
     "f"  'hindent-reformat-decl
+    "'"  'intero-repl
     "."  'intero-goto-definition
     "j"  'ghc-jump-file
     "D"  'intero-toggle-debug
