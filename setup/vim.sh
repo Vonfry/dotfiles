@@ -6,3 +6,5 @@ vim -c "execute \"PluginInstall!\" | qa"
 mkdir ~/.config
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
+mkdir ~/.cache/vim
+mkdir ~/.cache/vim/undodir

@@ -27,7 +27,7 @@
  truncate-lines nil
  truncate-partial-width-windows nil)
 (setq vonfry/temporary-file-directory
-  (expand-file-name ".cache/emacs" user-emacs-directory))
+  (expand-file-name ".cache/emacs/" user-emacs-directory))
 (setq backup-directory-alist
   `((".*" . ,vonfry/temporary-file-directory)))
 (setq auto-save-file-name-transforms

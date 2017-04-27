@@ -7,6 +7,8 @@ export dropbox_dir="~/Dropbox/Backup/dotfiles"
 echo_sh "dir: $script_dir"
 echo_sh "System: $(uname)"
 
+mkdir ~/.cache
+
 bash $script_dir/setup/macos.sh
 bash $script_dir/setup/linux.sh
 bash $script_dir/setup/pip.sh
