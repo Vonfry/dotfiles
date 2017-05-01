@@ -28,6 +28,9 @@ if [ "$(uname)" == Linux ]; then
         sudo dnf install -y docker
         sudo dnf install -y youtube-dl aria2
         sudo ln -f -s $script_dir/issue /etc/issue
+
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
     else
         echo_sh "INFO: NOT Fedora"
     fi
