@@ -159,7 +159,11 @@ function vonfry-update()
     npm -g install bower typescript tern cordova less less-plugin-clean-css diff-so-fancy font-spider npm-check @angular/cli
 
     vundle-update
-    ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
+    if [ "$(unname)" == Darwin ]; then
+        ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
+    else
+        ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
+    fi
 
     emacs --eval "(package-list-packages)" # Then U-x
 }
