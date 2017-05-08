@@ -149,20 +149,18 @@ function vonfry-update()
     cabal update
     stack upgrade
     hoogle generate
-    pip3 install --upgrade pip setuptools wheel
-    pip3 install --upgrade pytz mysqlclient pygments psycopg2
-    pip3 install --upgrade jedi flake8 importmagic autopep8 pycscope virtualenv anaconda_mode
-    pip3 install --upgrade pyserial
-    pip2 install --upgrade pip setuptools wheel
-    pip2 install --upgrade jedi httpstat
-    gem update bundler jekyll starscope sass compass
+    pip3 install -r ~/.pip3.txt
+    pip3 install -r ~/.pip2.txt
+    gem update && gem update --system
+    gem cleanup
     npm update -g
+    npm cache clean
 
     vundle-update
     if [ "$(unname)" == Darwin ]; then
-        ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
+        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
     else
-        ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
+        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
     fi
 
     emacs --eval "(package-list-packages)" # Then U-x

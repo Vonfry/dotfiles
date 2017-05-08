@@ -1,0 +1,25 @@
+virtualenv
+
+# code complete and check
+anaconda_mode
+jedi
+flake8
+importmagic
+autopep8
+
+# code highlight and jump
+pycscope
+pygments
+
+# tools
+pytz
+
+# datebase
+mysqlclient
+psycopg2
+
+# graphviz
+pydot
+
+# serial
+pyserial

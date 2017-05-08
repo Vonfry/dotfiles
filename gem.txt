@@ -1,0 +1,6 @@
+gem "jekyll"
+gem "bundler"
+gem "starscope"
+gem "sass"
+gem "compass"
+gem "nokogiri"

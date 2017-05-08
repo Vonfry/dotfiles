@@ -10,3 +10,6 @@ mkdir ~/.ghc
 ln -f -s $script_dir/ghc/* ~/.ghc/
 ln -f -s $script_dir/rtorrent.rc ~/.rtorrent.rc
 mkdir ~/.ssh
+ln -f -s $script_dir/pip3.txt ~/.pip3.txt
+ln -f -s $script_dir/pip2.txt ~/.pip2.txt
+ln -f -s $script_dir/gem.txt ~/.gem.txt
