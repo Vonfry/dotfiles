@@ -156,7 +156,7 @@ function vonfry-update()
     pip2 install --upgrade pip setuptools wheel
     pip2 install --upgrade jedi httpstat
     gem update bundler jekyll starscope sass compass
-    npm -g install bower typescript tern cordova less less-plugin-clean-css diff-so-fancy font-spider npm-check @angular/cli
+    npm update -g
 
     vundle-update
     if [ "$(unname)" == Darwin ]; then
