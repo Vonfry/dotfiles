@@ -1,10 +1,11 @@
+(require-package 'company-shell)
 (defun vonfry/setup-shell-mode ()
   (add-hook 'evil-local-mode-hook
     (lambda ()
       (evil-leader/set-key-for-mode 'sh-mode
         "\\" 'sh-backslash-region)))
   (with-eval-after-load 'company
-    (push 'company-shell company-backends-sh-mode)))
+    (add-to-list 'company-backends 'company-shell)))
 
 (dolist (pattern '("\\.zsh\\'"
                    "zlogin\\'"

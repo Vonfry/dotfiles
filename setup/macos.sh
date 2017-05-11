@@ -4,7 +4,7 @@ if [ "$(uname)" == Darwin ]; then
     sudo chown $(whoami) -R /usr/local/share/man
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew update && brew update && brew upgrade
-    brew install zsh wget git git-extras
+    brew install zsh wget git git-extras tig
     brew install fzf && /usr/local/opt/fzf/install
     brew install gcc cmake
     brew install llvm --universal --with-python --with-clang
@@ -17,6 +17,7 @@ if [ "$(uname)" == Darwin ]; then
     brew install go node
     brew install python3 python
     brew install ruby ----universal
+    brew install cloc
     brew install tree uchardet
     brew install clisp sbcl roswell
     brew install ghc cabal-install haskell-stack

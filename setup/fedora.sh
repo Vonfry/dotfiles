@@ -3,7 +3,7 @@ if [ "$(uname)" == Linux ]; then
     if [ "$(ID)" == fedora ]; then
         sudo dnf update -y && sudo dnf upgrade -y
         sudo dnf install -y zsh
-        sudo dnf install -y wget git git-extra screen
+        sudo dnf install -y wget git git-extra tig screen
         sudo dnf install -y cmake gcc clang llvm
         sudo dnf install -y tree uchardet
         sudo dnf install -y ack the_silver_searcher
@@ -18,6 +18,7 @@ if [ "$(uname)" == Linux ]; then
         sudo dnf install -y go node
         sudo dnf install -y php php-devel
         sudo dnf install -y java
+        sudo dnf install cloc
         sudo dnf install -y poco boost thrift swig
         sudo dnf install -y sqlite mariadb mariadb-server postgresql redis
         sudo dnf install -y sqlite-devel mariadb-devel postgresql-devel redis-devel
