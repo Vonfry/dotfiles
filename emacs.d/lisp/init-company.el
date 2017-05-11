@@ -25,9 +25,8 @@
 
 (require-package 'ycmd)
 (require 'ycmd)
-(set-variable 'ycmd-server-command `("python" ,(expand-file-name "~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd")))
+(set-variable 'ycmd-server-command `("python3" ,(expand-file-name "~/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd")))
 (set-variable 'ycmd-global-config (expand-file-name "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-;;; (add-hook 'after-init-hook #'global-ycmd-mode)
 ;;; start ycmd in languages configure file.
 (require-package 'company-ycmd)
 (require 'company-ycmd)
