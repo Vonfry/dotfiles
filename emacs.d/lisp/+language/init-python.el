@@ -26,11 +26,6 @@
   (ycmd-mode))
 (add-hook 'python-mode-hook 'vonfry/setup-python-mode)
 
-(add-to-list 'auto-mode-alist
-  `(,(rx ".pip" string-end) . pip-requirements-mode))
-(add-to-list 'auto-mode-alist
-  `(,(rx "requirements" (zero-or-more anything) ".txt" string-end) . pip-requirements-mode))
-(add-to-list 'auto-mode-alist
-  `(,(rx "requirements.in") . pip-requirements-mode))
+(require 'pip-requirements)
 
 (provide 'init-python)
