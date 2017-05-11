@@ -1,3 +1,0 @@
-pycscope
-jedi
-httpstat

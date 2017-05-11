@@ -11,8 +11,11 @@ autopep8
 pycscope
 pygments
 
-# tools
+# lib
 pytz
+
+# tools
+httpstat
 
 # datebase
 mysqlclient
