@@ -19,7 +19,7 @@ if [ "$(uname)" == Darwin ]; then
     brew install ruby ----universal
     brew install cloc
     brew install tree uchardet
-    brew install clisp sbcl roswell
+    brew install clisp sbcl
     brew install ghc cabal-install haskell-stack
     brew install wireshark
     brew install thefuck
