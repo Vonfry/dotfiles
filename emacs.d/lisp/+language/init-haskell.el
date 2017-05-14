@@ -49,10 +49,10 @@
   (eval-after-load 'flycheck
     '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
   (intero-mode)
-  (setq tab-width 2
-        evil-shift-width 2
+  (setq tab-width 4
+        evil-shift-width 4
         hindent-line-length 120
-        hindent-indent-size 2
+        hindent-indent-size 4
         haskell-stylish-on-save t
         haskell-indentation-electric-flag t))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
