@@ -104,7 +104,7 @@ setopt rm_star_silent
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
+eval "$(thefuck --alias)"
 
 alias switch-python3="alias python=python3 && alias pip=pip3"
 alias switch-python2="alias python=python2 && alias pip=pip2"
@@ -128,6 +128,7 @@ alias make-gtags="gtags"
 alias build-xelatex="mkdir build; xelatex -output-directory=./build "
 
 # self function
+function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 
 function vonfry-update()
 {
