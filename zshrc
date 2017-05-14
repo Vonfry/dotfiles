@@ -136,7 +136,6 @@ function vonfry-update()
     if [ "$(uname)" == Darwin ]; then
         brew cleanup
         brew update
-        brew update
         brew upgrade
         brew cleanup
         # if ctags is updated, emacs needs being recompiled.
