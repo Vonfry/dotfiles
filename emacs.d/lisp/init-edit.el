@@ -5,7 +5,7 @@
 ;; Some basic preferences
 ;;----------------------------------------------------------------------------
 (setq-default
- default-frame-alist '((width . 120) (height . 72))
+ default-frame-alist '((width . 160) (height . 72))
  blink-cursor-interval 0.4
  bookmark-default-file (expand-file-name ".bookmarks.el" user-emacs-directory)
  buffers-menu-max-size 30
@@ -78,7 +78,7 @@
 
 ;;; Fill column indicator
 (require-package 'fill-column-indicator)
-(setq-default fci-rule-column 100)
+(setq-default fci-rule-column 120)
 (defun prog-mode-fci-settings ()
   (turn-on-fci-mode)
   (when show-trailing-whitespace

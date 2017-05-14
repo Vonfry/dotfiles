@@ -176,9 +176,9 @@ set showcmd
 set laststatus=2
 set ignorecase smartcase
 set ruler
-set textwidth=100
+set textwidth=120
 set wrap
-set colorcolumn=100
+set colorcolumn=120
 
 set lazyredraw
 set ttyfast
