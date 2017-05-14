@@ -26,12 +26,11 @@
  word-wrap t
  truncate-lines nil
  truncate-partial-width-windows nil)
-(setq vonfry/temporary-file-directory
-  (expand-file-name ".cache/emacs/" user-emacs-directory))
-(setq backup-directory-alist
-  `((".*" . ,vonfry/temporary-file-directory)))
-(setq auto-save-file-name-transforms
-  `((".*" ,temporary-file-directory t)))
+(setq vonfry/temporary-file-directory (expand-file-name "~/.cache/emacs/"))
+(setq
+  backup-directory-alist `((".*" . ,vonfry/temporary-file-directory))
+  auto-save-file-name-transforms `((".*" ,vonfry/temporary-file-directory t))
+  auto-save-list-file-prefix vonfry/temporary-file-directory)
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
   auto-revert-verbose nil)
