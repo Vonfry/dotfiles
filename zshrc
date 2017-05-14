@@ -149,8 +149,8 @@ function vonfry-update()
     cabal update
     stack upgrade
     hoogle generate
-    pip3 install -r ~/.pip3.txt
-    pip3 install -r ~/.pip2.txt
+    pip3 install -U -r ~/.pip3.txt
+    pip3 install -U -r ~/.pip2.txt
     gem update && gem update --system
     gem cleanup
     npm update -g
