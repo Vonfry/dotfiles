@@ -4,16 +4,17 @@
 (require-package 'company-cabal)
 (require-package 'haskell-snippets)
 (require-package 'flycheck-haskell)
-(require-package 'intero)
 (require-package 'hindent)
+(require-package 'shm)
+(require-package 'intero)
 (defun vonfry/setup-haskell-mode ()
-  (setq haskell-indentation-electric-flag t)
-  ; (setq ghc-ghc-options '("-idir1" "-idir2"))
   (require 'ghc)
   (require 'haskell-snippets)
   ; (yas-recompile-all)
   ; (yas-reload-all)
   (hindent-mode)
+  (structured-haskell-mode)
+  (haskell-auto-insert-module-template)
   ; Only use this if the project using with stack.
   (with-eval-after-load 'yasnippet (haskell-snippets-initialize))
   (with-eval-after-load 'align
@@ -48,11 +49,17 @@
   (eval-after-load 'flycheck
     '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
   (intero-mode)
-  (setq tab-width 4)
-  (setq evil-shift-width 4))
+  (setq tab-width 2
+        evil-shift-width 2
+        hindent-line-length 120
+        hindent-indent-size 2
+        haskell-stylish-on-save t
+        haskell-indentation-electric-flag t))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+(let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
+  (add-to-list 'exec-path my-cabal-path))
 
 (provide 'init-haskell)

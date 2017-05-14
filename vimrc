@@ -27,6 +27,7 @@ Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
 Plugin 'tweekmonster/django-plus.vim'                 " syntax django
 Plugin 'eagletmt/ghcmod-vim'                          " syntax haskell
+Plugin 'alx741/vim-hindent'                           " haskell indent
 Plugin 'yggdroot/indentline'                          " code indent line
 
 " Plugin 'Shougo/neocomplete.vim'                     " auto omni complete
@@ -322,24 +323,10 @@ autocmd Filetype lisp let b:AutoPairs={'<':'>', '(':')', '[':']', '{':'}', '"':'
 " TODO set slimv
 " }}}
 
-" set plugin complete {{{
-
-" " set plugin neocomplete
-" let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-" if has('conceal')
-"   set conceallevel=2 concealcursor=niv
-" endif
-
-" set plugin Eclim
-let g:EclimCompletionMethod = 'omnifunc'
+" set plugin hindent {{{
+let g:hindent_indent_size = 4
+let g:hindent_line_length = 120
+" }}}
 
 " set plugin syntastic {{{
 let g:syntastic_check_on_open = 1
