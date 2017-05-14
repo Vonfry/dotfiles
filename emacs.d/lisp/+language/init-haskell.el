@@ -5,7 +5,6 @@
 (require-package 'haskell-snippets)
 (require-package 'flycheck-haskell)
 (require-package 'hindent)
-(require-package 'shm)
 (require-package 'intero)
 (defun vonfry/setup-haskell-mode ()
   (require 'ghc)
@@ -13,7 +12,6 @@
   ; (yas-recompile-all)
   ; (yas-reload-all)
   (hindent-mode)
-  (structured-haskell-mode)
   (haskell-auto-insert-module-template)
   ; Only use this if the project using with stack.
   (with-eval-after-load 'yasnippet (haskell-snippets-initialize))
