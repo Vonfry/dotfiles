@@ -13,3 +13,4 @@ mkdir ~/.ssh
 ln -f -s $script_dir/pip3.txt ~/.pip3.txt
 ln -f -s $script_dir/pip2.txt ~/.pip2.txt
 ln -f -s $script_dir/gem.txt ~/.gem.txt
+ln -s -f $script_dir/hindent.yaml ~/.hindent.yaml
