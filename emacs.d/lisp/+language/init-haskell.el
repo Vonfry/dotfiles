@@ -50,9 +50,10 @@
   (setq tab-width 4
         evil-shift-width 4
         hindent-line-length 120
-        hindent-indent-size 4
-        haskell-stylish-on-save t
-        haskell-indentation-electric-flag t))
+        hindent-indent-size 4)
+  (custom-set-variables
+    '(haskell-indentation-electric-flag t)
+    '(haskell-stylish-on-save t)))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
