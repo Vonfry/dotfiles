@@ -10,10 +10,10 @@
   (c-toggle-auto-newline 1)
   (setq c-basic-offset 4)
   (add-hook 'evil-local-mode-hook
-   (lambda ())
+   (lambda ()
       (evil-leader/set-key ;; for mode
         "D" 'disaster
-        "h" 'ff-find-other-file))
+        "h" 'ff-find-other-file)))
   (setq
    ;; use gdb-many-windows by default when `M-x gdb'
    gdb-many-windows t
