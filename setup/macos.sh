@@ -1,4 +1,4 @@
-if [ "$(uname)" == Darwin ]; then
+if [ "$(uname)" = Darwin ]; then
     echo_sh "* system is Darwin"
     echo_sh "** setup brew and a lot of software"
     sudo chown $(whoami) -R /usr/local/share/man

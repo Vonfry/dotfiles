@@ -8,9 +8,9 @@ git config --global core.fileMode false
 
 git config --global user.email "vonfry314@icloud.com"
 git config --global user.username "Vonfry"
-curl -L -s https://www.gitignore.io/api/vim%2Cmacos%2Ctags%2emacs  > ~/.gitignore_global
+curl -L -s https://www.gitignore.io/api/vim%2Ctags%2Cmacos%2Clinux%2Cemacs%2Cwindows  > ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
-if [ "$(uname)" == Darwin ]; then
+if [ "$(uname)" = Darwin ]; then
     git config --global core.editor mvim
 else
     git config --global core.editor vim

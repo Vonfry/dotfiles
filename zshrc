@@ -133,13 +133,13 @@ function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 function vonfry-update()
 {
     source /etc/os-release
-    if [ "$(uname)" == Darwin ]; then
+    if [ "$(uname)" = Darwin ]; then
         brew cleanup
         brew update
         brew upgrade
         brew cleanup
         # if ctags is updated, emacs needs being recompiled.
-    elif [ "$(ID)" == fedora ]; then
+    elif [ "$(ID)" = fedora ]; then
         sudo dnf clean all
         sudo dnf update -y
         sudo dnf upgrade -y
