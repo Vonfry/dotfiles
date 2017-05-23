@@ -33,6 +33,7 @@
                    (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
                    (modes . haskell-modes))))
   (evil-leader/set-key-for-mode 'haskell-mode
+    "q"  'ghc-display-errors
     "f"  'hindent-reformat-decl
     "'"  'intero-repl
     "."  'intero-goto-definition
