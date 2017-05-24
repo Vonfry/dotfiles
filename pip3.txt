@@ -1,4 +1,5 @@
 virtualenv
+ipython
 
 # code complete and check
 anaconda_mode
