@@ -1,6 +1,6 @@
-if [ "$(uname)" == Linux ]; then
+if [ "$(uname)" = Linux ]; then
     source /etc/os-release
-    if [ "$(ID)" == fedora ]; then
+    if [ "$(ID)" = fedora ]; then
         sudo dnf update -y && sudo dnf upgrade -y
         sudo dnf install -y zsh
         sudo dnf install -y wget git git-extra tig screen
