@@ -135,7 +135,6 @@ function vonfry-update()
     upgrade_oh_my_zsh
     source /etc/os-release
     if [ "$(uname)" = Darwin ]; then
-        brew cleanup
         brew update
         brew upgrade
         brew cleanup
