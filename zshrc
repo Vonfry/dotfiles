@@ -157,7 +157,7 @@ function vonfry-update()
     npm cache clean
 
     vundle-update
-    if [ "$(unname)" == Darwin ]; then
+    if [ "$(uname)" = Darwin ]; then
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
     else
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
