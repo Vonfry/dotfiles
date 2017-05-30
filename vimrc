@@ -191,7 +191,13 @@ set foldlevelstart=0
 set foldmethod=syntax
 autocmd Filetype python set foldmethod=indent
 autocmd Filetype vim    set foldmethod=marker
-set nobackup
+let g:swap_dir=expand("~/.cache/vim/swap/")
+if !isdirectory(swap_dir)
+    silent call mkdir(swap_dir, 'p')
+endif
+execute "set dir=".g:swap_dir."/"
+set backupdir=~/.cache/vim/backup/
+set nowritebackup
 if has("persistent_undo")
     set undodir=~/.cache/vim/undodir/
     set undofile

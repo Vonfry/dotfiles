@@ -27,10 +27,15 @@
  truncate-lines nil
  truncate-partial-width-windows nil)
 (setq vonfry/temporary-file-directory (expand-file-name "~/.cache/emacs/"))
+(unless (file-exists-p vonfry/temporary-file-directory)
+  (make-directory vonfry/temporary-file-directory))
+(setq vonfry/backup-file-directory (expand-file-name "backup/" vonfry/temporary-file-directory))
+(unless (file-exists-p vonfry/backup-file-directory)
+  (make-directory vonfry/backup-file-directory))
 (setq
-  backup-directory-alist `((".*" . ,vonfry/temporary-file-directory))
-  auto-save-file-name-transforms `((".*" ,vonfry/temporary-file-directory t))
-  auto-save-list-file-prefix vonfry/temporary-file-directory)
+  backup-directory-alist `((".*" . ,vonfry/backup-file-directory))
+  auto-save-file-name-transforms `((".*" ,vonfry/backup-file-directory t))
+  auto-save-list-file-prefix vonfry/backup-file-directory)
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
   auto-revert-verbose nil)
@@ -45,6 +50,11 @@
 (require-package 'diminish)
 (require-package 'undo-tree)
 (global-undo-tree-mode)
+(setq vonfry/undo-tree-directory (expand-file-name "undo/" vonfry/temporary-file-directory))
+(unless (file-exists-p vonfry/undo-tree-directory)
+  (make-directory vonfry/undo-tree-directory))
+(setq undo-tree-auto-save-history t
+      undo-tree-history-directory-alist `((".*" . ,vonfry/undo-tree-directory)))
 (diminish 'undo-tree-mode)
 
 (when (require-package 'indent-guide)
