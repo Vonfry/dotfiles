@@ -53,8 +53,7 @@
         hindent-line-length 120
         hindent-indent-size 4)
   (custom-set-variables
-    '(haskell-indentation-electric-flag t)
-    '(haskell-stylish-on-save t)))
+    '(haskell-indentation-electric-flag t)))
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
