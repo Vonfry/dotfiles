@@ -7,6 +7,7 @@
   (add-to-list 'semantic-default-submodes 'global-cedet-m3-minor-mode t)
   (semantic-mode 1)
   (global-ede-mode 1)
+  (setq c-basic-offset 4)
   (setq ede-arduino-appdir "/Applications/Arduino.app/Contents/Java")
   (add-to-list 'company-backends 'company-c-headers))
 (add-hook 'arduino-mode-hook 'vonfry/setup-arduino-mode)
