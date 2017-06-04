@@ -26,7 +26,7 @@ if [ "$(uname)" = Darwin ]; then
     brew install sqlite mysql postgresql redis
     brew install graphviz
     brew install poppler automake
-    brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --devel
+    brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
     brew linkapp emacs
     brew install Homebrew/emacs/irony-mode
     brew install smartypants
