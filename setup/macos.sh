@@ -27,8 +27,6 @@ if [ "$(uname)" = Darwin ]; then
     brew install graphviz
     brew install poppler automake
     brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
-    brew linkapp emacs
-    brew install Homebrew/emacs/irony-mode
     brew install smartypants
     brew install fortune cmatrix figlet # 诗词，代码雨，ascii-art
     brew install pandoc
