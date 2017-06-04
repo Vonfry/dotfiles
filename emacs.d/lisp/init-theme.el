@@ -23,6 +23,11 @@
 (display-time-mode 1)
 
 (require-package 'winum)
+(setq winum-auto-setup-mode-line nil)
 (winum-mode)
+
+(require-package 'info+)
+(with-eval-after-load 'info
+  (require 'info+))
 
 (provide 'init-theme)
