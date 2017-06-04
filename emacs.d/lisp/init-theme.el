@@ -22,4 +22,7 @@
 (setq display-time-format "%T")
 (display-time-mode 1)
 
+(require-package 'winum)
+(winum-mode)
+
 (provide 'init-theme)
