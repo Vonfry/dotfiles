@@ -15,6 +15,7 @@ if [ "$(uname)" = Darwin ]; then
     brew install llvm --with-python --with-toolchain --with-shared-libs --with-lldb --with-graphviz
     brew install cmake --with-completion
     brew install poco boost thrift swig
+    brew install boost-python --with-python3
     brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
     brew install global --with-ctags --with-pygments --with-sqlite3
     brew install cscope codequery
