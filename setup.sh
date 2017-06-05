@@ -9,15 +9,16 @@ echo_sh "System: $(uname)"
 
 mkdir ~/.cache
 
+# bash $script_dir/setup/zsh.sh
+# put this into system setup.
 bash $script_dir/setup/macos.sh
-bash $script_dir/setup/linux.sh
+bash $script_dir/setup/fedora.sh
 bash $script_dir/setup/pip.sh
 bash $script_dir/setup/gem.sh
 bash $script_dir/setup/npm.sh
 bash $script_dir/setup/go.sh
 bash $script_dir/setup/quicklisp.sh
 bash $script_dir/setup/cabal.sh
-bash $script_dir/setup/zsh.sh
 bash $script_dir/setup/vim.sh
 bash $script_dir/setup/emacs.sh
 bash $script_dir/setup/git.sh

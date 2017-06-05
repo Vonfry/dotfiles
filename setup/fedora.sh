@@ -3,6 +3,7 @@ if [ "$(uname)" = Linux ]; then
     if [ "$(ID)" = fedora ]; then
         sudo dnf update -y && sudo dnf upgrade -y
         sudo dnf install -y zsh
+        bash $script_dir/setup/zsh.sh
         sudo dnf install -y wget git git-extra tig screen
         sudo dnf install -y cmake gcc clang llvm
         sudo dnf install -y tree uchardet
