@@ -56,6 +56,7 @@ plugins=(git git-extras gitignore vundle osx xcode autojump sudo brew brew-cask 
 
 # User configuration
 
+export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export PATH=$PATH:/usr/local/opt/sqlite/bin
