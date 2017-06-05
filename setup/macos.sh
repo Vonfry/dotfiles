@@ -11,8 +11,6 @@ if [ "$(uname)" = Darwin ]; then
     brew install fzf && /usr/local/opt/fzf/install
     brew install cloc
     brew install tree uchardet
-    brew install gcc
-    brew install llvm --with-python --with-toolchain --with-shared-libs --with-lldb --with-graphviz
     brew install cmake --with-completion
     brew install poco boost thrift swig
     brew install boost-python --with-python3

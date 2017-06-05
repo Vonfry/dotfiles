@@ -20,7 +20,7 @@ if [ "$(uname)" = Linux ]; then
         sudo dnf install -y php php-devel
         sudo dnf install -y java
         sudo dnf install cloc
-        sudo dnf install -y poco boost thrift swig
+        sudo dnf install -y poco-devel boost thrift swig boost-python boost-python3
         sudo dnf install -y sqlite mariadb mariadb-server postgresql redis
         sudo dnf install -y sqlite-devel mariadb-devel postgresql-devel redis-devel
         sudo dnf install -y graphviz
