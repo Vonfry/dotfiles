@@ -119,7 +119,6 @@ function vonfry-update()
     gem update && gem update --system
     gem cleanup
     npm update -g
-    npm cache clean
 
     vundle-update
     if [ "$(uname)" = Darwin ]; then
