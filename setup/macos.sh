@@ -9,7 +9,7 @@ if [ "$(uname)" = Darwin ]; then
     echo $(which zsh) | sudo tee -a /etc/shells
     bash $script_dir/setup/zsh.sh
     brew install fzf && /usr/local/opt/fzf/install
-    brew install gdb
+    brew install gdb --with-all-targets --with-python
     brew install cloc
     brew install tree uchardet
     brew install cmake --with-completion
