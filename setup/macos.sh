@@ -6,8 +6,6 @@ if [ "$(uname)" = Darwin ]; then
     brew update && brew upgrade
     brew install caskroom/cask/brew-cask
     brew install zsh wget git git-extras tig
-    echo $(which zsh) | sudo tee -a /etc/shells
-    bash $script_dir/setup/zsh.sh
     brew install fzf && /usr/local/opt/fzf/install
     brew install gdb --with-all-targets --with-python
     brew install cloc
