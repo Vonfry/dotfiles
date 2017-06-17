@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # Here is a customed random theme.
-if [ ! -f $ZSH_CUSTOM/themes/lambda-mod.zsh-theme ]; then
+if [ ! -f $ZSH/custom/themes/lambda-mod.zsh-theme ]; then
     git clone https://github.com/halfo/lambda-mod-zsh-theme.git $ZSH_CUSTOM/themes
 fi
 ZSH_THEME_LIST=(lambda-mod robbyrussell agnoster ys)
