@@ -12,7 +12,6 @@ function vonfry-update()
     elif [ "$(ID)" = fedora ]; then
         sudo dnf clean all
         sudo dnf update -y
-        sudo dnf upgrade -y
         sudo dnf clean all
     fi
     print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"

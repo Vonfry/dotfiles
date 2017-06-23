@@ -17,6 +17,8 @@ pytz
 
 # tools
 httpstat
+mycli
+pgcli
 
 # datebase
 mysqlclient
