@@ -1,21 +1,20 @@
-#+title: Dotfiles
-#+author: Vonfry
+# dotfiles
 
 These files only for myself.
 
 It contains develop environment and some test environment. So the setup file
 also can be used for server.
 
-# system [1/3]
+## system
 - [x] macOS
 - [ ] Gentoo
 - [ ] Fedora ( No longer maintain. )
 
-# editor [2/2]
+## editor
 - [X] Vim
 - [X] Emacs
 
-# lang & tools
+## lang & tools
 - C/C++
 - Haskell
 - Go
