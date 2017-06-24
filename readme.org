@@ -1,22 +1,26 @@
 #+title: Dotfiles
 #+author: Vonfry
 
-个人使用文件。
+These files only for myself.
 
+It contains develop environment and some test environment. So the setup file
+also can be used for server.
 
-* 操作系统 [1/2]
+* system [1/2]
     - [X] macOS
-    - [ ] Fedora
+    - [ ] Gentoo
+    - [ ] Fedora ( No longer maintain. )
 
-* 编辑器 [2/2]
+* editor [2/2]
     - [X] Vim
     - [X] Emacs
 
-* 语言及工具
-** C/C++
-** Haskell
-** Ruby
-** Python2 & Python3
-** NodeJS
-** PHP
-** JAVA
+* lang & tools
+    - C/C++
+    - Haskell
+    - Go
+    - Ruby
+    - Python2 & Python3
+    - NodeJS
+    - PHP
+    - JAVA
