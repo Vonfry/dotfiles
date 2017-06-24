@@ -7,6 +7,3 @@ gem "nokogiri"
 
 gem "irbtools"
 gem "irbtools-more"
-gem "looksee"
-gem "bond"
-gem "did_you_mean"
