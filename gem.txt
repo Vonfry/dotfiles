@@ -6,3 +6,4 @@ gem "compass"
 gem "nokogiri"
 
 gem "pry"
+gem "pry-doc"
