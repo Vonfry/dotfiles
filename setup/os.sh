@@ -12,13 +12,13 @@ case "$(unname)" in
                 source $script_dir/setup/fedora.sh
                 ;;
             "*")
-                echo_sh "The linux release is not supported."
+                echo_sh " !! The linux release is not supported."
                 exit 1
                 ;;
         esac
         ;;
     "*")
-        echo_sh "The os is not supported."
+        echo_sh " !! The os is not supported."
         exit 1
         ;;
 esac
