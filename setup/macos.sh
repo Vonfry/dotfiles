@@ -1,43 +1,52 @@
 echo_sh "* system is Darwin"
 echo_sh "** setup brew and a lot of software"
+# cmd line tools
 sudo chown $(whoami) -R /usr/local/share/man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 brew install zsh wget git git-extras tig
 brew install fzf && /usr/local/opt/fzf/install
+brew install thefuck
+brew install autojump
+brew install googler
+brew install lolcat        # colorful print
+brew install cloc          # code statistics
+brew install tree uchardet # file browser
+# C & Cpp libs
 brew install gdb --with-all-targets --with-python
-brew install cloc
-brew install tree uchardet
 brew install cmake --with-completion
+brew install automake
 brew install poco boost thrift swig
 brew install boost-python --with-python3
+# C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
 brew install cscope codequery
 brew install doxygen --with-doxywizard
+# code search
 brew install ack the_silver_searcher
+# lang
 brew install python3 python
 brew install ruby ----universal
 brew install rbenv
 brew install clisp sbcl
 brew install ghc cabal-install haskell-stack
 brew install go node
-brew install sqlite mysql postgresql redis
-brew install graphviz
-brew install poppler automake
-brew install wireshark
-brew install thefuck
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
-brew install fortune cmatrix figlet # 诗词，代码雨，ascii-art
-brew install pandoc
+brew install graphviz                      # dot lang to png
+brew install sqlite mysql postgresql redis # database
+brew install poppler                       # pdf generator
+brew install wireshark                     # web package catch
+brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
+brew install pandoc                        # markdown
 brew cask install mactex
 brew cask install arduino
 brew cask install java
 brew cask install xquartz
+# chat
 brew cask install gitter
+# editor
 brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
 brew install neovim/neovim/neovim
-brew install autojump
-brew install googler
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
 sudo ln -f -s $script_dir/motd /etc/motd
