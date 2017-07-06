@@ -51,6 +51,9 @@ brew install neovim/neovim/neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
 sudo ln -f -s $script_dir/motd /etc/motd
 
+# quicklook
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+
 echo_sh "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
