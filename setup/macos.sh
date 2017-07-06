@@ -53,6 +53,8 @@ sudo ln -f -s $script_dir/motd /etc/motd
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+brew cask install provisionql
+brew cask install quicklook-pat
 
 echo_sh "*** Here are some useful tools for mac.
 See:
