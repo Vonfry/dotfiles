@@ -50,3 +50,8 @@ brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
 brew install neovim/neovim/neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
 sudo ln -f -s $script_dir/motd /etc/motd
+
+echo_sh "*** Here are some useful tools for mac.
+See:
+https://github.com/sindresorhus/quick-look-plugins
+https://github.com/zenorocha/alfred-workflows"
