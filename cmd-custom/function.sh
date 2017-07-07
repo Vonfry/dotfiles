@@ -3,17 +3,30 @@ function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
 function vonfry-update()
 {
     upgrade_oh_my_zsh
-    source /etc/os-release
-    if [ "$(uname)" = Darwin ]; then
-        brew update
-        brew upgrade
-        brew cleanup
+    case "$(uname)" in
+        "Darwin")
+            brew update
+            brew upgrade
+            brew cleanup
+            ;;
         # if ctags is updated, emacs needs being recompiled.
-    elif [ "$(ID)" = fedora ]; then
-        sudo dnf clean all
-        sudo dnf update -y
-        sudo dnf clean all
-    fi
+        "Linux")
+            source /etc/os-release
+            case "$ID" in
+                "fedora")
+                    sudo dnf clean all
+                    sudo dnf update -y
+                    sudo dnf clean all
+                    ;;
+                "gentoo")
+                    emaint -a sync
+                    emerge-webrsync
+                    eix-sync
+                    emerge -uDU --with-bdeps=y @world
+                    ;;
+            esac
+            ;;
+    esac
     print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
     stack upgrade
