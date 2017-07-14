@@ -89,7 +89,8 @@
 (require-package 'fill-column-indicator)
 (setq-default fci-rule-column 120)
 (defun prog-mode-fci-settings ()
-  (turn-on-fci-mode)
+  (if (> (frame-text-height) 120)
+    (turn-on-fci-mode))
   (when show-trailing-whitespace
     (set (make-local-variable 'whitespace-style) '(face trailing))
     (whitespace-mode 1)))
