@@ -88,13 +88,18 @@
 ;;; Fill column indicator
 (require-package 'fill-column-indicator)
 (setq-default fci-rule-column 120)
+(defun auto-fci-mode (&optional unused)
+  (if (> (window-width) fci-rule-column)
+    (fci-mode 1)
+    (fci-mode 0)))
 (defun prog-mode-fci-settings ()
-  (turn-on-fci-mode)
+  (auto-fci-mode)
   (when show-trailing-whitespace
     (set (make-local-variable 'whitespace-style) '(face trailing))
     (whitespace-mode 1)))
-
 (add-hook 'prog-mode-hook 'prog-mode-fci-settings)
+(add-hook 'after-change-major-mode-hook 'auto-fci-mode)
+(add-hook 'window-configuration-change-hook 'auto-fci-mode)
 
 (defun fci-enabled-p ()
   (bound-and-true-p fci-mode))
