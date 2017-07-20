@@ -4,6 +4,7 @@ gem "starscope"
 gem "sass"
 gem "compass"
 gem "nokogiri"
+gem "org-ruby"
 
 gem "pry"
 gem "pry-doc"
