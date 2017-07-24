@@ -11,7 +11,7 @@ fi
 if command -v pip2 >/dev/null 2>&1; then
     echo_sh "** setup pip2"
     pip2 install --upgrade pip
-    pip2 install -r $script_dir/pip3.txt
+    pip2 install -r $script_dir/pip2.txt
 else
     echo_sh "ERROR: NO pip2"
     exit
