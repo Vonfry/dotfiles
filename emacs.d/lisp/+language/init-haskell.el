@@ -1,5 +1,4 @@
 (require-package 'haskell-mode)
-(require-package 'hare)
 (require-package 'ghc)
 (require-package 'company-ghc)
 (require-package 'company-cabal)
@@ -13,7 +12,6 @@
   ; (yas-recompile-all)
   ; (yas-reload-all)
   (ghc-init)
-  (hare-init)
   (hindent-mode)
   (haskell-auto-insert-module-template)
   ; Only use this if the project using with stack.
