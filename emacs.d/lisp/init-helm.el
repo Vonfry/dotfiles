@@ -3,6 +3,7 @@
 (require-package 'helm-ag)
 (require-package 'helm-gtags)
 (require-package 'helm-swoop)
+(require-package 'helm-descbinds)
 
 (add-hook 'ggtags-mode-hook 'helm-gtags-mode)
 (require 'helm-config)
@@ -20,6 +21,7 @@
       helm-apropos-fuzzy-match              t
       helm-lisp-fuzzy-completion            t)
 (helm-mode 1)
+(helm-descbinds-mode)
 
 (require-package 'helm-dash)
 (require 'helm-dash)
