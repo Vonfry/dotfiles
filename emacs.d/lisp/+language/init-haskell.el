@@ -1,4 +1,5 @@
-(require-package 'haskell-mode )
+(require-package 'haskell-mode)
+(require-package 'hare)
 (require-package 'ghc)
 (require-package 'company-ghc)
 (require-package 'company-cabal)
@@ -11,6 +12,8 @@
   (require 'haskell-snippets)
   ; (yas-recompile-all)
   ; (yas-reload-all)
+  (ghc-init)
+  (hare-init)
   (hindent-mode)
   (haskell-auto-insert-module-template)
   ; Only use this if the project using with stack.
@@ -57,7 +60,6 @@
 (add-hook 'haskell-mode-hook 'vonfry/setup-haskell-mode)
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
   (add-to-list 'exec-path my-cabal-path))
 
