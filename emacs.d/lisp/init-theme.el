@@ -1,4 +1,5 @@
 (require-package 'solarized-theme)
+(require-package 'all-the-icons)
 (load-theme 'solarized-dark t)
 
 ;; Changing font sizes

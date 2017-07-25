@@ -1,6 +1,7 @@
 (require-package 'neotree)
 ;; set keyboard in evil-leader
 (setq neo-smart-open t)
+(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 ;; work with projectile
 (setq projectile-switch-project-action 'neotree-projectile-action)
 ;; work with evil
