@@ -368,7 +368,7 @@ au BufNewFile,BufRead *.css
 nmap <leader>. :YcmCompleter GoTo<CR>
 nmap <leader>y :YcmForceCompileAndDiagnostics<CR>
 
-" set plugin ultisnips
+" set plugin ultisnips {{{
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
@@ -518,8 +518,8 @@ let g:rooter_patterns = ['.projectile ', '.git/', '.projections.json', '.vimprj'
 let g:gitgutter_sign_column_always = 0
 " }}}
 
-" set plugin org {{
+" set plugin org {{{
 let g:org_agenda_files=['~/.org/*.org']
-" }}
+" }}}
 
 " }}}
