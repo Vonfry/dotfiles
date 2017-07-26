@@ -298,3 +298,6 @@ ENV/
 /site
 
 # End of https://www.gitignore.io/api/python,gem,node,haskell
+
+# Custom
+emacs.d/.local/
