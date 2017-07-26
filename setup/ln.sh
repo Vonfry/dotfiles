@@ -19,3 +19,4 @@ mkdir ~/.cmd-custom
 ln -f -s $script_dir/cmd-custom/* ~/.cmd-custom/
 ln -f -s $script_dir/cabal.txt ~/.cabal.txt
 ln -f -s $script_dir/npm.txt ~/.npm.txt
+ln -f -s $script_dir/czrc ~/.czrc
