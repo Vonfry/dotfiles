@@ -9,4 +9,4 @@ font-spider
 diff-so-fancy
 @angular/cli
 commitizen
-conventional-changelog-cli
+cz-conventional-changelog
