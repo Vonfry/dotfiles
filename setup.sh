@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function echo_sh { print "\e[31m $@"; }
+function echo_sh() { print "\e[31m $@"; }
 
 export script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 export dropbox_dir="$HOME/Dropbox/Backup/dotfiles"
