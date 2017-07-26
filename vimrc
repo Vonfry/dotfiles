@@ -27,7 +27,6 @@ Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
 Plugin 'tweekmonster/django-plus.vim'                 " syntax django
 Plugin 'eagletmt/ghcmod-vim'                          " syntax haskell
-Plugin 'alx741/vim-hindent'                           " haskell indent
 Plugin 'yggdroot/indentline'                          " code indent line
 
 " Plugin 'Shougo/neocomplete.vim'                     " auto omni complete
@@ -327,11 +326,6 @@ autocmd Filetype lisp let b:AutoPairs={'<':'>', '(':')', '[':']', '{':'}', '"':'
 
 " set plugin slimv {{{
 " TODO set slimv
-" }}}
-
-" set plugin hindent {{{
-let g:hindent_indent_size = 4
-let g:hindent_line_length = 120
 " }}}
 
 " set plugin syntastic {{{
