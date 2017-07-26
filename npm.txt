@@ -1,0 +1,13 @@
+bower
+typescript
+tern
+cordova
+less
+less-plugin-clean-css
+npm-check
+font-spider
+diff-so-fancy
+@angular/cli
+commitizen
+cz-conventional-changelog
+conventional-changelog-cli

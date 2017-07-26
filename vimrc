@@ -19,7 +19,6 @@ Plugin 'janko-m/vim-test'                             " test
 Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
-Plugin 'kovisoft/slimv'                               " vim lisp
 Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'Paredit.vim'                                  " lisp s-exp
 Plugin 'tpope/vim-rails'                              " syntax rails
@@ -322,10 +321,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 autocmd Filetype html,xml let b:AutoPairs={'<':'>', '(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 autocmd Filetype lisp let b:AutoPairs={'<':'>', '(':')', '[':']', '{':'}', '"':'"', '`':'`'}
-" }}}
-
-" set plugin slimv {{{
-" TODO set slimv
 " }}}
 
 " set plugin syntastic {{{
