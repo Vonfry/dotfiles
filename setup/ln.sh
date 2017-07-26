@@ -17,3 +17,5 @@ ln -s -f $script_dir/hindent.yaml ~/.hindent.yaml
 ln -s -f $script_dir/gdbinit ~/.gdbinit
 mkdir ~/.cmd-custom
 ln -f -s $script_dir/cmd-custom/* ~/.cmd-custom/
+ln -f -s $script_dir/cabal.txt ~/.cabal.txt
+ln -f -s $script_dir/npm.txt ~/.npm.txt

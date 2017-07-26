@@ -1,0 +1,9 @@
+happy
+ghc-mod
+intero
+hindent
+hasktags
+stylish-haskell
+hoogle
+stack-run
+ShellCheck
