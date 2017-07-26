@@ -10,3 +10,4 @@ diff-so-fancy
 @angular/cli
 commitizen
 cz-conventional-changelog
+conventional-changelog-cli
