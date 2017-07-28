@@ -20,7 +20,6 @@ Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
 Plugin 'dbext.vim'                                    " syntax SQL
-Plugin 'Paredit.vim'                                  " lisp s-exp
 Plugin 'tpope/vim-rails'                              " syntax rails
 Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
