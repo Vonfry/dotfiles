@@ -421,6 +421,7 @@ endif
 nmap <leader>f :Unite -direction=dynamicbottom -silent file<CR>
 nmap <leader>a  :Unite -direction=dynamicbottom -silent grep<CR>
 nmap <leader>m  :Unite -direction=dynamicbottom -silent mark<CR>
+nmap <leader>b  :Unite -direction=dynamicbottom -silent buffer<CR>
 
 " set plugin unite-tag {{{
 let g:unite_source_tag_max_name_length=32
