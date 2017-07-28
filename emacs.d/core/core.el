@@ -14,4 +14,16 @@
 ;;
 ;; Autoloaded functions are in core/autoload/*.el and modules/*/*/autoload.el or
 ;; modules/*/*/autoload/*.el.
+;;
+;; core packages contain the main function and macros.
+;; All plugins are in modules, load with use-package to deal with depence.
 
+(require 'core-local)
+(require 'core-packages)
+(require 'core-ui)
+(require 'core-editor)
+(require 'core-keybinding)
+
+(vonfry-load-modules)
+
+(provide 'core)
