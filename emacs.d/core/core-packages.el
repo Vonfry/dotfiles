@@ -7,8 +7,7 @@
 ;;
 
 (defcustom vonfry-exclude-modules nil
-  "This variables is used to the arguments for `vonfry-load-modules`"
-  )
+  "This variables is used to the arguments for `vonfry-load-modules`")
 
 (defconst vonfry-packages-dir (expand-file-name "packages" vonfry-local-dir))
 
