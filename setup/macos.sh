@@ -33,7 +33,6 @@ brew install ruby ----universal
 brew install rbenv
 brew install clisp sbcl
 brew install go node
-brew install emscripten                    # llvm to js
 brew install graphviz                      # dot lang to png
 brew install sqlite mysql postgresql redis # database
 brew install poppler                       # pdf generator
