@@ -1,6 +1,6 @@
 ;;; core/core-packages.el -*- lexical-binding: t; -*-
 ;;
-;; set packages manager with el-get.
+;; set packages manager with el-get and use-package.
 
 ;;
 ;; define some variables for packages
@@ -48,8 +48,35 @@ If you want set some variables after some plugins, please use `with-eval-after-l
 (el-get 'sync)
 
 ;;
+;; define some basic packages
+;;
+
+(defconst vonfry-basic-packages
+  '(use-package)
+  "These are the default basic packages, which are used by modules.")
+
+(el-get 'sync vonfry-basic-packages)
+
+;; load the basic packages
+(dolist (pkg vonfry-basic-packages)
+  (require pkg))
+
+;;
 ;; define function for packages
 ;;
+
+(defalias #'vonfry/list-packages             #'el-get-list-packages)
+(defalias #'vonfry/install-packages          #'el-get-install)
+(defalias #'vonfry/update-packages           #'el-get-update)
+(defalias #'vonfry/update-all-packages       #'el-get-update-all)
+(defalias #'vonfry/update-el-get             #'el-get-self-update)
+(defalias #'vonfry/remove-package            #'el-get-remove)
+(defalias #'vonfry/reinstall-package         #'el-get-reinstall)
+(defalias #'vonfry/reload-packages           #'el-get-reload)
+(defalias #'vonfry/describe-package          #'el-get-describe)
+(defalias #'vonfry/find-recipe-file-packages #'el-get-find-recipe-file)
+
+(defalias #'vonfry-pkg-get                   #'el-get)
 
 (require 'cl)
 

@@ -8,7 +8,7 @@
 ;;   vonfry:...   an evil operator, motion or command
 ;;   vonfry|...   hook function
 ;;   vonfry*...   advising functions
-;;   ...!         a macro or function that configures DOOM
+;;   ...!         a macro or function that configures Vonfry
 ;;   %...         functions used for in-snippet logic
 ;;   +...         Any of the above but part of a module, e.g. `+emacs-lisp|init-hook'
 ;;
