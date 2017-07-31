@@ -24,6 +24,6 @@
 (require 'core-editor)
 (require 'core-keybinding)
 
-(vonfry-load-modules)
+(vonfry-load-modules vonfry-exclude-modules)
 
 (provide 'core)
