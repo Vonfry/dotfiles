@@ -45,7 +45,6 @@ function vonfry-update()
     fi
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
-    emacs --eval "(package-list-packages)" # Then U-x
 }
 
 function jekyll-new-post()
