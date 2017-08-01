@@ -14,13 +14,6 @@
 
 (defconst vonfry-modules-dir (expand-file-name "modules" vonfry-config-dir))
 
-(defconst vonfry-private-dir (expand-file-name "private" vonfry-modules-dir)
-  "The private dir under modules is used to set the modules which are not in this project.
-
-  But this dir is not used to custom the other modules. If you want to customize other modules, please config them in
-custom dir. The file in custom dir is loaded at last. And I suggest use `custom-set-variables` to config them, because
-they are safer.")
-
 (defconst vonfry-el-get-dir (expand-file-name "el-get" vonfry-packages-dir))
 
 (defconst vonfry-el-get-user-dir (expand-file-name "el-get-user" vonfry-local-dir))
