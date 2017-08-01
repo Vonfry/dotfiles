@@ -1,6 +1,7 @@
 ;;; core/core-packages.el -*- lexical-binding: t; -*-
 ;;
-;; set packages manager with el-get and use-package.
+;; Define packages manager with el-get and use-package.
+;;
 
 ;;
 ;; define some variables for packages
@@ -14,9 +15,11 @@
 (defconst vonfry-modules-dir (expand-file-name "modules" vonfry-config-dir))
 
 (defconst vonfry-private-dir (expand-file-name "private" vonfry-modules-dir)
-  "The private dir under modules is used to set the modules which are not in this project. It will be loaded at first.
-If you want set some variables after some plugins, please use `with-eval-after-load` or some hook, but I suggest use
-`custom-set-variables` to config them, because they are safer.")
+  "The private dir under modules is used to set the modules which are not in this project.
+
+  But this dir is not used to custom the other modules. If you want to customize other modules, please config them in
+custom dir. The file in custom dir is loaded at last. And I suggest use `custom-set-variables` to config them, because
+they are safer.")
 
 (defconst vonfry-el-get-dir (expand-file-name "el-get" vonfry-packages-dir))
 
@@ -80,8 +83,21 @@ If you want set some variables after some plugins, please use `with-eval-after-l
 
 (require 'cl)
 
-(defun vonfry-load-modules (&rest &optional exclude)
-  "This function load all modules"
+(defun vonfry-package! (&rest pkgs)
+  "Define packages dependence and install it.
+Use this function in packages.el"
+  (vonfry-pkg-get 'sync pkgs))
+  nil)
+
+(defalias #'vonfry-use-package! #'use-package)
+
+(defun vonfry-load-modules (&optional &rest exclude)
+  "This function load all modules
+
+  All modules should use function and macro in this file. By default, every modules should have a file named
+packages.el which is used to define the dependence with `vonfry-package!`. This file will be loaded at first for each
+modules. Then it will load config.el which is used to configure for the module which is the main file for a module.
+Finally, the autoload.el will be loaded. It used to load some function for the modules."
   )
 
 (provide 'core-packages)

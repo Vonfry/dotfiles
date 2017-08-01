@@ -25,5 +25,6 @@
 (require 'core-keybinding)
 
 (vonfry-load-modules vonfry-exclude-modules)
+(load vonfry-custom-file)
 
 (provide 'core)
