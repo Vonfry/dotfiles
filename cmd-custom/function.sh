@@ -45,6 +45,8 @@ function vonfry-update()
     fi
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
+    emacs --batch --eval="(vonfry/update-all-package t)"
+
 }
 
 function jekyll-new-post()
