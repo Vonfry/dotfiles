@@ -17,7 +17,15 @@ will be reset by itself.")
 
 (defconst vonfry-custom-dir (expand-file-name "custom" vonfry-local-dir)
   "The custom dir saves the local setting such as custom-file or some configures only can be used on this computer
-(jekyll, python path, etc.).")
+(jekyll, python path, etc.).
+
+  If you want to change some action in the default modules, you can use hook, custom-variables or other functions.
+
+  If you want to add some other modules, you can make a dir in it. The `vonfry-load-modules` will load
+custom-dir/modules with the same behavior in default modules.
+
+  IMPORTANT!!! You must load the other files by youself. Only files under the dir named custom.el or in modules  will be
+autoloaded.")
 
 (defconst vonfry-custom-file (expand-file-name "custom.el" vonfry-local-dir))
 
