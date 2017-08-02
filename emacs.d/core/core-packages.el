@@ -2,12 +2,17 @@
 ;;
 ;; Define packages manager with el-get and use-package.
 ;;
+;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
+;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
+;; should be loaded in these file or by yourself.
+;; packages.el define the dependence with `vonfry-package!`
+;; config.el define the configure with `vonfry-use-package!`
 
 ;;
 ;; define some variables for packages
 ;;
 
-(defcustom vonfry-exclude-modules nil
+(defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`")
 
 (defconst vonfry-packages-dir (expand-file-name "packages" vonfry-local-dir))
@@ -88,13 +93,45 @@ Use this function in packages.el"
 
 (defalias #'vonfry-use-package! #'use-package)
 
+(defun vonfry-load-module (module submodule)
+  "This function load a module with two level name.
+
+  module: The category of a module. It is the dir-name under modules.
+  submodule: The name of a module. It is the dir-name under a module dir.
+
+  This function finds module with the two name, and loads its packages.el, config.el and autoload file with `load`."
+
+  (let* ((module-dir (expand-file-name module vonfry-modules-dir))
+         (submodule-dir (expand-file-name submodule module-dir))
+         (packages-path (expand-file-name "packages" submodule-dir))
+         (config-path (expand-file-name "config" submodule-dir)))
+      (when (file-exists-p packages-path)
+        (load packages-path))
+      (when (file-exists-p config-path)
+        (load config-path))
+      (vonfry-load-autoload submodule-dir)))
+
+(defun vonfry-load-autoload (path)
+  "Load the autoload part in a path. It will load autoload.el, or files in autoload dir."
+  (let ((autoload-file (expand-file-name "autoload.el" path))
+        (autoload-dir (expand-file-name "autoload/" path)))
+    (when (file-exists-p autoload-file)
+      (load autoload-file))
+    (when (file-exists-p autoload-dir)
+      (dolist (l (directory-files-recursively autoload-dir ".*"))
+        (load l)))))
+
 (defun vonfry-load-modules (&optional &rest exclude)
-  "This function load all modules
+  "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
   All modules should use function and macro in this file. By default, every modules should have a file named
 packages.el which is used to define the dependence with `vonfry-package!`. This file will be loaded at first for each
 modules. Then it will load config.el which is used to configure for the module which is the main file for a module.
 Finally, the autoload.el will be loaded. It used to load some function for the modules."
-  )
+
+  (dolist (module (directory-files vonfry-modules-dir))
+    (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
+      (when `(and ,@(mapcar (lambda (m) (eq (concat module "/" submodules) m)) exclude))
+        (vonfry-load-module module submodule)))))
 
 (provide 'core-packages)
