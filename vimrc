@@ -23,7 +23,6 @@ Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'tpope/vim-rails'                              " syntax rails
 Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
-Plugin 'tweekmonster/django-plus.vim'                 " syntax django
 Plugin 'eagletmt/ghcmod-vim'                          " syntax haskell
 Plugin 'yggdroot/indentline'                          " code indent line
 
@@ -389,11 +388,6 @@ let g:html5_rdfa_attributes_complete = 0
 let g:html5_microdata_attributes_complete = 0
 let g:html5_aria_attirbutes_complete = 0
 let g:html5_event_handler_attirbutes_complete = 0
-" }}}
-
-" set plugin c.vim {{{
-let  g:C_UseTool_cmake   = 'yes'
-let  g:C_UseTool_doxygen = 'yes'
 " }}}
 
 " set plugin VimFiler {{{
