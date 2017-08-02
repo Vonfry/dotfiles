@@ -21,10 +21,7 @@ will be reset by itself.")
 
   If you want to change some action in the default modules, you can use hook, custom-variables or other functions.
 
-  If you want to add some other modules, you can make a dir in it. The `vonfry-load-modules` will load
-custom-dir/modules with the same behavior in default modules.
-
-  IMPORTANT!!! You must load the other files by youself. Only files under the dir named custom.el or in modules  will be
+  IMPORTANT!!! You must load the other files by youself. The only files under the dir named custom.el can be
 autoloaded.")
 
 (defconst vonfry-custom-file (expand-file-name "custom.el" vonfry-local-dir))
