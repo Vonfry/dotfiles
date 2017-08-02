@@ -26,9 +26,6 @@ Plugin 'ap/vim-css-color'                             " syntax css color
 Plugin 'eagletmt/ghcmod-vim'                          " syntax haskell
 Plugin 'yggdroot/indentline'                          " code indent line
 
-" Plugin 'Shougo/neocomplete.vim'                     " auto omni complete
-" Plugin 'Shougo/neosnippet-snippets'                 " neo snippet
-" Plugin 'Shougo/neosnippet.vim'                      " neo snippet
 Plugin 'Valloric/YouCompleteMe'                       " auto omni commplete
 Plugin 'rdnetto/ycm-generator'                        " Ycm generator create
 Plugin 'Valloric/ListToggle'                          " Show location list
@@ -314,6 +311,20 @@ let g:airline_symbols.paste      = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 " }}}
 
+" set plugin vim-polyglot {{{
+"
+" set plugin html5 {{{
+let g:html5_rdfa_attributes_complete = 0
+let g:html5_microdata_attributes_complete = 0
+let g:html5_aria_attirbutes_complete = 0
+let g:html5_event_handler_attirbutes_complete = 0
+" }}}
+"
+" }}}
+
+" set plugin dbext {{{
+" TODO see :h dbext.txt
+" }}}
 
 " set plugin auto pairs {{{
 let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
@@ -381,13 +392,6 @@ nmap <leader>% :MtaJumpToOtherTag<cr>
 
 " set plugin DoxygenToolkit {{{
 let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
-" }}}
-
-" set plugin html5 {{{
-let g:html5_rdfa_attributes_complete = 0
-let g:html5_microdata_attributes_complete = 0
-let g:html5_aria_attirbutes_complete = 0
-let g:html5_event_handler_attirbutes_complete = 0
 " }}}
 
 " set plugin VimFiler {{{
