@@ -132,9 +132,7 @@ Finally, the autoload.el will be loaded. It used to load some function for the m
 
   (dolist (module (directory-files vonfry-modules-dir))
     (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
-      (when (let ((check nil))
-              (dolist (eld exclude check)
-                (setq check (or notexclude (eq eld (concat module "/" submodule))))))
+      (unless (member (concat module "/" submodule) exclude))
         (vonfry-load-module module submodule)))))
 
 (provide 'core-packages)
