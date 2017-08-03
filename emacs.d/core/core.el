@@ -18,12 +18,17 @@
 ;; core packages contain the main function and macros.
 ;; All plugins are in modules, load with use-package to deal with depence.
 
+(defgroup vonfry nil
+  "Vonfry's emacs group")
+
 (defcustom vonfry-config-dir user-emacs-directory
   "The dir to saves the configures."
-  :type 'string)
+  :type 'string
+  :group 'vonfry)
 
 (defcustom vonfry-core-dir (expand-file-name "core" vonfry-config-dir)
   "The dir to saves the core module."
+  :group 'vonfry
   :type 'string)
 
 (require 'core-local)

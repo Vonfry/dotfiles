@@ -26,4 +26,16 @@ autoloaded.")
   '(custom-file vonfry-custom-file)
   )
 
+(defun vonfry-system-sets (&rest alist)
+  "set with system type. The param is a list like (darwin (message \"darwin\") (message \"MacOS\")). The first element
+is system type and the other are the actions."
+  (let* ((fst (car alist))
+         (lst (cdr alist))
+         (which-system (car fst))
+         (actions      (cdr fst)))
+    (if (eq system-type which-system)
+      (dolist (act actions)
+        (eval act))
+      (vonfry-system-sets lst))))
+
 (provide 'core-local)

@@ -13,7 +13,8 @@
 ;;
 
 (defcustom vonfry-exclude-modules '()
-  "This variables is used to the arguments for `vonfry-load-modules`")
+  "This variables is used to the arguments for `vonfry-load-modules`"
+  :group 'vonfry)
 
 (defconst vonfry-packages-dir (expand-file-name "packages" vonfry-local-dir))
 
@@ -131,7 +132,9 @@ Finally, the autoload.el will be loaded. It used to load some function for the m
 
   (dolist (module (directory-files vonfry-modules-dir))
     (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
-      (when `(not (or ,@(mapcar (lambda (m) (eq (concat module "/" submodules) m)) exclude)))
+      (when (let ((check nil))
+              (dolist (eld exclude check)
+                (setq check (or notexclude (eq eld (concat module "/" submodule))))))
         (vonfry-load-module module submodule)))))
 
 (provide 'core-packages)
