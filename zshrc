@@ -29,10 +29,11 @@ source $ZSH/oh-my-zsh.sh
 setopt nonomatch
 setopt rm_star_silent
 
-source $HOME/.cmd-custom/defvar.sh
+source $HOME/.cmd-custom/local/defvar.sh
 
 source $CMD_CUSTOM_DIR/function.sh
 source $CMD_CUSTOM_DIR/emacs.sh
 source $CMD_CUSTOM_DIR/tags.sh
 source $CMD_CUSTOM_DIR/arduino.sh
 source $CMD_CUSTOM_DIR/latex.sh
+source $CMD_CUSTOM_DIR/alias.sh

@@ -67,6 +67,14 @@ function jekyll-new-post()
     read tags
     echo "tags: $tags" >> $postfile
     echo "---" >> $postfile
+    case "$(uname)" in
+        "Darwin")
+            open $postfile
+        ;;
+        "Linux")
+            editor $postfile
+        ;;
+    esac
 }
 
 function codechecker-setup()
