@@ -1,19 +1,10 @@
 ;;; core/core-local.el -*- lexical-binding: t; -*-
 ;;
 ;; Set some emacs files to local path.
-;;
-;;
 
 ;;
 ;; Set some variables
 ;;
-(defcustom vonfry-config-dir user-emacs-directory
-  "The dir to saves the configures."
-  :type 'string)
-
-(defcustom vonfry-core-dir (expand-file-name "core" vonfry-config-dir)
-  "The dir to saves the core module."
-  :type 'string)
 
 (defconst vonfry-local-dir (expand-file-name "local" vonfry-config-dir)
   "The local dir saves the temporary files such as elpa, auto-save-list-file or some plugins'. You can clean it and it
