@@ -8,7 +8,7 @@
 (defgroup vonfry-keybinding nil
   "Vonfry's group about keybinding.")
 
-(defcustom vonfry-keybind-evil-leader "SPC>"
+(defcustom vonfry-keybind-evil-leader "<SPC>"
   "Leader key"
   :group 'vonfry-keybinding)
 
@@ -89,5 +89,11 @@
 
 (when  (fboundp 'toggle-frame-fullscreen)
   (vonfry-system-sets '(darwin (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen))))
+
+(vonfry-use-package! 'general
+  :config
+  (setq general-default-keymaps 'evil-normal-state-map)
+  (setq general-default-prefix  nil)
+  (general-evil-setup t))
 
 (provide 'core-keybinding)
