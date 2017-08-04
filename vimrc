@@ -36,13 +36,10 @@ Plugin 'mbbill/fencview'                              " Autodetect multiple enco
 Plugin 'ntpeters/vim-better-whitespace'               " Whitespace manage
 
 Plugin 'Shougo/denite.nvim'                           " like fuzzyfinder, ctrl-p or ku is that unite provides an integration interface for several sources.
-Plugin 'Shougo/neomru.vim'                            " denite plugin mru
 Plugin 'Shougo/vimproc.vim'                           " asynchronous execution library
 Plugin 'Shougo/vimshell.vim'                          " A powerful shell tool, but multiple screen and iterm are more beautiful
-Plugin 'mileszs/ack.vim'                              " pervious plugin depend
 
 Plugin 'andreshazard/vim-logreview'                   " log viewer
-" Plugin 'andrep/vimacs'                              " Emacs
 Plugin 'jceb/vim-orgmode'                             " Emacs org mode
 Plugin 'tpope/vim-speeddating'                        " purvious plugin depends
 Plugin 'DoxygenToolkit.vim'                           " doxygen comment
