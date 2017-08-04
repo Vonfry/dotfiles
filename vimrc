@@ -408,6 +408,7 @@ nmap <silent> <leader>f :Denite -direction=dynamicbottom  file<CR>
 nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
 nmap <silent> <leader>b :Denite -direction=dynamicbottomt buffer<CR>
 nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
+nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
         \ ['-i', '--vimgrep'])
