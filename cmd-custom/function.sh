@@ -28,6 +28,9 @@ function vonfry-update()
             esac
             ;;
     esac
+    if command -v zplug >/dev/null 2>&1; then
+        zplug update
+    fi
     print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
     stack upgrade

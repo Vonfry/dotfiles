@@ -31,6 +31,7 @@ setopt rm_star_silent
 
 source $HOME/.cmd-custom/local/defvar.sh
 
+source $HOME/.cmd-custom/zplug.zsh
 source $CMD_CUSTOM_DIR/function.sh
 source $CMD_CUSTOM_DIR/emacs.sh
 source $CMD_CUSTOM_DIR/tags.sh
