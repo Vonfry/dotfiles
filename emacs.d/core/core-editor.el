@@ -5,17 +5,24 @@
 (when (fboundp 'electric-pair-mode)
   (electric-pair-mode))
 
+(defgroup vonfry-editor nil
+  "Vonfry's group about editor")
+
 (defcustom vonfry-frame '((width . 160) (height . 72))
-  "The default frame width and height")
+  "The default frame width and height"
+  :group 'vonfry-editor)
 
 (defconst vonfry-backup-file-dir (expand-file-name "backups/" vonfry-local-dir)
-  "The backup file dir.")
+  "The backup file dir."
+  :group 'vonfry-dir)
 
 (defconst vonfry-auto-save-dir (expand-file-name "auto-save/" vonfry-local-dir)
-  "The auto-save file dir.")
+  "The auto-save file dir."
+  :group 'vonfry-dir)
 
 (defconst vonfry-auto-save-list-prefix vonfry-auto-save-dir
-  "The auto-save file prefix.")
+  "The auto-save file prefix."
+  :group 'vonfry-dir)
 
 (add-hook 'after-init-hook
   (lambda ()

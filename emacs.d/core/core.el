@@ -21,15 +21,18 @@
 (defgroup vonfry nil
   "Vonfry's emacs group")
 
+(defgroup vonfry-dir nil
+  "Vonfry's emacs group about dir.")
+
 (defcustom vonfry-config-dir user-emacs-directory
   "The dir to saves the configures."
   :type 'string
-  :group 'vonfry)
+  :group 'vonfry-dir)
 
 (defcustom vonfry-core-dir (expand-file-name "core" vonfry-config-dir)
   "The dir to saves the core module."
   :group 'vonfry
-  :type 'string)
+  :type 'string-dir)
 
 (require 'core-local)
 (require 'core-packages)

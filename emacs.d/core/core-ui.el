@@ -33,7 +33,35 @@
   (vonfry-use-package! info))
 
 (custom-set-variables
-  '(display-time-24hr-format t))
+  '(tool-bar-mode nil)
+
+  '(display-time-24hr-format t)
+
+  '(use-file-dialog nil)
+  '(use-dialog-box nil)
+  '(inhibit-startup-screen t)
+  '(inhibit-startup-echo-area-message t))
+
 (display-time-mode t)
+
+(let ((no-border '(internal-border-width . 0)))
+  (add-to-list 'default-frame-alist no-border)
+  (add-to-list 'initial-frame-alist no-border))
+
+(add-hook 'after-make-frame-functions
+  (lambda (frame)
+    (with-selected-frame frame
+      (unless window-system
+        (set-frame-parameter nil 'menu-bar-lines 0)))))
+
+(add-hook 'after-make-frame-functions
+  (lambda ()
+    (modify-frame-parameters frame
+      '((vertical-scroll-bars . nil)
+        (horizontal-scroll-bars . nil)))))
+
+(add-hook 'term-mode-hook
+  (lambda ()
+    (setq line-spacing 0)))
 
 (provide 'core-ui)
