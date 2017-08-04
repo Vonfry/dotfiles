@@ -42,7 +42,6 @@ Plugin 'tsukkee/unite-tag'                            " Unite plugin tags
 Plugin 'Shougo/neomru.vim'                            " Unite plugin mru
 Plugin 'Shougo/vimproc.vim'                           " asynchronous execution library
 Plugin 'Shougo/vimshell.vim'                          " A powerful shell tool, but multiple screen and iterm are more beautiful
-Plugin 'devjoe/vim-codequery'                         " Code query in vim
 Plugin 'mileszs/ack.vim'                              " pervious plugin depend
 
 Plugin 'andreshazard/vim-logreview'                   " log viewer
@@ -476,21 +475,6 @@ elseif executable('jvgrep')
                 \ '-i --exclude ''\.(git|svn|hg|bzr)'''
     let g:unite_source_grep_recursive_opt = '-R'
 endif
-" }}}
-
-" set plugin code query {{{
-nnoremap <leader>; :CodeQueryMenu Unite Full<CR>
-let g:codequery_find_text_cmd = 'Ack!'
-let g:codequery_find_text_from_current_file_dir = 0
-let g:codequery_auto_switch_to_find_text_for_wrong_filetype = 0
-let g:codequery_disable_qf_key_bindings = 0
-let g:codequery_enable_auto_clean_languages = ['python', 'c', 'ruby', 'java', 'javascript', 'go']
-set tags+=./javascript_tags;/
-set tags+=./python_tags;/
-set tags+=./ruby_tags;/
-set tags+=./go_tags;/
-set tags+=./java_tags;/
-set tags+=./c_tags;/
 " }}}
 
 " set plugin NERDTree {{{
