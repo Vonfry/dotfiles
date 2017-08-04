@@ -23,6 +23,7 @@ pytz
 httpstat
 mycli
 pgcli
+neovim
 
 # datebase
 mysqlclient
