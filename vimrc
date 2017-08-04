@@ -64,6 +64,10 @@ Plugin 'vim-airline/vim-airline'                      " status line in vim, a li
 Plugin 'vim-airline/vim-airline-themes'               " air line theme
 Plugin 'enricobacis/vim-airline-clock'                " show clock at airline
 
+if has("nvim")
+    source ~/.config/nvim/packages.vim
+endif
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
