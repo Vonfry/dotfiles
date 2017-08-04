@@ -8,6 +8,10 @@
 (defgroup vonfry-keybinding nil
   "Vonfry's group about keybinding.")
 
+(defcustom vonfry-keybind-evil-leader "<Space>"
+  "Leader key"
+  :group 'vonfry-keybinding)
+
 (defcustom vonfry-keybind-evil-M-x "x"
   "M-x"
   :group 'vonfry-keybinding)
