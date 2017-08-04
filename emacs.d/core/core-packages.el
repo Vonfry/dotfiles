@@ -58,7 +58,10 @@ is undefined(It always is loaded by alpha order).")
 ;;
 
 (defconst vonfry-basic-packages
-  '(use-package)
+  '(
+    use-package ; package config
+    general     ; keybind
+    )
   "These are the default basic packages, which are used by modules.")
 
 (el-get 'sync vonfry-basic-packages)
