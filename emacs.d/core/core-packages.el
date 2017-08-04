@@ -16,19 +16,19 @@
   "This variables is used to the arguments for `vonfry-load-modules`"
   :group 'vonfry)
 
-(defconst vonfry-packages-dir (expand-file-name "packages" vonfry-local-dir))
+(defconst vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir))
 
-(defconst vonfry-modules-dir (expand-file-name "modules" vonfry-config-dir))
+(defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
-(defconst vonfry-private-modules-dir (expand-file-name "private" vonfry-modules-dir)
+(defconst vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
   "Put your own modules here. Please don't set other modules without hook in this dir, becase the module loading order
 is undefined(It always is loaded by alpha order).")
 
-(defconst vonfry-el-get-dir (expand-file-name "el-get" vonfry-packages-dir))
+(defconst vonfry-el-get-dir (expand-file-name "el-get/" vonfry-packages-dir))
 
-(defconst vonfry-el-get-user-dir (expand-file-name "el-get-user" vonfry-local-dir))
+(defconst vonfry-el-get-user-dir (expand-file-name "el-get-user/" vonfry-local-dir))
 
-(defconst vonfry-el-get-recipe-dir (expand-file-name "repice" vonfry-el-get-user-dir))
+(defconst vonfry-el-get-recipe-dir (expand-file-name "repice/" vonfry-el-get-user-dir))
 
 ;;
 ;; setup el-get
