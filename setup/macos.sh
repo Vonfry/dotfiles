@@ -22,7 +22,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
-brew install cscope codequery
+brew install cscope
 brew install doxygen --with-doxywizard
 # code search
 brew install ack the_silver_searcher
@@ -46,7 +46,7 @@ brew cask install xquartz
 # chat
 brew cask install gitter
 # editor
-brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
+brew install macvim --with-python3 --with-lua --with-override-system-vim
 brew install neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
 sudo ln -f -s $script_dir/motd /etc/motd
