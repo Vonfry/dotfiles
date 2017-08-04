@@ -405,7 +405,7 @@ nmap <leader>u :UndotreeToggle<CR>
 " }}}
 
 " set plugin denite {{{
-nmap <silent> <leader>x :Denite -direction=dynamicbottom <CR>
+nmap <silent> <leader>x :Denite -direction=dynamicbottom
 nmap <silent> <leader>p :Denite -direction=dynamicbottom  file_rec<CR>
 nmap <silent> <leader>f :Denite -direction=dynamicbottom  file<CR>
 nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
