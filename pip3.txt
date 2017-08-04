@@ -34,3 +34,6 @@ pydot
 
 # serial
 pyserial
+
+# manage time
+td-watson
