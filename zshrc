@@ -37,3 +37,5 @@ source $CMD_CUSTOM_DIR/tags.sh
 source $CMD_CUSTOM_DIR/arduino.sh
 source $CMD_CUSTOM_DIR/latex.sh
 source $CMD_CUSTOM_DIR/alias.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

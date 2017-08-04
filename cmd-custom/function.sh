@@ -8,6 +8,7 @@ function vonfry-update()
             brew update
             brew upgrade
             brew cleanup
+            echo "You may run /usr/local/opt/fzf/install to install fzf"
             ;;
         # if ctags is updated, emacs needs being recompiled.
         "Linux")
