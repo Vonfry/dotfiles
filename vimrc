@@ -136,6 +136,7 @@ if has('gui_running')
     set mousemodel=popup
     let g:solarized_termcolors= 256
     set cursorline
+    set shell=/bin/bash
     " set cursorcolumn
 endif
 
