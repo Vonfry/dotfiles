@@ -35,11 +35,8 @@ Plugin 'honza/vim-snippets'                           " snippets for ultisnips
 Plugin 'mbbill/fencview'                              " Autodetect multiple encodings
 Plugin 'ntpeters/vim-better-whitespace'               " Whitespace manage
 
-Plugin 'Shougo/unite.vim'                             " like fuzzyfinder, ctrl-p or ku is that unite provides an integration interface for several sources.
-Plugin 'Shougo/unite-outline'                         " Unite plugin outline, quick search code with tags
-Plugin 'tacroe/unite-mark'                            " Unite plugin mark
-Plugin 'tsukkee/unite-tag'                            " Unite plugin tags
-Plugin 'Shougo/neomru.vim'                            " Unite plugin mru
+Plugin 'Shougo/denite.nvim'                           " like fuzzyfinder, ctrl-p or ku is that unite provides an integration interface for several sources.
+Plugin 'Shougo/neomru.vim'                            " denite plugin mru
 Plugin 'Shougo/vimproc.vim'                           " asynchronous execution library
 Plugin 'Shougo/vimshell.vim'                          " A powerful shell tool, but multiple screen and iterm are more beautiful
 Plugin 'mileszs/ack.vim'                              " pervious plugin depend
@@ -407,74 +404,24 @@ autocmd BufWritePre * StripWhitespace
 nmap <leader>u :UndotreeToggle<CR>
 " }}}
 
-" set plugin unite {{{
-let g:unite_data_directory = expand("$TMPDIR/unite")
-nmap <leader>x :Unite -direction=dynamicbottom -silent<CR>
-if has('nvim')
-    nmap <leader>p :Unite -direction=dynamicbottom -silent file_rec/neovim<CR>
-else
-    nmap <leader>p :Unite -direction=dynamicbottom -silent file_rec/async<CR>
-endif
-nmap <leader>f :Unite -direction=dynamicbottom -silent file<CR>
-nmap <leader>a  :Unite -direction=dynamicbottom -silent grep<CR>
-nmap <leader>m  :Unite -direction=dynamicbottom -silent mark<CR>
-nmap <leader>b  :Unite -direction=dynamicbottom -silent buffer<CR>
+" set plugin denite {{{
+nmap <silent> <leader>x :Denite -direction=dynamicbottom <CR>
+nmap <silent> <leader>p :Denite -direction=dynamicbottom  file_rec<CR>
+nmap <silent> <leader>f :Denite -direction=dynamicbottom  file<CR>
+nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
+nmap <silent> <leader>b :Denite -direction=dynamicbottomt buffer<CR>
+nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+        \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 
-" set plugin unite-tag {{{
-let g:unite_source_tag_max_name_length=32
-let g:unite_source_tag_max_kind_length=12
-let g:unite_source_tag_max_fname_length=64
-let g:unite_source_tag_name_footer_length=8
-let g:unite_source_tag_fname_footer_length=8
-let g:unite_source_tag_strict_truncate_string=1
-let g:unite_source_tag_show_fname=1
-let g:unite_source_tag_show_kind=1
-let g:unite_source_tag_show_location=1
-let g:unite_source_tag_relative_fname=1
-nmap <leader>g  :Unite -direction=dynamicbottom -silent tag<CR>
-nmap <leader>gf :Unite -direction=dynamicbottom -silent tag/file<CR>
-nmap <leader>gi :Unite -direction=dynamicbottom -silent tag/include<CR>
-" }}}
-
-call unite#custom#profile('default', 'context', {
-      \ 'start_insert' : 1
-      \ })
-call unite#custom#default_action('command', 'edit')
-if executable('hw')
-    " Use hw (highway)
-    " https://github.com/tkengo/highway
-    let g:unite_source_grep_command = 'hw'
-    let g:unite_source_grep_default_opts = '--no-group --no-color'
-    let g:unite_source_grep_recursive_opt = ''
-elseif executable('ag')
-    " Use ag (the silver searcher)
-    " https://github.com/ggreer/the_silver_searcher
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts =
-                \ '-i --vimgrep --hidden --ignore ' .
-                \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
-    let g:unite_source_grep_recursive_opt = ''
-elseif executable('pt')
-    " Use pt (the platinum searcher)
-    " https://github.com/monochromegane/the_platinum_searcher
-    let g:unite_source_grep_command = 'pt'
-    let g:unite_source_grep_default_opts = '--nogroup --nocolor'
-    let g:unite_source_grep_recursive_opt = ''
-elseif executable('ack-grep')
-    " Use ack
-    " http://beyondgrep.com/
-    let g:unite_source_grep_command = 'ack-grep'
-    let g:unite_source_grep_default_opts =
-                \ '-i --no-heading --no-color -k -H'
-    let g:unite_source_grep_recursive_opt = ''
-elseif executable('jvgrep')
-    " Use jvgrep
-    " https://github.com/mattn/jvgrep
-    let g:unite_source_grep_command = 'jvgrep'
-    let g:unite_source_grep_default_opts =
-                \ '-i --exclude ''\.(git|svn|hg|bzr)'''
-    let g:unite_source_grep_recursive_opt = '-R'
-endif
 " }}}
 
 " set plugin NERDTree {{{
