@@ -36,6 +36,7 @@
  '(buffers-menu-max-size 32)
  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
  '(column-number-mode t)
+ '(global-linum-mode t)
  '(case-fold-search t)
 
  '(mouse-yank-at-point t)
