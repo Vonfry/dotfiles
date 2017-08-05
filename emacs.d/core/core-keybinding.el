@@ -68,7 +68,16 @@
   "show a terminal")
 
 (when  (fboundp 'toggle-frame-fullscreen)
-  (vonfry-system-sets '(darwin (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen))))
+  (vonfry-system-sets
+    '(darwin
+      (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen)
+      (custom-set-variables
+        (mac-command-modifier 'meta)
+        (mac-option-modifier 'super)
+        (default-input-method "MacOS"))
+      (dolist (multiple '("" "double-" "triple-"))
+        (dolist (direction '("right" "left"))
+          (global-set-key (read-kbd-macro (concat "<" multiple "wheel-" direction ">")) 'ignore))))))
 
 (vonfry-use-package! 'general
   :config
