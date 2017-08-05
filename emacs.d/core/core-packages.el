@@ -88,7 +88,7 @@ is undefined(It always is loaded by alpha order).")
 
 (require 'cl)
 
-(defmacro vonfry|package! (&rest pkgs)
+(defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
 Use this function in packages.el"
   `(vonfry-pkg-get 'sync '(,@pkgs)))

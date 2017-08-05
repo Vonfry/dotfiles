@@ -1,3 +1,3 @@
 ;;; rainbow-delimiters packages -*- lexical-binding: t -*-
 
-(vonfry|package! rainbo-delimiters)
+(vonfry|packages! rainbo-delimiters)
