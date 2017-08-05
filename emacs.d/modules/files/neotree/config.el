@@ -4,7 +4,7 @@
   :config
   (custom-set-variables
     '(neo-theme (if (display-graphic-p) 'icons 'arrow))
-    '( neo-smart-open t))
+    '(neo-smart-open t))
   (add-hook 'neotree-mode-hook
     (lambda ()
       (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
