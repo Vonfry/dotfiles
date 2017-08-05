@@ -38,6 +38,8 @@
  '(column-number-mode t)
  '(global-linum-mode t)
  '(global-prettify-symbols-mode t)
+ '(show-trailing-whitespace t)
+ '(global-whitespace-modes t)
  '(case-fold-search t)
 
  '(mouse-yank-at-point t)
@@ -66,5 +68,6 @@
  '(global-visual-line-mode t)
  '(show-paren-mode t))
 
+(add-hook 'write-file-hook 'whitespace-cleanup)
 
 (provide 'core-editor)
