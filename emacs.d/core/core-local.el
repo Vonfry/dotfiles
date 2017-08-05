@@ -8,8 +8,7 @@
 
 (defconst vonfry-local-dir (expand-file-name "local/" vonfry-config-dir)
   "The local dir saves the temporary files such as elpa or some plugins'. You can clean it and it will be reset by
-itself."
-  :group 'vonfry-dir)
+itself.")
 
 (defconst vonfry-custom-dir (expand-file-name "custom/" vonfry-local-dir)
   "The custom dir saves the local setting such as custom-file or some configures only can be used on this computer
@@ -18,8 +17,7 @@ itself."
   If you want to change some action in the default modules, you can use hook, custom-variables or other functions.
 
   IMPORTANT!!! You must load the other files by youself. The only files under the dir named custom.el can be
-autoloaded."
-  :group 'vonfry-dir)
+autoloaded.")
 
 
 (defconst vonfry-custom-file (expand-file-name "custom.el" vonfry-local-dir))

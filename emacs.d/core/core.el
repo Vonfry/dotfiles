@@ -40,6 +40,9 @@
 (require 'core-editor)
 (require 'core-keybinding)
 
+(defgroup vonfry-modules nil
+  "Vonfry's emacs group about modules")
+
 (vonfry-load-autoload vonfry-core-dir)
 (vonfry-load-modules vonfry-exclude-modules)
 (load vonfry-custom-file)
