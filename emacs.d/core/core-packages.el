@@ -5,8 +5,8 @@
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
-;; packages.el define the dependence with `vonfry-package!`
-;; config.el define the configure with `vonfry-use-package!`
+;; packages.el define the dependence with `vonfry|package!`
+;; config.el define the configure with `vonfry|use-package!`
 
 ;;
 ;; define some variables for packages
@@ -88,13 +88,12 @@ is undefined(It always is loaded by alpha order).")
 
 (require 'cl)
 
-(defun vonfry-package! (&rest pkgs)
+(defmacro vonfry|package! (&rest pkgs)
   "Define packages dependence and install it.
 Use this function in packages.el"
-  (vonfry-pkg-get 'sync pkgs))
-  nil)
+  `(vonfry-pkg-get 'sync '(,@pkgs)))
 
-(defalias #'vonfry-use-package! #'use-package)
+(defalias #'vonfry|use-package! #'use-package)
 
 (defun vonfry-load-module (module submodule)
   "This function load a module with two level name.

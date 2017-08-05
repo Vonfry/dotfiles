@@ -1,6 +1,6 @@
 ;;; fci config -*- lexical-binding: t -*-
 
-(vonfry-use-package! 'fill-column-indicator
+(vonfry|use-package! fill-column-indicator
   :config
   (custom-set-variables '(fci-rule-column vonfry-text-width))
   (defun auto-fcl-mode ()

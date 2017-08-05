@@ -1,3 +1,3 @@
 ;;; rainbow-mode packages -*- lexical-binding: t -*-
 
-(vonfry-package! 'rainbow-mode)
+(vonfry|package! rainbow-mode)
