@@ -27,6 +27,13 @@
     :general
     (mmap :prefix vonfry-keybind-evil-leader
       vonfry-keybind-evil-search 'helm-ag))
+  (vonfry|use-package! helm-make
+    :config
+    (custom-set-variables
+      '(helm-make-fuzzy-matching t))
+    :general
+    (mmap :prefix vonfry-keybind-evil-leader
+      vonfry-keybind-evil-run 'helm-make))
   :general
   (mmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-M-x    'helm-M-x

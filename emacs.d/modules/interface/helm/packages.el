@@ -3,4 +3,5 @@
 (vonfry|packages!
   helm
   helm-ag
-  helm-descbinds)
+  helm-descbinds
+  helm-make)
