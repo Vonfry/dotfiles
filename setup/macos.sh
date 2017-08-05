@@ -42,13 +42,13 @@ brew install pandoc                        # markdown
 brew cask install mactex
 brew cask install arduino
 brew cask install java
-brew cask install xquartz
 # chat
 brew cask install gitter
+brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lua
 # editor
-brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
+brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules
 sudo ln -f -s $script_dir/motd /etc/motd
 
 # quicklook

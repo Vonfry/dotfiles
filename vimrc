@@ -392,10 +392,6 @@ nmap <leader>% :MtaJumpToOtherTag<cr>
 let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
 " }}}
 
-" set plugin VimFiler {{{
-let g:vimfiler_as_default_explorer = 0
-" }}}
-
 " set plugin vim-better-whitespace {{{
 let g:better_whitespace_verbosity=1
 autocmd BufWritePre * StripWhitespace
