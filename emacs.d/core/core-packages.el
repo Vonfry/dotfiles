@@ -71,15 +71,15 @@ is undefined(It always is loaded by alpha order).")
 (defalias #'vonfry/update-packages           #'quelpa-upgrade)
 (defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
 
-
 (defalias #'vonfry-pkg-get                   #'quelpa)
-
-(require 'cl)
 
 (defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
-Use this function in packages.el"
-  `(vonfry-pkg-get '(,@pkgs)))
+
+  Use this macro in packages.el.
+
+  Why is it a macro? Because pkgs can be passed without symbol and it have the same form as use-package."
+  `(mapcar 'vonfry-pkg-get '(,@pkgs)))
 
 (defalias #'vonfry|use-package! #'use-package)
 

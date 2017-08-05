@@ -18,6 +18,8 @@
 ;; core packages contain the main function and macros.
 ;; All plugins are in modules, load with use-package to deal with depence.
 
+(require 'cl)
+
 (defgroup vonfry nil
   "Vonfry's emacs group")
 
