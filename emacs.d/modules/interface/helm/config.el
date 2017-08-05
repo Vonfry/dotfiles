@@ -20,21 +20,19 @@
     '(helm-imenu-fuzzy-match                t)
     '(helm-apropos-fuzzy-match              t)
     '(helm-lisp-fuzzy-completion            t))
-  (vonfry|use-package! helm-descbinds-mode
-    :config
-    (helm-descbinds-mode))
-  (vonfry|use-package! helm-ag
-    :general
-    (mmap :prefix vonfry-keybind-evil-leader
-      vonfry-keybind-evil-search 'helm-ag))
-  (vonfry|use-package! helm-make
+  :general
+  (mmap :prefix vonfry-keybind-evil-leader
+    vonfry-keybind-evil-M-x    'helm-M-x
+    vonfry-keybind-evil-file   'helm-find-files))
+
+(vonfry|use-package! helm-make
     :config
     (custom-set-variables
       '(helm-make-fuzzy-matching t))
     :general
     (mmap :prefix vonfry-keybind-evil-leader
       vonfry-keybind-evil-run 'helm-make))
-  :general
-  (mmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-M-x    'helm-M-x
-    vonfry-keybind-evil-file   'helm-find-files))
+
+(vonfry|use-package! helm-descbinds-mode
+    :config
+    (helm-descbinds-mode))
