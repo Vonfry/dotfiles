@@ -12,6 +12,10 @@
   "The default frame width and height"
   :group 'vonfry-editor)
 
+(defcustom vonfry-text-width 120
+  "The width for a line"
+  :group 'vonfry-editor)
+
 (defconst vonfry-backup-file-dir (expand-file-name "backups/" vonfry-local-dir)
   "The backup file dir."
   :group 'vonfry-dir)
@@ -39,6 +43,7 @@
  '(global-linum-mode t)
  '(global-prettify-symbols-mode t)
  '(show-trailing-whitespace t)
+ '(whitespace-style (face trailing))
  '(global-whitespace-modes t)
  '(case-fold-search t)
 
@@ -55,7 +60,7 @@
 
  '(word-wrap t)
  '(truncate-lines nil)
- '(truncate-partial-width-windows 120)
+ '(truncate-partial-width-windows vonfry-text-width)
 
  '(save-interprogram-paste-before-kill t)
 
