@@ -2,5 +2,4 @@
 
 (vonfry-use-package! 'rainbow-mode
   :config
-  (add-hook 'prog-mode-hook 'rainbow-mode)
-  )
+  (add-hook 'prog-mode-hook 'rainbow-mode))

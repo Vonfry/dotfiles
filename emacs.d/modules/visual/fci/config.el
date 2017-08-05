@@ -9,5 +9,4 @@
       (fci-mode 0)))
   (add-hook 'prog-mode-hook 'prog-mode-fci-settings)
   (add-hook 'after-change-major-mode-hook 'auto-fci-mode)
-  (add-hook 'window-configuration-change-hook 'auto-fci-mode)
-  )
+  (add-hook 'window-configuration-change-hook 'auto-fci-mode))

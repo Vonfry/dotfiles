@@ -2,5 +2,4 @@
 
 (vonfry-use-package! 'hlinum
   :config
-  (hlinum-activate)
-  )
+  (hlinum-activate))
