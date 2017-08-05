@@ -13,8 +13,8 @@
     (global-evil-visualstar-mode t))
   (vonfry|use-package! evil-numbers
     :bind
-    ("C-c +" 'evil-numbers/inc-at-pt)
-    ("C-c -" 'evil-numbers/dec-at-pt))
+    ("C-c +" evil-numbers/inc-at-pt)
+    ("C-c -" evil-numbers/dec-at-pt))
   (vonfry|use-package! evil-snipe
     :config
     (evil-snipe-mode 1))
