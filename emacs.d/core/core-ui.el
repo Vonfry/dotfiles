@@ -3,10 +3,11 @@
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
 
-(vonfry-package! 'all-the-icons)
+(vonfry|packages! all-the-icons)
+(vonfry|use-package! all-the-icons)
 
-(vonfry-package! 'solarized-theme)
-(vonfry-use-package! 'solarized-dark
+(vonfry|packages! solarized-theme)
+(vonfry|use-package! solarized-dark
   :config
   (load-theme 'solarized-dark-theme	t))
 
@@ -27,10 +28,10 @@
 
 (vonfry-system-set '(darwin (chinese-font "Hei" 11)))
 
-(vonfry-package! 'info+)
-(vonfry-use-package! 'info+
+(vonfry|packages! info+)
+(vonfry|use-package! info+
   :init
-  (vonfry-use-package! info))
+  (vonfry|use-package! info))
 
 (custom-set-variables
   '(tool-bar-mode nil)
