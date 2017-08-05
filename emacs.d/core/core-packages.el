@@ -95,28 +95,30 @@ Use this function in packages.el"
 
 (defalias #'vonfry|use-package! #'use-package)
 
-(defun vonfry-load-module (module submodule)
+(defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
 
   module: The category of a module. It is the dir-name under modules.
   submodule: The name of a module. It is the dir-name under a module dir.
 
-  This function finds module with the two name, and loads its packages.el, config.el and autoload file with `load`."
+  This function finds module with the file, and loads it."
 
-  (let* ((module-dir (expand-file-name module vonfry-modules-dir))
-         (submodule-dir (expand-file-name submodule module-dir))
-         (packages-path (expand-file-name "packages" submodule-dir))
-         (config-path (expand-file-name "config" submodule-dir)))
-      (when (file-exists-p packages-path)
-        (load packages-path))
-      (when (file-exists-p config-path)
-        (load config-path))
-      (vonfry-load-autoload submodule-dir)))
+  (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
+         (file-path (expand-file-name file module-dir)))
+      (when (file-exists-p file-path)
+        (load packages-path))))
 
-(defun vonfry-load-autoload (path)
+(defun vonfry-load-module-packages (module-name)
+  (vonfry-load-module module-name "packages")
+
+(defun vonfry-load-module-config (module-name)
+  (vonfry-load-module module-name "config")
+
+(defun vonfry-load-autoload (module-name)
   "Load the autoload part in a path. It will load autoload.el, or files in autoload dir."
-  (let ((autoload-file (expand-file-name "autoload.el" path))
-        (autoload-dir (expand-file-name "autoload/" path)))
+  (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
+         (autoload-file (expand-file-name "autoload.el" module-dir))
+         (autoload-dir (expand-file-name "autoload/" module-dir)))
     (when (file-exists-p autoload-file)
       (load autoload-file))
     (when (file-exists-p autoload-dir)
@@ -128,12 +130,17 @@ Use this function in packages.el"
 
   All modules should use function and macro in this file. By default, every modules should have a file named
 packages.el which is used to define the dependence with `vonfry-package!`. This file will be loaded at first for each
-modules. Then it will load config.el which is used to configure for the module which is the main file for a module.
-Finally, the autoload.el will be loaded. It used to load some function for the modules."
-
-  (dolist (module (directory-files vonfry-modules-dir))
-    (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
-      (unless (member (concat module "/" submodule) exclude))
-        (vonfry-load-module module submodule)))))
+modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module
+which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
+modules."
+  (let* ((module-alist '()))
+    (dolist (module (directory-files vonfry-modules-dir))
+      (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
+        (let (module-name (concat module "/" submodule))
+          (unless (member  module-name exclude))
+            (add-to-list 'module-alist module-name t))))
+      (mapcar 'vonfry-load-module-packages module-alist)
+      (mapcar 'vonfry-load-module-config module-alist)
+      (mapcar 'vonfry-load-autoload module-alist)))
 
 (provide 'core-packages)
