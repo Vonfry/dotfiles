@@ -1,6 +1,6 @@
 ;;; core/core-packages.el -*- lexical-binding: t; -*-
 ;;
-;; Define packages manager with el-get and use-package.
+;; Define packages manager with quelpa and use-package.
 ;;
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
@@ -18,40 +18,36 @@
 
 (defconst vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir))
 
+(defconst vonfry-elpa-dir (expand-file-name "elpa/" vonfry-packages-dir))
+
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
 (defconst vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
   "Put your own modules here. Please don't set other modules without hook in this dir, becase the module loading order
 is undefined(It always is loaded by alpha order).")
 
-(defconst vonfry-el-get-dir (expand-file-name "el-get/" vonfry-packages-dir))
+(defconst vonfry-pkg-manager "quelpa")
 
-(defconst vonfry-el-get-user-dir (expand-file-name "el-get-user/" vonfry-local-dir))
-
-(defconst vonfry-el-get-recipe-dir (expand-file-name "repice/" vonfry-el-get-user-dir))
+(defconst vonfry-pkg-manager-dir (expand-file-name (concat vonfry-pkg-manager "/") vonfry-packages-dir))
 
 ;;
-;; setup el-get
+;; setup package manager
 ;;
 
-(add-to-list 'load-path vonfry-el-get-dir)
+(add-to-list 'load-path vonfry-pkg-manager-dir)
 
-;; set el-get variables
 (custom-set-variables
-  '(package-user-dir vonfry-packages-dir)
-  '(el-get-dir vonfry-el-get-dir))
+  '(package-user-dir vonfry-elpa-dir)
+  '(quelpa-stable-p nil)
+  '(quelpa-dir vonfry-pkg-manager-dir))
 
-(unless (require 'el-get nil 'noerror)
-  (require 'package)
-  (add-to-list 'package-archives
-               '("melpa" . "http://melpa.org/packages/"))
-  (package-refresh-contents)
-  (package-initialize)
-  (package-install 'el-get)
-  (require 'el-get))
-
-(add-to-list 'el-get-recipe-path vonfry-el-get-recipe-dir)
-(el-get 'sync)
+(reuqire 'package)
+(package-initialize)
+(if (require 'quelpa nil t)
+    (quelpa-self-upgrade)
+  (with-temp-buffer
+    (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
+    (eval-buffer)))
 
 ;;
 ;; define some basic packages
@@ -63,8 +59,6 @@ is undefined(It always is loaded by alpha order).")
     )
   "These are the default basic packages, which are used by modules.")
 
-(el-get 'sync vonfry-basic-packages)
-
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (require pkg))
@@ -72,26 +66,20 @@ is undefined(It always is loaded by alpha order).")
 ;;
 ;; define function for packages
 ;;
+(defalias #'vonfry/list-packages             #'list-packages)
+(defalias #'vonfry/install-packages          #'quelpa)
+(defalias #'vonfry/update-packages           #'quelpa-upgrade)
+(defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
 
-(defalias #'vonfry/list-packages             #'el-get-list-packages)
-(defalias #'vonfry/install-packages          #'el-get-install)
-(defalias #'vonfry/update-packages           #'el-get-update)
-(defalias #'vonfry/update-all-packages       #'el-get-update-all)
-(defalias #'vonfry/update-el-get             #'el-get-self-update)
-(defalias #'vonfry/remove-package            #'el-get-remove)
-(defalias #'vonfry/reinstall-package         #'el-get-reinstall)
-(defalias #'vonfry/reload-packages           #'el-get-reload)
-(defalias #'vonfry/describe-package          #'el-get-describe)
-(defalias #'vonfry/find-recipe-file-packages #'el-get-find-recipe-file)
 
-(defalias #'vonfry-pkg-get                   #'el-get)
+(defalias #'vonfry-pkg-get                   #'quelpa)
 
 (require 'cl)
 
 (defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
 Use this function in packages.el"
-  `(vonfry-pkg-get 'sync '(,@pkgs)))
+  `(vonfry-pkg-get '(,@pkgs)))
 
 (defalias #'vonfry|use-package! #'use-package)
 
