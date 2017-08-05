@@ -57,8 +57,7 @@ is undefined(It always is loaded by alpha order).")
 ;; define some basic packages
 ;;
 
-(defconst vonfry-basic-packages
-  '(
+(defconst vonfry-basic-packages '(
     use-package ; package config
     general     ; keybind
     )

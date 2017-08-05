@@ -12,4 +12,4 @@
     '(undo-tree-history-directory-alist `((".*" ,+undotree-history-directory))`))
   :general
   (nmap :prefix +undotree-evil-nmap-prefix
-        "u" 'undo-tree-visualize))
+        vonfry-keybind-evil-undotree 'undo-tree-visualize))
