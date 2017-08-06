@@ -432,7 +432,7 @@ nmap <leader>n :NERDTreeFind<CR>
 " }}}
 
 " set plugin vim-rooter {{{
-let g:rooter_patterns = ['.projectile ', '.git/', '.projections.json', '.vimprj', '.ycm_extra_conf.py', '.gitignore', '.tern-project', 'Makefile', 'CMakeLists.txt', 'readme.md', 'readme.org']
+let g:rooter_patterns = ['.ycm_extra_conf.py', '.gitignore', '.tern-project', 'Makefile', 'CMakeLists.txt', 'readme.md', 'readme.org' , '.projectile', '.projections.json', '.vimprj', '.git/']
 " }}}
 
 " set plugin vim-gitgutter {{{
