@@ -444,3 +444,14 @@ let g:org_agenda_files=['~/.org/*.org']
 " }}}
 
 " }}}
+"
+
+" set other plugin with in system {{{
+
+" set plugin fzf {{{
+" This is the default extra key bindings
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+set rtp+=/usr/local/opt/fzf,~/.fzf
+" }}}
+
+" }}}
