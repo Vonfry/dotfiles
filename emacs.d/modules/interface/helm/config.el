@@ -48,6 +48,7 @@
     :group 'vonfry-module)
   :config
   (setq helm-dash-common-docsets '("Bash" "Docker"))
+  (setq helm-dash-browser-func 'eww)
   (defun +helm-dash-set-dash (&rest docs)
     (setq helm-dash-docsets docs))
   :general
