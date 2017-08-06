@@ -39,13 +39,16 @@
 
 (vonfry|use-package! helm-dash
   :init
-  (defconst +helm-dash-keybind-evil-prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc))
+  (defcustom +helm-dash-nmap-prefix
+    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc)
+    "helm-dash prefix key"
+    :group 'vonfry-module)
   :config
   (setq helm-dash-common-docsets '("Bash" "Docker"))
   (defun +helm-dash-set-dash (&rest docs)
     (setq helm-dash-docsets docs))
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
+  (nmap :prefix +helm-dash-set-dash
         :prefix-command 'helm-dash
         "." 'helm-dash-at-point
         "a" 'helm-dash-activate-docset))
