@@ -8,14 +8,16 @@
   (projectile-global-mode t))
 
 (vonfry|use-package! helm-projectile
-    :config
-    (helm-projectile-on)
-    :general
-    (nmap :prefix vonfry-keybind-evil-leader
-      vonfry-keybind-evil-ctrlp  'helm-projectile-find-file
-      vonfry-keybind-evil-search 'helm-projectile-ag))
+  :after projectile
+  :config
+  (helm-projectile-on)
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+    vonfry-keybind-evil-ctrlp  'helm-projectile-find-file
+    vonfry-keybind-evil-search 'helm-projectile-ag))
 
 (vonfry|use-package! org-projectile
+  :after projectile
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
@@ -25,6 +27,7 @@
   (push (org-projectile-project-todo-entry) org-capture-templates))
 
 (vonfry|use-package! org-projectile
+  :after projectile
   :config
   (add-hook 'ibuffer-hook
     (lambda ()
