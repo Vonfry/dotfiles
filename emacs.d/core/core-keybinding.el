@@ -29,14 +29,6 @@
   "repl"
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-only-window "o"
-  "close other window"
-  :group 'vonfry-keybind)
-
-(defcustom vonfry-keybind-evil-close-window "w"
-  "close currect window"
-  :group 'vonfry-keybind)
-
 (defcustom vonfry-keybind-evil-buffer "b"
   "buffer"
   :group 'vonfry-keybind)
@@ -79,6 +71,14 @@
 
 (defcustom vonfry-keybind-evil-undotree "u"
   "undo tree"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-switch-window "o"
+  "switch-window"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-window "w"
+  "manage window"
   :group 'vonfry-keybind)
 
 (defcustom vonfry-keybind-evil-nerdcommenter "c"

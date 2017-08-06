@@ -49,6 +49,6 @@
     (setq helm-dash-docsets docs))
   :general
   (nmap :prefix +helm-dash-set-dash
-        :prefix-command 'helm-dash
+        "d" 'helm-dash
         "." 'helm-dash-at-point
         "a" 'helm-dash-activate-docset))
