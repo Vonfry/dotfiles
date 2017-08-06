@@ -36,3 +36,16 @@
 (vonfry|use-package! helm-descbinds-mode
     :config
     (helm-descbinds-mode))
+
+(vonfry|use-package! helm-dash
+  :init
+  (defconst +helm-dash-keybind-evil-prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc))
+  :config
+  (setq helm-dash-common-docsets '("Bash" "Docker"))
+  (defun +helm-dash-set-dash (&rest docs)
+    (setq helm-dash-docsets docs))
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+        "." 'helm-dash-at-point
+        "h" 'helm-dash
+        "a" 'helm-dash-activate-docset))
