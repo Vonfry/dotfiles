@@ -46,6 +46,6 @@
     (setq helm-dash-docsets docs))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
+        :prefix-command 'helm-dash
         "." 'helm-dash-at-point
-        "h" 'helm-dash
         "a" 'helm-dash-activate-docset))
