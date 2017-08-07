@@ -3,7 +3,7 @@
 ;; Use rtags to jump and use irony to do completion and error check. And use EBrowse to make a class graph.
 
 (vonfry|packages!
-  ; rtags ;; It is needed if you want to install it with melpa. I install it with system package manager.
+  rtags
 
   irony-mode
   company-irony
