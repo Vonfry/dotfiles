@@ -11,20 +11,21 @@
       (push 'company-rtags company-backends)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            "'" 'rtags-print-symbol-info
-            "c" 'rtags-print-dependencies
-            "." 'rtags-find-references
-            "?" 'rtags-find-references-at-point
-            "/" 'rtags-find-symbol
-            "," 'rtags-find-symbol-at-point
-            "r" 'rtags-diagnostics
-            "t" 'rtags-restart-process
-            "m" 'rtags-imenu
-            "l" 'rtags-find-file
-            "w" 'rtags-rename-symbol
-            "u" 'rtags-find-virtuals-at-point
-            "b" 'rtags-location-stack-back
-            "f" 'rtags-location-stack-forward)
+            "'"  'rtags-print-symbol-info
+            "c"  'rtags-print-dependencies
+            "."  'rtags-find-references
+            "?"  'rtags-find-references-at-point
+            "/"  'rtags-find-symbol
+            ","  'rtags-find-symbol-at-point
+            "r"  'rtags-diagnostics
+            "t"  'rtags-restart-process
+            "m"  'rtags-imenu
+            "ll" 'rtags-find-file
+            "li" 'rtags-include-file
+            "w"  'rtags-rename-symbol
+            "u"  'rtags-find-virtuals-at-point
+            "b"  'rtags-location-stack-back
+            "f"  'rtags-location-stack-forward)
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
             "'" 'rtags-print-symbol-info
