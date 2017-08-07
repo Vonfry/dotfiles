@@ -18,6 +18,7 @@ Plugin 'janko-m/vim-test'                             " test
 
 Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
+Plugin 'lyuts/vim-rtags'                              " rtags
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
 Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'tpope/vim-rails'                              " syntax rails
@@ -319,6 +320,10 @@ let g:html5_event_handler_attirbutes_complete = 0
 " }}}
 "
 " }}}
+
+" set plugin vim-rtags {{
+
+" }}
 
 " set plugin dbext {{{
 " TODO see :h dbext.txt
