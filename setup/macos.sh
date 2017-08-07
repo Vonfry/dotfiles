@@ -15,7 +15,7 @@ brew install cloc          # code statistics
 brew install tree uchardet # file browser
 # C & Cpp libs
 brew install gcc --with-jit --with-nls
-brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-shared-libs --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
+brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install automake
