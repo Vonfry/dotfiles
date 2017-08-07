@@ -3,7 +3,9 @@
 (vonfry|use-package! docker
   :init
   (defcustom +docker-nmap-prefix
-    (concat vonfry-keybind-evil-leader "v"))
+    (concat vonfry-keybind-evil-leader "v")
+    "docker nmap prefix"
+    :group 'vonfry-module)
   :config
   (vonfry-system-sets
     '(darwin
