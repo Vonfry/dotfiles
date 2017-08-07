@@ -74,7 +74,11 @@
  '(global-visual-line-mode t)
  '(show-paren-mode t))
 
-(add-hook 'write-file-hook 'whitespace-cleanup)
+
+(vonfry|packages! whitespace-cleanup-mode)
+(vonfry|use-package! whitespace-cleanup-mode
+  :config
+  (global-whitespace-cleanup-mode t))
 
 (vonfry|package! 'exec-path-from-shell)
 (when (memq window-system '(mac ns x))
