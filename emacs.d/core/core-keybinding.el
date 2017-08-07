@@ -94,6 +94,18 @@ In global env, it is jump back with jump-to-tefinition."
   "ggtags"
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-lang "z"
+  "lang configure"
+  :group 'vonfry-keybind)
+
+(defcustom +lang-nmap-prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-lang)
+  "lang nmap prefix"
+  :group 'vonfry-module)
+
+(defcustom vonfry-keybind-evil-virtual "v"
+  "vitrual machine such as docker"
+  :group 'vonfry-keybind)
+
 (defcustom vonfry-keybind-evil-terminal "$"
   "show a terminal"
   :group 'vonfry-keybind)
