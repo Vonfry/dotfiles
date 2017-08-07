@@ -3,6 +3,7 @@
 (vonfry|packages!
   haskell-mode
   ghc
+  company-ghc
   intero
   flycheck-haskell
   hindent)

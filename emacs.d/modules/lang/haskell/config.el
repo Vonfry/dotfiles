@@ -46,9 +46,17 @@
 
 (vonfry|use-package! ghc
   :after haskell-mode
-  :disabed
+  :disabled
   :config
   (add-hook 'haskell-mode-hook 'ghc-init))
+
+(vonfry|use-package! company-ghc
+  :disabled
+  :config
+  (add-hook 'haskell-mode-hook
+    (lambda()
+      (add-to-list 'company-backends 'company-ghc)
+      (custom-set-variables '(company-ghc-show-info t)))))
 
 (vonfry|use-package! hindent
   :after haskell-mode
