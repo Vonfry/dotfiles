@@ -10,7 +10,17 @@
       (lispy-mode 1))))
   (add-hook 'lisp-mode-hook       'lispy-mode)
   (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
-  (add-hook 'scheme-mode-hook     'lispy-mode))
+  (add-hook 'scheme-mode-hook     'lispy-mode)
+  (let ((bind-lispy
+          (lambda ()
+            (nmap :keymaps 'local
+                  :prefix vonfry-keybind-evil-leader
+                  vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
+                  vonfry-keybind-evil-jump-module        'pop-tag-mark))))
+    (add-hook 'lisp-mode-hook       bind-lispy)
+    (add-hook 'emacs-lisp-mode-hook bind-lispy)
+    (add-hook 'scheme-mode-hook     bind-lispy))
+  )
 
 (vonfry|use-package! evil-lispy
   :config
