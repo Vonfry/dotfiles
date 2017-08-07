@@ -35,6 +35,7 @@ brew install python3 python
 brew install ruby ----universal
 brew install rbenv
 brew install clisp sbcl
+brew install ocaml opam
 brew install go node
 brew install graphviz                      # dot lang to png
 brew install sqlite mysql postgresql redis # database
