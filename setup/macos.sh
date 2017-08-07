@@ -14,6 +14,8 @@ brew install lolcat        # colorful print
 brew install cloc          # code statistics
 brew install tree uchardet # file browser
 # C & Cpp libs
+brew install gcc --with-jit --with-nls
+brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-shared-libs --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install automake
@@ -22,6 +24,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
+brew install rtags
 brew install cscope
 brew install doxygen --with-doxywizard
 # code search
