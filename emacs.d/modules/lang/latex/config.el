@@ -28,8 +28,8 @@
       (push '(company-auctex-macros
               company-auctex-symbols
               company-auctex-environments) company-backends-LaTeX-mode)
-      (dolist (mode '(tex-mode latex-mode))
-        (add-hook mode
+      (dolist (mode-hook '(tex-mode-hook latex-mode-hook))
+        (add-hook mode-hook
           (lambda()
             (nmap :keymaps 'local
                   :prefix +lang-nmap-prefix

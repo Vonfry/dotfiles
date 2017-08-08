@@ -45,8 +45,6 @@ is undefined(It always is loaded by alpha order)."
 ;; setup package manager
 ;;
 
-(add-to-list 'load-path vonfry-pkg-manager-dir)
-
 (custom-set-variables
   '(package-user-dir vonfry-elpa-dir)
   '(quelpa-stable-p nil)
