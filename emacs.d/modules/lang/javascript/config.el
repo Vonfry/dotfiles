@@ -8,7 +8,6 @@
 (vonfry|use-package! json-mode :after js2-mode)
 
 (vonfry|use-package! tern
-  :after company
   :config
   (add-hook 'js2-mode-hook 'tern-mode)
   (add-hook 'js2-mode-hook
@@ -24,3 +23,10 @@
             "," 'tern-pop-find-definition
             "t" 'tern-get-type
             "d" 'tern-get-docs))))
+
+(vonfry|use-package! company-tern
+  :after tern company
+  :config
+  (add-hook 'js2-mode-hook
+    (lambda ()
+      (add-to-list (make-local-variable 'company-backends) 'company-tern))))
