@@ -95,7 +95,9 @@
 (vonfry|use-package! company-irony
   :after company irony-mode
   :config
-  (add-to-list 'company-backends 'company-irony))
+  (add-hook 'irony-mode-hook
+    (lambda ()
+      (add-to-list (make-local-variable 'company-backends) 'company-irony))))
 
 (vonfry|use-package! flycheck-irony
   :after flycheck irony-mode

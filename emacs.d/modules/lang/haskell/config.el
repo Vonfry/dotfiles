@@ -54,8 +54,8 @@
   :disabled
   :config
   (add-hook 'haskell-mode-hook
-    (lambda()
-      (add-to-list 'company-backends 'company-ghc)
+    (lambda ()
+      (add-to-list (make-local-variable 'company-backends) 'company-ghc)
       (custom-set-variables '(company-ghc-show-info t)))))
 
 (vonfry|use-package! hindent
