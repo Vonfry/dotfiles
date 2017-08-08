@@ -26,13 +26,33 @@
     vonfry-keybind-evil-file   'helm-find-files))
 
 (vonfry|use-package! helm-make
-    :config
-    (custom-set-variables
-      '(helm-make-fuzzy-matching t))
-    :general
-    (mmap :prefix vonfry-keybind-evil-leader
-      vonfry-keybind-evil-run 'helm-make))
+  :after helm
+  :config
+  (custom-set-variables
+    '(helm-make-fuzzy-matching t))
+  :general
+  (mmap :prefix vonfry-keybind-evil-leader
+    vonfry-keybind-evil-run 'helm-make))
 
 (vonfry|use-package! helm-descbinds-mode
-    :config
-    (helm-descbinds-mode))
+  :after helm
+  :config
+  (helm-descbinds-mode))
+
+(vonfry|use-package! helm-dash
+  :after helm
+  :init
+  (defcustom +helm-dash-nmap-prefix
+    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc)
+    "helm-dash prefix key"
+    :group 'vonfry-module)
+  :config
+  (setq helm-dash-common-docsets '("Bash" "Docker"))
+  (setq helm-dash-browser-func 'eww)
+  (defun +helm-dash-set-dash (&rest docs)
+    (setq helm-dash-docsets docs))
+  :general
+  (nmap :prefix +helm-dash-set-dash
+        "d" 'helm-dash
+        "." 'helm-dash-at-point
+        "a" 'helm-dash-activate-docset))

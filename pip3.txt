@@ -6,11 +6,10 @@ virtualenv
 ipython
 
 # code complete and check
-anaconda_mode
 jedi
-flake8
-importmagic
-autopep8
+flake8 # code checks
+importmagic # auto imports
+autopep8 # code PEP8 formatting
 
 # code highlight and jump
 pycscope

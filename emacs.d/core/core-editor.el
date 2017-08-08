@@ -38,7 +38,6 @@
  '(default-frame-alist vonfry-frame)
  '(blink-cursor-interval 0.4)
  '(buffers-menu-max-size 32)
- '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
  '(column-number-mode t)
  '(global-linum-mode t)
  '(global-prettify-symbols-mode t)
@@ -46,6 +45,8 @@
  '(whitespace-style (face trailing))
  '(global-whitespace-modes t)
  '(case-fold-search t)
+
+ '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
 
  '(mouse-yank-at-point t)
  '(delete-selection-mode t)
@@ -73,6 +74,14 @@
  '(global-visual-line-mode t)
  '(show-paren-mode t))
 
-(add-hook 'write-file-hook 'whitespace-cleanup)
+
+(vonfry|packages! whitespace-cleanup-mode)
+(vonfry|use-package! whitespace-cleanup-mode
+  :config
+  (global-whitespace-cleanup-mode t))
+
+(vonfry|package! 'exec-path-from-shell)
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 (provide 'core-editor)

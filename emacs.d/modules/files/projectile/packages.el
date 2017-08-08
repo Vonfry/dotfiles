@@ -2,4 +2,6 @@
 
 (vonfry|packages!
   projectile
-  helm-projectile)
+  helm-projectile
+  org-projectile
+  ibuffer-projectile)

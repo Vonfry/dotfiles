@@ -4,4 +4,5 @@
   helm
   helm-ag
   helm-descbinds
-  helm-make)
+  helm-make
+  helm-dash)

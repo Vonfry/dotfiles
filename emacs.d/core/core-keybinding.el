@@ -5,81 +5,115 @@
 ;;
 ;; The name with evil means that the keybind use with <leader> in evil-normal.
 
-(defconst vonfry-keybind-evil-leader "<SPC>"
-  "Leader key")
+(defcustom vonfry-keybind-evil-leader "<SPC>"
+  "Leader key"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-M-x "x"
-  "M-x")
+(defcustom vonfry-keybind-evil-M-x "x"
+  "M-x"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-jump-to-definition "."
-  "jump to definition")
+(defcustom vonfry-keybind-evil-jump-to-definition "."
+  "jump to definition"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-jump-module ","
-  "jump to file or module")
+(defcustom vonfry-keybind-evil-jump-module ","
+  "jump to file or module, or jump back. In some module, such as C, it is used to switch between head and source file.
+In global env, it is jump back with jump-to-tefinition."
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-code ";"
-  "show code struct like ebrower and imenu.")
+(defcustom vonfry-keybind-evil-jump "j"
+  "jump function"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-repl "'"
-  "repl")
+(defcustom vonfry-keybind-evil-code ";"
+  "show code struct like ebrower and imenu."
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-only-window "o"
-  "close other window")
+(defcustom vonfry-keybind-evil-repl "'"
+  "repl"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-close-window "w"
-  "close currect window")
+(defcustom vonfry-keybind-evil-buffer "b"
+  "buffer"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-buffer "b")
+(defcustom vonfry-keybind-evil-marks "m"
+  "marks"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-marks "m"
-  "marks")
+(defcustom vonfry-keybind-evil-run "r"
+  "compile or run"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-run "r"
-  "compile or run")
+(defcustom vonfry-keybind-evil-search "a"
+  "ag"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-search "a"
-  "ag")
+(defcustom vonfry-keybind-evil-ctrlp "p"
+  "project file search"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-ctrlp "p"
-  "project file search")
+(defcustom vonfry-keybind-evil-file "f"
+  "file search without recursion."
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-file "f"
-  "file search without recursion.")
+(defcustom vonfry-keybind-evil-tag "t"
+  "taglist"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-tag "t"
-  "taglist")
+(defcustom vonfry-keybind-evil-neotree "n"
+  "dir struct"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-neotree "n"
-  "dir struct")
+(defcustom vonfry-keybind-evil-doc "d"
+  "doc with dash"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-doc "d"
-  "doc with dash")
+(defcustom vonfry-keybind-evil-check "q"
+  "syntax check, the default is q because of quickfix in vim."
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-check "q"
-  "syntax check, the default is q because of quickfix in vim.")
+(defcustom vonfry-keybind-evil-undotree "u"
+  "undo tree"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-undotree "u"
-  "undo tree")
+(defcustom vonfry-keybind-evil-switch-window "o"
+  "switch-window"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-nerdcommenter "c"
-  "nerd commenter first key")
+(defcustom vonfry-keybind-evil-window "w"
+  "manage window"
+  :group 'vonfry-keybind)
 
-(defconst vonfry-keybind-evil-terminal "$"
-  "show a terminal")
+(defcustom vonfry-keybind-evil-nerdcommenter "c"
+  "nerd commenter first key"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-gtags "g"
+  "ggtags"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-lang "z"
+  "lang configure"
+  :group 'vonfry-keybind)
+
+(defcustom +lang-nmap-prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-lang)
+  "lang nmap prefix"
+  :group 'vonfry-module)
+
+(defcustom vonfry-keybind-evil-virtual "v"
+  "vitrual machine such as docker"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-terminal "$"
+  "show a terminal"
+  :group 'vonfry-keybind)
 
 (when  (fboundp 'toggle-frame-fullscreen)
-  (vonfry-system-sets
-    '(darwin
-      (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen)
-      (custom-set-variables
-        (mac-command-modifier 'meta)
-        (mac-option-modifier 'super)
-        (default-input-method "MacOS"))
-      (dolist (multiple '("" "double-" "triple-"))
-        (dolist (direction '("right" "left"))
-          (global-set-key (read-kbd-macro (concat "<" multiple "wheel-" direction ">")) 'ignore))))))
+  (vonfry-system-sets '(darwin (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen))))
 
-(vonfry-use-package! 'general
+(vonfry|use-package! 'general
   :config
   (setq general-default-keymaps 'evil-normal-state-map)
   (setq general-default-prefix  nil)

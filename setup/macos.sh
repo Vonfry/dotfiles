@@ -14,6 +14,8 @@ brew install lolcat        # colorful print
 brew install cloc          # code statistics
 brew install tree uchardet # file browser
 # C & Cpp libs
+brew install gcc --with-jit --with-nls
+brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install automake
@@ -22,6 +24,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
+brew install rtags
 brew install cscope
 brew install doxygen --with-doxywizard
 # code search
@@ -32,6 +35,7 @@ brew install python3 python
 brew install ruby ----universal
 brew install rbenv
 brew install clisp sbcl
+brew install ocaml opam
 brew install go node
 brew install graphviz                      # dot lang to png
 brew install sqlite mysql postgresql redis # database
@@ -48,7 +52,8 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 # editor
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
+brew install homebrew/emacs/auctex
 sudo ln -f -s $script_dir/motd /etc/motd
 
 # quicklook

@@ -19,6 +19,11 @@ itself.")
   IMPORTANT!!! You must load the other files by youself. The only files under the dir named custom.el can be
 autoloaded.")
 
+(defcustom vonfry-downloads-dir (expand-file-name "Downloads/" "~")
+  "This is the dir for where you downloads files with eww or other tools. The default var is for macos where is your
+user's downloads dir"
+  :group 'vonfry-dir)
+
 
 (defconst vonfry-custom-file (expand-file-name "custom.el" vonfry-local-dir))
 

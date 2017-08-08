@@ -18,6 +18,7 @@ Plugin 'janko-m/vim-test'                             " test
 
 Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
+Plugin 'lyuts/vim-rtags'                              " rtags
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
 Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'tpope/vim-rails'                              " syntax rails
@@ -320,6 +321,10 @@ let g:html5_event_handler_attirbutes_complete = 0
 "
 " }}}
 
+" set plugin vim-rtags {{
+
+" }}
+
 " set plugin dbext {{{
 " TODO see :h dbext.txt
 " }}}
@@ -428,7 +433,7 @@ nmap <leader>n :NERDTreeFind<CR>
 " }}}
 
 " set plugin vim-rooter {{{
-let g:rooter_patterns = ['.projectile ', '.git/', '.projections.json', '.vimprj', '.ycm_extra_conf.py', '.tern-project', 'Makefile', 'CMakeLists.txt', 'init.el', 'readme.md', 'readme.org']
+let g:rooter_patterns = ['.ycm_extra_conf.py', '.gitignore', '.tern-project', 'Makefile', 'CMakeLists.txt', 'readme.md', 'readme.org' , '.projectile', '.projections.json', '.vimprj', '.git/']
 " }}}
 
 " set plugin vim-gitgutter {{{
@@ -437,6 +442,17 @@ let g:gitgutter_sign_column_always = 0
 
 " set plugin org {{{
 let g:org_agenda_files=['~/.org/*.org']
+" }}}
+
+" }}}
+"
+
+" set other plugin with in system {{{
+
+" set plugin fzf {{{
+" This is the default extra key bindings
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+set rtp+=/usr/local/opt/fzf,~/.fzf
 " }}}
 
 " }}}
