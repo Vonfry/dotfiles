@@ -3,7 +3,13 @@
 (vonfry|use-package! js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-  (add-hook 'js2-mode-hook 'js2-imenu-extras-mode))
+  (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
+  (add-hook 'js2-mode-hook
+    (lambda ()
+      (nmap :keymaps 'local
+            :prefix vonfry-keybind-evil-leader
+             vonfry-keybind-evil-jump 'js2-jump-to-definition
+             vonfry-keybind-evil-jump-module 'js-find-symbol))))
 
 (vonfry|use-package! json-mode :after js2-mode)
 
@@ -12,10 +18,6 @@
   (add-hook 'js2-mode-hook 'tern-mode)
   (add-hook 'js2-mode-hook
     (lambda ()
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-             vonfry-keybind-evil-jump 'tern-find-definition-by-name
-             vonfry-keybind-evil-jump-module 'tern-pop-find-definition)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             ";" 'tern-find-definition
