@@ -12,6 +12,12 @@ itself."
   :type 'directory
   :group 'vonfry-dir)
 
+(defcustom vonfry-temp-dir (expand-file-name "temp/" vonfry-local-dir)
+  "The local dir saves the temporary files such as elpa or some plugins'. You can clean it and it will be reset by
+itself."
+  :type 'directory
+  :group 'vonfry-dir)
+
 (defcustom vonfry-custom-dir (expand-file-name "custom/" vonfry-config-dir)
   "The custom dir saves the local setting such as custom-file or some configures only can be used on this computer
 (jekyll, python path, etc.).
@@ -34,6 +40,9 @@ user's downloads dir"
   "custom for user's emacs"
   :type 'file
   :group 'vonfry-dir)
+
+(unless (file-exists-p vonfry-temp-dir)
+  (make-directory vonfry-temp-dir))
 
 (custom-set-variables
   '(custom-file vonfry-custom-file))

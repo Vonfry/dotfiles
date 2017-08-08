@@ -1,10 +1,19 @@
 ;;; projectile packages -*- lexical-binding: t -*-
 
 (vonfry|use-package!  projectile
-  :config
+  :init
+  (defcustom +projectile-cache-dir
+    (expand-file-name "projectile/" vonfry-local-dir)
+    "projectile cache dir"
+    :group 'vonfry-modules)
   (custom-set-variables
-    '(projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
-    '(projectile-switch-project-action 'neotree-projectile-action))
+      '(projectile-known-projects-file +projectile-cache-dir)
+      '(projectile-completion-system 'helm)
+      '(projectile-cache-file +projectile-cache-dir)
+      '(projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
+      '(projectile-switch-project-action 'neotree-projectile-action))
+  :config
+
   (projectile-global-mode t))
 
 (vonfry|use-package! helm-projectile

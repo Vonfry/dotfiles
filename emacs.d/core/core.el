@@ -41,6 +41,7 @@
 (require 'core-ui)
 (require 'core-editor)
 (require 'core-keybinding)
+(require 'core-os)
 
 (defgroup vonfry-modules nil
   "Vonfry's emacs group about modules")

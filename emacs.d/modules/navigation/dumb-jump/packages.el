@@ -1,3 +1,3 @@
-;;; dump-jump packages -*- lexical-binding: t -*-
+;;; dumb-jump packages -*- lexical-binding: t -*-
 
-(vonfry|packages! dump-jump)
+(vonfry|packages! dumb-jump)

@@ -32,7 +32,6 @@
             vonfry-keybind-evil-jump-to-definition 'rtags-find-references-at-point
             vonfry-keybind-evil-code 'rtags-imenu))))
 
-
 (vonfry|use-package! helm-rtags
   :after helm rtags)
 
@@ -59,18 +58,18 @@
 ;; this is used in all program lang
 (vonfry|use-package! compile)
 
-(vonfry|use-package! irony-mode
+(vonfry|use-package! irony
   :init
   (defcustom +irony-dir
-    (concat "irony/" vonfry-local-dir)
+    (expand-file-name "irony/" vonfry-local-dir)
     "irony local dir"
     :type 'directory
     :group 'vonfry-modules)
+  (custom-set-variables
+    '(irony-user-dir +irony-dir)
+    '(irony-server-install-prefix +irony-dir))
   :config
   ;; (irony-install-server) should be run at first.
-  (custom-set-variables
-    '(irony-use-dir +irony-dir))
-    '(irony-server-install-prefix +irony-dir)
   (add-hook 'c++-mode-hook 'irony-mode)
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'objc-mode-hook 'irony-mode)
@@ -101,9 +100,9 @@
       (add-to-list (make-local-variable 'company-backends) 'company-irony))))
 
 (vonfry|use-package! flycheck-irony
-  :after flycheck irony-mode
+  :after flycheck irony
   :config
-  (add-hook 'flycheck-mode-hook flycheck-irony-setup))
+  (add-hook 'flycheck-mode-hook 'flycheck-irony-setup))
 
 (vonfry|use-package! irony-eldoc
   :config

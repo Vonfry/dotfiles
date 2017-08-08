@@ -55,7 +55,6 @@
   '(global-linum-mode t)
   '(global-prettify-symbols-mode t)
   '(show-trailing-whitespace t)
-  '(whitespace-style (face trailing))
   '(global-whitespace-modes t)
   '(case-fold-search t)
 
@@ -75,10 +74,11 @@
   '(word-wrap t)
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
+  '(fill-column vonfry-text-width)
 
   '(save-interprogram-paste-before-kill t)
 
-  '(temporary-file-directory vonfry-local-dir)
+  '(temporary-file-directory vonfry-temp-dir)
   '(make-backup-files t)
   '(backup-directory-alist `((".*" . ,vonfry-backup-file-dir)))
   '(auto-save-default nil)

@@ -10,8 +10,8 @@
 (vonfry|use-package! helm-company
   :after company helm
   :config
-  (define-key company-mode-map (kbd "C-;") 'helm-company)
-  (define-key company-active-map (kbd "C-;") 'helm-company))
+  (define-key company-mode-map (kbd "M-;") 'helm-company)
+  (define-key company-active-map (kbd "M-;") 'helm-company))
 
 (vonfry|use-package! company-quickhelp
   :after company

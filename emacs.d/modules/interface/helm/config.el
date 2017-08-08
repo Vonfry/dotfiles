@@ -1,11 +1,12 @@
 ;;; helm config -*- lexical-binding: t -*-
 
 (vonfry|use-package! helm
-  :bind (("M-x"     . helm-M-x)
-         ("C-x r b" . helm-filtered-bookmarks)
-         ("C-x C-f" . helm-find-files))
-  :config
+  :init
   (require 'helm-config)
+  :config
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (helm-mode 1)
   (custom-set-variables
     '(helm-mode-fuzzy-match                 t)
@@ -22,8 +23,8 @@
     '(helm-lisp-fuzzy-completion            t))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-M-x    'helm-M-x
-    vonfry-keybind-evil-file   'helm-find-files))
+        vonfry-keybind-evil-M-x    'helm-M-x
+        vonfry-keybind-evil-file   'helm-find-files))
 
 (vonfry|use-package! helm-make
   :after helm

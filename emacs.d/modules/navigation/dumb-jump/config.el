@@ -1,17 +1,17 @@
-;;; dump-jump config -*- lexical-binding: t -*-
+;;; dumb-jump config -*- lexical-binding: t -*-
 
-(vonfry|use-package! dump-jump
+(vonfry|use-package! dumb-jump
   :init
-  (defcustom +dump-jump-nmap-prefix
+  (defcustom +dumb-jump-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump)
-    "dump jump nmap"
+    "dumb jump nmap"
     :type 'string
     :group 'vonfry-modules)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-to-definition 'dumb-jump-go
         vonfry-keybind-evil-jump-module        'dumb-jump-back)
-  (nmap :prefix +dump-jump-nmap-prefix
+  (nmap :prefix +dumb-jump-nmap-prefix
         "." 'dumb-jump-go
         "," 'dumb-jump-back
         "o" 'dumb-jump-go-other-window

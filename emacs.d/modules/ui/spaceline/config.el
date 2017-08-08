@@ -1,6 +1,6 @@
 ;;; spaceline config -*- lexical-binding: t -*-
 
-(vonfry|packages! spaceline
+(vonfry|use-package! spaceline
   :init
   (require 'spaceline-config)
   :config

@@ -5,7 +5,7 @@
 (vonfry|packages!
   rtags
 
-  irony-mode
+  irony
   company-irony
   flycheck-irony
   irony-eldoc
