@@ -113,7 +113,7 @@ In global env, it is jump back with jump-to-tefinition."
 (when  (fboundp 'toggle-frame-fullscreen)
   (vonfry-system-sets '(darwin (global-set-key (kbd "M-C-f") 'toggle-frame-fullscreen))))
 
-(vonfry|use-package! 'general
+(vonfry|use-package! general
   :config
   (setq general-default-keymaps 'evil-normal-state-map)
   (setq general-default-prefix  nil)

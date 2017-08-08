@@ -16,19 +16,26 @@
   "This variables is used to the arguments for `vonfry-load-modules`"
   :group 'vonfry)
 
-(defconst vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir))
+(defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir)
+  "The dir is where the elpa and packages manager download files."
+  :group 'vonfry-dir)
 
-(defconst vonfry-elpa-dir (expand-file-name "elpa/" vonfry-packages-dir))
+(defcustom vonfry-elpa-dir (expand-file-name "elpa/" vonfry-packages-dir)
+  "The dir is where the elpa files."
+  :group 'vonfry-dir)
 
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
-(defconst vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
+(defcustom vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
   "Put your own modules here. Please don't set other modules without hook in this dir, becase the module loading order
-is undefined(It always is loaded by alpha order).")
+is undefined(It always is loaded by alpha order)."
+  :group 'vonfry-dir)
 
 (defconst vonfry-pkg-manager "quelpa")
 
-(defconst vonfry-pkg-manager-dir (expand-file-name (concat vonfry-pkg-manager "/") vonfry-packages-dir))
+(defcustom vonfry-pkg-manager-dir (expand-file-name (concat vonfry-pkg-manager "/") vonfry-packages-dir)
+  "Save that the package manager files."
+  :group 'vonfry-dir)
 
 ;;
 ;; setup package manager
@@ -39,12 +46,12 @@ is undefined(It always is loaded by alpha order).")
 (custom-set-variables
   '(package-user-dir vonfry-elpa-dir)
   '(quelpa-stable-p nil)
-  '(quelpa-dir vonfry-pkg-manager-dir))
+  '(quelpa-dir vonfry-pkg-manager-dir)
+  '(use-package-always-ensure nil))
 
-(reuqire 'package)
+(require 'package)
 (package-initialize)
-(if (require 'quelpa nil t)
-    (quelpa-self-upgrade)
+(unless (require 'quelpa nil t)
   (with-temp-buffer
     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
     (eval-buffer)))
@@ -59,10 +66,6 @@ is undefined(It always is loaded by alpha order).")
     )
   "These are the default basic packages, which are used by modules.")
 
-;; load the basic packages
-(dolist (pkg vonfry-basic-packages)
-  (require pkg))
-
 ;;
 ;; define function for packages
 ;;
@@ -72,6 +75,13 @@ is undefined(It always is loaded by alpha order).")
 (defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
 
 (defalias #'vonfry-pkg-get                   #'quelpa)
+
+
+;; load the basic packages
+(dolist (pkg vonfry-basic-packages)
+  (unless (require pkg nil t)
+      (vonfry-pkg-get pkg)
+      (require pkg)))
 
 (defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
@@ -93,14 +103,13 @@ is undefined(It always is loaded by alpha order).")
 
   (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
          (file-path (expand-file-name file module-dir)))
-      (when (file-exists-p file-path)
-        (load packages-path))))
+    (load file-path t)))
 
 (defun vonfry-load-module-packages (module-name)
-  (vonfry-load-module module-name "packages")
+  (vonfry-load-module module-name "packages"))
 
 (defun vonfry-load-module-config (module-name)
-  (vonfry-load-module module-name "config")
+  (vonfry-load-module module-name "config"))
 
 (defun vonfry-load-autoload (module-name)
   "Load the autoload part in a path. It will load autoload.el, or files in autoload dir."
@@ -121,12 +130,13 @@ packages.el which is used to define the dependence with `vonfry-package!`. This 
 modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module
 which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
 modules."
-  (let* ((module-alist '()))
-    (dolist (module (directory-files vonfry-modules-dir))
-      (dolist (submodules (directory-files (expand-file-name module vonfry-modules-dir)))
-        (let (module-name (concat module "/" submodule))
-          (unless (member  module-name exclude))
-            (add-to-list 'module-alist module-name t))))
+  (let* ((module-alist '())
+         (regexp-exclude "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
+    (dolist (module (directory-files vonfry-modules-dir nil regexp-exclude))
+        (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-exclude))
+          (let ((module-name (concat module "/" submodule)))
+            (unless (member  module-name exclude))
+              (push module-name module-alist))))
       (mapcar 'vonfry-load-module-packages module-alist)
       (mapcar 'vonfry-load-module-config module-alist)
       (mapcar 'vonfry-load-autoload module-alist)))

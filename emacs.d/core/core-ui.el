@@ -26,7 +26,7 @@
                       charset
                       (font-spec :family ,font-name :size ,font-size))))
 
-(vonfry-system-set '(darwin (chinese-font "Hei" 11)))
+(vonfry-system-sets '(darwin (chinese-font "Hei" 10)))
 
 (vonfry|packages! info+)
 (vonfry|use-package! info+
