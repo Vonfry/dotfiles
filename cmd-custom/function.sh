@@ -49,7 +49,7 @@ function vonfry-update()
     fi
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
-    # emacs --batch --eval="(vonfry/update-packages)"
+    emacs --batch --eval="(vonfry/update-packages)"
 
 }
 
