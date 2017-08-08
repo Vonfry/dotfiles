@@ -53,7 +53,6 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-dbus
-brew install homebrew/emacs/auctex
 sudo ln -f -s $script_dir/motd /etc/motd
 
 # quicklook
