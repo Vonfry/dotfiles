@@ -14,25 +14,27 @@
 
 (defcustom vonfry-text-width 120
   "The width for a line"
+  :type 'number
   :group 'vonfry-editor)
 
 (defcustom vonfry-backup-file-dir (expand-file-name "backups/" vonfry-local-dir)
   "The backup file dir."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defcustom vonfry-auto-save-dir (expand-file-name "auto-save/" vonfry-local-dir)
   "The auto-save file dir."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defcustom vonfry-auto-save-list-prefix vonfry-auto-save-dir
   "The auto-save file prefix."
+  :type 'string
   :group 'vonfry-dir)
 
-(add-hook 'after-init-hook
-  (lambda ()
-    (dolist (dir '(vonfry-backup-file-dir vonfry-auto-save-dir)))
-      (unless (file-exists-p dir)
-        (make-directory dir))))
+(dolist (tmp-dir `(,vonfry-backup-file-dir ,vonfry-auto-save-dir))
+  (unless (file-exists-p tmp-dir)
+    (make-directory tmp-dir)))
 
 (vonfry|packages! whitespace-cleanup-mode)
 (vonfry|use-package! whitespace-cleanup-mode
@@ -79,6 +81,7 @@
   '(temporary-file-directory vonfry-local-dir)
   '(make-backup-files t)
   '(backup-directory-alist `((".*" . ,vonfry-backup-file-dir)))
+  '(auto-save-default nil)
   '(auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t)))
   '(auto-save-list-file-prefix vonfry-auto-save-list-prefix)
 

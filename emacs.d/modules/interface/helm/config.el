@@ -45,6 +45,7 @@
   (defcustom +helm-dash-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc)
     "helm-dash prefix key"
+    :type 'string
     :group 'vonfry-module)
   :config
   (setq helm-dash-common-docsets '("Bash" "Docker"))

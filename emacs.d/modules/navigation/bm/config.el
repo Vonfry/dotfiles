@@ -5,6 +5,7 @@
   (defcustom +bm-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-marks)
     "bm keybind map"
+    :type 'string
     :group 'vonfry-module)
   :general
   (nmap :prefix +bm-nmap-prefix)

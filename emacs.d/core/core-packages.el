@@ -18,10 +18,12 @@
 
 (defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir)
   "The dir is where the elpa and packages manager download files."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defcustom vonfry-elpa-dir (expand-file-name "elpa/" vonfry-packages-dir)
   "The dir is where the elpa files."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
@@ -29,12 +31,14 @@
 (defcustom vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
   "Put your own modules here. Please don't set other modules without hook in this dir, becase the module loading order
 is undefined(It always is loaded by alpha order)."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defconst vonfry-pkg-manager "quelpa")
 
 (defcustom vonfry-pkg-manager-dir (expand-file-name (concat vonfry-pkg-manager "/") vonfry-packages-dir)
   "Save that the package manager files."
+  :type 'directory
   :group 'vonfry-dir)
 
 ;;
@@ -122,7 +126,7 @@ is undefined(It always is loaded by alpha order)."
       (dolist (l (directory-files-recursively autoload-dir ".*"))
         (load l)))))
 
-(defun vonfry-load-modules (&optional &rest exclude)
+(defun vonfry-load-modules (&rest exclude)
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
   All modules should use function and macro in this file. By default, every modules should have a file named

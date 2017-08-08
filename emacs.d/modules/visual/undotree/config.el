@@ -5,11 +5,15 @@
   (defcustom +undotree-nmap-prefix
     vonfry-keybind-evil-leader
     "undotree evil prefix key"
+    :type 'string
     :group 'vonfry-module)
   (defcustom +undotree-history-directory
     (concat "undotree/" vonfry-local-dir)
     "undotree history directory"
+    :type 'string
     :group 'vonfry-module)
+  (unless (file-exists-p +undotree-history-directory)
+    (make-directory +undotree-history-directory))
   :diminish undo-tree-mode
   :config
   (global-undo-tree-mode)

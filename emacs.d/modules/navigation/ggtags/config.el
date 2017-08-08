@@ -10,6 +10,7 @@
   (defcustom +helm-gtags-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-gtags)
     "helm-gtags prefix for nmap"
+    :type 'string
     :group 'vonfry-module)
   (custom-set-variables
     '(helm-gtags-display-style "detail")

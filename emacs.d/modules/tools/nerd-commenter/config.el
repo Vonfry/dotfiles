@@ -5,6 +5,7 @@
   (defcustom +nc-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-nerdcommenter)
     "nerd-commenter prefix key"
+    :type 'string
     :group 'vonfry-module)
   :config
   (evilnc-default-hotkeys t)

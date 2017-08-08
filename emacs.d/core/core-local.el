@@ -9,6 +9,7 @@
 (defcustom vonfry-local-dir (expand-file-name "local/" vonfry-config-dir)
   "The local dir saves the temporary files such as elpa or some plugins'. You can clean it and it will be reset by
 itself."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defcustom vonfry-custom-dir (expand-file-name "custom/" vonfry-config-dir)
@@ -19,16 +20,19 @@ itself."
 
   IMPORTANT!!! You must load the other files by youself. The only files under the dir named custom.el can be
 autoloaded."
+  :type 'directory
   :group 'vonfry-dir)
 
 (defcustom vonfry-downloads-dir (expand-file-name "Downloads/" "~")
   "This is the dir for where you downloads files with eww or other tools. The default var is for macos where is your
 user's downloads dir"
+  :type 'directory
   :group 'vonfry-dir)
 
 
 (defcustom vonfry-custom-file (expand-file-name "custom.el" vonfry-custom-dir)
   "custom for user's emacs"
+  :type 'file
   :group 'vonfry-dir)
 
 (custom-set-variables

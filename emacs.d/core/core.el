@@ -42,7 +42,7 @@
 (require 'core-editor)
 (require 'core-keybinding)
 
-(defgroup vonfry-modules nil
+(defgroup vonfry-module nil
   "Vonfry's emacs group about modules")
 
 (vonfry-load-autoload vonfry-core-dir)

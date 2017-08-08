@@ -3,7 +3,10 @@
 (vonfry|use-package! dump-jump
   :init
   (defcustom +dump-jump-nmap-prefix
-             (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump))
+    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump)
+    "dump jump nmap"
+    :type 'string
+    :group 'vonfry-module)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-to-definition 'dumb-jump-go

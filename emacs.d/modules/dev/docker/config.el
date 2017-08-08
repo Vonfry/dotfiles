@@ -5,6 +5,7 @@
   (defcustom +docker-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-virtual)
     "docker nmap prefix"
+    :type 'string
     :group 'vonfry-module)
   :config
   (vonfry-system-sets
