@@ -15,7 +15,7 @@
       ;; treat 'echo' like shell echo
       eshell-plain-echo-behavior t
       ;; cache directory
-      eshell-directory-name (expand-file-name  "eshell/") vonfry-local-dir)
+      eshell-directory-name (expand-file-name  "eshell/" vonfry-local-dir))
 
 (vonfry|use-package! company-shell
   :after company

@@ -8,6 +8,6 @@
     :type 'string
     :group 'vonfry-modules)
   :general
-  (nmap :prefix +bm-nmap-prefix)
+  (nmap :prefix +bm-nmap-prefix
     "t" 'bm-toggle
-    "m" 'helm-bookmarks)
+    "m" 'helm-bookmarks))

@@ -9,4 +9,4 @@
 (when (file-exists-p vonfry-custom-file)
   (load custom-file))
 
-(provite 'init)
+(provide 'init)

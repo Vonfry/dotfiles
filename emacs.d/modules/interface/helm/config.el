@@ -1,9 +1,9 @@
 ;;; helm config -*- lexical-binding: t -*-
 
 (vonfry|use-package! helm
-  :bind (("M-x"     helm-M-x)
-         ("C-x r b" helm-filtered-bookmarks)
-         ("C-x C-f" helm-find-files))
+  :bind (("M-x"     . helm-M-x)
+         ("C-x r b" . helm-filtered-bookmarks)
+         ("C-x C-f" . helm-find-files))
   :config
   (require 'helm-config)
   (helm-mode 1)
@@ -21,7 +21,7 @@
     '(helm-apropos-fuzzy-match              t)
     '(helm-lisp-fuzzy-completion            t))
   :general
-  (mmap :prefix vonfry-keybind-evil-leader
+  (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-M-x    'helm-M-x
     vonfry-keybind-evil-file   'helm-find-files))
 
@@ -31,7 +31,7 @@
   (custom-set-variables
     '(helm-make-fuzzy-matching t))
   :general
-  (mmap :prefix vonfry-keybind-evil-leader
+  (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-run 'helm-make))
 
 (vonfry|use-package! helm-descbinds-mode
@@ -53,7 +53,7 @@
   (defun +helm-dash-set-dash (&rest docs)
     (setq helm-dash-docsets docs))
   :general
-  (nmap :prefix +helm-dash-set-dash
+  (nmap :prefix +helm-dash-nmap-prefix
         "d" 'helm-dash
         "." 'helm-dash-at-point
         "a" 'helm-dash-activate-docset))

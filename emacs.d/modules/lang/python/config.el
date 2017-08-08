@@ -4,6 +4,7 @@
 
 (vonfry|use-package! anaconda-mode
   :disabled
+  :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
@@ -45,7 +46,7 @@
 
 
 (vonfry|use-package! pydoc
- :cofnig
+ :config
  (add-hook 'python-mode-hook
     (lambda ()
       (nmap :keymaps 'local
@@ -53,5 +54,5 @@
             "p" 'pydoc))))
 
 (vonfry|use-package! pip-requirements
- :cofnig
+ :config
  (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))

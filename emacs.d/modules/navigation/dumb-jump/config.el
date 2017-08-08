@@ -20,4 +20,4 @@
         "z" 'dumb-jump-go-prefer-external-other-window)
   :config
   (custom-set-variables
-    '(dumb-jump-selector 'helm))
+    '(dumb-jump-selector 'helm)))

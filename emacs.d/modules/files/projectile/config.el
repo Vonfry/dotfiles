@@ -26,18 +26,11 @@
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (push (org-projectile-project-todo-entry) org-capture-templates))
 
-(vonfry|use-package! org-projectile
-  :after projectile
+(vonfry|use-package! ibuffer-projectile
+  :after ibuffer
   :config
   (add-hook 'ibuffer-hook
     (lambda ()
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic)))))
-
-(vonfry|use-package! ibuffer-projectile
-  :after ibuffer
-  :config
-  (ibuffer-projectile-set-filter-groups)
-  (unless (eq ibuffer-sorting-mode 'alphabetic)
-    (ibuffer-do-sort-by-alphabetic)))

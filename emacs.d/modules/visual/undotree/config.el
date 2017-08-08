@@ -8,7 +8,7 @@
     :type 'string
     :group 'vonfry-modules)
   (defcustom +undotree-history-directory
-    (concat "undotree/" vonfry-local-dir)
+    (expand-file-name "undotree/" vonfry-local-dir)
     "undotree history directory"
     :type 'string
     :group 'vonfry-modules)
@@ -19,7 +19,7 @@
   (global-undo-tree-mode)
   (custom-set-variables
     '(undo-tree-auto-save-history t)
-    '(undo-tree-history-directory-alist `((".*" ,+undotree-history-directory))`))
+    '(undo-tree-history-directory-alist `((".*" ,+undotree-history-directory))))
   :general
   (nmap :prefix +undotree-nmap-prefix
         vonfry-keybind-evil-undotree 'undo-tree-visualize))

@@ -2,4 +2,4 @@
 
 (vonfry|use-package! sql-indent)
 
-(vonfry|use-package! emacsql
+(vonfry|use-package! emacsql)

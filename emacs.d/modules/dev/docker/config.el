@@ -19,7 +19,7 @@
      (setenv "DOCKER_MACHINE_NAME" "box")))
   (docker-global-mode t)
   :general
-  (nmap :prefix +docker-nmap-prefix )
+  (nmap :prefix +docker-nmap-prefix
       "c" 'docker-containers
       "d" 'docker-rmi
       "e" 'docker-unpause
@@ -30,4 +30,4 @@
       "P" 'docker-push
       "p" 'docker-pause
       "r" 'docker-restart
-      "s" 'docker-start)
+      "s" 'docker-start))

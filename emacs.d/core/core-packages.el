@@ -7,6 +7,12 @@
 ;; should be loaded in these file or by yourself.
 ;; packages.el define the dependence with `vonfry|package!`
 ;; config.el define the configure with `vonfry|use-package!`
+;;
+;; quelpa and use-package both are provided a tools that download a package if it isn't installed. Why I shouldn't use
+;; it? One of the reasons is that I don't know that when I am coding this configure. And another reason is I think both
+;; file to manage different aim which can have a good file structure. I also download all the package at the first time
+;; then load them. This can deal with some problem in plugins that they have a optional dependency but being coded
+;; without after-load or a hook, which is the better safe method.
 
 ;;
 ;; define some variables for packages
@@ -49,6 +55,8 @@ is undefined(It always is loaded by alpha order)."
   '(package-user-dir vonfry-elpa-dir)
   '(quelpa-stable-p nil)
   '(quelpa-dir vonfry-pkg-manager-dir)
+  '(quelpa-checkout-melpa-p nil)
+  '(quelpa-update-melpa-p nil)
   '(use-package-always-ensure nil))
 
 (require 'package)

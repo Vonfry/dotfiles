@@ -21,9 +21,8 @@
 
 (vonfry|use-package! evil-numbers
   :after evil
-  :bind
-  ("C-c +" evil-numbers/inc-at-pt)
-  ("C-c -" evil-numbers/dec-at-pt))
+  :bind (("C-c +" . evil-numbers/inc-at-pt)
+         ("C-c -" . evil-numbers/dec-at-pt)))
 
 (vonfry|use-package! evil-surround
   :after evil

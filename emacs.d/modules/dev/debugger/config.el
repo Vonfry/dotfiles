@@ -1,4 +1,4 @@
 ;;; debugger config -*- lexical-binding: t -*-
 
-(vonfr|use-package! realgud)
+(vonfry|use-package! realgud)
 
