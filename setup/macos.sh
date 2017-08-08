@@ -53,6 +53,7 @@ brew cask install gitter
 brew tap macvim-dev/macvim && brew install --HEAD macvim-dev/macvim/macvim
 brew install neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-modules --HEAD
+brew install homebrew/emacs/auctex
 sudo ln -f -s $script_dir/motd /etc/motd
 
 # quicklook
