@@ -11,7 +11,7 @@
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-gtags)
     "helm-gtags prefix for nmap"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   (custom-set-variables
     '(helm-gtags-display-style "detail")
     '(helm-gtags-auto-update t)

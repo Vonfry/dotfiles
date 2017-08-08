@@ -6,7 +6,7 @@
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-marks)
     "bm keybind map"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   :general
   (nmap :prefix +bm-nmap-prefix)
     "t" 'bm-toggle

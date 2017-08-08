@@ -46,7 +46,7 @@
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-doc)
     "helm-dash prefix key"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   :config
   (setq helm-dash-common-docsets '("Bash" "Docker"))
   (setq helm-dash-browser-func 'eww)

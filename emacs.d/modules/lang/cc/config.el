@@ -65,7 +65,7 @@
     (concat "irony/" vonfry-local-dir)
     "irony local dir"
     :type 'directory
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   :config
   ;; (irony-install-server) should be run at first.
   (custom-set-variables

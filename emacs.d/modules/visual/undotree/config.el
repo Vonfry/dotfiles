@@ -6,12 +6,12 @@
     vonfry-keybind-evil-leader
     "undotree evil prefix key"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   (defcustom +undotree-history-directory
     (concat "undotree/" vonfry-local-dir)
     "undotree history directory"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   (unless (file-exists-p +undotree-history-directory)
     (make-directory +undotree-history-directory))
   :diminish undo-tree-mode

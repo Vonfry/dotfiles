@@ -4,8 +4,7 @@
   :config
   (custom-set-variables
     '(company-tooltip-limit 16)
-    '(company-tooltip-flip-when-above t)
-    )
+    '(company-tooltip-flip-when-above t))
   (add-hook 'after-init-hook 'global-company-mode))
 
 (vonfry|use-package! helm-company

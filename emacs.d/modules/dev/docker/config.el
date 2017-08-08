@@ -6,7 +6,7 @@
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-virtual)
     "docker nmap prefix"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   :config
   (vonfry-system-sets
     '(darwin

@@ -6,7 +6,7 @@
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump)
     "dump jump nmap"
     :type 'string
-    :group 'vonfry-module)
+    :group 'vonfry-modules)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-to-definition 'dumb-jump-go
