@@ -3,7 +3,8 @@
 ;; This file doesn't set a lot of keybindinds, because the plugins are setting in modules and they cannot be set here.
 ;; If using hooks, I think it isn't beautiful enough. So the file only defines some keys which are bounded to use.
 ;;
-;; The name with evil means that the keybind use with <leader> in evil-normal.
+;; The name with evil means that the keybind use with <leader> in evil-normal. I don't use `general-default-prefix` to
+;; set leader because there are some normal bind withou leader.
 
 (defcustom vonfry-keybind-evil-leader "<SPC>"
   "Leader key"
