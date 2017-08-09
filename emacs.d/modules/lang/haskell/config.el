@@ -1,6 +1,6 @@
 ;;; haskell config -*- lexical-binding: t -*-
 
-(vonfry|use-package! haskell-mode
+(vonfry|use-package! haskell
   :config
   (custom-set-variables
     '(haskell-indentation-electric-flag t)
@@ -45,7 +45,7 @@
             vonfry-keybind-evil-repl               'intero-repl))))
 
 (vonfry|use-package! ghc
-  :after haskell-mode
+  :after haskell
   :disabled
   :config
   (add-hook 'haskell-mode-hook 'ghc-init))
@@ -59,7 +59,7 @@
       (custom-set-variables '(company-ghc-show-info t)))))
 
 (vonfry|use-package! hindent
-  :after haskell-mode
+  :after haskell
   :config
   (add-hook 'haskell-mode-hook 'hindent-mode))
 
