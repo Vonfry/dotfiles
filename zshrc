@@ -36,7 +36,15 @@ source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
 source $CMD_CUSTOM_DIR/alias.sh
 
-find $CMD_CUSTOM_DIR/misc/ -type f | xargs -n1 source
-find $CMD_CUSTOM_DIR/local/ -type f !-name defvar.sh | xargs -n1 source
+for file in $CMD_CUSTOM_DIR/misc/*; do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
+for file in $CMD_CUSTOM_DIR/local/*; do
+    if [ -f $file ]  && [ $file != "defvar.sh" ]; then
+        source $file
+    fi
+done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
