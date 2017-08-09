@@ -2,6 +2,8 @@
 
 case "$(uname)" in
     "Darwin")
+        export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+        export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
         export PATH="/usr/local/opt/llvm/bin:$PATH"
         alias llvm-help="
         To use the bundled libc++ please add the following LDFLAGS:
