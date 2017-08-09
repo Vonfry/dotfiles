@@ -1,7 +1,6 @@
 ;;; projectile packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  projectile
-  helm-projectile
-  org-projectile
-  ibuffer-projectile)
+(vonfry|package! projectile)
+(vonfry|package! helm-projectile)
+(vonfry|package! org-projectile)
+(vonfry|package! ibuffer-projectile)

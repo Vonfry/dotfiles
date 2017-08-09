@@ -1,3 +1,3 @@
 ;;; docker packages -*- lexical-binding: t -*-
 
-(vonfry|packages! docker)
+(vonfry|package! docker)

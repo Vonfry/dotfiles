@@ -1,16 +1,13 @@
 ;;; lisp packages -*- lexical-binding: t -*-
 
 ;; all lisp
-(vonfry|packages!
-  lispy
-  evil-lispy)
+(vonfry|package! lispy)
+(vonfry|package! evil-lispy)
 
 ;; common lisp
-(vonfry|packages!
-  slime
-  common-lisp-snippets
-  slime-company)
+(vonfry|package! slime)
+(vonfry|package! common-lisp-snippets)
+(vonfry|package! slime-company)
 
 ;; emacs lisp & scheme
-(vonfry|packages!
-  geiser)
+(vonfry|package! geiser)

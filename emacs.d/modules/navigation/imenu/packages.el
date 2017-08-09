@@ -1,6 +1,5 @@
 ;;; imenu packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  imenu+
-  imenu-anywhere
-  imenu-list)
+(vonfry|package! imenu+)
+(vonfry|package! imenu-anywhere)
+(vonfry|package! imenu-list)

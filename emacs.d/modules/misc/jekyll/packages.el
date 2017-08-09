@@ -1,3 +1,3 @@
 ;;; jekyll packages -*- lexical-binding: t -*-
 
-(vonfry|packages! hyde)
+(vonfry|package! hyde)

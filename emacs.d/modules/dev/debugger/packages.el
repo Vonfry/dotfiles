@@ -1,3 +1,3 @@
 ;;; debugger packages -*- lexical-binding: t -*-
 
-(vonfry|packages! realgud)
+(vonfry|package! realgud)

@@ -1,11 +1,8 @@
 ;;; python packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  anaconda-mode
-  company-anaconda
-  elpy
-
-  pip-requirements
-
-  pydoc
-  pyvenv)
+(vonfry|package! anaconda-mode)
+(vonfry|package! company-anaconda)
+(vonfry|package! elpy)
+(vonfry|package! pip-requirements)
+(vonfry|package! pydoc)
+(vonfry|package! pyvenv)

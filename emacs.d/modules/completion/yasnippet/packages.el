@@ -1,3 +1,3 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
 
-(vonfry|packages! yasnippet)
+(vonfry|package! yasnippet)

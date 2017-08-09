@@ -1,5 +1,4 @@
 ;;; ggtags packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  ggtags
-  helm-gtags)
+(vonfry|package! ggtags)
+(vonfry|package! helm-gtags)

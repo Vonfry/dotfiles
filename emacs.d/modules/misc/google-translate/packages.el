@@ -1,3 +1,3 @@
 ;;; google-translate package -*- lexical-binding: t -*-
 
-(vonfry|packages! google-translate)
+(vonfry|package! google-translate)

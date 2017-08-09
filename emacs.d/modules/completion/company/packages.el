@@ -1,6 +1,5 @@
 ;;; company packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  company
-  company-quickhelp
-  helm-company)
+(vonfry|package! company)
+(vonfry|package! company-quickhelp)
+(vonfry|package! helm-company)

@@ -36,12 +36,12 @@
   (unless (file-exists-p tmp-dir)
     (make-directory tmp-dir)))
 
-(vonfry|packages! whitespace-cleanup-mode)
+(vonfry|package! whitespace-cleanup-mode)
 (vonfry|use-package! whitespace-cleanup-mode
   :config
   (global-whitespace-cleanup-mode t))
 
-(vonfry|packages! exec-path-from-shell)
+(vonfry|package! exec-path-from-shell)
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 

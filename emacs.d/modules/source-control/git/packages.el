@@ -1,5 +1,4 @@
 ;;; git packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  magit
-  evil-magit)
+(vonfry|package! magit)
+(vonfry|package! evil-magit)

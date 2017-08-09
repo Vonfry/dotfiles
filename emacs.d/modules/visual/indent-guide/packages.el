@@ -1,3 +1,3 @@
 ;;; indent-guide packages -*- lexical-binding: t -*-
 
-(vonfry|packages! indent-guide)
+(vonfry|package! indent-guide)

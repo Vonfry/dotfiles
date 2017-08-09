@@ -52,16 +52,17 @@ is undefined(It always is loaded by alpha order)."
 ;;
 
 (custom-set-variables
-  '(package-user-dir vonfry-elpa-dir)
-  '(quelpa-stable-p nil)
-  '(quelpa-dir vonfry-pkg-manager-dir)
-  '(quelpa-checkout-melpa-p t)
-  '(quelpa-update-melpa-p t)
-  '(quelpa-upgrade-p t)
+  '(package-user-dir          vonfry-elpa-dir)
+  '(quelpa-dir                vonfry-pkg-manager-dir)
+  '(quelpa-stable-p           nil)
+  '(quelpa-checkout-melpa-p   nil)
+  '(quelpa-update-melpa-p     nil)
+  '(quelpa-upgrade-p          nil)
   '(use-package-always-ensure nil))
 
 (require 'package)
 (package-initialize)
+(package-refresh-contents)
 (unless (require 'quelpa nil t)
   (with-temp-buffer
     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
@@ -85,23 +86,24 @@ is undefined(It always is loaded by alpha order)."
 (defalias #'vonfry/update-packages           #'quelpa-upgrade)
 (defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
 
-(defalias #'vonfry-pkg-get                   #'quelpa)
-
-;; load the basic packages
-(dolist (pkg vonfry-basic-packages)
-  (unless (require pkg nil t)
-      (vonfry-pkg-get pkg)
-      (require pkg)))
-
-(defmacro vonfry|packages! (&rest pkgs)
+(defmacro vonfry|package! (&rest pkg-info)
   "Define packages dependence and install it.
 
   Use this macro in packages.el.
 
-  Why is it a macro? Because pkgs can be passed without symbol and it have the same form as use-package."
-  `(mapcar 'vonfry-pkg-get '(,@pkgs)))
+  The args is sent to package manager as a list. If package manager cannot use it, use use-package with the first
+element to download package from elpa without update. We should update by ourselves."
+  (let ((ignore-case `(ignore-errors (or (quelpa '(,@pkg-info)) t))))
+    `(unless (,@ignore-case)
+      (package-install ',(car `(,@pkg-info))))))
 
 (defalias #'vonfry|use-package! #'use-package)
+
+;; load the basic packages
+(dolist (pkg vonfry-basic-packages)
+  (unless (require pkg nil t)
+      (vonfry|package! pkg)
+      (require pkg)))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

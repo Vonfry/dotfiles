@@ -1,3 +1,3 @@
 ;;; ibuffer packages -*- lexical-binding: t -*-
 
-(vonfry|packages! ibuffer-vc)
+(vonfry|package! ibuffer-vc)

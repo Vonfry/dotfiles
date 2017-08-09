@@ -1,10 +1,9 @@
 ;;; evil packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  evil
-  evil-surround
-  evil-visualstar
-  evil-numbers
-  evil-snipe
-  evil-matchit
-  evil-lion)
+(vonfry|package! evil)
+(vonfry|package! evil-surround)
+(vonfry|package! evil-visualstar)
+(vonfry|package! evil-numbers)
+(vonfry|package! evil-snipe)
+(vonfry|package! evil-matchit)
+(vonfry|package! evil-lion)

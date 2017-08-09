@@ -1,3 +1,3 @@
 ;;; switch packages -*- lexical-binding: t -*-
 
-(vonfry|packages! switch-window)
+(vonfry|package! switch-window)

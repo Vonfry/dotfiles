@@ -1,6 +1,4 @@
 ;;; sql packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  sql-indent
-  emacsql)
-
+(vonfry|package! sql-indent)
+(vonfry|package! emacsql)

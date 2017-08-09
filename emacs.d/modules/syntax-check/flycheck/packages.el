@@ -1,4 +1,4 @@
 ;;; flycheck packages -*- lexical-binding: t -*-
 
-(vonfry|packages! flycheck)
+(vonfry|package! flycheck)
 

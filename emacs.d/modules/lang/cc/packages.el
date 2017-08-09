@@ -2,16 +2,15 @@
 ;;
 ;; Use rtags to jump and use irony to do completion and error check. And use EBrowse to make a class graph.
 
-(vonfry|packages!
-  rtags
+(vonfry|package! rtags)
 
-  irony
-  company-irony
-  flycheck-irony
-  irony-eldoc
+(vonfry|package! irony)
+(vonfry|package! company-irony)
+(vonfry|package! flycheck-irony)
+(vonfry|package! irony-eldoc)
 
-	disaster
+(vonfry|package! disaster)
+(vonfry|package! function-args)
 
-  function-args
-  cmake-mode
-  cmake-font-lock)
+(vonfry|package! cmake-mode)
+(vonfry|package! cmake-font-lock)

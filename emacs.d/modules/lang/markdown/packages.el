@@ -1,5 +1,4 @@
 ;;; markdown packages -*- lexical-binding: t -*-
 
-(vonfry|packages!
-  markdown-mode
-  markdown-mode+)
+(vonfry|package! markdown-mode)
+(vonfry|package! markdown-mode+)

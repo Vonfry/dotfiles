@@ -1,3 +1,3 @@
 ;;; weechat packages -*- lexical-binding: t -*-
 
-(vonfry|packages! weechat)
+(vonfry|package! weechat)
