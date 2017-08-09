@@ -34,9 +34,9 @@ source $HOME/.cmd-custom/local/defvar.sh
 source $HOME/.cmd-custom/zplug.zsh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-source $CMD_CUSTOM_DIR/tags.sh
-source $CMD_CUSTOM_DIR/arduino.sh
-source $CMD_CUSTOM_DIR/latex.sh
 source $CMD_CUSTOM_DIR/alias.sh
+
+find $CMD_CUSTOM_DIR/misc/ -type f | xargs -n1 source
+find $CMD_CUSTOM_DIR/local/ -type f !-name defvar.sh | xargs -n1 source
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
