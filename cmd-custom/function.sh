@@ -49,6 +49,4 @@ function vonfry-update()
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
     fi
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
-
-    emacs --batch -l "$HOME/.emacs.d/init.el" -f "vonfry/update-packages"
 }
