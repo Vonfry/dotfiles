@@ -31,7 +31,8 @@ brew install doxygen --with-doxywizard
 # code search
 brew install ack the_silver_searcher
 # lang
-brew install ghc cabal-install haskell-stack
+brew install ghc ghc@8.0
+brew install cabal-install haskell-stack
 brew install python3 python
 brew install ruby ----universal
 brew install rbenv

@@ -5,5 +5,4 @@
   ghc
   company-ghc
   intero
-  flycheck-haskell
   hindent)

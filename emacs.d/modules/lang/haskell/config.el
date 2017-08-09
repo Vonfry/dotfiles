@@ -60,8 +60,3 @@
   :after haskell
   :config
   (add-hook 'haskell-mode-hook 'hindent-mode))
-
-(vonfry|use-package! flycheck-haskell
-  :after flycheck
-  :config
-  (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup))
