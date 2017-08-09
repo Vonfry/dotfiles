@@ -86,12 +86,13 @@ is undefined(It always is loaded by alpha order)."
 
 (defalias #'vonfry-pkg-get                   #'quelpa)
 
-
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (unless (require pkg nil t)
       (vonfry-pkg-get pkg)
       (require pkg)))
+
+(vonfry/update-packages)
 
 (defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
