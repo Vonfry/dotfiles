@@ -61,6 +61,9 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 brew cask install provisionql
 brew cask install quicklook-pat
 
+brew services start dbus
+brew services start emacs
+
 echo_sh "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
