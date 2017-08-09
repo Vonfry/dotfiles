@@ -1,10 +1,16 @@
-gem "jekyll"
+gem "rails"
 gem "bundler"
+
+# dev for emacs
+gem "pry"
+gem "pry-doc"
+
+# tools
 gem "starscope"
 gem "sass"
 gem "compass"
 gem "nokogiri"
 gem "org-ruby"
 
-gem "pry"
-gem "pry-doc"
+# blog
+gem "jekyll"

@@ -16,7 +16,7 @@
   :after spaceline
   :init
   (custom-set-variables
-    '(powerline-text-scale-factor 1.2)
+    '(powerline-text-scale-factor 1.1)
     '(spaceline-all-the-icons-separator-type 'none))
   :config
   (spaceline-all-the-icons-theme)

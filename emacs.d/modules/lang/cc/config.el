@@ -2,37 +2,37 @@
 
 (vonfry|use-package! rtags
   :after helm company
+  :init
   :config
   (setq rtags-display-result-backend 'helm)
-  (add-hook 'irony-mode-hook 'rtags-start-process-unless-running)
   (add-hook 'irony-mode-hook
-    (lambda ()
-      (rtags-enable-standard-keybindings)
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            "'"  'rtags-print-symbol-info
-            "c"  'rtags-print-dependencies
-            "."  'rtags-find-references
-            "?"  'rtags-find-references-at-point
-            "/"  'rtags-find-symbol
-            ","  'rtags-find-symbol-at-point
-            "r"  'rtags-diagnostics
-            "t"  'rtags-restart-process
-            "m"  'rtags-imenu
-            "ll" 'rtags-find-file
-            "li" 'rtags-include-file
-            "w"  'rtags-rename-symbol
-            "u"  'rtags-find-virtuals-at-point
-            "b"  'rtags-location-stack-back
-            "f"  'rtags-location-stack-forward)
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            "'" 'rtags-print-symbol-info
-            vonfry-keybind-evil-jump-to-definition 'rtags-find-references-at-point
-            vonfry-keybind-evil-code 'rtags-imenu))))
-
-(vonfry|use-package! helm-rtags
-  :after helm rtags)
+            (lambda ()
+              (rtags-start-process-unless-running)
+              (rtags-enable-standard-keybindings)
+              (nmap :keymaps 'local
+                    :prefix +lang-nmap-prefix
+                    "'"  'rtags-print-symbol-info
+                    "c"  'rtags-print-dependencies
+                    "."  'rtags-find-references
+                    "?"  'rtags-find-references-at-point
+                    "/"  'rtags-find-symbol
+                    ","  'rtags-find-symbol-at-point
+                    "r"  'rtags-diagnostics
+                    "t"  'rtags-restart-process
+                    "m"  'rtags-imenu
+                    "ll" 'rtags-find-file
+                    "li" 'rtags-include-file
+                    "w"  'rtags-rename-symbol
+                    "u"  'rtags-find-virtuals-at-point
+                    "b"  'rtags-location-stack-back
+                    "f"  'rtags-location-stack-forward)
+              (nmap :keymaps 'local
+                    :prefix vonfry-keybind-evil-leader
+                    "'" 'rtags-print-symbol-info
+                    vonfry-keybind-evil-jump-to-definition 'rtags-find-references-at-point
+                    vonfry-keybind-evil-jump-module        'rtags-include-file
+                    vonfry-keybind-evil-jump-back          'rtags-location-stack-back
+                    vonfry-keybind-evil-code 'rtags-imenu))))
 
 ;; this is used in all program lang
 (vonfry|use-package! semantic
@@ -84,10 +84,7 @@
 				gdb-show-main t)
 			(nmap :keymaps 'local
 						:prefix +lang-nmap-prefix
-						"h" 'ff-find-other-file)
-			(nmap :keymaps 'local
-						:prefix vonfry-keybind-evil-leader
-						vonfry-keybind-evil-jump-module 'ff-find-other-file))))
+						"h" 'ff-find-other-file))))
 
 ;; Use irony-hook to instead all c/c++ hook because irony-mode is always used in these mode.
 

@@ -47,18 +47,6 @@
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
 
-(add-hook 'after-make-frame-functions
-  (lambda (frame)
-    (with-selected-frame frame
-      (unless window-system
-        (set-frame-parameter nil 'menu-bar-lines 0)))))
-
-(add-hook 'after-make-frame-functions
-  (lambda ()
-    (modify-frame-parameters frame
-      '((vertical-scroll-bars . nil)
-        (horizontal-scroll-bars . nil)))))
-
 (add-hook 'term-mode-hook
   (lambda ()
     (setq line-spacing 0)))

@@ -10,6 +10,8 @@ jedi
 flake8 # code checks
 importmagic # auto imports
 autopep8 # code PEP8 formatting
+rope
+yapf
 
 # code highlight and jump
 pycscope

@@ -18,21 +18,25 @@
 
 (vonfry|use-package! elpy
   :after company
+  :init
+  (custom-set-variables
+    '(elpy-rpc-python-command "python3"))
   :config
-  (add-hook 'python-mode-hook 'elpy-enable)
-  (add-hook 'python-mode-hook
-    (lambda ()
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition
-            vonfry-keybind-evil-jump-module 'pop-tag-mark
-            vonfry-keybind-evil-repl 'elpy-use-ipython
-            vonfry-keybind-evil-check 'elpy-check)
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            ";" 'elpy-occur-definitions
-            "h" 'elpy-doc
-            "f" 'elpy-format-code))))
+  (elpy-enable)
+  (add-hook 'elpy-mode-hook
+            (lambda ()
+              (elpy-use-ipython)
+              (nmap :keymaps 'local
+                    :prefix vonfry-keybind-evil-leader
+                    vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition
+                    vonfry-keybind-evil-jump-module 'elpy-goto-location
+                    vonfry-keybind-evil-repl 'elpy-shell-switch-to-shell
+                    vonfry-keybind-evil-check 'elpy-check)
+              (nmap :keymaps 'local
+                    :prefix +lang-nmap-prefix
+                    ";" 'elpy-occur-definitions
+                    "h" 'elpy-doc
+                    "f" 'elpy-format-code))))
 
 (vonfry|use-package! pyvenv
   :config

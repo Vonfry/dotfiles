@@ -19,6 +19,7 @@ brew install gcc --with-jit --with-nls
 brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
+brew install ninja
 brew install automake
 brew install poco boost thrift swig
 brew install boost-python --with-python3
@@ -29,7 +30,7 @@ brew install rtags
 brew install cscope
 brew install doxygen --with-doxywizard
 # code search
-brew install ack the_silver_searcher
+brew install ack the_silver_searcher awk
 # lang
 brew install ghc
 brew install cabal-install haskell-stack
@@ -66,6 +67,7 @@ brew cask install quicklook-pat
 
 brew services start dbus
 brew services start emacs
+brew services start rtags
 
 echo_sh "*** Here are some useful tools for mac.
 See:

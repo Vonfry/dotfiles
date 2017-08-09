@@ -21,9 +21,14 @@
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-jump-module ","
+(defcustom vonfry-keybind-evil-jump-module "/"
   "jump to file or module, or jump back. In some module, such as C, it is used to switch between head and source file.
 In global env, it is jump back with jump-to-tefinition."
+  :type 'string
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-jump-back ","
+  "jump back for jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 

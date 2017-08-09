@@ -55,9 +55,9 @@ is undefined(It always is loaded by alpha order)."
   '(package-user-dir          vonfry-elpa-dir)
   '(quelpa-dir                vonfry-pkg-manager-dir)
   '(quelpa-stable-p           nil)
-  '(quelpa-checkout-melpa-p   t)
-  '(quelpa-update-melpa-p     t)
-  '(quelpa-upgrade-p          t)
+  '(quelpa-checkout-melpa-p   nil)
+  '(quelpa-update-melpa-p     nil)
+  '(quelpa-upgrade-p          nil)
   '(use-package-always-ensure nil))
 
 (require 'package)
@@ -94,7 +94,7 @@ is undefined(It always is loaded by alpha order)."
   The args is sent to package manager as a list. If package manager cannot use it, use use-package with the first
 element to download package from elpa without update. We should update by ourselves."
   (let ((ignore-case `(ignore-errors (or (quelpa '(,@pkg-info)) t))))
-    `(unless (,@ignore-case)
+    `(unless ,ignore-case
       (package-install ',(car `(,@pkg-info))))))
 
 (defalias #'vonfry|use-package! #'use-package)

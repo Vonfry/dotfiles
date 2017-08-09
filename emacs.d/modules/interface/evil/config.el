@@ -14,6 +14,7 @@
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-terminal      'shell
+        vonfry-keybind-evil-jump-back     'pop-tag-mark
         vonfry-keybind-evil-marks         'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix
         "w" 'delete-window

@@ -16,7 +16,7 @@
             (nmap :keymaps 'local
                   :prefix vonfry-keybind-evil-leader
                   vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
-                  vonfry-keybind-evil-jump-module        'pop-tag-mark))))
+                  vonfry-keybind-evil-jump-module        'lispy-goto-local))))
     (add-hook 'lisp-mode-hook       bind-lispy)
     (add-hook 'emacs-lisp-mode-hook bind-lispy)
     (add-hook 'scheme-mode-hook     bind-lispy))
