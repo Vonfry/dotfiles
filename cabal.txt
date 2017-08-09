@@ -1,8 +1,5 @@
 happy
 ghc-mod
-intero
 hindent
 hasktags
 hoogle
-stack-run
-ShellCheck

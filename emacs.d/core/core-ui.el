@@ -17,16 +17,17 @@
 ;; customize the fonts
 ;;
 
-(set-face-attribute 'default nil :font "Hack 11")
+(if window-system
+  (progn
+    (set-face-attribute 'default nil :font "Hack 11")
+    ;; Chinese Font 配制中文字体
+    (defmacro chinese-font (font-name font-size)
+      `(dolist (charset '(kana han symbol cjk-misc bopomofo))
+        (set-fontset-font (frame-parameter nil 'font)
+                          charset
+                          (font-spec :family ,font-name :size ,font-size))))
 
-;; Chinese Font 配制中文字体
-(defmacro chinese-font (font-name font-size)
-  `(dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family ,font-name :size ,font-size))))
-
-(vonfry-system-sets '(darwin (chinese-font "Hei" 10)))
+    (vonfry-system-sets '(darwin (chinese-font "Hei" 10)))))
 
 (vonfry|packages! info+)
 (vonfry|use-package! info+
