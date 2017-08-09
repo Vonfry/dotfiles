@@ -55,9 +55,9 @@ is undefined(It always is loaded by alpha order)."
   '(package-user-dir          vonfry-elpa-dir)
   '(quelpa-dir                vonfry-pkg-manager-dir)
   '(quelpa-stable-p           nil)
-  '(quelpa-checkout-melpa-p   nil)
-  '(quelpa-update-melpa-p     nil)
-  '(quelpa-upgrade-p          nil)
+  '(quelpa-checkout-melpa-p   t)
+  '(quelpa-update-melpa-p     t)
+  '(quelpa-upgrade-p          t)
   '(use-package-always-ensure nil))
 
 (require 'package)
