@@ -33,6 +33,7 @@ function vonfry-update()
     fi
     print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
+    cat $DOTFILES_DIR/cabal.txt | xargs -t -n1 cabal install # update cabal installed package
     stack upgrade
     hoogle generate
     pip3 install -U -r ~/.pip3.txt
