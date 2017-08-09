@@ -5,13 +5,13 @@
 (vonfry|use-package! latex
   :after company
   :config
-  (require 'preview)
-  (require 'tex-site)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
-  (dolist (mode-hook '(tex-mode-hook latex-mode-hook))
+  (dolist (mode-hook '(TeX-mode-hook LaTeX-mode-hook))
     (add-hook mode-hook
       (lambda()
+        (require 'preview)
+        (require 'tex-site)
         (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
         (setq TeX-auto-untabify t     ; remove all tabs before saving
               TeX-engine 'xetex       ; use xelatex default
@@ -28,38 +28,38 @@
         (imenu-add-menubar-index)
         (nmap :keymaps 'local
               :prefix +lang-nmap-prefix
-              "\\"  'TeX-insert-macro                            ;; C-c C-m
-              "-"   'TeX-recenter-output-buffer                  ;; C-c C-l
-              "%"   'TeX-comment-or-uncomment-paragraph          ;; C-c %
-              ";"   'TeX-comment-or-uncomment-region             ;; C-c ; or C-c :
-              ;; TeX-command-run-all runs compile and open the viewer
-              "a"   'TeX-command-run-all                         ;; C-c C-a
+              "\\"  'TeX-insert-macro
+              "-"   'TeX-recenter-output-buffer
+              "%"   'TeX-comment-or-uncomment-paragraph
+              ";"   'TeX-comment-or-uncomment-region
+              "a"   'TeX-command-run-all
               "b"   'latex/build
-              "k"   'TeX-kill-job                                ;; C-c C-k
-              "l"   'TeX-recenter-output-buffer                  ;; C-c C-l
-              "m"   'TeX-insert-macro                            ;; C-c C-m
-              "v"   'TeX-view                                    ;; C-c C-v
-              ;; TeX-doc is a very slow function
+              "k"   'TeX-kill-job
+              "l"   'TeX-recenter-output-buffer
+              "m"   'TeX-insert-macro
+              "v"   'TeX-view
               "d"   'TeX-doc
               "b"   'latex/font-bold
               "tc"  'latex/font-code
               "te"  'latex/font-emphasis
-              "i"   'latex/font-italic
+              "fi"  'latex/font-italic
               "r"   'latex/font-clear
               "o"   'latex/font-oblique
               "fc"  'latex/font-small-caps
               "ff"  'latex/font-sans-serif
               "fr"  'latex/font-serif
-              "*"   'LaTeX-mark-section      ;; C-c *
-              "."   'LaTeX-mark-environment  ;; C-c .
-              "c"   'LaTeX-close-environment ;; C-c ]
-              "e"   'LaTeX-environment       ;; C-c C-e
-              "ii"  'LaTeX-insert-item       ;; C-c C-j
-              "s"   'LaTeX-section           ;; C-c C-s
-              "fe"  'LaTeX-fill-environment  ;; C-c C-q C-e
-              "fp"  'LaTeX-fill-paragraph    ;; C-c C-q C-p
-              "fr"  'LaTeX-fill-region       ;; C-c C-q C-r
-              "fs"  'LaTeX-fill-section      ;; C-c C-q C-s
+              "*"   'LaTeX-mark-section
+              "."   'LaTeX-mark-environment
+              "c"   'LaTeX-close-environment)
+          (nmap :keymaps 'local
+              :prefix +lang-nmap-prefix
+              "e"   'LaTeX-environment
+              "ii"  'LaTeX-insert-item
+              "s"   'LaTeX-section
+              "fe"  'LaTeX-fill-environment
+              "fp"  'LaTeX-fill-paragraph
+              "fr"  'LaTeX-fill-region
+              "fs"  'LaTeX-fill-section
               "pb"  'preview-buffer
               "pc"  'preview-clearout
               "pd"  'preview-document
@@ -72,10 +72,7 @@
               "r"   'latex/font-clear
               "fa"  'latex/font-calligraphic
               "fn"  'latex/font-normal
-              "fu"  'latex/font-upright
-              "mh"  "help"
-              "mx"  "text/fonts"
-              "mz"  "fold")
+              "fu"  'latex/font-upright)
             (when latex-enable-folding
               (nmap :keymaps 'local
                     :prefix +lang-nmap-prefix
