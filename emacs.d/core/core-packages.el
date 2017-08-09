@@ -92,8 +92,6 @@ is undefined(It always is loaded by alpha order)."
       (vonfry-pkg-get pkg)
       (require pkg)))
 
-(vonfry/update-packages)
-
 (defmacro vonfry|packages! (&rest pkgs)
   "Define packages dependence and install it.
 
