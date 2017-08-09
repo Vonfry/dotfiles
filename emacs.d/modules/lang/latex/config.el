@@ -94,7 +94,7 @@
 (vonfry|use-package! company-math
  :after company
  :config
- (add-to-list 'company-backends 'company-math-symbols-unicode))
+ (add-to-list (make-local-variable 'company-backends) 'company-math-symbols-unicode))
 
 
 (vonfry|use-package! company-auctex

@@ -137,8 +137,9 @@ In global env, it is jump back with jump-to-tefinition."
 
 (vonfry|use-package! general
   :config
-  (setq general-default-keymaps 'evil-normal-state-map)
-  (setq general-default-prefix  nil)
-  (general-evil-setup t))
+  (custom-set-variables
+    '(general-default-prefix  nil)
+    '(general-vim-definer-default 'states))
+  (general-evil-setup t t))
 
 (provide 'core-keybinding)

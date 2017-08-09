@@ -6,7 +6,7 @@
 (add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
 (require 'core)
 
-(when (file-exists-p vonfry-custom-file)
+(when (file-exists-p custom-file)
   (load custom-file))
 
 (provide 'init)

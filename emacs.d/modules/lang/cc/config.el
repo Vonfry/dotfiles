@@ -7,8 +7,7 @@
   (add-hook 'irony-mode-hook 'rtags-start-process-unless-running)
   (add-hook 'irony-mode-hook
     (lambda ()
-      (rtags-enable-standard-keybindings 'irony-mode)
-      (push 'company-rtags company-backends)
+      (rtags-enable-standard-keybindings)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "'"  'rtags-print-symbol-info
@@ -93,7 +92,7 @@
 ;; Use irony-hook to instead all c/c++ hook because irony-mode is always used in these mode.
 
 (vonfry|use-package! company-irony
-  :after company irony-mode
+  :after company irony
   :config
   (add-hook 'irony-mode-hook
     (lambda ()

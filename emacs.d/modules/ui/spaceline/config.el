@@ -12,9 +12,12 @@
   (spaceline-info-mode)
   (spaceline-helm-mode))
 
-;; TODO more setting
 (vonfry|use-package! spaceline-all-the-icons
   :after spaceline
+  :init
+  (custom-set-variables
+    '(powerline-text-scale-factor 1.2)
+    '(spaceline-all-the-icons-separator-type 'none))
   :config
   (spaceline-all-the-icons-theme)
   (spaceline-all-the-icons--setup-package-updates)
