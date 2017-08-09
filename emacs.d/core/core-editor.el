@@ -78,7 +78,6 @@
 
   '(save-interprogram-paste-before-kill t)
 
-  '(temporary-file-directory vonfry-temp-dir)
   '(make-backup-files t)
   '(backup-directory-alist `((".*" . ,vonfry-backup-file-dir)))
   '(auto-save-default nil)
