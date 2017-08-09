@@ -47,6 +47,7 @@ brew install pandoc                        # markdown
 brew cask install mactex
 brew cask install arduino
 brew cask install java
+brew install ispell                        # emacs flyspell dependency
 # chat
 brew cask install gitter
 brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lua

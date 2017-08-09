@@ -6,7 +6,6 @@
     '(haskell-indentation-electric-flag t)
     '(compile-command "stack build"))
   (add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
-  (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
   (add-hook 'haskell-mode-hook
@@ -24,8 +23,7 @@
   :config
   (add-hook 'haskell-mode-hook
     (lambda ()
-      (intero-mode)
-      (intero-help-mode t)
+      (intero-mode t)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "i" 'intero-info

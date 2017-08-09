@@ -5,4 +5,5 @@
   helm-ag
   helm-descbinds
   helm-make
-  helm-dash)
+  helm-dash
+  helm-flyspell)
