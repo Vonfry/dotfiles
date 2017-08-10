@@ -18,7 +18,7 @@
                     "/"  'rtags-find-symbol
                     ","  'rtags-find-symbol-at-point
                     "r"  'rtags-diagnostics
-                    "t"  'rtags-restart-process
+                    "t"  'rtags-references-tree
                     "m"  'rtags-imenu
                     "ll" 'rtags-find-file
                     "li" 'rtags-include-file
@@ -29,10 +29,10 @@
               (nmap :keymaps 'local
                     :prefix vonfry-keybind-evil-leader
                     "'" 'rtags-print-symbol-info
-                    vonfry-keybind-evil-jump-to-definition 'rtags-find-references-at-point
+                    vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
                     vonfry-keybind-evil-jump-module        'rtags-include-file
                     vonfry-keybind-evil-jump-back          'rtags-location-stack-back
-                    vonfry-keybind-evil-code 'rtags-imenu))))
+                    vonfry-keybind-evil-code               'rtags-imenu))))
 
 ;; this is used in all program lang
 (vonfry|use-package! semantic
