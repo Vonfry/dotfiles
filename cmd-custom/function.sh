@@ -1,5 +1,3 @@
-function gitignore() { curl -L -s https://www.gitignore.io/api/$@ ;}
-
 function vonfry-update()
 {
     upgrade_oh_my_zsh

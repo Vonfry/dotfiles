@@ -15,7 +15,7 @@ print "THEME \e[31m $ZSH_THEME \e[0m in \e[32m $ZSH_THEME_LIST\e[0m"
 
 export UPDATE_ZSH_DAYS=7
 
-plugins=(git git-extras gitignore vundle osx xcode autojump sudo brew brew-cask man colored-man-pages npm pip python redis-cli zsh_reload thefuck bower ruby rails cabal docker docker-compose gem theme screen)
+plugins=(gitignore osx xcode autojump sudo brew brew-cask man colored-man-pages pip redis-cli thefuck bower docker docker-compose screen dotenv)
 
 # User configuration
 
