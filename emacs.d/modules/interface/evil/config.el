@@ -13,6 +13,7 @@
     '(evil-shift-width 4))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
+        "gb"                              'previous-buffer
         vonfry-keybind-evil-terminal      'shell
         vonfry-keybind-evil-jump-back     'pop-tag-mark
         vonfry-keybind-evil-marks         'evil-show-marks)
@@ -38,7 +39,8 @@
 (vonfry|use-package! evil-snipe
   :after evil
   :config
-  (evil-snipe-mode 1))
+  (evil-snipe-mode 1)
+  (evil-snipe-override-mode 1))
 
 (vonfry|use-package! evil-matchit
   :after evil

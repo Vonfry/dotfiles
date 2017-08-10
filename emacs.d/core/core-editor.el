@@ -74,6 +74,7 @@
   '(word-wrap t)
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
+  '(auto-fill-mode t)
   '(fill-column vonfry-text-width)
 
   '(save-interprogram-paste-before-kill t)
