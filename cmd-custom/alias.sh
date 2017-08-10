@@ -8,4 +8,4 @@ unalias pu
 unalias po
 unalias l
 unalias la
-alias   lla ='ls -lAh'
+alias   lla='ls -lAh'
