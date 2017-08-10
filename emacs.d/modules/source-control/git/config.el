@@ -10,3 +10,7 @@
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
 (vonfry|use-package! evil-magit)
+
+(vonfry|use-package! magithub
+  :after magit
+  :config (magithub-feature-autoinject t))

@@ -12,8 +12,8 @@
   (custom-set-variables
     '(evil-shift-width 4))
   :general
+  (nmap "gb" 'previous-buffer)
   (nmap :prefix vonfry-keybind-evil-leader
-        "gb"                              'previous-buffer
         vonfry-keybind-evil-terminal      'shell
         vonfry-keybind-evil-jump-back     'pop-tag-mark
         vonfry-keybind-evil-marks         'evil-show-marks)

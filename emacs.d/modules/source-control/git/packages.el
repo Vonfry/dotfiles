@@ -3,3 +3,4 @@
 (vonfry|package! magit)
 (vonfry|package! magit-gitflow)
 (vonfry|package! evil-magit)
+(vonfry|package! magithub)
