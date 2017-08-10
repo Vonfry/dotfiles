@@ -1,5 +1,6 @@
 ;;; sql config -*- lexical-binding: t -*-
 
-(vonfry|use-package! sql-indent)
+;; This package seems has a conflict with editorconfig.
+(vonfry|use-package! sql-indent :after sql)
 
 (vonfry|use-package! emacsql)

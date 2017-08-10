@@ -33,6 +33,8 @@ Plugin 'Valloric/ListToggle'                          " Show location list
 Plugin 'SirVer/ultisnips'                             " snipmate
 Plugin 'honza/vim-snippets'                           " snippets for ultisnips
 
+Plugin 'editorconfig/editorconfig-vim'
+
 Plugin 'mbbill/fencview'                              " Autodetect multiple encodings
 Plugin 'ntpeters/vim-better-whitespace'               " Whitespace manage
 
@@ -453,6 +455,11 @@ let g:org_agenda_files=['~/.org/*.org']
 " This is the default extra key bindings
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 set rtp+=/usr/local/opt/fzf,~/.fzf
+" }}}
+"
+" set plugin editorconfig {{{
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+let g:EditorConfig_exec_path="editorconfig"
 " }}}
 
 " }}}
