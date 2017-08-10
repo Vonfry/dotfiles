@@ -1,4 +1,5 @@
 function compile-commands-json()
 {
-    ninja -t commands rdm | rc -c -
+    cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 .
+    rc -J
 }
