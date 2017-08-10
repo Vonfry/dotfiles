@@ -1,7 +1,9 @@
 export ALTERNATE_EDITOR=""
 
-alias ecc="emacsclient -n -c"
+export EMACSCLIENT_OPT="-n"
+
+alias ecc="emacsclient $EMACSCLIENT_OPT -c"
 alias ect="emacsclient -t"
-alias secc="sudo emacsclient -n -c"
+alias secc="sudo emacsclient $EMACSCLIENT_OPT -c"
 alias sect="sudo emacsclient -t"
-alias emacsc="emacsclient -n -c -a emacs"
+alias emacsc="emacsclient $EMACSCLIENT_OPT -c -a emacs"

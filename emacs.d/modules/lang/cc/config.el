@@ -130,3 +130,6 @@
   :after cmake-mode
   :config
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
+
+(vonfry|use-package! helm-rtags
+  :after rtags helm)
