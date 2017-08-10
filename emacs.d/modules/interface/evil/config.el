@@ -19,7 +19,9 @@
         vonfry-keybind-evil-marks         'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix
         "w" 'delete-window
-        "o" 'delete-other-window))
+        "k" 'kill-current-buffer
+        "c" 'delete-frame
+        "o" 'delete-other-windows))
 
 (vonfry|use-package! evil-numbers
   :after evil

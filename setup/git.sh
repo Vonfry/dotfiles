@@ -6,16 +6,22 @@ git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 git config --global core.fileMode false
 
-git config --global user.email "vonfry314@icloud.com"
-git config --global user.username "Vonfry"
-curl -L -s https://www.gitignore.io/api/vim%2Ctags%2Cmacos%2Clinux%2Cemacs%2Cwindows  > ~/.gitignore_global
+echo "--- input git global user: "
+read git_global_user
+echo "--- input git global user email: "
+read git_global_email
+echo "--- input git global github user "
+git config --global user.email $git_global_user
+git config --global user.username $git_global_email
+gi vim tags macos linux emacs windows  > ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.tempalet ~/.gitcommit_global
 ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
-if [ "$(uname)" = Darwin ]; then
+if [ "$(uname)" = "Darwin" ]; then
     git config --global core.editor mvim
 else
     git config --global core.editor vim
 fi
 
-git clone https://github.com/Ericsson/CodeChecker.git --depth 1 ~/codechecker
+unset git_global_user
+unset git_global_email

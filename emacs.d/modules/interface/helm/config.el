@@ -1,4 +1,4 @@
-;;; helm config -*- lexical-binding: t -*-
+;; helm config -*- lexical-binding: t -*-
 
 (vonfry|use-package! helm
   :init
