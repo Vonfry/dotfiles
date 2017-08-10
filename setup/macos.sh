@@ -5,7 +5,7 @@ sudo chown $(whoami) -R /usr/local/share/man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update && brew upgrade
 brew install caskroom/cask/brew-cask
-brew install gnu-tar
+brew install gnu-sed gnu-tar
 brew install zsh wget git git-extras tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
