@@ -67,7 +67,7 @@ brew cask install provisionql
 brew cask install quicklook-pat
 
 brew services start dbus
-brew services start emacs
+# brew services start emacs # This maybe not start correctly with system launching.
 brew services start rtags
 
 echo_sh "*** Here are some useful tools for mac.

@@ -7,13 +7,14 @@
     "projectile cache dir"
     :group 'vonfry-modules)
   (custom-set-variables
-      '(projectile-known-projects-file +projectile-cache-dir)
-      '(projectile-completion-system 'helm)
-      '(projectile-cache-file +projectile-cache-dir)
-      '(projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
-      '(projectile-switch-project-action 'neotree-projectile-action))
+    '(projectile-enable-caching t)
+    '(projectile-file-exists-local-cache-expire (* 7 24 60))
+    '(projectile-known-projects-file +projectile-cache-dir)
+    '(projectile-completion-system 'helm)
+    '(projectile-cache-file +projectile-cache-dir)
+    '(projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
+    '(projectile-switch-project-action 'neotree-projectile-action))
   :config
-
   (projectile-global-mode t))
 
 (vonfry|use-package! helm-projectile
@@ -35,7 +36,7 @@
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (push (org-projectile-project-todo-entry) org-capture-templates))
 
-(vonfry|use-package! ibuffer-projectile
+(vonfry|use-package! ibuffer-projec*tile
   :after ibuffer
   :config
   (add-hook 'ibuffer-hook

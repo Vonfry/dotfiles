@@ -2,14 +2,15 @@
 
 (vonfry|use-package! yasnippet
   :after company
-  :config
+  :init
   (custom-set-variables
     '(yas-snippet-dirs
       (list (expand-file-name "snippets/" vonfry-local-dir)
             (expand-file-name "snippets/" vonfry-custom-dir)
-            yas-installed-snippets-dir)))
+            'yas-installed-snippets-dir)))
+  :config
   (dolist (tmp-dir yas-snippet-dirs)
-    (unless (file-exists-p tmp-dir)
+    (unless (or (not (stringp tmp-dir)) (file-exists-p tmp-dir))
       (make-directory tmp-dir)))
   (add-hook 'prog-mode-hook #'yas-minor-mode)
   (global-set-key (kbd "M-,") 'company-yasnippet)

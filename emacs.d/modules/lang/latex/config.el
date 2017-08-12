@@ -17,6 +17,7 @@
               TeX-engine 'xetex       ; use xelatex default
               TeX-auto-save t
               TeX-parse-self t
+              TeX-auto-private (expand-file-name "tex/" vonfry-local-dir)
               TeX-syntactic-comment t
               ;; Synctex support
               TeX-source-correlate-start-server nil
