@@ -6,7 +6,6 @@
 
 ;; common lisp
 (vonfry|package! slime)
-(vonfry|package! common-lisp-snippets)
 (vonfry|package! slime-company)
 
 ;; emacs lisp & scheme

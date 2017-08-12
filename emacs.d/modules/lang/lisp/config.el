@@ -3,6 +3,10 @@
 (vonfry|use-package! eldoc)
 
 (vonfry|use-package! lispy
+  :init
+  (custom-set-variables
+    '(lispy-completion-method 'helm)
+    '(lispy-visit-method      'projectile))
   :config
   (add-hook 'minibuffer-setup-hook
     (lambda ()
@@ -19,8 +23,7 @@
                   vonfry-keybind-evil-jump-module        'lispy-goto-local))))
     (add-hook 'lisp-mode-hook       bind-lispy)
     (add-hook 'emacs-lisp-mode-hook bind-lispy)
-    (add-hook 'scheme-mode-hook     bind-lispy))
-  )
+    (add-hook 'scheme-mode-hook     bind-lispy)))
 
 (vonfry|use-package! evil-lispy
   :config

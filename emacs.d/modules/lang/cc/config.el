@@ -105,6 +105,9 @@
   (add-hook 'irony-mode-hook 'irony-eldoc))
 
 (vonfry|use-package! function-args
+  :init
+  (custom-set-variables
+    '(moo-select-method 'helm))
   :config
   (add-hook 'irony-mode-hook 'fa-config-default)
   (add-hook 'irony-mode-hook

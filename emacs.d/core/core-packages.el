@@ -143,7 +143,7 @@ modules. After all modules' packages.el are loaded, it will load config.el which
 which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
 modules."
   (let* ((module-alist '())
-         (regexp-exclude "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)"))
+         (regexp-exclude "^[^.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-exclude))
         (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-exclude))
           (let ((module-name (concat module "/" submodule)))

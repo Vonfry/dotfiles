@@ -16,6 +16,3 @@
 (vonfry|use-package! slime-company
   :config
   (slime-setup '(slime-fancy slime-company)))
-
-
-(vonfry|use-package! common-lisp-snippets)

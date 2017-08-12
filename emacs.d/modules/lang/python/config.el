@@ -17,12 +17,12 @@
       (add-to-list (make-local-variable 'company-backends) 'company-anaconda))))
 
 (vonfry|use-package! elpy
-  :after company
+  :after company yasnippet
   :init
   (custom-set-variables
     '(elpy-rpc-python-command "python3"))
   :config
-  (elpy-enable)
+  (add-hook 'after-init-hook 'elpy-enable)
   (add-hook 'elpy-mode-hook
             (lambda ()
               (elpy-use-ipython)
@@ -48,7 +48,6 @@
             "d" 'pyvenv-deactivate
             "w" 'pyvenv-workon))))
 
-
 (vonfry|use-package! pydoc
  :config
  (add-hook 'python-mode-hook
@@ -58,5 +57,5 @@
             "p" 'pydoc))))
 
 (vonfry|use-package! pip-requirements
- :config
- (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))
+  :config
+  (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))
