@@ -22,7 +22,7 @@
   (custom-set-variables
     '(elpy-rpc-python-command "python3"))
   :config
-  (add-hook 'after-init-hook 'elpy-enable)
+  (add-hook 'python-mode-hook 'elpy-enable)
   (add-hook 'elpy-mode-hook
             (lambda ()
               (elpy-use-ipython)
