@@ -141,6 +141,12 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-version-control "-"
+  "show a terminal"
+  :type 'string
+  :group 'vonfry-keybind)
+
+
 (vonfry|use-package! general
   :config
   (custom-set-variables
