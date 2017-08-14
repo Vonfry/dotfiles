@@ -11,7 +11,6 @@
   :after evil org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)
-  (evil-org-set-key-theme '(navigation insert textobjects additional)))
-
-
-
+  (add-hook 'org-mode-hook
+    (lambda ()
+      (evil-org-set-key-theme '(navigation insert textobjects additional)))))
