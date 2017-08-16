@@ -38,3 +38,8 @@ pyserial
 
 # manage time
 td-watson
+
+# math with ipython
+scipy
+numpy
+matplotlib
