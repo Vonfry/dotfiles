@@ -32,6 +32,7 @@ psycopg2
 
 # graphviz
 pydot
+pillow
 
 # serial
 pyserial
@@ -42,4 +43,5 @@ td-watson
 # math with ipython
 scipy
 numpy
+pandas
 matplotlib

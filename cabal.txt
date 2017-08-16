@@ -1,5 +1,9 @@
 happy
 ghc-mod
-hindent
 hasktags
+
+hindent
+
 hoogle
+
+statistics
