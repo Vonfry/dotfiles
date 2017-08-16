@@ -12,12 +12,7 @@ mkdir ~/.cache
 # bash $script_dir/setup/zsh.sh
 # put this into system setup.
 source $script_dir/setup/os.sh
-source $script_dir/setup/pip.sh
-source $script_dir/setup/gem.sh
-source $script_dir/setup/npm.sh
-source $script_dir/setup/go.sh
-source $script_dir/setup/quicklisp.sh
-source $script_dir/setup/cabal.sh
+source $script_dir/setup/pkgs.sh
 source $script_dir/setup/vim.sh
 source $script_dir/setup/emacs.sh
 source $script_dir/setup/git.sh
