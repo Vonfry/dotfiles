@@ -10,24 +10,28 @@
   (dolist (mode-hook '(TeX-mode-hook LaTeX-mode-hook))
     (add-hook mode-hook
       (lambda()
+        (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
         (require 'preview)
         (require 'tex-site)
         (custom-set-variables
+         '(TeX-auto-untabify t)     ; remove all tabs before saving
+         '(TeX-engine 'xetex)
+         '(TeX-master nil)
+         '(TeX-auto-save t)
+         '(TeX-save-query nil)
+         '(TeX-parse-self t)
+         '(TeX-auto-private (expand-file-name "tex/" vonfry-local-dir))
+         '(TeX-PDF-mode t)
+         '(TeX-syntactic-comment t)
+         '(TeX-command-default "XeLaTeX")
+         ;; Synctex support
+         '(TeX-source-correlate-start-server nil)
+         ;; Don't insert line-break at inline math
+         '(LaTeX-fill-break-at-separators nil)
+         '(auctex-latexmk-inherit-TeX-PDF-mode t)
+         '(TeX-show-compilation t) ; display compilation windows
          '(TeX-source-correlate-mode t))
         (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
-        (setq TeX-auto-untabify t     ; remove all tabs before saving
-              TeX-engine 'xetex       ; use xelatex default
-              TeX-auto-save t
-              TeX-parse-self t
-              TeX-auto-private (expand-file-name "tex/" vonfry-local-dir)
-              TeX-syntactic-comment t
-              ;; Synctex support
-              TeX-source-correlate-start-server nil
-              ;; Don't insert line-break at inline math
-              LaTeX-fill-break-at-separators nil
-              auctex-latexmk-inherit-TeX-PDF-mode t
-              TeX-show-compilation t) ; display compilation windows
-        (setq TeX-save-query nil)
         (imenu-add-menubar-index)
         (nmap :keymaps 'local
               :prefix +lang-nmap-prefix
