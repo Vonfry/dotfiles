@@ -12,6 +12,8 @@
       (lambda()
         (require 'preview)
         (require 'tex-site)
+        (custom-set-variables
+         '(TeX-source-correlate-mode t))
         (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
         (setq TeX-auto-untabify t     ; remove all tabs before saving
               TeX-engine 'xetex       ; use xelatex default

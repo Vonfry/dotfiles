@@ -45,7 +45,8 @@ brew install sqlite mysql postgresql redis # database
 brew install poppler                       # pdf generator
 brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 brew install pandoc                        # markdown
-brew cask install mactex
+brew cask install mactex                   # providing tex basic tools
+brew cask install texstudio                # a tex ide
 brew cask install java
 brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
