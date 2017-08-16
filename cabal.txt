@@ -5,5 +5,3 @@ hasktags
 hindent
 
 hoogle
-
-statistics
