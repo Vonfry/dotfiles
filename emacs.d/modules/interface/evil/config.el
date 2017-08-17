@@ -21,6 +21,7 @@
         "w" 'delete-window
         "k" 'kill-current-buffer
         "c" 'delete-frame
+        "t" 'toggle-window-split
         "o" 'delete-other-windows))
 
 (vonfry|use-package! evil-numbers

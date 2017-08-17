@@ -3,13 +3,13 @@
 (vonfry|use-package! haskell
   :config
   (custom-set-variables
-    '(haskell-indentation-electric-flag t)
-    '(compile-command "stack build"))
+    '(haskell-indentation-electric-flag t))
   (add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
   (add-hook 'haskell-mode-hook
     (lambda ()
+      (custom-set-variables '(compile-command "stack build"))
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "c" 'haskell-cabal-visit-file)

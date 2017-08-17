@@ -10,11 +10,16 @@
   (dolist (mode-hook '(TeX-mode-hook LaTeX-mode-hook))
     (add-hook mode-hook
       (lambda()
-        (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
+        (custom-set-variables
+          '(compile-command "xelatex")
+          '(TeX-source-correlate-mode t))
         (require 'preview)
         (require 'tex-site)
+        ;; use pdfview with auctex
+        ;; have the buffer refresh after compilation
+        (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
         (custom-set-variables
-         '(TeX-auto-untabify t)     ; remove all tabs before saving
+         '(TeX-auto-untabify t)
          '(TeX-engine 'xetex)
          '(TeX-master nil)
          '(TeX-auto-save t)
@@ -22,10 +27,12 @@
          '(TeX-parse-self t)
          '(TeX-auto-private (expand-file-name "tex/" vonfry-local-dir))
          '(TeX-PDF-mode t)
+         '(TeX-view-program-selection '((output-pdf "PDF Tools")))
+         '(TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
          '(TeX-syntactic-comment t)
-         '(TeX-command-default "XeLaTeX")
-         ;; Synctex support
          '(TeX-source-correlate-start-server nil)
+         '(TeX-source-correlate-method 'synctex)
+         ;; Synctex support
          ;; Don't insert line-break at inline math
          '(LaTeX-fill-break-at-separators nil)
          '(auctex-latexmk-inherit-TeX-PDF-mode t)
