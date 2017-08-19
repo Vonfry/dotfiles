@@ -17,11 +17,7 @@ gi vim tags macos linux emacs windows  > ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.tempalet ~/.gitcommit_global
 ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
-if [ "$(uname)" = "Darwin" ]; then
-    git config --global core.editor mvim
-else
-    git config --global core.editor vim
-fi
+git config --global core.editor vim # use all with vim, git flow has a bug with macvim
 
 unset git_global_user
 unset git_global_email
