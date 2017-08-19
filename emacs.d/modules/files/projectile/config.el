@@ -36,7 +36,7 @@
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (push (org-projectile-project-todo-entry) org-capture-templates))
 
-(vonfry|use-package! ibuffer-projec*tile
+(vonfry|use-package! ibuffer-projectile
   :after ibuffer
   :config
   (add-hook 'ibuffer-hook
