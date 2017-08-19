@@ -13,5 +13,5 @@
     (unless (or (not (stringp tmp-dir)) (file-exists-p tmp-dir))
       (make-directory tmp-dir)))
   (add-hook 'prog-mode-hook #'yas-minor-mode)
-  (global-set-key (kbd "M-,") 'company-yasnippet)
+  (global-set-key (kbd "M-'") 'company-yasnippet)
   (push '(company-semantic :with company-yasnippet) company-backends))
