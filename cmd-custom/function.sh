@@ -40,7 +40,7 @@ function vonfry-update()
     gem cleanup
     npm update -g
 
-    vim -c "execute \"PluginUpdate!\" | qa"
+    vim -c "execute \"PluginUpdate\" | qa"
     if [ "$(uname)" = Darwin ]; then
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
     else
