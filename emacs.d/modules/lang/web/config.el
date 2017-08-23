@@ -34,3 +34,8 @@
             ";" 'web-mode-tag-select))))
 
 (vonfry|use-package! haml-mode :after web-mode)
+
+(vonfry|use-package! emmet-mode
+  :after web-mode
+  :init
+  (add-hook 'web-mode-hook 'emmet-mode))
