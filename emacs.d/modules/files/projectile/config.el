@@ -34,7 +34,9 @@
   (setq org-projectile-projects-file
         (expand-file-name "org/todo-project.org" vonfry-local-dir))
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
-  (push (org-projectile-project-todo-entry) org-capture-templates))
+  (push (org-projectile-project-todo-entry) org-capture-templates)
+  (vonfry|use-package! org-projectile-helm
+    :afteer helm))
 
 (vonfry|use-package! ibuffer-projectile
   :after ibuffer
