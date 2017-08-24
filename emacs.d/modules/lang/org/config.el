@@ -1,6 +1,9 @@
 ;;; orgmode config -*- lexical-binding: t -*-
 
-(vonfry|use-package! org)
+(vonfry|use-package! org
+  :config
+  (setq org-clock-persist 'history)
+  (org-clock-persistence-insinuate))
 
 (vonfry|use-package! org-bullets
   :after org
