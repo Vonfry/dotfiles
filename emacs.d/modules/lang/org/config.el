@@ -25,7 +25,7 @@
   (org-clock-persistence-insinuate)
   ;; load babel language by ourselves when we needs them.
   (vonfry|use-package! ob-ipython)
-  (vonfry|use-package! ob-http)))
+  (vonfry|use-package! ob-http))
 
 (vonfry|use-package! org-bullets
   :after org

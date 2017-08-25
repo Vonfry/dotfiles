@@ -45,8 +45,9 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
-(unless (file-exists-p vonfry-temp-dir)
-  (make-directory vonfry-temp-dir))
+(dolist (dir (list vonfry-temp-dir vonfry-org-dir))
+  (unless (file-exists-p dir)
+    (make-directory dir)))
 
 (custom-set-variables
   '(custom-file vonfry-custom-file))
