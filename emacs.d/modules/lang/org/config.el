@@ -28,7 +28,10 @@
     '(org-todo-keywords +org-todo-keywords-sequence
       '(org-clock-persist-file +org-clock-persist-file))
     '(org-log-done 'time)
-  (org-clock-persistence-insinuate))
+  (org-clock-persistence-insinuate)
+  ;; load babel language by ourselves when we needs them.
+  (vonfry|use-package! ob-ipython)
+  (vonfry|use-package! ob-http))
 
 (vonfry|use-package! org-bullets
   :after org

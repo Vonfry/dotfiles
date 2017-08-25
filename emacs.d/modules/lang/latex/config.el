@@ -19,6 +19,7 @@
         ;; have the buffer refresh after compilation
         (add-hook 'TeX-after-compilation-finished-functions #'TeX-revert-document-buffer)
         (custom-set-variables
+         '(reftex-plug-into-AUCTeX t)
          '(TeX-auto-untabify t)
          '(TeX-engine 'xetex)
          '(TeX-master nil)
@@ -38,6 +39,7 @@
          '(auctex-latexmk-inherit-TeX-PDF-mode t)
          '(TeX-show-compilation t) ; display compilation windows
          '(TeX-source-correlate-mode t))
+        (turn-on-reftex)
         (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
         (imenu-add-menubar-index)
         (nmap :keymaps 'local
