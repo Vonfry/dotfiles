@@ -28,11 +28,15 @@
 
 (vonfry|use-package! org-projectile
   :after projectile
+  :init
+  (defcustom +org-projectile-todo-file
+    (expand-file-name "org/todo-project.org" vonfry-local-dir)
+    "org projectile file"
+    :group 'vonfry-modules)
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
-  (setq org-projectile-projects-file
-        (expand-file-name "org/todo-project.org" vonfry-local-dir))
+  (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-file))
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (push (org-projectile-project-todo-entry) org-capture-templates)
   (vonfry|use-package! org-projectile-helm

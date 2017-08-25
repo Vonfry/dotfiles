@@ -35,6 +35,10 @@ user's downloads dir"
   :type 'directory
   :group 'vonfry-dir)
 
+(defcustom vonfry-org-dir (expand-file-name ".org/" "~")
+  "User's own org files saving things like capture or agents."
+  :type 'directory
+  :group 'vonfry-dir)
 
 (defcustom vonfry-custom-file (expand-file-name "custom.el" vonfry-custom-dir)
   "custom for user's emacs"
