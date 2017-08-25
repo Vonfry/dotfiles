@@ -29,18 +29,27 @@
 (vonfry|use-package! org-projectile
   :after projectile
   :init
-  (defcustom +org-projectile-todo-file
-    (expand-file-name "org/todo-project.org" vonfry-local-dir)
-    "org projectile file"
+  (defcustom +org-projectile-todo-project-file
+    "todo.org"
+    "org projectile file in project dir. This variable will be appended `projectile-project-root`."
+    :group 'vonfry-modules)
+  (defcustom +org-projectile-todo-global-file
+    (expand-file-name "projects.org" vonfry-org-dir)
+    "org projectile file in global org dir. This will be used when projectile isn't in a project."
     :group 'vonfry-modules)
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
-  (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-file))
-  (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
-  (push (org-projectile-project-todo-entry) org-capture-templates)
-  (vonfry|use-package! org-projectile-helm
-    :afteer helm))
+  (add-hook 'text-mode-hook
+    (lambda ()
+      (let ((org-projectile-todo-file
+              (if (projectile-project-p)
+                (expand-file-name +org-projectile-todo-project-file (projectile-project-root))
+                +org-projectile-todo-global-file)))
+        (custom-set-variables '(org-projectile-projects-file org-projectile-todo-file))
+        (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+        (push (org-projectile-project-todo-entry) org-capture-templates)
+        (vonfry|use-package! org-projectile-helm :after helm)))))
 
 (vonfry|use-package! ibuffer-projectile
   :after ibuffer
