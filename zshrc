@@ -15,7 +15,18 @@ print "THEME \e[31m $ZSH_THEME \e[0m in \e[32m $ZSH_THEME_LIST\e[0m"
 
 export UPDATE_ZSH_DAYS=7
 
-plugins=(gitignore osx xcode autojump sudo brew brew-cask man colored-man-pages pip redis-cli thefuck bower docker docker-compose screen dotenv)
+plugins=(
+    gitignore git git-extra github git-flow git-remote-branch
+    autojump sudo screen dotenv
+    man colored-man-pages profiles
+    python pip
+    ruby gem chruby
+    cabal stack
+    redis-cli
+    thefuck
+    docker docker-compose
+    osx xcode brew brew-cask command-not-found
+)
 
 # User configuration
 
@@ -32,9 +43,10 @@ setopt rm_star_silent
 source $HOME/.cmd-custom/local/defvar.sh
 
 source $HOME/.cmd-custom/zplug.zsh
+source $CMD_CUSTOM_DIR/unalias.sh
+source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-source $CMD_CUSTOM_DIR/alias.sh
 
 for file in $CMD_CUSTOM_DIR/misc/*; do
     if [ -f $file ]; then
