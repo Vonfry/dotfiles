@@ -3,6 +3,15 @@ echo_sh "** setup brew and a lot of software"
 # cmd line tools
 sudo chown $(whoami) -R /usr/local/share/man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+cd "$(brew --repo)"
+git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
+cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
+cd "$(brew --repo)"/Library/Taps/caskroom/homebrew-cask
+git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+
 brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 brew install gnu-sed gnu-tar

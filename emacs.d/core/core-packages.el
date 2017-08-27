@@ -18,6 +18,14 @@
 ;; define some variables for packages
 ;;
 
+(defcustom vonfry-elpa-mirror "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"
+  "Set elpa mirror. If it is nil, use with default."
+  :group 'vonfry)
+
+(defcustom vonfry-melpa-mirror nil ;; "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"
+  "Set melpa mirror. If it is nil, use with default. Because of quelpa must use with git, so I don't use it by default."
+  :group 'vonfry)
+
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
   :group 'vonfry)
@@ -50,6 +58,13 @@ is undefined(It always is loaded by alpha order)."
 ;;
 ;; setup package manager
 ;;
+
+(if vonfry-elpa-mirror
+  (custom-set-variables
+   '(package-archives `(("gnu"   . ,vonfry-elpa-mirror)))))
+
+(if vonfry-melpa-mirror
+  (custom-set-variables '(quelpa-melpa-repo-url vonfry-melpa-mirror)))
 
 (custom-set-variables
   '(package-user-dir          vonfry-elpa-dir)
