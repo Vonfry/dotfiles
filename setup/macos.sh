@@ -61,6 +61,7 @@ brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
 # system tool
 brew install wireshark                     # web package catch
+brew install colordiff
 # chat
 brew cask install gitter
 brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lua
