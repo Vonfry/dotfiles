@@ -4,6 +4,7 @@ case "$(unname)" in
         ;;
     "Linux")
         source /etc/os-release
+        sudo ln -f -s $script_dir/etc/issue /etc/issue
         case "$(ID)" in
             "gentoo")
                 source $script_dir/setup/gentoo.sh
