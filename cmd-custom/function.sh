@@ -18,9 +18,7 @@ function vonfry-update()
                     sudo dnf clean all
                     ;;
                 "gentoo")
-                    emaint -a sync
                     emerge-webrsync
-                    eix-sync
                     emerge -uDU --with-bdeps=y @world
                     ;;
             esac

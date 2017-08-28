@@ -1,6 +1,10 @@
 echo_sh "* system is Gentoo"
 echo_sh "** setup emerge and a lot of software"
 
+echo_sh "** This action must be run after the system is installed with all the basic things have been done."
+echo_sh "** All package.use flags are saved in the repo."
+ln -s -f $script_dir/etc/portage/* /etc/portage/
+
 # TODO change to gentoo
 # sudo dnf update -y && sudo dnf upgrade -y
 # sudo dnf install -y zsh
@@ -29,7 +33,6 @@ echo_sh "** setup emerge and a lot of software"
 # sudo dnf install -y arduino
 # sudo dnf install -y docker
 # sudo dnf install -y youtube-dl aria2
-# sudo ln -f -s $script_dir/issue /etc/issue
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install

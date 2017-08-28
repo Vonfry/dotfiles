@@ -27,7 +27,6 @@ sudo dnf install -y poppler automake
 sudo dnf install -y arduino
 sudo dnf install -y docker
 sudo dnf install -y youtube-dl aria2
-sudo ln -f -s $script_dir/issue /etc/issue
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
