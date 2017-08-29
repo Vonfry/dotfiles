@@ -418,14 +418,21 @@ nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
 nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-        \ ['-i', '--vimgrep'])
+		\ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ [ '.git/', '.ropeproject/', '__pycache__/',
-      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+
+" Ack command on grep source
+call denite#custom#var('grep', 'command', ['ack'])
+call denite#custom#var('grep', 'default_opts',
+		\ ['--ackrc', $HOME.'/.ackrc', '-H',
+		\  '--nopager', '--nocolor', '--nogroup', '--column'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--match'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
 
 " }}}
 
