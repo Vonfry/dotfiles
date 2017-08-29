@@ -42,14 +42,14 @@
   :config
   (add-hook 'text-mode-hook
     (lambda ()
-      (let ((org-projectile-todo-file
-              (if (projectile-project-p)
-                (expand-file-name +org-projectile-todo-project-file (projectile-project-root))
-                +org-projectile-todo-global-file)))
-        (custom-set-variables '(org-projectile-projects-file org-projectile-todo-file))
-        (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+        (setq +org-projectile-todo-project-file-path
+          (if (projectile-project-p)
+            (expand-file-name +org-projectile-todo-project-file (projectile-project-root))
+            +org-projectile-todo-global-file))
+        (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-project-file-path))
+        (setq org-agenda-files (append org-agenda-files (+org-projectile-todo-project-file-path)))
         (push (org-projectile-project-todo-entry) org-capture-templates)
-        (vonfry|use-package! org-projectile-helm :after helm)))))
+        (vonfry|use-package! org-projectile-helm :after helm))))
 
 (vonfry|use-package! ibuffer-projectile
   :after ibuffer
