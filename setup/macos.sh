@@ -71,6 +71,8 @@ brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-dbus
 sudo ln -f -s $script_dir/etc/motd /etc/motd
+# life
+brew cask install iina
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
