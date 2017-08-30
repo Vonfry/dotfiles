@@ -4,6 +4,7 @@ echo_sh "** setup emerge and a lot of software"
 echo_sh "** This action must be run after the system is installed with all the basic things have been done."
 echo_sh "** All package.use flags are saved in the repo."
 ln -s -f $script_dir/etc/portage/* /etc/portage/
+echo "~$(portageq envvar ARCH)" >> /etc/portage/package.accept_keywords/local-arch
 
 GENTOO_NEED_EXIT_USER=1
 if [ $USER != "root" ]; then
