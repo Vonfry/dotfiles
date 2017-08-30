@@ -55,10 +55,9 @@ emerge app-tex/editorconfig-core-c
 
 # lang
 layman -a haskell
-echo "*/*::haskell ~$(portageq envvar ARCH)" >> /etc/portage/package.accept_keywords/local-haskell
 emerge dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack
 emerge dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
-emerge dev-lang/ruby # TODO rbenv
+emerge dev-lang/ruby dev-ruby/rubygems # TODO rbenv
 emerge dev-lang/ocaml dev-ml/opam
 emerge dev-lang/python dev-python/pip
 emerge dev-lang/go net-libs//nodejs
