@@ -5,6 +5,17 @@ echo_sh "** This action must be run after the system is installed with all the b
 echo_sh "** All package.use flags are saved in the repo."
 ln -s -f $script_dir/etc/portage/* /etc/portage/
 
+emerge dispatch-conf
+emerge eclean
+emerge gentoolkit
+emerge layman
+layman -f
+echo source /var/lib/layman/make.conf >> /etc/portage/make.conf
+
+# lang
+layman -a haskell
+echo "*/*::haskell ~$(portageq envvar ARCH)" >> /etc/portage/package.accept_keywords/local-haskell
+
 # TODO change to gentoo
 # sudo dnf update -y && sudo dnf upgrade -y
 # sudo dnf install -y zsh
