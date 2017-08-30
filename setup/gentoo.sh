@@ -5,45 +5,79 @@ echo_sh "** This action must be run after the system is installed with all the b
 echo_sh "** All package.use flags are saved in the repo."
 ln -s -f $script_dir/etc/portage/* /etc/portage/
 
-emerge dispatch-conf
-emerge eclean
-emerge gentoolkit
-emerge layman
+GENTOO_NEED_EXIT_USER=1
+if [ $USER != "root" ]; then
+    echo_sh "** Gentoo doesn't have sudo by default, so you must run the script with root user."
+    su root
+    GENTOO_NEED_EXIT_USER=0
+fi
+
+emerge-websync
+
+emerge sudo
+
+emerge app-admin/eclean
+emerge app-portage/gentoolkit
+emerge app-portage/layman
+layman-updater -R
 layman -f
-echo source /var/lib/layman/make.conf >> /etc/portage/make.conf
+
+# system basic tools
+emerge net-firewall/iptabels
+rc-update add iptabels default
+emerge net-firewall/ferm
+emerge sys-apps/dbus
+
+# shell
+emerge app-shells/zsh
+emerge net-misc/wget net-misc/curl
+emerge dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
+emerge app-misc/screen
+emerge dev-util/cmake dev-util/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
+emerge dev-libs/poco dev-libs/boost dev-libs/thrift dev-libs/swig
+emerge sys-devel/gdb dev-util/lldb
+emerge app-doc/doxygen dev-util/cloc
+emerge app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
+emerge app-shells/autojump app-shells/thefuck
+emerge dev-util/shellcheck
+emerge app-misc/cmatrix app-misc/figlet
+
+emerge sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
+emerge app-arch/zip
+emerge dev-util/global dev-util/ctags dev-util/cscope
+# TODO rtags
+
+# editor
+emerge app-editors/vim
+emerge app-editors/neovim
+emerge app-editors/emacs
+emerge app-tex/editorconfig-core-c
 
 # lang
 layman -a haskell
 echo "*/*::haskell ~$(portageq envvar ARCH)" >> /etc/portage/package.accept_keywords/local-haskell
+emerge dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack
+emerge dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
+emerge dev-lang/ruby # TODO rbenv
+emerge dev-lang/ocaml dev-ml/opam
+emerge dev-lang/python dev-python/pip
+emerge dev-lang/go net-libs//nodejs
+emerge dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
+emerge app-text/poppler
+emerge app-text/pandoc
+emerge app-text/texlive app-office/texstudio
+emerge dev/java/javacc
 
-# TODO change to gentoo
-# sudo dnf update -y && sudo dnf upgrade -y
-# sudo dnf install -y zsh
-# sudo dnf install -y wget git git-extra tig screen
-# sudo dnf install -y cmake gcc clang llvm
-# sudo dnf install -y tree uchardet
-# sudo dnf install -y ack the_silver_searcher
-# sudo dnf install -y global
-# sudo dnf install -y sbcl gcl clisp
-# sudo dnf install -y ghc cabal-install
-# sudo dnf copr enable petersen/stack && sudo dnf install stack && dnf stack upgrade
-# sudo dnf install -y httpd nginx
-# sudo dnf install -y vim neovim emacs
-# sudo dnf install -y python python-devel python3 python3-devel
-# sudo dnf install -y ruby
-# sudo dnf install -y go node
-# sudo dnf install -y php php-devel
-# sudo dnf install -y java
-# sudo dnf install cloc
-# sudo dnf install -y poco-devel boost thrift swig boost-python boost-python3
-# sudo dnf install -y sqlite mariadb mariadb-server postgresql redis
-# sudo dnf install -y sqlite-devel mariadb-devel postgresql-devel redis-devel
-# sudo dnf install -y graphviz
-# sudo dnf install -y doxygen
-# sudo dnf install -y poppler automake
-# sudo dnf install -y arduino
-# sudo dnf install -y docker
-# sudo dnf install -y youtube-dl aria2
+# system tools
+emerge net-analyzer/wireshark
+emerge net-irc/weechat
+
+# X11
+# TODO X11
+
+if [ GENTOO_NEED_EXIT_USER  == 0 ]; then
+    logout
+fi
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
