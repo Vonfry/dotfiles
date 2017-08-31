@@ -9,7 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 if [ ! -f $ZSH/custom/themes/lambda-mod.zsh-theme ]; then
     git clone https://github.com/halfo/lambda-mod-zsh-theme.git $ZSH_CUSTOM/themes
 fi
-ZSH_THEME_LIST=(lambda-mod robbyrussell agnoster ys)
+ZSH_THEME_LIST=(lambda-mod robbyrussell agnoster)
 ZSH_THEME=$ZSH_THEME_LIST[RANDOM%${#ZSH_THEME_LIST[@]}+1]
 print "THEME \e[31m $ZSH_THEME \e[0m in \e[32m $ZSH_THEME_LIST\e[0m"
 
