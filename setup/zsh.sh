@@ -6,4 +6,3 @@ ln -f -s $script_dir/zshrc ~/.zshrc
 source ~/.zshrc
 
 git clone https://github.com/zplug/zplug ~/.zplug/
-ln -f -s $script_dir/zplug/init.zsh ~/.zplug/init.zsh
