@@ -1,4 +1,7 @@
 ;;; projectile packages -*- lexical-binding: t -*-
+;;
+;; If you want to use a project's emacs configure, please see more about __.dir-locals.el__ and
+;; (projectile-edit-dir-locals)
 
 (vonfry|use-package!  projectile
   :init
