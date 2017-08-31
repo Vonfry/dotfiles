@@ -13,7 +13,8 @@ read git_global_email
 echo "--- input git global github user "
 git config --global user.email $git_global_user
 git config --global user.username $git_global_email
-gi vim tags macos linux emacs windows  > ~/.gitignore_global
+curl -L -s https://www.gitignore.io/api/vim,tags,macos,linux,emacs,windows > ~/.gitignore_global
+
 git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.tempalet ~/.gitcommit_global
 ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
