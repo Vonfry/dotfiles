@@ -1,10 +1,16 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(thefuck --alias)"
+if [ command -v thefuck > /dev/null 2>&1 ]; then
+    eval "$(thefuck --alias)"
+fi
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
-eval "$(stack --bash-completion-script stack)"
+if [ command -v stack > /dev/null 2>&1  ]; then
+    eval "$(stack --bash-completion-script stack)"
+fi
 
 # ocaml
-eval `opam config env`
+if [ command -v opam > /dev/null 2>&1 ]; then
+    eval `opam config env`
+fi
