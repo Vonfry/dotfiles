@@ -17,11 +17,13 @@
      :group 'vonfry-modules)
   :config
   (custom-set-variables
-    '(org-clock-persist t)
-    '(org-default-notes-file +org-capture-file)
-    '(org-todo-keywords +org-todo-keywords-sequence)
-    '(org-clock-persist-file +org-clock-persist-file)
-    '(org-log-done 'time))
+   '(org-clock-persist t)
+   '(org-default-notes-file +org-capture-file)
+   '(org-todo-keywords +org-todo-keywords-sequence)
+   '(org-clock-persist-file +org-clock-persist-file)
+   '(org-log-done 'time)
+   '(todo-directory vonfry-org-dir)
+   '(todo-default-todo-file "todo.org"))
   (org-clock-persistence-insinuate)
   ;; load babel language by ourselves when we needs them.
   (vonfry|use-package! ob-ipython)
