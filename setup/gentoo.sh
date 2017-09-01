@@ -1,8 +1,8 @@
 echo_info "* system is Gentoo"
 echo_info "** setup emerge and a lot of software"
 
-echo_sh "** This action must be run after the system is installed with all the basic things have been done."
-echo_sh "** All package.use flags are saved in the repo."
+echo_info "** This action must be run after the system is installed with all the basic things have been done."
+echo_info "** All package.use flags are saved in the repo."
 
 user_dir=$HOME
 GENTOO_NEED_EXIT_USER=1
