@@ -32,6 +32,7 @@ brew install ninja
 brew install automake
 brew install poco boost thrift swig
 brew install boost-python --with-python3
+brew install scons # a cross build tools
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
