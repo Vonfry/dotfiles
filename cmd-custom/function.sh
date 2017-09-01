@@ -18,8 +18,11 @@ function vonfry-update()
                     sudo dnf clean all
                     ;;
                 "gentoo")
+                    layman -S
+                    emerge-webrsync
                     emerge --sync
                     emerge -uDU --with-bdeps=y @world
+                    revdep-rebuild
                     ;;
             esac
             ;;
@@ -27,7 +30,7 @@ function vonfry-update()
     if command -v zplug >/dev/null 2>&1; then
         zplug update
     fi
-    print "\e[31m Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
+    print "$fg(red) Make sure the python url is needed to be rewriten in emacs configure. \033[0m"
     cabal update
     cat $DOTFILES_DIR/cabal.txt | xargs -t -n1 cabal install # update cabal installed package
     stack upgrade
