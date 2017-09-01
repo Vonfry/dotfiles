@@ -1,4 +1,4 @@
-echo_sh "** setup vim"
+echo_info "** setup vim"
 ln -f -s $script_dir/vimrc ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim -c "execute \"PluginInstall!\" | qa"

@@ -1,9 +1,11 @@
+echo_info "** setup node"
+
 ln -f -s $script_dir/npm.txt ~/.npm.txt
 
 if command -v npm > /dev/null 2>&1; then
-    echo_sh "** setup npm"
+    echo_info "*** setup nmp"
     cat $script_dir/npm.txt | xargs -t -n1 npm install -g
 else
-    echo_sh "ERROR: NO npm"
-    exit
+    echo_warn "!!! ERROR: NO npm"
+    exit 1
 fi
