@@ -6,7 +6,7 @@ function mk-ssh-keygen()
     sudo ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
 }
 
-if [ $(uname) = "Drawin" ]; then
+if [ $(uname) = "Darwin" ]; then
     function start-sshd()
     {
         sudo /usr/sbin/sshd
