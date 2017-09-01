@@ -19,6 +19,8 @@ function vonfry-update()
                     ;;
                 "gentoo")
                     emerge-webrsync
+                    layman-update -R
+                    layman -S
                     emerge --sync
                     emerge -uDU --with-bdeps=y @world
                     revdep-rebuild
