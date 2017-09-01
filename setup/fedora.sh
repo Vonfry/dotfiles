@@ -1,5 +1,5 @@
-echo_sh "* system is Fedora"
-echo_sh "** setup dnf and a lot of software"
+echo_info "* system is Fedora"
+echo_info "** setup dnf and a lot of software"
 sudo dnf update -y && sudo dnf upgrade -y
 sudo dnf install -y zsh
 sudo dnf install -y wget git git-extra tig screen

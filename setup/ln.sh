@@ -1,5 +1,5 @@
 # copy other dotfiles
-echo_sh "** copy other dotfiles"
+echo_info "** copy other dotfiles"
 
 ln -f -s $script_dir/ackrc ~/.ackrc
 ln -f -s $script_dir/agignore ~/.agignore

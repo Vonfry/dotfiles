@@ -1,5 +1,5 @@
-echo_sh "* system is Darwin"
-echo_sh "** setup brew and a lot of software"
+echo_info "* system is Darwin"
+echo_info "** setup brew and a lot of software"
 # cmd line tools
 sudo chown $(whoami) -R /usr/local/share/man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -85,7 +85,7 @@ brew services start dbus
 brew services start emacs
 brew services start rtags
 
-echo_sh "*** Here are some useful tools for mac.
+echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
 https://github.com/zenorocha/alfred-workflows"
