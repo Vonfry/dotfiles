@@ -1,8 +1,8 @@
 #!/bin/bash
 
-function echo_warn() { print "\n$fg[red] $@\n"; }
-function echo_info() { print "\n$fg[cyan] $@\n"; }
-function echo_note() { print "\n$@\n"; }
+function echo_warn() { echo -e "\n\033[0;31m $@\n"; echo -e "\033[0m" }
+function echo_info() { echo -e "\n\033[0;36m $@\n"; echo -e "\033[0m" }
+function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 
 export script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 export dropbox_dir="$HOME/Dropbox/Backup/dotfiles"
