@@ -14,17 +14,15 @@ fi
 
 # global use flag
 portage_dir=/etc/portage
-echo "LINGUAS=\"en zh-CN jp\"" > $portage_dir/make.conf
-echo "USE=\"aac berkdb bzip2 cjk cscope curl clipboard cvs cxx dbus doc examples ffmpeg flac git gif gpm graphviz gtk gzip icu ipv6 java javascript jpeg latex libedit libffi libressl lua mmap multilib mp3 mp4 music mysql ocaml ogg perl pdf png postgresql posix  python ruby sockets soap samba source spell sqlite static-libs svg syslog systemd ssl sound tcpd threads tiff tidy unicode usb vhosts videos vnc webkit xml yaml zlib zsh-completion\"" >> $portage_dir/make.conf # USE in make.conf only saves the global use flag.
-echo "LLVM_TARGETS=\"AMDGPU WebAssembly\"" >> $portage_dir/make.conf
 for file in $script_dir/etc/portage/*; do
-    rm "$portage_dir/${file##*/}"
-    ln -s -f $file* /etc/portage/
+    rm -rf "$portage_dir/${file##*/}"
+    ln -s -f $file /etc/portage/
 done
 
 emerge-websync
 
 emerge app-admin/sudo
+emerge app-portage/cpuid2cpuflags
 emerge app-admin/eclean app-admin/eclean-kernel
 emerge app-portage/gentoolkit app-portage/euses
 emerge app-portage/layman
