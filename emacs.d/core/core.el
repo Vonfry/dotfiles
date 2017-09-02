@@ -36,6 +36,11 @@
   :group 'vonfry
   :type 'string-dir)
 
+(defcustom vonfry-debug t
+  "debug flag."
+  :group 'vonfry
+  :type 'boolean)
+
 (require 'core-local)
 (require 'core-packages)
 (require 'core-ui)

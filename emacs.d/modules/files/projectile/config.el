@@ -30,6 +30,7 @@
     vonfry-keybind-evil-search 'helm-projectile-ag))
 
 (vonfry|use-package! org-projectile
+  :disable t
   :after projectile
   :init
   (defcustom +org-projectile-todo-project-file
@@ -40,19 +41,20 @@
     (expand-file-name "projects.org" vonfry-org-dir)
     "org projectile file in global org dir. This will be used when projectile isn't in a project."
     :group 'vonfry-modules)
+  (defvar +org-projectile-todo-project-file-path nil "todo project path")
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
-  (add-hook 'text-mode-hook
+  (add-hook 'projectile-mode-hook
     (lambda ()
         (setq +org-projectile-todo-project-file-path
           (if (projectile-project-p)
             (expand-file-name +org-projectile-todo-project-file (projectile-project-root))
             +org-projectile-todo-global-file))
-        (if (not (file-exists-p +org-projectile-todo-project-file-path))
+        (unless (file-exists-p +org-projectile-todo-project-file-path)
           (write-region "" nil +org-projectile-todo-project-file-path))
         (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-project-file-path))
-        (setq org-agenda-files (append org-agenda-files (+org-projectile-todo-project-file-path)))
+        (setq org-agenda-files (append org-agenda-files +org-projectile-todo-project-file-path))
         (push (org-projectile-project-todo-entry) org-capture-templates)
         (vonfry|use-package! org-projectile-helm :after helm))))
 
