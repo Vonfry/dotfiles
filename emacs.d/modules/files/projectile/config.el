@@ -40,6 +40,7 @@
     (expand-file-name "projects.org" vonfry-org-dir)
     "org projectile file in global org dir. This will be used when projectile isn't in a project."
     :group 'vonfry-modules)
+  (defvar +org-projectile-todo-project-file-path nil "todo project path")
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
