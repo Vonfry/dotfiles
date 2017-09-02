@@ -75,6 +75,12 @@ is undefined(It always is loaded by alpha order)."
   '(quelpa-upgrade-p          t)
   '(use-package-always-ensure nil))
 
+(if vonfry-debug
+  (custom-set-variables
+   '(quelpa-checkout-melpa-p   nil)
+   '(quelpa-update-melpa-p     nil)
+   '(quelpa-upgrade-p          nil)))
+
 (require 'package)
 (package-initialize)
 (package-refresh-contents)
