@@ -36,7 +36,7 @@
   :group 'vonfry
   :type 'string-dir)
 
-(defcustom vonfry-debug t
+(defcustom vonfry-debug nil
   "debug flag."
   :group 'vonfry
   :type 'boolean)
