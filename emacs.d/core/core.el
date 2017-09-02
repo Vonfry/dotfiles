@@ -36,10 +36,10 @@
   :group 'vonfry
   :type 'string-dir)
 
-(defcustom vonfry-debug nil
+(defcustom vonfry-debug t
   "debug flag."
   :group 'vonfry
-  :type boolean)
+  :type 'boolean)
 
 (require 'core-local)
 (require 'core-packages)
