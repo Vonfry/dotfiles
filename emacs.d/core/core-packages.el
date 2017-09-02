@@ -83,7 +83,8 @@ is undefined(It always is loaded by alpha order)."
 
 (require 'package)
 (package-initialize)
-(package-refresh-contents)
+(unless vonfry-debug
+  (package-refresh-contents))
 (unless (require 'quelpa nil t)
   (with-temp-buffer
     (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
