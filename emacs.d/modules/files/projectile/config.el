@@ -30,6 +30,7 @@
     vonfry-keybind-evil-search 'helm-projectile-ag))
 
 (vonfry|use-package! org-projectile
+  :disable t
   :after projectile
   :init
   (defcustom +org-projectile-todo-project-file
@@ -55,8 +56,7 @@
         (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-project-file-path))
         (setq org-agenda-files (append org-agenda-files +org-projectile-todo-project-file-path))
         (push (org-projectile-project-todo-entry) org-capture-templates)
-        (vonfry|use-package! org-projectile-helm :after helm)))
-  )
+        (vonfry|use-package! org-projectile-helm :after helm))))
 
 (vonfry|use-package! ibuffer-projectile
   :after ibuffer
