@@ -3,7 +3,7 @@
 (vonfry|use-package! org
   :init
   (defcustom +org-clock-persist-file
-     (expand-file-name "org-clock-save.el" vonfry-org-dir)
+     (expand-file-name "org-clock-save.el" vonfry-local-dir)
      "org clock save"
      :group 'vonfry-modules)
   (defcustom +org-todo-keywords-sequence
