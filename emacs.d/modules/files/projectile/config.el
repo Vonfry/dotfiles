@@ -44,18 +44,19 @@
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :config
-  (add-hook 'text-mode-hook
+  (add-hook 'projectile-mode-hook
     (lambda ()
         (setq +org-projectile-todo-project-file-path
           (if (projectile-project-p)
             (expand-file-name +org-projectile-todo-project-file (projectile-project-root))
             +org-projectile-todo-global-file))
-        (if (not (file-exists-p +org-projectile-todo-project-file-path))
+        (unless (file-exists-p +org-projectile-todo-project-file-path)
           (write-region "" nil +org-projectile-todo-project-file-path))
         (custom-set-variables '(org-projectile-projects-file +org-projectile-todo-project-file-path))
-        (setq org-agenda-files (append org-agenda-files (+org-projectile-todo-project-file-path)))
+        (setq org-agenda-files (append org-agenda-files +org-projectile-todo-project-file-path))
         (push (org-projectile-project-todo-entry) org-capture-templates)
-        (vonfry|use-package! org-projectile-helm :after helm))))
+        (vonfry|use-package! org-projectile-helm :after helm)))
+  )
 
 (vonfry|use-package! ibuffer-projectile
   :after ibuffer
