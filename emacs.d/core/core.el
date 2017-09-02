@@ -41,6 +41,8 @@
   :group 'vonfry
   :type 'boolean)
 
+(if vonfry-debug (debug-on-error))
+
 (require 'core-local)
 (require 'core-packages)
 (require 'core-ui)
