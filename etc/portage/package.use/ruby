@@ -1,1 +1,2 @@
 dev-lang/ruby rubytest rdoc readline
+dev-ruby/racc -doc
