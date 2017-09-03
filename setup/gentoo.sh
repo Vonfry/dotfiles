@@ -29,7 +29,7 @@ emerge --sync --quiet
 emerge --quiet app-admin/sudo
 emerge --quiet app-portage/cpuid2cpuflags
 emerge --quiet app-admin/eclean app-admin/eclean-kernel
-emerge --quiet app-portage/gentoolkit app-portage/euses
+emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop
 emerge --quiet app-portage/layman
 layman-updater -R
 layman -S
@@ -37,7 +37,7 @@ layman -S
 # system basic tools
 emerge --quiet net-firewall/iptabels
 rc-update add iptabels default
-emerge --quiet net-firewall/ferm
+emerge --quiet net-firewall/firehol
 emerge --quiet sys-apps/dbus
 
 # shell
