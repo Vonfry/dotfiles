@@ -2,7 +2,7 @@
 
 (vonfry|use-package! neotree
   :config
-  (<custom-set-variables
+  (custom-set-variables
    '(neo-theme (if (display-graphic-p) 'icons 'arrow))
    '(neo-smart-open t)
    '(neo-autorefresh t)
