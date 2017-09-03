@@ -1,4 +1,1 @@
 dev-lang/ruby rubytest rdoc doc
-dev-ruby/racc -doc
-dev-ruby/json -doc
-dev-ruby/mustache -doc
