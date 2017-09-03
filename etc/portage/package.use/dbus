@@ -1,1 +1,1 @@
-sys-apps/dbus elogind systemd user-session
+sys-apps/dbus elogind user-session
