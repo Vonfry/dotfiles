@@ -4,7 +4,7 @@ These files are only for myself. I suggest those who want to use it that please 
 it directly.
 
 It contains developing environment and some test environment. So the setup file also can be used for server (without
-services' configure).
+services' configure), but there are a lot of things that the server doesn't need.
 
 ## mirror
 

@@ -7,8 +7,12 @@ echo_info "** All package.use flags are saved in the repo."
 user_dir=$HOME
 GENTOO_NEED_EXIT_USER=1
 if [ $USER != "root" ]; then
-    echo_sh "** Gentoo doesn't have sudo by default, so you must run the script with root user."
-    su root
+    if [ command -v "sudo" > /dev/null 2>&1 ]; then
+        sudo -i
+    else
+        echo_sh "** Gentoo doesn't have sudo by default, so you must run the script with root user."
+        su root
+    fi
     GENTOO_NEED_EXIT_USER=0
 fi
 
@@ -20,64 +24,65 @@ for file in $script_dir/etc/portage/*; do
 done
 
 emerge-websync
+emerge --sync --quiet
 
-emerge app-admin/sudo
-emerge app-portage/cpuid2cpuflags
-emerge app-admin/eclean app-admin/eclean-kernel
-emerge app-portage/gentoolkit app-portage/euses
-emerge app-portage/layman
+emerge --quiet app-admin/sudo
+emerge --quiet app-portage/cpuid2cpuflags
+emerge --quiet app-admin/eclean app-admin/eclean-kernel
+emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop
+emerge --quiet app-portage/layman
 layman-updater -R
 layman -S
 
 # system basic tools
-emerge net-firewall/iptabels
+emerge --quiet net-firewall/iptabels
 rc-update add iptabels default
-emerge net-firewall/ferm
-emerge sys-apps/dbus
+emerge --quiet net-firewall/firehol
+emerge --quiet sys-apps/dbus
 
 # shell
-emerge app-shells/zsh app-shells/zsh-completions
-emerge net-misc/wget net-misc/curl
-emerge dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
-emerge app-misc/screen
-emerge dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
-emerge dev-libs/poco dev-libs/boost dev-libs/thrift dev-libs/swig
-emerge sys-devel/gdb dev-util/lldb
-emerge app-doc/doxygen dev-util/cloc
-emerge app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
-emerge app-shells/autojump app-shells/thefuck
-emerge dev-util/shellcheck
-emerge app-misc/cmatrix app-misc/figlet
+emerge --quiet app-shells/zsh app-shells/zsh-completions
+emerge --quiet net-misc/wget net-misc/curl
+emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
+emerge --quiet app-misc/screen
+emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
+emerge --quiet dev-libs/poco dev-libs/boost dev-libs/thrift dev-libs/swig
+emerge --quiet sys-devel/gdb dev-util/lldb
+emerge --quiet app-doc/doxygen dev-util/cloc
+emerge --quiet app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
+emerge --quiet app-shells/autojump app-shells/thefuck
+emerge --quiet dev-util/shellcheck
+emerge --quiet app-misc/cmatrix app-misc/figlet
 
-emerge sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
-emerge app-arch/zip
-emerge dev-util/global dev-util/ctags dev-util/cscope
-git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make && cd - && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ # rtags
+emerge --quiet sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
+emerge --quiet app-arch/zip
+emerge --quiet dev-util/global dev-util/ctags dev-util/cscope
+git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && cd - && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ # rtags
 
 # editor
-emerge app-editors/vim
-emerge app-editors/neovim
-emerge app-editors/emacs
-emerge app-tex/editorconfig-core-c
+emerge --quiet app-editors/vim
+emerge --quiet app-editors/neovim
+emerge --quiet app-editors/emacs
+emerge --quiet app-tex/editorconfig-core-c
 
 # lang
 layman -a haskell
-emerge dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack-bin
-emerge dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
-emerge dev-lang/ruby dev-ruby/rubygems
-git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
-emerge dev-lang/ocaml dev-ml/opam
-emerge dev-lang/python dev-python/pip
-emerge dev-lang/go net-libs//nodejs
-emerge dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
-emerge app-text/poppler
-emerge app-text/pandoc
-emerge app-text/texlive app-office/texstudio
-emerge dev/java/javacc
+emerge --quiet dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack-bin
+emerge --quiet dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
+emerge --quiet dev-lang/ruby dev-ruby/rubygems
+git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
+emerge --quiet dev-lang/ocaml dev-ml/opam
+emerge --quiet dev-lang/python dev-python/pip
+emerge --quiet dev-lang/go net-libs//nodejs
+emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
+emerge --quiet app-text/poppler
+emerge --quiet app-text/pandoc
+emerge --quiet app-text/texlive app-office/texstudio
+emerge --quiet dev/java/javacc
 
 # system tools
-emerge net-analyzer/wireshark
-emerge net-irc/weechat
+emerge --quiet net-analyzer/wireshark
+emerge --quiet net-irc/weechat
 
 # X11
 # TODO X11
@@ -90,3 +95,4 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 unset portage_dir
+unset GENTOO_NEED_EXIT_USER
