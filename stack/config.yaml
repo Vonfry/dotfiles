@@ -1,6 +1,12 @@
-templates:
-  params: null
 system-ghc: false
+templates:
+  params:
+    author-name: Vonfry
+    author-email: vonfry314@gmail.com
+    copyright: 'Copyright: ©  2017 Vonfry'
+    github-username: VonFry
+    scm-init: git
+save-hackage-creds: true
 
 package-indices:
   - name: Tsinghua
