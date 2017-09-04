@@ -5,6 +5,7 @@ templates:
     author-email: vonfry314@gmail.com
     copyright: 'Copyright: ©  2017 Vonfry'
     github-username: VonFry
+    scm-init: git
 
 package-indices:
   - name: Tsinghua
