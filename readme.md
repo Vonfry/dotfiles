@@ -20,7 +20,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## system
 - [x] macOS
-- [ ] Gentoo
+- [x] Gentoo ( without X11 )
 - [ ] Fedora ( No longer maintain. )
 
 ## editor

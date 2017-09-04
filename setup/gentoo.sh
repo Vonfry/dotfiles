@@ -46,7 +46,7 @@ emerge --quiet net-misc/wget net-misc/curl
 emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
 emerge --quiet app-misc/screen
 emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
-emerge --quiet dev-libs/poco dev-libs/boost dev-libs/thrift dev-libs/swig
+emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
 emerge --quiet sys-devel/gdb dev-util/lldb
 emerge --quiet app-doc/doxygen dev-util/cloc
 emerge --quiet app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
@@ -61,9 +61,8 @@ git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtag
 
 # editor
 emerge --quiet app-editors/vim
-emerge --quiet app-editors/neovim
 emerge --quiet app-editors/emacs
-emerge --quiet app-tex/editorconfig-core-c
+emerge --quiet app-text/editorconfig-core-c
 
 # lang
 layman -a haskell
@@ -73,12 +72,12 @@ emerge --quiet dev-lang/ruby dev-ruby/rubygems
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
 emerge --quiet dev-lang/ocaml dev-ml/opam
 emerge --quiet dev-lang/python dev-python/pip
-emerge --quiet dev-lang/go net-libs//nodejs
+emerge --quiet dev-lang/go net-libs/nodejs
 emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
 emerge --quiet app-text/poppler
 emerge --quiet app-text/pandoc
 emerge --quiet app-text/texlive app-office/texstudio
-emerge --quiet dev/java/javacc
+emerge --quiet dev-java/javacc
 
 # system tools
 emerge --quiet net-analyzer/wireshark

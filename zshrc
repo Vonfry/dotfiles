@@ -30,11 +30,6 @@ plugins=(
 
 # User configuration
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:/usr/local/opt/sqlite/bin
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
-
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
@@ -47,12 +42,15 @@ source $CMD_CUSTOM_DIR/unalias.sh
 source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-
 for file in $CMD_CUSTOM_DIR/misc/*; do
     if [ -f $file ]; then
         source $file
     fi
 done
+
+export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
+
 for file in $CMD_CUSTOM_DIR/local/*; do
     if [ -f $file ]  && [ $file != "defvar.sh" ]; then
         source $file
