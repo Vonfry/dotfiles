@@ -38,6 +38,9 @@
     :group 'vonfry-modules)
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+         vonfry-keybind-evil-todo 'org-projectile-project-todo-completing-read)
   :config
   (org-projectile-per-project)
   (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
