@@ -2,10 +2,12 @@
 
 case "$(uname)" in
     "Darwin")
+        export PATH="/usr/local/opt/go/libexec/bin:$PATH"
+        export PATH="/usr/local/opt/sqlite/bin:$PATH"
         export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
         export PATH="/usr/local/opt/curl/bin:$PATH"
-        export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
         export PATH="/usr/local/opt/llvm/bin:$PATH"
+        export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
         export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
         alias llvm-help="
         To use the bundled libc++ please add the following LDFLAGS:

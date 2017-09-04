@@ -31,8 +31,6 @@ plugins=(
 # User configuration
 
 export PATH=/usr/local/sbin:$PATH
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-export PATH=$PATH:/usr/local/opt/sqlite/bin
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
