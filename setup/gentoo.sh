@@ -61,9 +61,8 @@ git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtag
 
 # editor
 emerge --quiet app-editors/vim
-emerge --quiet app-editors/neovim
 emerge --quiet app-editors/emacs
-emerge --quiet app-tex/editorconfig-core-c
+emerge --quiet app-text/editorconfig-core-c
 
 # lang
 layman -a haskell
