@@ -72,12 +72,12 @@ emerge --quiet dev-lang/ruby dev-ruby/rubygems
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
 emerge --quiet dev-lang/ocaml dev-ml/opam
 emerge --quiet dev-lang/python dev-python/pip
-emerge --quiet dev-lang/go net-libs//nodejs
+emerge --quiet dev-lang/go net-libs/nodejs
 emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
 emerge --quiet app-text/poppler
 emerge --quiet app-text/pandoc
 emerge --quiet app-text/texlive app-office/texstudio
-emerge --quiet dev/java/javacc
+emerge --quiet dev-java/javacc
 
 # system tools
 emerge --quiet net-analyzer/wireshark
