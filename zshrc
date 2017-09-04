@@ -30,9 +30,6 @@ plugins=(
 
 # User configuration
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
-
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
@@ -56,5 +53,8 @@ for file in $CMD_CUSTOM_DIR/local/*; do
         source $file
     fi
 done
+
+export PATH=/usr/local/sbin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
