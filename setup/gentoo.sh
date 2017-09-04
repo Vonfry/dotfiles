@@ -46,7 +46,7 @@ emerge --quiet net-misc/wget net-misc/curl
 emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
 emerge --quiet app-misc/screen
 emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
-emerge --quiet dev-libs/poco dev-libs/boost dev-libs/thrift dev-libs/swig
+emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
 emerge --quiet sys-devel/gdb dev-util/lldb
 emerge --quiet app-doc/doxygen dev-util/cloc
 emerge --quiet app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
