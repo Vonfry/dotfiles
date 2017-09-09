@@ -17,7 +17,7 @@
       ;; cache directory
       eshell-directory-name (expand-file-name  "eshell/" vonfry-local-dir))
 
-(vonfry|use-package! company-shell
+(use-package! company-shell
   :after company
   :config
   (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))

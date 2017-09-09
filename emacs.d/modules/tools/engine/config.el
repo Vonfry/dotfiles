@@ -1,6 +1,6 @@
 ;; config engine -*- lexical-binding: t -*-
 
-(vonfry|use-package! engine-mode
+(use-package! engine-mode
   :config
   (engine-mode t)
 

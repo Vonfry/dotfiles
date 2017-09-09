@@ -1,5 +1,5 @@
 ;; hlinum config -*- lexical-binding: t -*-
 
-(vonfry|use-package! hlinum
+(use-package! hlinum
   :config
   (hlinum-activate))

@@ -1,6 +1,6 @@
 ;;; cc config -*- lexical-binding: t -*-
 
-(vonfry|use-package! rtags
+(use-package! rtags
   :after helm company
   :init
   :config
@@ -35,7 +35,7 @@
                     vonfry-keybind-evil-code               'rtags-imenu))))
 
 ;; this is used in all program lang
-(vonfry|use-package! semantic
+(use-package! semantic
   :config
 	(custom-set-variables
 		'(semantic-default-submodes
@@ -46,7 +46,7 @@
 					global-semantic-show-parser-state-mode)))
 	(semantic-mode t))
 
-(vonfry|use-package! disaster
+(use-package! disaster
 	:config
 	(add-hook 'irony-mode-hook
 	  (lambda ()
@@ -55,9 +55,9 @@
 						"d" 'disaster))))
 
 ;; this is used in all program lang
-(vonfry|use-package! compile)
+(use-package! compile)
 
-(vonfry|use-package! irony
+(use-package! irony
   :init
   (defcustom +irony-dir
     (expand-file-name "irony/" vonfry-local-dir)
@@ -75,7 +75,7 @@
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 	(add-hook 'irony-mode-hook
 		(lambda()
-			(vonfry|use-package! cc-mode)
+			(use-package! cc-mode)
 			(custom-set-variables
 				'(c-default-style "k&r")
 				'(c-basic-offset 4))
@@ -88,23 +88,23 @@
 
 ;; Use irony-hook to instead all c/c++ hook because irony-mode is always used in these mode.
 
-(vonfry|use-package! company-irony
+(use-package! company-irony
   :after company irony
   :config
   (add-hook 'irony-mode-hook
     (lambda ()
       (add-to-list (make-local-variable 'company-backends) 'company-irony))))
 
-(vonfry|use-package! flycheck-irony
+(use-package! flycheck-irony
   :after flycheck irony
   :config
   (add-hook 'flycheck-mode-hook 'flycheck-irony-setup))
 
-(vonfry|use-package! irony-eldoc
+(use-package! irony-eldoc
   :config
   (add-hook 'irony-mode-hook 'irony-eldoc))
 
-(vonfry|use-package! function-args
+(use-package! function-args
   :init
   (custom-set-variables
     '(moo-select-method 'helm))
@@ -120,7 +120,7 @@
             "o"     'moo-propose-override
 						"j"     'moo-jump-local))))
 
-(vonfry|use-package! cmake-mode
+(use-package! cmake-mode
   :config
 	(setq auto-mode-alist
 		(append
@@ -129,10 +129,10 @@
 			auto-mode-alist))
   (autoload 'cmake-mode "~/CMake/Auxiliary/cmake-mode.el" t))
 
-(vonfry|use-package! cmake-font-lock
+(use-package! cmake-font-lock
   :after cmake-mode
   :config
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
 
-(vonfry|use-package! helm-rtags
+(use-package! helm-rtags
   :after rtags helm)

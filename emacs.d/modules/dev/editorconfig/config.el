@@ -1,6 +1,6 @@
 ;;; editorconfig config -*- lexical-binding: t -*-
 
-(vonfry|use-package! editorconfig
+(use-package! editorconfig
   :init
   (custom-set-variables
     '(editorconfig-exec-path "editorconfig"))

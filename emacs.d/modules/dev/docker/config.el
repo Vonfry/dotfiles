@@ -1,6 +1,6 @@
 ;;; docker config -*- lexical-binding: t -*-
 
-(vonfry|use-package! docker
+(use-package! docker
   :init
   (defcustom +docker-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-virtual)

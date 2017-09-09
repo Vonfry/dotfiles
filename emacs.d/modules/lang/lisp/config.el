@@ -1,8 +1,8 @@
 ;;; lisp config -*- lexical-binding: t -*-
 
-(vonfry|use-package! eldoc)
+(use-package! eldoc)
 
-(vonfry|use-package! lispy
+(use-package! lispy
   :init
   (custom-set-variables
     '(lispy-completion-method 'helm)
@@ -25,7 +25,7 @@
     (add-hook 'emacs-lisp-mode-hook bind-lispy)
     (add-hook 'scheme-mode-hook     bind-lispy)))
 
-(vonfry|use-package! evil-lispy
+(use-package! evil-lispy
   :config
   (add-hook 'lisp-mode-hook       'evil-lispy-mode)
   (add-hook 'emacs-lisp-mode-hook 'evil-lispy-mode)

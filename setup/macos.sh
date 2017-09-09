@@ -47,7 +47,7 @@ brew install cscope
 brew install doxygen --with-doxywizard
 
 # code search
-brew install ack the_silver_searcher awk
+brew install ack the_silver_searcher awk gawk
 
 # lang
 brew install ghc

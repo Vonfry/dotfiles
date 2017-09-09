@@ -1,6 +1,6 @@
 ;;; web config -*- lexical-binding: t -*-
 
-(vonfry|use-package! web-mode
+(use-package! web-mode
   :config
   (setq web-mode-markup-indent-offset 4
         web-mode-css-indent-offset 4
@@ -33,9 +33,9 @@
             :prefix +lang-nmap-prefix
             ";" 'web-mode-tag-select))))
 
-(vonfry|use-package! haml-mode :after web-mode)
+(use-package! haml-mode :after web-mode)
 
-(vonfry|use-package! emmet-mode
+(use-package! emmet-mode
   :after web-mode
   :init
   (add-hook 'web-mode-hook 'emmet-mode))

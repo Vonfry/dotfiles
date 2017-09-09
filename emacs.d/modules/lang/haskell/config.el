@@ -1,10 +1,10 @@
 ;;; haskell config -*- lexical-binding: t -*-
 
-(vonfry|use-package! haskell
+(use-package! haskell
   :config
   (custom-set-variables
     '(haskell-indentation-electric-flag t))
-  (vonfry|use-package! inf-haskell)
+  (use-package! inf-haskell)
   (add-hook 'haskell-mode-hook 'inf-haskell-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
@@ -20,7 +20,7 @@
             vonfry-keybind-evil-jump-module 'haskell-navigate-imports
             vonfry-keybind-evil-run         'haskell-compile))))
 
-(vonfry|use-package! intero
+(use-package! intero
   :after haskell
   :config
   (add-hook 'haskell-mode-hook
@@ -44,13 +44,13 @@
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
             vonfry-keybind-evil-repl               'intero-repl))))
 
-(vonfry|use-package! ghc
+(use-package! ghc
   :after haskell
   :disabled
   :config
   (add-hook 'haskell-mode-hook 'ghc-init))
 
-(vonfry|use-package! company-ghc
+(use-package! company-ghc
   :disabled
   :config
   (add-hook 'haskell-mode-hook
@@ -58,7 +58,7 @@
       (add-to-list (make-local-variable 'company-backends) 'company-ghc)
       (custom-set-variables '(company-ghc-show-info t)))))
 
-(vonfry|use-package! hindent
+(use-package! hindent
   :after haskell
   :config
   (add-hook 'haskell-mode-hook 'hindent-mode))

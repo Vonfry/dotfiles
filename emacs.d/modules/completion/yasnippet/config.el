@@ -1,6 +1,6 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
 
-(vonfry|use-package! yasnippet
+(use-package! yasnippet
   :after company
   :init
   (custom-set-variables

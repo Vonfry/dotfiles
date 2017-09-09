@@ -1,6 +1,6 @@
 ;;; ibuffer config -*- lexical-binding: t -*-
 
-(vonfry|use-package! ibuffer
+(use-package! ibuffer
   :init
   (setq-default ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-formats
@@ -34,4 +34,4 @@
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-buffer 'ibuffer))
 
-(vonfry|use-package! ibuffer-vc :after ibuffer)
+(use-package! ibuffer-vc :after ibuffer)

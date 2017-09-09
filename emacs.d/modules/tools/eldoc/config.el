@@ -1,3 +1,3 @@
 ;;; eldoc config  -*- lexical-binding: t -*-
 
-(vonfry|use-package! eldoc)
+(use-package! eldoc)

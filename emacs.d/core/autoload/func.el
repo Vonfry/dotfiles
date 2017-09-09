@@ -1,7 +1,7 @@
 ;;; autoload - func -*- lexical-binding: -*-
 
-(vonfry|package! exec-path-from-shell)
-(vonfry|use-package! exec-path-from-shell
+(package! exec-path-from-shell)
+(use-package! exec-path-from-shell
   :config
   (exec-path-from-shell-initialize)
   (defun vonfry/insert-current-date ()

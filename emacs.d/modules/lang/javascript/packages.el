@@ -1,6 +1,6 @@
 ;;; javascript packages -*- lexical-binding: t -*-
 
-(vonfry|package! js2-mode)
-(vonfry|package! tern)
-(vonfry|package! company-tern)
-(vonfry|package! json-mode)
+(package! js2-mode)
+(package! tern)
+(package! company-tern)
+(package! json-mode)

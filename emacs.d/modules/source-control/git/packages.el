@@ -1,12 +1,12 @@
 ;;; git packages -*- lexical-binding: t -*-
 
-(vonfry|package! magit)
-(vonfry|package! magit-gitflow)
-(vonfry|package! git-commit)
-(vonfry|package! magit-popup)
-(vonfry|package! with-editor)
-(vonfry|package! gitconfig-mode)
-(vonfry|package! gitignore-mode)
-(vonfry|package! gitattributes-mode)
+(package! magit)
+(package! magit-gitflow)
+(package! git-commit)
+(package! magit-popup)
+(package! with-editor)
+(package! gitconfig-mode)
+(package! gitignore-mode)
+(package! gitattributes-mode)
 
-(vonfry|package! evil-magit)
+(package! evil-magit)
