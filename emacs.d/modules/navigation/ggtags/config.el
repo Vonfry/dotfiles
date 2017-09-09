@@ -1,11 +1,11 @@
 ;;; ggtags config -*- lexical-binding: t -*-
 
-(vonfry|use-package! ggtags
+(use-package! ggtags
   :config
   (add-hook 'prog-mode-hook 'ggtags-mode)
   (setq-local imenu-create-index-function #'ggtags-build-imenu-index))
 
-(vonfry|use-package! helm-gtags
+(use-package! helm-gtags
   :init
   (defcustom +helm-gtags-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-gtags)
@@ -25,5 +25,4 @@
         "c" 'helm-gtags-create-tags
         "u" 'helm-gtags-update-tags
         "f" 'helm-gtags-find-tag
-        "p" 'helm-gtags-find-files)
-  )
+        "p" 'helm-gtags-find-files))

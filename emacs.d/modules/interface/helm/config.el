@@ -1,6 +1,6 @@
 ;; helm config -*- lexical-binding: t -*-
 
-(vonfry|use-package! helm
+(use-package! helm
   :init
   (require 'helm-config)
   :config
@@ -26,7 +26,7 @@
         vonfry-keybind-evil-M-x    'helm-M-x
         vonfry-keybind-evil-file   'helm-find-files))
 
-(vonfry|use-package! helm-make
+(use-package! helm-make
   :after helm
   :config
   (custom-set-variables
@@ -35,12 +35,12 @@
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-run 'helm-make))
 
-(vonfry|use-package! helm-descbinds-mode
+(use-package! helm-descbinds-mode
   :after helm
   :config
   (helm-descbinds-mode))
 
-(vonfry|use-package! helm-dash
+(use-package! helm-dash
   :after helm
   :init
   (defcustom +helm-dash-nmap-prefix
@@ -59,7 +59,7 @@
         "." 'helm-dash-at-point
         "a" 'helm-dash-activate-docset))
 
-(vonfry|use-package! helm-flyspell
+(use-package! helm-flyspell
   :init
   (require 'flyspell)
   (require 'ispell)

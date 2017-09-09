@@ -5,8 +5,8 @@
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
-;; packages.el define the dependence with `vonfry|package!`
-;; config.el define the configure with `vonfry|use-package!`
+;; packages.el define the dependence with `package!`
+;; config.el define the configure with `use-package!`
 ;;
 ;; quelpa and use-package both are provided a tools that download a package if it isn't installed. Why I shouldn't use
 ;; it? One of the reasons is that I don't know that when I am coding this configure. And another reason is I think both
@@ -108,23 +108,26 @@ is undefined(It always is loaded by alpha order)."
 (defalias #'vonfry/update-packages           #'quelpa-upgrade)
 (defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
 
-(defmacro vonfry|package! (&rest pkg-info)
+(defmacro package! (&rest pkg-info)
   "Define packages dependence and install it.
 
   Use this macro in packages.el.
 
   The args is sent to package manager as a list. If package manager cannot use it, use use-package with the first
 element to download package from elpa without update. We should update by ourselves."
-  (let ((ignore-case `(ignore-errors (or (quelpa '(,@pkg-info)) t))))
-    `(unless ,ignore-case
-      (package-install ',(car `(,@pkg-info))))))
+  `(let* ((plist '(,@pkg-info))
+          (use-elpa (if (equal (plist-get (cdr plist) :fetcher) 'elpa) t nil))
+          (use-quelpa (ignore-errors (and (not use-elpa) (or (quelpa plist) t)))))
+    (if (and (not use-quelpa) use-elpa)
+      (package-install (car plist))
+      nil)))
 
-(defalias #'vonfry|use-package! #'use-package)
+(defalias #'use-package! #'use-package)
 
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (unless (require pkg nil t)
-      (vonfry|package! pkg)
+      (package! pkg)
       (require pkg)))
 
 (defun vonfry-load-module (module-name file)

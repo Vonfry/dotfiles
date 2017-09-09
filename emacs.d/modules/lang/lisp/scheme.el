@@ -1,6 +1,6 @@
 ;;; lisp config -*- lexical-binding: t -*-
 
-(vonfry|use-package! geiser
+(use-package! geiser
   :config
   (add-hook 'scheme-mode-hook
     (lambda ()

@@ -3,7 +3,7 @@
 ;; If you want to use a project's emacs configure, please see more about __.dir-locals.el__ and
 ;; (projectile-edit-dir-locals)
 
-(vonfry|use-package!  projectile
+(use-package!  projectile
   :init
   (defcustom +projectile-cache-dir
     (expand-file-name "projectile/" vonfry-local-dir)
@@ -20,7 +20,7 @@
   :config
   (projectile-global-mode t))
 
-(vonfry|use-package! helm-projectile
+(use-package! helm-projectile
   :after projectile
   :config
   (helm-projectile-on)
@@ -29,7 +29,7 @@
     vonfry-keybind-evil-ctrlp  'helm-projectile-find-file
     vonfry-keybind-evil-search 'helm-projectile-ag))
 
-(vonfry|use-package! org-projectile
+(use-package! org-projectile
   :after projectile
   :init
   (defcustom +org-projectile-todo-project-file
@@ -46,9 +46,9 @@
   (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   (setq org-agenda-files (append org-agenda-files +org-projectile-todo-project-file))
   (push (org-projectile-project-todo-entry) org-capture-templates)
-  (vonfry|use-package! org-projectile-helm :after helm))
+  (use-package! org-projectile-helm :after helm))
 
-(vonfry|use-package! ibuffer-projectile
+(use-package! ibuffer-projectile
   :after ibuffer
   :config
   (add-hook 'ibuffer-hook

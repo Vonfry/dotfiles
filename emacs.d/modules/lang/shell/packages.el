@@ -1,3 +1,3 @@
 ;;; shell packages -*- lexical-binding: t -*-
 
-(vonfry|package! company-shell)
+(package! company-shell)

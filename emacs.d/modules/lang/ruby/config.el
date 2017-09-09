@@ -1,12 +1,12 @@
 ;;; ruby config -*- lexical-binding: t -*-
 
-(vonfry|use-package! enh-ruby-mode
+(use-package! enh-ruby-mode
   :config
   (add-to-list 'auto-mode-alist
                '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode)))
 
 
-(vonfry|use-package! inf-ruby
+(use-package! inf-ruby
   :config
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-console-auto)
@@ -16,7 +16,7 @@
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-repl 'inf-ruby))))
 
-(vonfry|use-package! robe
+(use-package! robe
   :config
   (add-hook 'enh-ruby-mode-hook 'robe-mode)
   (add-hook 'robe-mode-hook 'robe-start)
@@ -32,7 +32,7 @@
             vonfry-keybind-evil-jump-module 'robe-jump-to-module)
       (add-to-list (make-local-variable 'company-backends) 'company-robe))))
 
-(vonfry|use-package! chruby
+(use-package! chruby
   :config
   (add-hook 'robe-mode-hook
     (lambda ()

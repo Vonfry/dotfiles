@@ -1,3 +1,3 @@
 ;;; rainbow-mode packages -*- lexical-binding: t -*-
 
-(vonfry|package! rainbow-mode :fetcher github :repo "emacsmirror/rainbow-mode")
+(package! rainbow-mode :fetcher elpa)

@@ -1,6 +1,6 @@
 ;;; ruby packages -*- lexical-binding: t -*-
 
-(vonfry|package! enh-ruby-mode)
-(vonfry|package! robe)
-(vonfry|package! inf-ruby)
-(vonfry|package! chruby)
+(package! enh-ruby-mode)
+(package! robe)
+(package! inf-ruby)
+(package! chruby)

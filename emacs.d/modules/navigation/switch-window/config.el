@@ -1,6 +1,6 @@
 ;;; switch config -*- lexical-binding: t -*-
 
-(vonfry|use-package! switch-window
+(use-package! switch-window
   :config
   (global-set-key (kbd "C-x o") 'switch-window)
   (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)

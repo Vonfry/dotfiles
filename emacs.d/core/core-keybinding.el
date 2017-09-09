@@ -151,7 +151,7 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
-(vonfry|use-package! general
+(use-package! general
   :config
   (custom-set-variables
     '(general-default-prefix  nil)

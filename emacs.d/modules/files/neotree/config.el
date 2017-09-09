@@ -1,6 +1,6 @@
 ;;; neotree packages -*- lexical-binding: t -*-
 
-(vonfry|use-package! neotree
+(use-package! neotree
   :config
   (custom-set-variables
    '(neo-theme (if (display-graphic-p) 'icons 'arrow))

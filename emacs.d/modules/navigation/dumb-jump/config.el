@@ -1,6 +1,6 @@
 ;;; dumb-jump config -*- lexical-binding: t -*-
 
-(vonfry|use-package! dumb-jump
+(use-package! dumb-jump
   :init
   (defcustom +dumb-jump-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump)

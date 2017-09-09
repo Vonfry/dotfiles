@@ -1,8 +1,8 @@
 ;;; helm packages -*- lexical-binding: t -*-
 
-(vonfry|package! helm)
-(vonfry|package! helm-ag)
-(vonfry|package! helm-descbinds)
-(vonfry|package! helm-make)
-(vonfry|package! helm-dash)
-(vonfry|package! helm-flyspell)
+(package! helm)
+(package! helm-ag)
+(package! helm-descbinds)
+(package! helm-make)
+(package! helm-dash)
+(package! helm-flyspell)

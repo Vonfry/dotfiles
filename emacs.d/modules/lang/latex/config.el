@@ -2,7 +2,7 @@
 
 (load "auctex") ;; this package hasn't called (provide).
 
-(vonfry|use-package! latex
+(use-package! latex
   :after company
   :config
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
@@ -98,19 +98,19 @@
                     "zm" 'TeX-fold-macro
                     "zr" 'TeX-fold-region))))))
 
-(vonfry|use-package! auctex-latexmk
+(use-package! auctex-latexmk
   :after latex
   :config
   (add-hook 'LaTeX-mode-hook 'auctex-latexmk-setup)
   (add-hook 'TeX-mode-hook 'auctex-latexmk-setup))
 
-(vonfry|use-package! company-math
+(use-package! company-math
  :after company
  :config
  (add-to-list (make-local-variable 'company-backends) 'company-math-symbols-unicode))
 
 
-(vonfry|use-package! company-auctex
+(use-package! company-auctex
   :after company latex
   :config
   (add-hook 'TeX-mode-hook 'company-auctex-init)

@@ -1,6 +1,6 @@
 ;;; javascript config -*- lexical-binding: t -*-
 
-(vonfry|use-package! js2-mode
+(use-package! js2-mode
   :config
   (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
   (add-hook 'js2-mode-hook 'js2-imenu-extras-mode)
@@ -11,9 +11,9 @@
              vonfry-keybind-evil-jump 'js2-jump-to-definition
              vonfry-keybind-evil-jump-module 'js-find-symbol))))
 
-(vonfry|use-package! json-mode :after js2-mode)
+(use-package! json-mode :after js2-mode)
 
-(vonfry|use-package! tern
+(use-package! tern
   :config
   (add-hook 'js2-mode-hook 'tern-mode)
   (add-hook 'js2-mode-hook
@@ -26,7 +26,7 @@
             "t" 'tern-get-type
             "d" 'tern-get-docs))))
 
-(vonfry|use-package! company-tern
+(use-package! company-tern
   :after tern company
   :config
   (add-hook 'js2-mode-hook

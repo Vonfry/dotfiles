@@ -1,3 +1,3 @@
 ;;; diff packages -*- lexical-binding: t -*-
 
-(vonfry|package! diff-hl)
+(package! diff-hl)

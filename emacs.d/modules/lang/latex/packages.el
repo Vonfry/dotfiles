@@ -1,6 +1,6 @@
 ;;; latex packages -*- lexical-binding: t -*-
 
-(vonfry|package! auctex :fetcher github :repo "emacsmirror/auctex")
-(vonfry|package! auctex-latexmk)
-(vonfry|package! company-auctex)
-(vonfry|package! company-math)
+(package! auctex :fetcher elpa)
+(package! auctex-latexmk)
+(package! company-auctex)
+(package! company-math)

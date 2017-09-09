@@ -1,4 +1,4 @@
 ;; package engine -*- lexical-binding: t -*-
 
-(vonfry|package! engine-mode)
+(package! engine-mode)
 

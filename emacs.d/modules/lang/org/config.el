@@ -1,6 +1,6 @@
 ;;; orgmode config -*- lexical-binding: t -*-
 
-(vonfry|use-package! org
+(use-package! org
   :init
   (defcustom +org-clock-persist-file
      (expand-file-name "org-clock-save.el" vonfry-local-dir)
@@ -26,15 +26,15 @@
    '(todo-default-todo-file "todo.org"))
   (org-clock-persistence-insinuate)
   ;; load babel language by ourselves when we needs them.
-  (vonfry|use-package! ob-ipython)
-  (vonfry|use-package! ob-http))
+  (use-package! ob-ipython)
+  (use-package! ob-http))
 
-(vonfry|use-package! org-bullets
+(use-package! org-bullets
   :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-(vonfry|use-package! evil-org
+(use-package! evil-org
   :after evil org
   :config
   (add-hook 'org-mode-hook 'evil-org-mode)

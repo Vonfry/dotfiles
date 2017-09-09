@@ -1,6 +1,6 @@
 ;;; spaceline config -*- lexical-binding: t -*-
 
-(vonfry|use-package! spaceline
+(use-package! spaceline
   :init
   (require 'spaceline-config)
   :config
@@ -12,7 +12,7 @@
   (spaceline-info-mode)
   (spaceline-helm-mode))
 
-(vonfry|use-package! spaceline-all-the-icons
+(use-package! spaceline-all-the-icons
   :after spaceline
   :init
   (custom-set-variables

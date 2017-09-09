@@ -1,6 +1,6 @@
 ;;; lisp/emacs_lisp.el -*- lexical-binding: t -*-
 
-(vonfry|use-package! ielm
+(use-package! ielm
   :config
   (add-hook 'emacs-lisp-mode-hook
     (lambda ()

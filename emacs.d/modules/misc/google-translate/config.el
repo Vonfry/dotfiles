@@ -1,6 +1,6 @@
 ;;; google-translate config -*- lexical-binding: t -*-
 
-(vonfry|use-package! google-translate
+(use-package! google-translate
   :config
   (require 'google-translate-smooth-ui)
   (global-set-key "\C-ct" 'google-translate-at-point)

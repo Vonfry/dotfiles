@@ -2,13 +2,13 @@
 
 (setq python-shell-interpreter "python3")
 
-(vonfry|use-package! anaconda-mode
+(use-package! anaconda-mode
   :disabled
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
-(vonfry|use-package! company-anaconda
+(use-package! company-anaconda
   :disabled
   :after anaconda-mode company
   :config
@@ -16,7 +16,7 @@
     (lambda ()
       (add-to-list (make-local-variable 'company-backends) 'company-anaconda))))
 
-(vonfry|use-package! elpy
+(use-package! elpy
   :after company yasnippet
   :init
   (custom-set-variables
@@ -38,7 +38,7 @@
                     "h" 'elpy-doc
                     "f" 'elpy-format-code))))
 
-(vonfry|use-package! pyvenv
+(use-package! pyvenv
   :config
   (add-hook 'python-mode-hook
     (lambda ()
@@ -48,7 +48,7 @@
             "d" 'pyvenv-deactivate
             "w" 'pyvenv-workon))))
 
-(vonfry|use-package! pydoc
+(use-package! pydoc
  :config
  (add-hook 'python-mode-hook
     (lambda ()
@@ -56,6 +56,6 @@
             :prefix +lang-nmap-prefix
             "p" 'pydoc))))
 
-(vonfry|use-package! pip-requirements
+(use-package! pip-requirements
   :config
   (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))

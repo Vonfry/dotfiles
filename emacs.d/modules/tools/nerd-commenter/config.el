@@ -1,6 +1,6 @@
 ;;; nerd-commenter config -*- lexical-binding: t -*-
 
-(vonfry|use-package! evil-nerd-commenter
+(use-package! evil-nerd-commenter
   :init
   (defcustom +nc-nmap-prefix
     (concat vonfry-keybind-evil-leader vonfry-keybind-evil-nerdcommenter)

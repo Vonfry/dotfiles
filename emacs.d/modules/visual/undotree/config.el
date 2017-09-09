@@ -1,6 +1,6 @@
 ;;; undo tree config -*- lexical-binding: t; -*-
 
-(vonfry|use-package! undotree
+(use-package! undotree
   :init
   (defcustom +undotree-nmap-prefix
     vonfry-keybind-evil-leader
