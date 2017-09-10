@@ -18,7 +18,6 @@ function vonfry-update()
             brew cleanup
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store${ECHO_RST}\n"
             sudo softwareupdate --install
-            echo "You may run /usr/local/opt/fzf/install to install fzf"
             ;;
         # if ctags is updated, emacs needs being recompiled.
         "Linux")
@@ -46,6 +45,8 @@ function vonfry-update()
             esac
             ;;
     esac
+
+    echo "You may run /usr/local/opt/fzf/install to install fzf"
 
     if command -v zplug >/dev/null 2>&1; then
         echo -e "\n${ECHO_SYM}* ${ECHO_MSG}zplug${ECHO_RST}\n"
