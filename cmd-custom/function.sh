@@ -12,11 +12,11 @@ function vonfry-update()
     case "$(uname)" in
         "Darwin")
             echo -e "\n${ECHO_SYM}* ${ECHO_MSG}system: $(uname)${ECHO_RST}\n"
-            echo -e "\n${ECHO_SYM}** ${ECHO_MSG}homebrew $(uname)${ECHO_RST}\n"
+            echo -e "\n${ECHO_SYM}** ${ECHO_MSG}homebrew${ECHO_RST}\n"
             brew update
             brew upgrade
             brew cleanup
-            echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store $(uname)${ECHO_RST}\n"
+            echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store${ECHO_RST}\n"
             sudo softwareupdate --install
             echo "You may run /usr/local/opt/fzf/install to install fzf"
             ;;
