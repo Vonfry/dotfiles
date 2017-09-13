@@ -58,3 +58,5 @@ for file in $CMD_CUSTOM_DIR/local/*; do
 done
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source $CMD_CUSTOM_DIR/update.sh
