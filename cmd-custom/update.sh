@@ -90,7 +90,7 @@ function vonfry-update()
     unset ECHO_SYM
     unset ECHO_MSG
     unset ECHO_RST
-    echo $(_current_epoch) > $CMD_CUSTOM_DIR/local/update_epoch
+    echo $(_current_epoch) > $CMD_CUSTOM_DIR/local/.update_epoch
 }
 
 update_epoch_file=$CMD_CUSTOM_DIR/local/update_epoch
@@ -98,7 +98,7 @@ need_update=1
 if [ -f $update_epoch_file ]; then
     read last_update < $update_epoch_file
     during_last_update=$(($(_current_epoch) - $last_update))
-    if [ during_last_update -gt 7]; then
+    if [ $during_last_update -gt 7 ]; then
        need_update=0
     fi
     unset during_last_update
