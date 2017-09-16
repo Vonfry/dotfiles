@@ -52,7 +52,7 @@ brew install ack the_silver_searcher awk gawk
 # lang
 brew install ghc
 brew install cabal-install haskell-stack
-brew install ruby ----universal
+brew install ruby --with-doc --with-gdbm --with-gmp --with-libffi
 brew install rbenv
 brew install clisp sbcl
 brew install ocaml opam
