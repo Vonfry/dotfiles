@@ -17,7 +17,7 @@ function vonfry-update()
             brew upgrade
             brew cleanup
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store${ECHO_RST}\n"
-            sudo softwareupdate --install
+            sudo softwareupdate --install --all
             ;;
         # if ctags is updated, emacs needs being recompiled.
         "Linux")
@@ -97,7 +97,7 @@ update_epoch_file=$CMD_CUSTOM_DIR/local/update_epoch
 need_update=1
 if [ -f $update_epoch_file ]; then
     read last_update < $update_epoch_file
-    during_last_update=$($(_current_epoch) - $last_update)
+    during_last_update=$(($(_current_epoch) - $last_update))
     if [ during_last_update -gt 7]; then
        need_update=0
     fi
