@@ -12,6 +12,9 @@
     (lambda ()
       (when (eq this-command 'eval-expression)
       (lispy-mode 1))))
+  (add-hook 'lisp-mode-hook
+    (lambda ()
+      (custom-set-variables '(compile-command "sbcl"))))
   (add-hook 'lisp-mode-hook       'lispy-mode)
   (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
   (add-hook 'scheme-mode-hook     'lispy-mode)
