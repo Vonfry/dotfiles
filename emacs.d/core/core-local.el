@@ -45,9 +45,19 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
+(defcustom vonfry-custom-file-before (expand-file-name "custom-before.el" vonfry-custom-dir)
+  "custom for user's emacs. The file is loaded before modules. You can set some variables at here which affect the
+configure in modules.
+  You can only custom the var in init file, I think."
+  :type 'file
+  :group 'vonfry-dir)
+
 (dolist (dir (list vonfry-temp-dir vonfry-org-dir))
   (unless (file-exists-p dir)
     (make-directory dir)))
+
+(when (file-exists-p vonfry-custom-file-before)
+  (load vonfry-custom-file-before))
 
 (custom-set-variables
   '(custom-file vonfry-custom-file))
