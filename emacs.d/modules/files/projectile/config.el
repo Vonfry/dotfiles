@@ -43,6 +43,8 @@
          vonfry-keybind-evil-todo 'org-projectile-project-todo-completing-read)
   :config
   (org-projectile-per-project)
+  (unless (file-exists-p +org-projectile-todo-project-file)
+    (with-temp-file +org-projectile-todo-project-file nil))
   (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   (setq org-agenda-files (append org-agenda-files +org-projectile-todo-project-file))
   (push (org-projectile-project-todo-entry) org-capture-templates)
