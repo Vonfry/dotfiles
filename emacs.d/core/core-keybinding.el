@@ -151,6 +151,11 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-feed "+"
+  "show todo mode or org projectile"
+  :type 'string
+  :group 'vonfry-keybind)
+
 (use-package! general
   :config
   (custom-set-variables
