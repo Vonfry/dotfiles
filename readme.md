@@ -28,7 +28,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - [ ] Neovim ( Emmmm... )
 - [X] Emacs
 
-## main lang & tools
+## lang
 - orgmode & latex
 - C/C++ (clang/llvm)
 - Haskell (ghc & stack)
@@ -39,3 +39,11 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
 developing environment.
+
+## life
+
+I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
+
+Some of them are supported in my configure but I don't use them usually.
+
+I only use org-mode to save todo in projects and feed for some update atom such as hackage and stackage.
