@@ -41,7 +41,8 @@
   :group 'vonfry
   :type 'boolean)
 
-(if vonfry-debug (debug-on-error))
+(if vonfry-debug
+  (custom-set-variables '(debug-on-error t)))
 
 (require 'core-local)
 (require 'core-packages)
