@@ -48,7 +48,6 @@
       (with-temp-file +org-projectile-todo-project-file nil)))
   (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
-  (push (org-projectile-project-todo-entry) org-capture-templates)
   (use-package! org-projectile-helm :after helm))
 
 (use-package! ibuffer-projectile
