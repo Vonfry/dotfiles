@@ -24,7 +24,7 @@
         "t" 'toggle-window-split
         "o" 'delete-other-windows))
 
-(use-package evil-goggles
+(use-package! evil-goggles
   :after evil
   :config
   (evil-goggles-mode)
