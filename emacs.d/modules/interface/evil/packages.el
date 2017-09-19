@@ -1,6 +1,7 @@
 ;;; evil packages -*- lexical-binding: t -*-
 
 (package! evil)
+(package! evil-goggles)
 (package! evil-surround)
 (package! evil-visualstar)
 (package! evil-numbers)
