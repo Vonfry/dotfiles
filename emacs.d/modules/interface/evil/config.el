@@ -24,6 +24,12 @@
         "t" 'toggle-window-split
         "o" 'delete-other-windows))
 
+(use-package evil-goggles
+  :after evil
+  :config
+  (evil-goggles-mode)
+  (evil-goggles-use-diff-faces))
+
 (use-package! evil-numbers
   :after evil
   :bind (("C-c +" . evil-numbers/inc-at-pt)
