@@ -59,3 +59,6 @@
 (use-package! pip-requirements
   :config
   (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))
+
+(use-package! ein
+  :after elpy)
