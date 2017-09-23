@@ -21,6 +21,7 @@ pygments
 pytz
 
 # tools
+tornado
 httpstat
 mycli
 pgcli
