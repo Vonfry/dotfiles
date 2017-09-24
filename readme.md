@@ -17,6 +17,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - [ tuna ] elpa
 - [ ustc ] rubygems
 - [ ustc ] pypi
+- [ cnpm ] npm
 
 ## system
 - [x] macOS
