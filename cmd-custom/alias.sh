@@ -1,3 +1,5 @@
 alias editor=vim
 
-alias   lla='ls -lAh'
+alias lla='ls -lAh'
+
+alias npm='cnpm'
