@@ -83,7 +83,9 @@ brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg 
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
-brew cask install iina
+brew cask install iina # video
+brew install axel # http download
+brew cask install deluge # torrent
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
