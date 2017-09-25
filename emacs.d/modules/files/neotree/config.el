@@ -27,4 +27,4 @@
       (define-key evil-normal-state-local-map (kbd "r") 'neotree-rename-node)))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-neotree 'neotree-toggle))
+    vonfry-keybind-evil-treenode 'neotree-toggle))

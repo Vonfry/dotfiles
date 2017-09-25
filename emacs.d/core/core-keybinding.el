@@ -81,7 +81,7 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-neotree "n"
+(defcustom vonfry-keybind-evil-treenode "n"
   "dir struct"
   :type 'string
   :group 'vonfry-keybind)
