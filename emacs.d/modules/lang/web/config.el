@@ -29,6 +29,7 @@
     (add-to-list 'auto-mode-alist alist))
   (add-hook 'web-mode-hook
     (lambda ()
+      (rainbow-mode t)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             ";" 'web-mode-tag-select))))
