@@ -17,6 +17,7 @@ brew install caskroom/cask/brew-cask
 
 # shell
 brew install gnu-sed gnu-tar unzip unrar
+brew install gpg
 brew install zsh wget git git-extras git-flow tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
