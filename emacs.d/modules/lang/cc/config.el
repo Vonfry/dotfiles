@@ -6,34 +6,34 @@
   :config
   (setq rtags-display-result-backend 'helm)
   (add-hook 'irony-mode-hook
-            (lambda ()
-              (rtags-start-process-unless-running)
-              (rtags-enable-standard-keybindings)
-              (nmap :keymaps 'local
-                    :prefix +lang-nmap-prefix
-                    "'"  'rtags-print-symbol-info
-                    "c"  'rtags-print-dependencies
-                    "."  'rtags-find-references
-                    "?"  'rtags-find-references-at-point
-                    "/"  'rtags-find-symbol
-                    ","  'rtags-find-symbol-at-point
-                    "r"  'rtags-diagnostics
-                    "t"  'rtags-references-tree
-                    "m"  'rtags-imenu
-                    "ll" 'rtags-find-file
-                    "li" 'rtags-include-file
-                    "w"  'rtags-rename-symbol
-                    "u"  'rtags-find-virtuals-at-point
-                    "b"  'rtags-location-stack-back
-                    "f"  'rtags-location-stack-forward)
-              (if (rtags-is-indexed)
-              (nmap :keymaps 'local
-                    :prefix vonfry-keybind-evil-leader
-                    "'" 'rtags-print-symbol-info
-                    vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
-                    vonfry-keybind-evil-jump-module        'rtags-include-file
-                    vonfry-keybind-evil-jump-back          'rtags-location-stack-back
-                    vonfry-keybind-evil-code               'rtags-imenu)))))
+    (lambda ()
+      (rtags-start-process-unless-running)
+      (rtags-enable-standard-keybindings)
+      (nmap :keymaps 'local
+            :prefix +lang-nmap-prefix
+            "'"  'rtags-print-symbol-info
+            "c"  'rtags-print-dependencies
+            "."  'rtags-find-references
+            "?"  'rtags-find-references-at-point
+            "/"  'rtags-find-symbol
+            ","  'rtags-find-symbol-at-point
+            "r"  'rtags-diagnostics
+            "t"  'rtags-references-tree
+            "m"  'rtags-imenu
+            "ll" 'rtags-find-file
+            "li" 'rtags-include-file
+            "w"  'rtags-rename-symbol
+            "u"  'rtags-find-virtuals-at-point
+            "b"  'rtags-location-stack-back
+            "f"  'rtags-location-stack-forward)
+      (if (rtags-is-indexed)
+      (nmap :keymaps 'local
+            :prefix vonfry-keybind-evil-leader
+            "'" 'rtags-print-symbol-info
+            vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
+            vonfry-keybind-evil-jump-module        'rtags-include-file
+            vonfry-keybind-evil-jump-back          'rtags-location-stack-back
+            vonfry-keybind-evil-code               'rtags-imenu)))))
 
 ;; this is used in all program lang
 (use-package! semantic

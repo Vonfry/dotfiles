@@ -19,8 +19,7 @@ fi
 # global use flag
 portage_dir=/etc/portage
 for file in $script_dir/etc/portage/*; do
-    rm -rf "$portage_dir/${file##*/}"
-    ln -s -f $file /etc/portage/
+    cp -r -f $file /etc/portage/
 done
 
 emerge-websync
@@ -28,7 +27,7 @@ emerge --sync --quiet
 
 emerge --quiet app-admin/sudo
 emerge --quiet app-portage/cpuid2cpuflags
-emerge --quiet app-admin/eclean app-admin/eclean-kernel
+emerge --quiet app-admin/eclean-kernel
 emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop
 emerge --quiet app-portage/layman
 layman-updater -R
