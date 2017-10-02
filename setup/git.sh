@@ -12,7 +12,7 @@ echo_note "--- input git global user email: "
 read git_global_email
 echo_node "--- input git global github user "
 git config --global user.email $git_global_user
-git config --global user.username $git_global_email
+git config --global user.name $git_global_email
 curl -L -s https://www.gitignore.io/api/vim,tags,macos,linux,emacs,windows > ~/.gitignore_global
 echo_note "--- input gpg keys([key]/n):"
 read git_global_gpg
