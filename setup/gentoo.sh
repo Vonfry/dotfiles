@@ -17,7 +17,11 @@ if [ $USER != "root" ]; then
 fi
 
 # global use flag
-ln -s -f $script_dir/etc/portage/ /etc/portage/
+portage_dir=/etc/portage
+for file in $script_dir/etc/portage/*; do
+    rm -rf "$portage_dir/${file##*/}"
+    ln -s -f $file /etc/portage/
+done
 
 emerge-websync
 emerge --sync --quiet
