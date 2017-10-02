@@ -19,8 +19,7 @@ fi
 # global use flag
 portage_dir=/etc/portage
 for file in $script_dir/etc/portage/*; do
-    rm -rf "$portage_dir/${file##*/}"
-    ln -s -f $file /etc/portage/
+    cp -r -f $file /etc/portage/
 done
 
 emerge-websync
