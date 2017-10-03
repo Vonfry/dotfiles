@@ -9,7 +9,6 @@ dev-ml/topkg
 dev-ml/dose3
 dev-ml/ocamlgraph
 dev-ml/ocaml
-dev-ml/ocaml
 dev-ml/cudf
 dev-ml/uchar
 dev-ml/camlbz2
