@@ -88,6 +88,8 @@ emerge --quiet net-irc/weechat
 # X11
 # TODO X11
 
+echo_note "If you want to install docker, please install it by yourself. It needs some configure in kernel."
+
 if [ GENTOO_NEED_EXIT_USER  == 0 ]; then
     logout
 fi
