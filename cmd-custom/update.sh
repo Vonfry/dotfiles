@@ -32,14 +32,14 @@ function vonfry-update()
                     ;;
                 "gentoo")
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
-                    emerge-webrsync
+                    sudo emerge-webrsync --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
-                    layman-update -R
-                    layman --sync-all
+                    sudo layman-update -R
+                    sudo layman --sync-all
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage pkgs${ECHO_RST}\n"
-                    emerge --sync
+                    sudo emerge --quiet --sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
-                    emerge --update --changed-use --deep --with-bdeps=y @world
+                    sudo emerge --quiet --update --changed-use --deep --with-bdeps=y @world
                     revdep-rebuild
                     ;;
             esac
