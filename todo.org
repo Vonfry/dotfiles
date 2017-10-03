@@ -1,1 +1,2 @@
-* TODO
+* TODO gcl cannot be built on gentoo
+* TODO Gentoo with X

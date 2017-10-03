@@ -49,7 +49,7 @@ for file in $CMD_CUSTOM_DIR/misc/*; do
 done
 
 export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
 
 for file in $CMD_CUSTOM_DIR/local/*; do
     if [ -f $file ]  && [ $file != "defvar.sh" ]; then

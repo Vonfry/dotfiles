@@ -29,13 +29,16 @@ emerge --quiet app-admin/sudo
 emerge --quiet app-portage/cpuid2cpuflags
 emerge --quiet app-admin/eclean-kernel
 emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop
+emerge --quiet app-portage/repoman
 emerge --quiet app-portage/layman
 layman-updater -R
 layman -S
 
 # system basic tools
-emerge --quiet net-firewall/iptabels
-rc-update add iptabels default
+emerge --quiet net-firewall/iptables
+emerge --quiet app-admin/ulogd
+rc-update add ulogd default
+echo_note "Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
 emerge --quiet net-firewall/firehol
 emerge --quiet sys-apps/dbus
 
@@ -44,7 +47,7 @@ emerge --quiet app-shells/zsh app-shells/zsh-completions
 emerge --quiet net-misc/wget net-misc/curl
 emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
 emerge --quiet app-misc/screen
-emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja sys-devel/automake
+emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja
 emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
 emerge --quiet sys-devel/gdb dev-util/lldb
 emerge --quiet app-doc/doxygen dev-util/cloc
@@ -72,7 +75,7 @@ git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_di
 emerge --quiet dev-lang/ocaml dev-ml/opam
 emerge --quiet dev-lang/python dev-python/pip
 emerge --quiet dev-lang/go net-libs/nodejs
-emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
+emerge --quiet dev-db/sqlite dev-db/redis dev-db/mariadb dev-db/postgresql
 emerge --quiet app-text/poppler
 emerge --quiet app-text/pandoc
 emerge --quiet app-text/texlive app-office/texstudio
@@ -84,6 +87,8 @@ emerge --quiet net-irc/weechat
 
 # X11
 # TODO X11
+
+echo_note "If you want to install docker, please install it by yourself. It needs some configure in kernel."
 
 if [ GENTOO_NEED_EXIT_USER  == 0 ]; then
     logout

@@ -36,7 +36,6 @@ brew install scons # a cross build tools
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install ninja
-brew install automake
 brew install poco boost swig
 brew install boost-python --with-python3
 
