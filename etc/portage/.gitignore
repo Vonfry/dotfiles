@@ -1,9 +1,0 @@
-*
-!.gitignore
-!make.conf
-!package.mask/
-!package.use/
-!repos.conf/
-!package.accept_keywords/
-!package.unmask/
-!readme.md
