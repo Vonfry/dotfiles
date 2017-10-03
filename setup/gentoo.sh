@@ -75,7 +75,7 @@ git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_di
 emerge --quiet dev-lang/ocaml dev-ml/opam
 emerge --quiet dev-lang/python dev-python/pip
 emerge --quiet dev-lang/go net-libs/nodejs
-emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
+emerge --quiet dev-db/sqlite dev-db/redis dev-db/mariadb dev-db/postgresql
 emerge --quiet app-text/poppler
 emerge --quiet app-text/pandoc
 emerge --quiet app-text/texlive app-office/texstudio
