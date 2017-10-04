@@ -17,6 +17,7 @@ curl -L -s https://www.gitignore.io/api/vim,tags,macos,linux,emacs,windows > ~/.
 echo_note "--- input gpg keys([key]/n):"
 read git_global_gpg
 if [ $git_global_gpg != "n" ]; then
+    git config --global commit.gpgsign true
     git config --global user.signingkey $git_global_gpg
 fi
 

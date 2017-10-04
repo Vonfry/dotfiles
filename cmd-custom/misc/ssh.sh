@@ -14,11 +14,12 @@ if [ $(uname) = "Darwin" ]; then
 fi
 
 if command -v ssh-agent > /dev/null 2>&1; then
-    eval "$(ssh-agent -s)"
+    eval "$(ssh-agent -s)" > /dev/null
     if [ -f ~/.ssh/id_rsa ]; then
         if [ $(uname) = Darwin ]; then
-            ssh-add -K ~/.ssh/id_rsa
+            ssh-add -K ~/.ssh/id_rsa > /dev/null
         else
+            echo "ssh-add you key: "
             ssh-add ~/.ssh/id_rsa
         fi
     fi
