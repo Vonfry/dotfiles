@@ -89,6 +89,7 @@ emerge --quiet net-irc/weechat
 # TODO X11
 
 echo_note "If you want to install docker, please install it by yourself. It needs some configure in kernel."
+echo_note "If you want to patch kernel with pax, please emerge and build it by yoursef."
 
 if [ GENTOO_NEED_EXIT_USER  == 0 ]; then
     logout
