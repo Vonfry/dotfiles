@@ -13,7 +13,7 @@ if [ $(uname) = "Darwin" ]; then
     }
 fi
 
-if [ command -v ssh-agent > /dev/null 2>&1 ]; then
+if command -v ssh-agent > /dev/null 2>&1; then
     eval "$(ssh-agent -s)"
     if [ -f ~/.ssh/id_rsa ]; then
         if [ $(uname) = Darwin ]; then

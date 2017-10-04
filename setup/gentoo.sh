@@ -7,7 +7,7 @@ echo_info "** All package.use flags are saved in the repo."
 user_dir=$HOME
 GENTOO_NEED_EXIT_USER=1
 if [ $USER != "root" ]; then
-    if [ command -v "sudo" > /dev/null 2>&1 ]; then
+    if command -v "sudo" > /dev/null 2>&1; then
         sudo -i
     else
         echo_sh "** Gentoo doesn't have sudo by default, so you must run the script with root user."
