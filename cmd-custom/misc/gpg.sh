@@ -1,3 +1,3 @@
 #!/bin/sh
 
-gpg-agent > /dev/null
+export GPG_TTY=$(tty)
