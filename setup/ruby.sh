@@ -10,7 +10,7 @@ if command -v gem > /dev/null 2>&1; then
     if command -v bundle > /dev/null 2>&1; then
         bundle config mirror.https://rubygems.org https://mirrors.ustc.edu.cn/rubygems/
     else
-        echo_info "WARN: Ruby bundle isn't installed. The mirror haven't been set."
+        echo_info "!!!! WARN: Ruby bundle isn't installed. The mirror haven't been set."
     fi
 else
     echo_warn "!!! ERROR: NO gem"
