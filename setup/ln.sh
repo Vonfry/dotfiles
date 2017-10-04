@@ -15,3 +15,6 @@ ln -f -s $script_dir/czrc ~/.czrc
 
 mkdir ~/.ssh 2> /dev/null
 ln -f -s $script_dir/cmd-custom ~/.cmd-custom
+
+mkdir ~/.gnupg  2> /dev/null
+ln -f -s $script_dir/gnupg/* ~/.gnupg/
