@@ -22,6 +22,8 @@ for file in $script_dir/etc/portage/*; do
     cp -r -f $file /etc/portage/
 done
 
+echo_note "--- Here may be a mask message when you install them, I recommand you to autounmask them by yourself. My use flag and other file only provide which I want to use. It isn't all the record for installing."
+
 emerge-websync
 emerge --sync --quiet
 
@@ -38,7 +40,7 @@ layman -S
 emerge --quiet net-firewall/iptables
 emerge --quiet app-admin/ulogd
 rc-update add ulogd default
-echo_note "Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
+echo_note "--- Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
 emerge --quiet net-firewall/firehol
 emerge --quiet sys-apps/dbus
 
@@ -88,8 +90,8 @@ emerge --quiet net-irc/weechat
 # X11
 # TODO X11
 
-echo_note "If you want to install docker, please install it by yourself. It needs some configure in kernel."
-echo_note "If you want to patch kernel with pax, please emerge and build it by yoursef."
+echo_note "--- If you want to install docker, please install it by yourself. It needs some configure in kernel."
+echo_note "--- If you want to patch kernel with pax, please emerge and build it by yoursef."
 
 if [ GENTOO_NEED_EXIT_USER  == 0 ]; then
     logout
