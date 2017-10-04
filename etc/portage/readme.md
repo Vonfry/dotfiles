@@ -16,4 +16,4 @@ When you want to reset them, use `git update-index --no-assume-unchanged <PATH>`
 Or you can edit .git/info/exclude to do the same thing.
 
 There is a file named `zz-` or `local-*` will be ignored always, it is suggested to be used to save temp changing such
-as some unmask when install a software.
+as some unmask when install a software. The name is recommanded to be named `zz-autounmask`.
