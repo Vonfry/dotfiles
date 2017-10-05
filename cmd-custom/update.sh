@@ -41,7 +41,6 @@ function vonfry-update()
                     sudo layman --sync-all
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
                     sudo emerge --quiet --update --changed-use --deep --with-bdeps=y @world
-                    revdep-rebuild
                     ;;
             esac
             ;;
