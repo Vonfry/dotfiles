@@ -32,6 +32,7 @@ function vonfry-update()
                     ;;
                 "gentoo")
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
+                    sudo eix-update
                     sudo emerge-webrsync --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman-update -R

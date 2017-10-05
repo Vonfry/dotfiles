@@ -30,7 +30,7 @@ emerge --sync --quiet
 emerge --quiet app-admin/sudo
 emerge --quiet app-portage/cpuid2cpuflags
 emerge --quiet app-admin/eclean-kernel
-emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop
+emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop app-portage/eix
 emerge --quiet app-portage/repoman
 emerge --quiet app-portage/layman
 layman-updater -R
@@ -72,12 +72,12 @@ emerge --quiet app-text/editorconfig-core-c
 layman -a haskell
 emerge --quiet dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack-bin
 emerge --quiet dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
-emerge --quiet dev-lang/ruby dev-ruby/rubygems
+emerge --quiet dev-lang/ruby dev-ruby/rubygems dev-ruby/bundler
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
 emerge --quiet dev-lang/ocaml dev-ml/opam
 emerge --quiet dev-lang/python dev-python/pip
 emerge --quiet dev-lang/go net-libs/nodejs
-emerge --quiet dev-db/sqlite dev-db/redis dev-db/mariadb dev-db/postgresql
+emerge --quiet dev-db/sqlite dev-db/redis dev-db/mysql dev-db/postgresql
 emerge --quiet app-text/poppler
 emerge --quiet app-text/pandoc
 emerge --quiet app-text/texlive app-office/texstudio
