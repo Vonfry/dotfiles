@@ -32,15 +32,16 @@ function vonfry-update()
                     ;;
                 "gentoo")
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
-                    sudo eix-update
+                    emerge --oneshot portage
+                    sudo eix-update --quiet
                     sudo emerge-webrsync --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage pkgs${ECHO_RST}\n"
                     sudo emerge --quiet --sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
-                    sudo layman-update -R
-                    sudo layman --sync-all
+                    sudo layman --sync-all --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
-                    sudo emerge --quiet --update --changed-use --deep --with-bdeps=y @world
+                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}If use flag has been changed, run emerge with --newuse or --changed-use. This updating dosen't contain them.${ECHO_RST}\n"
+                    sudo emerge --quiet --update --deep --with-bdeps=y @world
                     ;;
             esac
             ;;
