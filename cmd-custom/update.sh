@@ -34,11 +34,11 @@ function vonfry-update()
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
                     sudo eix-update
                     sudo emerge-webrsync --quiet
+                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage pkgs${ECHO_RST}\n"
+                    sudo emerge --quiet --sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman-update -R
                     sudo layman --sync-all
-                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage pkgs${ECHO_RST}\n"
-                    sudo emerge --quiet --sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
                     sudo emerge --quiet --update --changed-use --deep --with-bdeps=y @world
                     revdep-rebuild
