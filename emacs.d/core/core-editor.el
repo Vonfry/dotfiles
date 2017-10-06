@@ -86,6 +86,8 @@
   '(auto-save-list-file-prefix vonfry-auto-save-list-prefix)
 
   '(global-visual-line-mode t)
-  '(show-paren-mode t))
+  '(show-paren-mode t)
+
+  '(tramp-default-method "ssh"))
 
 (provide 'core-editor)
