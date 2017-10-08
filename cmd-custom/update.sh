@@ -83,7 +83,11 @@ function vonfry-update()
     gem update && gem update --system
     gem cleanup
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}npm${ECHO_RST}\n"
-    npm update -g
+    if [ $(uname) = Linux ]; then
+        sudo npm update -g
+    else
+        npm update -g
+    fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}vim${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
