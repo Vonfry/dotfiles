@@ -8,6 +8,7 @@ less
 less-plugin-clean-css
 
 diff-so-fancy
+mathjax-node-cli
 
 npm-check
 font-spider
