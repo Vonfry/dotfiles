@@ -34,12 +34,6 @@ psycopg2
 pydot
 pillow
 
-# serial
-pyserial
-
-# manage time
-td-watson
-
 # math with ipython
 scipy
 numpy

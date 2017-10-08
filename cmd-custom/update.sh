@@ -63,15 +63,31 @@ function vonfry-update()
     hoogle generate
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
-    pip3 install -U -r ~/.pip3.txt
+    if [ $(uname) = Darwin ]; then
+        pip3 install --upgrade pip setuptools wheel
+        pip3 install -U -r ~/.pip3.txt
+    else
+        pip3 install --user --upgrade pip setuptools wheel
+        pip3 install --user -U -r ~/.pip3.txt
+    fi
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
-    pip2 install -U -r ~/.pip2.txt
+    if [ $(uname) = Darwin ]; then
+        pip2 install --upgrade pip setuptools wheel
+        pip2 install -U -r ~/.pip2.txt
+    else
+        pip2 install --user --upgrade pip setuptools wheel
+        pip2 install --user -U -r ~/.pip2.txt
+    fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
     gem update && gem update --system
     gem cleanup
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}npm${ECHO_RST}\n"
-    npm update -g
+    if [ $(uname) = Linux ]; then
+        sudo npm update -g
+    else
+        npm update -g
+    fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}vim${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
