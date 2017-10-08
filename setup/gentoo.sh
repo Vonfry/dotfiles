@@ -22,6 +22,10 @@ for file in $script_dir/etc/portage/*; do
     cp -r -f $file /etc/portage/
 done
 
+echo "#\!/bin/sh" > /etc/portage/postsync.d/eix
+echo "eix-remote update" >> /etc/portage/postsync.d/eix
+echo "*" > /etc/eix-sync.conf
+
 echo_note "--- Here may be a mask message when you install them, I recommand you to autounmask them by yourself. My use flag and other file only provide which I want to use. It isn't all the record for installing."
 
 emerge-websync
