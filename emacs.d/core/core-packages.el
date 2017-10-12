@@ -18,11 +18,11 @@
 ;; define some variables for packages
 ;;
 
-(defcustom vonfry-elpa-mirror "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"
+(defcustom vonfry-elpa-mirror "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"
   "Set elpa mirror. If it is nil, use with default."
   :group 'vonfry)
 
-(defcustom vonfry-melpa-mirror nil ;; "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"
+(defcustom vonfry-melpa-mirror "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"
   "Set melpa mirror. If it is nil, use with default. Because of quelpa must use with git, so I don't use it by default."
   :group 'vonfry)
 
@@ -48,87 +48,78 @@ is undefined(It always is loaded by alpha order)."
   :type 'directory
   :group 'vonfry-dir)
 
-(defconst vonfry-pkg-manager "quelpa")
-
-(defcustom vonfry-pkg-manager-dir (expand-file-name (concat vonfry-pkg-manager "/") vonfry-packages-dir)
-  "Save that the package manager files."
-  :type 'directory
-  :group 'vonfry-dir)
-
 ;;
 ;; setup package manager
 ;;
 
-(if vonfry-elpa-mirror
-  (custom-set-variables
-   '(package-archives `(("gnu"   . ,vonfry-elpa-mirror)))))
-
-(if vonfry-melpa-mirror
-  (custom-set-variables '(quelpa-melpa-repo-url vonfry-melpa-mirror)))
-
 (custom-set-variables
-  '(package-user-dir          vonfry-elpa-dir)
-  '(quelpa-dir                vonfry-pkg-manager-dir)
-  '(quelpa-stable-p           nil)
-  '(quelpa-checkout-melpa-p   t)
-  '(quelpa-update-melpa-p     t)
-  '(quelpa-upgrade-p          t)
+  '(package-user-dir vonfry-elpa-dir)
   '(use-package-always-ensure nil))
 
-(if vonfry-debug
-  (custom-set-variables
-   '(quelpa-checkout-melpa-p   nil)
-   '(quelpa-update-melpa-p     nil)
-   '(quelpa-upgrade-p          nil)))
-
 (require 'package)
+(setq package-archives
+  (list
+    (cons "melpa" vonfry-melpa-mirror))
+    (cons "elpa" vonfry-elpa-mirror))
 (package-initialize)
-(unless vonfry-debug
-  (package-refresh-contents))
-(unless (require 'quelpa nil t)
-  (with-temp-buffer
-    (url-insert-file-contents "https://raw.github.com/quelpa/quelpa/master/bootstrap.el")
-    (eval-buffer)))
 
 ;;
 ;; define some basic packages
 ;;
 
 (defconst vonfry-basic-packages '(
-    use-package ; package config
-    general     ; keybind
+    use-package
+    general
+    package-utils
+    paradox
     )
   "These are the default basic packages, which are used by modules.")
 
 ;;
 ;; define function for packages
 ;;
-(defalias #'vonfry/list-packages             #'list-packages)
-(defalias #'vonfry/install-packages          #'quelpa)
-(defalias #'vonfry/update-packages           #'quelpa-upgrade)
-(defalias #'vonfry/update-pkgmanager         #'quelpa-self-upgrade)
+(defalias #'vonfry/list-packages       #'paradox-list-packages)
+(defalias #'vonfry/install-packages    #'package-install)
+(defalias #'vonfry/update-packages     #'package-utils-upgrade-by-name)
+(defalias #'vonfry/update-all-packages #'package-utils-upgrade-all)
 
-(defmacro package! (&rest pkg-info)
+(defmacro package! (pkg &optional min-version no-refresh)
   "Define packages dependence and install it.
 
   Use this macro in packages.el.
 
-  The args is sent to package manager as a list. If package manager cannot use it, use use-package with the first
-element to download package from elpa without update. We should update by ourselves."
-  `(let* ((plist '(,@pkg-info))
-          (use-elpa (if (equal (plist-get (cdr plist) :fetcher) 'elpa) t nil))
-          (use-quelpa (ignore-errors (and (not use-elpa) (or (quelpa plist) t)))))
-    (if (and (not use-quelpa) use-elpa)
-      (package-install (car plist))
-      nil)))
+  pkg is the name of the package.
+  min-version is a list of the package's minimum version. See more `version-list<=`.
+  no-refresh is not nil, it will refresh the `package-archive-content` before install."
+  `(vonfry--package! ',pkg ',min-version ,no-refresh))
+
+(defun vonfry--package! (pkg &optional min-version no-refresh)
+  "Define packages dependence and install it.
+
+  This is a private function. It is called in macro `package!`. Why use macro please see this macro's document."
+    (if (package-installed-p pkg min-version)
+      t
+      (if (or (assoc pkg package-archive-contents) no-refresh)
+        (if (boundp 'package-selected-packages)
+          (package-install pkg nil)
+          (package-install pkg))
+        (progn
+          (package-refresh-contents)
+          (vonfry--package! pkg min-version t)))))
+
+(defalias #'use-package! #'use-package)
 
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (unless (require pkg nil t)
-      (package! pkg)
+      (vonfry--package! pkg)
       (require pkg)))
 
-(defalias #'use-package! #'use-package)
+(use-package! paradox :config (paradox-enable))
+(use-package! package-utils)
+(unless vonfry-debug
+  (package-refresh-contents)
+  (add-hook 'after-init-hook 'package-utils-upgrade-all))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
@@ -163,7 +154,7 @@ element to download package from elpa without update. We should update by oursel
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
   All modules should use function and macro in this file. By default, every modules should have a file named
-packages.el which is used to define the dependence with `vonfry-package!`. This file will be loaded at first for each
+packages.el which is used to define the dependence with `package!`. This file will be loaded at first for each
 modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module
 which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
 modules."
