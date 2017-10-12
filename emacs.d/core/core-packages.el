@@ -122,13 +122,13 @@ element to download package from elpa without update. We should update by oursel
       (package-install (car plist))
       nil)))
 
-(defalias #'use-package! #'use-package)
-
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (unless (require pkg nil t)
       (package! pkg)
       (require pkg)))
+
+(defalias #'use-package! #'use-package)
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
