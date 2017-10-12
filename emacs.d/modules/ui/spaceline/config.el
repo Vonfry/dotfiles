@@ -22,5 +22,6 @@
   (spaceline-all-the-icons-theme)
   (spaceline-all-the-icons--setup-package-updates)
   (spaceline-all-the-icons--setup-git-ahead)
+  (spaceline-all-the-icons--setup-paradox)
   (spaceline-all-the-icons--setup-neotree))
 
