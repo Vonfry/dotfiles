@@ -59,8 +59,8 @@ is undefined(It always is loaded by alpha order)."
 (require 'package)
 (setq package-archives
   (list
-    (cons "melpa" vonfry-melpa-mirror))
-    (cons "elpa" vonfry-elpa-mirror))
+    (cons "melpa" vonfry-melpa-mirror)
+    (cons "elpa" vonfry-elpa-mirror)))
 (package-initialize)
 
 ;;
