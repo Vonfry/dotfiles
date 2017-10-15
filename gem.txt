@@ -11,6 +11,7 @@ gem "sass"
 gem "compass"
 gem "nokogiri"
 gem "org-ruby"
+gem "rouge"
 
 # blog
 gem "jekyll"

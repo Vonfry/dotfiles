@@ -15,7 +15,6 @@ yapf
 
 # code highlight and jump
 pycscope
-pygments
 
 # lib
 pytz
