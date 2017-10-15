@@ -6,12 +6,14 @@
         web-mode-css-indent-offset 4
         web-mode-code-indent-offset 4
         web-mode-engines-alist '(("php"    . "\\.phtml\\'")
+                                 ("php"    . "\\.php\\'")
                                  ("blade"  . "\\.blade\\."))
         web-mode-content-types-alist '(("json" . "/some/path/.*\\.api\\'")
                                        ("xml"  . "/other/path/.*\\.api\\'")
                                        ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
   (dolist (alist '(("\\.phtml\\'"      . web-mode)
                    ("\\.tpl\\.php\\'"  . web-mode)
+                   ("\\.php\\'"        . web-mode)
                    ("\\.twig\\'"       . web-mode)
                    ("\\.html\\'"       . web-mode)
                    ("\\.htm\\'"        . web-mode)
