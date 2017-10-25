@@ -23,18 +23,18 @@ function jekyll-new-post()
 
     echo -n "image: "
     read image
-    if [ $image -a $image != "" ]; then
+    if [ -v "image" -a ! -z $image ]; then
         echo "image: $image" >> $postfile
     fi
 
     echo -n "description: "
     read description
-    if [ $description -a $description != "" ]; then
+    if [ -v "description" -a ! -z $description ]; then
         echo "description: $description" >> $postfile
     fi
     echo -n "twitter_text: "
     read twitter_text
-    if [ $twitter_text -a $twitter_text != "" ]; then
+    if [ -v "twitter_text" -a ! -z $twitter_text ]; then
         echo "twitter_text: $twitter_text" >> $postfile
     fi
 
