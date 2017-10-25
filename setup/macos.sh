@@ -23,6 +23,7 @@ brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
 brew install autojump
 brew install googler
+brew install htop
 brew install lolcat                        # colorful print
 brew install cloc                          # code statistics
 brew install tree uchardet                 # file browser
