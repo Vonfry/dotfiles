@@ -45,6 +45,11 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
+(defcustom vonfry-tramp-cache (expand-file-name "tramp/" vonfry-local-dir)
+  "tramp cache dir"
+  :type 'file
+  :group 'vonfry-dir)
+
 (defcustom vonfry-custom-file-before (expand-file-name "custom-before.el" vonfry-custom-dir)
   "custom for user's emacs. The file is loaded before modules. You can set some variables at here which affect the
 configure in modules.
