@@ -88,6 +88,8 @@
   '(global-visual-line-mode t)
   '(show-paren-mode t)
 
-  '(tramp-default-method "ssh"))
+  '(tramp-default-method "ssh")
+  '(tramp-auto-save-directory vonfry-tramp-cache)
+  '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))))
 
 (provide 'core-editor)
