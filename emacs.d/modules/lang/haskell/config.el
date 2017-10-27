@@ -4,8 +4,6 @@
   :config
   (custom-set-variables
     '(haskell-indentation-electric-flag t))
-  (use-package! inf-haskell)
-  (add-hook 'haskell-mode-hook 'inf-haskell-mode)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
   (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
