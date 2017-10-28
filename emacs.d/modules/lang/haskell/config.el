@@ -3,10 +3,10 @@
 (use-package! haskell
   :config
   (custom-set-variables
-    '(haskell-indentation-electric-flag t))
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-unicode-input-method)
+    '(haskell-indentation-electric-flag t)
+    '(imenu-add-menubar-index t)
+    '(haskell-decl-scan-mode t))
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
-  (add-hook 'haskell-mode-hook 'haskell-decl-scan-mode)
   (add-hook 'haskell-mode-hook
     (lambda ()
       (custom-set-variables '(compile-command "stack build"))
