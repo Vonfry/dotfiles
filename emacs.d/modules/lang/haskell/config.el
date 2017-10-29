@@ -5,7 +5,8 @@
   (custom-set-variables
     '(haskell-indentation-electric-flag t)
     '(imenu-add-menubar-index t)
-    '(haskell-decl-scan-mode t))
+    '(haskell-decl-scan-mode t)
+    '(haskell-indent-mode t))
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
   (add-hook 'haskell-mode-hook
     (lambda ()
