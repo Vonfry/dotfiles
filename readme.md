@@ -13,10 +13,10 @@ Becase of I'm in China, most of mirror is used with tuna or ustc by default.
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
-- [ ustc ] hackage & stackage ( without `cabal`)
+- [ tuna ] hackage & stackage ( without `cabal`)
 - [ tuna ] elpa
-- [ ustc ] rubygems
-- [ ustc ] pypi
+- [ tuna ] rubygems
+- [ tuna ] pypi
 - [ cnpm ] npm
 
 ## system
