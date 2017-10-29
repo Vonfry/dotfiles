@@ -98,6 +98,8 @@ brew services start dbus
 brew services start emacs
 brew services start rtags
 
+sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+
 echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
