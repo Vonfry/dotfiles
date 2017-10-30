@@ -32,7 +32,7 @@ brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 
 # C & Cpp libs
 brew install gcc --with-jit --with-nls
-brew install llvm --with-graphviz --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
+brew install llvm --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install scons # a cross build tools
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
@@ -59,7 +59,6 @@ brew install clisp sbcl
 brew install ocaml opam
 brew install python3 python
 brew install go node
-brew install graphviz                      # dot lang to png
 brew install sqlite mysql postgresql redis # database
 brew install poppler                       # pdf generator
 brew install pandoc                        # markdown
@@ -98,6 +97,8 @@ brew services start dbus
 # My emacs cunfigure has a auto-upgrade everytime opening it, so start it by ourselves is possibly better.
 brew services start emacs
 brew services start rtags
+
+sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 
 echo_info "*** Here are some useful tools for mac.
 See:
