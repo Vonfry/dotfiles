@@ -39,8 +39,9 @@
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-         vonfry-keybind-evil-todo 'org-projectile-project-todo-completing-read)
+  (nmap :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-todo)
+          "$" 'org-projectile-project-todo-completing-read
+          "~" 'org-projectile-goto-location-for-project)
   :config
   (org-projectile-per-project)
   (defun vonfry/create-projectile-todo-file ()
