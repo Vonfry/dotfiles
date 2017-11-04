@@ -51,7 +51,7 @@ emerge --quiet sys-apps/dbus
 # shell
 emerge --quiet app-shells/zsh app-shells/zsh-completions
 emerge --quiet net-misc/wget net-misc/curl
-emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
+emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/git-flow dev-vcs/tig
 emerge --quiet app-misc/screen
 emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja
 emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
@@ -61,6 +61,7 @@ emerge --quiet app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colord
 emerge --quiet app-shells/autojump app-shells/thefuck
 emerge --quiet dev-util/shellcheck
 emerge --quiet app-misc/cmatrix app-misc/figlet
+emerge --quiet sys-process/htop
 
 emerge --quiet sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
 emerge --quiet app-arch/zip

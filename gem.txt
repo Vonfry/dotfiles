@@ -15,3 +15,6 @@ gem "rouge"
 
 # blog
 gem "jekyll"
+
+# gitlab
+gem "gitlab" # see "https://github.com/NARKOZ/gitlab"
