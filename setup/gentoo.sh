@@ -51,7 +51,7 @@ emerge --quiet sys-apps/dbus
 # shell
 emerge --quiet app-shells/zsh app-shells/zsh-completions
 emerge --quiet net-misc/wget net-misc/curl
-emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/tig
+emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/git-flow dev-vcs/tig
 emerge --quiet app-misc/screen
 emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja
 emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
