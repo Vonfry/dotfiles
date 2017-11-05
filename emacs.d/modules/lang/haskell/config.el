@@ -3,10 +3,9 @@
 (use-package! haskell
   :config
   (custom-set-variables
-    '(haskell-indentation-electric-flag t)
+    '(haskell-indentation-layout-offset 4)
     '(imenu-add-menubar-index t)
-    '(haskell-decl-scan-mode t)
-    '(haskell-indent-mode t))
+    '(haskell-decl-scan-mode t))
   (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
   (add-hook 'haskell-mode-hook
     (lambda ()
@@ -43,21 +42,6 @@
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
             vonfry-keybind-evil-repl               'intero-repl))))
 
-(use-package! ghc
-  :after haskell
-  :disabled
+(use-package! structured-haskell-mode
   :config
-  (add-hook 'haskell-mode-hook 'ghc-init))
-
-(use-package! company-ghc
-  :disabled
-  :config
-  (add-hook 'haskell-mode-hook
-    (lambda ()
-      (add-to-list (make-local-variable 'company-backends) 'company-ghc)
-      (custom-set-variables '(company-ghc-show-info t)))))
-
-(use-package! hindent
-  :after haskell
-  :config
-  (add-hook 'haskell-mode-hook 'hindent-mode))
+  (add-hook 'haskell-mode-hook 'structured-haskell-mode))

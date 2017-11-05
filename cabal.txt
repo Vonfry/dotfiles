@@ -1,5 +1,0 @@
-hasktags
-
-hindent
-
-hoogle
