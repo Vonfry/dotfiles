@@ -42,6 +42,6 @@
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
             vonfry-keybind-evil-repl               'intero-repl))))
 
-(use-package! structured-haskell-mode
+(use-package! shm
   :config
   (add-hook 'haskell-mode-hook 'structured-haskell-mode))
