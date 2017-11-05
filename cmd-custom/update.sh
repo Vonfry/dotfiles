@@ -55,7 +55,6 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
     cabal update
-    cat $DOTFILES_DIR/cabal.txt | xargs -t -n1 cabal install # update cabal installed package
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
     stack upgrade
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"

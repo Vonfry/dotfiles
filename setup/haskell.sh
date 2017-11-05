@@ -13,7 +13,12 @@ if command -v cabal >/dev/null 2>&1; then
     echo_info "*** setup cabal"
     cabal update
     echo_info "*** If you want to use a mirror, please set it by yourself."
-    cat $script_dir/cabal.txt | xargs -t -n1 cabal install
+    if [ -f $script_dir/cabal.txt ]; then
+        cat $script_dir/cabal.txt | xargs -t -n1 cabal install
+    fi
+    if [ -f $script_dir/stack.txt ]; then
+        cat $script_dir/stack.txt | xargs -t -n1 stack install
+    fi
 else
     echo_warn "!!! ERROR: NO cabal"
     exit 1
