@@ -89,7 +89,6 @@ filetype plugin indent on    " required
 " - python
 " - prel
 " - lua
-" - ghc mode (install with `cabal install ghc-mod`)
 "
 " Dependent ( OS )
 " =============
@@ -98,7 +97,6 @@ filetype plugin indent on    " required
 " - jedi       (`pip3 install jedi`)
 " - Typescript (`npm install -g typescrip`)
 " - clang      (It will be installed when ycm is installed.)
-" - codequery  (`brew install codequery`)
 " - ag, ack, awk
 " - qmake,autotools,make,cmake
 "
@@ -107,22 +105,14 @@ filetype plugin indent on    " required
 " - YouCompleteMe
 " - vimproc
 "
-" There are serval tools I used. They make my work easier.
-" - codequery, tags2uml
-"   First can quick such code with ctags and cscope. And second one can turn
-"   tags to uml file. You can use graphviz make the dot into a picture.
-" - understand
-"   Anlyaze the code and project. It is very powerful.
-"
-"
-"   NeoVim
-"   ============
-"   ```
-"   mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-"   ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-"   ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-"   pip2 install neovim; pip3 install neovim
-"   ```
+" NeoVim
+" ============
+" ```
+" mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+" ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+" ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+" pip2 install neovim; pip3 install neovim
+" ```
 
 " set color scheme and other {{{
 syntax on
@@ -417,22 +407,15 @@ nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
 nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-		\ ['-i', '--vimgrep'])
+        \ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-" Ack command on grep source
-call denite#custom#var('grep', 'command', ['ack'])
-call denite#custom#var('grep', 'default_opts',
-		\ ['--ackrc', $HOME.'/.ackrc', '-H',
-		\  '--nopager', '--nocolor', '--nogroup', '--column'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--match'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [ '.git/', '.ropeproject/', '__pycache__/',
+      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 " }}}
 
 " set plugin NERDTree {{{
