@@ -16,6 +16,7 @@ if command -v cabal >/dev/null 2>&1; then
         ln -f -s $script_dir/cabal.txt ~/.cabal.txt
     fi
     if [ -f $script_dir/stack.txt ]; then
+        stack setup
         cat $script_dir/stack.txt | xargs -t -n1 stack install
         ln -f -s $script_dir/stack.txt ~/.stack.txt
     fi
