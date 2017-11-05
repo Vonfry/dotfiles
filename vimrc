@@ -24,7 +24,6 @@ Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'tpope/vim-rails'                              " syntax rails
 Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
-Plugin 'eagletmt/ghcmod-vim'                          " syntax haskell
 Plugin 'yggdroot/indentline'                          " code indent line
 
 Plugin 'Valloric/YouCompleteMe'                       " auto omni commplete
