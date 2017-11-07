@@ -24,7 +24,8 @@
   (nmap :prefix +helm-gtags-nmap-prefix
         ";" 'helm-gtags-dwim
         "." 'helm-gtags-select
+        "r" 'helm-gtags-find-rtag
+        "f" 'helm-gtags-find-tag
         "c" 'helm-gtags-create-tags
         "u" 'helm-gtags-update-tags
-        "f" 'helm-gtags-find-tag
         "p" 'helm-gtags-find-files))
