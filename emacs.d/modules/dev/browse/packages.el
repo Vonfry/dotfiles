@@ -2,3 +2,4 @@
 
 (package! ecb)
 (package! sr-speedbar)
+(package! projectile-speedbar)
