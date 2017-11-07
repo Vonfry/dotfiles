@@ -46,6 +46,7 @@ brew install global --with-ctags --with-pygments --with-sqlite3
 brew install rtags
 brew install cscope
 brew install doxygen --with-doxywizard
+brew install cflow
 
 # code search
 brew install ack the_silver_searcher awk gawk
