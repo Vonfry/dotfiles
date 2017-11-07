@@ -41,6 +41,11 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-speedbar "&"
+  "show code struct like ebrower and imenu."
+  :type 'string
+  :group 'vonfry-keybind)
+
 (defcustom vonfry-keybind-evil-repl "'"
   "repl"
   :type 'string
