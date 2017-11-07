@@ -1,3 +1,4 @@
 hoogle
 intero
 structured-haskell-mode
+hasktags
