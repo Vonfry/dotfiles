@@ -137,3 +137,6 @@
 
 (use-package! helm-rtags
   :after rtags helm)
+
+;; this is installed by the cflow package on os
+(use-package! cflow-mode)
