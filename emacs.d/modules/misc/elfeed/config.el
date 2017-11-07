@@ -23,5 +23,5 @@
     :type '(list string)
     :group 'vonfry-modules)
   :config
-  (custom-set-variables '(rmh-elfeed-org-files (list "~/.emacs.d/elfeed.org")))
+  (custom-set-variables '(rmh-elfeed-org-files (list +elfeed-org-files)))
   (elfeed-org))
