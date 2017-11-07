@@ -65,7 +65,7 @@ emerge --quiet sys-process/htop
 
 emerge --quiet sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
 emerge --quiet app-arch/zip
-emerge --quiet dev-util/global dev-util/ctags dev-util/cscope
+emerge --quiet dev-util/global dev-util/ctags dev-util/cscope dev-util/cflow
 git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && cd - && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ # rtags
 
 # editor
