@@ -13,11 +13,11 @@
             :prefix +lang-nmap-prefix
             "'"  'rtags-print-symbol-info
             "c"  'rtags-print-dependencies
-            "."  'rtags-find-references
+            ","  'rtags-find-references
             "?"  'rtags-find-references-at-point
             "/"  'rtags-find-symbol
-            ","  'rtags-find-symbol-at-point
-            "r"  'rtags-diagnostics
+            "."  'rtags-find-symbol-at-point
+            "d"  'rtags-diagnostics
             "t"  'rtags-references-tree
             "m"  'rtags-imenu
             "ll" 'rtags-find-file
@@ -31,6 +31,7 @@
             :prefix vonfry-keybind-evil-leader
             "'" 'rtags-print-symbol-info
             vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
+            vonfry-keybind-evil-jump-to-others     'rtags-find-references
             vonfry-keybind-evil-jump-module        'rtags-include-file
             vonfry-keybind-evil-jump-back          'rtags-location-stack-back
             vonfry-keybind-evil-code               'rtags-imenu)))))

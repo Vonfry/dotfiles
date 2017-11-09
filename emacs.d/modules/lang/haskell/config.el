@@ -29,18 +29,21 @@
             "i" 'intero-info
             "t" 'intero-type-at
             "g" 'intero-targets
-            "h" 'intero-help-info
+            "?" 'intero-help-info
             "r" 'intero-help-refresh
             ";" 'intero-expand-splice-at-point
             "a" 'intero-add-package
             "d" 'intero-toggle-debug
             "l" 'intero-repl-load
             "e" 'intero-repl-eval-region
-            "." 'intero-uses-at)
+            "." 'intero-goto-definition
+            ">" 'intero-uses-at)
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
-            vonfry-keybind-evil-repl               'intero-repl))))
+            vonfry-keybind-evil-repl               'intero-repl
+            vonfry-keybind-evil-code-help          'intero-help-info
+            vonfry-keybind-evil-jump-to-others     'intero-uses-at))))
 
 (use-package! shm
   :config

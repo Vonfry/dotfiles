@@ -21,15 +21,17 @@
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-jump-module "/"
-  "jump to file or module, or jump back. In some module, such as C, it is used to switch between head and source file.
-In global env, it is jump back with jump-to-tefinition."
-  :type 'string
-  :group 'vonfry-keybind)
-
 (defcustom vonfry-keybind-evil-jump-back ","
   "jump back for jump-to-tefinition."
   :type 'string
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-jump-to-others ">"
+  "jump to with a prompt look or reference. Reference may only work for C/C++"
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-pop-back "<"
+  "bind emacs `pop-tag-mark`. It may have the same action as `vonfry-keybind-evil-jump-back`"
   :group 'vonfry-keybind)
 
 (defcustom vonfry-keybind-evil-jump "j"
@@ -38,6 +40,23 @@ In global env, it is jump back with jump-to-tefinition."
 
 (defcustom vonfry-keybind-evil-code ";"
   "show code struct like ebrower and imenu."
+  :type 'string
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-jump-prompt "/"
+  "jump to file or module with a prompt to search it. It is similiar to imenu."
+  :type 'string
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-code-help "?"
+  "pop a window to show help for some code."
+  :type 'string
+  :group 'vonfry-keybind)
+
+
+(defcustom vonfry-keybind-evil-jump-module "#"
+  "jump to file or module, or jump back. In some module, such as C, it is used to switch between head and source file.
+In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
