@@ -12,7 +12,7 @@
   :after speedbar
   :config
   (custom-set-variables
-   '(sr-speedbar-auto-refresh t)))
+   '(sr-speedbar-auto-refresh nil)))
 
 (use-package! projectile-speedbar
   :after sr-speedbar
