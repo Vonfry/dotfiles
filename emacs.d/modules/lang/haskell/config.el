@@ -36,6 +36,10 @@
             "d" 'intero-toggle-debug
             "l" 'intero-repl-load
             "e" 'intero-repl-eval-region
+            "h" 'intero-highlight-uses-mode
+            "n" 'intero-highlight-uses-mode-next
+            "p" 'intero-highlight-uses-mode-prev
+            "r" 'intero-highlight-uses-mode-replace
             "." 'intero-goto-definition
             ">" 'intero-uses-at)
       (nmap :keymaps 'local
