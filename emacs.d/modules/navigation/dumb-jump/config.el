@@ -10,10 +10,14 @@
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-to-definition 'dumb-jump-go
-        vonfry-keybind-evil-jump-module        'dumb-jump-back)
+        vonfry-keybind-evil-jump-prompt        'dumb-jump-go-prompt
+        vonfry-keybind-evil-jump-to-others     'dumb-jump-quick-look
+        vonfry-keybind-evil-jump-back          'dumb-jump-back)
   (nmap :prefix +dumb-jump-nmap-prefix
         "." 'dumb-jump-go
         "," 'dumb-jump-back
+        "/" 'dumb-jump-go-prompt
+        ">" 'dumb-jump-quick-look
         "o" 'dumb-jump-go-other-window
         "i" 'dumb-jump-go-prompt
         "x" 'dumb-jump-go-prefer-external

@@ -24,11 +24,15 @@
     (lambda ()
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            ";" 'robe-ask
-            "d" 'robe-doc)
+            "." 'robe-jump
+            "," 'robe-ask
+            "?" 'robe-doc
+            "#" 'robe-jump-to-module)
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-jump robe-jump
+            vonfry-keybind-evil-jump 'robe-jump
+            vonfry-keybind-evil-jump-to-others 'robe-ask
+            vonfry-keybind-evil-code-help 'robe-doc
             vonfry-keybind-evil-jump-module 'robe-jump-to-module)
       (add-to-list (make-local-variable 'company-backends) 'company-robe))))
 

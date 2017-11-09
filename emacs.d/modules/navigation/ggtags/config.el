@@ -24,8 +24,10 @@
   (nmap :prefix +helm-gtags-nmap-prefix
         ";" 'helm-gtags-dwim
         "." 'helm-gtags-select
-        "r" 'helm-gtags-find-rtag
-        "f" 'helm-gtags-find-tag
+        ">" 'helm-gtags-find-rtag
+        "/" 'helm-gtags-find-tag
+        "<" 'helm-gtags-pop-stack
+        "," 'helm-gtags-find-files
+        ":" 'helm-gtags-show-stack
         "c" 'helm-gtags-create-tags
-        "u" 'helm-gtags-update-tags
-        "p" 'helm-gtags-find-files))
+        "u" 'helm-gtags-update-tags))
