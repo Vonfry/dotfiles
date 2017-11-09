@@ -18,6 +18,10 @@
         vonfry-keybind-evil-pop-back      'pop-tag-mark
         vonfry-keybind-evil-marks         'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix
+        "v" 'split-window-vertically
+        "h" 'split-window-horizontally
+        "b" 'split-window-below
+        "r" 'split-window-right
         "w" 'delete-window
         "k" 'kill-current-buffer
         "c" 'delete-frame
