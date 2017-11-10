@@ -46,8 +46,7 @@
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
             vonfry-keybind-evil-repl               'intero-repl
-            vonfry-keybind-evil-code-help          'intero-help-info
-            vonfry-keybind-evil-jump-to-others     'intero-uses-at))))
+            vonfry-keybind-evil-code-help          'intero-help-info))))
 
 (use-package! shm
   :config
