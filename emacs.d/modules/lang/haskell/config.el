@@ -26,10 +26,10 @@
       (intero-mode t)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            "i" 'intero-info
+            "?" 'intero-info
             "t" 'intero-type-at
             "g" 'intero-targets
-            "?" 'intero-help-info
+            "i" 'intero-help-info
             "r" 'intero-help-refresh
             ";" 'intero-expand-splice-at-point
             "a" 'intero-add-package
@@ -46,7 +46,7 @@
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
             vonfry-keybind-evil-repl               'intero-repl
-            vonfry-keybind-evil-code-help          'intero-help-info))))
+            vonfry-keybind-evil-code-help          'intero-info))))
 
 (use-package! shm
   :config
