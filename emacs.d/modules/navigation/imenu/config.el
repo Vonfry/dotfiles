@@ -10,8 +10,8 @@
 (use-package! imenu-list
   :config
   (custom-set-variables
-    '(imenu-list-focus-after-activation t)
-    '(imenu-list-auto-resize t))
+   '(imenu-list-focus-after-activation t)
+   '(imenu-list-auto-resize t))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-tag 'imenu-list-smart-toggle))

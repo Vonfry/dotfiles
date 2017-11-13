@@ -18,7 +18,7 @@
   :after sr-speedbar
   :config
   ;;; Set this to make it don't open automatically.
-  (customize-set-variables
+  (custom-set-variables
    '(projectile-speedbar-enable nil))
   :general
   (nmap :prefix vonfry-keybind-evil-leader

@@ -9,7 +9,7 @@
 (package! solarized-theme)
 (use-package! solarized
   :config
-  (load-theme 'solarized-dark	t))
+  (load-theme 'solarized-dark t))
 
 ;; customize the tabbar and other UI elements for GUI.
 
@@ -50,5 +50,8 @@
 (add-hook 'term-mode-hook
   (lambda ()
     (setq line-spacing 0)))
+
+(defgroup vonfry-ui nil
+  "vonfry's emacs ui custom group")
 
 (provide 'core-ui)
