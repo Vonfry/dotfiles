@@ -24,6 +24,7 @@ httpstat
 mycli
 pgcli
 neovim
+glances
 
 # datebase
 mysqlclient
