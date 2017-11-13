@@ -18,10 +18,10 @@ Plugin 'janko-m/vim-test'                             " test
 
 Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
-Plugin 'lyuts/vim-rtags'                              " rtags
+"Plugin 'lyuts/vim-rtags'                              " rtags
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
 Plugin 'dbext.vim'                                    " syntax SQL
-"Plugin 'tpope/vim-rails'                              " syntax rails
+Plugin 'tpope/vim-rails'                              " syntax rails
 Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
 Plugin 'yggdroot/indentline'                          " code indent line
