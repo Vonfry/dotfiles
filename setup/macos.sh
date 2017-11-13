@@ -94,9 +94,6 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 brew cask install provisionql
 brew cask install quicklook-pat
 
-# X
-brew install xquartz # x11 tool
-
 brew services start dbus
 # My emacs cunfigure has a auto-upgrade everytime opening it, so start it by ourselves is possibly better.
 brew services start emacs
