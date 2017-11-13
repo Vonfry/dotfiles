@@ -127,6 +127,8 @@ if has('gui_running')
     set cursorline
     set shell=/bin/bash
     " set cursorcolumn
+else
+    set termguicolors
 endif
 
 let g:hybrid_custom_term_colors = 1
