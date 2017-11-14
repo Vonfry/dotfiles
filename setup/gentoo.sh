@@ -49,6 +49,7 @@ emerge --quiet net-firewall/firehol
 emerge --quiet sys-apps/dbus
 
 # shell
+emerge --quiet net-misc/keychain
 emerge --quiet app-shells/zsh app-shells/zsh-completions
 emerge --quiet net-misc/wget net-misc/curl
 emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/git-flow dev-vcs/tig
