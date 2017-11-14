@@ -12,15 +12,3 @@ if [ $(uname) = "Darwin" ]; then
         sudo /usr/sbin/sshd
     }
 fi
-
-if command -v ssh-agent > /dev/null 2>&1; then
-    eval "$(ssh-agent -s)" > /dev/null 2>&1
-    if [ -f ~/.ssh/id_rsa ]; then
-        if [ $(uname) = Darwin ]; then
-            ssh-add -K ~/.ssh/id_rsa > /dev/null 2>&1
-        else
-            echo "ssh-add you key: "
-            ssh-add ~/.ssh/id_rsa
-        fi
-    fi
-fi
