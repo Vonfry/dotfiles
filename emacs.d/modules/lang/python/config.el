@@ -25,7 +25,7 @@
   (add-hook 'python-mode-hook 'elpy-enable)
   (add-hook 'elpy-mode-hook
             (lambda ()
-              (elpy-use-ipython)
+              (elpy-use-ipython "ipython3")
               (nmap :keymaps 'local
                     :prefix vonfry-keybind-evil-leader
                     vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition

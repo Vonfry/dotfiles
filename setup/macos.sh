@@ -58,7 +58,8 @@ brew install ruby --with-doc --with-gdbm --with-gmp --with-libffi
 brew install rbenv
 brew install clisp sbcl
 brew install ocaml opam
-brew install python3 python
+brew install python3 --with-tcl-tk
+brew install python
 brew install go node
 brew install sqlite mysql postgresql redis # database
 brew install poppler                       # pdf generator
