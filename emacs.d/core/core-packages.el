@@ -119,7 +119,7 @@ is undefined(It always is loaded by alpha order)."
 (use-package! package-utils)
 (unless vonfry-debug
   (package-refresh-contents)
-  (add-hook 'after-init-hook 'package-utils-upgrade-all))
+  (package-utils-upgrade-all))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
