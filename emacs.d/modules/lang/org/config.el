@@ -23,7 +23,9 @@
    '(org-clock-persist-file +org-clock-persist-file)
    '(org-log-done 'time)
    '(todo-directory vonfry-org-dir)
-   '(todo-default-todo-file "todo.org"))
+   '(todo-default-todo-file "todo.org")
+   '(org-display-custom-times t)
+   '(org-time-stamp-custom-formats '("<%Y-%m-%d %Z>" . "<%Y-%m-%d %H:%M:%S %z>")))
   (org-clock-persistence-insinuate)
   ;; load babel language by ourselves when we needs them.
   (use-package! ob-ipython)
