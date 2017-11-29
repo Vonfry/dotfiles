@@ -8,7 +8,7 @@
      :group 'vonfry-modules)
   (defcustom +org-todo-keywords-sequence
     '((sequence "TODO(t)" "|" "DONE(d)")
-            (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
+      (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
     "org todo keywords"
     :group 'vonfry-modules)
   (defcustom +org-capture-file
