@@ -33,12 +33,25 @@
     '(helm-make-fuzzy-matching t))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-run 'helm-make))
+        vonfry-keybind-evil-run 'helm-make))
 
 (use-package! helm-descbinds-mode
   :after helm
   :config
   (helm-descbinds-mode))
+
+(use-package! helm-swoop
+  :after helm
+  :init
+  (defcustom +helm-swoop-nmap-prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-swoop)
+    "helm-swoop prefix key"
+    :type 'string
+    :group 'vonfry-modules)
+  :general
+  (nmap :prefix +helm-swoop-nmap-prefix
+        "s" 'helm-swoop
+        "m" 'helm-multi-swoop
+        "p" 'helm-multi-swoop-projectile))
 
 (use-package! helm-dash
   :after helm
