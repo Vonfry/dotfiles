@@ -53,8 +53,8 @@
 	(add-hook 'irony-mode-hook
 	  (lambda ()
 		  (nmap :keymaps 'local
-						:prefix +lang-nmap-prefix
-						"d" 'disaster))))
+				:prefix +lang-nmap-prefix
+				"d" 'disaster))))
 
 ;; this is used in all program lang
 (use-package! compile)
@@ -85,8 +85,8 @@
 				gdb-many-windows t
 				gdb-show-main t)
 			(nmap :keymaps 'local
-						:prefix +lang-nmap-prefix
-						"h" 'ff-find-other-file))))
+	 			  :prefix +lang-nmap-prefix
+				  "h" 'ff-find-other-file))))
 
 ;; Use irony-hook to instead all c/c++ hook because irony-mode is always used in these mode.
 
@@ -120,7 +120,7 @@
             "s"     'fa-show
             "v"     'moo-propose-virtual
             "o"     'moo-propose-override
-						"j"     'moo-jump-local))))
+			"j"     'moo-jump-local))))
 
 (use-package! cmake-mode
   :config

@@ -1,2 +1,14 @@
-* TODO gcl cannot be built on gentoo
-* TODO Gentoo with X
+* OS
+** Gentoo [0/2]
+*** TODO gcl cannot be built on gentoo
+*** TODO Gentoo with X
+** Macos [/]
+
+* Editor
+** Emacs [0/1]
+*** TODO refact tools
+** Vim [/]
+
+* Tools
+** Haskell[0/1]
+*** TODO dHall
