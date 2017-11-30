@@ -43,6 +43,11 @@
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-swoop ":"
+  "show lines matched with swoop"
+  :type 'string
+  :group 'vonfry-keybind)
+
 (defcustom vonfry-keybind-evil-jump-prompt "/"
   "jump to file or module with a prompt to search it. It is similiar to imenu."
   :type 'string
@@ -52,7 +57,6 @@
   "pop a window to show help for some code."
   :type 'string
   :group 'vonfry-keybind)
-
 
 (defcustom vonfry-keybind-evil-jump-module "#"
   "jump to file or module, or jump back. In some module, such as C, it is used to switch between head and source file.
