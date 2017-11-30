@@ -58,6 +58,8 @@ Plugin 'scrooloose/nerdcommenter'                     " author info depend on th
 Plugin 'mbbill/undotree'                              " undo tree
 Plugin 'tpope/vim-fugitive'                           " git
 Plugin 'airblade/vim-gitgutter.git'                   " git column
+Plugin 'haya14busa/incsearch.vim'                     " incsearch for all match
+Plugin 'osyo-manga/vim-over'                          " substitute preview
 
 " vim color scheme
 Plugin 'lifepillar/vim-solarized8'
