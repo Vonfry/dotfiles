@@ -60,6 +60,7 @@ Plugin 'tpope/vim-fugitive'                           " git
 Plugin 'airblade/vim-gitgutter.git'                   " git column
 Plugin 'haya14busa/incsearch.vim'                     " incsearch for all match
 Plugin 'osyo-manga/vim-over'                          " substitute preview
+Plugin 'terryma/vim-multiple-cursors'                 " multiple cursors
 
 " vim color scheme
 Plugin 'lifepillar/vim-solarized8'
