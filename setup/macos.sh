@@ -65,7 +65,6 @@ brew install sqlite mysql postgresql redis # database
 brew install poppler                       # pdf generator
 brew install pandoc                        # markdown
 brew cask install mactex                   # providing tex basic tools
-brew cask install texpad                   # a tex ide
 brew cask install java
 brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
