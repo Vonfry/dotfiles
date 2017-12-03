@@ -15,5 +15,5 @@ When you want to reset them, use `git update-index --no-assume-unchanged <PATH>`
 
 Or you can edit .git/info/exclude to do the same thing.
 
-There is a file named `zz-` or `local-*` will be ignored always, it is suggested to be used to save temp changing such
-as some unmask when install a software. The name is recommanded to be named `zz-autounmask`.
+There are some files named `zz-*`, `zzz` and `*.local` which are ignored in git. `zz-*` and `zzz` is used to set some
+temparory flag, and `*.local` is used for a package that only flag used at local.
