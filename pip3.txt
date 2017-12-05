@@ -30,8 +30,7 @@ glances
 mysqlclient
 psycopg2
 
-# graphviz
-pydot
+# image
 pillow
 
 # math with ipython
