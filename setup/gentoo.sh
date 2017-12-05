@@ -62,6 +62,7 @@ emerge --quiet app-shells/autojump app-shells/thefuck
 emerge --quiet dev-util/shellcheck
 emerge --quiet app-misc/cmatrix app-misc/figlet
 emerge --quiet sys-process/htop
+emerge --quiet net-analyzer/goaccess
 
 emerge --quiet sys-apps/ack sys-apps/the_silver_searcher sys-apps/gawk sys-apps/sed
 emerge --quiet app-arch/zip
