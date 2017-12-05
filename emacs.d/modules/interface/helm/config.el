@@ -35,7 +35,7 @@
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-run 'helm-make))
 
-(use-package! helm-descbinds-mode
+(use-package! helm-descbinds
   :after helm
   :config
   (helm-descbinds-mode))
