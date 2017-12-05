@@ -37,7 +37,7 @@ brew install scons # a cross build tools
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install ninja
-brew install poco boost swig
+brew install boost zlib libffi
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
@@ -80,7 +80,7 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 brew install editorconfig
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils --with-dbus
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
@@ -94,7 +94,6 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 brew cask install provisionql
 brew cask install quicklook-pat
 
-brew services start dbus
 # My emacs cunfigure has a auto-upgrade everytime opening it, so start it by ourselves is possibly better.
 brew services start emacs
 brew services start rtags
