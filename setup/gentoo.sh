@@ -46,7 +46,6 @@ emerge --quiet app-admin/ulogd
 rc-update add ulogd default
 echo_note "--- Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
 emerge --quiet net-firewall/firehol
-emerge --quiet sys-apps/dbus
 
 # shell
 emerge --quiet net-misc/keychain
@@ -55,7 +54,7 @@ emerge --quiet net-misc/wget net-misc/curl
 emerge --quiet dev-vcs/git dev-vcs/git-lfs dev-vcs/git-flow dev-vcs/tig
 emerge --quiet app-misc/screen
 emerge --quiet dev-util/cmake sys-devel/gcc sys-devel/clang sys-devel/llvm dev-util/ninja
-emerge --quiet dev-libs/poco dev-libs/boost dev-lang/swig
+emerge --quiet dev-libs/boost
 emerge --quiet sys-devel/gdb dev-util/lldb
 emerge --quiet app-doc/doxygen dev-util/cloc
 emerge --quiet app-text/tree games-misc/lolcat app-i18n/uchardet app-misc/colordiff
