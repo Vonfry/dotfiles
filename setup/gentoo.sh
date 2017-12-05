@@ -75,7 +75,7 @@ emerge --quiet app-text/editorconfig-core-c
 
 # lang
 layman -a haskell
-emerge --quiet dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack-bin
+emerge --quiet dev-lang/ghc dev-haskell/cabal dev-haskell/cabal-install dev-haskell/stack
 emerge --quiet dev-lisp/sbcl dev-lisp/gcl dev-lisp/clisp
 emerge --quiet dev-lang/ruby dev-ruby/rubygems dev-ruby/bundler
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
