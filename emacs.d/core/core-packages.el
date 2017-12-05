@@ -72,6 +72,7 @@ is undefined(It always is loaded by alpha order)."
     general
     package-utils
     paradox
+    diminish
     )
   "These are the default basic packages, which are used by modules.")
 
