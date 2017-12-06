@@ -34,7 +34,7 @@ emerge --sync --quiet
 emerge --quiet app-admin/sudo
 emerge --quiet app-portage/cpuid2cpuflags
 emerge --quiet app-admin/eclean-kernel
-emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop app-portage/eix app-portage/portage-utils
+emerge --quiet app-portage/gentoolkit app-portage/euses app-portage/genlop app-portage/eix app-portage/portage-utils app-portage/genlop
 emerge --quiet app-portage/repoman
 emerge --quiet app-portage/layman
 layman-updater -R
