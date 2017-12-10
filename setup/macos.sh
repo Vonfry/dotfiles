@@ -29,7 +29,6 @@ brew install cloc                          # code statistics
 brew install tree uchardet                 # file browser
 brew install colordiff
 brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
-brew install siege                         # http api test
 brew install handbrake                     # video transcoder
 
 # C & Cpp libs
