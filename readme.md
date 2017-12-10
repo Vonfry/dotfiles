@@ -41,6 +41,12 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
 developing environment.
 
+# TODO
+
+see :[todo.org](todo.org)
+
+Now the most important thing is to use `lsp` instead of other completion tools, but `lsp` seems not mature.
+
 ## life
 
 I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.

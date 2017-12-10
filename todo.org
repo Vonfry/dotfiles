@@ -5,9 +5,9 @@
 ** Macos [/]
 
 * Editor
-** Emacs [0/1]
-*** TODO refact tools
-** Vim [/]
+** LSP
+*** TODO Emacs
+*** TODO Vim
 
 * Tools
 ** Haskell[0/1]
