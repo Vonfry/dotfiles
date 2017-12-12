@@ -2,3 +2,4 @@
 
 (package! haskell-mode)
 (package! intero)
+(package! hasky-extensions)
