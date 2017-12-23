@@ -1,4 +1,4 @@
-;;; neotree packages -*- lexical-binding: t -*-
+;;; treemacs packages -*- lexical-binding: t -*-
 
 (use-package! treemacs
   :config
@@ -7,7 +7,7 @@
     (custom-set-variables
       '(treemacs-follow-after-init          nil)
       '(treemacs-width                      35)
-      '(treemacs-indentation                2)
+      '(treemacs-indentation                4)
       '(treemacs-collapse-dirs              3)
       '(treemacs-silent-refresh             nil)
       '(treemacs-change-root-without-asking nil)

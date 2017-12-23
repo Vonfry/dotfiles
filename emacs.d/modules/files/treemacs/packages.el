@@ -1,4 +1,4 @@
-;;; neotree packages -*- lexical-binding: t -*-
+;;; treemacs packages -*- lexical-binding: t -*-
 
 (package! treemacs)
 (package! treemacs-projectile)
