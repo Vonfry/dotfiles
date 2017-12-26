@@ -107,5 +107,7 @@ fi
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+echo_note "--- All service don't start on boot. You should config it by youself."
+
 unset portage_dir
 unset GENTOO_NEED_EXIT_USER
