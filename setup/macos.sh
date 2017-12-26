@@ -90,6 +90,7 @@ brew cask install iina # video
 brew install axel # http download
 brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
+brew cask install sigil # epub editor
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
