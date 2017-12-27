@@ -20,7 +20,7 @@ plugins=(
     autojump sudo screen dotenv
     man colored-man-pages profiles
     python pip
-    ruby gem chruby
+    ruby gem rails rake chruby
     cabal stack
     redis-cli
     thefuck
