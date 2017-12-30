@@ -12,6 +12,7 @@
       (custom-set-variables '(compile-command "stack build"))
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
+            "q" 'hoogle)
             "c" 'haskell-cabal-visit-file)
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
