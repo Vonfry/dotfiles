@@ -17,11 +17,9 @@
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-module 'haskell-navigate-imports
             vonfry-keybind-evil-run         'haskell-compile))
-      (use-package! hasky-extensions
-        :general
-        (nmap :keymaps 'local
-              :prefix +lang-nmap-prefix
-              "y" 'hasky-extensions))))
+      (nmap :keymaps 'local
+            :prefix +lang-nmap-prefix
+            "y" 'hasky-extensions)))
 
 
 (use-package! intero
