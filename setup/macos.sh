@@ -18,7 +18,7 @@ brew install caskroom/cask/brew-cask
 # shell
 brew tap beeftornado/rmtree # rm pkg with deps
 brew install gnu-sed gnu-tar unzip unrar
-brew install gpg gpg-agent
+brew cask install gpg-suite
 brew install zsh wget git git-extras git-flow tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
