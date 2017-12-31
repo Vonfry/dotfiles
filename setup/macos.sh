@@ -45,7 +45,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
-brew install rtags
+brew install rtags --without-emacs
 brew install cscope
 brew install doxygen --with-doxywizard
 brew install cflow
@@ -83,7 +83,8 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 brew install editorconfig
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils
+brew tap railwaycat/emacsmacport
+brew install emacs-mac --with-glib --with-gnutls --with-modern-icon --with-natural-title-bar --with-xml2 --with-imagemagick
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
