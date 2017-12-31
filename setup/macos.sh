@@ -45,7 +45,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
-brew install rtags
+brew install rtags --without-emacs
 brew install cscope
 brew install doxygen --with-doxywizard
 brew install cflow
