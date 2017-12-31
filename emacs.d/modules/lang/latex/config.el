@@ -111,7 +111,7 @@
 
 
 (use-package! company-auctex
-  :after company latex
+  :after company latex yasnippet
   :config
   (add-hook 'TeX-mode-hook 'company-auctex-init)
   (add-hook 'LaTeX-mode-hook 'company-auctex-init))
