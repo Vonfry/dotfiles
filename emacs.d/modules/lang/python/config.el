@@ -22,10 +22,10 @@
   (custom-set-variables
     '(elpy-rpc-python-command "python3"))
   :config
-  (add-hook 'python-mode-hook 'elpy-enable)
+  (elpy-enable)
+  (elpy-use-ipython "ipython3")
   (add-hook 'elpy-mode-hook
             (lambda ()
-              (elpy-use-ipython "ipython3")
               (nmap :keymaps 'local
                     :prefix vonfry-keybind-evil-leader
                     vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition

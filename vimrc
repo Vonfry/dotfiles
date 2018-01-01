@@ -20,7 +20,6 @@ Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
 "Plugin 'lyuts/vim-rtags'                              " rtags
 Plugin 'sheerun/vim-polyglot'                         " synatx more powerful
-Plugin 'dbext.vim'                                    " syntax SQL
 Plugin 'tpope/vim-rails'                              " syntax rails
 Plugin 'tpope/vim-ragtag'                             " syntax html xml php
 Plugin 'ap/vim-css-color'                             " syntax css color
@@ -41,6 +40,7 @@ Plugin 'Shougo/denite.nvim'                           " like fuzzyfinder, ctrl-p
 Plugin 'Shougo/vimproc.vim'                           " asynchronous execution library
 Plugin 'Shougo/vimshell.vim'                          " A powerful shell tool, but multiple screen and iterm are more beautiful
 
+Plugin 'joereynolds/SQHell.vim'                       " sql runner
 Plugin 'andreshazard/vim-logreview'                   " log viewer
 Plugin 'jceb/vim-orgmode'                             " Emacs org mode
 Plugin 'tpope/vim-speeddating'                        " purvious plugin depends
@@ -321,8 +321,21 @@ let g:html5_event_handler_attirbutes_complete = 0
 
 " }}
 
-" set plugin dbext {{{
-" TODO see :h dbext.txt
+" set plugin sqhell {{{
+" TODO see :h sqhell.txt
+" let g:sqh_connections = {
+"     \ 'default': {
+"     \   'user': 'root',
+"     \   'password': 'testing345',
+"     \   'host': 'localhost'
+"     \},
+"     \ 'live': {
+"     \   'user': 'root',
+"     \   'password': 'jerw5Y^$Hdfj',
+"     \   'host': '46.121.44.392'
+"     \}
+" \}
+"
 " }}}
 
 " set plugin auto pairs {{{

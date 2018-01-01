@@ -84,6 +84,11 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-book-marks "k"
+  "book marks"
+  :type 'string
+  :group 'vonfry-keybind)
+
 (defcustom vonfry-keybind-evil-run "r"
   "compile or run"
   :type 'string

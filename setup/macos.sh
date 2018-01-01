@@ -16,8 +16,9 @@ brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 
 # shell
+brew tap beeftornado/rmtree # rm pkg with deps
 brew install gnu-sed gnu-tar unzip unrar
-brew install gpg gpg-agent
+brew cask install gpg-suite
 brew install zsh wget git git-extras git-flow tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
@@ -29,6 +30,7 @@ brew install cloc                          # code statistics
 brew install tree uchardet                 # file browser
 brew install colordiff
 brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
+brew install handbrake                     # video transcoder
 
 # C & Cpp libs
 brew install gcc --with-jit --with-nls
@@ -43,7 +45,7 @@ brew install boost-python --with-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
-brew install rtags
+brew install rtags --without-emacs
 brew install cscope
 brew install doxygen --with-doxywizard
 brew install cflow
@@ -89,6 +91,7 @@ brew cask install iina # video
 brew install axel # http download
 brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
+brew cask install sigil # epub editor
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
