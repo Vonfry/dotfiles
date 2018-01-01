@@ -49,6 +49,7 @@ emerge --quiet net-firewall/firehol
 emerge --quiet net-analyzer/vnstat
 
 # shell
+emerge --quiet sys-apps/pciutils
 emerge --quiet net-misc/keychain
 emerge --quiet app-shells/zsh app-shells/zsh-completions
 emerge --quiet net-misc/wget net-misc/curl
