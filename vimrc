@@ -423,17 +423,32 @@ nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
 nmap <silent> <leader>b :Denite -direction=dynamicbottomt buffer<CR>
 nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
 nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
+" Change file_rec command.
+call denite#custom#var('file_rec', 'command',
+            \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+" Change matchers.
+call denite#custom#source(
+            \ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
+call denite#custom#source(
+            \ 'file_rec', 'matchers', ['matcher_cpsm'])
+" Change sorters.
+call denite#custom#source(
+            \ 'file_rec', 'sorters', ['sorter_sublime'])
+
+" Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-        \ ['-i', '--vimgrep'])
+            \ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-
+" Change default prompt
+call denite#custom#option('default', 'prompt', '>')
+" Change ignore_globs
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ [ '.git/', '.ropeproject/', '__pycache__/',
-      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+            \ [ '.git/', '.ropeproject/', '__pycache__/',
+            \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 " }}}
 
 " set plugin NERDTree {{{
