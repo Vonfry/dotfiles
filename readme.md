@@ -49,6 +49,10 @@ Now the most important thing is to use `lsp` instead of other completion tools, 
 
 ## life
 
+I use iTerm on mac and do anything on program with command line. And using ConEmu as terminal on windows.
+
+Gentoo is a good linux distribution, we can control a lot of things in our system.
+
 I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
 
 Some of them are supported in my configure but I don't use them usually.
