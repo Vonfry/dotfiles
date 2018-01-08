@@ -73,7 +73,7 @@ brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
 
 # system tool
-brew install wireshark                     # web package catch
+brew install wireshark --with-libssh --with-qt # web package catch
 
 # chat
 brew cask install gitter
