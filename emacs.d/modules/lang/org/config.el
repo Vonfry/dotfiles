@@ -7,7 +7,7 @@
      "org clock save"
      :group 'vonfry-modules)
   (defcustom +org-todo-keywords-sequence
-    '((sequence "TODO(t)" "|" "DONE(d)")
+    '((sequence "TODO(t)" "|" "DONE(d)" "REJECT(j)")
       (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
     "org todo keywords"
     :group 'vonfry-modules)
