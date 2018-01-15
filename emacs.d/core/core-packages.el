@@ -18,12 +18,12 @@
 ;; define some variables for packages
 ;;
 
-(defcustom vonfry-elpa-mirror "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/"
-  "Set elpa mirror. If it is nil, use with default."
-  :group 'vonfry)
-
-(defcustom vonfry-melpa-mirror "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"
-  "Set melpa mirror. If it is nil, use with default. Because of quelpa must use with git, so I don't use it by default."
+(defcustom vonfry-elpa-mirror
+  (list
+    (cons "elpa"  "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+    (cons "melpa" "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+    (cons "org"   "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/"))
+  "Set elpa mirror."
   :group 'vonfry)
 
 (defcustom vonfry-exclude-modules '()
@@ -57,10 +57,7 @@ is undefined(It always is loaded by alpha order)."
   '(use-package-always-ensure nil))
 
 (require 'package)
-(setq package-archives
-  (list
-    (cons "melpa" vonfry-melpa-mirror)
-    (cons "elpa" vonfry-elpa-mirror)))
+(setq package-archives vonfry-elpa-mirror)
 (package-initialize)
 
 ;;

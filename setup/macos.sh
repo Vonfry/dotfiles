@@ -83,7 +83,8 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 brew install editorconfig
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick@6 --with-librsvg --with-mailutils --with-dbus
+# TODO change imagemagick@6 to other version
 # TODO use emacs-port instead of gnu-emacs until it supports with multi-tty
 # brew tap railwaycat/emacsmacport
 # brew install emacs-mac --with-glib --with-gnutls --with-modern-icon --with-natural-title-bar --with-xml2 --with-imagemagick\n
