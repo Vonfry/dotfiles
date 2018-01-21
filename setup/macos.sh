@@ -74,6 +74,7 @@ brew install shellcheck
 
 # system tool
 brew install wireshark --with-libssh --with-qt # web package catch
+brew cask install docker
 
 # chat
 brew cask install gitter
