@@ -12,8 +12,12 @@
       (custom-set-variables '(compile-command "stack build"))
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            "q" 'hoogle
-            "c" 'haskell-cabal-visit-file)
+            "qh" 'hoogle
+            "ql" 'haskell-hoogle-lookup-from-local
+            "qe" 'engine/search-hoogle
+            "qs" 'haskell-hoogle-start-server
+            "qk" 'haskell-hoogle-start-server
+            "c"  'haskell-cabal-visit-file)
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-module 'haskell-navigate-imports
