@@ -90,6 +90,8 @@
 
   '(tramp-default-method "ssh")
   '(tramp-auto-save-directory vonfry-tramp-cache)
-  '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))))
+  '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
+
+  '(browse-url-browser-function 'browse-url-default-browser))
 
 (provide 'core-editor)
