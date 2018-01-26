@@ -12,6 +12,7 @@ gem "compass"
 gem "nokogiri"
 gem "org-ruby"
 gem "rouge"
+gem "licensee"
 
 # blog
 gem "jekyll"
