@@ -1,14 +1,16 @@
 * OS
-** Gentoo [0/2]
-*** TODO gcl cannot be built on gentoo
-*** TODO Gentoo with X
-** Macos [/]
+** Gentoo [1/2]
+*** DONE gcl cannot be built on gentoo
+    CLOSED: [2018-02-08 四 13:41]
+*** TODO Gentoo with X[0/2]
+    - [ ] XMond
+    - [ ] Xfec
+** Macos
 
 * Editor
-** LSP
-*** TODO Emacs
-*** TODO Vim
-
+** LSP[0/2]
+    - [ ] Emacs
+    - [ ] Vim
 * Tools
 ** Haskell[0/1]
-*** TODO dHall
+    - [ ] dHall
