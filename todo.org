@@ -1,7 +1,6 @@
 * OS
-** Gentoo [1/2]
-*** DONE gcl cannot be built on gentoo
-    CLOSED: [2018-02-08 四 13:41]
+** Gentoo [0/2]
+*** TODO gcl cannot be built on gentoo
 *** TODO Gentoo with X[0/2]
     - [ ] XMond
     - [ ] Xfec
