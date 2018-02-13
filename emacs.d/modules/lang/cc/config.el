@@ -60,6 +60,7 @@
 (use-package! compile)
 
 (use-package! irony
+  :after yasnippet
   :init
   (defcustom +irony-dir
     (expand-file-name "irony/" vonfry-local-dir)
