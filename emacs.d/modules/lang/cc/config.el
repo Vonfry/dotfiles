@@ -7,6 +7,13 @@
   (setq rtags-display-result-backend 'helm)
   (add-hook 'irony-mode-hook
     (lambda ()
+      ;; this is installed by the cflow package on os
+      (use-package! cflow-mode)
+      (use-package! call-graph
+        :general
+        (nmap :keymaps 'local
+              :prefix +lang-nmap-prefix
+              "g" 'call-graph))
       (rtags-start-process-unless-running)
       (rtags-enable-standard-keybindings)
       (nmap :keymaps 'local
@@ -139,6 +146,3 @@
 
 (use-package! helm-rtags
   :after rtags helm)
-
-;; this is installed by the cflow package on os
-(use-package! cflow-mode)

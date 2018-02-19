@@ -15,3 +15,5 @@
 
 (package! cmake-mode)
 (package! cmake-font-lock)
+
+(package! call-graph)
