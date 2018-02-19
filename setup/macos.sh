@@ -40,7 +40,7 @@ brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install ninja
 brew install boost zlib libffi
-brew install boost-python --with-python3
+brew install boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
