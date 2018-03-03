@@ -25,6 +25,7 @@ mycli
 pgcli
 neovim
 glances
+asciinema
 
 # datebase
 mysqlclient
