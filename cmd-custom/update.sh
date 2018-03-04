@@ -45,7 +45,7 @@ function vonfry-update()
                     sudo eix-sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman --sync-all --quiet
-                    sudo haskell-updater
+                    sudo haskell-updater --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}If use flag has been changed, run emerge with --newuse or --changed-use. This updating dosen't contain them.${ECHO_RST}\n"
                     sudo emerge --quiet --update --deep --with-bdeps=y @world
