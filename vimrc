@@ -409,6 +409,8 @@ let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
 " set plugin vim-better-whitespace {{{
 let g:better_whitespace_verbosity=1
 autocmd BufWritePre * StripWhitespace
+let g:better_whitespace_operator='<leader>ws'
+
 " }}}
 
 " set plugin undotree {{{
