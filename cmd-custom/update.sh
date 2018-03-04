@@ -6,8 +6,14 @@ function vonfry-update()
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}\n"
 
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}dotfiles${ECHO_RST}\n"
+    cd $DOTFILES_DIR
+    git pull
+    cd -
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}oh my zsh${ECHO_RST}\n"
     upgrade_oh_my_zsh
+
 
     case "$(uname)" in
         "Darwin")
