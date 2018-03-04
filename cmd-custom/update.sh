@@ -101,11 +101,7 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
     vim -c "execute \"PluginUpdate\" | qa"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}ycm${ECHO_RST}\n"
-    if [ "$(uname)" = Darwin ]; then
-        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
-    else
-        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
-    fi
+    python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
     echo -e "\nemacs' packages will be updated everytime open it.\n"
