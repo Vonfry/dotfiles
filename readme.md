@@ -21,7 +21,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## system
 - [x] macOS
-- [x] Gentoo ( without X11 )
+- [ ] Gentoo ( It is also testing, and without X11. See [todo](#todo) )
 - [ ] Fedora ( No longer maintain. )
 
 ## editor
