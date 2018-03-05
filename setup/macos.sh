@@ -75,6 +75,7 @@ brew install shellcheck
 # system tool
 brew install wireshark --with-libssh --with-qt # web package catch
 brew cask install docker
+brew cask install amethyst # a tool like xmonad
 
 # chat
 brew cask install gitter
