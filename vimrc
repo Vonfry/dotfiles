@@ -361,7 +361,8 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_always_populate_location_list = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:ycm_use_ultisnips_completer = 1
-let g:ycm_python_binary_path = '/usr/local/bin/python3'
+let g:ycm_python_binary_path = 'python3'
+let g:ycm_server_python_interpreter='python3'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_key_invoke_completion = "<c-i>"
 let g:yum_key_list_select_completion=['<C-n>', '<Down>']
@@ -408,7 +409,9 @@ let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
 
 " set plugin vim-better-whitespace {{{
 let g:better_whitespace_verbosity=1
-autocmd BufWritePre * StripWhitespace
+let g:strip_whitespace_on_save = 1
+let g:better_whitespace_operator='<leader>ws'
+
 " }}}
 
 " set plugin undotree {{{
@@ -423,17 +426,32 @@ nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
 nmap <silent> <leader>b :Denite -direction=dynamicbottomt buffer<CR>
 nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
 nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
+" Change file_rec command.
+call denite#custom#var('file_rec', 'command',
+            \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+" Change matchers.
+call denite#custom#source(
+            \ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])
+call denite#custom#source(
+            \ 'file_rec', 'matchers', ['matcher_cpsm'])
+" Change sorters.
+call denite#custom#source(
+            \ 'file_rec', 'sorters', ['sorter_sublime'])
+
+" Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])
 call denite#custom#var('grep', 'default_opts',
-        \ ['-i', '--vimgrep'])
+            \ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-
+" Change default prompt
+call denite#custom#option('default', 'prompt', '>')
+" Change ignore_globs
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-      \ [ '.git/', '.ropeproject/', '__pycache__/',
-      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+            \ [ '.git/', '.ropeproject/', '__pycache__/',
+            \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 " }}}
 
 " set plugin NERDTree {{{

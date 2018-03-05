@@ -6,8 +6,14 @@ function vonfry-update()
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}\n"
 
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}dotfiles${ECHO_RST}\n"
+    cd $DOTFILES_DIR
+    git pull
+    cd -
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}oh my zsh${ECHO_RST}\n"
     upgrade_oh_my_zsh
+
 
     case "$(uname)" in
         "Darwin")
@@ -15,6 +21,7 @@ function vonfry-update()
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}homebrew${ECHO_RST}\n"
             brew update
             brew upgrade
+            brew cask upgrade
             brew cleanup
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store${ECHO_RST}\n"
             sudo softwareupdate --install --all
@@ -38,9 +45,11 @@ function vonfry-update()
                     sudo eix-sync
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman --sync-all --quiet
+                    sudo haskell-updater --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}If use flag has been changed, run emerge with --newuse or --changed-use. This updating dosen't contain them.${ECHO_RST}\n"
                     sudo emerge --quiet --update --deep --with-bdeps=y @world
+                    sudo emerge --depclean
                     ;;
             esac
             ;;
@@ -59,6 +68,7 @@ function vonfry-update()
     stack upgrade
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
     hoogle generate
+    echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
@@ -91,11 +101,7 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
     vim -c "execute \"PluginUpdate\" | qa"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}ycm${ECHO_RST}\n"
-    if [ "$(uname)" = Darwin ]; then
-        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
-    else
-        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer
-    fi
+    python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
     echo -e "\nemacs' packages will be updated everytime open it.\n"

@@ -1,6 +1,5 @@
 ;;; imenu config -*- lexical-binding: t -*-
 
-(use-package! imenu+)
 (use-package! imenu-anywhere
   :config
   :general

@@ -5,6 +5,7 @@ git config --global color.diff-highlight.oldHighlight "red bold 52"
 git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 git config --global core.fileMode false
+git config --global core.ignorecase false
 
 echo_note "--- input git global user: "
 read git_global_user

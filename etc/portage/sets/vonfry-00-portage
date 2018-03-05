@@ -1,0 +1,10 @@
+app-admin/sudo
+app-portage/cpuid2cpuflags
+app-admin/eclean-kernel
+app-portage/gentoolkit
+app-portage/euses
+app-portage/eix
+app-portage/portage-utils
+app-portage/genlop
+app-portage/repoman
+app-portage/layman

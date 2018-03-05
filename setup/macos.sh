@@ -24,7 +24,7 @@ brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
 brew install autojump
 brew install googler
-brew install htop
+# brew install htop
 brew install lolcat                        # colorful print
 brew install cloc                          # code statistics
 brew install tree uchardet                 # file browser
@@ -40,14 +40,14 @@ brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
 brew install ninja
 brew install boost zlib libffi
-brew install boost-python --with-python3
+brew install boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew install --HEAD universal-ctags
 brew install global --with-ctags --with-pygments --with-sqlite3
 brew install rtags --without-emacs
 brew install cscope
-brew install doxygen --with-doxywizard
+brew install doxygen --with-doxywizard --with-graphviz
 brew install cflow
 
 # code search
@@ -73,7 +73,9 @@ brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
 
 # system tool
-brew install wireshark                     # web package catch
+brew install wireshark --with-libssh --with-qt # web package catch
+brew cask install docker
+brew cask install amethyst # a tool like xmonad
 
 # chat
 brew cask install gitter
@@ -83,7 +85,11 @@ brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lu
 brew install editorconfig
 brew install macvim --with-lua --with-python3 --with-override-system-vim
 brew install neovim
-brew install emacs --with-cocoa --with-gnutls --with-imagemagick --with-librsvg --with-mailutils
+brew install emacs --with-cocoa --with-gnutls --with-imagemagick@6 --with-librsvg --with-mailutils --with-dbus
+# TODO change imagemagick@6 to other version
+# TODO use emacs-port instead of gnu-emacs until it supports with multi-tty
+# brew tap railwaycat/emacsmacport
+# brew install emacs-mac --with-glib --with-gnutls --with-modern-icon --with-natural-title-bar --with-xml2 --with-imagemagick\n
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life

@@ -1,14 +1,16 @@
 * OS
 ** Gentoo [0/2]
 *** TODO gcl cannot be built on gentoo
-*** TODO Gentoo with X
-** Macos [/]
+*** TODO Gentoo with X[0/3]
+    - [ ] Rewrite global use flag
+    - [ ] XMonad
+    - [ ] Xfec
+** Macos
 
 * Editor
-** LSP
-*** TODO Emacs
-*** TODO Vim
-
+** LSP[0/2]
+    - [ ] Emacs
+    - [ ] Vim
 * Tools
 ** Haskell[0/1]
-*** TODO dHall
+    - [ ] dHall

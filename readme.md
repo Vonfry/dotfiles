@@ -21,7 +21,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## system
 - [x] macOS
-- [x] Gentoo ( without X11 )
+- [ ] Gentoo ( It is also testing, and without X11. See [todo](#todo) )
 - [ ] Fedora ( No longer maintain. )
 
 ## editor
@@ -48,6 +48,10 @@ see :[todo.org](todo.org)
 Now the most important thing is to use `lsp` instead of other completion tools, but `lsp` seems not mature.
 
 ## life
+
+I use iTerm on mac and do anything on program with command line. And using ConEmu as terminal on windows.
+
+Gentoo is a good linux distribution, we can control a lot of things in our system.
 
 I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
 
