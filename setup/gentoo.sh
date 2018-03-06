@@ -32,31 +32,34 @@ echo_note "--- All configure in the repo is minimum. For example: python or ruby
 emerge-websync
 emerge --sync --quiet
 
-emerge --quiet @vonfry00portage
+emerge --quiet --autounmask-continue=y @vonfry00portage
 layman-updater -R
 layman -S
 
+touch /etc/portage/package.use/zz-autounmask
+touch /etc/portage/package.accept_keywords/zz-autounmask
+
 # system basic tools
-emerge --quiet @vonfry10system
+emerge --quiet --autounmask-continue=y @vonfry10system
 rc-update add ulogd default
 echo_note "--- Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
 
 # shell
-emerge --quiet @vonfry20shell
+emerge --quiet --autounmask-continue=y @vonfry20shell
 git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && cd - && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ # rtags
 
 # editor
-emerge --quiet @vonfry30editor
+emerge --quiet --autounmask-continue=y @vonfry30editor
 
 # development
 layman -a haskell
-emerge --quiet @vonfry40lang
-emerge --quiet @vonfry41db
-emerge --quiet @vonfry42misc
+emerge --quiet --autounmask-continue=y @vonfry40lang
+emerge --quiet --autounmask-continue=y @vonfry41db
+emerge --quiet --autounmask-continue=y @vonfry42misc
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
 
 # X11
-emerge --quiet @vonfry50x
+emerge --quiet --autounmask-continue=y @vonfry50x
 # TODO X11
 
 echo_note "--- If you want to install docker, please install it by yourself. It needs some configure in kernel."
@@ -70,8 +73,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/cpuflags.local
-touch /etc/portage/package.use/zz-autounmask
-touch /etc/portage/package.accept_keywords/zz-autounmask
 
 echo_note "--- All service don't start on boot. You should config it by youself."
 
