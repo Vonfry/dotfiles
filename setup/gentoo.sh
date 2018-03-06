@@ -70,6 +70,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 echo "*/* $(cpuid2cpuflags)" > /etc/portage/package.use/cpuflags.local
+touch /etc/portage/package.use/zz-autounmask
+touch /etc/portage/package.accept_keywords/zz-autounmask
 
 echo_note "--- All service don't start on boot. You should config it by youself."
 
