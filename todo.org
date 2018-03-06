@@ -1,8 +1,9 @@
 * OS
 ** Gentoo [0/2]
 *** TODO gcl cannot be built on gentoo
-*** TODO Gentoo with X[0/2]
-    - [ ] XMond
+*** TODO Gentoo with X[0/3]
+    - [ ] Rewrite global use flag
+    - [ ] XMonad
     - [ ] Xfec
 ** Macos
 
