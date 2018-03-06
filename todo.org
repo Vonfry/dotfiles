@@ -2,6 +2,7 @@
 ** Gentoo [0/2]
 *** TODO gcl cannot be built on gentoo
 *** TODO Gentoo with X[0/3]
+    - [ ] libressl instead of openssl or ssl
     - [ ] Rewrite global use flag
     - [ ] XMonad
     - [ ] Xfec
