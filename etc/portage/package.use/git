@@ -1,1 +1,1 @@
-dev-vcs/git curl cvs gpg emacs
+dev-vcs/git curl gpg emacs threads pcre pcre-jit blksha1
