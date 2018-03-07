@@ -27,6 +27,7 @@ for file in $script_dir/etc/portage/*; do
     sudo cp -r -f $file /etc/portage/
 done
 cp $script_dir/etc/eix-sync.conf /etc/eix-sync.conf
+sudo chmod +x /etc/portage/postsync.d/*
 
 function insert_make_conf() {
     check=$(grep "$1=\".*\"" /etc/portage/make.conf)
@@ -70,6 +71,7 @@ sudo emerge-websync
 sudo emerge --sync --quiet
 
 sudo emerge $emerge_args @vonfry00portage
+sudo eix-sync
 sudo layman-updater -R
 sudo layman -S
 
@@ -106,6 +108,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 echo "*/* $(cpuid2cpuflags)" | sudo tee /etc/portage/package.use/01cpuflags.local
+echo "echo OVERLAY_CACHE_METHOD=\"assign\"" | sudo tee -a /etc/eixrc/00-eixrc
 
 echo_note "--- All service don't start on boot. You should config it by youself."
 
