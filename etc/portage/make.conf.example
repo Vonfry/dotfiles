@@ -13,13 +13,7 @@ MAKEOPTS="-j4"
 GENTOO_MIRRORS="http://mirrors.ustc.edu.cn/gentoo/"
 LINGUAS="en zh-CN ja ja_JP"
 L10N="en en-US zh-CN ja"
-USE="cjk
-     gnutls
-     icu ipv6
-     posix
-     syslog ssl
-     unicode
-     zsh-completion"
+USE=""
 # X and other X window flag is setted by profile
 LLVM_TARGETS="AMDGPU WebAssembly"
 PYTHON_TARGETS="python2_7 python3_5"

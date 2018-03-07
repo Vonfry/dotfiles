@@ -23,6 +23,13 @@ for file in $script_dir/etc/portage/*; do
     sudo cp -r -f $file /etc/portage/
 done
 
+echo GENTOO_MIRRORS="http://mirrors.ustc.edu.cn/gentoo/" | sudo tee /etc/portage/make.conf
+echo LINGUAS="en zh-CN ja ja_JP" | sudo tee /etc/portage/make.conf
+echo L10N="en en-US zh-CN ja" | sudo tee /etc/portage/make.conf
+echo LLVM_TARGETS="AMDGPU WebAssembly" | sudo tee /etc/portage/make.conf
+echo PYTHON_TARGETS="python2_7 python3_5" | sudo tee /etc/portage/make.conf
+echo RUBY_TARGETS="ruby23" | sudo tee /etc/portage/make.conf
+
 echo "#\!/bin/sh" > /etc/portage/postsync.d/eix
 echo "eix-remote update" >> /etc/portage/postsync.d/eix
 echo "*" > /etc/eix-sync.conf
@@ -69,7 +76,7 @@ echo_note "--- If you want to patch kernel with pax, please emerge and build it 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-echo "*/* $(cpuid2cpuflags)" > sudo tee /etc/portage/package.use/cpuflags.local
+echo "*/* $(cpuid2cpuflags)" > sudo tee /etc/portage/package.use/01cpuflags.local
 
 echo_note "--- All service don't start on boot. You should config it by youself."
 

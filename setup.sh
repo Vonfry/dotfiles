@@ -17,14 +17,14 @@ mkdir -p ~/.local/bin > /dev/null 2>&1
 
 # bash $script_dir/setup/zsh.sh
 # put this into system setup.
-source $script_dir/setup/os.sh
-source $script_dir/setup/pkgs.sh
-source $script_dir/setup/vim.sh
-source $script_dir/setup/emacs.sh
-source $script_dir/setup/git.sh
-source $script_dir/setup/ln.sh
-source $script_dir/setup/zsh.sh
-source $script_dir/setup/shell.sh
+bash $script_dir/setup/os.sh
+bash $script_dir/setup/pkgs.sh
+bash $script_dir/setup/vim.sh
+bash $script_dir/setup/emacs.sh
+bash $script_dir/setup/git.sh
+bash $script_dir/setup/ln.sh
+bash $script_dir/setup/zsh.sh
+bash $script_dir/setup/shell.sh
 
 # alert
 echo "
@@ -32,8 +32,7 @@ echo "
 This setup has been done. But there are something not installed.
 \`Docker\` on mac show be installed with docker-tool-box.
 Any applications were not been initialized., such as \`mysql\`, \`postgresql\` and so on.
-========
-END
+========\n
 "
 
 # unset var and function
@@ -41,3 +40,5 @@ unset -f echo_sh
 unset script_dir
 unset dropbox_dir
 unset source_dir
+
+source $HOME/.zshrc
