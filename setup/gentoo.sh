@@ -6,6 +6,10 @@ echo_info "** All package.use flags are saved in the repo."
 
 user_dir=$HOME
 emerge_args="--quiet --autounmask-continue=y"
+if [ ! -f "/etc/portage/make.conf" ]; then
+    echo_sh "** Script cannot get make.conf, please check whether having installed portage."
+    exit
+fi
 if [ $USER != "root" ]; then
     if command -v "sudo" > /dev/null 2>&1; then
         echo_note "--- If you haven't set specially sudo, the password may be required to input for many times."
@@ -22,17 +26,42 @@ portage_dir=/etc/portage
 for file in $script_dir/etc/portage/*; do
     sudo cp -r -f $file /etc/portage/
 done
+cp $script_dir/etc/eix-sync.conf /etc/eix-sync.conf
 
-echo GENTOO_MIRRORS="http://mirrors.ustc.edu.cn/gentoo/" | sudo tee /etc/portage/make.conf
-echo LINGUAS="en zh-CN ja ja_JP" | sudo tee /etc/portage/make.conf
-echo L10N="en en-US zh-CN ja" | sudo tee /etc/portage/make.conf
-echo LLVM_TARGETS="AMDGPU WebAssembly" | sudo tee /etc/portage/make.conf
-echo PYTHON_TARGETS="python2_7 python3_5" | sudo tee /etc/portage/make.conf
-echo RUBY_TARGETS="ruby23" | sudo tee /etc/portage/make.conf
-
-echo "#\!/bin/sh" > /etc/portage/postsync.d/eix
-echo "eix-remote update" >> /etc/portage/postsync.d/eix
-echo "*" > /etc/eix-sync.conf
+function insert_make_conf() {
+    check=$(grep "$1=\".*\"" /etc/portage/make.conf)
+    if [[ check = "" ]]; then
+        default=""
+        if [[ ! -v $2 ]]; then
+            default="none"
+        else
+            default=$2
+        fi
+        echo_note "---- Set $1, input your setting(<: not set, >: default, $default): "
+        read val
+        if [[ val != "<" ]]; then
+            if [[ val == ">" ]]; then
+                val=$default
+            fi
+            if [[ val != "none" ]]; then
+                echo "$1=\"$val\"" | sudo tee -a /etc/portage/make.conf
+            fi
+        fi
+        unset val
+    else
+        echo_note "---- You have set $1, $check"
+    fi
+    unset arg
+    unset check
+}
+echo_note "--- set make.conf with some options"
+insert_make_conf "GENTOO_MIRRORS" "http://mirrors.ustc.edu.cn/gentoo/"
+insert_make_conf "LINGUAS" "en zh-CN ja ja_JP"
+insert_make_conf "L10N" "en en-US zh-CN ja"
+insert_make_conf "LLVM_TARGETS" "AMDGPU WebAssembly"
+insert_make_conf "EMERGE_DEFAULT_OPTS" "none"
+insert_make_conf "PYTHON_TARGETS"
+insert_make_conf "RUBY_TARGETS"
 
 echo_note "--- Here may be a mask message when you install them, I recommand you to autounmask them by yourself. My use flag and other file only provide which I want to use. It isn't all the record for installing."
 echo_note "--- All configure in the repo is minimum. For example: python or ruby. If You want to use test version instead of stable version. Please add them to yourself. Notice: they have a lot of development tools which are also needed to be added if you don't want to install too many version of these apps. But I suggest that use stable version and test version together, only switch these you really need. The other use flag or keywords can save into zz-autounmask."
@@ -76,7 +105,7 @@ echo_note "--- If you want to patch kernel with pax, please emerge and build it 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-echo "*/* $(cpuid2cpuflags)" > sudo tee /etc/portage/package.use/01cpuflags.local
+echo "*/* $(cpuid2cpuflags)" | sudo tee /etc/portage/package.use/01cpuflags.local
 
 echo_note "--- All service don't start on boot. You should config it by youself."
 
