@@ -35,3 +35,17 @@ Format: `vonfry<cat><idx><name>`
 ### name
 
 use `-` instead of `space`.
+
+## use
+
+Use package name as file name.
+
+Name heading with num is the special package such as os or portage.
+
+## accept_keywords
+
+Use package name as file name.
+
+## USE_EXPAND
+
+By default, all `use_expand` saved in `make.conf` except `cpuflags`.
