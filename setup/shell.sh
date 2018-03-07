@@ -12,14 +12,14 @@ read clone_lib_dir
 echo "export CLONE_LIB=$clone_lib_dir"                     >> $script_dir/cmd-custom/local/defvar.sh
 unset clone_lib_dir
 
-echo_note "--- input gitlab url(please contain protocol and end `/`) "
+echo_note "--- input gitlab url(please contain protocol and end `/`, such as: https://git.vonfry.name/) "
 read gitlab_url
-echo "export GITLAB_API_ENDPOINT=\"${gitlab_api_endpoint}api/v4\"" > $script_dir/cmd-custom/local/defvar.sh
+echo "export GITLAB_API_ENDPOINT=\"${gitlab_url}api/v4\"" > $script_dir/cmd-custom/local/defvar.sh
 echo_note "--- input gitlab token "
 read gitlab_token
 echo "export GITLAB_API_PRIVATE_TOKEN=\"${gitlab_token}\"" > $script_dir/cmd-custom/local/defvar.sh
 
-wget -O ~/.local/bin/ssh-ident goo.gl/MoJuKB
+wget -O ~/.local/bin/ssh-ident https://raw.githubusercontent.com/ccontavalli/ssh-ident/master/ssh-ident
 
 unset gitlab_url
 unset gitlab_token

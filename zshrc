@@ -33,6 +33,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
+setopt extendedglob
+
 setopt rm_star_silent
 
 source $HOME/.cmd-custom/local/defvar.sh

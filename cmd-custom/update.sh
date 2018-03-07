@@ -39,10 +39,10 @@ function vonfry-update()
                     ;;
                 "gentoo")
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
-                    emerge --oneshot portage
-                    sudo emerge-webrsync --quiet
-                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage pkgs${ECHO_RST}\n"
+                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}sync portage and custom repos${ECHO_RST}\n"
                     sudo eix-sync
+                    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage self${ECHO_RST}\n"
+                    emerge --oneshot portage
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman --sync-all --quiet
                     sudo haskell-updater --quiet
