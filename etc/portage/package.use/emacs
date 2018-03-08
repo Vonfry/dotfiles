@@ -1,1 +1,1 @@
-app-editors/emacs imagemagick libxml dbus zlib jpeg gif acl svg sound tiff xpm
+app-editors/emacs imagemagick libxml2 dbus zlib  acl tiff

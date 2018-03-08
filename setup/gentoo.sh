@@ -111,5 +111,7 @@ echo "*/* $(cpuid2cpuflags)" | sudo tee /etc/portage/package.use/01cpuflags.loca
 echo "echo OVERLAY_CACHE_METHOD=\"assign\"" | sudo tee -a /etc/eixrc/00-eixrc
 
 echo_note "--- All service don't start on boot. You should config it by youself."
+echo_note "--- Now, rebuild pkg with new use flag."
+emerge $emerge_args --newuse --update --with-bdeps=y @world
 
 unset portage_dir

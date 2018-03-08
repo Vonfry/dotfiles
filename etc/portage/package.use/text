@@ -1,1 +1,1 @@
-app-text/poppler -qt5 cairo jpeg png tiff utils
+app-text/poppler -qt5 jpeg png tiff utils
