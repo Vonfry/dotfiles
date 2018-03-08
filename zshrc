@@ -44,11 +44,15 @@ source $CMD_CUSTOM_DIR/unalias.sh
 source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-find $CMD_CUSTOM_DIR/misc -type f -regex "${CMD_CUSTOM_DIR}/misc/[^\.].*" | parallel --will-cite source
+for file in $CMD_CUSTOM_DIR/misc/*; do
+   source $file
+done
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
 
-find $CMD_CUSTOM_DIR/local -type f -regex "${CMD_CUSTOM_DIR}/local/[^\.].*" | parallel --will-cite source
+for file in $CMD_CUSTOM_DIR/local/*; do
+   source $file
+done
 
 source $CMD_CUSTOM_DIR/update.sh
