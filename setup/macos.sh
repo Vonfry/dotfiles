@@ -19,7 +19,8 @@ brew install caskroom/cask/brew-cask
 brew tap beeftornado/rmtree # rm pkg with deps
 brew install gnu-sed gnu-tar unzip unrar
 brew cask install gpg-suite
-brew install zsh wget git git-extras git-flow tig
+brew install git --with-gettext --with-openssl --with-curl --with-blk-sha1
+brew install zsh wget git-flow tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
 brew install autojump
@@ -33,8 +34,8 @@ brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 brew install handbrake                     # video transcoder
 
 # C & Cpp libs
-brew install gcc --with-jit --with-nls
-brew install llvm --with-lldb --with-ocaml --with-python --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
+brew install gcc --with-nls
+brew install llvm --with-lldb --with-graphviz --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
 brew install scons # a cross build tools
 brew install gdb --with-all-targets --with-python
 brew install cmake --with-completion
@@ -56,7 +57,7 @@ brew install ack the_silver_searcher awk gawk
 # lang
 brew install ghc
 brew install cabal-install haskell-stack
-brew install ruby --with-doc --with-gdbm --with-gmp --with-libffi
+brew install ruby
 brew install rbenv
 brew install clisp sbcl
 brew install ocaml opam
@@ -73,17 +74,18 @@ brew install ispell                        # emacs flyspell dependency
 brew install shellcheck
 
 # system tool
-brew install wireshark --with-libssh --with-qt # web package catch
+brew install wireshark --with-nghttp2 --iwth-headers --with-libssh --with-qt # web package catch
 brew cask install docker
 brew cask install amethyst # a tool like xmonad
+brew install graphviz --with-app
 
 # chat
 brew cask install gitter
-brew install weechat --with-ruby --with-python --with-perl --with-curl --with-lua
+brew install weechat
 
 # editor
 brew install editorconfig
-brew install macvim --with-lua --with-python3 --with-override-system-vim
+brew install macvim --with-lua --with-override-system-vim --with-luajit
 brew install neovim
 brew install emacs --with-cocoa --with-gnutls --with-imagemagick@6 --with-librsvg --with-mailutils --with-dbus
 # TODO change imagemagick@6 to other version

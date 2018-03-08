@@ -1,1 +1,1 @@
-app-admin/ulogd mysql sqlite  posgres json nfacct nfct nflog ulog
+app-admin/ulogd json nfacct nfct nflog ulog
