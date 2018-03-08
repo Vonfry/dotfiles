@@ -1,6 +1,6 @@
 source ~/.zplug/init.zsh
 
-source $DOTFILES_DIR/cmd-custom/zplug.default
+source $DOTFILES_DIR/cmd-custom/zplug.default.zsh
 find . -name "zplug.local.*" | xargs -n1 source
 
 
