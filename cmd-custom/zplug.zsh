@@ -1,6 +1,8 @@
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplugin light tj/git-extras
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

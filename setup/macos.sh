@@ -19,7 +19,8 @@ brew install caskroom/cask/brew-cask
 brew tap beeftornado/rmtree # rm pkg with deps
 brew install gnu-sed gnu-tar unzip unrar
 brew cask install gpg-suite
-brew install zsh wget git git-extras git-flow tig
+brew install git --with-gettext --with-openssl --with-curl --with-blk-sha1
+brew install zsh wget git-flow tig
 brew install fzf && /usr/local/opt/fzf/install
 brew install thefuck
 brew install autojump
