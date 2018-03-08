@@ -32,6 +32,7 @@ brew install tree uchardet                 # file browser
 brew install colordiff
 brew install fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 brew install handbrake                     # video transcoder
+brew install parallel
 
 # C & Cpp libs
 brew install gcc --with-nls

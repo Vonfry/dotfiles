@@ -5,6 +5,7 @@ app-shells/zsh-completions
 net-misc/wget
 net-misc/curl
 dev-vcs/git
+sys-process/parallel
 dev-vcs/git-lfs
 dev-vcs/git-flow
 dev-vcs/tig
