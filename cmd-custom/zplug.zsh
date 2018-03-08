@@ -1,7 +1,8 @@
 source ~/.zplug/init.zsh
 
 source $DOTFILES_DIR/cmd-custom/zplug.default
-source $DOTFILES_DIR/cmd-custom/zplug.local.*
+find . -name "zplug.local.*" | xargs -n1 source
+
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
