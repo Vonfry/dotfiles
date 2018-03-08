@@ -37,26 +37,18 @@ setopt extendedglob
 
 setopt rm_star_silent
 
-source $HOME/.cmd-custom/local/defvar.sh
+source $HOME/.cmd-custom/defvar.sh
 
 source $HOME/.cmd-custom/zplug.zsh
 source $CMD_CUSTOM_DIR/unalias.sh
 source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-for file in $CMD_CUSTOM_DIR/misc/*; do
-    if [ -f $file ]; then
-        source $file
-    fi
-done
+find $CMD_CUSTOM_DIR/misc -type f -regex "${CMD_CUSTOM_DIR}/misc/[^\.].*" | parallel --will-cite source
 
 export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
 
-for file in $CMD_CUSTOM_DIR/local/*; do
-    if [ -f $file ]  && [ $file != "defvar.sh" ]; then
-        source $file
-    fi
-done
+find $CMD_CUSTOM_DIR/local -type f -regex "${CMD_CUSTOM_DIR}/local/[^\.].*" | parallel --will-cite source
 
 source $CMD_CUSTOM_DIR/update.sh
