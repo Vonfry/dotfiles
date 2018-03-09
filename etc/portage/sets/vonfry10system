@@ -2,3 +2,5 @@ net-firewall/iptables
 app-admin/ulogd
 net-firewall/firehol
 net-analyzer/vnstat
+app-admin/denyhosts
+dev-python/ipaddr
