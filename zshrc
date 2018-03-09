@@ -25,10 +25,9 @@ plugins=(
     redis-cli
     thefuck
     docker docker-compose
-    command-not-found
 )
-if [[  $(uname) = "Darwin"  ]]; then
-    plugins=(${plugins[@]} osx xcode brew brew-cask)
+if [[ $(uname) = "Darwin" ]]; then
+    plugins=($plugins osx xcode brew brew-cask)
 fi
 
 # User configuration
