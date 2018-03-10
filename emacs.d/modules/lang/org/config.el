@@ -11,6 +11,11 @@
       (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
     "org todo keywords"
     :group 'vonfry-modules)
+    (defcustom +org-capture-templates
+      '(("t" "Todo" entry (file+headline +org-capture-file "Tasks")
+          "* TODO %?\n  %i\n  %a"))
+      "org capture templates"
+      :group 'vonfry-modules)
   (defcustom +org-capture-file
      (expand-file-name "capture.org" vonfry-org-dir)
      "org capture"
@@ -19,9 +24,7 @@
   (custom-set-variables
    '(org-clock-persist t)
    '(org-default-notes-file +org-capture-file)
-   '(org-capture-templates
-      '(("t" "Todo" entry (file+headline +org-capture-file "Tasks")
-          "* TODO %?\n  %i\n  %a")))
+   '(org-capture-templates +org-capture-templates)
    '(org-todo-keywords +org-todo-keywords-sequence)
    '(org-clock-persist-file +org-clock-persist-file)
    '(org-log-done 'time)
@@ -56,29 +59,29 @@
     :group 'vonfry-modules)
   (custom-set-variables '(org-brain-path +org-brains-path))
   :config
-  (eval-after-load 'evil
-    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
   (add-hook 'org-brain-after-resource-button-functions
     (lambda (link)
       (insert (format "%s "
-                (cond
-                  ((string-prefix-p "http" link)
-                    (cond
-                      ((string-match "wikipedia\\.org" link)
-                       (all-the-icons-faicon "wikipedia-w"))
-                      ((string-match "github\\.com" link)
-                       (all-the-icons-octicon "mark-github"))
-                      ((string-match "vimeo\\.com" link)
-                       (all-the-icons-faicon "vimeo"))
-                      ((string-match "youtube\\.com" link)
-                       (all-the-icons-faicon "youtube"))
-                      (t (all-the-icons-faicon "globe"))))
-                  ((string-prefix-p "brain:" link)
-                   (all-the-icons-fileicon "brain"))
-                  (t (all-the-icons-icon-for-file link)))))))
+                (cond ((string-prefix-p "http" link)
+                       (cond ((string-match "wikipedia\\.org" link)
+                              (all-the-icons-faicon "wikipedia-w"))
+                             ((string-match "github\\.com" link)
+                              (all-the-icons-octicon "mark-github"))
+                             ((string-match "vimeo\\.com" link)
+                              (all-the-icons-faicon "vimeo"))
+                             ((string-match "youtube\\.com" link)
+                              (all-the-icons-faicon "youtube"))
+                             (t
+                              (all-the-icons-faicon "globe"))))
+                      ((string-prefix-p "brain:" link)
+                       (all-the-icons-fileicon "brain"))
+                      (t
+                       (all-the-icons-icon-for-file link)))))))
   (custom-set-variables
    '(org-id-track-globally t)
    '(org-id-locations-file (expand-file-name "org-id-locations" vonfry-local-dir))
    '(org-brain-visualize-default-choices 'all)
    '(org-brain-title-max-length 16))
-  (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) org-capture-templates))
+  (with-eval-after-load 'evil
+    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
+  (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) +org-capture-templates))
