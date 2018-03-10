@@ -34,7 +34,7 @@
   :init
   (defcustom +org-projectile-todo-project-file
     "todo.org"
-    "org projectile file in project dir. This variable will be appended `projectile-project-root`."
+    "org projectile file in project dir. This variable will be seted in `org-projectile-per-project-filepath`."
     :group 'vonfry-modules)
   :bind (("C-c n p" . org-projectile-project-todo-completing-read)
          ("C-c c" . org-capture))
@@ -44,9 +44,6 @@
           "~" 'org-projectile-goto-location-for-project)
   :config
   (org-projectile-per-project)
-  (defun vonfry/create-projectile-todo-file ()
-    (unless (file-exists-p +org-projectile-todo-project-file)
-      (with-temp-file +org-projectile-todo-project-file nil)))
   (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (use-package! org-projectile-helm :after helm))
