@@ -77,7 +77,6 @@ brew reinstall shellcheck
 # system tool
 brew reinstall wireshark --with-nghttp2 --iwth-headers --with-libssh --with-qt # web package catch
 brew cask install docker
-brew cask install amethyst # a tool like xmonad
 brew reinstall graphviz --with-app
 
 # chat
