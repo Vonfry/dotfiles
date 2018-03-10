@@ -19,6 +19,9 @@
   (custom-set-variables
    '(org-clock-persist t)
    '(org-default-notes-file +org-capture-file)
+   '(org-capture-templates
+      '(("t" "Todo" entry (file+headline +org-capture-file "Tasks")
+          "* TODO %?\n  %i\n  %a")))
    '(org-todo-keywords +org-todo-keywords-sequence)
    '(org-clock-persist-file +org-clock-persist-file)
    '(org-log-done 'time)
@@ -45,16 +48,16 @@
       (evil-org-set-key-theme '(navigation insert textobjects additional)))))
 
 (use-package! org-brain
-  :after org-brain
+  :after org
   :init
   (defcustom +org-brains-path
     (expand-file-name "brains" vonfry-org-dir)
     "org-brain path"
     :group 'vonfry-modules)
   (custom-set-variables '(org-brain-path +org-brains-path))
+  :config
   (eval-after-load 'evil
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
-  :config
   (add-hook 'org-brain-after-resource-button-functions
     (lambda (link)
       (insert (format "%s "
