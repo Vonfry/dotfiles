@@ -5,3 +5,4 @@
 (package! evil-org)
 (package! ob-ipython)
 (package! ob-http)
+(package! org-brain)

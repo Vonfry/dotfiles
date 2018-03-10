@@ -43,3 +43,39 @@
   (add-hook 'org-mode-hook
     (lambda ()
       (evil-org-set-key-theme '(navigation insert textobjects additional)))))
+
+(use-package! org-brain
+  :after org-brain
+  :init
+  (defcustom +org-brains-path
+    (expand-file-name "brains" vonfry-org-dir)
+    "org-brain path"
+    :group 'vonfry-modules)
+  (custom-set-variables '(org-brain-path +org-brains-path))
+  (eval-after-load 'evil
+    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
+  :config
+  (add-hook 'org-brain-after-resource-button-functions
+    (lambda (link)
+      (insert (format "%s "
+                (cond
+                  ((string-prefix-p "http" link)
+                    (cond
+                      ((string-match "wikipedia\\.org" link)
+                       (all-the-icons-faicon "wikipedia-w"))
+                      ((string-match "github\\.com" link)
+                       (all-the-icons-octicon "mark-github"))
+                      ((string-match "vimeo\\.com" link)
+                       (all-the-icons-faicon "vimeo"))
+                      ((string-match "youtube\\.com" link)
+                       (all-the-icons-faicon "youtube"))
+                      (t (all-the-icons-faicon "globe"))))
+                  ((string-prefix-p "brain:" link)
+                   (all-the-icons-fileicon "brain"))
+                  (t (all-the-icons-icon-for-file link)))))))
+  (custom-set-variables
+   '(org-id-track-globally t)
+   '(org-id-locations-file (expand-file-name "org-id-locations" vonfry-local-dir))
+   '(org-brain-visualize-default-choices 'all)
+   '(org-brain-title-max-length 16))
+  (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) org-capture-templates))
