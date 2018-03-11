@@ -11,12 +11,12 @@ case "$(uname)" in
         export fpath=(/usr/local/share/zsh-completions $fpath)
         export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
         export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-        alias llvm-help="
+        alias llvm-help=" echo \"
         To use the bundled libc++ please add the following LDFLAGS:
         LDFLAGS=\"-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib\"
         compile with configure:
         LDFLAGS:  -L/usr/local/opt/llvm/lib
-        CPPFLAGS: -I/usr/local/opt/llvm/include"
+        CPPFLAGS: -I/usr/local/opt/llvm/include\""
         ;;
     "Linux")
         source /etc/os-release
