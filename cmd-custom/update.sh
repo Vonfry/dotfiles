@@ -49,7 +49,7 @@ function vonfry-update()
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}If use flag has been changed, run emerge with --newuse or --changed-use. This updating dosen't contain them.${ECHO_RST}\n"
                     sudo emerge --quiet --update --deep --with-bdeps=y @world
-                    sudo emerge --depclean
+                    sudo emerge --depclean --quiet
                     ;;
             esac
             ;;
