@@ -29,10 +29,7 @@
 
     (vonfry-system-sets '(darwin (chinese-font "Hei" 10)))))
 
-(package! info+)
-(use-package! info+
-  :init
-  (use-package! info))
+(use-package! info)
 
 (custom-set-variables
   '(tool-bar-mode nil)
