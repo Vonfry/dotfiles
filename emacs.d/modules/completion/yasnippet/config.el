@@ -1,6 +1,7 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
 
 (use-package! yasnippet
+  :after company
   :init
   (custom-set-variables
     '(yas-snippet-dirs
