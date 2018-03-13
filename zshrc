@@ -41,6 +41,8 @@ setopt rm_star_silent
 
 source $HOME/.cmd-custom/defvar.sh
 
+export PATH=/usr/local/bin:$PATH
+
 source $HOME/.cmd-custom/zplug.zsh
 source $CMD_CUSTOM_DIR/unalias.sh
 source $CMD_CUSTOM_DIR/alias.sh
@@ -50,8 +52,7 @@ for file in $CMD_CUSTOM_DIR/misc/*; do
    source $file
 done
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
 for file in $CMD_CUSTOM_DIR/local/*; do
    source $file
