@@ -25,17 +25,23 @@ plugins=(
     redis-cli
     thefuck
     docker docker-compose
-    osx xcode brew brew-cask command-not-found
 )
+if [[ $(uname) = "Darwin" ]]; then
+    plugins=($plugins osx xcode brew brew-cask)
+fi
 
 # User configuration
 
 source $ZSH/oh-my-zsh.sh
 
 setopt nonomatch
+setopt extendedglob
+
 setopt rm_star_silent
 
-source $HOME/.cmd-custom/local/defvar.sh
+source $HOME/.cmd-custom/defvar.sh
+
+export PATH=/usr/local/bin:$PATH
 
 source $HOME/.cmd-custom/zplug.zsh
 source $CMD_CUSTOM_DIR/unalias.sh
@@ -43,20 +49,13 @@ source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
 for file in $CMD_CUSTOM_DIR/misc/*; do
-    if [ -f $file ]; then
-        source $file
-    fi
+   source $file
 done
 
-export PATH=/usr/local/sbin:$PATH
-export PATH=$HOME/.local/bin:/usr/local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
 for file in $CMD_CUSTOM_DIR/local/*; do
-    if [ -f $file ]  && [ $file != "defvar.sh" ]; then
-        source $file
-    fi
+   source $file
 done
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $CMD_CUSTOM_DIR/update.sh

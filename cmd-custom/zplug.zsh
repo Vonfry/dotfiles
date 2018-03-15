@@ -1,6 +1,7 @@
 source ~/.zplug/init.zsh
 
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+source $DOTFILES_DIR/cmd-custom/zplug.default.zsh
+find . -name "zplug.local.*" | parallel --will-cite source
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

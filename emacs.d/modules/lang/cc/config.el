@@ -2,7 +2,6 @@
 
 (use-package! rtags
   :after helm company
-  :init
   :config
   (setq rtags-display-result-backend 'helm)
   (add-hook 'irony-mode-hook
@@ -34,14 +33,14 @@
             "b"  'rtags-location-stack-back
             "f"  'rtags-location-stack-forward)
       (if (rtags-is-indexed)
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            "'" 'rtags-print-symbol-info
-            vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
-            vonfry-keybind-evil-jump-to-others     'rtags-find-references
-            vonfry-keybind-evil-jump-module        'rtags-include-file
-            vonfry-keybind-evil-jump-back          'rtags-location-stack-back
-            vonfry-keybind-evil-code               'rtags-imenu)))))
+        (nmap :keymaps 'local
+              :prefix vonfry-keybind-evil-leader
+              "'" 'rtags-print-symbol-info
+              vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
+              vonfry-keybind-evil-jump-to-others     'rtags-find-references
+              vonfry-keybind-evil-jump-module        'rtags-include-file
+              vonfry-keybind-evil-jump-back          'rtags-location-stack-back
+              vonfry-keybind-evil-code               'rtags-imenu)))))
 
 ;; this is used in all program lang
 (use-package! semantic
@@ -146,3 +145,5 @@
 
 (use-package! helm-rtags
   :after rtags helm)
+
+(use-package! call-graph)

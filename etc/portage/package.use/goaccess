@@ -1,1 +1,1 @@
-net-analyzer/goaccess btree getline
+net-analyzer/goaccess getline zlib bzip2 btree tokyocabinet

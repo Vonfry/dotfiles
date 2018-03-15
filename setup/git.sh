@@ -5,7 +5,7 @@ git config --global color.diff-highlight.oldHighlight "red bold 52"
 git config --global color.diff-highlight.newNormal "green bold"
 git config --global color.diff-highlight.newHighlight "green bold 22"
 git config --global core.fileMode false
-git config --global core.ignorecase false
+git config --global color.ui true
 
 echo_note "--- input git global user: "
 read git_global_user
@@ -25,7 +25,16 @@ git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.tempalet ~/.gitcommit_global
 ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
 git config --global core.editor vim # use all with vim, git flow has a bug with macvim
-
 unset git_global_user
 unset git_global_email
 unset git_global_gpg
+
+echo_note "--- input gitlab url(please contain protocol and end `/`) "
+read gitlab_url
+echo "export GITLAB_API_ENDPOINT=${gitlab_url}api/v4" > $script_dir/cmd-custom/local/defvar.sh
+echo_note "--- input gitlab token "
+read gitlab_token
+export GITLAB_API_PRIVATE_TOKEN=${gitlab_token} > $script_dir/cmd-custom/local/defvar.sh
+
+unset gitlab_url
+unset gitlab_token

@@ -9,30 +9,8 @@ CXXFLAGS="${CFLAGS}"
 CHOST="x86_64-pc-linux-gnu"
 # These are the USE and USE_EXPAND flags that were used for
 # buidling in addition to what is provided by the profile.
-CPU_FLAGS_X86="aes avx avx2 fma3 mmx mmxext pclmul popcnt sse sse2 sse3 sse4_1 sse4_2 ssse3"
-MAKEOPTS="-j4"
+MAKEOPTS="-j4" # use lscpu to find out the correct value.
 GENTOO_MIRRORS="http://mirrors.ustc.edu.cn/gentoo/"
 LINGUAS="en zh-CN ja ja_JP"
 L10N="en en-US zh-CN ja"
-USE="aac
-     bzip2
-     cjk cscope curl clipboard cvs cxx
-     ffmpeg flac
-     git gif gnutls gzip
-     icu ipv6
-     javascript jpeg jit
-     latex libffi lua
-     mmap mp3 mp4 music mysql
-     nlt
-     ocaml ogg
-     perl pdf png postgresql posix python
-     ruby
-     sockets spell sqlite svg syslog ssl sound
-     tcpd tiff
-     unicode usb
-     vhosts videos
-     webkit
-     xml X
-     yaml
-     zlib zsh-completion"
-LLVM_TARGETS="AMDGPU WebAssembly"
+USE=""

@@ -1,1 +1,1 @@
-app-editors/emacs imagemagick source libxml dbus
+app-editors/emacs libxml2 dbus zlib acl

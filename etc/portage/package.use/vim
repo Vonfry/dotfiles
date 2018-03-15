@@ -1,1 +1,1 @@
-app-editors/vim X terminal luajit
+app-editors/vim terminal luajit cscope lua perl python ruby

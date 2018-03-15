@@ -6,8 +6,7 @@
   (custom-set-variables
     '(yas-snippet-dirs
       (list (expand-file-name "snippets/" vonfry-local-dir)
-            (expand-file-name "snippets/" vonfry-custom-dir)
-            'yas-installed-snippets-dir)))
+            (expand-file-name "snippets/" vonfry-custom-dir))))
   :config
   (dolist (tmp-dir yas-snippet-dirs)
     (unless (or (not (stringp tmp-dir)) (file-exists-p tmp-dir))

@@ -13,8 +13,6 @@ mathjax-node-cli
 npm-check
 font-spider
 
-@angular/cli
-
 commitizen
 cz-conventional-changelog
 conventional-changelog-cli

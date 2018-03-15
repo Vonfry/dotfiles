@@ -12,6 +12,7 @@ if command -v gem > /dev/null 2>&1; then
     else
         echo_info "!!!! WARN: Ruby bundle isn't installed. The mirror haven't been set."
     fi
+    ln -s -f $script_dir/pryrc ~/.pryrc
 else
     echo_warn "!!! ERROR: NO gem"
     exit 1
