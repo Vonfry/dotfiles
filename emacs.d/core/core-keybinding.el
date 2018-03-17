@@ -179,6 +179,11 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
+(defcustom vonfry-keybind-evil-highlight "h"
+  "manage some highlight setting"
+  :type 'string
+  :group 'vonfry-keybind)
+
 (defcustom vonfry-keybind-evil-todo "~"
   "show todo mode or org projectile"
   :type 'string
