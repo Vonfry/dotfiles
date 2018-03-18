@@ -65,6 +65,7 @@ function vonfry-update()
     cabal update
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
     stack upgrade
+    stack update
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
     hoogle generate
     echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
