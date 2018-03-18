@@ -419,7 +419,7 @@ nmap <leader>u :UndotreeToggle<CR>
 " }}}
 
 " set plugin denite {{{
-nmap <silent> <leader>x :Denite menu<CR>
+nmap <silent> <leader>x :Denite command<CR>
 nmap <silent> <leader>p :Denite file_rec<CR>
 nmap <silent> <leader>f :Denite file<CR>
 nmap <silent> <leader>a :Denite grep<CR>
