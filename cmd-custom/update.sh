@@ -42,7 +42,7 @@ function vonfry-update()
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}sync portage and custom repos${ECHO_RST}\n"
                     sudo eix-sync -q
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage self${ECHO_RST}\n"
-                    emerge --oneshot portage
+                    sudo emerge --oneshot portage
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo layman --sync-all --quiet
                     sudo haskell-updater --quiet
