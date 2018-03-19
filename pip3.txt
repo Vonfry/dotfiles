@@ -39,3 +39,6 @@ scipy
 numpy
 pandas
 matplotlib
+sympy
+mayavi2
+gnuplot-py
