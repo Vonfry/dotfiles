@@ -79,6 +79,7 @@ brew reinstall shellcheck
 brew reinstall wireshark --with-nghttp2 --iwth-headers --with-libssh --with-qt # web package catch
 brew cask install docker
 brew reinstall graphviz --with-app
+brew reinstall gnuplot
 
 # chat
 brew cask install gitter
