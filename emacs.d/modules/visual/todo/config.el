@@ -8,7 +8,7 @@
     :type 'string
     :group 'vonfry-module)
   :general
-  (nmap :prefix vonfry-keybind-evil-highlight
+  (nmap :prefix +hl-todo-prefix-keybind
     "p" 'hl-todo-previous
     "n" 'hl-todo-next
     "o" 'hl-todo-occur))
