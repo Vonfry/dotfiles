@@ -11,8 +11,7 @@
             vonfry-keybind-evil-repl 'slime)))
   (add-hook 'slime-load-hook
     (lambda ()
+      (use-package! slime-company
+        :config
+        (slime-setup '(slime-fancy slime-company)))
       (define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))))
-
-(use-package! slime-company
-  :config
-  (slime-setup '(slime-fancy slime-company)))
