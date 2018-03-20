@@ -10,7 +10,6 @@ dev-vcs/git-flow
 dev-vcs/tig
 app-text/tree
 games-misc/lolcat
-app-i18n/uchardet
 app-misc/colordiff
 dev-util/shellcheck
 app-shells/autojump
