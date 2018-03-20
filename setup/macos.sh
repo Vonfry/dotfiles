@@ -76,10 +76,11 @@ brew reinstall ispell                        # emacs flyspell dependency
 brew reinstall shellcheck
 
 # system tool
+brew cask install xquartz
 brew reinstall wireshark --with-nghttp2 --iwth-headers --with-libssh --with-qt # web package catch
 brew cask install docker
 brew reinstall graphviz --with-app
-brew reinstall gnuplot
+brew reinstall gnuplot --with-x11
 
 # chat
 brew cask install gitter
