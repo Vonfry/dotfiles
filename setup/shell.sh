@@ -19,7 +19,5 @@ echo_note "--- input gitlab token "
 read gitlab_token
 echo "export GITLAB_API_PRIVATE_TOKEN=\"${gitlab_token}\"" > $script_dir/cmd-custom/defvar.sh
 
-wget -O ~/.local/bin/ssh-ident https://raw.githubusercontent.com/ccontavalli/ssh-ident/master/ssh-ident
-
 unset gitlab_url
 unset gitlab_token
