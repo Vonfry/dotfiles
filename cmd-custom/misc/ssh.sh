@@ -12,7 +12,3 @@ if [ $(uname) = "Darwin" ]; then
         sudo /usr/sbin/sshd
     }
 fi
-
-if command -v "ssh-ident" > /dev/null 2>&1; then
-    alias ssh="ssh-ident"
-fi

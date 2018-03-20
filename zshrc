@@ -48,12 +48,12 @@ source $CMD_CUSTOM_DIR/unalias.sh
 source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
-for file in $CMD_CUSTOM_DIR/misc/*; do
-   source $file
-done
 
 export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
+for file in $CMD_CUSTOM_DIR/misc/*; do
+   source $file
+done
 for file in $CMD_CUSTOM_DIR/local/*; do
    source $file
 done
