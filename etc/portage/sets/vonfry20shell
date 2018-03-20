@@ -28,3 +28,5 @@ sys-apps/the_silver_searcher
 sys-apps/gawk
 sys-apps/sed
 sys-devel/patch
+app-misc/tmux
+

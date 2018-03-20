@@ -34,6 +34,7 @@ brew reinstall fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 brew reinstall handbrake                     # video transcoder
 brew reinstall parallel
 brew reinstall gpatch
+brew reinstall tmux
 
 # C & Cpp libs
 brew reinstall gcc --with-nls
