@@ -17,6 +17,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - [ tuna ] elpa
 - [ tuna ] rubygems
 - [ tuna ] pypi
+- [ tuna ] CRAN
 - [ cnpm ] npm
 
 ## system
@@ -35,7 +36,8 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - Haskell (ghc & stack)
 - Lisp
 - Ruby ( chenv )
-- Python3 ( No longer maintain. )
+- R 
+- Python3 
 - Web (js, html, css/sass, ts)
 
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
