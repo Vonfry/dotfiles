@@ -97,6 +97,10 @@ function vonfry-update()
         npm update -g
     fi
 
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}R${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}packages${ECHO_RST}\n"
+    cat ~/.R.txt | xargs -n1 -I "{}" R --slave --quiet -e "update.packages('{}')"
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}vim${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
     vim -c "execute \"PluginUpdate\" | qa"
