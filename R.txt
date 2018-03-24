@@ -1,2 +1,3 @@
 lintr
 ggplot2
+ggthemes
