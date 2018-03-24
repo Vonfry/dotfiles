@@ -2,13 +2,6 @@ echo_info "** setup node"
 
 ln -f -s $script_dir/npm.txt ~/.npm.txt
 
-alias cnpm="npm --registry=https://registry.npm.taobao.org \
---cache=$HOME/.npm/.cache/cnpm \
---disturl=https://npm.taobao.org/dist \
---userconfig=$HOME/.cnpmrc"
-
-alias npm=cnpm
-
 if command -v npm > /dev/null 2>&1; then
     echo_info "*** setup nmp"
     if [ $(uname) = Darwin ]; then
