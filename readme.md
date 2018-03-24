@@ -18,7 +18,6 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - [ tuna ] rubygems
 - [ tuna ] pypi
 - [ tuna ] CRAN
-- [ cnpm ] npm
 
 ## system
 - [x] macOS
