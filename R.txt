@@ -1,1 +1,4 @@
 lintr
+ggplot2
+ggthemes
+Packrat
