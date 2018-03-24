@@ -18,3 +18,5 @@ ln -f -s $script_dir/cmd-custom ~/.cmd-custom
 
 mkdir ~/.gnupg  2> /dev/null
 ln -f -s $script_dir/gnupg/* ~/.gnupg/
+
+ln -f -s $script_dir/tmux.conf ~/.tmux.conf
