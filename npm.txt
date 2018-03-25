@@ -3,9 +3,6 @@ typescript
 grunt-cli
 
 tern
-cordova
-less
-less-plugin-clean-css
 
 diff-so-fancy
 mathjax-node-cli
