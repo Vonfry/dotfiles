@@ -52,10 +52,14 @@ source $CMD_CUSTOM_DIR/function.sh
 export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
 for file in $CMD_CUSTOM_DIR/misc/*; do
-   source $file
+    if [ -f $file ]; then
+        source $file
+    fi
 done
 for file in $CMD_CUSTOM_DIR/local/*; do
-   source $file
+    if [ -f $file ]; then
+        source $file
+    fi
 done
 
 source $CMD_CUSTOM_DIR/update.sh
