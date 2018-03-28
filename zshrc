@@ -51,8 +51,11 @@ source $CMD_CUSTOM_DIR/function.sh
 
 export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
-find $CMD_CUSTOM_DIR/misc/ -type f ! -name '.*' | xargs -n1 source
-
-find $CMD_CUSTOM_DIR/local -type f ! -name ".*" | xargs -n1 source
+for file in $CMD_CUSTOM_DIR/misc/*; do
+   source $file
+done
+for file in $CMD_CUSTOM_DIR/local/*; do
+   source $file
+done
 
 source $CMD_CUSTOM_DIR/update.sh
