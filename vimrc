@@ -122,7 +122,9 @@ syntax on
 syntax enable
 
 if has('gui_running')
-    set macligatures
+    if has('mac')
+        set macligatures
+    endif
     set guioptions=egmti
     set guifont=Hack:h11
     set mousemodel=popup
