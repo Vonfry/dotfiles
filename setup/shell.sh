@@ -11,13 +11,3 @@ CLONE_LIB which define in $script_dir/cmd-custom/defvar.sh"
 read clone_lib_dir
 echo "export CLONE_LIB=$clone_lib_dir"                     >> $script_dir/cmd-custom/defvar.sh
 unset clone_lib_dir
-
-echo_note "--- input gitlab url(please contain protocol and end `/`, such as: https://git.vonfry.name/) "
-read gitlab_url
-echo "export GITLAB_API_ENDPOINT=\"${gitlab_url}api/v4\"" > $script_dir/cmd-custom/defvar.sh
-echo_note "--- input gitlab token "
-read gitlab_token
-echo "export GITLAB_API_PRIVATE_TOKEN=\"${gitlab_token}\"" > $script_dir/cmd-custom/defvar.sh
-
-unset gitlab_url
-unset gitlab_token

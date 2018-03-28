@@ -9,9 +9,6 @@ case "$(unname)" in
             "gentoo")
                 source $script_dir/setup/gentoo.sh
                 ;;
-            "fedora")
-                source $script_dir/setup/fedora.sh
-                ;;
             "*")
                 echo_warn " ! The linux release is not supported."
                 exit 1
