@@ -32,9 +32,12 @@ Any applications were not been initialized., such as \`mysql\`, \`postgresql\` a
 
 # unset var and function
 unset -f echo_sh
+unset -f echo_warn
+unset -f echo_info
+unset -f echo_note
 unset script_dir
 unset dropbox_dir
 unset source_dir
-unalias runscript
+unset runscript
 
 source $HOME/.zshrc
