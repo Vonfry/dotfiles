@@ -13,6 +13,6 @@ read clone_lib_dir
 echo "export CLONE_LIB=$clone_lib_dir"                     >> $script_dir/cmd-custom/defvar.sh
 unset clone_lib_dir
 
-runscript $script_dir/setup/41git.sh
-runscript $script_dir/setup/42ln.sh
-runscript $script_dir/setup/43zsh.sh
+$runscript $script_dir/setup/41git.sh
+$runscript $script_dir/setup/42ln.sh
+$runscript $script_dir/setup/43zsh.sh

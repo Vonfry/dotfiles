@@ -4,7 +4,7 @@ function echo_warn() { echo -e "\n\033[0;31m $@\n"; echo -e "\033[0m" }
 function echo_info() { echo -e "\n\033[0;36m $@\n"; echo -e "\033[0m" }
 function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 
-export script_dir=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )
+export script_dir=$( cd "$( dirname "$0" )/.." && pwd )
 export dropbox_dir="$HOME/Dropbox/Backup/dotfiles"
 echo_note "--- input a path that where to save the third lib or tools needing to be built by youself."
 read source_dir
@@ -15,11 +15,11 @@ echo_sh "System: $(uname)"
 mkdir -p ~/.cache > /dev/null 2>&1
 mkdir -p ~/.local/bin > /dev/null 2>&1
 
-alias runscript="source"
-runscript $script_dir/setup/10os.sh
-runscript $script_dir/setup/20pkgs.sh
-runscript $script_dir/setup/30editor.sh
-runscript $script_dir/setup/40shell.sh
+runscript="source"
+$runscript $script_dir/setup/10os.sh
+$runscript $script_dir/setup/20pkgs.sh
+$runscript $script_dir/setup/30editor.sh
+$runscript $script_dir/setup/40shell.sh
 
 # alert
 echo "
