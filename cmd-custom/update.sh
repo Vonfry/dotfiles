@@ -73,18 +73,18 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
         pip3 install --upgrade pip setuptools wheel
-        pip3 install -U -r ~/.pip3.txt
+        pip3 install -U -r $DOTFILES_DIR/config/pkgs/pip3.txt
     else
         pip3 install --user --upgrade pip setuptools wheel
-        pip3 install --user -U -r ~/.pip3.txt
+        pip3 install --user -U -r $DOTFILES_DIR/config/pkgs/pip3.txt
     fi
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
         pip2 install --upgrade pip setuptools wheel
-        pip2 install -U -r ~/.pip2.txt
+        pip2 install -U -r $DOTFILES_DIR/config/pkgs/pip2.txt
     else
         pip2 install --user --upgrade pip setuptools wheel
-        pip2 install --user -U -r ~/.pip2.txt
+        pip2 install --user -U -r $DOTFILES_DIR/config/pkgs/pip2.txt
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
@@ -99,7 +99,7 @@ function vonfry-update()
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}R${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}packages${ECHO_RST}\n"
-    cat ~/.R.txt | xargs -n1 -I "{}" R --slave --quiet -e "update.packages('{}')"
+    cat $DOTFILES_DI/config/pkgs/R.txt | xargs -n1 -I "{}" R --slave --quiet -e "update.packages('{}')"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}vim${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
