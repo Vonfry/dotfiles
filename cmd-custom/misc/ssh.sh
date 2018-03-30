@@ -12,5 +12,3 @@ if [ $(uname) = "Darwin" ]; then
         sudo /usr/sbin/sshd
     }
 fi
-
-# If doing some script after or before ssh-agent, please put them into keychain.sh
