@@ -17,7 +17,7 @@ export UPDATE_ZSH_DAYS=7
 
 plugins=(
     gitignore git git-extra github git-flow git-remote-branch
-    autojump sudo screen dotenv
+    autojump sudo dotenv
     man colored-man-pages profiles
     python pip
     ruby gem rails rake chruby
