@@ -10,11 +10,11 @@ save-hackage-creds: true
 
 package-indices:
   - name: Tsinghua
-    download-prefix: https://mirrors.tuna.tsinghua.edu.cn/hackage/package/
-    http: https://mirrors.tuna.tsinghua.edu.cn/hackage/01-index.tar.gz
+    download-prefix: https://mirrors.ustc.edu.cn/hackage/package/
+    http: https://mirrors.ustc.edu.cn/hackage/01-index.tar.gz
 
-setup-info: "https://mirrors.tuna.tsinghua.edu.cn/stackage/stack-setup.yaml"
+setup-info: "http://mirrors.ustc.edu.cn/stackage/stack-setup.yaml"
 urls:
-  latest-snapshot: https://mirrors.tuna.tsinghua.edu.cn/stackage/snapshots.json
-  lts-build-plans: https://mirrors.tuna.tsinghua.edu.cn/stackage/lts-haskell/
-  nightly-build-plans: https://mirrors.tuna.tsinghua.edu.cn/stackage/stackage-nightly/
+  latest-snapshot: http://mirrors.ustc.edu.cn/stackage/snapshots.json
+  lts-build-plans: http://mirrors.ustc.edu.cn/stackage/lts-haskell/
+  nightly-build-plans: http://mirrors.ustc.edu.cn/stackage/stackage-nightly/
