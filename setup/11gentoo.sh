@@ -5,7 +5,7 @@ echo_info "** This action must be run after the system is installed with all the
 echo_info "** All package.use flags are saved in the repo."
 
 user_dir=$HOME
-emerge_args="--quiet --autounmask-continue=y"
+emerge_args="--quiet --autounmask=y --autounmask-continue=y"
 if [ ! -f "/etc/portage/make.conf" ]; then
     echo_sh "** Script cannot get make.conf, please check whether having installed portage."
     exit
