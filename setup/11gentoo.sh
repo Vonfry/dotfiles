@@ -28,6 +28,8 @@ for file in $script_dir/etc/portage/*; do
 done
 sudo cp $script_dir/etc/eix-sync.conf /etc/eix-sync.conf
 sudo chmod +x /etc/portage/postsync.d/*
+sudo touch /etc/portage/package.use/zz-autounmask
+sudo touch /etc/portage/package.accept_keywords/zz-autounmask
 
 function insert_make_conf() {
     check=$(grep "$1=\".*\"" /etc/portage/make.conf)
@@ -79,9 +81,6 @@ sudo emerge $emerge_args @vonfry00portage
 sudo eix-sync
 sudo layman-updater -R
 sudo layman -S
-
-echo touch /etc/portage/package.use/zz-autounmask
-echo touch /etc/portage/package.accept_keywords/zz-autounmask
 
 # system basic tools
 sudo emerge $emerge_args @vonfry10system
