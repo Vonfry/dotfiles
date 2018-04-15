@@ -64,7 +64,6 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
     cabal update
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
-    stack upgrade
     stack update
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
     hoogle generate
