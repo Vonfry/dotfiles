@@ -5,9 +5,10 @@ echo_info "** This action must be run after the system is installed with all the
 echo_info "** All package.use flags are saved in the repo."
 
 user_dir=$HOME
-emerge_args="--quiet --autounmask-continue=y"
+emerge_args="--quiet"
 if [ ! -f "/etc/portage/make.conf" ]; then
     echo_sh "** Script cannot get make.conf, please check whether having installed portage."
+    echo_sh "** Script is only a reference, installing all packages by yourself, because of use flag dependencies."
     exit
 fi
 if [ $USER != "root" ]; then
@@ -28,6 +29,8 @@ for file in $script_dir/etc/portage/*; do
 done
 sudo cp $script_dir/etc/eix-sync.conf /etc/eix-sync.conf
 sudo chmod +x /etc/portage/postsync.d/*
+sudo touch /etc/portage/package.use/zz-autounmask
+sudo touch /etc/portage/package.accept_keywords/zz-autounmask
 
 function insert_make_conf() {
     check=$(grep "$1=\".*\"" /etc/portage/make.conf)
@@ -69,7 +72,7 @@ insert_make_conf "PORTAGE_ELOG_CLASSES" "log warn error qa"
 insert_make_conf "PORT_LOGDIR" "/var/log/portage"
 
 
-echo_note "--- Here may be a mask message when you install them, I recommand you to autounmask them by yourself. My use flag and other file only provide which I want to use. It isn't all the record for installing."
+echo_note "--- Here may be a mask message when you install them, I recommand you to unmask them by yourself. My use flag and other file only provide which I want to use. It isn't all the record for installing."
 echo_note "--- All configure in the repo is minimum. For example: python or ruby. If You want to use test version instead of stable version. Please add them to yourself. Notice: they have a lot of development tools which are also needed to be added if you don't want to install too many version of these apps. But I suggest that use stable version and test version together, only switch these you really need. The other use flag or keywords can save into zz-autounmask."
 
 sudo emerge-websync
@@ -79,9 +82,6 @@ sudo emerge $emerge_args @vonfry00portage
 sudo eix-sync
 sudo layman-updater -R
 sudo layman -S
-
-echo touch /etc/portage/package.use/zz-autounmask
-echo touch /etc/portage/package.accept_keywords/zz-autounmask
 
 # system basic tools
 sudo emerge $emerge_args @vonfry10system

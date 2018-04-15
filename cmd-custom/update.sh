@@ -40,7 +40,7 @@ function vonfry-update()
                 "gentoo")
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage${ECHO_RST}\n"
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}sync portage and custom repos${ECHO_RST}\n"
-                    sudo eix-sync -q
+                    sudo eix-sync -q # This action contains portage/layman sync.
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage self${ECHO_RST}\n"
                     sudo emerge --oneshot portage
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
