@@ -104,6 +104,7 @@ brew reinstall axel # http download
 brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
+brew cask install mark-text
 
 # quicklook
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package quicklookase qlvideo
