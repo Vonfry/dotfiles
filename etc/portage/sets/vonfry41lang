@@ -1,7 +1,7 @@
 dev-lang/ghc
 dev-haskell/cabal
 dev-haskell/cabal-install
-dev-haskell/stack
+dev-haskell/stack-bin
 dev-lisp/sbcl
 dev-lisp/gcl
 dev-lisp/clisp

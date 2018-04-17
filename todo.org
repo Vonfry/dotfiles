@@ -1,6 +1,8 @@
 * OS
 ** Gentoo [0/2]
 *** TODO gcl cannot be built on gentoo
+*** TODO Haskell [0/1]
+    - [ ] stack
 *** TODO Gentoo with X[0/3]
     - [ ] libressl instead of openssl or ssl
     - [ ] Rewrite global use flag
