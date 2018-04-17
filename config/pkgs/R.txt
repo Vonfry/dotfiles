@@ -2,3 +2,4 @@ lintr
 ggplot2
 ggthemes
 packrat
+devtools
