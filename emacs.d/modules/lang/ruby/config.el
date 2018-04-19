@@ -1,10 +1,9 @@
 ;;; ruby config -*- lexical-binding: t -*-
 
 (use-package! enh-ruby-mode
-  :config
-  (add-to-list 'auto-mode-alist
-               '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode)))
-
+  :mode (("Appraisals\\'" . enh-ruby-mode)
+         ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
+         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode)))
 
 (use-package! inf-ruby
   :config
