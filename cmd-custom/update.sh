@@ -62,38 +62,38 @@ function vonfry-update()
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
-    cabal update
+    cabal update --verbose=1
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
-    stack update
+    stack update --silent
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
-    hoogle generate
+    hoogle generate --quiet
     echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
-        pip3 install --upgrade pip setuptools wheel
-        pip3 install -U -r $DOTFILES_DIR/config/pkgs/pip3.txt
+        pip3 install --quiet --upgrade pip setuptools wheel
+        pip3 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
     else
-        pip3 install --user --upgrade pip setuptools wheel
-        pip3 install --user -U -r $DOTFILES_DIR/config/pkgs/pip3.txt
+        pip3 install --quiet --user --upgrade pip setuptools wheel
+        pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
     fi
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
-        pip2 install --upgrade pip setuptools wheel
-        pip2 install -U -r $DOTFILES_DIR/config/pkgs/pip2.txt
+        pip2 install --quiet --upgrade pip setuptools wheel
+        pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
     else
         pip2 install --user --upgrade pip setuptools wheel
-        pip2 install --user -U -r $DOTFILES_DIR/config/pkgs/pip2.txt
+        pip2 install --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
-    gem update && gem update --system
+    gem update --silent && gem update --system --silent
     gem cleanup
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}npm${ECHO_RST}\n"
     if [ $(uname) = Linux ]; then
-        sudo npm update -g
+        sudo npm update -g --silent
     else
-        npm update -g
+        npm update -g --silent
     fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}R${ECHO_RST}\n"
@@ -104,7 +104,7 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}vundle${ECHO_RST}\n"
     vim -c "execute \"PluginUpdate\" | qa"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}ycm${ECHO_RST}\n"
-    python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang
+    python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
     echo -e "\nemacs' packages will be updated everytime open it.\n"
