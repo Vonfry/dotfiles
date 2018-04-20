@@ -116,8 +116,7 @@ is undefined(It always is loaded by alpha order)."
 (use-package! paradox :config (paradox-enable))
 (use-package! package-utils)
 (unless vonfry-debug
-  (package-refresh-contents)
-  (package-utils-upgrade-all))
+  (package-refresh-contents))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

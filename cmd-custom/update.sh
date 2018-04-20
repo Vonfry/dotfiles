@@ -107,9 +107,16 @@ function vonfry-update()
     python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
-    echo -e "\nemacs' packages will be updated everytime open it.\n"
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Would you like to kill all emacs process?  (y/N): ${ECHO_RST}\n"
+    read whether_do_kill
+    if [[ $whether_do_kill = y* ]] || [[ $whether_do_kill == Y* ]] || [ -z $whether_do_kill ]; then
+        killall emacs
+    fi
+    emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(vonfry/update-all-packages)"
+    unset whether_do_kill
 
-    echo -e "\n${ECHO_MSG} update end ${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
 
     unset ECHO_SYM
     unset ECHO_MSG
