@@ -113,7 +113,7 @@ function vonfry-update()
     if [[ $whether_do_kill = y* ]] || [[ $whether_do_kill == Y* ]] || [ -z $whether_do_kill ]; then
         killall emacs
     fi
-    emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(vonfry/update-all-packages)"
+    emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
     unset whether_do_kill
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
