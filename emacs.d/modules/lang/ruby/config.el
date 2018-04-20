@@ -8,7 +8,6 @@
 (use-package! inf-ruby
   :config
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
-  (add-hook 'enh-ruby-mode-hook 'inf-ruby-console-auto)
   (add-hook 'enh-ruby-mode-hook
     (lambda ()
       (nmap :keymaps 'local
