@@ -21,4 +21,4 @@ for file in $CMD_CUSTOM_DIR/local/*.fish
     end
 end
 
-# source $CMD_CUSTOM_DIR/update.sh
+source $CMD_CUSTOM_DIR/update.fish

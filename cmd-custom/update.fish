@@ -1,3 +1,6 @@
+set ECHO_SYM "\033[0;31m"
+set ECHO_MSG "\033[0;36m"
+set ECHO_RST "\033[0m"
 function vonfry-update
     set ECHO_SYM "\033[0;31m"
     set ECHO_MSG "\033[0;36m"
@@ -51,10 +54,10 @@ function vonfry-update
         echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"zplug"$ECHO_RST"\n"
         fisher update
     end
-    echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"haskell${ECHO_RST}\n"
-    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"cabal${ECHO_RST}\n"
+    echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"haskell"$ECHO_RST"\n"
+    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"cabal"$ECHO_RST"\n"
     cabal update --verbose=1
-    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"stack${ECHO_RST}\n"
+    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"stack"$ECHO_RST"\n"
     stack update --silent
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"hoogle"$ECHO_RST"\n"
     hoogle generate --quiet
@@ -69,7 +72,7 @@ function vonfry-update
         pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
     end
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"pip2"$ECHO_RST"\n"
-    if test $(uname) = Darwin
+    if test (uname) = Darwin
         pip2 install --quiet --upgrade pip setuptools wheel
         pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
     else
@@ -78,10 +81,10 @@ function vonfry-update
     end
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"ruby"$ECHO_RST"\n"
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"gem"$ECHO_RST"\n"
-    gem update --silent && gem update --system --silent
+    gem update --silent; and gem update --system --silent
     gem cleanup
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"npm"$ECHO_RST"\n"
-    if test $(uname) = Linux
+    if test (uname) = Linux
         sudo npm update -g --silent
     else
         npm update -g --silent
@@ -96,7 +99,7 @@ function vonfry-update
     vim -c "execute \"PluginUpdate\" | qa"
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"ycm"$ECHO_RST"\n"
     python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
-    cd ~/.vim/bundle/vimproc.vim/ && make && cd -
+    cd ~/.vim/bundle/vimproc.vim/; and make; and  cd -
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST"\n"
     echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Would you like to kill all emacs process?  (y/N): "$ECHO_RST"\c"
@@ -105,36 +108,37 @@ function vonfry-update
         killall emacs
     end
     emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
-    unset whether_do_kill
+    set -U whether_do_kill
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"update end "$ECHO_RST"\n"
 
-    unset ECHO_SYM
-    unset ECHO_MSG
-    unset ECHO_RST
+    set -U ECHO_SYM
+    set -U ECHO_MSG
+    set -U ECHO_RST
     echo (_current_epoch) > $CMD_CUSTOM_DIR/local/.update_epoch
 end
 
 set update_epoch_file $CMD_CUSTOM_DIR/local/.update_epoch
-set need_update1
+set need_update false
 if test -f $update_epoch_file
-    read last_update < $update_epoch_file
-    set during_last_update (((_current_epoch) - $last_update))
+    cat $update_epoch_file | read last_update
+    set during_last_update (math (_current_epoch) - $last_update)
     if test $during_last_update -ge 7
-       set need_update 0
+       set need_update true
     end
     set -U during_last_update
     set -U last_update
-else
-    set need_update 0
 end
-if test $need_update = 0
-    echo -e "\n${ECHO_SYM}[vonfry]${ECHO_MSG} Would you like to check for updates? [Y/n]:${ECHO_RST}\c"
+if eval $need_update
+    echo -e "\n"$ECHO_SYM"[vonfry]"$ECHO_MSG" Would you like to check for updates? [Y/n]:"$ECHO_RST"\c"
     read whether_do_update
-    if test $whether_do_update = y; or  $whether_do_update = Y; or test -z $whether_do_update
+    if test $whether_do_update = y; or test $whether_do_update = Y; or test -z $whether_do_update
         vonfry-update
     end
     set -U whether_do_update
 end
 set -U update_epoch_file
 set -U need_update
+set -U ECHO_SYM
+set -U ECHO_MSG
+set -U ECHO_RST
