@@ -118,7 +118,7 @@ function vonfry-update()
     unset ECHO_SYM
     unset ECHO_MSG
     unset ECHO_RST
-    echo $(_current_epoch) > $CMD_CUSTOM_DIR/local/.update_epoch
+    echo $(_current_epoch) >! $CMD_CUSTOM_DIR/local/.update_epoch
 }
 
 update_epoch_file=$CMD_CUSTOM_DIR/local/.update_epoch

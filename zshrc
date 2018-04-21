@@ -7,6 +7,7 @@ antigen init ~/.antigenrc
 setopt nonomatch
 setopt extendedglob
 setopt rm_star_silent
+setopt clobber
 
 export PATH=/usr/local/bin:$PATH
 
