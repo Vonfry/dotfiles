@@ -17,15 +17,7 @@ source $CMD_CUSTOM_DIR/function.sh
 
 export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
 
-for file in $CMD_CUSTOM_DIR/misc/*; do
-    if [ -f $file ]; then
-        source $file
-    fi
-done
-for file in $CMD_CUSTOM_DIR/local/*; do
-    if [ -f $file ]; then
-        source $file
-    fi
-done
+find -E $CMD_CUSTOM_DIR/misc -type f -regex '.*\.z?sh' | parallel source
+find -E $CMD_CUSTOM_DIR/local -type f -regex '.*\.z?sh' | parallel source
 
 # source $CMD_CUSTOM_DIR/update.sh

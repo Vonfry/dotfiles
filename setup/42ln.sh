@@ -5,7 +5,7 @@ ln -f -s $script_dir/ackrc ~/.ackrc
 ln -f -s $script_dir/agignore ~/.agignore
 
 mkdir ~/.config 2> /dev/null
-ln -f -s $script_dir/config/* ~/.config/
+echO "flake8 nvim pkgs" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{} ~/.config/
 
 ln -s -f $script_dir/gdbinit ~/.gdbinit
 

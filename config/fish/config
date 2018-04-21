@@ -1,0 +1,11 @@
+source $HOME/.cmd-custom/defvar.fish
+
+# User configuration
+
+
+export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
+
+find -E $CMD_CUSTOM_DIR/misc -type f -regex '.*\.fish' | parallel source
+find -E $CMD_CUSTOM_DIR/local -type f -regex '.*\.fish' | parallel source
+
+# source $CMD_CUSTOM_DIR/update.sh

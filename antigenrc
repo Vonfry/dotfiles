@@ -18,13 +18,21 @@ antigen bundles <<EOBUNDLES
     terminal
     utility
 
-    tj/git-extras
+    mafredri/zsh-async
+    sindresorhus/pure
 EOBUNDLES
+
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
 
 if [[ $(uname) = 'Darwin' ]]; then
     antigen bundle osx
 fi
-
-antigen theme halfo/lambda-mod-zsh-theme
 
 antigen apply
