@@ -112,6 +112,8 @@ echo_note "--- If you want to patch kernel with pax, please emerge and build it 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
+curl -sSL http://git.io/git-extras-setup | sudo bash /dev/stdin
+
 echo "*/* $(cpuid2cpuflags)" | sudo tee /etc/portage/package.use/01cpuflags.local
 echo "echo OVERLAY_CACHE_METHOD=\"assign\"" | sudo tee -a /etc/eixrc/00-eixrc
 

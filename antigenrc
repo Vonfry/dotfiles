@@ -1,0 +1,38 @@
+antigen use prezto
+
+antigen bundles <<EOBUNDLES
+    environment
+    archive
+    autosuggestions
+    completion
+    directory
+    docker
+    git
+    haskell
+    helper
+    history-substring-search
+    history
+    prompt
+    spectrum
+    syntax-highlighting
+    terminal
+    utility
+
+    mafredri/zsh-async
+    sindresorhus/pure
+EOBUNDLES
+
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'line' \
+  'cursor' \
+  'root'
+
+if [[ $(uname) = 'Darwin' ]]; then
+    antigen bundle osx
+fi
+
+antigen apply
