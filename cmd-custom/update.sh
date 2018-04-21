@@ -105,11 +105,8 @@ function vonfry-update()
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}\n"
-    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Would you like to kill all emacs process?  (y/N): ${ECHO_RST}\c"
-    read whether_do_kill
-    if [[ $whether_do_kill = y* ]] || [[ $whether_do_kill == Y* ]] || [ -z $whether_do_kill ]; then
-        killall emacs
-    fi
+    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Emacs will be killed.${ECHO_RST}"
+    killall emacs
     emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
     unset whether_do_kill
 

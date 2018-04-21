@@ -16,7 +16,7 @@ source $CMD_CUSTOM_DIR/alias.sh
 source $CMD_CUSTOM_DIR/os.sh
 source $CMD_CUSTOM_DIR/function.sh
 
-export PATH=$HOME/.local/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 for file in $CMD_CUSTOM_DIR/misc/*.zsh; do
     if [ -f $file ]; then

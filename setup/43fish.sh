@@ -1,4 +1,4 @@
-ln -s -f $script_dir/config/fish/config ~/.config/fish/config
+ln -s -f $script_dir/config/fish/config.fish ~/.config/fish/config.fish
 
 echo "set -x CMD_CUSTOM_DIR $HOME/.cmd-custom"             >> $script_dir/cmd-custom/defvar.fish
 echo "set -x CMD_CUSTOM_DIR_LOCAL $HOME/.cmd-custom/local" >> $script_dir/cmd-custom/defvar.fish
