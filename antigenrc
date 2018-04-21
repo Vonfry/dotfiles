@@ -1,39 +1,27 @@
-antigen use oh-my-zsh
+antigen use prezto
 
 antigen bundles <<EOBUNDLES
-    gitignore
-    git
-    github
-    git-extra
-    git-flow
-    git-remote-branch
-    autojump
-    sudo
-    dotenv
-    man
-    colored-man-pages
-    profiles
-    python
-    pip
-    ruby
-    gem
-    rails
-    rake
-    chruby
-    cabal stack
-    redis-cli
-    thefuck
+    environment
+    archive
+    autosuggestions
+    completion
+    directory
     docker
-    docker-compose
+    git
+    haskell
+    helper
+    history-substring-search
+    history
+    prompt
+    spectrum
+    syntax-highlighting
+    terminal
+    utility
 
-    zsh-users/zsh-autosuggestions
-    zsh-users/zsh-syntax-highlighting
-    zsh-users/zsh-completions
-    # tj/git-extras
+    tj/git-extras
 EOBUNDLES
 
 if [[ $(uname) = 'Darwin' ]]; then
-    antigen bundle xcode
     antigen bundle osx
 fi
 
