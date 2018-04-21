@@ -99,7 +99,7 @@ function vonfry-update
     cd ~/.vim/bundle/vimproc.vim/ && make && cd -
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST"\n"
-    echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Would you like to kill all emacs process?  (y/N): "$ECHO_RST"\n"
+    echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Would you like to kill all emacs process?  (y/N): "$ECHO_RST"\c"
     read whether_do_kill
     if test $whether_do_kill = y; or test $whether_do_kill = Y; or test -z $whether_do_kill
         killall emacs
