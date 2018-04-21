@@ -1,0 +1,42 @@
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    gitignore
+    git
+    github
+    git-extra
+    git-flow
+    git-remote-branch
+    autojump
+    sudo
+    dotenv
+    man
+    colored-man-pages
+    profiles
+    python
+    pip
+    ruby
+    gem
+    rails
+    rake
+    chruby
+    cabal stack
+    redis-cli
+    thefuck
+    docker
+    docker-compose
+
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-completions
+    # tj/git-extras
+EOBUNDLES
+
+if [[ $(uname) = 'Darwin' ]]; then
+    antigen bundle xcode
+    antigen bundle osx
+fi
+
+antigen theme halfo/lambda-mod-zsh-theme
+
+antigen apply
