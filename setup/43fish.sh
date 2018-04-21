@@ -10,3 +10,4 @@ echo "set DROPBOX_DIR $dropbox_dir"                     >> $script_dir/cmd-custo
 fisher install hasanozgan/theme-lambda
 fisher install gitignore
 fisher install autojump
+fisher install joseluisq/gitnow
