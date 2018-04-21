@@ -8,7 +8,7 @@ source $CMD_CUSTOM_DIR/alias.fish
 source $CMD_CUSTOM_DIR/os.fish
 source $CMD_CUSTOM_DIR/function.fish
 
-set -x PATH $HOME/.local/bin $HOME/.cabal/bin $PATH
+set -x PATH $HOME/.local/bin $PATH
 
 for file in $CMD_CUSTOM_DIR/misc/*.fish
     if test -f $file

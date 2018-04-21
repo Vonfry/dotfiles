@@ -59,6 +59,8 @@ is undefined(It always is loaded by alpha order)."
 (require 'package)
 (setq package-archives vonfry-elpa-mirror)
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;;
 ;; define some basic packages

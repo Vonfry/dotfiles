@@ -130,11 +130,11 @@ if has('gui_running')
     set mousemodel=popup
     let g:solarized_termcolors= 256
     set cursorline
-    set shell=/bin/bash
     " set cursorcolumn
 else
     set termguicolors
 endif
+set shell=/bin/bash
 
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast   = 1

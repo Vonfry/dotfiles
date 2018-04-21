@@ -15,7 +15,7 @@ function vonfry-update
 
     switch (uname)
         case "Darwin"
-            echo -e "\n$ECHO_SYM* $ECHO_MSGsystem: "(uname){$ECHO_RST}"\n"
+            echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"system: "(uname){$ECHO_RST}"\n"
             echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"homebrew"$ECHO_RST"\n"
             brew update
             brew upgrade
@@ -102,11 +102,8 @@ function vonfry-update
     cd ~/.vim/bundle/vimproc.vim/; and make; and  cd -
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST"\n"
-    echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Would you like to kill all emacs process?  (y/N): "$ECHO_RST"\c"
-    read whether_do_kill
-    if test $whether_do_kill = y; or test $whether_do_kill = Y; or test -z $whether_do_kill
-        killall emacs
-    end
+    echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Emacs will be killed."$ECHO_RST
+    killall emacs
     emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
     set -U whether_do_kill
 
