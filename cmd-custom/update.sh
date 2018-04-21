@@ -139,8 +139,6 @@ if [ $need_update = 0 ] ; then
     read whether_do_update
     if [[ $whether_do_update = y* ]] || [[ $whether_do_update == Y* ]] || [ -z $whether_do_update ]; then
         vonfry-update
-    else
-        echo "\n"
     fi
     unset whether_do_update
 fi

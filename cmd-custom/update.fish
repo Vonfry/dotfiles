@@ -50,7 +50,7 @@ function vonfry-update
     if command -v fisher >/dev/null 2>&1; then
         echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"zplug"$ECHO_RST"\n"
         fisher update
-    fi
+    end
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"haskell${ECHO_RST}\n"
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"cabal${ECHO_RST}\n"
     cabal update --verbose=1
@@ -85,7 +85,7 @@ function vonfry-update
         sudo npm update -g --silent
     else
         npm update -g --silent
-    fi
+    end
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"R"$ECHO_RST"\n"
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"packages"$ECHO_RST"\n"
@@ -103,7 +103,7 @@ function vonfry-update
     read whether_do_kill
     if test $whether_do_kill = y; or test $whether_do_kill = Y; or test -z $whether_do_kill
         killall emacs
-    fi
+    end
     emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
     unset whether_do_kill
 
@@ -122,7 +122,7 @@ if test -f $update_epoch_file
     set during_last_update (((_current_epoch) - $last_update))
     if test $during_last_update -ge 7
        set need_update 0
-    fi
+    end
     set -U during_last_update
     set -U last_update
 else
@@ -133,8 +133,6 @@ if test $need_update = 0
     read whether_do_update
     if test $whether_do_update = y; or  $whether_do_update = Y; or test -z $whether_do_update
         vonfry-update
-    else
-        echo "\n"
     end
     set -U whether_do_update
 end
