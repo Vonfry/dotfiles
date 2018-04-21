@@ -10,15 +10,15 @@ source $CMD_CUSTOM_DIR/function.fish
 
 set -x PATH $HOME/.local/bin $HOME/.cabal/bin $PATH
 
-for file in $CMD_CUSTOM_DIR/misc/*.fish; do
-    if [ -f $file ]; then
+for file in $CMD_CUSTOM_DIR/misc/*.fish
+    if test -f $file
         source $file
-    fi
-done
-for file in $CMD_CUSTOM_DIR/local/*.fish; do
-    if [ -f $file ]; then
+    end
+end
+for file in $CMD_CUSTOM_DIR/local/*.fish
+    if test -f $file
         source $file
-    fi
-done
+    end
+end
 
 # source $CMD_CUSTOM_DIR/update.sh

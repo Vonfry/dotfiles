@@ -1,5 +1,3 @@
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 if command -v thefuck > /dev/null 2>&1; then
     eval "$(thefuck --alias)"
 fi
