@@ -1,5 +1,24 @@
 source $HOME/.cmd-custom/defvar.fish
+set -x PATH /usr/local/bin $PATH
 
 # User configuration
+
+source $CMD_CUSTOM_DIR/unalias.fish
+source $CMD_CUSTOM_DIR/alias.fish
+source $CMD_CUSTOM_DIR/os.fish
+source $CMD_CUSTOM_DIR/function.fish
+
+set -x PATH $HOME/.local/bin $HOME/.cabal/bin $PATH
+
+for file in $CMD_CUSTOM_DIR/misc/*.fish; do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
+for file in $CMD_CUSTOM_DIR/local/*.fish; do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
 
 # source $CMD_CUSTOM_DIR/update.sh

@@ -1,0 +1,44 @@
+#!/bin/sh
+
+case "$(uname)" in
+    "Darwin")
+        set -x PATH /usr/local/opt/go/libexec/bin $PATH
+        set -x PATH /usr/local/opt/sqlite/bin $PATH
+        set -x PATH /usr/local/opt/gnu-tar/libexec/gnubin $PATH
+        set -x PATH /usr/local/opt/curl/bin $PATH
+        set -x PATH /usr/local/opt/llvm/bin $PATH
+        set -x PATH /usr/local/opt/gnu-sed/libexec/gnubin $PATH
+        set -x fpath /usr/local/share/zsh-completions $fpath
+        set -x MANPATH /usr/local/opt/gnu-tar/libexec/gnuman $MANPATH
+        set -x HOMEBREW_BOTTLE_DOMAIN https://mirrors.ustc.edu.cn/homebrew-bottles
+        alias llvm-help=" echo \"
+        To use the bundled libc++ please add the following LDFLAGS:
+        LDFLAGS=\"-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib\"
+        compile with configure:
+        LDFLAGS:  -L/usr/local/opt/llvm/lib
+        CPPFLAGS: -I/usr/local/opt/llvm/include\""
+        ;;
+    "Linux")
+        source /etc/os-release
+        case "$ID" in
+            "fedora")
+                ;;
+            "gentoo")
+                alias eqf='equery f'
+                alias equ='equery u'
+                alias eqh='equery h'
+                alias eqa='equery a'
+                alias eqb='equery b'
+                alias eql='equery l'
+                alias eqd='equery d'
+                alias eqg='equery g'
+                alias eqc='equery c'
+                alias eqk='equery k'
+                alias eqm='equery m'
+                alias eqy='equery y'
+                alias eqs='equery s'
+                alias eqw='equery w'
+                ;;
+        esac
+        ;;
+esac
