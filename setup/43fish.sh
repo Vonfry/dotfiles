@@ -12,3 +12,5 @@ fisher install gitignore
 fisher install autojump
 fisher install joseluisq/gitnow
 fisher install fzf
+fisher install edc/bass
+fisher install oh-my-fish/plugin-git-flow
