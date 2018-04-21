@@ -38,4 +38,4 @@ for file in $CMD_CUSTOM_DIR/local/*.sh; do
     fi
 done
 
-# source $CMD_CUSTOM_DIR/update.sh
+source $CMD_CUSTOM_DIR/update.sh

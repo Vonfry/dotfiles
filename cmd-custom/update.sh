@@ -11,10 +11,6 @@ function vonfry-update()
     git pull
     cd -
 
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}oh my zsh${ECHO_RST}\n"
-    upgrade_oh_my_zsh
-
-
     case "$(uname)" in
         "Darwin")
             echo -e "\n${ECHO_SYM}* ${ECHO_MSG}system: $(uname)${ECHO_RST}\n"
@@ -56,9 +52,10 @@ function vonfry-update()
 
     echo "You may run /usr/local/opt/fzf/install to install fzf"
 
-    if command -v zplug >/dev/null 2>&1; then
-        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}zplug${ECHO_RST}\n"
-        zplug update
+    if command -v antigen >/dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}antigen${ECHO_RST}\n"
+        antigen update
+        antigen selfupdate
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
