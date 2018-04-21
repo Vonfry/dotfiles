@@ -11,3 +11,4 @@ fisher install hasanozgan/theme-lambda
 fisher install gitignore
 fisher install autojump
 fisher install joseluisq/gitnow
+fisher install fzf

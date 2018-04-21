@@ -1,6 +1,7 @@
 sys-apps/pciutils
 net-misc/keychain
 app-shells/zsh
+app-shells/fish
 net-misc/wget
 net-misc/curl
 dev-vcs/git
