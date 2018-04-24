@@ -59,7 +59,7 @@ function vonfry-update()
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
-    cabal update --verbose=1
+    cabal update --verbose=0
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
     stack update --silent
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
