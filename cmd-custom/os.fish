@@ -2,6 +2,7 @@
 
 switch (uname)
     case "Darwin"
+        set -x PATH /usr/local/sbin $PATH
         set -x PATH /usr/local/opt/go/libexec/bin $PATH
         set -x PATH /usr/local/opt/sqlite/bin $PATH
         set -x PATH /usr/local/opt/gnu-tar/libexec/gnubin $PATH
