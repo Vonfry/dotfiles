@@ -373,3 +373,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/go,git,vim,node,ruby,macos,linux,emacs,python,haskell,windows
+*.zwc
