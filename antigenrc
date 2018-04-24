@@ -22,15 +22,6 @@ antigen bundles <<EOBUNDLES
     sindresorhus/pure
 EOBUNDLES
 
-zstyle ':prezto:module:syntax-highlighting' color 'yes'
-zstyle ':prezto:module:syntax-highlighting' highlighters \
-  'main' \
-  'brackets' \
-  'pattern' \
-  'line' \
-  'cursor' \
-  'root'
-
 if [[ $(uname) = 'Darwin' ]]; then
     antigen bundle osx
 fi
