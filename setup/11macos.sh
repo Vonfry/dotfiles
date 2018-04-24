@@ -64,14 +64,15 @@ brew reinstall ruby
 brew reinstall rbenv
 brew reinstall clisp sbcl
 brew reinstall ocaml opam
+brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python3
 brew reinstall python
 brew reinstall go node
 brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
-brew cask install mactex                   # providing tex basic tools
-brew cask install texpad                   # a tex ide
+brew cask install mactex                     # providing tex basic tools
+brew cask install texpad                     # a tex ide
 brew cask install java
 brew reinstall ispell                        # emacs flyspell dependency
 brew reinstall shellcheck
