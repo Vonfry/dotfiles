@@ -61,7 +61,7 @@ function vonfry-update
     stack update --silent
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"hoogle"$ECHO_RST"\n"
     hoogle generate --quiet
-    echo -e "\n"$ECHO_MSG"All things with haskell are only updated with indexed file, please update each package by yourself."
+    echo -e "\n"$ECHO_MSG"All things with haskell are only updated with indexed file, please update each package by yourself.\n"
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"python"$ECHO_RST"\n"
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"pip3"$ECHO_RST"\n"
     if test (uname) = Darwin

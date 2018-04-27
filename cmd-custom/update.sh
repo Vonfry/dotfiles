@@ -38,7 +38,7 @@ function vonfry-update()
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}sync portage and custom repos${ECHO_RST}\n"
                     sudo eix-sync -q # This action contains portage/layman sync.
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage self${ECHO_RST}\n"
-                    sudo emerge --oneshot portage
+                    sudo emerge --oneshot --quiet portage
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}layman${ECHO_RST}\n"
                     sudo haskell-updater --quiet
                     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}portage worlds${ECHO_RST}\n"
@@ -64,7 +64,7 @@ function vonfry-update()
     stack update --silent
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
     hoogle generate --quiet
-    echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
+    echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself.\n"
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
