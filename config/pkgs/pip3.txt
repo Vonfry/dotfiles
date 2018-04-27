@@ -40,4 +40,3 @@ numpy
 pandas
 matplotlib
 sympy
-gnuplot-py
