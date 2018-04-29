@@ -13,6 +13,8 @@ read clone_lib_dir
 echo "export CLONE_LIB=$clone_lib_dir"                     >> $script_dir/cmd-custom/defvar.sh
 unset clone_lib_dir
 
+echo "$(thefuck --alias)" >> $script_dir/cmd-custom/local/thefuck.sh
+
 $runscript $script_dir/setup/41git.sh
 $runscript $script_dir/setup/42ln.sh
 $runscript $script_dir/setup/43zsh.sh
