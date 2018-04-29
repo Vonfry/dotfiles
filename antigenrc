@@ -1,8 +1,29 @@
 antigen use prezto
 
 antigen bundles <<EOBUNDLES
+    environment
+    archive
+    autosuggestions
+    completion
+    directory
+    docker
+    git
+    haskell
+    helper
+    history-substring-search
+    history
+    prompt
+    spectrum
+    syntax-highlighting
+    terminal
+    utility
 
     # mafredri/zsh-async
 EOBUNDLES
+
+if [[ $(uname) = 'Darwin' ]]; then
+    antigen bundle bundle
+    antigen bundle osx
+fi
 
 antigen apply

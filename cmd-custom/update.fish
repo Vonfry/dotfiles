@@ -101,7 +101,7 @@ function vonfry-update
         echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"ycm"$ECHO_RST"\n"
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
         cd ~/.vim/bundle/vimproc.vim/; and make; and  cd -
-    done
+    end
 
     if test -f ~/.emacs.d/init.el
         echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST
