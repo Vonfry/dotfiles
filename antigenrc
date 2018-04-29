@@ -18,11 +18,11 @@ antigen bundles <<EOBUNDLES
     terminal
     utility
 
-    mafredri/zsh-async
-    sindresorhus/pure
+    # mafredri/zsh-async
 EOBUNDLES
 
 if [[ $(uname) = 'Darwin' ]]; then
+    antigen bundle bundle
     antigen bundle osx
 fi
 
