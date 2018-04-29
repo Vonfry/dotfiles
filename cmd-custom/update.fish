@@ -94,18 +94,22 @@ function vonfry-update
     echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"packages"$ECHO_RST"\n"
     R --slave --quiet -e "update.packages(ask = FALSE, quiet = TRUE)"
 
-    echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"vim"$ECHO_RST
-    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"vundle"$ECHO_RST"\n"
-    vim -c "execute \"PluginUpdate\" | qa"
-    echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"ycm"$ECHO_RST"\n"
-    python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
-    cd ~/.vim/bundle/vimproc.vim/; and make; and  cd -
+    if test -f ~/.vimrc
+        echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"vim"$ECHO_RST
+        echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"vundle"$ECHO_RST"\n"
+        vim -c "execute \"PluginUpdate\" | qa"
+        echo -e "\n"$ECHO_SYM"** "$ECHO_MSG"ycm"$ECHO_RST"\n"
+        python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
+        cd ~/.vim/bundle/vimproc.vim/; and make; and  cd -
+    done
 
-    echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST
-    echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Emacs will be killed."$ECHO_RST
-    killall emacs
-    emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
-    set -U whether_do_kill
+    if test -f ~/.emacs.d/init.el
+        echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"Emacs"$ECHO_RST
+        echo -e "\n"$ECHO_SYM"-- "$ECHO_MSG"Emacs will be killed."$ECHO_RST
+        killall emacs
+        emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
+        set -U whether_do_kill
+    end
 
     echo -e "\n"$ECHO_SYM"* "$ECHO_MSG"update end "$ECHO_RST"\n"
 
