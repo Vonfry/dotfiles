@@ -59,6 +59,8 @@ is undefined(It always is loaded by alpha order)."
 (require 'package)
 (setq package-archives vonfry-elpa-mirror)
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;;
 ;; define some basic packages
@@ -115,9 +117,6 @@ is undefined(It always is loaded by alpha order)."
 
 (use-package! paradox :config (paradox-enable))
 (use-package! package-utils)
-(unless vonfry-debug
-  (package-refresh-contents)
-  (package-utils-upgrade-all))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

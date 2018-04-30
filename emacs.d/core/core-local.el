@@ -65,7 +65,8 @@ configure in modules.
   (load vonfry-custom-file-before))
 
 (custom-set-variables
-  '(custom-file vonfry-custom-file))
+  '(custom-file vonfry-custom-file)
+  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
 
 (defun vonfry-system-sets (&rest alist)
   "set with system type. The param is a list like (darwin (message \"darwin\") (message \"MacOS\")). The first element

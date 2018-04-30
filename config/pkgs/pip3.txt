@@ -1,0 +1,42 @@
+pip
+setuptools
+wheel
+
+virtualenv
+ipython
+
+# code complete and check
+jedi
+flake8 # code checks
+importmagic # auto imports
+autopep8 # code PEP8 formatting
+rope
+yapf
+
+# code highlight and jump
+pycscope
+
+# lib
+pytz
+
+# tools
+httpstat
+mycli
+pgcli
+neovim
+glances
+asciinema
+
+# datebase
+mysqlclient
+psycopg2
+
+# image
+pillow
+
+# math with ipython
+scipy
+numpy
+pandas
+matplotlib
+sympy

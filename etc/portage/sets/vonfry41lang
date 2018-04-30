@@ -1,7 +1,7 @@
 dev-lang/ghc
 dev-haskell/cabal
 dev-haskell/cabal-install
-dev-haskell/stack
+dev-haskell/stack-bin
 dev-lisp/sbcl
 dev-lisp/gcl
 dev-lisp/clisp
@@ -11,6 +11,7 @@ dev-ruby/rubygems
 dev-ruby/bundler
 dev-lang/ocaml
 dev-ml/opam
+dev-lang/R
 dev-lang/python
 dev-python/pip
 dev-lang/go

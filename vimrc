@@ -122,17 +122,19 @@ syntax on
 syntax enable
 
 if has('gui_running')
-    set macligatures
+    if has('mac')
+        set macligatures
+    endif
     set guioptions=egmti
     set guifont=Hack:h11
     set mousemodel=popup
     let g:solarized_termcolors= 256
     set cursorline
-    set shell=/bin/bash
     " set cursorcolumn
 else
     set termguicolors
 endif
+set shell=/bin/bash
 
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast   = 1
@@ -419,13 +421,13 @@ nmap <leader>u :UndotreeToggle<CR>
 " }}}
 
 " set plugin denite {{{
-nmap <silent> <leader>x :Denite -direction=dynamicbottom
-nmap <silent> <leader>p :Denite -direction=dynamicbottom  file_rec<CR>
-nmap <silent> <leader>f :Denite -direction=dynamicbottom  file<CR>
-nmap <silent> <leader>a :Denite -direction=dynamicbottomt grep<CR>
-nmap <silent> <leader>b :Denite -direction=dynamicbottomt buffer<CR>
-nmap <silent> <leader>g :Denite -direction=dynamicbottomt tag<CR>
-nmap <silent> <leader>j :Denite -direction=dynamicbottomt jump<CR>
+nmap <silent> <leader>x :Denite command<CR>
+nmap <silent> <leader>p :Denite file_rec<CR>
+nmap <silent> <leader>f :Denite file<CR>
+nmap <silent> <leader>a :Denite grep<CR>
+nmap <silent> <leader>b :Denite buffer<CR>
+nmap <silent> <leader>g :Denite tag<CR>
+nmap <silent> <leader>j :Denite jump<CR>
 " Change file_rec command.
 call denite#custom#var('file_rec', 'command',
             \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
@@ -440,12 +442,12 @@ call denite#custom#source(
 
 " Ag command on grep source
 call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-            \ ['-i', '--vimgrep'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#var('grep', 'default_opts',
+      \ [ '--vimgrep', '--smart-case' ])
 " Change default prompt
 call denite#custom#option('default', 'prompt', '>')
 " Change ignore_globs

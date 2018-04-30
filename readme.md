@@ -13,16 +13,17 @@ Becase of I'm in China, most of mirror is used with tuna or ustc by default.
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
-- [ tuna ] hackage & stackage ( without `cabal`)
+- [ ustc ] hackage & stackage ( without `cabal`)
 - [ tuna ] elpa
 - [ tuna ] rubygems
 - [ tuna ] pypi
-- [ cnpm ] npm
+- [ tuna ] CRAN
 
 ## system
 - [x] macOS
 - [ ] Gentoo ( It is also testing, and without X11. See [todo](#todo) )
-- [ ] Fedora ( No longer maintain. )
+- [ ] NixOS ( I'm trying it. Used possiblly is it or nix. )
+- [ ] Fedora ( No longer maintain. If you want to see it, please use `git checkout` or see other os' scripts )
 
 ## editor
 - [X] Vim
@@ -35,7 +36,8 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - Haskell (ghc & stack)
 - Lisp
 - Ruby ( chenv )
-- Python3 ( No longer maintain. )
+- R 
+- Python3 
 - Web (js, html, css/sass, ts)
 
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete

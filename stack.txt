@@ -1,3 +1,0 @@
-hoogle
-intero
-hasktags

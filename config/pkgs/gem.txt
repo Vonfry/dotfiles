@@ -1,0 +1,25 @@
+gem "rails"
+gem "bundler"
+
+# dev for emacs
+gem "pry"
+gem "pry-doc"
+gem "pry-byebug"
+gem "pry-rails"
+gem 'method_source'
+
+
+# tools
+gem "starscope"
+gem "sass"
+gem "compass"
+gem "nokogiri"
+gem "org-ruby"
+gem "rouge"
+gem "licensee"
+
+# blog
+gem "jekyll"
+
+# gitlab
+gem "gitlab" # see "https://github.com/NARKOZ/gitlab"

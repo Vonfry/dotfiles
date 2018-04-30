@@ -1,6 +1,6 @@
 sys-apps/pciutils
-net-misc/keychain
 app-shells/zsh
+app-shells/fish
 net-misc/wget
 net-misc/curl
 dev-vcs/git
@@ -8,10 +8,8 @@ sys-process/parallel
 dev-vcs/git-lfs
 dev-vcs/git-flow
 dev-vcs/tig
-app-misc/screen
 app-text/tree
 games-misc/lolcat
-app-i18n/uchardet
 app-misc/colordiff
 dev-util/shellcheck
 app-shells/autojump
@@ -28,3 +26,5 @@ sys-apps/the_silver_searcher
 sys-apps/gawk
 sys-apps/sed
 sys-devel/patch
+app-misc/tmux
+

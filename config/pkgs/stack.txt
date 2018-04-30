@@ -1,0 +1,4 @@
+hoogle
+intero
+hasktags
+stack-run
