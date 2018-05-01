@@ -11,8 +11,8 @@
 (use-package! helm-company
   :after company helm
   :general
-  (company-mode-map (kbd "M-;") 'helm-company)
-  (company-active-map (kbd "M-;") 'helm-company))
+  (company-mode-map "M-;" 'helm-company)
+  (company-active-map "M-;" 'helm-company))
 
 (use-package! company-quickhelp
   :after company

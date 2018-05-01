@@ -8,7 +8,7 @@
           (expand-file-name "snippets/" vonfry-custom-dir)))
   :hook (prog-mode . yas-minor-mode)
   :general
-  ((kbd "M-'") 'company-yasnippet)
+  ("M-'" 'company-yasnippet)
   :config
   (dolist (tmp-dir yas-snippet-dirs)
     (unless (or (not (stringp tmp-dir)) (file-exists-p tmp-dir))
