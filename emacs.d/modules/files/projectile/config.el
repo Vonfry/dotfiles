@@ -36,22 +36,22 @@
     "todo.org"
     "org projectile file in project dir. This variable will be seted in `org-projectile-per-project-filepath`."
     :group 'vonfry-modules)
-  :bind (("C-c n p" . org-projectile-project-todo-completing-read)
-         ("C-c c" . org-capture))
+  (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   :general
+  ("C-c n p" 'org-projectile-project-todo-completing-read)
+  ("C-c c" 'org-capture)
   (nmap :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-todo)
           "$" 'org-projectile-project-todo-completing-read
           "~" 'org-projectile-goto-location-for-project)
   :config
   (org-projectile-per-project)
-  (custom-set-variables '(org-projectile-per-project-filepath +org-projectile-todo-project-file))
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (use-package! org-projectile-helm :after helm))
 
 (use-package! ibuffer-projectile
   :after ibuffer
-  :config
-  (add-hook 'ibuffer-hook
+  :hook
+  (ibuffer .
     (lambda ()
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)

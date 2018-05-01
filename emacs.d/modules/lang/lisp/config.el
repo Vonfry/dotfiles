@@ -3,36 +3,30 @@
 (use-package! eldoc)
 
 (use-package! lispy
-  :init
-  (custom-set-variables
-    '(lispy-completion-method 'helm)
-    '(lispy-visit-method      'projectile))
-  :config
-  (add-hook 'minibuffer-setup-hook
+  :custom
+  (lispy-completion-method 'helm)
+  (lispy-visit-method      'projectile)
+  :hook
+  ((minibuffer-setup .
     (lambda ()
       (when (eq this-command 'eval-expression)
       (lispy-mode 1))))
-  (add-hook 'lisp-mode-hook
+  (lisp-mode .
     (lambda ()
       (custom-set-variables '(compile-command "sbcl"))))
-  (add-hook 'lisp-mode-hook       'lispy-mode)
-  (add-hook 'emacs-lisp-mode-hook 'lispy-mode)
-  (add-hook 'scheme-mode-hook     'lispy-mode)
-  (let ((bind-lispy
-          (lambda ()
-            (nmap :keymaps 'local
-                  :prefix vonfry-keybind-evil-leader
-                  vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
-                  vonfry-keybind-evil-jump-module        'lispy-goto-local))))
-    (add-hook 'lisp-mode-hook       bind-lispy)
-    (add-hook 'emacs-lisp-mode-hook bind-lispy)
-    (add-hook 'scheme-mode-hook     bind-lispy)))
+  (lisp-mode       . lispy-mode)
+  (emacs-lisp-mode . lispy-mode)
+  (scheme-mode     . lispy-mode)
+  ((lisp-mode emacs-lisp-mode scheme-mode) .
+   (lambda ()
+     (nmap :keymaps 'local
+           :prefix vonfry-keybind-evil-leader
+           vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
+           vonfry-keybind-evil-jump-module        'lispy-goto-local)))))
 
 (use-package! evil-lispy
-  :config
-  (add-hook 'lisp-mode-hook       'evil-lispy-mode)
-  (add-hook 'emacs-lisp-mode-hook 'evil-lispy-mode)
-  (add-hook 'scheme-mode-hook     'evil-lispy-mode))
+  :hook
+  ((scheme-mode lisp-mode emacs-lisp-mode) . evil-lispy-mode))
 
 (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
 (load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))

@@ -30,8 +30,8 @@
          ("\\.[Jj][Oo][Gg]\\'" . ess-jags-mode)
          ("\\.[Jj][Mm][Dd]\\'" . ess-jags-mode))
   :commands (R stata julia SAS)
-  :config
-  (add-hook 'ess-mode-hook
+  :hook
+  (ess-mode .
     (lambda ()
       (nmap :prefix vonfry-keybind-evil-lang
             :keymaps 'local

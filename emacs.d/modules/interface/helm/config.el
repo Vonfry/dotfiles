@@ -8,19 +8,19 @@
   (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
   (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (helm-mode 1)
-  (custom-set-variables
-    '(helm-mode-fuzzy-match                 t)
-    '(helm-completion-in-region-fuzzy-match t)
-    '(helm-recentf-fuzzy-match              t)
-    '(helm-buffers-fuzzy-matching           t)
-    '(helm-recentf-fuzzy-match              t)
-    '(helm-buffers-fuzzy-matching           t)
-    '(helm-locate-fuzzy-match               t)
-    '(helm-M-x-fuzzy-match                  t)
-    '(helm-semantic-fuzzy-match             t)
-    '(helm-imenu-fuzzy-match                t)
-    '(helm-apropos-fuzzy-match              t)
-    '(helm-lisp-fuzzy-completion            t))
+  :custom
+  (helm-mode-fuzzy-match                 t)
+  (helm-completion-in-region-fuzzy-match t)
+  (helm-recentf-fuzzy-match              t)
+  (helm-buffers-fuzzy-matching           t)
+  (helm-recentf-fuzzy-match              t)
+  (helm-buffers-fuzzy-matching           t)
+  (helm-locate-fuzzy-match               t)
+  (helm-M-x-fuzzy-match                  t)
+  (helm-semantic-fuzzy-match             t)
+  (helm-imenu-fuzzy-match                t)
+  (helm-apropos-fuzzy-match              t)
+  (helm-lisp-fuzzy-completion            t)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-M-x    'helm-M-x
@@ -28,9 +28,8 @@
 
 (use-package! helm-make
   :after helm
-  :config
-  (custom-set-variables
-    '(helm-make-fuzzy-matching t))
+  :custom
+  (helm-make-fuzzy-matching t)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-run 'helm-make))
@@ -76,7 +75,8 @@
   :init
   (require 'flyspell)
   (require 'ispell)
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  :hook
+  (prog-mode . flyspell-prog-mode)
   :config
   (nmap :prefix vonfry-keybind-evil-leader
         "s" 'helm-flyspell-correct))

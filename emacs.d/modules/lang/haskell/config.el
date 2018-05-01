@@ -1,13 +1,13 @@
 ;;; haskell config -*- lexical-binding: t -*-
 
 (use-package! haskell
-  :config
-  (custom-set-variables
-    '(haskell-indentation-layout-offset 4)
-    '(imenu-add-menubar-index t)
-    '(haskell-decl-scan-mode t))
-  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
-  (add-hook 'haskell-mode-hook
+  :custom
+  (haskell-indentation-layout-offset 4)
+  (imenu-add-menubar-index t)
+  (haskell-decl-scan-mode t)
+  :hook
+  ((haskell-mode . haskell-auto-insert-module-template)
+  (haskell-mode .
     (lambda ()
       (custom-set-variables '(compile-command "stack build"))
       (nmap :keymaps 'local
@@ -24,13 +24,13 @@
             vonfry-keybind-evil-run         'haskell-compile)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            "y" 'hasky-extensions))))
+            "y" 'hasky-extensions)))))
 
 
 (use-package! intero
   :after haskell
-  :config
-  (add-hook 'haskell-mode-hook
+  :hook
+  (haskell-mode .
     (lambda ()
       (intero-mode t)
       (nmap :keymaps 'local

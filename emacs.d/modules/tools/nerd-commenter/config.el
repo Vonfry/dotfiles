@@ -18,5 +18,4 @@
     "r" 'comment-or-uncomment-region
     "v" 'evilnc-toggle-invert-comment-line-by-line
     "." 'evilnc-copy-and-comment-operator
-    "/" 'evilnc-comment-operator)
-  )
+    "/" 'evilnc-comment-operator))

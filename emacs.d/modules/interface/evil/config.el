@@ -37,8 +37,9 @@
 
 (use-package! evil-numbers
   :after evil
-  :bind (("C-c +" . evil-numbers/inc-at-pt)
-         ("C-c -" . evil-numbers/dec-at-pt)))
+  :general
+  ("C-c +" 'evil-numbers/inc-at-pt)
+  ("C-c -" 'evil-numbers/dec-at-pt))
 
 (use-package! evil-surround
   :after evil
@@ -64,4 +65,4 @@
 (use-package! evil-lion
   :after evil
   :config
-    (evil-lion-mode t))
+  (evil-lion-mode t))
