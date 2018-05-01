@@ -5,7 +5,8 @@
   :hook ((c-mode c++-mode objc-mode) . lsp-cquery-enable)
   :config
   (custom-set-variables
-   '(cquery-executable "cquery")))
+   '(cquery-executable "cquery")
+   '(cquery-sem-highlight-method 'font-lock))
 
 ;; this is used in all program lang
 (use-package! semantic
@@ -55,5 +56,3 @@
   :after cmake-mode
   :hook
   (cmake-mode . 'cmake-font-lock-activate))
-
-(use-package! call-graph)
