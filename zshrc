@@ -1,5 +1,5 @@
 source $HOME/.cmd-custom/defvar.sh
-source ~/.local/antigen/antigen.zsh
+source ~/.local/sources/antigen/antigen.zsh
 antigen init ~/.antigenrc
 
 # User configuration
