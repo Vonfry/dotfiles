@@ -18,7 +18,7 @@
   :after magit
   :init
   (defvar magit-gitflow-popup-key "C-x C-g")
-  :config
-  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :hook
+  (magit-mode . turn-on-magit-gitflow))
 
 (use-package! evil-magit)

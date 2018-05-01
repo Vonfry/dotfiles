@@ -4,26 +4,26 @@
 
 (use-package! anaconda-mode
   :disabled
-  :config
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+  :hook
+  ((python-mode . anaconda-mode)
+  (python-mode . anaconda-eldoc-mode)))
 
 (use-package! company-anaconda
   :disabled
   :after anaconda-mode company
-  :config
-  (add-hook 'python-mode-hook
+  :hook
+  (python-mode .
     (lambda ()
       (add-to-list (make-local-variable 'company-backends) 'company-anaconda))))
 
 (use-package! elpy
   :after company yasnippet
-  :init
-  (custom-set-variables
-    '(elpy-rpc-python-command "python3"))
+  :custom
+  (elpy-rpc-python-command "python3")
   :config
   (elpy-enable)
-  (add-hook 'elpy-mode-hook
+  :hook
+  (elpy-mode .
     (lambda ()
       (setq python-shell-interpreter "jupyter"
             python-shell-interpreter-args "console --simple-prompt"
@@ -49,8 +49,8 @@
             "f" 'elpy-format-code))))
 
 (use-package! pyvenv
-  :config
-  (add-hook 'python-mode-hook
+  :hook
+  (python-mode .
     (lambda ()
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
@@ -59,13 +59,13 @@
             "w" 'pyvenv-workon))))
 
 (use-package! pydoc
- :config
- (add-hook 'python-mode-hook
+  :hook
+  (python-mode .
     (lambda ()
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "p" 'pydoc))))
 
 (use-package! pip-requirements
-  :config
-  (add-hook 'pip-requirements-mode-hook 'pip-requirements-auto-complete-setup))
+  :hook
+  (pip-requirements-mode . pip-requirements-auto-complete-setup))

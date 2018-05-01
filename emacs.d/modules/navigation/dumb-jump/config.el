@@ -22,6 +22,5 @@
         "i" 'dumb-jump-go-prompt
         "x" 'dumb-jump-go-prefer-external
         "z" 'dumb-jump-go-prefer-external-other-window)
-  :config
-  (custom-set-variables
-    '(dumb-jump-selector 'helm)))
+  :custom
+  (dumb-jump-selector 'helm))

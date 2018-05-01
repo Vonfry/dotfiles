@@ -2,8 +2,8 @@
 
 (use-package! ggtags
   :disabled
-  :config
-  (add-hook 'prog-mode-hook 'ggtags-mode)
+  :hook
+  (prog-mode . ggtags-mode)
   (setq-local imenu-create-index-function #'ggtags-build-imenu-index))
 
 (use-package! helm-gtags
@@ -14,12 +14,12 @@
     "helm-gtags prefix for nmap"
     :type 'string
     :group 'vonfry-modules)
-  (custom-set-variables
-    '(helm-gtags-display-style "detail")
-    '(helm-gtags-auto-update t)
-    '(helm-gtags-fuzzy-match t))
-  :config
-  (add-hook 'prog-mode-hook 'helm-gtags-mode)
+  :custom
+  (helm-gtags-display-style "detail")
+  (helm-gtags-auto-update t)
+  (helm-gtags-fuzzy-match t)
+  :hook
+  (prog-mode . helm-gtags-mode)
   :general
   (nmap :prefix +helm-gtags-nmap-prefix
         ";" 'helm-gtags-dwim

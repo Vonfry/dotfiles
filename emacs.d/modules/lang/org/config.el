@@ -20,7 +20,6 @@
      (expand-file-name "capture.org" vonfry-org-dir)
      "org capture"
      :group 'vonfry-modules)
-  :config
   (custom-set-variables
    '(org-clock-persist t)
    '(org-default-notes-file +org-capture-file)
@@ -32,6 +31,7 @@
    '(todo-default-todo-file "todo.org")
    '(org-display-custom-times t)
    '(org-time-stamp-custom-formats '("<%Y-%m-%d %Z>" . "<%Y-%m-%d %H:%M:%S %z>")))
+  :config
   (org-clock-persistence-insinuate)
   ;; load babel language by ourselves when we needs them.
   (use-package! ob-ipython)
@@ -39,16 +39,16 @@
 
 (use-package! org-bullets
   :after org
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  :hook
+  (org-mode . (lambda () (org-bullets-mode 1))))
 
 (use-package! evil-org
   :after evil org
-  :config
-  (add-hook 'org-mode-hook 'evil-org-mode)
-  (add-hook 'org-mode-hook
+  :hook
+  ((org-mode . evil-org-mode)
+  (org-mode .
     (lambda ()
-      (evil-org-set-key-theme '(navigation insert textobjects additional)))))
+      (evil-org-set-key-theme '(navigation insert textobjects additional))))))
 
 (use-package! org-brain
   :after org
@@ -58,8 +58,8 @@
     "org-brain path"
     :group 'vonfry-modules)
   (custom-set-variables '(org-brain-path +org-brains-path))
-  :config
-  (add-hook 'org-brain-after-resource-button-functions
+  :hook
+  (org-brain-after-resource-button-functions .
     (lambda (link)
       (insert (format "%s "
                 (cond ((string-prefix-p "http" link)
@@ -77,11 +77,12 @@
                        (all-the-icons-fileicon "brain"))
                       (t
                        (all-the-icons-icon-for-file link)))))))
-  (custom-set-variables
-   '(org-id-track-globally t)
-   '(org-id-locations-file (expand-file-name "org-id-locations" vonfry-local-dir))
-   '(org-brain-visualize-default-choices 'all)
-   '(org-brain-title-max-length 16))
+  :custom
+  (org-id-track-globally t)
+  (org-id-locations-file (expand-file-name "org-id-locations" vonfry-local-dir))
+  (org-brain-visualize-default-choices 'all)
+  (org-brain-title-max-length 16)
+  :config
   (with-eval-after-load 'evil
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
   (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) +org-capture-templates))

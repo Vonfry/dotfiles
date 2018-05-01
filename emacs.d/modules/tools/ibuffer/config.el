@@ -29,8 +29,8 @@
        ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
        ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
        (t (format "%8d" (buffer-size)))))
-  (global-set-key (kbd "C-x C-b") 'ibuffer)
   :general
+  ((kbd "C-x C-b") 'ibuffer)
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-buffer 'ibuffer))
 

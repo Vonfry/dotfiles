@@ -1,8 +1,8 @@
 ;;; lisp config -*- lexical-binding: t -*-
 
 (use-package! geiser
-  :config
-  (add-hook 'scheme-mode-hook
+  :hook
+  (scheme-mode .
     (lambda ()
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader

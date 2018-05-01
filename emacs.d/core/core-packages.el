@@ -54,7 +54,7 @@ is undefined(It always is loaded by alpha order)."
 
 (custom-set-variables
   '(package-user-dir vonfry-elpa-dir)
-  '(use-package-always-ensure nil))
+  '(use-package-always-demand t))
 
 (require 'package)
 (setq package-archives vonfry-elpa-mirror)

@@ -14,10 +14,9 @@
 
 (use-package! spaceline-all-the-icons
   :after spaceline
-  :init
-  (custom-set-variables
-    '(powerline-text-scale-factor 1.1)
-    '(spaceline-all-the-icons-separator-type 'none))
+  :custom
+  (powerline-text-scale-factor 1.1)
+  (spaceline-all-the-icons-separator-type 'none)
   :config
   (spaceline-all-the-icons-theme)
   (spaceline-all-the-icons--setup-package-updates)
