@@ -65,6 +65,7 @@
 
   '(indent-tabs-mode nil)
   '(tab-width 4)
+  '(c-basic-offset 4)
 
   '(scroll-bar-mode nil)
   '(scroll-preserve-screen-position 'always)
