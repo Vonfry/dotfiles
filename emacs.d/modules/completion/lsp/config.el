@@ -2,9 +2,10 @@
 ;;
 
 (use-package! lsp-mode
-  :hook (lsp-before-open-hook .
+  :hook
+  (lsp-before-open-hook .
     (lambda ()
-      (when lsp--cur-workspace
+      (when (and lsp--cur-workspace (not projectile-project-root))
         (setq projectile-project-root (lsp--workspace-root lsp--cur-workspace)))))
   :config
   (use-package! lsp-imenu
