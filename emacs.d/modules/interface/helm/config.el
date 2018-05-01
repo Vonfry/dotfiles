@@ -4,9 +4,6 @@
   :init
   (require 'helm-config)
   :config
-  (global-set-key (kbd "M-x") 'helm-M-x)
-  (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-x C-f") 'helm-find-files)
   (helm-mode 1)
   :custom
   (helm-mode-fuzzy-match                 t)
@@ -22,6 +19,9 @@
   (helm-apropos-fuzzy-match              t)
   (helm-lisp-fuzzy-completion            t)
   :general
+  ("M-x" 'helm-M-x)
+  ("C-x r b" 'helm-filtered-bookmarks)
+  ("C-x C-f" 'helm-find-files)
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-M-x    'helm-M-x
         vonfry-keybind-evil-file   'helm-find-files))
