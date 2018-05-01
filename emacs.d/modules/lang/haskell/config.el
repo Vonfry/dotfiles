@@ -25,3 +25,7 @@
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "y" 'hasky-extensions)))))
+
+(use-package! lsp-haskell
+  :after haskell lsp-mode
+  :hook (haskell-mode . lsp-haskell-enable))
