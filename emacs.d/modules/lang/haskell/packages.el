@@ -1,5 +1,5 @@
 ;;; haskell config -*- lexical-binding: t -*-
 
 (package! haskell-mode)
-(package! intero)
+(package! lsp-haskell)
 (package! hasky-extensions)

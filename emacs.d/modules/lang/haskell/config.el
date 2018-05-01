@@ -25,34 +25,3 @@
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
             "y" 'hasky-extensions))))
-
-
-(use-package! intero
-  :after haskell
-  :config
-  (add-hook 'haskell-mode-hook
-    (lambda ()
-      (intero-mode t)
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            "?" 'intero-info
-            "t" 'intero-type-at
-            "g" 'intero-targets
-            "i" 'intero-help-info
-            "r" 'intero-help-refresh
-            ";" 'intero-expand-splice-at-point
-            "a" 'intero-add-package
-            "d" 'intero-toggle-debug
-            "l" 'intero-repl-load
-            "e" 'intero-repl-eval-region
-            "h" 'intero-highlight-uses-mode
-            "n" 'intero-highlight-uses-mode-next
-            "p" 'intero-highlight-uses-mode-prev
-            "r" 'intero-highlight-uses-mode-replace
-            "." 'intero-goto-definition
-            ">" 'intero-uses-at)
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
-            vonfry-keybind-evil-repl               'intero-repl
-            vonfry-keybind-evil-code-help          'intero-info))))
