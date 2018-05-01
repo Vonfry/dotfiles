@@ -24,4 +24,4 @@
             vonfry-keybind-evil-run         'haskell-compile)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
-            "y" 'hasky-extensions))))
+            "y" 'hasky-extensions)))))

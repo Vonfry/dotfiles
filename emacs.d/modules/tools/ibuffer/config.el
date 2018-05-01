@@ -30,7 +30,7 @@
        ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
        (t (format "%8d" (buffer-size)))))
   :general
-  ((kbd "C-x C-b") 'ibuffer)
+  ("C-x C-b" 'ibuffer)
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-buffer 'ibuffer))
 
