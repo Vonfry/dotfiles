@@ -1,7 +1,7 @@
 ;;; elfeed config -*- lexical-binding: t -*-
 
 (use-package! elfeed
-  :bind (("C-x w" . elfeed))
+  :general ("C-x w" 'elfeed)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-feed 'elfeed)
@@ -22,6 +22,6 @@
     "elfeed-org-files save dir"
     :type '(list string)
     :group 'vonfry-modules)
-  :config
   (custom-set-variables '(rmh-elfeed-org-files (list +elfeed-org-files)))
+  :config
   (elfeed-org))

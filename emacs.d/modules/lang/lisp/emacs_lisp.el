@@ -1,8 +1,8 @@
 ;;; lisp/emacs_lisp.el -*- lexical-binding: t -*-
 
 (use-package! ielm
-  :config
-  (add-hook 'emacs-lisp-mode-hook
+  :hook
+  (emacs-lisp-mode .
     (lambda ()
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader

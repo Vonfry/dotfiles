@@ -4,7 +4,7 @@
   :after helm company
   :config
   (setq rtags-display-result-backend 'helm)
-  (add-hook 'irony-mode-hook
+  :hook (irony-mode .
     (lambda ()
       ;; this is installed by the cflow package on os
       (use-package! cflow-mode)
@@ -44,19 +44,18 @@
 
 ;; this is used in all program lang
 (use-package! semantic
+	:custom
+  (semantic-default-submodes
+    '(global-semantic-highlight-func-mode
+      global-semantic-idle-local-symbol-highlight-mode
+      global-semantic-stickyfunc-mode
+      global-semantic-highlight-edits-mode
+      global-semantic-show-parser-state-mode))
   :config
-	(custom-set-variables
-		'(semantic-default-submodes
-				'(global-semantic-highlight-func-mode
-					global-semantic-idle-local-symbol-highlight-mode
-					global-semantic-stickyfunc-mode
-					global-semantic-highlight-edits-mode
-					global-semantic-show-parser-state-mode)))
 	(semantic-mode t))
 
 (use-package! disaster
-	:config
-	(add-hook 'irony-mode-hook
+	:hook (irony-mode .
 	  (lambda ()
 		  (nmap :keymaps 'local
 				:prefix +lang-nmap-prefix
@@ -78,11 +77,12 @@
     '(irony-server-install-prefix +irony-dir))
   :config
   ;; (irony-install-server) should be run at first.
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-	(add-hook 'irony-mode-hook
+  :hook
+  ((c++-mode . irony-mode)
+  (c-mode . irony-mode)
+  (objc-mode . irony-mode)
+  (irony-mode . irony-cdb-autosetup-compile-options)
+	(irony-mode .
 		(lambda()
 			(use-package! cc-mode)
 			(custom-set-variables
@@ -93,33 +93,32 @@
 				gdb-show-main t)
 			(nmap :keymaps 'local
 	 			  :prefix +lang-nmap-prefix
-				  "h" 'ff-find-other-file))))
+				  "h" 'ff-find-other-file)))))
 
 ;; Use irony-hook to instead all c/c++ hook because irony-mode is always used in these mode.
 
 (use-package! company-irony
   :after company irony
-  :config
-  (add-hook 'irony-mode-hook
+  :hook
+  (irony-mode .
     (lambda ()
       (add-to-list (make-local-variable 'company-backends) 'company-irony))))
 
 (use-package! flycheck-irony
   :after flycheck irony
-  :config
-  (add-hook 'flycheck-mode-hook 'flycheck-irony-setup))
+  :hook
+  (flycheck-mode . flycheck-irony-setup))
 
 (use-package! irony-eldoc
-  :config
-  (add-hook 'irony-mode-hook 'irony-eldoc))
+  :hook
+  (irony-mode . irony-eldoc))
 
 (use-package! function-args
-  :init
-  (custom-set-variables
-    '(moo-select-method 'helm))
-  :config
-  (add-hook 'irony-mode-hook 'fa-config-default)
-  (add-hook 'irony-mode-hook
+  :custom
+  (moo-select-method 'helm)
+  :hook
+  ((irony-mode . fa-config-default)
+  (irony-mode .
     (lambda()
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
@@ -127,7 +126,7 @@
             "s"     'fa-show
             "v"     'moo-propose-virtual
             "o"     'moo-propose-override
-			"j"     'moo-jump-local))))
+			"j"     'moo-jump-local)))))
 
 (use-package! cmake-mode
   :config
@@ -140,8 +139,8 @@
 
 (use-package! cmake-font-lock
   :after cmake-mode
-  :config
-  (add-hook 'cmake-mode-hook 'cmake-font-lock-activate))
+  :hook
+  (cmake-mode . cmake-font-lock-activate))
 
 (use-package! helm-rtags
   :after rtags helm)

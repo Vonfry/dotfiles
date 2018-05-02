@@ -1,6 +1,6 @@
 ;;; diff packages -*- lexical-binding: t -*-
 
 (use-package! diff-hl
-  :config
-  (add-hook 'prog-mode-hook 'turn-on-diff-hl-mode)
-  (add-hook 'vc-dir-mode-hook 'turn-on-diff-hl-mode))
+  :hook
+  ((prog-mode . turn-on-diff-hl-mode)
+  (vc-dir-mode . turn-on-diff-hl-mode)))
