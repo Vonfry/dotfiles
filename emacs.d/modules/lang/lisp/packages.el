@@ -2,7 +2,6 @@
 
 ;; all lisp
 (package! lispy)
-(package! evil-lispy)
 
 ;; common lisp
 (package! slime)

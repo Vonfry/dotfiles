@@ -24,11 +24,6 @@
           vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
           vonfry-keybind-evil-jump-module        'lispy-goto-local)))))
 
-(use-package! evil-lispy
-  :after lispy
-  :hook
-  ((scheme-mode lisp-mode emacs-lisp-mode) . evil-lispy-mode))
-
 (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
 (load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))
 (load (expand-file-name "./scheme.el"      (file-name-directory load-file-name)))
