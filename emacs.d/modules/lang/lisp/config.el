@@ -10,7 +10,7 @@
   ((minibuffer-setup .
     (lambda ()
       (when (eq this-command 'eval-expression)
-      (lispy-mode 1))))
+        (lispy-mode 1))))
   (lisp-mode .
     (lambda ()
       (custom-set-variables '(compile-command "sbcl"))))
@@ -18,13 +18,14 @@
   (emacs-lisp-mode . lispy-mode)
   (scheme-mode     . lispy-mode)
   ((lisp-mode emacs-lisp-mode scheme-mode) .
-   (lambda ()
-     (nmap :keymaps 'local
-           :prefix vonfry-keybind-evil-leader
-           vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
-           vonfry-keybind-evil-jump-module        'lispy-goto-local)))))
+  (lambda ()
+    (nmap :keymaps 'local
+          :prefix vonfry-keybind-evil-leader
+          vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
+          vonfry-keybind-evil-jump-module        'lispy-goto-local)))))
 
 (use-package! evil-lispy
+  :after lispy
   :hook
   ((scheme-mode lisp-mode emacs-lisp-mode) . evil-lispy-mode))
 
