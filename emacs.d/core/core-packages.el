@@ -72,7 +72,8 @@ is undefined(It always is loaded by alpha order)."
     package-utils
     paradox
     diminish
-    )
+    dash
+  )
   "These are the default basic packages, which are used by modules.")
 
 ;;
@@ -144,7 +145,7 @@ is undefined(It always is loaded by alpha order)."
     (when (file-exists-p autoload-file)
       (load autoload-file))
     (when (file-exists-p autoload-dir)
-      (dolist (l (directory-files-recursively autoload-dir ".*"))
+      (dolist (l (directory-files-recursively autoload-dir "^[^\\.].*"))
         (load l)))))
 
 (defun vonfry-load-modules (&rest exclude)
@@ -156,9 +157,9 @@ modules. After all modules' packages.el are loaded, it will load config.el which
 which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
 modules."
   (let* ((module-alist '())
-         (regexp-exclude "^[^.].*"))
-    (dolist (module (directory-files vonfry-modules-dir nil regexp-exclude))
-        (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-exclude))
+         (regexp-match "^[^\\.].*"))
+    (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
+        (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-match))
           (let ((module-name (concat module "/" submodule)))
             (unless (member  module-name exclude))
               (push module-name module-alist))))

@@ -86,3 +86,13 @@
   (with-eval-after-load 'evil
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
   (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) +org-capture-templates))
+
+(use-package! org-agenda
+  :after org
+  :init
+  (defcustom +org-agenda-dirs (expand-file-name "agenda/" vonfry-org-dir)
+    "global agenda dir"
+    :group 'vonfry-modules
+    :type 'string)
+  (custom-set-variables
+    '(org-agenda-files (add-to-list 'org-agenda-files +org-agenda-dirs))))

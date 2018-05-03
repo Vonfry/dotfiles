@@ -9,8 +9,8 @@
     :group 'vonfry-modules)
   :config
   (evil-mode 1)
-  (custom-set-variables
-    '(evil-shift-width 4))
+  :custom
+  (evil-shift-width 4)
   :general
   (nmap "gB" 'previous-buffer
         "gb" 'next-buffer)

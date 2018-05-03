@@ -15,6 +15,7 @@ Plugin 'justinmk/vim-sneak'                           " quick move like f, F. Bu
 Plugin 'majutsushi/tagbar'                            " list tags by using memeory in window.
 
 Plugin 'janko-m/vim-test'                             " test
+Plugin 'vim-vdebug/vdebug'                            " debug
 
 Plugin 'scrooloose/syntastic'                         " syntax check
 Plugin 'c.vim'                                        " syntax c. You need to edit template file at '~/.vim/bundle/c.vim/c-support/templates/Templates'.
