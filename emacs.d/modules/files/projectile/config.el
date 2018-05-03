@@ -43,9 +43,10 @@
   (nmap :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-todo)
           "$" 'org-projectile-project-todo-completing-read
           "~" 'org-projectile-goto-location-for-project)
+  :hook
+  (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config
   (org-projectile-per-project)
-  (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   (use-package! org-projectile-helm :after helm))
 
 (use-package! ibuffer-projectile
