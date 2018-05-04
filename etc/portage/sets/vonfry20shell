@@ -1,6 +1,5 @@
 sys-apps/pciutils
 app-shells/zsh
-app-shells/fish
 net-misc/wget
 net-misc/curl
 dev-vcs/git
