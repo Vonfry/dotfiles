@@ -72,9 +72,19 @@
     "irony local dir"
     :type 'directory
     :group 'vonfry-modules)
+  (defcustom +irony-extra-cmake-args
+    (if (eq system-type 'darwin)
+      (list "-DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++"
+            "-DCMAKE_C_COMPILER=/usr/local/opt/llvm/bin/clang"
+            "-DCMAKE_PREFIX_PATH=/usr/local/opt/llvm")
+      nil)
+    "Set irony-extra-cmake-args. It is mainly for macos."
+    :type '(repeat string)
+    :group 'vonfry-modules)
   (custom-set-variables
     '(irony-user-dir +irony-dir)
-    '(irony-server-install-prefix +irony-dir))
+    '(irony-server-install-prefix +irony-dir)
+    '(irony-extra-cmake-args +irony-extra-cmake-args))
   :config
   ;; (irony-install-server) should be run at first.
   :hook
