@@ -21,7 +21,6 @@ sys-devel/gcc
 dev-util/global
 dev-util/ctags
 dev-util/cscope
-dev-util/cflow
 sys-devel/clang
 sys-devel/llvm
 dev-util/ninja

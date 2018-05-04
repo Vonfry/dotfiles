@@ -38,9 +38,8 @@ brew reinstall tmux
 
 # C & Cpp libs
 brew reinstall gcc --with-nls
-brew reinstall llvm --with-lldb --with-graphviz --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
+brew reinstall llvm --with-lldb --with-graphviz --with-toolchain
 brew reinstall scons # a cross build tools
-brew reinstall cquery
 brew reinstall gdb --with-all-targets --with-python
 brew reinstall cmake --with-completion
 brew reinstall ninja
@@ -50,10 +49,8 @@ brew reinstall boost-python3
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
 brew reinstall global --with-ctags --with-pygments --with-sqlite3
-brew reinstall rtags --without-emacs
 brew reinstall cscope
 brew reinstall doxygen --with-doxywizard --with-graphviz
-brew reinstall cflow
 
 # code search
 brew reinstall ack the_silver_searcher awk gawk
@@ -115,7 +112,6 @@ brew cask install quicklook-pat
 
 # My emacs cunfigure has a auto-upgrade everytime opening it, so start it by ourselves is possibly better.
 brew services start emacs
-brew services start rtags
 
 sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 
