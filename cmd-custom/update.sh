@@ -1,5 +1,6 @@
 function vonfry-update()
 {
+    current_dir=$(pwd)
     ECHO_SYM="\033[0;31m"
     ECHO_MSG="\033[0;36m"
     ECHO_RST="\033[0m"
@@ -56,6 +57,25 @@ function vonfry-update()
         antigen update
         antigen selfupdate
     fi
+
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}sources${ECHO_RST}"
+    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}lsp${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}*** ${ECHO_MSG}cquery${ECHO_RST}\n"
+    cd ~/.local/src/cquery
+    if [ ! $? ]; then
+        git pull --depth 1
+        ./waf configure --llvm-config=llvm-config
+        ./waf build
+    fi
+    echo -e "\n${ECHO_SYM}*** ${ECHO_MSG}haskell-ide-engine${ECHO_RST}\n"
+    cd ~/.local/src/haskell-ide-engine
+    if [ $(git rev-parse @) = $(git rev-parse '@{u}') ]; then
+        git pull --depth 1
+        stack install
+    fi
+
+    cd $current_dir
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
     cabal update --verbose=0
@@ -118,6 +138,7 @@ function vonfry-update()
     unset ECHO_SYM
     unset ECHO_MSG
     unset ECHO_RST
+    unset current_dir
     echo $(_current_epoch) >! $CMD_CUSTOM_DIR/local/.update_epoch
 }
 
