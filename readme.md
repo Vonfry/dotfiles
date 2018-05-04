@@ -29,7 +29,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 ## command-line
 
 - [x]  zsh
-- [x]  fish ( no longer maintain )
+- [x]  fish ( no longer maintain, you can check tag `20180502.146` to use it. )
 
 ## editor
 
