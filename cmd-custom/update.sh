@@ -69,6 +69,7 @@ function vonfry-update()
         rm -r ./build
         rm .*waf*
         git pull --depth 1
+        git submodule update --depth 1
         ./waf configure --llvm-config=llvm-config
         ./waf build
     fi
@@ -79,6 +80,7 @@ function vonfry-update()
         git checkout -- .
         git clean -fd
         git pull --depth 1
+        git submodule update --depth 1
         stack install
     fi
 
