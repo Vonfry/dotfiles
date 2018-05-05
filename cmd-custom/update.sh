@@ -1,6 +1,5 @@
 function vonfry-update()
 {
-    current_dir=$(pwd)
     ECHO_SYM="\033[0;31m"
     ECHO_MSG="\033[0;36m"
     ECHO_RST="\033[0m"
