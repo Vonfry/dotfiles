@@ -4,6 +4,7 @@ function echo_warn() { echo -e "\n\033[0;31m $@\n"; echo -e "\033[0m" }
 function echo_info() { echo -e "\n\033[0;36m $@\n"; echo -e "\033[0m" }
 function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 
+export current_dir=$(pwd)
 export script_dir=$( cd "$( dirname "$0" )/.." && pwd )
 export dropbox_dir="$HOME/Dropbox/Backup/dotfiles"
 echo_note "--- input a path that where to save the third lib or tools needing to be built by youself."

@@ -90,7 +90,8 @@ echo_note "--- Make sure you have a correct configure with iptables and then run
 
 # shell
 sudo emerge $emerge_args @vonfry20shell
-git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && cd - && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ # rtags
+git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake
+-DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ && cd $current_dir # rtags
 
 # editor
 sudo emerge $emerge_args @vonfry30editor
@@ -100,7 +101,7 @@ sudo layman -a haskell
 sudo emerge $emerge_args @vonfry40lang
 sudo emerge $emerge_args @vonfry41db
 sudo emerge $emerge_args @vonfry42misc
-git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && cd - && ln -s -f $source_dir/rbenv $user_dir/.rbenv # rbenv
+git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && ln -s -f $source_dir/rbenv $user_dir/.rbenv && cd $current_dir # rbenv
 
 # X11
 sudo emerge $emerge_args @vonfry50x
