@@ -102,7 +102,7 @@ function vonfry-update()
         vim -c "execute \"PluginUpdate\" | qa"
         echo -e "\n${ECHO_SYM}** ${ECHO_MSG}ycm${ECHO_RST}\n"
         python3 ~/.vim/bundle/YouCompleteMe/install.py --tern-completer --clang-completer --system-boost --system-libclang --quiet
-        cd ~/.vim/bundle/vimproc.vim/ && make && cd -
+        cd ~/.vim/bundle/vimproc.vim/ && make
     fi
 
     if [ -f ~/.emacs.d/init.el ]; then
