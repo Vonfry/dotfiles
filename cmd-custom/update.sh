@@ -4,13 +4,13 @@ function vonfry-update()
     ECHO_SYM="\033[0;31m"
     ECHO_MSG="\033[0;36m"
     ECHO_RST="\033[0m"
+    current_dir=$(pwd)
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}dotfiles${ECHO_RST}\n"
     cd $DOTFILES_DIR
     git pull
-    cd -
 
     case "$(uname)" in
         "Darwin")
@@ -144,6 +144,8 @@ function vonfry-update()
     fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
+
+    cd $current_dir
 
     unset ECHO_SYM
     unset ECHO_MSG
