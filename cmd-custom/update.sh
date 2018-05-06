@@ -80,6 +80,7 @@ function vonfry-update()
         git clean -fd
         git pull --depth 1
         git submodule update --depth 1
+        stack exec hoogle generate
         stack install
     fi
 
