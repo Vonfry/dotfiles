@@ -96,19 +96,15 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
-        pip3 install --quiet --upgrade pip setuptools wheel
         pip3 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
     else
-        pip3 install --quiet --user --upgrade pip setuptools wheel
         pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
     fi
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
     if [ $(uname) = Darwin ]; then
-        pip2 install --quiet --upgrade pip setuptools wheel
         pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
     else
-        pip2 install --user --upgrade pip setuptools wheel
-        pip2 install --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
+        pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
