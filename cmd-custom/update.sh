@@ -79,8 +79,8 @@ function vonfry-update()
     fi
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
-    gem update --silent && gem update --system --silent
-    gem cleanup
+    gem update --quiet && gem update --system --quiet
+    gem cleanup --quiet
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}npm${ECHO_RST}\n"
     if [ $(uname) = Linux ]; then
         sudo npm update -g --silent
