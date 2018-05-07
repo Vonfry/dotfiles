@@ -8,6 +8,8 @@
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
   (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-M-x    'counsel-M-x
-        vonfry-keybind-evil-file   'counsel-find-file
-        vonfry-keybind-evil-swoop  'swiper))
+        vonfry-keybind-evil-M-x   'counsel-M-x
+        vonfry-keybind-evil-file  'counsel-find-file
+        vonfry-keybind-evil-swoop 'swiper
+        vonfry-keybind-evil-marks 'counsel-mark-ring
+        ))
