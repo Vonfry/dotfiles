@@ -1,4 +1,4 @@
 hoogle
-intero
 hasktags
 stack-run
+dhall

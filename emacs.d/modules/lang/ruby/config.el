@@ -7,12 +7,7 @@
 
 (use-package! inf-ruby
   :hook
-  ((enh-ruby-mode . inf-ruby-minor-mode)
-  (enh-ruby-mode .
-    (lambda ()
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-repl 'inf-ruby)))))
+  (enh-ruby-mode . inf-ruby-minor-mode))
 
 (use-package! robe
   :hook

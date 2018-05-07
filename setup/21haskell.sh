@@ -16,7 +16,9 @@ if command -v cabal >/dev/null 2>&1; then
     fi
     if [ -f $script_dir/config/pkgs/stack.txt ]; then
         stack setup
+        cd ~
         cat $script_dir/config/pkgs/stack.txt | xargs -t -n1 stack install --silent
+        cd $current_dir
     fi
 else
     echo_warn "!!! ERROR: NO cabal"
