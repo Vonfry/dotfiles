@@ -30,13 +30,20 @@
          ("\\.[Jj][Oo][Gg]\\'" . ess-jags-mode)
          ("\\.[Jj][Mm][Dd]\\'" . ess-jags-mode))
   :commands (R stata julia SAS)
+  :custom
+  (ess-use-flymake nil)
+  (ess-use-ido nil)
+  (ess-ido-flex-matching nil)
+  (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
+  (ess-keep-dump-files 'always-delete)
+  (ess-use-auto-complete nil)
   :hook
   (ess-mode .
     (lambda ()
       (nmap :prefix vonfry-keybind-evil-lang
             :keymaps 'local
             "'" (lambda ()
-                    (cond
-                      ((string= "S" ess-language) (call-interactively 'R))
-                      ((string= "STA" ess-language) (call-interactively 'stata))
-                      ((string= "SAS" ess-language) (call-interactively 'SAS))))))))
+                  (cond
+                    ((string= "S" ess-language) (call-interactively 'R))
+                    ((string= "STA" ess-language) (call-interactively 'stata))
+                    ((string= "SAS" ess-language) (call-interactively 'SAS))))))))
