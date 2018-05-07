@@ -9,8 +9,7 @@
     '(powerline-default-separator nil))
   (spaceline-spacemacs-theme)
   (spaceline-compile)
-  (spaceline-info-mode)
-  (spaceline-helm-mode))
+  (spaceline-info-mode))
 
 (use-package! spaceline-all-the-icons
   :after spaceline

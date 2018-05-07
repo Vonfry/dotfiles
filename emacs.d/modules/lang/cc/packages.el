@@ -3,7 +3,7 @@
 ;; Use rtags to jump and use irony to do completion and error check. And use EBrowse to make a class graph.
 
 (package! rtags)
-(package! helm-rtags)
+(package! ivy-rtags)
 
 (package! irony)
 (package! company-irony)

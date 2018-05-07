@@ -13,21 +13,20 @@
     '(projectile-enable-caching t)
     '(projectile-file-exists-local-cache-expire (* 7 24 60))
     '(projectile-known-projects-file +projectile-cache-dir)
-    '(projectile-completion-system 'helm)
+    '(projectile-completion-system 'ivy)
     '(projectile-cache-file +projectile-cache-dir)
     '(projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
     '(projectile-switch-project-action 'neotree-projectile-action))
   :config
   (projectile-global-mode t))
 
-(use-package! helm-projectile
+(use-package! counsel-projectile
   :after projectile
-  :config
-  (helm-projectile-on)
+  :hook (projectile-mode . counsel-projectile-mode)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-ctrlp  'helm-projectile-find-file
-    vonfry-keybind-evil-search 'helm-projectile-ag))
+    vonfry-keybind-evil-ctrlp  'counsel-projectile-find-file
+    vonfry-keybind-evil-search 'counsel-projectile-ag	))
 
 (use-package! org-projectile
   :after projectile
@@ -46,8 +45,7 @@
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config
-  (org-projectile-per-project)
-  (use-package! org-projectile-helm :after helm))
+  (org-projectile-per-project))
 
 (use-package! ibuffer-projectile
   :after ibuffer

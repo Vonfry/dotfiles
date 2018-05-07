@@ -4,7 +4,7 @@
 
 (use-package! lispy
   :custom
-  (lispy-completion-method 'helm)
+  (lispy-completion-method 'ivy)
   (lispy-visit-method      'projectile)
   :hook
   ((minibuffer-setup .

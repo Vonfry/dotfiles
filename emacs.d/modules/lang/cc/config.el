@@ -1,9 +1,9 @@
 ;;; cc config -*- lexical-binding: t -*-
 
 (use-package! rtags
-  :after helm company
+  :after ivy company
   :config
-  (setq rtags-display-result-backend 'helm)
+  (setq rtags-display-result-backend 'ivy)
   :hook (irony-mode .
     (lambda ()
       ;; this is installed by the cflow package on os
@@ -125,7 +125,7 @@
 
 (use-package! function-args
   :custom
-  (moo-select-method 'helm)
+  (moo-select-method 'ivy)
   :hook
   ((irony-mode . fa-config-default)
   (irony-mode .
@@ -152,7 +152,7 @@
   :hook
   (cmake-mode . cmake-font-lock-activate))
 
-(use-package! helm-rtags
-  :after rtags helm)
+(use-package! ivy-rtags
+  :after rtags ivy)
 
 (use-package! call-graph)
