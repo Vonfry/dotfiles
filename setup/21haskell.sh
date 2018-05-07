@@ -17,7 +17,7 @@ if command -v cabal >/dev/null 2>&1; then
     if [ -f $script_dir/config/pkgs/stack.txt ]; then
         stack setup
         cd ~
-        cat $script_dir/config/pkgs/stack.txt | xargs -t -n1 stack install --silent
+        cat $script_dir/config/pkgs/stack.txt | xargs -t -n1 stack install --resolver lts --silent
         cd $current_dir
     fi
 else
