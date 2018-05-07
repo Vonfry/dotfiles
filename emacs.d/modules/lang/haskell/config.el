@@ -54,5 +54,4 @@
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
             vonfry-keybind-evil-jump-to-definition 'intero-goto-definition
-            vonfry-keybind-evil-repl               'intero-repl
             vonfry-keybind-evil-code-help          'intero-info))))

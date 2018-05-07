@@ -35,7 +35,6 @@
             vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition
             vonfry-keybind-evil-code-help 'elpy-doc
             vonfry-keybind-evil-jump-module 'elpy-goto-location
-            vonfry-keybind-evil-repl 'elpy-shell-switch-to-shell
             vonfry-keybind-evil-check 'elpy-check)
       (nmap :keymaps 'local
             :prefix +lang-nmap-prefix
