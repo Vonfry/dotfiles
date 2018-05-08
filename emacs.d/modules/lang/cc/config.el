@@ -28,7 +28,10 @@
         "d" 'disaster))))
 
 ;; this is used in all program lang
-(use-package! compile)
+(use-package! compile
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+        vonfry-keybind-evil-run 'compile))
 
 (use-package! function-args
   :init

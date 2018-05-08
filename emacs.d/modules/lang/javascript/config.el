@@ -8,7 +8,6 @@
     (lambda ()
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
-             vonfry-keybind-evil-jump 'js2-jump-to-definition
              vonfry-keybind-evil-jump-module 'js-find-symbol)))))
 
 (use-package! json-mode :after js2-mode)

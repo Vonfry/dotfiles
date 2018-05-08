@@ -4,7 +4,7 @@
 
 (use-package! lispy
   :custom
-  (lispy-completion-method 'helm)
+  (lispy-completion-method 'ivy)
   (lispy-visit-method      'projectile)
   :hook
   ((minibuffer-setup .
@@ -21,8 +21,7 @@
   (lambda ()
     (nmap :keymaps 'local
           :prefix vonfry-keybind-evil-leader
-          vonfry-keybind-evil-jump-to-definition 'lispy-goto-symbol
-          vonfry-keybind-evil-jump-module        'lispy-goto-local)))))
+          vonfry-keybind-evil-jump-module 'lispy-goto-local)))))
 
 (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
 (load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))

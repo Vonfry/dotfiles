@@ -18,7 +18,6 @@ dev-lang/go
 net-libs/nodejs
 dev-util/cmake
 sys-devel/gcc
-dev-util/global
 dev-util/ctags
 dev-util/cscope
 sys-devel/clang

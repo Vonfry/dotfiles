@@ -2,4 +2,3 @@
 
 (package! company)
 (package! company-quickhelp)
-(package! helm-company)
