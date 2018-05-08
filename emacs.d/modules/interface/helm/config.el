@@ -70,13 +70,3 @@
         "d" 'helm-dash
         "." 'helm-dash-at-point
         "a" 'helm-dash-activate-docset))
-
-(use-package! helm-flyspell
-  :init
-  (require 'flyspell)
-  (require 'ispell)
-  :hook
-  (prog-mode . flyspell-prog-mode)
-  :config
-  (nmap :prefix vonfry-keybind-evil-leader
-        "s" 'helm-flyspell-correct))

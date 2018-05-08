@@ -73,7 +73,6 @@ brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
 brew cask install texpad                     # a tex ide
 brew cask install java
-brew reinstall ispell                        # emacs flyspell dependency
 brew reinstall shellcheck
 
 # system tool

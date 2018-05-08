@@ -6,4 +6,3 @@
 (package! helm-swoop)
 (package! helm-make)
 (package! helm-dash)
-(package! helm-flyspell)
