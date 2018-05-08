@@ -4,7 +4,7 @@
   :config
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-code 'counsel-imenu))
+        vonfry-keybind-evil-code 'ivy-imenu-anywhere))
 
 (use-package! imenu-list
   :custom
