@@ -74,7 +74,12 @@ In global env, it is jump back with jump-to-tefinition."
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-buffer "b"
+(defcustom vonfry-keybind-evil-buffer-switch "b"
+  "buffer"
+  :type 'string
+  :group 'vonfry-keybind)
+
+(defcustom vonfry-keybind-evil-buffer "B"
   "buffer"
   :type 'string
   :group 'vonfry-keybind)

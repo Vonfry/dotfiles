@@ -13,4 +13,5 @@
         vonfry-keybind-evil-M-x   'counsel-M-x
         vonfry-keybind-evil-file  'counsel-find-file
         vonfry-keybind-evil-swoop 'swiper
-        vonfry-keybind-evil-marks 'counsel-mark-ring))
+        vonfry-keybind-evil-marks 'counsel-mark-ring
+        vonfry-keybind-evil-buffer-switch 'ivy-switch-buffer))
