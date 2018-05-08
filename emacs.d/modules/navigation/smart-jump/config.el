@@ -9,7 +9,7 @@
                        :jump-fn 'lispy-goto-symbol
                        :pop-fn  'pop-tag-mark
                        :refs-fn 'smart-jump-simple-find-references)
-  (start-jump-setup-default-registers)
+  (smart-jump-setup-default-registers)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-symbol    'smart-jump-go
