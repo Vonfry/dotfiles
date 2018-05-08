@@ -5,10 +5,10 @@
   :config
   (smart-jump-register :modes 'elpy-mode) ; use xref
   (smart-jump-register :modes 'ess-mode) ; use xref
-  (smart-jump-register :modes     'lispy-mode
-                       :jump-fn   'lispy-goto-symbol
-                       :pop-fn    'pop-tag-mark
-                       :heuristic 'point)
+  (smart-jump-register :modes   'lispy-mode
+                       :jump-fn 'lispy-goto-symbol
+                       :pop-fn  'pop-tag-mark
+                       :refs-fn 'smart-jump-simple-find-references)
   (start-jump-setup-default-registers)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
