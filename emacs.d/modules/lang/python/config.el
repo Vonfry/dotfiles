@@ -2,20 +2,6 @@
 
 (setq python-shell-interpreter "python3")
 
-(use-package! anaconda-mode
-  :disabled
-  :hook
-  ((python-mode . anaconda-mode)
-  (python-mode . anaconda-eldoc-mode)))
-
-(use-package! company-anaconda
-  :disabled
-  :after anaconda-mode company
-  :hook
-  (python-mode .
-    (lambda ()
-      (add-to-list (make-local-variable 'company-backends) 'company-anaconda))))
-
 (use-package! elpy
   :after company yasnippet
   :custom
@@ -32,7 +18,6 @@
                    "jupyter")
       (nmap :keymaps 'local
             :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-jump-to-definition 'elpy-goto-definition
             vonfry-keybind-evil-code-help 'elpy-doc
             vonfry-keybind-evil-jump-module 'elpy-goto-location
             vonfry-keybind-evil-check 'elpy-check)

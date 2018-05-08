@@ -35,12 +35,9 @@
       (if (rtags-is-indexed)
         (nmap :keymaps 'local
               :prefix vonfry-keybind-evil-leader
-              "'" 'rtags-print-symbol-info
-              vonfry-keybind-evil-jump-to-definition 'rtags-find-symbol-at-point
-              vonfry-keybind-evil-jump-to-others     'rtags-find-references
-              vonfry-keybind-evil-jump-module        'rtags-include-file
-              vonfry-keybind-evil-jump-back          'rtags-location-stack-back
-              vonfry-keybind-evil-code               'rtags-imenu)))))
+              vonfry-keybind-evil-code-help   'rtags-print-symbol-info
+              vonfry-keybind-evil-jump-module 'rtags-include-file
+              vonfry-keybind-evil-code        'rtags-imenu)))))
 
 ;; this is used in all program lang
 (use-package! semantic
@@ -62,7 +59,10 @@
 				"d" 'disaster))))
 
 ;; this is used in all program lang
-(use-package! compile)
+(use-package! compile
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+        vonfry-keybind-evil-run 'compile))
 
 (use-package! irony
   :after yasnippet
@@ -139,6 +139,8 @@
 			"j"     'moo-jump-local)))))
 
 (use-package! cmake-mode
+  :custom
+  (compile-command "cmake")
   :config
 	(setq auto-mode-alist
 		(append

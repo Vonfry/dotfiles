@@ -16,7 +16,7 @@
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-jump-to-definition "."
+(defcustom vonfry-keybind-evil-jump-symbol "."
   "jump to definition"
   :type 'string
   :group 'vonfry-keybind)
@@ -26,12 +26,12 @@
   :type 'string
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-jump-to-others ">"
-  "jump to with a prompt look or reference. Reference may only work for C/C++"
+(defcustom vonfry-keybind-evil-jump-peek ">"
+  "jump to with a prompt look."
   :group 'vonfry-keybind)
 
-(defcustom vonfry-keybind-evil-pop-back "<"
-  "bind emacs `pop-tag-mark`. It may have the same action as `vonfry-keybind-evil-jump-back`"
+(defcustom vonfry-keybind-evil-jump-reference "<"
+  "jump to with a prompt look or reference. Reference may only work for C/C++"
   :group 'vonfry-keybind)
 
 (defcustom vonfry-keybind-evil-jump "j"

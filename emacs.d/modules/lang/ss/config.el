@@ -36,14 +36,4 @@
   (ess-ido-flex-matching nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
   (ess-keep-dump-files 'always-delete)
-  (ess-use-auto-complete nil)
-  :hook
-  (ess-mode .
-    (lambda ()
-      (nmap :prefix vonfry-keybind-evil-lang
-            :keymaps 'local
-            "'" (lambda ()
-                  (cond
-                    ((string= "S" ess-language) (call-interactively 'R))
-                    ((string= "STA" ess-language) (call-interactively 'stata))
-                    ((string= "SAS" ess-language) (call-interactively 'SAS))))))))
+  (ess-use-auto-complete nil))
