@@ -3,6 +3,8 @@
 (use-package! counsel
   :config
   (ivy-mode 1)
+  :custom
+  (ivy-use-virtual-buffers t)
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
