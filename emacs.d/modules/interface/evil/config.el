@@ -16,7 +16,6 @@
         "gb" 'next-buffer)
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-terminal      'eshell
-        vonfry-keybind-evil-pop-back      'pop-tag-mark
         vonfry-keybind-evil-marks         'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix
         "v" 'split-window-vertically

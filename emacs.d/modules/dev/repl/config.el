@@ -9,7 +9,13 @@
                           (scheme-mode . geiser)
                           (lisp-mode . slime)
                           (lisp-interaction-mode . ielm)
-                          (elpy-mode . elpy-shell-switch-to-shell)))
+                          (elpy-mode . elpy-shell-switch-to-shell)
+                          (ess-mode .
+                            (lambda ()
+                             (cond
+                               ((string= "S" ess-language) (call-interactively 'R))
+                               ((string= "STA" ess-language) (call-interactively 'stata))
+                               ((string= "SAS" ess-language) (call-interactively 'SAS)))))))
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-repl 'rtog/repl-toggle))
+        vonfry-keybind-evil-repl 'rtog/toggle-repl))
