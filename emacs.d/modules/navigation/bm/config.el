@@ -10,4 +10,4 @@
   :general
   (nmap :prefix +bm-nmap-prefix
     "t" 'bm-toggle
-    "m" 'helm-bookmarks))
+    "m" 'counsel-bookmark))

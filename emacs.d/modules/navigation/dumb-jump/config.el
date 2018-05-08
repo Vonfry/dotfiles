@@ -23,4 +23,4 @@
         "x" 'dumb-jump-go-prefer-external
         "z" 'dumb-jump-go-prefer-external-other-window)
   :custom
-  (dumb-jump-selector 'helm))
+  (dumb-jump-selector 'ivy))
