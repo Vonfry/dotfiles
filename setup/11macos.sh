@@ -48,7 +48,6 @@ brew reinstall boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
-brew reinstall global --with-ctags --with-pygments --with-sqlite3
 brew reinstall rtags --without-emacs
 brew reinstall cscope
 brew reinstall doxygen --with-doxywizard --with-graphviz
@@ -74,7 +73,6 @@ brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
 brew cask install texpad                     # a tex ide
 brew cask install java
-brew reinstall ispell                        # emacs flyspell dependency
 brew reinstall shellcheck
 
 # system tool
