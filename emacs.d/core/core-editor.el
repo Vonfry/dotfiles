@@ -92,6 +92,8 @@
   '(tramp-auto-save-directory vonfry-tramp-cache)
   '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
 
-  '(browse-url-browser-function 'browse-url-default-browser))
+  '(browse-url-browser-function 'browse-url-default-browser)
+
+  '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir)))
 
 (provide 'core-editor)
