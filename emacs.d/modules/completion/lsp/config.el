@@ -16,8 +16,6 @@
   :hook (lsp-mode . lsp-ui-mode)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-jump-to-definition 'lsp-ui-peek-find-definitions
-    vonfry-keybind-evil-jump-to-others     'lsp-ui-peek-find-reference
     vonfry-keybind-evil-jump-prompt        'lsp-ui-peek-find-workspace-symbol)
   :general
   (:map lsp-ui-mode-map
