@@ -119,10 +119,6 @@
   :hook
   (flycheck-mode . flycheck-irony-setup))
 
-(use-package! irony-eldoc
-  :hook
-  (irony-mode . irony-eldoc))
-
 (use-package! function-args
   :custom
   (moo-select-method 'ivy)
