@@ -1,6 +1,8 @@
 ;;; lisp config -*- lexical-binding: t -*-
 
-(use-package! eldoc)
+(use-package! eldoc
+  :hook
+  ((emacs-lisp-mode lisp-interaction-mode ielm-mode) . turn-on-eldoc-mode))
 
 (use-package! lispy
   :custom

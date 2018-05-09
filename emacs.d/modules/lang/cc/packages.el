@@ -8,7 +8,6 @@
 (package! irony)
 (package! company-irony)
 (package! flycheck-irony)
-(package! irony-eldoc)
 
 (package! disaster)
 (package! function-args)
