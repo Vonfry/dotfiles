@@ -1,6 +1,7 @@
 ;;; S packages -*- lexical-binding: t -*-
 
 (package! ess-site
+  :ensure ess
   :mode (("\\.sp\\'"           . S-mode)
          ("/R/.*\\.q\\'"       . R-mode)
          ("\\.[qsS]\\'"        . S-mode)

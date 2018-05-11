@@ -1,5 +1,6 @@
 ;;; common lisp packages -*- lexical-binding: t -*-
 
+(package! slime-company)
 (package! slime
   :config
   (setq inferior-lisp-program "sbcl") ;; set to other in custom.el
@@ -7,7 +8,7 @@
   :hook
   (slime-load .
     (lambda ()
-      (use-package! slime-company
+      (package! slime-company
         :config
         (slime-setup '(slime-fancy slime-company)))
       (define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))))

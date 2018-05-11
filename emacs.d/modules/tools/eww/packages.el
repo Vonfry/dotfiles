@@ -1,5 +1,6 @@
 ;;; eww packages -*- lexical-binding: t -*-
 
-(use-package! eww
+(package! eww
+  :ensure nil
   :custom
   (eww-download-directory vonfry-downloads-dir))

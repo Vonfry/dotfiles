@@ -23,7 +23,7 @@
   (`(t . _)
    (treemacs-git-mode 'simple))))
 
-(package treemacs-evil
+(package! treemacs-evil
   :after treemacs evil
   :demand t)
 

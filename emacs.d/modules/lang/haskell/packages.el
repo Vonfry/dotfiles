@@ -1,6 +1,7 @@
 ;;; haskell config -*- lexical-binding: t -*-
 
 (package! haskell
+  :ensure haskell-mode
   :custom
   (haskell-indentation-layout-offset 4)
   (imenu-add-menubar-index t)

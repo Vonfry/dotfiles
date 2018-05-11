@@ -1,6 +1,6 @@
 ;;; google-translate package -*- lexical-binding: t -*-
 
-(use-package! google-translate
+(package! google-translate
   :config
   (require 'google-translate-smooth-ui)
   :general
