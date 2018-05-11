@@ -1,3 +1,5 @@
 ;;; hlinum packages -*- lexical-binding: t -*-
 
-(package! hlinum)
+(package! hlinum
+  :config
+  (hlinum-activate))

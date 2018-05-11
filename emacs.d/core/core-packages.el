@@ -5,15 +5,13 @@
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
-;; packages.el define the dependence with `package!`
-;; config.el define the configure with `use-package!`
+;; packages.el define the dependence and default configure with `package!`
+;; config.el which is added in gitignore define the custom configure.
 ;;
-;; use-package provide a tools that download a package if it isn't installed. Why I shouldn't use
-;; it? One of the reasons is that I don't know that when I am coding this configure. Another reason is I think both
-;; file to manage different aim which can have a good file structure. It also downloads all the necessary packages at
-;; once, some packages are only loaded in hook, we will not want to install them until we call them.
+;; use-package provide a tools that download a package if it isn't installed.;;
+;;
+;; auto-package-update is used by default, but `auto-package-update-maybe` is not called in the config.
 
-;;
 ;; define some variables for packages
 ;;
 
@@ -53,7 +51,8 @@ is undefined(It always is loaded by alpha order)."
 
 (custom-set-variables
   '(package-user-dir vonfry-elpa-dir)
-  '(use-package-always-demand t))
+  '(use-package-always-demand t)
+  '(use-package-always-ensure t))
 
 (require 'package)
 (setq package-archives vonfry-elpa-mirror)
@@ -67,11 +66,6 @@ is undefined(It always is loaded by alpha order)."
 
 (defconst vonfry-basic-packages '(
     use-package
-    general
-    package-utils
-    paradox
-    diminish
-    dash
   )
   "These are the default basic packages, which are used by modules.")
 
@@ -83,20 +77,10 @@ is undefined(It always is loaded by alpha order)."
 (defalias #'vonfry/update-packages     #'package-utils-upgrade-by-name)
 (defalias #'vonfry/update-all-packages #'package-utils-upgrade-all)
 
-(defmacro package! (pkg &optional min-version no-refresh)
-  "Define packages dependence and install it.
-
-  Use this macro in packages.el.
-
-  pkg is the name of the package.
-  min-version is a list of the package's minimum version. See more `version-list<=`.
-  no-refresh is not nil, it will refresh the `package-archive-content` before install."
-  `(vonfry--package! ',pkg ',min-version ,no-refresh))
-
 (defun vonfry--package! (pkg &optional min-version no-refresh)
   "Define packages dependence and install it.
 
-  This is a private function. It is called in macro `package!`. Why use macro please see this macro's document."
+  This is a private function. It is only used in core."
     (if (package-installed-p pkg min-version)
       t
       (if (or (assoc pkg package-archive-contents) no-refresh)
@@ -107,16 +91,23 @@ is undefined(It always is loaded by alpha order)."
           (package-refresh-contents)
           (vonfry--package! pkg min-version t)))))
 
-(defalias #'use-package! #'use-package)
+(defalias #'package! #'use-package)
 
 ;; load the basic packages
-(dolist (pkg vonfry-basic-packages)
+(dolist (pkg '(use-package))
   (unless (require pkg nil t)
       (vonfry--package! pkg)
       (require pkg)))
 
-(use-package! paradox :config (paradox-enable))
-
+(package! general)
+(package! package-utils)
+(package! paradox :config (paradox-enable))
+(package! diminish)
+(package! dash)
+(package! auto-package-update
+  :custom
+  (auto-package-update-delete-old-versions t)
+  (auto-package-update-hide-results t))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

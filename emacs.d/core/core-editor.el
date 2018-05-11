@@ -36,8 +36,7 @@
   (unless (file-exists-p tmp-dir)
     (make-directory tmp-dir)))
 
-(package! whitespace-cleanup-mode)
-(use-package! whitespace-cleanup-mode
+(package! whitespace-cleanup-mode
   :config
   (global-whitespace-cleanup-mode t))
 
