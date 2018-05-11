@@ -1,8 +1,7 @@
 ;;; autoload - func -*- lexical-binding: -*-
 
 (unless (string-match "fish" (getenv "SHELL"))
-  (package! exec-path-from-shell)
-  (use-package! exec-path-from-shell
+  (package! exec-path-from-shell
   :config
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))))

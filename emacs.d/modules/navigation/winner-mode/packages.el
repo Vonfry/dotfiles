@@ -1,4 +1,4 @@
-;;; winner mode config -*- lexical-binding: t -*-
+;;; winner mode packages -*- lexical-binding: t -*-
 
 (winner-mode t)
 

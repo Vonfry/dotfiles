@@ -1,3 +1,9 @@
 ;;; google-translate package -*- lexical-binding: t -*-
 
-(package! google-translate)
+(package! google-translate
+  :config
+  (require 'google-translate-smooth-ui)
+  :general
+  ("\C-ct" 'google-translate-at-point)
+  ("\C-cT" 'google-translate-query-translate))
+

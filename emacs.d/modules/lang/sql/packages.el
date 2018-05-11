@@ -1,4 +1,4 @@
 ;;; sql packages -*- lexical-binding: t -*-
 
-(package! sql-indent)
 (package! emacsql)
+(package! sql-indent :after sql)
