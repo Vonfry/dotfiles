@@ -1,6 +1,6 @@
 ;;; core/core-packages.el -*- lexical-binding: t; -*-
 ;;
-;; Define packages manager with quelpa and use-package.
+;; Define packages manager with use-package.
 ;;
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
@@ -8,11 +8,10 @@
 ;; packages.el define the dependence with `package!`
 ;; config.el define the configure with `use-package!`
 ;;
-;; quelpa and use-package both are provided a tools that download a package if it isn't installed. Why I shouldn't use
-;; it? One of the reasons is that I don't know that when I am coding this configure. And another reason is I think both
-;; file to manage different aim which can have a good file structure. I also download all the package at the first time
-;; then load them. This can deal with some problem in plugins that they have a optional dependency but being coded
-;; without after-load or a hook, which is the better safe method.
+;; use-package provide a tools that download a package if it isn't installed. Why I shouldn't use
+;; it? One of the reasons is that I don't know that when I am coding this configure. Another reason is I think both
+;; file to manage different aim which can have a good file structure. It also downloads all the necessary packages at
+;; once, some packages are only loaded in hook, we will not want to install them until we call them.
 
 ;;
 ;; define some variables for packages
@@ -117,7 +116,7 @@ is undefined(It always is loaded by alpha order)."
       (require pkg)))
 
 (use-package! paradox :config (paradox-enable))
-(use-package! package-utils)
+
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
