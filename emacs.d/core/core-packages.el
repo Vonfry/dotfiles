@@ -77,16 +77,6 @@ is undefined(It always is loaded by alpha order)."
 (defalias #'vonfry/update-packages     #'package-utils-upgrade-by-name)
 (defalias #'vonfry/update-all-packages #'package-utils-upgrade-all)
 
-(defmacro package! (pkg &optional min-version no-refresh)
-  "Define packages dependence and install it.
-
-  Use this macro in packages.el.
-
-  pkg is the name of the package.
-  min-version is a list of the package's minimum version. See more `version-list<=`.
-  no-refresh is not nil, it will refresh the `package-archive-content` before install."
-  `(vonfry--package! ',pkg ',min-version ,no-refresh))
-
 (defun vonfry--package! (pkg &optional min-version no-refresh)
   "Define packages dependence and install it.
 
@@ -101,7 +91,7 @@ is undefined(It always is loaded by alpha order)."
           (package-refresh-contents)
           (vonfry--package! pkg min-version t)))))
 
-(defalias #'use-package! #'use-package)
+(defalias #'package! #'use-package)
 
 ;; load the basic packages
 (dolist (pkg '(use-package))
