@@ -66,6 +66,7 @@ configure in modules.
 
 (custom-set-variables
   '(custom-file vonfry-custom-file)
+  '(save-abbrevs 'silently)
   '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
 
 (defun vonfry-system-sets (&rest alist)
