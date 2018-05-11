@@ -1,4 +1,6 @@
 ;;; debugger packages -*- lexical-binding: t -*-
 
 (package! realgud)
-; (package! realgud-lldb)
+(package! realgud-lldb
+  :disabled
+  :after realgud)

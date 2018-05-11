@@ -3,11 +3,10 @@
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
 
-(package! all-the-icons)
-(use-package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
+(package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
 
-(package! solarized-theme)
-(use-package! solarized
+(package! solarized
+  :ensure solarized-theme
   :config
   (load-theme 'solarized-dark t))
 
@@ -29,7 +28,7 @@
 
     (vonfry-system-sets '(darwin (chinese-font "Hei" 10)))))
 
-(use-package! info)
+(package! info)
 
 (custom-set-variables
   '(tool-bar-mode nil)
