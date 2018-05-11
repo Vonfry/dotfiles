@@ -1,4 +1,4 @@
-;;; eww config -*- lexical-binding: t -*-
+;;; eww packages -*- lexical-binding: t -*-
 
 (use-package! eww
   :custom

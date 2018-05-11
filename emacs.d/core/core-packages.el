@@ -5,8 +5,8 @@
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
-;; packages.el define the dependence with `package!`
-;; config.el define the configure with `use-package!`
+;; packages.el define the dependence and default configure with `package!`
+;; config.el which is added in gitignore define the custom configure.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
 ;;

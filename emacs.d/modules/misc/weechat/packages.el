@@ -1,3 +1,5 @@
 ;;; weechat packages -*- lexical-binding: t -*-
 
-(package! weechat)
+(package! weechat
+  ; It seems has some thing wrong.
+  :disabled)

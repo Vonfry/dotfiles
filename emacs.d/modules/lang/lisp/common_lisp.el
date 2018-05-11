@@ -1,6 +1,6 @@
 ;;; common lisp packages -*- lexical-binding: t -*-
 
-(use-package! slime
+(package! slime
   :config
   (setq inferior-lisp-program "sbcl") ;; set to other in custom.el
   (setq slime-contribs '(slime-fancy))
