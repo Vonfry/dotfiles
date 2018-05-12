@@ -42,6 +42,7 @@
       (imenu-add-menubar-index)))
   :general
   (nmap :keymaps '(LaTeX-mode tex-mode)
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "\\" 'TeX-insert-macro
         "-"  'TeX-recenter-output-buffer

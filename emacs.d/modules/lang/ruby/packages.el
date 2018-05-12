@@ -17,12 +17,14 @@
   (robe-mode . (lambda () (add-to-list (make-local-variable 'company-backends) 'company-robe))))
   :general
   (nmap :keymaps 'robe-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "." 'robe-jump
         "," 'robe-ask
         "?" 'robe-doc
         "#" 'robe-jump-to-module)
   (nmap :keymaps 'robe-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help 'robe-doc
         vonfry-keybind-evil-jump-module 'robe-jump-to-module))
@@ -30,6 +32,7 @@
 (package! chruby
   :general
   (nmap :keymaps 'robe-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "c" 'chruby-use))
 

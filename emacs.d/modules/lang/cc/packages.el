@@ -10,6 +10,7 @@
   (setq rtags-display-result-backend 'ivy)
   :general
   (nmap :keymaps 'rtags-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "'"  'rtags-print-symbol-info
         "c"  'rtags-print-dependencies
@@ -27,6 +28,7 @@
         "b"  'rtags-location-stack-back
         "f"  'rtags-location-stack-forward)
   (nmap :keymaps 'rtags-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help   'rtags-print-symbol-info
         vonfry-keybind-evil-jump-module 'rtags-include-file
@@ -41,6 +43,7 @@
 (package! call-graph
   :general
   (nmap :keymaps 'irony-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "g" 'call-graph))
 
@@ -61,6 +64,7 @@
 (package! disaster
   :general
   (nmap :keymaps 'irony-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "d" 'disaster))
 
@@ -82,6 +86,7 @@
   (gdb-show-main t)
   :general
   (nmap :keymaps 'irony-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "h" 'ff-find-other-file)
   :hook
@@ -112,6 +117,7 @@
   (moo-select-method 'ivy)
   :general
   (nmap :keymaps 'irony-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "."     'fa-jump
         "s"     'fa-show

@@ -9,10 +9,12 @@
   (haskell-decl-scan-mode t)
   :general
   (nmap :keymaps 'haskell-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-module 'haskell-navigate-imports
         vonfry-keybind-evil-run         'haskell-compile)
   (nmap :keymaps 'haskell-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "y" 'hasky-extensions
         "qh" 'hoogle
@@ -32,6 +34,7 @@
   :after haskell
   :general
   (nmap :keymaps 'intero-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "?" 'intero-info
         "t" 'intero-type-at
@@ -50,6 +53,7 @@
         "." 'intero-goto-definition
         ">" 'intero-uses-at)
   (nmap :keymaps 'intero-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help 'intero-info)
   :hook (haskell-mode .  intero-mode))

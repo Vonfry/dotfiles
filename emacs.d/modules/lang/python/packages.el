@@ -19,11 +19,13 @@
                    "jupyter")))
   :general
   (nmap :keymaps 'elpy-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help 'elpy-doc
         vonfry-keybind-evil-jump-module 'elpy-goto-location
         vonfry-keybind-evil-check 'elpy-check)
   (nmap :keymaps 'elpy-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "." 'elpy-goto-definition
         "?" 'elpy-doc
@@ -37,6 +39,7 @@
 (package! pyvenv
   :general
   (nmap :keymaps 'python-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "v" 'pyvenv-activate
         "d" 'pyvenv-deactivate
@@ -45,6 +48,7 @@
 (package! pydoc
   :general
   (nmap :keymaps 'python-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         "p" 'pydoc))
 

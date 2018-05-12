@@ -6,12 +6,14 @@
   :hook (js2-mode . js2-imenu-extras-mode)
   :general
   (nmap :keymaps 'js-mode
+        :definer 'minor-mode
         :prefix vonfry-keybind-evil-leader
          vonfry-keybind-evil-jump-module 'js-find-symbol))
 
 (package! tern
   :general
   (nmap :keymaps 'tern-mode
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
         ";" 'tern-find-definition
         "." 'tern-find-definition-by-name
