@@ -20,12 +20,11 @@
       (custom-set-variables '(compile-command "sbcl"))))
   (lisp-mode       . lispy-mode)
   (emacs-lisp-mode . lispy-mode)
-  (scheme-mode     . lispy-mode)
-  ((lisp-mode emacs-lisp-mode scheme-mode) .
-  (lambda ()
-    (nmap :keymaps 'local
-          :prefix vonfry-keybind-evil-leader
-          vonfry-keybind-evil-jump-module 'lispy-goto-local)))))
+  (scheme-mode     . lispy-mode))
+  :general
+  (nmap :keymaps 'lispy-mode
+        :prefix vonfry-keybind-evil-leader
+        vonfry-keybind-evil-jump-module 'lispy-goto-local))
 
 (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
 (load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))

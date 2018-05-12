@@ -99,8 +99,9 @@ is undefined(It always is loaded by alpha order)."
 
   Note: the &optional arguments has some different from `autoload`."
   (let* ((current-dir (file-name-directory load-file-name))
-         (autoload-dir (expand-file-name)))
-    (autoload func file docstring interactive type)))
+         (autoload-dir (expand-file-name "autoload" current-dir))
+         (autoload-file (expand-file-name file autoload-dir)))
+    (autoload func autoload-file docstring interactive type)))
 
 ;; load the basic packages
 (dolist (pkg '(use-package))

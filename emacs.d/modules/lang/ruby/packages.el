@@ -13,26 +13,23 @@
 (package! robe
   :hook
   ((enh-ruby-mode . robe-mode)
-  (robe-mode . robe-start)
-  (robe-mode .
-    (lambda ()
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            "." 'robe-jump
-            "," 'robe-ask
-            "?" 'robe-doc
-            "#" 'robe-jump-to-module)
-      (nmap :keymaps 'local
-            :prefix vonfry-keybind-evil-leader
-            vonfry-keybind-evil-code-help 'robe-doc
-            vonfry-keybind-evil-jump-module 'robe-jump-to-module)
-      (add-to-list (make-local-variable 'company-backends) 'company-robe)))))
+  (robe-mode . robe-start))
+  (robe-mode . (lambda () (add-to-list (make-local-variable 'company-backends) 'company-robe)))
+  :general
+  (nmap :keymaps 'robe-mode
+        :prefix +lang-nmap-prefix
+        "." 'robe-jump
+        "," 'robe-ask
+        "?" 'robe-doc
+        "#" 'robe-jump-to-module)
+  (nmap :keymaps 'local
+        :prefix vonfry-keybind-evil-leader
+        vonfry-keybind-evil-code-help 'robe-doc
+        vonfry-keybind-evil-jump-module 'robe-jump-to-module))
 
 (package! chruby
-  :hook
-  (robe-mode .
-    (lambda ()
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            "c" 'chruby-use))))
+  :general
+  (nmap :keymaps 'robe-mode
+        :prefix +lang-nmap-prefix
+        "c" 'chruby-use))
 
