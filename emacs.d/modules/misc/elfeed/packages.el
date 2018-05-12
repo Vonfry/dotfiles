@@ -1,4 +1,5 @@
 ;;; elfeed packages -*- lexical-binding: t -*-
+;;
 
 (package! elfeed
   :disabled
@@ -19,11 +20,6 @@
 (package! elfeed-org
   :disabled
   :after elfeed org
-  :init
-  (defcustom +elfeed-org-files (list (expand-file-name "feed.org" vonfry-local-dir))
-    "elfeed-org-files save dir"
-    :type '(list string)
-    :group 'vonfry-modules)
-  (custom-set-variables '(rmh-elfeed-org-files (list +elfeed-org-files)))
+  :custom (rmh-elfeed-org-files (list +elfeed-org-files))
   :config
   (elfeed-org))

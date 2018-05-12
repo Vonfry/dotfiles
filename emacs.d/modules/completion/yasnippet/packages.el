@@ -1,4 +1,5 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
+;;
 
 (package! yasnippet
   :after company
@@ -6,7 +7,7 @@
   (yas-snippet-dirs
     (list (expand-file-name "snippets/" vonfry-local-dir)
           (expand-file-name "snippets/" vonfry-custom-dir)))
-  :hook (prog-mode . yas-minor-mode)
+  :hook (company-mode . yas-minor-mode)
   :general
   ("M-'" 'company-yasnippet)
   :config

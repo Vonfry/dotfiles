@@ -22,12 +22,11 @@
   (semantic-mode t))
 
 (package! disaster
-  :hook
-  ((c-mode c++-mode objc-mode) .
-   (lambda ()
-      (nmap :keymaps 'local
+  :general
+  (nmap :keymaps '(c-mode c++-mode objc-mode)
+        :definer 'minor-mode
         :prefix +lang-nmap-prefix
-        "d" 'disaster))))
+        "d" 'disaster))
 
 ;; this is used in all program lang
 (package! compile
@@ -37,20 +36,17 @@
         vonfry-keybind-evil-run 'compile))
 
 (package! function-args
-  :init
-  (custom-set-variables
-    '(moo-select-method 'helm))
-  :hook
-  (((c-mode c++-mode objc-mode) . 'fa-config-default)
-  ((c-mode c++-mode objc-mode) .
-    (lambda()
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            "."     'fa-jump
-            "s"     'fa-show
-            "v"     'moo-propose-virtual
-            "o"     'moo-propose-override
-            "j"     'moo-jump-local)))))
+  :custom (moo-select-method 'helm)
+  :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
+  :general
+  (nmap :keymaps '(c-mode c++-mode objc-mode)
+        :definer 'minor-mode
+        :prefix +lang-nmap-prefix
+        "."     'fa-jump
+        "s"     'fa-show
+        "v"     'moo-propose-virtual
+        "o"     'moo-propose-override
+        "j"     'moo-jump-local))
 
 (package! cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")

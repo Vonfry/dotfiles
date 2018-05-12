@@ -1,4 +1,5 @@
 ;;; shell packages -*- lexical-binding: t -*-
+;;
 
 (setq eshell-cmpl-cycle-completions nil
       ;; auto truncate after 20k lines

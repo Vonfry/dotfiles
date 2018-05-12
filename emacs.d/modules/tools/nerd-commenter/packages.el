@@ -1,12 +1,7 @@
 ;;; nerd-commenter packages -*- lexical-binding: t -*-
+;;
 
 (package! evil-nerd-commenter
-  :init
-  (defcustom +nc-nmap-prefix
-    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-nerdcommenter)
-    "nerd-commenter prefix key"
-    :type 'string
-    :group 'vonfry-modules)
   :config
   (evilnc-default-hotkeys t)
   :general
