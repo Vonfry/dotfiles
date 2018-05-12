@@ -1,4 +1,5 @@
 ;;; smart-jump packages -*- lexical-binding: t -*-
+;;
 
 (package! smart-jump
   :after dumb-jump

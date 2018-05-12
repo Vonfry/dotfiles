@@ -1,4 +1,5 @@
 ;;; web packages -*- lexical-binding: t -*-
+;;
 
 (package! web-mode
   :config
@@ -32,10 +33,12 @@
   :hook
   (web-mode .
     (lambda ()
-      (rainbow-mode t)
-      (nmap :keymaps 'local
-            :prefix +lang-nmap-prefix
-            ";" 'web-mode-tag-select))))
+      (rainbow-mode t)))
+  :general
+  (nmap :keymaps 'web-mode
+        :definer 'minor-mode
+        :prefix +lang-nmap-prefix
+        ";" 'web-mode-tag-select))
 
 (package! haml-mode :after web-mode)
 

@@ -1,4 +1,5 @@
 ;;; yaml packages -*- lexical-binding: t -*-
+;;
 
 (package! yaml-mode
   :commands (markdown-mode gfm-mode)

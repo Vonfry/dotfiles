@@ -1,12 +1,7 @@
 ;;; dumb-jump packages -*- lexical-binding: t -*-
+;;
 
 (package! dumb-jump
-  :init
-  (defcustom +dumb-jump-nmap-prefix
-    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-jump)
-    "dumb jump nmap"
-    :type 'string
-    :group 'vonfry-modules)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-prompt 'dumb-jump-go-prompt)

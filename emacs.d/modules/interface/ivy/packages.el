@@ -1,4 +1,5 @@
 ;;; ivy packages -*- lexical-binding: t -*-
+;;
 
 (package! ivy)
 (package! swiper)

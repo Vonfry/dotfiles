@@ -1,4 +1,5 @@
 ;;; markdown packages -*- lexical-binding: t -*-
+;;
 
 (package! markdown-mode
   :commands (markdown-mode gfm-mode)

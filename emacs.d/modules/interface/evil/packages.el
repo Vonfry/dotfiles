@@ -1,12 +1,7 @@
 ;;; evil packages -*- lexical-binding: t -*-
+;;
 
 (package! evil
-  :init
-  (defcustom +evil-window-nmap-prefix
-    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-window)
-    "evil nmap with window"
-    :type 'string
-    :group 'vonfry-modules)
   :config
   (evil-mode 1)
   :custom
