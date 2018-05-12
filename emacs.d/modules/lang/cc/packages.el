@@ -77,11 +77,10 @@
 
 (package! irony
   :after yasnippet
-  :init
+  :custom
   (irony-user-dir +irony-dir)
   (irony-server-install-prefix +irony-dir)
   (irony-extra-cmake-args +irony-extra-cmake-args)
-  :custom
   (gdb-many-windows t)
   (gdb-show-main t)
   :general

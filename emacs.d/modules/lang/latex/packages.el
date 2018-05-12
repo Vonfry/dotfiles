@@ -39,7 +39,7 @@
       ;; have the buffer refresh after compilation
       (turn-on-reftex)
       (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
-      (imenu-add-menubar-index)))
+      (imenu-add-menubar-index))))
   :general
   (nmap :keymaps '(LaTeX-mode tex-mode)
         :definer 'minor-mode
@@ -91,7 +91,7 @@
         "zb" 'TeX-fold-buffer
         "ze" 'TeX-fold-env
         "zm" 'TeX-fold-macro
-        "zr" 'TeX-fold-region)))
+        "zr" 'TeX-fold-region))
 
 (package! auctex-latexmk
   :after latex
