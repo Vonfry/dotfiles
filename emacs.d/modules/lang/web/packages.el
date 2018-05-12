@@ -35,8 +35,7 @@
     (lambda ()
       (rainbow-mode t)))
   :general
-  (nmap :keymaps 'web-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'web-mode-map
         :prefix +lang-nmap-prefix
         ";" 'web-mode-tag-select))
 

@@ -5,8 +5,7 @@
   :mode ("\\.js\\'" . js2-mode)
   :hook (js2-mode . js2-imenu-extras-mode)
   :general
-  (nmap :keymaps 'js-mode
-        :definer 'minor-mode
+  (nmap :keymaps '(js-mode-map js2-mode-map)
         :prefix vonfry-keybind-evil-leader
          vonfry-keybind-evil-jump-module 'js-find-symbol))
 
