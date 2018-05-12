@@ -40,8 +40,9 @@
   :config
   (global-whitespace-cleanup-mode t))
 
-(package! exec-path-from-shell)
-(when (memq window-system '(mac ns x))
+(package! exec-path-from-shell
+  :when (memq window-system '(mac ns x))
+  :config
   (exec-path-from-shell-initialize))
 
 (custom-set-variables
