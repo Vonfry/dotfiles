@@ -38,8 +38,7 @@
 
 (package! pyvenv
   :general
-  (nmap :keymaps 'python-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'python-mode-map
         :prefix +lang-nmap-prefix
         "v" 'pyvenv-activate
         "d" 'pyvenv-deactivate
@@ -47,8 +46,7 @@
 
 (package! pydoc
   :general
-  (nmap :keymaps 'python-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'python-mode-map
         :prefix +lang-nmap-prefix
         "p" 'pydoc))
 

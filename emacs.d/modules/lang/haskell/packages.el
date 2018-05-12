@@ -8,13 +8,11 @@
   (imenu-add-menubar-index t)
   (haskell-decl-scan-mode t)
   :general
-  (nmap :keymaps 'haskell-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'haskell-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-module 'haskell-navigate-imports
         vonfry-keybind-evil-run         'haskell-compile)
-  (nmap :keymaps 'haskell-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'haskell-mode-map
         :prefix +lang-nmap-prefix
         "y" 'hasky-extensions
         "qh" 'hoogle

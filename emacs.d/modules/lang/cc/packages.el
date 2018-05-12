@@ -9,8 +9,7 @@
   :config
   (setq rtags-display-result-backend 'ivy)
   :general
-  (nmap :keymaps 'rtags-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'rtags-mode-map
         :prefix +lang-nmap-prefix
         "'"  'rtags-print-symbol-info
         "c"  'rtags-print-dependencies
@@ -27,8 +26,7 @@
         "u"  'rtags-find-virtuals-at-point
         "b"  'rtags-location-stack-back
         "f"  'rtags-location-stack-forward)
-  (nmap :keymaps 'rtags-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'rtags-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help   'rtags-print-symbol-info
         vonfry-keybind-evil-jump-module 'rtags-include-file
