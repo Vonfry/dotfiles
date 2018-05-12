@@ -23,8 +23,7 @@
 
 (package! disaster
   :general
-  (nmap :keymaps '(c-mode c++-mode objc-mode)
-        :definer 'minor-mode
+  (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
         :prefix +lang-nmap-prefix
         "d" 'disaster))
 
@@ -39,8 +38,7 @@
   :custom (moo-select-method 'helm)
   :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
   :general
-  (nmap :keymaps '(c-mode c++-mode objc-mode)
-        :definer 'minor-mode
+  (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
         :prefix +lang-nmap-prefix
         "."     'fa-jump
         "s"     'fa-show

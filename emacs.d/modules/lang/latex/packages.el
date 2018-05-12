@@ -41,8 +41,7 @@
       (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
       (imenu-add-menubar-index))))
   :general
-  (nmap :keymaps '(LaTeX-mode tex-mode)
-        :definer 'minor-mode
+  (nmap :keymaps '(LaTeX-mode-map tex-mode-map)
         :prefix +lang-nmap-prefix
         "\\" 'TeX-insert-macro
         "-"  'TeX-recenter-output-buffer
