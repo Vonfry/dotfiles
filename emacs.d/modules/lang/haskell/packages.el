@@ -1,4 +1,5 @@
 ;;; haskell config -*- lexical-binding: t -*-
+;;
 
 (package! haskell
   :ensure haskell-mode

@@ -1,4 +1,5 @@
 ;;; treemacs packages -*- lexical-binding: t -*-
+;;
 
 (package! treemacs
   :custom

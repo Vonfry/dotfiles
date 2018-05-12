@@ -64,6 +64,8 @@
 
   '(indent-tabs-mode nil)
   '(tab-width 4)
+  '(c-default-style "k&r")
+  '(c-basic-offset 4)
 
   '(scroll-bar-mode nil)
   '(scroll-preserve-screen-position 'always)
@@ -90,9 +92,13 @@
   '(tramp-default-method "ssh")
   '(tramp-auto-save-directory vonfry-tramp-cache)
   '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
-
   '(browse-url-browser-function 'browse-url-default-browser)
 
   '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir)))
+
+(unless (string-match "fish" (getenv "SHELL"))
+  (package! exec-path-from-shell
+  :when (memq window-system '(mac ns x))
+  :hook (after-init . (exec-path-from-shell-initialize))))
 
 (provide 'core-editor)

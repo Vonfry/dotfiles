@@ -1,4 +1,5 @@
 ;;; git packages -*- lexical-binding: t -*-
+;;
 
 (package! magit
   :general
@@ -16,8 +17,6 @@
 
 (package! magit-gitflow
   :after magit
-  :init
-  (defvar magit-gitflow-popup-key "C-x C-g")
   :hook
   (magit-mode . turn-on-magit-gitflow))
 

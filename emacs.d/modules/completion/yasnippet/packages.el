@@ -1,4 +1,5 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
+;;
 
 (package! yasnippet
   :after company

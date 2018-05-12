@@ -1,4 +1,5 @@
 ;;; lisp packages -*- lexical-binding: t -*-
+;;
 
 (package! eldoc
   :ensure nil

@@ -73,26 +73,12 @@
 (package! irony
   :after yasnippet
   :init
-  (defcustom +irony-dir
-    (expand-file-name "irony/" vonfry-local-dir)
-    "irony local dir"
-    :type 'directory
-    :group 'vonfry-modules)
-  (defcustom +irony-extra-cmake-args
-    (if (eq system-type 'darwin)
-      (list "-DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++"
-            "-DCMAKE_C_COMPILER=/usr/local/opt/llvm/bin/clang"
-            "-DCMAKE_PREFIX_PATH=/usr/local/opt/llvm")
-      nil)
-    "Set irony-extra-cmake-args. It is mainly for macos."
-    :type '(repeat string)
-    :group 'vonfry-modules)
-  (custom-set-variables
-    '(irony-user-dir +irony-dir)
-    '(irony-server-install-prefix +irony-dir)
-    '(irony-extra-cmake-args +irony-extra-cmake-args))
-  :config
-  ;; (irony-install-server) should be run at first.
+  (irony-user-dir +irony-dir)
+  (irony-server-install-prefix +irony-dir)
+  (irony-extra-cmake-args +irony-extra-cmake-args)
+  :custom
+  (gdb-many-windows t)
+  (gdb-show-main t)
   :hook
   ((c++-mode . irony-mode)
   (c-mode . irony-mode)
@@ -101,12 +87,6 @@
 	(irony-mode .
 		(lambda()
 			(package! cc-mode :ensure nil)
-			(custom-set-variables
-				'(c-default-style "k&r")
-				'(c-basic-offset 4))
-			(setq
-				gdb-many-windows t
-				gdb-show-main t)
 			(nmap :keymaps 'local
 	 			  :prefix +lang-nmap-prefix
 				  "h" 'ff-find-other-file)))))
@@ -143,13 +123,8 @@
 (package! cmake-mode
   :custom
   (compile-command "cmake")
-  :config
-	(setq auto-mode-alist
-		(append
-			'(("CMakeLists\\.txt\\'" . cmake-mode))
-			'(("\\.cmake\\'" . cmake-mode))
-			auto-mode-alist))
-  (autoload 'cmake-mode "~/CMake/Auxiliary/cmake-mode.el" t))
+  :mode (("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode)))
 
 (package! cmake-font-lock
   :after cmake-mode

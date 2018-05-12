@@ -1,4 +1,5 @@
 ;;; eww packages -*- lexical-binding: t -*-
+;;
 
 (package! eww
   :ensure nil

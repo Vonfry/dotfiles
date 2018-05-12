@@ -1,4 +1,5 @@
 ;;; javascript packages -*- lexical-binding: t -*-
+;;
 
 (package! js2-mode
   :mode ("\\.js\\'" . js2-mode)

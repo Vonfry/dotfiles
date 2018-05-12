@@ -3,10 +3,11 @@
 ;; Define packages manager with use-package.
 ;;
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
-;; submodule, packages.el, config.el and autoload file can be loaded automatically by the writting order. The other file
+;; submodule, config.el, packages.el and func.el file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
+;; config.el define custom, const and other orvarible for configure .
 ;; packages.el define the dependence and default configure with `package!`
-;; config.el which is added in gitignore define the custom configure.
+;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
 ;;
@@ -93,13 +94,20 @@ is undefined(It always is loaded by alpha order)."
 
 (defalias #'package! #'use-package)
 
+(defun autoload! (func file &optional interactive docstring type)
+  "autoload file with current load file dir which is called in submodules.
+
+  Note: the &optional arguments has some different from `autoload`."
+  (let* ((current-dir (file-name-directory load-file-name))
+         (autoload-dir (expand-file-name)))
+    (autoload func file docstring interactive type)))
+
 ;; load the basic packages
 (dolist (pkg '(use-package))
   (unless (require pkg nil t)
       (vonfry--package! pkg)
       (require pkg)))
 
-(package! general)
 (package! package-utils)
 (package! paradox :config (paradox-enable))
 (package! diminish)
@@ -128,15 +136,7 @@ is undefined(It always is loaded by alpha order)."
   (vonfry-load-module module-name "config"))
 
 (defun vonfry-load-autoload (module-name)
-  "Load the autoload part in a path. It will load autoload.el, or files in autoload dir."
-  (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
-         (autoload-file (expand-file-name "autoload.el" module-dir))
-         (autoload-dir (expand-file-name "autoload/" module-dir)))
-    (when (file-exists-p autoload-file)
-      (load autoload-file))
-    (when (file-exists-p autoload-dir)
-      (dolist (l (directory-files-recursively autoload-dir "^[^\\.].*"))
-        (load l)))))
+  (vonfry-load-module module-name "func"))
 
 (defun vonfry-load-modules (&rest exclude)
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
@@ -153,8 +153,8 @@ modules."
           (let ((module-name (concat module "/" submodule)))
             (unless (member  module-name exclude))
               (push module-name module-alist))))
-      (mapcar 'vonfry-load-module-packages module-alist)
       (mapcar 'vonfry-load-module-config module-alist)
+      (mapcar 'vonfry-load-module-packages module-alist)
       (mapcar 'vonfry-load-autoload module-alist)))
 
 (provide 'core-packages)

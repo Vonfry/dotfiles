@@ -1,4 +1,5 @@
 ;;; ruby packages -*- lexical-binding: t -*-
+;;
 
 (package! enh-ruby-mode
   :mode (("Appraisals\\'" . enh-ruby-mode)

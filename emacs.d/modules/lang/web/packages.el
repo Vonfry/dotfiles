@@ -1,4 +1,5 @@
 ;;; web packages -*- lexical-binding: t -*-
+;;
 
 (package! web-mode
   :config

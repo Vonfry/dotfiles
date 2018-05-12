@@ -1,5 +1,5 @@
 ;;; latex packages -*- lexical-binding: t -*-
-
+;;
 
 (package! latex
   :ensure auctex
