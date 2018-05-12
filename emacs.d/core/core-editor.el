@@ -40,11 +40,6 @@
   :config
   (global-whitespace-cleanup-mode t))
 
-(package! exec-path-from-shell
-  :when (memq window-system '(mac ns x))
-  :config
-  (exec-path-from-shell-initialize))
-
 (custom-set-variables
   '(exec-path-from-shell-check-startup-files nil)
   '(initial-frame-alist vonfry-frame)
@@ -97,9 +92,9 @@
 
   '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir)))
 
-(unless (string-match "fish" (getenv "SHELL"))
-  (package! exec-path-from-shell
-  :when (memq window-system '(mac ns x))
-  :hook (after-init . (exec-path-from-shell-initialize))))
+(package! exec-path-from-shell
+  :when (and (memq window-system '(mac ns x)) (not (string-match "fish" (getenv "SHELL"))))
+  :config
+  (exec-path-from-shell-initialize))
 
 (provide 'core-editor)

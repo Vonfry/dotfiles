@@ -33,10 +33,11 @@
         vonfry-keybind-evil-code-help   'rtags-print-symbol-info
         vonfry-keybind-evil-jump-module 'rtags-include-file
         vonfry-keybind-evil-code        'rtags-imenu)
-  :hook (irony-mode .
+  :hook
+  (irony-mode .
     (lambda ()
       ;; this is installed by the cflow package on os
-            (rtags-start-process-unless-running)
+      (rtags-start-process-unless-running)
       (rtags-enable-standard-keybindings))))
 
 (package! cflow-mode :ensure nil)
