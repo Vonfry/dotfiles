@@ -1,4 +1,5 @@
 ;;; spaceline packages -*- lexical-binding: t -*-
+;;
 
 (package! spaceline
   :init

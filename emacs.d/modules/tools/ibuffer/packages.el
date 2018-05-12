@@ -1,4 +1,5 @@
 ;;; ibuffer packages -*- lexical-binding: t -*-
+;;
 
 (package! ibuffer
   :ensure nil
