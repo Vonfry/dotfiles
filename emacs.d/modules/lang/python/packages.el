@@ -18,14 +18,12 @@
       (add-to-list 'python-shell-completion-native-disabled-interpreters
                    "jupyter")))
   :general
-  (nmap :keymaps 'elpy-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'elpy-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help 'elpy-doc
         vonfry-keybind-evil-jump-module 'elpy-goto-location
         vonfry-keybind-evil-check 'elpy-check)
-  (nmap :keymaps 'elpy-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'elpy-mode-map
         :prefix +lang-nmap-prefix
         "." 'elpy-goto-definition
         "?" 'elpy-doc

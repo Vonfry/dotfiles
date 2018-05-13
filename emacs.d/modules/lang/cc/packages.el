@@ -9,7 +9,8 @@
   :config
   (setq rtags-display-result-backend 'ivy)
   :general
-  (nmap :keymaps 'rtags-mode-map
+  ;; rtags mode map & minor mode cannot work correctly
+  (nmap :keymaps 'irony-mode-map
         :prefix +lang-nmap-prefix
         "'"  'rtags-print-symbol-info
         "c"  'rtags-print-dependencies
@@ -26,7 +27,7 @@
         "u"  'rtags-find-virtuals-at-point
         "b"  'rtags-location-stack-back
         "f"  'rtags-location-stack-forward)
-  (nmap :keymaps 'rtags-mode-map
+  (nmap :keymaps 'irony-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help   'rtags-print-symbol-info
         vonfry-keybind-evil-jump-module 'rtags-include-file
@@ -41,8 +42,7 @@
 (package! cflow-mode :ensure nil)
 (package! call-graph
   :general
-  (nmap :keymaps 'irony-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'irony-mode-map
         :prefix +lang-nmap-prefix
         "g" 'call-graph))
 
@@ -62,8 +62,7 @@
 
 (package! disaster
   :general
-  (nmap :keymaps 'irony-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'irony-mode-map
         :prefix +lang-nmap-prefix
         "d" 'disaster))
 
@@ -83,8 +82,7 @@
   (gdb-many-windows t)
   (gdb-show-main t)
   :general
-  (nmap :keymaps 'irony-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'irony-mode-map
         :prefix +lang-nmap-prefix
         "h" 'ff-find-other-file)
   :hook
@@ -114,8 +112,7 @@
   :custom
   (moo-select-method 'ivy)
   :general
-  (nmap :keymaps 'irony-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'irony-mode-map
         :prefix +lang-nmap-prefix
         "."     'fa-jump
         "s"     'fa-show

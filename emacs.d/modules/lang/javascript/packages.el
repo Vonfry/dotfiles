@@ -11,8 +11,7 @@
 
 (package! tern
   :general
-  (nmap :keymaps 'tern-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'tern-mode-keymap
         :prefix +lang-nmap-prefix
         ";" 'tern-find-definition
         "." 'tern-find-definition-by-name

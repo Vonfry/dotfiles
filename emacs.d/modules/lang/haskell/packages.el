@@ -31,8 +31,7 @@
 (package! intero
   :after haskell
   :general
-  (nmap :keymaps 'intero-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'intero-mode-map
         :prefix +lang-nmap-prefix
         "?" 'intero-info
         "t" 'intero-type-at
@@ -50,8 +49,7 @@
         "r" 'intero-highlight-uses-mode-replace
         "." 'intero-goto-definition
         ">" 'intero-uses-at)
-  (nmap :keymaps 'intero-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'intero-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-code-help 'intero-info)
   :hook (haskell-mode .  intero-mode))

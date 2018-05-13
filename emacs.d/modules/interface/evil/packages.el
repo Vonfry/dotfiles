@@ -10,8 +10,8 @@
   (nmap "gB" 'previous-buffer
         "gb" 'next-buffer)
   (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-terminal      'eshell
-        vonfry-keybind-evil-marks         'evil-show-marks)
+        vonfry-keybind-evil-terminal 'eshell
+        vonfry-keybind-evil-marks    'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix
         "v" 'split-window-vertically
         "h" 'split-window-horizontally
