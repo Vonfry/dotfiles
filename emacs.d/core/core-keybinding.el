@@ -5,6 +5,10 @@
 ;;
 ;; The name with evil means that the keybind use with <leader> in evil-normal. I don't use `general-default-prefix` to
 ;; set leader because there are some normal bind withou leader.
+;;
+;; All local map set for major or minor mode map by default. Only if the minor mode hasn't a map, such as robe, using
+;; evil minor mode map instead which use a hook to add into local map.
+;; All keybind use general.el to manage.
 
 (defcustom vonfry-keybind-evil-leader "<SPC>"
   "Leader key"

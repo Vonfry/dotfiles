@@ -22,8 +22,7 @@
   (emacs-lisp-mode . lispy-mode)
   (scheme-mode     . lispy-mode))
   :general
-  (nmap :keymaps 'lispy-mode
-        :definer 'minor-mode
+  (nmap :keymaps 'lispy-mode-map
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-module 'lispy-goto-local))
 
