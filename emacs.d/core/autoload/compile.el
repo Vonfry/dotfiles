@@ -9,7 +9,7 @@
   (interactive)
   (mapcar
     (lambda (f) (delete-file f nil))
-    (directory-files-recursively vonfry-config-dir "^.*\\.elc$")))
+    (directory-files-recursively vonfry-config-dir "^.*\\.elc$"))
   (mapcar
     (lambda (f) (byte-compile-file f))
     (directory-files-recursively vonfry-config-dir "^.*\\.el$")))
