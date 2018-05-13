@@ -117,6 +117,13 @@ is undefined(It always is loaded by alpha order)."
   :custom
   (auto-package-update-delete-old-versions t)
   (auto-package-update-hide-results t))
+(package! auto-compile
+  :custom
+  (load-prefer-newer t)
+  (auto-compile-display-buffer nil)
+  :config
+  (auto-compile-on-load-mode)
+  (auto-compile-on-save-mode))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

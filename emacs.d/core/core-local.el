@@ -51,23 +51,14 @@ user's downloads dir"
   :group 'vonfry-dir)
 
 (defcustom vonfry-custom-file-before (expand-file-name "custom-before.el" vonfry-custom-dir)
-  "custom for user's emacs. The file is loaded before modules. You can set some variables at here which affect the
-configure in modules.
-  You can only custom the var in init file, I think."
+  "custom for user's emacs. The file is loaded before core-editor. You can set some variables at here which
+ affect the configure in modules.  You can only custom the var in init file, I think."
   :type 'file
   :group 'vonfry-dir)
 
 (dolist (dir (list vonfry-temp-dir vonfry-org-dir))
   (unless (file-exists-p dir)
     (make-directory dir)))
-
-(when (file-exists-p vonfry-custom-file-before)
-  (load vonfry-custom-file-before))
-
-(custom-set-variables
-  '(custom-file vonfry-custom-file)
-  '(save-abbrevs 'silently)
-  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
 
 (defun vonfry-system-sets (&rest alist)
   "set with system type. The param is a list like (darwin (message \"darwin\") (message \"MacOS\")). The first element

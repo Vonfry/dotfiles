@@ -40,6 +40,9 @@
   :config
   (global-whitespace-cleanup-mode t))
 
+(when (file-exists-p vonfry-custom-file-before)
+  (load vonfry-custom-file-before))
+
 (custom-set-variables
   '(exec-path-from-shell-check-startup-files nil)
   '(initial-frame-alist vonfry-frame)
@@ -90,7 +93,11 @@
   '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
   '(browse-url-browser-function 'browse-url-default-browser)
 
-  '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir)))
+  '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir))
+
+  '(custom-file vonfry-custom-file)
+  '(save-abbrevs 'silently)
+  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
 
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x)) (not (string-match "fish" (getenv "SHELL"))))
