@@ -4,6 +4,7 @@
 (package! evil
   :config
   (evil-mode 1)
+  (fset 'evil-visual-update-x-selection 'ignore)
   :custom
   (evil-shift-width 4)
   :general
