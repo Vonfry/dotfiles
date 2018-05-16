@@ -122,6 +122,7 @@ is undefined(It always is loaded by alpha order)."
   (load-prefer-newer t)
   (auto-compile-display-buffer nil)
   (auto-compile-mode-line-counter t)
+  (apu-last-update-day-filename (expand-file-name "last-package-update-day" vonfry-local-dir))
   :config
   (auto-compile-on-load-mode)
   (auto-compile-on-save-mode))
