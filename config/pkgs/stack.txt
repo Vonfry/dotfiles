@@ -1,3 +1,4 @@
 hoogle
 stack-run
 dhall
+hindent

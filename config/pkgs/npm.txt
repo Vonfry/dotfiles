@@ -3,6 +3,7 @@ typescript
 grunt-cli
 
 tern
+prettier
 
 diff-so-fancy
 mathjax-node-cli
