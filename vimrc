@@ -246,8 +246,7 @@ function! Tab2()
     set shiftwidth=2
     set tabstop=2
 endfunction
-au Filetype lisp call Tab2()
-au Filetype sass call Tab2()
+au Filetype lisp,sass,haskell call Tab2()
 
 " ctags
 set cpoptions+=d
