@@ -4,7 +4,7 @@
 (package! haskell
   :ensure haskell-mode
   :custom
-  (haskell-indentation-layout-offset 4)
+  (haskell-indentation-layout-offset 2)
   (imenu-add-menubar-index t)
   (haskell-decl-scan-mode t)
   :general
