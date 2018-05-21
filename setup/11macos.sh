@@ -39,7 +39,6 @@ brew reinstall tmux
 # C & Cpp libs
 brew reinstall gcc --with-nls
 brew reinstall llvm --with-lldb --with-graphviz --with-toolchain # This is a dependence for other app(i.e. rtags), and use it insteaded of system llvm(xcode).
-brew reinstall scons # a cross build tools
 brew reinstall gdb --with-all-targets --with-python
 brew reinstall cmake --with-completion
 brew reinstall ninja
