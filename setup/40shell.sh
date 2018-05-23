@@ -1,11 +1,11 @@
 echo_info "** setup shell var"
 
-echo "export CMD_CUSTOM_DIR=$HOME/.cmd-custom"             >> $script_dir/cmd-custom/defvar.sh
-echo "export CMD_CUSTOM_DIR_LOCAL=$HOME/.cmd-custom/local" >> $script_dir/cmd-custom/defvar.sh
-echo "export DOTFILES_SOURCE_DIR=$script_dir"              >> $script_dir/cmd-custom/defvar.sh
-echo "export DOTFILES_DIR=$HOME/dotfiles"                  >> $script_dir/cmd-custom/defvar.sh
-echo "export DOTFILES_PKGS_DIR=$script_dir/config/pkgs"    >> $script_dir/cmd-custom/defvar.sh
-echo "export DROPBOX_DIR=$dropbox_dir"                     >> $script_dir/cmd-custom/defvar.sh
+echo "export CMD_CUSTOM_DIR=$HOME/.cmd-custom"             >> $script_dir/config/cmd-custom/defvar.sh
+echo "export CMD_CUSTOM_DIR_LOCAL=$HOME/.cmd-custom/local" >> $script_dir/config/cmd-custom/defvar.sh
+echo "export DOTFILES_SOURCE_DIR=$script_dir"              >> $script_dir/config/cmd-custom/defvar.sh
+echo "export DOTFILES_DIR=$HOME/dotfiles"                  >> $script_dir/config/cmd-custom/defvar.sh
+echo "export DOTFILES_PKGS_DIR=$script_dir/config/pkgs"    >> $script_dir/config/cmd-custom/defvar.sh
+echo "export DROPBOX_DIR=$dropbox_dir"                     >> $script_dir/config/cmd-custom/defvar.sh
 
 echo_note "-- Input a path where you will save libs those you downloaded. The path will be saved into a var named
 CLONE_LIB which define in $script_dir/cmd-custom/defvar.sh"
