@@ -31,10 +31,10 @@ unset git_global_gpg
 
 echo_note "--- input gitlab url(please contain protocol and end `/`) "
 read gitlab_url
-echo "export GITLAB_API_ENDPOINT=${gitlab_url}api/v4" > $script_dir/config/shell/local/defvar.sh
+echo "export GITLAB_API_ENDPOINT=${gitlab_url}api/v4" > $script_dir/config/shell/defvar.sh
 echo_note "--- input gitlab token "
 read gitlab_token
-echo "export GITLAB_API_PRIVATE_TOKEN=${gitlab_token}" > $script_dir/config/shell/local/defvar.sh
+echo "export GITLAB_API_PRIVATE_TOKEN=${gitlab_token}" > $script_dir/config/shell/defvar.sh
 
 unset gitlab_url
 unset gitlab_token
