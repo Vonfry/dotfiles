@@ -147,10 +147,10 @@ function vonfry-update()
     unset ECHO_MSG
     unset ECHO_RST
     unset current_dir
-    echo $(_current_epoch) >! $CMD_CUSTOM_DIR/local/.update_epoch
+    echo $(_current_epoch) >! $SHELL_CUSTOM_DIR/local/.update_epoch
 }
 
-update_epoch_file=$CMD_CUSTOM_DIR/local/.update_epoch
+update_epoch_file=$SHELL_CUSTOM_DIR/local/.update_epoch
 need_update=1
 if [ -f $update_epoch_file ]; then
     read last_update < $update_epoch_file
