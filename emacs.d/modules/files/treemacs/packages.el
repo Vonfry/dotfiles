@@ -29,8 +29,6 @@
 
 (package! treemacs-projectile
   :after projectile treemacs
-  :config
-  (setq treemacs-header-function #'treemacs-projectile-create-header)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
     vonfry-keybind-evil-treenode 'treemacs-projectile))
