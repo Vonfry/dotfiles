@@ -33,4 +33,4 @@
   (setq treemacs-header-function #'treemacs-projectile-create-header)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-treenode 'treemacs-projectile-toggle))
+    vonfry-keybind-evil-treenode 'treemacs-projectile))
