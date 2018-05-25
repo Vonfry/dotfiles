@@ -25,8 +25,7 @@
    (treemacs-git-mode 'simple))))
 
 (package! treemacs-evil
-  :after treemacs evil
-  :demand t)
+  :after treemacs evil)
 
 (package! treemacs-projectile
   :after projectile treemacs
