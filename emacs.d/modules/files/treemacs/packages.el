@@ -22,13 +22,13 @@
   (`(t . t)
    (treemacs-git-mode 'extended))
   (`(t . _)
-   (treemacs-git-mode 'simple))))
+   (treemacs-git-mode 'simple)))
+  :general
+  (nmap :prefix vonfry-keybind-evil-leader
+    vonfry-keybind-evil-treenode 'treemacs))
 
 (package! treemacs-evil
   :after treemacs evil)
 
 (package! treemacs-projectile
-  :after projectile treemacs
-  :general
-  (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-treenode 'treemacs-projectile))
+  :after projectile treemacs)
