@@ -116,16 +116,17 @@ is undefined(It always is loaded by alpha order)."
 (package! auto-package-update
   :custom
   (auto-package-update-delete-old-versions t)
+  (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-local-dir))
   (auto-package-update-hide-results t))
 (package! auto-compile
   :custom
   (load-prefer-newer t)
   (auto-compile-display-buffer nil)
   (auto-compile-mode-line-counter t)
-  (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-local-dir))
+  (auto-compile-source-recreate-deletes-dest t)
   :config
-  (auto-compile-on-load-mode)
-  (auto-compile-on-save-mode))
+  (auto-compile-on-load-mode t)
+  (auto-compile-on-save-mode t))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
