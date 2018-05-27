@@ -12,7 +12,6 @@ gem "rufo"
 
 
 # tools
-gem "starscope"
 gem "sass"
 gem "compass"
 gem "nokogiri"

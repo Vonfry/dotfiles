@@ -109,8 +109,9 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 brew cask install provisionql
 brew cask install quicklook-pat
 
-# My emacs cunfigure has a auto-upgrade everytime opening it, so start it by ourselves is possibly better.
-brew services start emacs
+# brew services start emacs
+# Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
+brew services start rtags
 
 sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 
