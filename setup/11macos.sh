@@ -47,8 +47,7 @@ brew reinstall boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
-brew reinstall global --with-ctags --with-pygments --with-sqlite3
-brew reinstall cscope
+brew reinstall rtags --without-emacs
 brew reinstall doxygen --with-doxywizard --with-graphviz
 
 # code search
