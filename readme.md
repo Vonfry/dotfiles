@@ -22,46 +22,39 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 ## system
 
 - [x] macOS
-- [ ] Gentoo
 
-    It is also testing, and without X11. See [todo](#todo) 
+- [ ] Gentoo - It is also testing, and without X11. See todo](#todo)
 
-- [ ]  NixOS 
+- [ ] NixOS - I'm trying it. Used possiblly is it or nix.
 
-    I'm trying it. Used possiblly is it or nix. 
+- [ ] (abandoned)Fedora - stop maintaining
 
-- [ ] +Fedora+ 
+      
 
-    stop maintaining
-
-    If you want to see it, please use `git checkout` or see other os' scripts 
+      If you want to see it, please use git checkout` or see other os' scripts
 
 ## command-line
 
-- [x] zsh
-- [x] +fish+ 
-
-    stop maintaining
-
-    you can check tag `20180502.146` to use it. 
+- [x]  zsh
+- [x]  +fish+ stop maintainingyou can check tag `20180502.146` to use it. 
 
 ## editor
 
 - [X] Vim
-- [ ] Neovim ( Emmmm... )
+- [ ]  Neovim ( Emmmm... )
 - [X] Emacs
-    Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
+  Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
 ## lang
 
 - orgmode & latex
-- C/C++ (clang/llvm)
-- Haskell (ghc & stack)
+- C/C++ - clang/llvm
+- Haskell - ghc & stack
 - Lisp
-- Ruby ( chenv )
+- Ruby - chenv 
 - R 
 - Python3 
-- Web (js, html, css/sass, ts)
+- Web - js, html, css/sass, ts
 
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
 developing environment.
