@@ -125,8 +125,7 @@ is undefined(It always is loaded by alpha order)."
   (auto-compile-mode-line-counter t)
   (auto-compile-source-recreate-deletes-dest t)
   :config
-  (auto-compile-on-load-mode t)
-  (auto-compile-on-save-mode t))
+  (auto-compile-on-load-mode t))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

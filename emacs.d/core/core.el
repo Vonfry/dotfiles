@@ -35,10 +35,8 @@
   :type 'string
   :group 'vonfry-dir)
 
-(defcustom vonfry-core-dir (expand-file-name "core" vonfry-config-dir)
-  "The dir to saves the core module."
-  :group 'vonfry
-  :type 'string-dir)
+(defconst vonfry-core-dir (expand-file-name "core/" vonfry-config-dir)
+  "The dir to saves the core module.")
 
 (defcustom vonfry-debug nil
   "debug flag."
