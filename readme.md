@@ -27,23 +27,23 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 - [ ] NixOS - I'm trying it. Used possiblly is it or nix.
 
-- [ ] (abandoned)Fedora - stop maintaining
+- [ ] ~~Fedora~~ - stop maintaining
 
-      
-
-      If you want to see it, please use git checkout` or see other os' scripts
+```
+  If you want to see it, please use git checkout` or see other os' scripts
+```
 
 ## command-line
 
 - [x]  zsh
-- [x]  +fish+ stop maintainingyou can check tag `20180502.146` to use it. 
+- [x]  ~~fish~~ stop maintaining. You can check tag `20180502.146` to use it. 
 
 ## editor
 
-- [X] Vim
+- [x]  Vim
 - [ ]  Neovim ( Emmmm... )
-- [X] Emacs
-  Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
+- [x]  Emacs
+Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
 ## lang
 
@@ -51,7 +51,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - C/C++ - clang/llvm
 - Haskell - ghc & stack
 - Lisp
-- Ruby - chenv 
+- Ruby - chenv 
 - R 
 - Python3 
 - Web - js, html, css/sass, ts
