@@ -8,8 +8,9 @@
   :custom
   (evil-shift-width 4)
   :general
-  (nmap "gB" 'previous-buffer
-        "gb" 'next-buffer)
+  (nmap :prefix "g"
+        "B" 'previous-buffer
+        "b" 'next-buffer)
   (nmap :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-terminal 'eshell
         vonfry-keybind-evil-marks    'evil-show-marks)
