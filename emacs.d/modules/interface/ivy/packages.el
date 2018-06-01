@@ -20,7 +20,6 @@
         vonfry-keybind-evil-buffer-switch 'ivy-switch-buffer))
 (package! ivy-rich
   :after counsel
-  :hook (minibuffer-setup . (lambda () (setq show-trailing-whitespace nil)))
   :config
   (advice-add 'ivy-rich-switch-buffer-pad :override
               (lambda (str len &optional left)
