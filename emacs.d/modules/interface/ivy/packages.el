@@ -18,3 +18,7 @@
         vonfry-keybind-evil-swoop 'swiper
         vonfry-keybind-evil-marks 'counsel-mark-ring
         vonfry-keybind-evil-buffer-switch 'ivy-switch-buffer))
+(package! ivy-rich
+  :after counsel
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
