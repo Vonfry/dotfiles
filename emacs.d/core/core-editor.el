@@ -99,6 +99,8 @@
   '(save-abbrevs 'silently)
   '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
 
+(add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
+
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x)) (not (string-match "fish" (getenv "SHELL"))))
   :config
