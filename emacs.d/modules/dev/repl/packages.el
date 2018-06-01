@@ -3,7 +3,7 @@
 
 (package! repl-toggle
   :custom
-  (rtog/goto-buffer-fun 'switch-to-buffer)
+  (rtog/goto-buffer-fun 'pop-to-buffer)
   (rtog/mode-repl-alist '((emacs-lisp-mode . ielm)
                           (ruby-mode . inf-ruby)
                           (haskell-mode . intero-repl)
