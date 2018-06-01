@@ -3,5 +3,5 @@
 
 (package! diff-hl
   :hook
-  ((prog-mode . turn-on-diff-hl-mode)
+  ((text-mode . turn-on-diff-hl-mode)
   (vc-dir-mode . turn-on-diff-hl-mode)))
