@@ -117,7 +117,9 @@ is undefined(It always is loaded by alpha order)."
   :custom
   (auto-package-update-delete-old-versions t)
   (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-local-dir))
-  (auto-package-update-hide-results t))
+  (auto-package-update-hide-results t)
+  :config
+  (auto-package-update-minor-mode))
 (package! auto-compile
   :custom
   (load-prefer-newer t)

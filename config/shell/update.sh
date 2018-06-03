@@ -101,13 +101,8 @@ function vonfry-update()
         cd ~/.vim/bundle/vimproc.vim/ && make
     fi
 
-    if [ -f ~/.emacs.d/init.el ]; then
-        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}"
-        echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Emacs will be killed.${ECHO_RST}"
-        killall emacs
-        emacs --batch --load $DOTFILES_DIR/emacs.d/init.el --eval "(package-refresh-contents)" --eval "(vonfry/update-all-packages)"
-        unset whether_do_kill
-    fi
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}"
+    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please update by yourself.${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
 
