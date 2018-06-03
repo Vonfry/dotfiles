@@ -13,4 +13,4 @@
   (global-undo-tree-mode)
   :general
   (nmap :prefix +undotree-nmap-prefix
-        vonfry-keybind-evil-undotree 'undo-tree-visualize))
+    vonfry-keybind-evil-undotree 'undo-tree-visualize))
