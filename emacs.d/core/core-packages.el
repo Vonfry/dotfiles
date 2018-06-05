@@ -109,7 +109,6 @@ is undefined(It always is loaded by alpha order)."
       (vonfry--package! pkg)
       (require pkg)))
 
-(package! use-package-ensure-system-package)
 (package! package-utils)
 (package! paradox :config (paradox-enable))
 (package! diminish)
@@ -128,7 +127,8 @@ is undefined(It always is loaded by alpha order)."
   (auto-compile-mode-line-counter t)
   (auto-compile-source-recreate-deletes-dest t)
   :config
-  (auto-compile-on-load-mode t))
+  (auto-compile-on-load-mode t)
+  (auto-compile-on-save-mode t))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
