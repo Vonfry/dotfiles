@@ -109,6 +109,7 @@ is undefined(It always is loaded by alpha order)."
       (vonfry--package! pkg)
       (require pkg)))
 
+(package! use-package-ensure-system-package)
 (package! package-utils)
 (package! paradox :config (paradox-enable))
 (package! diminish)
