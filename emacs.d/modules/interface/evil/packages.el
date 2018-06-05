@@ -57,8 +57,3 @@
   :after evil
   :config
   (global-evil-matchit-mode 1))
-
-(package! evil-lion
-  :after evil
-  :config
-  (evil-lion-mode t))
