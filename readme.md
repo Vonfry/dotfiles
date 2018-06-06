@@ -23,20 +23,20 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 - [x] macOS
 
-- [ ] Gentoo - It is also testing, and without X11. See todo](#todo)
+- [ ] Gentoo - It is also testing, and without X11. See [todo](#todo)
 
 - [ ] NixOS - I'm trying it. Used possiblly is it or nix.
 
-- [ ] ~~Fedora~~ - stop maintaining
-
-```
-  If you want to see it, please use git checkout` or see other os' scripts
-```
+- [ ] ~~Fedora~~ - stop maintaining, You can check the old tag to take a look.
 
 ## command-line
 
 - [x]  zsh
-- [x]  ~~fish~~ stop maintaining. You can check tag `20180502.146` to use it. 
+- [x]  ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it. 
+
+## window manager
+
+- [ ] XMonad
 
 ## editor
 
