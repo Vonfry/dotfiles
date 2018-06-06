@@ -2,7 +2,6 @@ typescript
 
 grunt-cli
 
-tern
 prettier
 
 diff-so-fancy
