@@ -16,6 +16,3 @@ mkdir ~/.gnupg  2> /dev/null
 ln -f -s $script_dir/gnupg/* ~/.gnupg/
 
 ln -f -s $script_dir/tmux.conf ~/.tmux.conf
-
-ln -f -s $script_dir/xinitrc ~/.xinitrc
-ln -f -s $script_dir/Xresources ~/.Xresources

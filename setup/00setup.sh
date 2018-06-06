@@ -21,6 +21,7 @@ $runscript $script_dir/setup/10os.sh
 $runscript $script_dir/setup/20pkgs.sh
 $runscript $script_dir/setup/30editor.sh
 $runscript $script_dir/setup/40shell.sh
+$runscript $script_dir/setup/50x.sh
 
 # alert
 echo "
