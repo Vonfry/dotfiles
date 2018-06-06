@@ -1,3 +1,3 @@
-alias editor=vim
+alias editor=nvim
 
 alias lla='ls -lAh'

@@ -24,7 +24,7 @@ fi
 git config --global core.excludesfile ~/.gitignore_global
 git config --global commit.tempalet ~/.gitcommit_global
 ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
-git config --global core.editor vim # use all with vim, git flow has a bug with macvim
+git config --global core.editor nvim 
 unset git_global_user
 unset git_global_email
 unset git_global_gpg
