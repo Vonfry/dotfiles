@@ -38,6 +38,10 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - [x]  zsh
 - [x]  ~~fish~~ stop maintaining. You can check tag `20180502.146` to use it. 
 
+## window manager
+
+- [ ] XMonad
+
 ## editor
 
 - [x]  Vim
