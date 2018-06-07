@@ -2,12 +2,6 @@
 ;;
 
 (package! ess-site
-  :after lsp-mode
-  :init
-  (lsp-define-stdio-client lsp-R "R"
-                           (lambda () default-directory)
-                           '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
-  :hook (R-mode . lsp-R-enable)
   :ensure ess
   :mode (("\\.sp\\'"           . S-mode)
          ("/R/.*\\.q\\'"       . R-mode)
@@ -46,3 +40,12 @@
   (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
   (ess-keep-dump-files 'always-delete)
   (ess-use-auto-complete nil))
+
+ (package! ess-site
+   :after lsp-mode
+   :ensure ess
+   :config
+   (lsp-define-stdio-client lsp-R "R"
+                            (lambda () default-directory)
+                            '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
+   :hook (R-mode . lsp-R-enable))

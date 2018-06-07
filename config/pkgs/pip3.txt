@@ -7,12 +7,6 @@ ipython
 
 # code complete and check
 python-language-server[all]
-jedi
-flake8 # code checks
-importmagic # auto imports
-autopep8 # code PEP8 formatting
-rope
-yapf
 
 # lib
 pytz

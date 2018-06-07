@@ -1,11 +1,6 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
-(package! lsp-mode
-  :hook
-  (lsp-before-open-hook .
-    (lambda ()
-      (when (and lsp--cur-workspace (not projectile-project-root))
-        (setq projectile-project-root (lsp--workspace-root lsp--cur-workspace))))))
+(package! lsp-mode)
 
 (package! lsp-imenu
   :ensure nil
@@ -16,7 +11,7 @@
   :hook (lsp-mode . lsp-ui-mode)
   :general
   (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-jump-prompt        'lsp-ui-peek-find-workspace-symbol)
+    vonfry-keybind-evil-jump-prompt 'lsp-ui-peek-find-workspace-symbol)
   :general
   (:map lsp-ui-mode-map
   ([remap xref-find-definitions] #'lsp-ui-peek-find-definitions)

@@ -35,4 +35,5 @@
         "pb" 'pydoc-browse))
 
 (package! lsp-python
+  :after lsp-mode python-mode
   :hook (python-mode . lsp-python-enable))

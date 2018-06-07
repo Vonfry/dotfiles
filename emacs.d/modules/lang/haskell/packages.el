@@ -33,6 +33,7 @@
       (custom-set-variables '(compile-command "stack build")))))
 
 (package! haskell-interactive-mode
+  :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
     :prefix +lang-nmap-prefix
@@ -42,6 +43,7 @@
     "sc" 'haskell-session-change-target))
 
 (package! haskell-process
+  :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +lang-nmap-prefix

@@ -11,18 +11,18 @@
 
 (package! inf-ruby
   :custom
-  (inf-ruby-default-impementation 'pry)
+  (inf-ruby-default-implementation "pry")
   :hook
   (enh-ruby-mode . inf-ruby-minor-mode)
   :general
-  (nmap :keymaps enh-ruby-mode-map
-    :prefix +lang-nmap-prefix
-    "id" 'ruby-send-definition)
-  (vmap :keymaps enh-ruby-mode-map
-    :prefix +lang-nmap-prefix
-    "ir" 'ruby-send-region
-    "ig" 'ruby-send-definition-and-go
-    "iG" 'ruby-send-region-and-go))
+  (nmap :keymaps 'enh-ruby-mode-map
+        :prefix +lang-nmap-prefix
+        "id" 'ruby-send-definition)
+  (vmap :keymaps 'enh-ruby-mode-map
+        :prefix +lang-nmap-prefix
+        "ir" 'ruby-send-region
+        "ig" 'ruby-send-definition-and-go
+        "iG" 'ruby-send-region-and-go))
 
 (package! robe
   :hook
