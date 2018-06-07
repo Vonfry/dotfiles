@@ -12,6 +12,7 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (nmap :prefix vonfry-keybind-evil-leader
+        vonfry-keybind-evil-align    'align-regexp
         vonfry-keybind-evil-terminal 'eshell
         vonfry-keybind-evil-marks    'evil-show-marks)
   (nmap :prefix +evil-window-nmap-prefix

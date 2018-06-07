@@ -6,11 +6,11 @@
   (rtog/goto-buffer-fun 'pop-to-buffer)
   (rtog/mode-repl-alist '((emacs-lisp-mode . ielm)
                           (ruby-mode . inf-ruby)
-                          ;; (haskell-mode . intero-repl)
+                          (haskell-mode . haskell-interactive-bring)
                           (scheme-mode . geiser)
                           (lisp-mode . slime)
                           (lisp-interaction-mode . ielm)
-                          (pytho-mode . elpy-shell-switch-to-shell)
+                          (pytho-mode . run-python)
                           (ess-mode .
                             (lambda ()
                              (cond

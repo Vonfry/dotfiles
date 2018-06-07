@@ -7,6 +7,8 @@
          ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode)))
 
 (package! inf-ruby
+  :custom
+  (inf-ruby-default-impementation 'pry)
   :hook
   (enh-ruby-mode . inf-ruby-minor-mode))
 
