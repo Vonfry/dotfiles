@@ -11,16 +11,17 @@
 ** macOS
 
 * Editor
+** Vim
+*** TODO NeoVim[/]
 ** Emacs
     - [ ] python-mode keybind
-** TODO LSP[5/7]
-    - [X] Emacs
+*** TODO LSP[5/7]
     - [X] Haskell
     - [X] CC
     - [X] Javascript
     - [X] Python
     - [ ] Ruby
-    - [ ] Vim
+
 * Tools
 ** Haskell[1/1]
     - [X] dHall
