@@ -48,6 +48,5 @@
         :prefix +lang-nmap-prefix
         "p" 'pydoc))
 
-(package! pip-requirements
-  :hook
-  (pip-requirements-mode . pip-requirements-auto-complete-setup))
+(package! lsp-python
+  :hook (python-mode . lsp-python-enable))
