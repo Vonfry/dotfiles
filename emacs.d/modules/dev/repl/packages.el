@@ -6,7 +6,7 @@
   (rtog/goto-buffer-fun 'pop-to-buffer)
   (rtog/mode-repl-alist '((emacs-lisp-mode . ielm)
                           (ruby-mode . inf-ruby)
-                          (haskell-mode . intero-repl)
+                          ;; (haskell-mode . intero-repl)
                           (scheme-mode . geiser)
                           (lisp-mode . slime)
                           (lisp-interaction-mode . ielm)
