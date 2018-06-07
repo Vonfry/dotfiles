@@ -3,6 +3,7 @@
 
 (package! js2-mode
   :mode ("\\.js\\'" . js2-mode)
+  :interpreter "node"
   :hook (js2-mode . js2-imenu-extras-mode)
   :general
   (nmap :keymaps '(js-mode-map js2-mode-map)
