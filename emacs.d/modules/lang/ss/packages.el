@@ -2,6 +2,11 @@
 ;;
 
 (package! ess-site
+  :init
+  (lsp-define-stdio-client lsp-R "R"
+                           (lambda () default-directory)
+                           '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
+  :hook (R-mode . lsp-R-enable)
   :ensure ess
   :mode (("\\.sp\\'"           . S-mode)
          ("/R/.*\\.q\\'"       . R-mode)
