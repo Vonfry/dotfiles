@@ -56,6 +56,36 @@ function vonfry-update()
         antigen update
         antigen selfupdate
     fi
+
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}sources${ECHO_RST}"
+    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}lsp${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}*** ${ECHO_MSG}cquery${ECHO_RST}\n"
+    cd ~/.local/src/cquery
+    git remote update
+    if [ $(git rev-parse @) = $(git rev-parse '@{u}') ]; then
+        git checkout -- .
+        git clean -fd
+        rm -r ./build
+        rm .*waf*
+        git pull --depth 1
+        git submodule update --depth 1
+        ./waf configure --llvm-config=llvm-config
+        ./waf build
+    fi
+    echo -e "\n${ECHO_SYM}*** ${ECHO_MSG}haskell-ide-engine${ECHO_RST}\n"
+    cd ~/.local/src/haskell-ide-engine
+    git remote update
+    if [ $(git rev-parse @) = $(git rev-parse '@{u}') ]; then
+        git checkout -- .
+        git clean -fd
+        git pull --depth 1
+        git submodule update --depth 1
+        stack exec hoogle generate
+        stack install
+    fi
+
+    cd $current_dir
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
     cabal update --verbose=0

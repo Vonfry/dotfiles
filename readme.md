@@ -63,7 +63,7 @@ developing environment.
 
 see :[todo.org](todo.org)
 
-Now the most important thing is to use `lsp` instead of other completion tools, but `lsp` seems not mature.
+Now the most important thing is to use `lsp` instead of other completion tools. Some of them have done, but some not.
 
 ## life
 

@@ -7,51 +7,55 @@
   (haskell-indentation-layout-offset 2)
   (imenu-add-menubar-index t)
   (haskell-decl-scan-mode t)
+  (haskell-process-type 'auto)
   :general
   (nmap :keymaps 'haskell-mode-map
-        :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-jump-module 'haskell-navigate-imports
-        vonfry-keybind-evil-run         'haskell-compile)
+        :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-run)
+        "r" 'haskell-compile
+        "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
         :prefix +lang-nmap-prefix
-        "y" 'hasky-extensions
+        "i" 'haskell-navigate-imports
+        "."  'haskell-mode-jump-to-def
+        "y"  'hasky-extensions
         "qh" 'hoogle
         "ql" 'haskell-hoogle-lookup-from-local
         "qe" 'engine/search-hoogle
         "qs" 'haskell-hoogle-start-server
         "qk" 'haskell-hoogle-start-server
+        "t"  'haskell-mode-show-type-at
+        "k"  'haskell-interactive-mode-clear
         "c"  'haskell-cabal-visit-file)
   :hook
-  ((haskell-mode . haskell-auto-insert-module-template)
   (haskell-mode .
     (lambda ()
-      (custom-set-variables '(compile-command "stack build"))))))
+      (haskell-auto-insert-module-template t)
+      (custom-set-variables '(compile-command "stack build")))))
 
-
-(package! intero
-  :after haskell
+(package! haskell-interactive-mode
   :general
-  (nmap :keymaps 'intero-mode-map
-        :prefix +lang-nmap-prefix
-        "?" 'intero-info
-        "t" 'intero-type-at
-        "g" 'intero-targets
-        "i" 'intero-help-info
-        "r" 'intero-help-refresh
-        ";" 'intero-expand-splice-at-point
-        "a" 'intero-add-package
-        "d" 'intero-toggle-debug
-        "l" 'intero-repl-load
-        "e" 'intero-repl-eval-region
-        "h" 'intero-highlight-uses-mode
-        "n" 'intero-highlight-uses-mode-next
-        "p" 'intero-highlight-uses-mode-prev
-        "r" 'intero-highlight-uses-mode-replace
-        "." 'intero-goto-definition
-        ">" 'intero-uses-at)
-  (nmap :keymaps 'intero-mode-map
-        :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-code-help 'intero-info)
-  :hook (haskell-mode .  intero-mode))
+  (nmap :keymaps 'haskell-mode-map
+    :prefix +lang-nmap-prefix
+    "k"  'haskell-interactive-mode-clear
+    "'"  'haskell-interactive-bring
+    "sm" 'haskell-menu
+    "sc" 'haskell-session-change-target))
 
-(package! hasky-extensions :after haskell-mode)
+(package! haskell-process
+  :general
+  (nmap :keymaps 'haskell-mode-map
+        :prefix +lang-nmap-prefix
+        "pl"  'haskell-process-load-or-reload
+        "pt" 'haskell-process-do-type
+        "pi" 'haskell-process-do-info
+        "pb" 'haskell-process-cabal-build
+        "pc" 'haskell-process-cabal
+        "pr" 'haskell-process-restart)
+  :custom
+  (haskell-process-suggest-remove-import-lines t)
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t))
+
+(package! lsp-haskell
+  :after haskell lsp-mode
+  :hook (haskell-mode . lsp-haskell-enable))

@@ -6,9 +6,23 @@
          ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
          ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode)))
 
+(package! ruby-mode
+  :interpreter "pry")
+
 (package! inf-ruby
+  :custom
+  (inf-ruby-default-impementation 'pry)
   :hook
-  (enh-ruby-mode . inf-ruby-minor-mode))
+  (enh-ruby-mode . inf-ruby-minor-mode)
+  :general
+  (nmap :keymaps enh-ruby-mode-map
+    :prefix +lang-nmap-prefix
+    "id" 'ruby-send-definition)
+  (vmap :keymaps enh-ruby-mode-map
+    :prefix +lang-nmap-prefix
+    "ir" 'ruby-send-region
+    "ig" 'ruby-send-definition-and-go
+    "iG" 'ruby-send-region-and-go))
 
 (package! robe
   :hook

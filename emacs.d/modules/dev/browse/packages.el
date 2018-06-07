@@ -1,11 +1,6 @@
 ;;; browse packages -*- lexical-binding: t -*-
 ;;
 
-(package! ecb
-  :custom
-  (ecb-auto-expand-directory-tree "best")
-  (ecb-auto-update-methods-after-save t))
-
 (package! speedbar :ensure nil)
 
 (package! sr-speedbar
