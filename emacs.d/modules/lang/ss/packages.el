@@ -34,6 +34,7 @@
   :commands (R stata julia SAS)
   :custom
   (ess-use-flymake nil)
+  (ess-smart-S-assign-key nil)
   (ess-use-ido nil)
   (ess-ido-flex-matching nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
