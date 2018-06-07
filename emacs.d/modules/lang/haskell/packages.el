@@ -15,7 +15,7 @@
         "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
         :prefix +lang-nmap-prefix
-        "i" 'haskell-navigate-imports)
+        "i" 'haskell-navigate-imports
         "."  'haskell-mode-jump-to-def
         "y"  'hasky-extensions
         "qh" 'hoogle

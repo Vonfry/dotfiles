@@ -2,6 +2,7 @@
 ;;
 
 (package! ess-site
+  :after lsp-mode
   :init
   (lsp-define-stdio-client lsp-R "R"
                            (lambda () default-directory)
