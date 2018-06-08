@@ -11,6 +11,6 @@
         :prefix vonfry-keybind-evil-leader
         vonfry-keybind-evil-jump-module 'js-find-symbol))
 
-(package! lsp-javascript-flow
+(package! lsp-javascript-typescript
   :after lsp-mode js2-mode
-  :hook ((js-mode js2-mode rjsx-mode) . lsp-javascript-flow-enable))
+  :hook ((js-mode js2-mode rjsx-mode typescript-mode) . lsp-javascript-typescript-enable))

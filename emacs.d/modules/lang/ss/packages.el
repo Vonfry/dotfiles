@@ -34,18 +34,18 @@
   :commands (R stata julia SAS)
   :custom
   (ess-use-flymake nil)
-  (ess-smart-S-assign-key nil)
+  (ess-smart-S-assign-key "$")
   (ess-use-ido nil)
   (ess-ido-flex-matching nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
   (ess-keep-dump-files 'always-delete)
   (ess-use-auto-complete nil))
 
- (package! ess-site
-   :after lsp-mode
-   :ensure ess
-   :config
-   (lsp-define-stdio-client lsp-R "R"
-                            (lambda () default-directory)
-                            '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
-   :hook (R-mode . lsp-R-enable))
+(package! ess-site
+  :after lsp-mode
+  :ensure ess
+  :config
+  (lsp-define-stdio-client lsp-R "R"
+                           (lambda () default-directory)
+                           '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
+  :hook (R-mode . lsp-R-enable))

@@ -3,7 +3,6 @@ typescript
 grunt-cli
 
 javascript-typescript-langserver
-flow-language-server
 prettier
 
 diff-so-fancy
