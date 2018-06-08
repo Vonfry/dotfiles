@@ -20,9 +20,9 @@
   :after projectile
   :hook (projectile-mode . counsel-projectile-mode)
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-ctrlp  'counsel-projectile-find-file
-    vonfry-keybind-evil-search 'counsel-projectile-ag	))
+  (nmap :prefix +nmap-leader
+    +nmap-ctrlp  'counsel-projectile-find-file
+    +nmap-search 'counsel-projectile-ag))
 
 (package! org-projectile
   :after projectile org org-agenda
@@ -31,9 +31,9 @@
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
-  (nmap :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-todo)
-          "$" 'org-projectile-project-todo-completing-read
-          "~" 'org-projectile-goto-location-for-project)
+  (nmap :prefix (concat +nmap-leader +nmap-todo)
+          "," 'org-projectile-project-todo-completing-read
+          "." 'org-projectile-goto-location-for-project)
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config

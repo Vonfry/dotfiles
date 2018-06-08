@@ -9,14 +9,18 @@
   (haskell-decl-scan-mode t)
   (haskell-process-type 'auto)
   :general
+
   (nmap :keymaps 'haskell-mode-map
-        :prefix (concat vonfry-keybind-evil-leader vonfry-keybind-evil-run)
+        :prefix +nmap-leader
+        +nmap-go-module 'haskell-navigate-imports)
+  (nmap :keymaps 'haskell-mode-map
+        :prefix +nmap-haskell-compile-prefix
         "r" 'haskell-compile
         "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
-        :prefix +lang-nmap-prefix
-        "i" 'haskell-navigate-imports
-        "."  'haskell-mode-jump-to-def
+        :prefix +nmap-lang-prefix
+        +nmap-go  'haskell-mode-jump-to-def
+        +nmap-go-module 'haskell-navigate-imports
         "y"  'hasky-extensions
         "qh" 'hoogle
         "ql" 'haskell-hoogle-lookup-from-local
@@ -36,9 +40,9 @@
   :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
-    :prefix +lang-nmap-prefix
+    :prefix +nmap-lang-prefix
+    +nmap-repl  'haskell-interactive-bring
     "k"  'haskell-interactive-mode-clear
-    "'"  'haskell-interactive-bring
     "sm" 'haskell-menu
     "sc" 'haskell-session-change-target))
 
@@ -46,8 +50,8 @@
   :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
-        :prefix +lang-nmap-prefix
-        "pl"  'haskell-process-load-or-reload
+        :prefix +nmap-lang-prefix
+        "pl" 'haskell-process-load-or-reload
         "pt" 'haskell-process-do-type
         "pi" 'haskell-process-do-info
         "pb" 'haskell-process-cabal-build

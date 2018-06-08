@@ -12,11 +12,11 @@
         "M-D" 'evil-multiedit-match-and-prev)
   (imap "M-d" 'evil-multiedit-toggle-marker-here)
   (mmap "RET" 'evil-multiedit-toggle-or-restrict-region)
-  (:keymaps evil-multiedit-state-map
+  (:keymaps 'evil-multiedit-state-map
             (kbd "RET") 'evil-multiedit-toggle-or-restrict-region
             (kbd "C-n") 'evil-multiedit-next
             (kbd "C-p") 'evil-multiedit-prev)
-  (:keymaps evil-multiedit-insert-state-map
+  (:keymaps 'evil-multiedit-insert-state-map
             (kbd "C-n") 'evil-multiedit-next
             (kbd "C-p") 'evil-multiedit-prev)
   :config

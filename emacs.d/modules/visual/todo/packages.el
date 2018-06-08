@@ -3,7 +3,7 @@
 
 (package! hl-todo
   :general
-  (nmap :prefix +hl-todo-prefix-keybind
+  (nmap :prefix +nmap-hl-todo-prefix
     "p" 'hl-todo-previous
     "n" 'hl-todo-next
     "o" 'hl-todo-occur))

@@ -11,27 +11,27 @@
 (package! disaster
   :general
   (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
-        :prefix +lang-nmap-prefix
+        :prefix +nmap-lang-prefix
         "d" 'disaster))
 
 ;; this is used in all program lang
 (package! compile
   :ensure nil
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-run 'compile))
+  (nmap :prefix +nmap-leader
+        +nmap-run 'compile))
 
 (package! function-args
-  :custom (moo-select-method 'helm)
+  :custom (moo-select-method 'ivy)
   :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
   :general
   (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
-        :prefix +lang-nmap-prefix
-        "."     'fa-jump
-        "s"     'fa-show
-        "v"     'moo-propose-virtual
-        "o"     'moo-propose-override
-        "j"     'moo-jump-local))
+        :prefix +nmap-lang-prefix
+        +nmap-go        'fa-jump
+        +nmap-go-peek   'fa-show
+        +nmap-virtual   'moo-propose-virtual
+        +nmap-swiper    'moo-jump-local
+        "o" 'moo-propose-override))
 
 (package! cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")

@@ -8,8 +8,8 @@
    (js-mode . js2-minor-mode))
   :general
   (nmap :keymaps '(js-mode-map js2-mode-map)
-        :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-jump-module 'js-find-symbol))
+        :prefix +nmap-leader
+        +nmap-go-module 'js-find-symbol))
 
 (package! lsp-javascript-typescript
   :after lsp-mode js2-mode

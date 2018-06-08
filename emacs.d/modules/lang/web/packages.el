@@ -36,8 +36,8 @@
       (rainbow-mode t)))
   :general
   (nmap :keymaps 'web-mode-map
-        :prefix +lang-nmap-prefix
-        ";" 'web-mode-tag-select))
+        :prefix +nmap-lang-prefix
+        +nmap-code 'web-mode-tag-select))
 
 (package! haml-mode :after web-mode)
 

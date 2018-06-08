@@ -11,15 +11,14 @@
   (nmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
-  (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-align    'align-regexp
-        vonfry-keybind-evil-terminal 'eshell
-        vonfry-keybind-evil-marks    'evil-show-marks)
-  (nmap :prefix +evil-window-nmap-prefix
+  (nmap :prefix +nmap-leader
+        +nmap-align    'align-regexp
+        +nmap-terminal 'eshell)
+  (nmap :prefix +nmap-window-prefix
         "v" 'split-window-vertically
         "h" 'split-window-horizontally
-        "b" 'split-window-below
-        "r" 'split-window-right
+        "j" 'split-window-below
+        "l" 'split-window-right
         "w" 'delete-window
         "k" 'kill-current-buffer
         "c" 'delete-frame

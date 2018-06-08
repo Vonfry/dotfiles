@@ -23,8 +23,8 @@
   (scheme-mode     . lispy-mode))
   :general
   (nmap :keymaps 'lispy-mode-map
-        :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-jump-module 'lispy-goto-local))
+        :prefix +nmap-leader
+        +nmap-go-module 'lispy-goto-local))
 
 (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
 (load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))
