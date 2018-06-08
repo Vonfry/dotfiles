@@ -3,6 +3,6 @@
 
 (winner-mode t)
 
-(nmap :prefix +winner-mode-nmap-prefix
+(nmap :prefix +nmap-winner-prefix
       "r" 'winner-mode-redo
       "u" 'winner-mode-undo)

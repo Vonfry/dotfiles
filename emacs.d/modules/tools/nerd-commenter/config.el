@@ -1,8 +1,8 @@
 ;;; nerd-commenter config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +nc-nmap-prefix
-  (concat vonfry-keybind-evil-leader vonfry-keybind-evil-nerdcommenter)
+(defcustom +nmap-nc-prefix
+  (concat +nmap-leader +nmap-commenter)
   "nerd-commenter prefix key"
   :type 'string
   :group 'vonfry-modules)

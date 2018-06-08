@@ -12,12 +12,12 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-M-x   'counsel-M-x
-        vonfry-keybind-evil-file  'counsel-find-file
-        vonfry-keybind-evil-swoop 'swiper
-        vonfry-keybind-evil-marks 'counsel-mark-ring
-        vonfry-keybind-evil-buffer-switch 'ivy-switch-buffer))
+  (nmap :prefix +nmap-leader
+        +nmap-M-x   'counsel-M-x
+        +nmap-file  'counsel-find-file
+        +nmap-swiper 'swiper
+        +nmap-marks 'counsel-mark-ring
+        +nmap-buffer-switch 'ivy-switch-buffer))
 (package! ivy-rich
   :after counsel
   :config

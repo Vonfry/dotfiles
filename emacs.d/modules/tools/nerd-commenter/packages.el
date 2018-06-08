@@ -5,7 +5,7 @@
   :config
   (evilnc-default-hotkeys t)
   :general
-  (nmap :prefix +nc-nmap-prefix
+  (nmap :prefix +nmap-nc-prefix
     "i" 'evilnc-comment-or-uncomment-lines
     "l" 'evilnc-quick-comment-or-uncomment-to-the-line
     "c" 'evilnc-copy-and-comment-lines

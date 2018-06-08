@@ -3,8 +3,8 @@
 
 (package! magit
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-version-control 'magit-status)
+  (nmap :prefix +nmap-leader
+        +nmap-version-control 'magit-status)
   :config
   (vonfry-system-sets '(darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
 

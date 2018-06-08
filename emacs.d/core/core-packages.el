@@ -5,7 +5,7 @@
 ;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
 ;; submodule, config.el, packages.el and func.el file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
-;; config.el define custom, const and other orvarible for configure .
+;; config.el define custom, const and other varible for configure.
 ;; packages.el define the dependence and default configure with `package!`
 ;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
 ;;

@@ -33,7 +33,7 @@
        (t (format "%8d" (buffer-size)))))
   :general
   ("C-x C-b" 'ibuffer)
-  (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-buffer 'ibuffer))
+  (nmap :prefix +nmap-leader
+    +nmap-buffer 'ibuffer))
 
 (package! ibuffer-vc :after ibuffer)

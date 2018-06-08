@@ -1,34 +1,27 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +org-clock-persist-file
+(defconst +org-clock-persist-file
    (expand-file-name "org-clock-save.el" vonfry-local-dir)
-   "org clock save"
-   :group 'vonfry-modules)
+   "org clock save")
 
-(defcustom +org-todo-keywords-sequence
+(defconst +org-todo-keywords-sequence
   '((sequence "TODO(t)" "|" "DONE(d)" "REJECT(j)")
     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
-  "org todo keywords"
-  :group 'vonfry-modules)
+  "org todo keywords")
 
-(defcustom +org-capture-templates
+(defconst +org-capture-templates
   '(("t" "Todo" entry (file+headline +org-capture-file "Tasks")
       "* TODO %?\n  %i\n  %a"))
-  "org capture templates"
-  :group 'vonfry-modules)
+  "org capture templates")
 
-(defcustom +org-capture-file
+(defconst +org-capture-file
    (expand-file-name "capture.org" vonfry-org-dir)
-   "org capture"
-   :group 'vonfry-modules)
+   "org capture")
 
-(defcustom +org-brains-path
+(defconst +org-brains-path
   (expand-file-name "brains" vonfry-org-dir)
-  "org-brain path"
-  :group 'vonfry-modules)
+  "org-brain path")
 
-(defcustom +org-agenda-dirs (expand-file-name "agenda/" vonfry-org-dir)
-  "global agenda dir"
-  :group 'vonfry-modules
-  :type 'string)
+(defconst +org-agenda-dirs (expand-file-name "agenda/" vonfry-org-dir)
+  "global agenda dir")

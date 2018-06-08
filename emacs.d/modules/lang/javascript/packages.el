@@ -2,27 +2,15 @@
 ;;
 
 (package! js2-mode
-  :mode ("\\.js\\'" . js2-mode)
-  :hook (js2-mode . js2-imenu-extras-mode)
+  :interpreter "node"
+  :hook
+  ((js2-mode . js2-imenu-extras-mode)
+   (js-mode . js2-minor-mode))
   :general
   (nmap :keymaps '(js-mode-map js2-mode-map)
-        :prefix vonfry-keybind-evil-leader
-         vonfry-keybind-evil-jump-module 'js-find-symbol))
+        :prefix +nmap-leader
+        +nmap-go-module 'js-find-symbol))
 
-(package! tern
-  :general
-  (nmap :keymaps 'tern-mode-keymap
-        :prefix +lang-nmap-prefix
-        ";" 'tern-find-definition
-        "." 'tern-find-definition-by-name
-        "," 'tern-pop-find-definition
-        "t" 'tern-get-type
-        "d" 'tern-get-docs)
-  :hook (js2-mode . tern-mode))
-
-(package! company-tern
-  :after tern company
-  :hook
-  (js2-mode .
-    (lambda ()
-      (add-to-list (make-local-variable 'company-backends) 'company-tern))))
+(package! lsp-javascript-typescript
+  :after lsp-mode js2-mode
+  :hook ((js-mode js2-mode rjsx-mode typescript-mode) . lsp-javascript-typescript-enable))

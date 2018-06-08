@@ -3,15 +3,14 @@
 
 (package! dumb-jump
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-        vonfry-keybind-evil-jump-prompt 'dumb-jump-go-prompt)
+  (nmap :prefix +nmap-leader
+        +nmap-go-prompt 'dumb-jump-go-prompt)
   (nmap :prefix +dumb-jump-nmap-prefix
-        "." 'dumb-jump-go
-        "," 'dumb-jump-back
-        "/" 'dumb-jump-go-prompt
+        +nmap-go            'dumb-jump-go
+        +nmap-go-back       'dumb-jump-back
+        +nmap-go-prompt     'dumb-jump-go-prompt
+        +nmap-switch-window 'dumb-jump-go-other-window
         ">" 'dumb-jump-quick-look
-        "o" 'dumb-jump-go-other-window
-        ";" 'dumb-jump-go-prompt
         "<" 'dumb-jump-go-prefer-external
         ":" 'dumb-jump-go-prefer-external-other-window)
   :custom

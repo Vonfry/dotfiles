@@ -1,8 +1,6 @@
 ;;; winner-mode config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +winner-mode-nmap-prefix
-    (concat vonfry-keybind-evil-leader vonfry-keybind-evil-window)
-    "winner-mode nmap prefix"
-    :type 'string
-    :group 'vonfry-modules)
+(defconst +nmap-winner-prefix
+    (concat +nmap-leader +nmap-window)
+    "winner-mode nmap prefix")

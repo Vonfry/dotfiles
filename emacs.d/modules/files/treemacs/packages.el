@@ -24,8 +24,8 @@
   (`(t . _)
    (treemacs-git-mode 'simple)))
   :general
-  (nmap :prefix vonfry-keybind-evil-leader
-    vonfry-keybind-evil-treenode 'treemacs))
+  (nmap :prefix +nmap-leader
+        +nmap-treenode 'treemacs))
 
 (package! treemacs-evil
   :after treemacs evil)

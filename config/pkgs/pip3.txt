@@ -6,12 +6,7 @@ virtualenv
 ipython
 
 # code complete and check
-jedi
-flake8 # code checks
-importmagic # auto imports
-autopep8 # code PEP8 formatting
-rope
-yapf
+python-language-server[all]
 
 # lib
 pytz

@@ -5,7 +5,7 @@
   :config
   (docker-global-mode t)
   :general
-  (nmap :prefix +docker-nmap-prefix
+  (nmap :prefix +nmap-docker-prefix
       "c" 'docker-containers
       "d" 'docker-rmi
       "e" 'docker-unpause
