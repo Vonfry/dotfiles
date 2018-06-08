@@ -110,6 +110,7 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please update by yourself.${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please do a check. Some action may failed, specially what need to being built at local, such as gentoo.${ECHO_RST}"
 
     cd $current_dir
 
