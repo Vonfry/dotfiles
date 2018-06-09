@@ -4,6 +4,7 @@ function vonfry-update()
     ECHO_MSG="\033[0;36m"
     ECHO_RST="\033[0m"
     current_dir=$(pwd)
+    prefixsudo=""
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}"
 
@@ -26,6 +27,7 @@ function vonfry-update()
         # if ctags is updated, emacs needs being recompiled.
         "Linux")
             source /etc/os-release
+            prefixsudo="sudo"
             echo -e "\n${ECHO_SYM}* ${ECHO_MSG}system: ${ID}${ECHO_RST}"
             case "$ID" in
                 "fedora")
@@ -62,40 +64,57 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}--- ${ECHO_MSG}Please update by yourself. ${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
-    cabal update --verbose=0
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
-    stack update --silent
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
-    hoogle generate --quiet
+    if command -v cabal > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}cabal${ECHO_RST}\n"
+        cabal update --verbose=0
+    fi
+    if command -v stack > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}stack${ECHO_RST}\n"
+        stack update --silent
+    fi
+    if command -v hoogle > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}hoogle${ECHO_RST}\n"
+        hoogle generate --quiet
+    fi
     echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
+
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
-    if [ $(uname) = Darwin ]; then
-        pip3 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
-    else
-        pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
-    fi
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
-    if [ $(uname) = Darwin ]; then
-        pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
-    else
-        pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
-    fi
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
-    gem update --quiet && gem update --system --quiet
-    gem cleanup --quiet
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}npm${ECHO_RST}\n"
-    if [ $(uname) = Linux ]; then
-        sudo npm update -g --silent
-    else
-        npm update -g --silent
+    if command -v pip3 > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
+        if [ -z $prefixsudo ]; then
+            pip3 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
+        else
+            pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
+        fi
     fi
 
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}R${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}packages${ECHO_RST}\n"
-    R --slave --quiet -e "update.packages(ask = FALSE, quiet = TRUE)"
+    if command -v pip2 > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
+        if [ -z $prefixsudo ]; then
+            pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
+        else
+            pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
+        fi
+    fi
+
+    if command -v gem > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
+        gem update --quiet && gem update --system --quiet
+        gem cleanup --quiet
+    fi
+
+    if command -v npm > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}node${ECHO_RST}\n"
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}npm${ECHO_RST}\n"
+        $prefixsudo npm update -g --silent
+    fi
+
+    if command -v R > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}R${ECHO_RST}"
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}packages${ECHO_RST}\n"
+        $prefixsudo R --slave --quiet -e "update.packages(ask = FALSE, quiet = TRUE)"
+    fi
 
     if [ -f ~/.vimrc ]; then
         echo -e "\n${ECHO_SYM}* ${ECHO_MSG}vim${ECHO_RST}"
@@ -106,8 +125,10 @@ function vonfry-update()
         cd ~/.vim/bundle/vimproc.vim/ && make
     fi
 
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please update by yourself.${ECHO_RST}"
+    if [ -f ~/.emacs.d/init.d ]; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}Emacs${ECHO_RST}"
+        echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please update by yourself.${ECHO_RST}"
+    fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please do a check. Some action may failed, specially what need to being built at local, such as gentoo.${ECHO_RST}"
