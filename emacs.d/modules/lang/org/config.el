@@ -2,7 +2,7 @@
 ;;
 
 (defconst +org-clock-persist-file
-   (expand-file-name "org-clock-save.el" vonfry-local-dir)
+   (expand-file-name "org-clock-save.el" vonfry-cache-dir)
    "org clock save")
 
 (defconst +org-todo-keywords-sequence

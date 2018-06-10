@@ -37,7 +37,7 @@
   (ess-smart-S-assign-key "$")
   (ess-use-ido nil)
   (ess-ido-flex-matching nil)
-  (ess-history-directory (expand-file-name "ess/" vonfry-local-dir))
+  (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
   (ess-keep-dump-files 'always-delete)
   (ess-use-auto-complete nil))
 

@@ -17,12 +17,12 @@
   :type 'number
   :group 'vonfry-editor)
 
-(defcustom vonfry-backup-file-dir (expand-file-name "backups/" vonfry-local-dir)
+(defcustom vonfry-backup-file-dir (expand-file-name "backups/" vonfry-cache-dir)
   "The backup file dir."
   :type 'directory
   :group 'vonfry-dir)
 
-(defcustom vonfry-auto-save-dir (expand-file-name "auto-save/" vonfry-local-dir)
+(defcustom vonfry-auto-save-dir (expand-file-name "auto-save/" vonfry-cache-dir)
   "The auto-save file dir."
   :type 'directory
   :group 'vonfry-dir)
@@ -56,7 +56,7 @@
   '(global-whitespace-modes t)
   '(case-fold-search t)
 
-  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
+  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-cache-dir))
 
   '(mouse-yank-at-point t)
   '(delete-selection-mode t)
@@ -93,11 +93,11 @@
   '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
   '(browse-url-browser-function 'browse-url-default-browser)
 
-  '(recentf-save-file (expand-file-name "recentf" vonfry-local-dir))
+  '(recentf-save-file (expand-file-name "recentf" vonfry-cache-dir))
 
   '(custom-file vonfry-custom-file)
   '(save-abbrevs 'silently)
-  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-local-dir)))
+  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)))
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 

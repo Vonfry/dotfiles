@@ -7,13 +7,12 @@
 ;;
 
 (defcustom vonfry-local-dir (expand-file-name "local/" vonfry-config-dir)
-  "The local dir saves the temporary files such as elpa or some plugins'. You can clean it and it will be reset by
-itself."
+  "The local dir saves the local files, which is different from cache file. These files is permanent."
   :type 'directory
   :group 'vonfry-dir)
 
-(defcustom vonfry-temp-dir (expand-file-name "temp/" vonfry-local-dir)
-  "The local dir saves the temporary files such as elpa or some plugins'. You can clean it and it will be reset by
+(defcustom vonfry-cache-dir (expand-file-name "emacs/" "~/.cache")
+  "The local dir saves the caches files such as elpa or some plugins'. You can clean it and it will be reset by
 itself."
   :type 'directory
   :group 'vonfry-dir)
@@ -45,7 +44,7 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
-(defcustom vonfry-tramp-cache (expand-file-name "tramp/" vonfry-local-dir)
+(defcustom vonfry-tramp-cache (expand-file-name "tramp/" vonfry-cache-dir)
   "tramp cache dir"
   :type 'file
   :group 'vonfry-dir)
@@ -56,7 +55,7 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
-(dolist (dir (list vonfry-temp-dir vonfry-org-dir))
+(dolist (dir (list vonfry-cache-dir vonfry-org-dir))
   (unless (file-exists-p dir)
     (make-directory dir)))
 

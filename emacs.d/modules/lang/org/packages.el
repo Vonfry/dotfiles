@@ -57,7 +57,7 @@
                        (all-the-icons-icon-for-file link)))))))
   :custom
   (org-id-track-globally t)
-  (org-id-locations-file (expand-file-name "org-id-locations" vonfry-local-dir))
+  (org-id-locations-file (expand-file-name "org-id-locations" vonfry-cache-dir))
   (org-brain-visualize-default-choices 'all)
   (org-brain-title-max-length 16)
   :config
