@@ -90,8 +90,6 @@ echo_note "--- Make sure you have a correct configure with iptables and then run
 
 # shell
 sudo emerge $emerge_args @vonfry20shell
-git clone --recursive https://github.com/Andersbakken/rtags.git $source_dir/rtags && cd $source_dir/rtags && cmake
--DCMAKE_EXPORT_COMPILE_COMMANDS=1 . && make --quiet && ln -s -f $source_dir/rtags/bin/* $user_dir/.local/bin/ && cd $current_dir # rtags
 
 # editor
 sudo emerge $emerge_args @vonfry30editor
