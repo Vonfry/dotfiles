@@ -2,7 +2,7 @@
 ;;
 
 (defconst +projectile-cache-dir
-  (expand-file-name "projectile/" vonfry-local-dir)
+  (expand-file-name "projectile/" vonfry-cache-dir)
   "projectile cache dir")
 
 (defcustom +org-projectile-todo-project-file

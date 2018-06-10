@@ -13,7 +13,7 @@
   (TeX-auto-save t)
   (TeX-save-query nil)
   (TeX-parse-self t)
-  (TeX-auto-private (expand-file-name "tex/" vonfry-local-dir))
+  (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-PDF-mode t)
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))

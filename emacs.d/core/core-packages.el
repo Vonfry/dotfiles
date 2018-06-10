@@ -28,7 +28,7 @@
   "This variables is used to the arguments for `vonfry-load-modules`"
   :group 'vonfry)
 
-(defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-local-dir)
+(defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-cache-dir)
   "The dir is where the elpa and packages manager download files."
   :type 'directory
   :group 'vonfry-dir)
@@ -116,7 +116,7 @@ is undefined(It always is loaded by alpha order)."
 (package! auto-package-update
   :custom
   (auto-package-update-delete-old-versions t)
-  (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-local-dir))
+  (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
   (auto-package-update-hide-results t)
   :config
   (auto-package-update-maybe))
