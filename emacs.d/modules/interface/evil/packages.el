@@ -13,17 +13,7 @@
         "b" 'next-buffer)
   (nmap :prefix +nmap-leader
         +nmap-align    'align-regexp
-        +nmap-terminal 'eshell)
-  (nmap :prefix +nmap-window-prefix
-        "v" 'split-window-vertically
-        "h" 'split-window-horizontally
-        "j" 'split-window-below
-        "l" 'split-window-right
-        "w" 'delete-window
-        "k" 'kill-current-buffer
-        "c" 'delete-frame
-        "t" 'toggle-window-split
-        "o" 'delete-other-windows))
+        +nmap-terminal 'eshell))
 
 (package! evil-goggles
   :after evil

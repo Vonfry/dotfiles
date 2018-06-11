@@ -47,7 +47,6 @@ brew reinstall boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
-brew reinstall rtags --without-emacs
 brew reinstall doxygen --with-doxywizard --with-graphviz
 
 # code search
@@ -110,7 +109,6 @@ brew cask install quicklook-pat
 
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
-brew services start rtags
 
 sudo tlmgr option repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
 
