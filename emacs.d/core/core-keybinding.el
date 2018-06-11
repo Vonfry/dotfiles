@@ -106,9 +106,6 @@
 (defconst +nmap-undotree "u"
   "undo tree")
 
-(defconst +nmap-switch-window "o"
-  "switch-window")
-
 (defconst +nmap-window "w"
   "manage window")
 

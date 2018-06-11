@@ -9,7 +9,7 @@
         +nmap-go            'dumb-jump-go
         +nmap-go-back       'dumb-jump-back
         +nmap-go-prompt     'dumb-jump-go-prompt
-        +nmap-switch-window 'dumb-jump-go-other-window
+        "o" 'dumb-jump-go-other-window
         ">" 'dumb-jump-quick-look
         "<" 'dumb-jump-go-prefer-external
         ":" 'dumb-jump-go-prefer-external-other-window)

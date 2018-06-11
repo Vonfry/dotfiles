@@ -48,4 +48,4 @@
   (lsp-define-stdio-client lsp-R "R"
                            (lambda () default-directory)
                            '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
-  :hook (R-mode . lsp-R-enable))
+  (add-hook 'R-mode-hook 'lsp-R-enable))
