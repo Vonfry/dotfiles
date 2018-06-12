@@ -43,11 +43,6 @@
   (evil-snipe-mode 1)
   (evil-snipe-override-mode 1))
 
-(package! evil-easymotion
-  :after evil avy
-  :config
-  (evilem-default-keybindings +nmap-easymotion-prefix))
-
 (package! evil-matchit
   :after evil
   :config
