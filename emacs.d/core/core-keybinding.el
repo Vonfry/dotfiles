@@ -34,7 +34,7 @@
 (defconst +nmap-go-peek "{"
   "go peek")
 
-(defconst +nmap-go-reference "["
+(defconst +nmap-go-reference "}"
   "Go eference. Reference may only work for C/C++")
 
 (defconst +nmap-code ";"
@@ -67,8 +67,11 @@
 (defconst +nmap-lang-action "*"
   "some lang public action, such as lsp")
 
-(defconst +nmap-jump "j"
-  "jump function")
+(defconst +nmap-navigation "["
+  "Go to somewhere.")
+
+(defconst +nmap-g "g"
+  "Go to text/char")
 
 (defconst +nmap-buffer-switch "b"
   "buffer")

@@ -2,5 +2,5 @@
 ;;
 
 (defconst +dumb-jump-nmap-prefix
-  (concat +nmap-leader +nmap-jump)
+  (concat +nmap-leader +nmap-navigation)
   "dumb jump nmap")
