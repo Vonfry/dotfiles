@@ -1,4 +1,4 @@
-;;; ace-window config -*- lexical-binding: t -*-
+;;; avy config -*- lexical-binding: t -*-
 ;;
 
 (defconst +nmap-avy-prefix

@@ -37,12 +37,6 @@
   :config
   (global-evil-visualstar-mode t))
 
-(package! evil-snipe
-  :after evil
-  :config
-  (evil-snipe-mode 1)
-  (evil-snipe-override-mode 1))
-
 (package! evil-matchit
   :after evil
   :config
