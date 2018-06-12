@@ -13,11 +13,7 @@
   :config
   (dolist (tmp-dir yas-snippet-dirs)
     (unless (or (not (stringp tmp-dir)) (file-exists-p tmp-dir))
-      (make-directory tmp-dir)))
-  (let ((snippets-default-dir (expand-file-name "snippets/" vonfry-config-dir)))
-    (if (file-exists-p snippets-default-dir)
-      (delete-directory snippets-default-dir t)
-      nil)))
+      (make-directory tmp-dir))))
 
 (package! yasnippet-snippets
   :after yasnippet)
