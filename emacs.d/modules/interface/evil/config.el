@@ -2,5 +2,5 @@
 ;;
 
 (defconst +nmap-easymotion-prefix
-  (concat vonfry-keybind-evil-leader +nmap-jump)
+  (concat vonfry-keybind-evil-leader +nmap-j)
   "nmap keybind evil-easymmontian")
