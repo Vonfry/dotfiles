@@ -7,7 +7,8 @@
   (smart-jump-register :modes 'ess-mode) ; use xref
   (smart-jump-setup-default-registers)
   :general
-  (nmap :prefix +nmap-leader
+  (nmap :keymaps 'prog-mode-map
+        :prefix +nmap-leader
         +nmap-go           'smart-jump-go
         +nmap-go-back      'smart-jump-back
         +nmap-go-peek      'smart-jump-peek

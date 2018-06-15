@@ -9,7 +9,6 @@
   (haskell-decl-scan-mode t)
   (haskell-process-type 'auto)
   :general
-
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-leader
         +nmap-go-module 'haskell-navigate-imports)

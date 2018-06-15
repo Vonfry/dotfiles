@@ -2,4 +2,4 @@
 ;;
 
 (package! origami
-  :hook (prog-mode . origami-mode))
+  :hook ((text-mode prog-mode) . origami-mode))

@@ -2,15 +2,16 @@
 
 (package! lsp-mode
   :general
-  (nmap :prefix +nmap-lsp-prefix
-         +nmap-run       'lsp-execute-code-action
-         +nmap-format    'lsp-format-buffer
-         +nmap-highlight 'lsp-symbol-highlight
-         "i"  'lsp-info-under-point
-         "dt" 'lsp-goto-type-definition
-         "*"  'lsp-rename
-         "R"  'lsp-restart-workspace
-         "gI" 'lsp-goto-implementation))
+  (nmap :keymaps 'prog-mode-map
+        :prefix +nmap-lsp-prefix
+        +nmap-run       'lsp-execute-code-action
+        +nmap-format    'lsp-format-buffer
+        +nmap-highlight 'lsp-symbol-highlight
+        "i"  'lsp-info-under-point
+        "dt" 'lsp-goto-type-definition
+        "*"  'lsp-rename
+        "R"  'lsp-restart-workspace
+        "gI" 'lsp-goto-implementation))
 
 (package! lsp-imenu
   :ensure nil
@@ -23,7 +24,8 @@
   :general
   (:keymaps 'lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
-  (nmap :prefix +nmap-lsp-prefix
+  (nmap :keymaps 'prog-mode-map
+        :prefix +nmap-lsp-prefix
         +nmap-code 'lsp-ui-find-workspace-symbol
         "fn" 'lsp-ui-find-next-reference
         "fp" 'lsp-ui-find-prev-reference
