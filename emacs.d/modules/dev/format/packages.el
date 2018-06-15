@@ -3,5 +3,6 @@
 
 (package! format-all
   :general
-  (nmap :prefix +nmap-leader
+  (nmap :keymaps 'prog-mode-map
+        :prefix +nmap-leader
         +nmap-format 'format-all-buffer))

@@ -43,6 +43,7 @@
   :general
   (nmap :keymaps '(LaTeX-mode-map tex-mode-map)
         :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
         "\\" 'TeX-insert-macro
         "-"  'TeX-recenter-output-buffer
         "%"  'TeX-comment-or-uncomment-paragraph

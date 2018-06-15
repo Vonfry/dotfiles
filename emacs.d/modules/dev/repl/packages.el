@@ -18,5 +18,6 @@
                                ((string= "STA" ess-language) (call-interactively 'stata))
                                ((string= "SAS" ess-language) (call-interactively 'SAS)))))))
   :general
-  (nmap :prefix +nmap-leader
+  (nmap :keymaps 'prog-mode-map
+        :prefix +nmap-leader
         +nmap-repl 'rtog/toggle-repl))
