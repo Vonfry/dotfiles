@@ -4,6 +4,7 @@
 (package! avy
   :general
   (nmap :prefix +nmap-avy-prefix
+        "" '(nil :which-key "avy")
         "f" 'avy-goto-char
         "F" 'avy-goto-char-2
         "t" 'avy-goto-char-timer

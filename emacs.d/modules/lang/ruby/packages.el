@@ -17,9 +17,11 @@
   :general
   (nmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
         "id" 'ruby-send-definition)
   (vmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
         "ir" 'ruby-send-region
         "ig" 'ruby-send-definition-and-go
         "iG" 'ruby-send-region-and-go))
@@ -33,6 +35,7 @@
   (nmap :keymaps 'robe-mode
         :definer 'minor-mode
         :prefix  +nmap-lang-prefix
+        "" '(nil :major-modes t)
         +nmap-go        'robe-jump
         +nmap-go-prompt 'robe-ask
         +nmap-code-help 'robe-doc
@@ -40,6 +43,7 @@
   (nmap :keymaps 'robe-mode
         :definer 'minor-mode
         :prefix +nmap-leader
+        "" '(nil :major-modes t)
         +nmap-code-help 'robe-doc
         +nmap-go-module 'robe-jump-to-module))
 
@@ -48,5 +52,6 @@
   (nmap :keymaps 'robe-mode
         :definer 'minor-mode
         :prefix  +nmap-lang-prefix
+        ""  '(nil :major-modes t)
         "c" 'chruby-use))
 

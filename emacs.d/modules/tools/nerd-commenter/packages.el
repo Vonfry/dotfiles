@@ -7,6 +7,7 @@
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-nc-prefix
+        ""  '(nil :which-key "nerd-commenter")
         "i" 'evilnc-comment-or-uncomment-lines
         "l" 'evilnc-quick-comment-or-uncomment-to-the-line
         "c" 'evilnc-copy-and-comment-lines

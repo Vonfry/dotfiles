@@ -6,6 +6,7 @@
   :general
   (nmap :prefix +nmap-origaml-prefix
         :keymaps '(text-mode prog-mode)
+        ""  '(nil :which-key "origaml")
         "o" 'origami-open-node
         "O" 'origami-open-node-recursively
         "s" 'origami-show-node

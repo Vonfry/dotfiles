@@ -14,10 +14,12 @@
         +nmap-go-module 'haskell-navigate-imports)
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-haskell-compile-prefix
+        ""  '(nil :which-key "haskell-compile")
         "r" 'haskell-compile
         "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
         +nmap-go  'haskell-mode-jump-to-def
         +nmap-go-module 'haskell-navigate-imports
         "y"  'hasky-extensions
@@ -39,17 +41,19 @@
   :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
-    :prefix +nmap-lang-prefix
-    +nmap-repl  'haskell-interactive-bring
-    "k"  'haskell-interactive-mode-clear
-    "sm" 'haskell-menu
-    "sc" 'haskell-session-change-target))
+        :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
+        +nmap-repl  'haskell-interactive-bring
+        "k"  'haskell-interactive-mode-clear
+        "sm" 'haskell-menu
+        "sc" 'haskell-session-change-target))
 
 (package! haskell-process
   :ensure nil
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
+        ""   '(nil :major-modes t)
         "pl" 'haskell-process-load-or-reload
         "pt" 'haskell-process-do-type
         "pi" 'haskell-process-do-info
