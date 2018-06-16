@@ -6,6 +6,11 @@
 "
 " 'autoload' is just define functions.
 
-function! init()
+function! vonfry#init()
+    call vonfry#local#init()
+    call vonfry#editor#init()
     call vonfry#packages#init()
+    call vonfry#keybind#init()
+    call vonfry#os#init()
+    call vonfry#ui#init()
 endfunction

@@ -1,7 +1,7 @@
 " vimrc file
 "
 " File structure:
-"     'autoload': init function which has the package manager, third part package defination and other basic configure.
+"     'autoload': init function which has the package manager, third part packages defination and other basic configure.
 "     'plugin': Vim self and third part package config which are parallel.
 "     'ftplugin': Filetype special.
 "
@@ -14,6 +14,9 @@
 " I think vim config file is just for configuring. If you want to do some powerful
 " things, put them into 'plugin' dir. As well putting other settings into related directory. See more about
 " 'runtimepath'.
+" I code all basic config in autoload's function. This may be more neat than write them in an other file with a
+" function like 'execute' to call it or in this file. But this isn't semantic, I think. Because 'autoload' is used to
+" define init function which may only called once.
 "
 " As the same reason, update will be done by yourself or in update script(in shell). Vim is always closed and opened.
 "
