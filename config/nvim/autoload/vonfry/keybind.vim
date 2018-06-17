@@ -3,5 +3,9 @@
 "
 
 function! vonfry#keybind#init()
-    let g:mapleader="\<Space>"
+    let g:mapleader = g:vonfry#keybind#nmap#leader
+endfunction
+
+function! vonfry#keybind#leader(key, func)
+    exec 'nmap <leader>' . key . ' ' . func
 endfunction

@@ -5,10 +5,6 @@
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
 " TODO change this
-            \ 'Valloric/ListToggle'
-            \
-            \ 'rhysd/clever-f.vim'
-            \ 'justinmk/vim-sneak'
             \ 'easymotion/vim-easymotion'
             \
             \ 'majutsushi/tagbar',
