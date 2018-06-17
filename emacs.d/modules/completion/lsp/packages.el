@@ -19,7 +19,7 @@
   :hook (lsp-after-open . lsp-enable-imenu))
 
 (package! lsp-ui
-  :after lsp-mode
+  :after lsp-mode evil
   :hook (lsp-mode . lsp-ui-mode)
   :general
   :general
