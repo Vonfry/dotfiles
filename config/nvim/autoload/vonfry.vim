@@ -4,7 +4,6 @@
 "
 " Each file should have a function named 'init' with no argument.
 "
-" 'autoload' is just define functions.
 
 function! vonfry#init()
     call vonfry#local#init()

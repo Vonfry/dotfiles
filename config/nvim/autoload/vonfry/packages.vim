@@ -2,13 +2,14 @@
 " preinstall package manager and define the packages which are needed by default.
 "
 
+let g:vonfry#packages#dir = g:vonfry#local#cache . '/bundle'
+
 function! vonfry#packages#init()
     call vonfry#packages#preinstall()
     call vonfry#packages#use()
 endfunction
 
 function! vonfry#packages#preinstall()
-    let g:vonfry_packages_dir = g:vonfry_local_cache . '/bundle'
     if &compatible
         set nocompatible
     endif
