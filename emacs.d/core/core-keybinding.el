@@ -112,6 +112,9 @@
 (defconst +nmap-window "w"
   "manage window")
 
+(defconst +nmap-window-other "W"
+  "manage window")
+
 (defconst +nmap-commenter "c"
   "nerd commenter first key")
 
