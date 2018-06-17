@@ -1,8 +1,8 @@
 " vimrc file
 "
 " File structure:
-"     'autoload': init function which has the package manager, third part packages defination and other basic configure.
-"     'plugin': Vim self and third part package config which are parallel.
+"     'autoload': init function which has the package manager, third part bundle defination and other basic configure.
+"     'plugin': self plugins
 "     'ftplugin': Filetype special.
 "
 " Vim is my first customizable editor, but Emacs is the first one I configure structured. The old vim config file is too

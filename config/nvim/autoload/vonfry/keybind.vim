@@ -3,4 +3,5 @@
 "
 
 function! vonfry#keybind#init()
+    let g:mapleader="\<Space>"
 endfunction
