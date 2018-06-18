@@ -8,7 +8,7 @@ endfunction
 
 function! vonfry#bundle#nagivation#easymotion()
     call vonfry#bundle#add('easymotion/vim-easymotion')
-    call vonfry#keybind#leader(g:vonfry#keybind#nmap#g, '<Plug>(easymotion-prefix)')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#g, '<Plug>(easymotion-prefix)')
 endfunction
 
 function! vonfry#bundle#nagivation#tagbar()
