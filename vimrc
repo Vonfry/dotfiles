@@ -10,7 +10,6 @@ if has('gui_running')
     set guioptions=egmti
     set guifont=Hack:h11
     set mousemodel=popup
-    let g:solarized_termcolors= 256
     set cursorline
     " set cursorcolumn
 else
