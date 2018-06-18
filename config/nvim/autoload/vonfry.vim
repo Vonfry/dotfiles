@@ -9,7 +9,7 @@ function! vonfry#init()
     call vonfry#local#init()
     call vonfry#editor#init()
     call vonfry#bundle#init()
-    call vonfry#keybind#init()
+    call vonfry#mapping#init()
     call vonfry#os#init()
     call vonfry#ui#init()
 
