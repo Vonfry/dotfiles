@@ -5,9 +5,6 @@
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
 " TODO change this
-            \ 'easymotion/vim-easymotion'
-            \
-            \ 'majutsushi/tagbar',
             \
             \ 'janko-m/vim-test',
             \ 'vim-vdebug/vdebug',
@@ -54,10 +51,10 @@ let g:vonfry#bundle#default = [
             \
             \ 'lifepillar/vim-solarized8',
             \
-            \ 'vim-airline/vim-airline',
-            \ 'vim-airline/vim-airline-themes',
-            \ 'enricobacis/vim-airline-clock'
             \ 'completion',
+            \ 'nagivation',
+            \ 'visual',
+            \ 'editor'
 ]
 let g:vonfry#bundle#manager_dir =
             \fnameescape(g:vonfry#bundle#dir)

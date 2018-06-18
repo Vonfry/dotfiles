@@ -16,17 +16,6 @@ function! vonfry#editor#init()
     endif
 
     set shell=/bin/bash
-
-    set t_Co=256
-
-    set background=dark
-    colorscheme pablo " default one
-
-    if $TERM_PROGRAM =~ "iTerm"
-        let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-        let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-    endif
-
     set to
     set tm=400
     set number
@@ -56,15 +45,14 @@ function! vonfry#editor#init()
     set foldmethod=syntax
     autocmd Filetype python set foldmethod=indent
     autocmd Filetype vim    set foldmethod=marker
-    let g:swap_dir=expand("~/.cache/vim/swap/")
-    if !isdirectory(swap_dir)
-        silent call mkdir(swap_dir, 'p')
+    if !isdirectory(g:vonfry#local#swap)
+        silent call mkdir(g:vonfry#local#swap, 'p')
     endif
-    execute "set dir=".g:swap_dir."/"
-    set backupdir=~/.cache/vim/backup/
+    exec "set dir=" . g:vonfry#local#swap
+    exec "set backupdir=" . g:vonfry#local#backup
     set nowritebackup
     if has("persistent_undo")
-        set undodir=~/.cache/vim/undodir/
+        exec "set undodir=" . g:vonfry#local#undo
         set undofile
     endif
 
@@ -96,29 +84,23 @@ function! vonfry#editor#init()
     set fenc=utf-8
     set fileencodings=utf-8,ucs-bom,cp936
     set fileencoding=utf-8
-    let g:mapleader="\<Space>"
 
     " hide highlight when searching if not using.
-    nmap <leader>h :nohlsearch<CR>
-
-    nmap <leader>s :syntax on<CR>
+    call vonfry#keybind#leader(g:vonfry#keybind#nmap#highlight, ":nohlsearch<CR>")
 
     nmap gb :bn<CR>
     nmap gB :bp<CR>
 
     " ctags
     set cpoptions+=d
-    nmap <leader>rt :call UpdateTags()<CR>
     set tags+=./tags
     set tags+=./.git/tags
-    runtime macros/matchit.vim " include matchit for `%`
+
+    " include matchit for `%`
+    runtime macros/matchit.vim
 
 
     " set plugin fzf
     let g:fzf_history_dir = '~/.local/share/fzf-history'
-    set rtp+=/usr/local/opt/fzf,~/.fzf
-
-    " set plugin editorconfig {{{
-    let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-    let g:EditorConfig_exec_path="editorconfig"
+    set rtp+=~/.fzf,/usr/local/opt/fzf
 endfunction
