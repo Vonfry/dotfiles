@@ -5,28 +5,6 @@
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
 " TODO change this
-            \
-            \ 'janko-m/vim-test',
-            \ 'vim-vdebug/vdebug',
-            \
-            \ 'scrooloose/syntastic',
-            \ 'c.vim',
-            \ 'lyuts/vim-rtags',
-            \ 'sheerun/vim-polyglot',
-            \ 'tpope/vim-rails',
-            \ 'tpope/vim-ragtag',
-            \ 'ap/vim-css-color',
-            \ 'yggdroot/indentline',
-            \
-            \ 'editorconfig/editorconfig-vim',
-            \
-            \ 'mbbill/fencview',
-            \ 'ntpeters/vim-better-whitespace',
-            \
-            \ 'Shougo/denite.nvim',
-            \ 'Shougo/vimproc.vim',
-            \ 'Shougo/vimshell.vim',
-            \
             \ 'joereynolds/SQHell.vim',
             \ 'andreshazard/vim-logreview',
             \ 'jceb/vim-orgmode',
@@ -51,10 +29,13 @@ let g:vonfry#bundle#default = [
             \
             \ 'lifepillar/vim-solarized8',
             \
-            \ 'completion',
             \ 'nagivation',
             \ 'visual',
+            \ 'interface',
             \ 'editor'
+            \ 'completion',
+            \ 'dev',
+            \ 'lang',
 ]
 let g:vonfry#bundle#manager_dir =
             \fnameescape(g:vonfry#bundle#dir)
@@ -132,7 +113,7 @@ function! vonfry#bundle#use()
 endfunction
 
 function! vonfry#bundle#install()
-    if !dein#check_install()
+    if dein#check_install()
         call dein#install()
     endif
 endfunction
