@@ -5,7 +5,6 @@ function! vonfry#bundle#dev#init()
   call vonfry#bundle#dev#test()
   call vonfry#bundle#dev#syntastic()
   call vonfry#bundle#dev#logreview()
-  call vonfry#bundle#dev#org()
   call vonfry#bundle#dev#surround()
   call vonfry#bundle#dev#pairs()
 endfunction
@@ -29,10 +28,6 @@ endfunction
 
 function! vonfry#bundle#dev#logreview()
   call vonfry#bundle#add('andreshazard/vim-logreview')
-endfunction
-
-function! vonfry#bundle#dev#org()
-    call vonfry#bundle#add('jceb/vim-orgmode')
 endfunction
 
 function! vonfry#bundle#dev#surround()

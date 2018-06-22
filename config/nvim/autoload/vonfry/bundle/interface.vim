@@ -64,6 +64,9 @@ endfunction
 
 function! vonfry#bundle#interface#whitespace()
     call vonfry#bundle#add('ntpeters/vim-better-whitespace')
+    let g:better_whitespace_verbosity=1
+    let g:strip_whitespace_on_save = 1
+    let g:better_whitespace_operator='<leader>ws'
 endfunction
 
 function! vonfry#bundle#interface#align()
