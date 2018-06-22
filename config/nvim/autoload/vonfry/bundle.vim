@@ -5,7 +5,6 @@
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
 " TODO change this
-            \ 'joereynolds/SQHell.vim',
             \ 'andreshazard/vim-logreview',
             \ 'jceb/vim-orgmode',
             \ 'tpope/vim-speeddating',
