@@ -13,6 +13,10 @@
   (projectile-cache-file +projectile-cache-dir)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   (projectile-switch-project-action 'neotree-projectile-action)
+  :general
+  (nmap :prefix +nmap-lang-prefix
+        :keymaps '(c-mode-map c++-mode-map objc-mode-map)
+        "h" 'projectile-find-other-file)
   :config
   (projectile-global-mode t))
 

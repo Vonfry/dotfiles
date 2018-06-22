@@ -2,5 +2,5 @@
 ;;
 
 (defconst +nmap-avy-prefix
-  (concat vonfry-keybind-evil-leader +nmap-g)
+  (concat +nmap-leader +nmap-g)
   "nmap avy prefix")
