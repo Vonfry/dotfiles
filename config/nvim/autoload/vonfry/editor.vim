@@ -70,7 +70,7 @@ function! vonfry#editor#init()
                 \   exe "normal! g`\"" |
                 \ endif
 
-    set wildmenu
+    set wildmode=list
     set completeopt=longest,menu
 
     set exrc
