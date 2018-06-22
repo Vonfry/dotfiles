@@ -43,8 +43,6 @@ function! vonfry#editor#init()
     set nofoldenable
     set foldlevelstart=0
     set foldmethod=syntax
-    autocmd Filetype python set foldmethod=indent
-    autocmd Filetype vim    set foldmethod=marker
     if !isdirectory(g:vonfry#local#swap)
         silent call mkdir(g:vonfry#local#swap, 'p')
     endif
@@ -60,7 +58,6 @@ function! vonfry#editor#init()
 
     set incsearch
     set hlsearch
-
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
