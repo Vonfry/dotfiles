@@ -4,6 +4,7 @@
 function vonfry#bundle#visual#init()
     call vonfry#bundle#visual#solarized()
     call vonfry#bundle#visual#airline()
+    call vonfry#bundle#visual#undo()
 endfunction
 
 function vonfry#bundle#visual#solarized()
@@ -23,3 +24,9 @@ endfunction
 function! vonfry#bundle#visual#intent()
     call vonfry#bundle#add('yggdroot/indentline')
 endfunction
+
+function! vonfry#bundle#visual#undo()
+    call vonfry#bundle#add('mbbill/undotree')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#undotree, ':UndotreeToggle<CR>')
+endfunction
+

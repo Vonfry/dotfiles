@@ -3,6 +3,11 @@
 
 function! vonfry#bundle#interface#init()
     call vonfry#bundle#interface#denite()
+    call vonfry#bundle#interface#mc()
+    call vonfry#bundle#interface#editorconfig()
+    call vonfry#bundle#interface#encode()
+    call vonfry#bundle#interface#whitespace()
+    call vonfry#bundle#interface#vim()
 endfunction()
 
 function! vonfry#bundle#interface#denite()
@@ -41,4 +46,33 @@ function! vonfry#bundle#interface#denite()
     call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
                 \ [ '.git/', '.ropeproject/', '__pycache__/',
                 \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+endfunction
+
+function! vonfry#bundle#interface#mc()
+    call vonfry#bundle#add('terryma/vim-multiple-cursors')
+endfunction
+
+function! vonfry#bundle#interface#editorconfig()
+    call vonfry#bundle#add('editorconfig/editorconfig-vim')
+    let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+    let g:EditorConfig_exec_path="editorconfig"
+endfunction
+
+function! vonfry#bundle#interface#encode()
+    call vonfry#bundle#add('mbbill/fencview')
+endfunction
+
+function! vonfry#bundle#interface#whitespace()
+    call vonfry#bundle#add('ntpeters/vim-better-whitespace')
+endfunction
+
+function! vonfry#bundle#interface#align()
+    call vonfry#bundle#add('godlygeek/tabular')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#align, ':Tabularize /')
+endfunction
+
+function! vonfry#bundle#interface#vim()
+    call vonfry#bundle#add('kshenoy/vim-signature')
+    call vonfry#bundle#add('haya14busa/incsearch.vim')
+    call vonfry#bundle#add('osyo-manga/vim-over')
 endfunction

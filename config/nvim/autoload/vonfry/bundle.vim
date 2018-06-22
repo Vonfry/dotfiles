@@ -4,38 +4,13 @@
 
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
-" TODO change this
-            \ 'andreshazard/vim-logreview',
-            \ 'jceb/vim-orgmode',
-            \ 'tpope/vim-speeddating',
-            \ 'DoxygenToolkit.vim',
-            \ 'Valloric/MatchTagAlways',
-            \ 'tpope/vim-surround',
-            \ 'jiangmiao/auto-pairs',
-            \ 'godlygeek/tabular',
-            \ 'kshenoy/vim-signature',
-            \ 'tpope/vim-projectionist',
-            \ 'airblade/vim-rooter',
-            \ 'scrooloose/nerdtree',
-            \ 'Xuyuanp/nerdtree-git-plugin',
-            \ 'scrooloose/nerdcommenter',
-            \ 'mbbill/undotree',
-            \ 'tpope/vim-fugitive',
-            \ 'airblade/vim-gitgutter.git',
-            \ 'haya14busa/incsearch.vim',
-            \ 'osyo-manga/vim-over',
-            \ 'terryma/vim-multiple-cursors',
-            \
-            \ 'lifepillar/vim-solarized8',
-            \
             \ 'nagivation',
             \ 'visual',
             \ 'interface',
-            \ 'editor'
             \ 'completion',
             \ 'dev',
-            \ 'lang',
-]
+            \ 'lang'
+        ]
 let g:vonfry#bundle#manager_dir =
             \fnameescape(g:vonfry#bundle#dir)
             \ . join(['repos', 'github.com', 'Shougo',
