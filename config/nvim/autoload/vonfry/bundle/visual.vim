@@ -8,11 +8,12 @@ function vonfry#bundle#visual#init()
 endfunction
 
 function vonfry#bundle#visual#solarized()
-    vonfry#bundle#add('lifepillar/vim-solarized8')
-
-    if has('gui_running')
-        let g:solarized_termcolors= 256
-    end
+    call vonfry#bundle#add('icymind/NeoSolarized')
+    let g:neosolarized_bold = 1
+    let g:neosolarized_underline = 1
+    let g:neosolarized_italic = 1
+    let g:neosolarized_vertSplitBgTrans = 1
+    let g:neosolarized_contrast = "normal"
 endfunction
 
 function! vonfry#bundle#visual#airline()
@@ -26,7 +27,7 @@ function! vonfry#bundle#visual#intent()
 endfunction
 
 function! vonfry#bundle#visual#undo()
-    call vonfry#bundle#add('mbbill/undotree')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#undotree, ':UndotreeToggle<CR>')
+    call vonfry#bundle#add('simnalamburt/vim-mundo')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#undotree, ':MundoToggle<CR>')
 endfunction
 

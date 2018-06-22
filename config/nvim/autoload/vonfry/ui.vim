@@ -10,5 +10,5 @@ function! vonfry#ui#init()
         let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
     endif
 
-    colorscheme solarized8_high
+    colorscheme NeoSolarized
 endfunction

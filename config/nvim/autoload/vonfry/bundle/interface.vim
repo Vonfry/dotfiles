@@ -69,10 +69,15 @@ endfunction
 function! vonfry#bundle#interface#align()
     call vonfry#bundle#add('godlygeek/tabular')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#align, ':Tabularize /')
+    call vonfry#bundle#add('sbdchd/neoformat')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#format, ':Neoformat')
 endfunction
 
 function! vonfry#bundle#interface#vim()
     call vonfry#bundle#add('kshenoy/vim-signature')
     call vonfry#bundle#add('haya14busa/incsearch.vim')
     call vonfry#bundle#add('osyo-manga/vim-over')
+    call vonfry#bundle#add('Shougo/vimproc.vim', {'build' : 'make'})
 endfunction
+
+

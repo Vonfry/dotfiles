@@ -7,7 +7,7 @@ endfunction
 
 function!  vonfry#bundle#file#nerdtree()
     call vonfry#bundle#add('scrooloose/nerdtree')
-    call vonfry#bundle#add('kshenoy/vim-signature')
+    call vonfry#bundle#add('xuyuanp/nerdtree-git-plugin')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#treenode, ':NERDTreeToggle<CR>')
 endfunction
 

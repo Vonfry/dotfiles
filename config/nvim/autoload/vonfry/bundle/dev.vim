@@ -16,7 +16,10 @@ endfunction
 
 function! vonfry#bundle#dev#syntastic()
   " TODO check with lsp
-  call vonfry#bundle#add('vim-syntastic/syntastic')
+  call vonfry#bundle#add('neomake/neomake')
+  call vonfry#mapping#leader(g:vonfry#mapping#nmap#run, ':Neomake')
+  call vonfry#mapping#leader(g:vonfry#mapping#nmap#check, ':NeomakeInfo')
+  call neomake#configure#automake('rnw', 1000)
   call vonfry#mapping#leader(g:vonfry#mapping#nmap#check, ':silent! botright copen')
 endfunction
 

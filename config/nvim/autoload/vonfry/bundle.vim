@@ -4,10 +4,12 @@
 
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
 let g:vonfry#bundle#default = [
+            \ 'file',
             \ 'nagivation',
             \ 'visual',
             \ 'interface',
             \ 'completion',
+            \ 'vcs',
             \ 'dev',
             \ 'lang'
         ]

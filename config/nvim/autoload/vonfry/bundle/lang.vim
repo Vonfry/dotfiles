@@ -23,5 +23,5 @@ endfunction
 
 function! vonfry#bundle#lang#doc()
     call vonfry#bundle#add('DoxygenToolkit.vim')
-    call vonfry#bundle#add('kshenoy/vim-signature')
+    call vonfry#bundle#add('scrooloose/nerdcommenter')
 endfunction

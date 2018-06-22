@@ -2,12 +2,12 @@
 "
 
 function! vonfry#bundle#completion#init()
-    call vonfry#bundle#completion#deplete()
+    call vonfry#bundle#completion#deoplete()
     call vonfry#bundle#completion#snippets()
     call vonfry#bundle#completion#lsp()
 endfunction
 
-function! vonfry#bundle#completion#deplete()
+function! vonfry#bundle#completion#deoplete()
     call vonfry#bundle#add('Shougo/deoplete.nvim')
     let g:deoplete#enable_at_startup = 1
 endfunction
