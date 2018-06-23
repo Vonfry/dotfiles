@@ -21,7 +21,6 @@ function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#file, ':Denite file<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#search, ':Denite grep<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer, ':Denite buffer<CR>')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#tag, ':Denite tag<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper, ':Denite jump<CR>')
     " Change file_rec command.
     call denite#custom#var('file_rec', 'command',

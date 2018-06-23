@@ -3,7 +3,7 @@
 (package! lsp-mode
   :general
   (nmap :keymaps 'prog-mode-map
-        :prefix +nmap-lsp-prefix
+        :prefix +nmap-lang-action
         "" '(nil :which-key "lsp")
         +nmap-run       'lsp-execute-code-action
         +nmap-format    'lsp-format-buffer

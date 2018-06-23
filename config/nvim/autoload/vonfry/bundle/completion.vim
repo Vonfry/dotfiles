@@ -24,11 +24,14 @@ function! vonfry#bundle#completion#config()
                 \ }
     set completefunc=LanguageClient#complete
 
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt, ':call LanguageClient_contextMenu()<CR>')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_peek, ':call LanguageClient#textDocument_documentSymbol()<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_context, ':call LanguageClient_contextMenu()<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_implementation, ':call LanguageClient#textDocument_implementation()<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt, ':call LanguageClient#textDocument_documentSymbol()<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#code, ':call LanguageClient#workspace_symbol()<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_action, ':call LanguageClient#textDocument_codeAction()<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#code_help, ':call LanguageClient#textDocument_hover()<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#go, ':call LanguageClient#textDocument_definition()<CR>')
-    call vonfry#mapping#leader([g:vonfry#mapping#nmap#navigation, 'r'], ':call LanguageClient#textDocument_rename()<CR>')
+    call vonfry#mapping#leader([g:vonfry#mapping#nmap#go_rename, 'r'], ':call LanguageClient#textDocument_rename()<CR>')
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
