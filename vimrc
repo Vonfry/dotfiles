@@ -86,7 +86,8 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
     \ endif
 
-set wildmode=list:full
+set wildmode=list
+set wildmenu
 set completeopt=longest,menu
 
 set exrc
