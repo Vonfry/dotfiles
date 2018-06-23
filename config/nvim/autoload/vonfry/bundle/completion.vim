@@ -11,8 +11,9 @@ endfunction
 function! vonfry#bundle#completion#config()
     let g:deoplete#enable_at_startup = 1
 
+    let g:LanguageClient_loadSettings = 1
     let g:LanguageClient_serverCommands =
-                \ { 'haskell': ['hie-wrapper', '--lsp']
+                \ { 'haskell': ['hie', '--lsp']
                 \ , 'cpp': ['cquery', '--log-file=/tmp/cq.log']
                 \ , 'c': ['cquery', '--log-file=/tmp/cq.log']
                 \ , 'javascript': ['javascript-typescript-stdio']
