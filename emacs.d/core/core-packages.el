@@ -120,7 +120,7 @@ is undefined(It always is loaded by alpha order)."
 (package! auto-package-update
   :custom
   (auto-package-update-delete-old-versions t)
-  (apu--last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
+  (apu-last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
   (auto-package-update-hide-results t)
   :hook ((after-init . auto-package-update-maybe)
          (auto-package-update-after . vonfry/reload-init-file)))
