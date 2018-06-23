@@ -156,12 +156,7 @@ else
     need_update=0
 fi
 if [ $need_update = 0 ] ; then
-    echo -e "\n${ECHO_SYM}[vonfry]${ECHO_MSG} Would you like to check for updates? [Y/n]:${ECHO_RST}\c"
-    read whether_do_update
-    if [[ $whether_do_update = y* ]] || [[ $whether_do_update == Y* ]] || [ -z $whether_do_update ]; then
-        vonfry-update
-    fi
-    unset whether_do_update
+    echo -e "\n${ECHO_SYM}[vonfry]${ECHO_MSG} Environment is needed to update.${ECHO_RST}\c"
 fi
 unset update_epoch_file
 unset need_update
