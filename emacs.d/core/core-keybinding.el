@@ -58,9 +58,6 @@
 (defconst +nmap-align "="
   "align regex")
 
-(defconst +nmap-speedbar "&"
-  "show code struct like ebrower and imenu.")
-
 (defconst +nmap-repl "'"
   "repl")
 
