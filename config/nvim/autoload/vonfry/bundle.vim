@@ -3,16 +3,23 @@
 "
 
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
-let g:vonfry#bundle#default = [
-            \ 'file',
-            \ 'nagivation',
-            \ 'visual',
-            \ 'interface',
-            \ 'completion',
-            \ 'vcs',
-            \ 'dev',
-            \ 'lang'
-        ]
+let g:vonfry#bundle#default =
+            \ ['file'
+            \ , 'navigation'
+            \ ,'visual'
+            \ ,'interface'
+            \ ,'completion'
+            \ ,'vcs'
+            \ ,'dev'
+            \ ,'lang'
+            \ ]
+if has('win16') || has('win32') || has('win64')
+    let s:Psep = ';'
+    let s:Fsep = '\'
+else
+    let s:Psep = ':'
+    let s:Fsep = '/'
+endif
 let g:vonfry#bundle#manager_dir =
             \fnameescape(g:vonfry#bundle#dir)
             \ . join(['repos', 'github.com', 'Shougo',
@@ -23,13 +30,6 @@ function! vonfry#bundle#init()
 endfunction
 
 function! vonfry#bundle#preinstall()
-    if has('win16') || has('win32') || has('win64')
-        let s:Psep = ';'
-        let s:Fsep = '\'
-    else
-        let s:Psep = ':'
-        let s:Fsep = '/'
-    endif
     if &compatible
         set nocompatible
     endif
@@ -51,13 +51,13 @@ function! vonfry#bundle#preinstall()
 endfunction
 
 function! vonfry#bundle#add(plug)
-    if type(plug) == 1 "string
-        call dein#add(plug)
-    elseif type(plug) == 3 && len(plug) >= 1 && len(plug) <= 2 "list
-        if len(plug) == 1
-            call dein#add(plug[0])
+    if type(a:plug) == 1 "string
+        call dein#add(a:plug)
+    elseif type(a:plug) == 3 && len(a:plug) >= 1 && len(a:plug) <= 2 "list
+        if len(a:plug) == 1
+            call dein#add(a:plug[0])
         else
-            call dein#add(plug[0], plug[1])
+            call dein#add(a:plug[0], a:plug[1])
         endif
     else
         throw 'add arguments error'
@@ -78,7 +78,7 @@ function! vonfry#bundle#use()
     call vonfry#bundle#begin()
     call dein#add(g:vonfry#bundle#manager_dir)
     for bundle in g:vonfry#bundle#default
-        exec 'call vonfry#bundle#' . g:vonfry#bundle#default . '#init()'
+        exec 'call vonfry#bundle#' . bundle . '#plug()'
     endfor
     call vonfry#bundle#end()
 
@@ -86,6 +86,10 @@ function! vonfry#bundle#use()
     syntax enable
 
     call vonfry#bundle#install()
+
+    for bundle in g:vonfry#bundle#default
+        exec 'call vonfry#bundle#' . bundle . '#config()'
+    endfor
 endfunction
 
 function! vonfry#bundle#install()

@@ -3,7 +3,7 @@
 
 let g:vonfry#mapping#nmap#leader = "\<Space>"
 
-let g:vonfry#mapping#nmap#x = "x"
+let g:vonfry#mapping#nmap#x = 'x'
 let g:vonfry#mapping#nmap#go = '.'
 let g:vonfry#mapping#nmap#go_back = ','
 let g:vonfry#mapping#nmap#go_peek = '{'
@@ -16,7 +16,7 @@ let g:vonfry#mapping#nmap#go_module = '#'
 let g:vonfry#mapping#nmap#format = '('
 let g:vonfry#mapping#nmap#align = '='
 let g:vonfry#mapping#nmap#speedbar = '&'
-let g:vonfry#mapping#nmap#repl = '''
+let g:vonfry#mapping#nmap#repl = "'"
 let g:vonfry#mapping#nmap#lang_action = '*'
 let g:vonfry#mapping#nmap#navigation = '['
 let g:vonfry#mapping#nmap#g = 'g'

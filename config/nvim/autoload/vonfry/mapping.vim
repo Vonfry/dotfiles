@@ -7,18 +7,18 @@ function! vonfry#mapping#init()
 endfunction
 
 function! vonfry#mapping#leader(keys, func)
-    if type(keys) == 1 " string
-        exec 'nmap <leader>' . key . ' ' . func
-    elseif type(keys) == 3 " list
-        exec 'nmap <leader>' . join(keys, '') . ' ' . func
+    if type(a:keys) == type('')
+        exec 'nmap <leader>' . a:keys . ' ' . a:func
+    elseif type(a:keys) == type([])
+        exec 'nmap <leader>' . join(a:keys, '') . ' ' . a:func
     endif
 endfunction
 
 function! vonfry#mapping#lang(keys, func)
-    if type(keys) == 1
-        exec 'nmap <leader>' . key . ' ' . func
-        call vonfry#mapping#leader(g:vonfry#mapping#nmap#lang . keys, func)
-    elseif type(keys) == 3
-        call vonfry#mapping#leader([g:vonfry#mapping#nmap#lang] + keys, func)
+    if type(a:keys) == type('')
+        exec 'nmap <leader>' . a:keys . ' ' . a:func
+        call vonfry#mapping#leader(g:vonfry#mapping#nmap#lang . a:keys, a:func)
+    elseif type(a:keys) == type([])
+        call vonfry#mapping#leader([g:vonfry#mapping#nmap#lang] + a:keys, a:func)
     endif
 endfunction

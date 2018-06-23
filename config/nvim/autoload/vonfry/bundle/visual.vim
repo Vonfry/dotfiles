@@ -1,25 +1,22 @@
 "" visual.vim
 "
 
-function vonfry#bundle#visual#init()
-    call vonfry#bundle#visual#solarized()
-    call vonfry#bundle#visual#airline()
-    call vonfry#bundle#visual#undo()
+function vonfry#bundle#visual#plug()
+    call vonfry#bundle#add('icymind/NeoSolarized')
+    call vonfry#bundle#add('vim-airline/vim-airline',)
+    call vonfry#bundle#add('vim-airline/vim-airline-themes',)
+    call vonfry#bundle#add('enricobacis/vim-airline-clock')
+    call vonfry#bundle#add('yggdroot/indentline')
+    call vonfry#bundle#add('simnalamburt/vim-mundo')
 endfunction
 
-function vonfry#bundle#visual#solarized()
-    call vonfry#bundle#add('icymind/NeoSolarized')
+function vonfry#bundle#visual#config()
     let g:neosolarized_bold = 1
     let g:neosolarized_underline = 1
     let g:neosolarized_italic = 1
     let g:neosolarized_vertSplitBgTrans = 1
     let g:neosolarized_contrast = "normal"
-endfunction
 
-function! vonfry#bundle#visual#airline()
-    call vonfry#bundle#add('vim-airline/vim-airline',)
-    call vonfry#bundle#add('vim-airline/vim-airline-themes',)
-    call vonfry#bundle#add('enricobacis/vim-airline-clock')
     let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tmuxline#enabled = 0
     let g:airline#extensions#tagbar#flags = 's'
@@ -39,14 +36,5 @@ function! vonfry#bundle#visual#airline()
     let g:airline_symbols.paste      = '∥'
     let g:airline_symbols.whitespace = 'Ξ'
 
-endfunction
-
-function! vonfry#bundle#visual#intent()
-    call vonfry#bundle#add('yggdroot/indentline')
-endfunction
-
-function! vonfry#bundle#visual#undo()
-    call vonfry#bundle#add('simnalamburt/vim-mundo')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#undotree, ':MundoToggle<CR>')
 endfunction
-

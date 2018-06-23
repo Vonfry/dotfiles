@@ -1,18 +1,21 @@
 "" interface.vim
 "
 
-function! vonfry#bundle#interface#init()
-    call vonfry#bundle#interface#denite()
-    call vonfry#bundle#interface#mc()
-    call vonfry#bundle#interface#editorconfig()
-    call vonfry#bundle#interface#encode()
-    call vonfry#bundle#interface#whitespace()
-    call vonfry#bundle#interface#vim()
-endfunction()
-
-function! vonfry#bundle#interface#denite()
+function! vonfry#bundle#interface#plug()
     call vonfry#bundle#add('Shougo/denite.nvim')
+    call vonfry#bundle#add('terryma/vim-multiple-cursors')
+    call vonfry#bundle#add('editorconfig/editorconfig-vim')
+    call vonfry#bundle#add('ntpeters/vim-better-whitespace')
+    call vonfry#bundle#add('mbbill/fencview')
+    call vonfry#bundle#add('kshenoy/vim-signature')
+    call vonfry#bundle#add('haya14busa/incsearch.vim')
+    call vonfry#bundle#add('osyo-manga/vim-over')
+    call vonfry#bundle#add(['Shougo/vimproc.vim', {'build' : 'make'}])
+    call vonfry#bundle#add('godlygeek/tabular')
+    call vonfry#bundle#add('sbdchd/neoformat')
+endfunction
 
+function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#x, ':Denite command<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp, ':Denite file_rec<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#file, ':Denite file<CR>')
@@ -46,41 +49,14 @@ function! vonfry#bundle#interface#denite()
     call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
                 \ [ '.git/', '.ropeproject/', '__pycache__/',
                 \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-endfunction
 
-function! vonfry#bundle#interface#mc()
-    call vonfry#bundle#add('terryma/vim-multiple-cursors')
-endfunction
-
-function! vonfry#bundle#interface#editorconfig()
-    call vonfry#bundle#add('editorconfig/editorconfig-vim')
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"
-endfunction
 
-function! vonfry#bundle#interface#encode()
-    call vonfry#bundle#add('mbbill/fencview')
-endfunction
-
-function! vonfry#bundle#interface#whitespace()
-    call vonfry#bundle#add('ntpeters/vim-better-whitespace')
     let g:better_whitespace_verbosity=1
     let g:strip_whitespace_on_save = 1
     let g:better_whitespace_operator='<leader>ws'
-endfunction
 
-function! vonfry#bundle#interface#align()
-    call vonfry#bundle#add('godlygeek/tabular')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#align, ':Tabularize /')
-    call vonfry#bundle#add('sbdchd/neoformat')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#format, ':Neoformat')
 endfunction
-
-function! vonfry#bundle#interface#vim()
-    call vonfry#bundle#add('kshenoy/vim-signature')
-    call vonfry#bundle#add('haya14busa/incsearch.vim')
-    call vonfry#bundle#add('osyo-manga/vim-over')
-    call vonfry#bundle#add('Shougo/vimproc.vim', {'build' : 'make'})
-endfunction
-
-
