@@ -12,6 +12,7 @@ function! vonfry#bundle#completion#config()
     let g:deoplete#enable_at_startup = 1
 
     let g:LanguageClient_loadSettings = 1
+    let g:LanguageClient_settingsPath = expand('~/.config/nvim/config/settings.json')
     let g:LanguageClient_serverCommands =
                 \ { 'haskell': ['hie', '--lsp']
                 \ , 'cpp': ['cquery', '--log-file=/tmp/cq.log']
