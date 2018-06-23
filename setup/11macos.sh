@@ -85,7 +85,7 @@ brew reinstall weechat
 
 # editor
 brew reinstall editorconfig
-brew reinstall macvim --with-lua --with-override-system-vim --with-luajit
+brew reinstall macvim --with-override-system-vim
 brew reinstall neovim
 brew reinstall emacs --with-cocoa --with-gnutls --with-imagemagick@6 --with-librsvg --with-mailutils --with-dbus
 # TODO change imagemagick@6 to other version
