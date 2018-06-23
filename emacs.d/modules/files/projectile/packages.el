@@ -36,8 +36,9 @@
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
   (nmap :prefix (concat +nmap-leader +nmap-todo)
-          "," 'org-projectile-project-todo-completing-read
-          "." 'org-projectile-goto-location-for-project)
+        "" '(nil :which-key "org-projectile")
+        "," 'org-projectile-project-todo-completing-read
+        "." 'org-projectile-goto-location-for-project)
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config

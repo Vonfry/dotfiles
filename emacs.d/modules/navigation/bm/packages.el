@@ -4,5 +4,6 @@
 (package! bm
   :general
   (nmap :prefix +bm-nmap-prefix
-    "t" 'bm-toggle
-    "m" 'counsel-bookmark))
+        "" '(nil :which-key "bookmork")
+        "t" 'bm-toggle
+        "m" 'counsel-bookmark))

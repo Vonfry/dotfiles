@@ -7,6 +7,7 @@
         +nmap-go-prompt 'dumb-jump-go-prompt)
   (nmap :prefix +dumb-jump-nmap-prefix
         :keymaps 'prog-mode-map
+        "" '(nil :which-key "dumb-jump")
         +nmap-go            'dumb-jump-go
         +nmap-go-back       'dumb-jump-back
         +nmap-go-prompt     'dumb-jump-go-prompt
