@@ -19,7 +19,7 @@ function! vonfry#bundle#lang#config()
                 \ 'jinja' : 1,
                 \ }
     let g:mta_use_matchparen_group = 1
-    call vonfry#mapping#leader('%' ':MtaJumpToOtherTag<CR>')
+    call vonfry#mapping#leader('%', ':MtaJumpToOtherTag<CR>')
     let g:html5_rdfa_attributes_complete = 0
     let g:html5_microdata_attributes_complete = 0
     let g:html5_aria_attirbutes_complete = 0
