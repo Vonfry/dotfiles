@@ -10,8 +10,8 @@ fi
 # Editors
 #
 
-export EDITOR='vim'
-export VISUAL='mvim'
+export EDITOR='nvim'
+export VISUAL='nvim'
 export PAGER='less'
 
 #

@@ -7,7 +7,7 @@
   :general
   (nmap :keymaps 'python-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :major-modes t)
+        ""   '(nil :which-key "python")
         +nmap-go        'py-find-definition
         +nmap-go-module 'py-update-imports
         "ss" 'py-switch-shell
@@ -20,7 +20,7 @@
   :general
   (nmap :keymaps 'python-mode-map
         :prefix +nmap-lang-prefix
-        ""  '(nil :major-modes t)
+        ""  '(nil :which-key "python")
         "v" 'pyvenv-activate
         "d" 'pyvenv-deactivate
         "w" 'pyvenv-workon))
@@ -32,7 +32,7 @@
         +nmap-code-help 'pydoc)
   (nmap :keymaps 'python-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :major-modes t)
+        ""   '(nil :which-key "python")
         "pp" 'pydoc
         "pb" 'pydoc-browse))
 

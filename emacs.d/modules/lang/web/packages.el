@@ -37,7 +37,7 @@
   :general
   (nmap :keymaps 'web-mode-map
         :prefix +nmap-lang-prefix
-        ""  '(nil :major-modes t)
+        ""  '(nil :which-key "web")
         +nmap-code 'web-mode-tag-select))
 
 (package! haml-mode :after web-mode)
