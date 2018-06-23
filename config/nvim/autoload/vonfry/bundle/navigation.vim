@@ -9,6 +9,7 @@ endfunction
 function! vonfry#bundle#navigation#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#g, '<Plug>(easymotion-prefix)')
 
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#tag, ':TagbarToggle')
     let g:tagbar_show_linenumbers = 0
     let g:tagbar_autopreview = 0
     let g:tagbar_autoclose = 1
