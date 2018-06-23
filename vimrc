@@ -21,7 +21,6 @@ set shell=/bin/bash
 set t_Co=256
 
 set background=dark
-colorscheme pablo " default one
 
 if $TERM_PROGRAM =~ "iTerm"
     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
