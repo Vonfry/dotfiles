@@ -104,7 +104,7 @@ function! vonfry#bundle#install()
 endfunction
 
 function! vonfry#bundle#update()
-    function! vonfry#bundle#update_maybe()
+    call vonfry#bundle#update_maybe()
 endfunction
 
 function! vonfry#bundle#update_maybe()
