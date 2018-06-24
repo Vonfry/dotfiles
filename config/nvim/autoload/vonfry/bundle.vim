@@ -3,6 +3,7 @@
 "
 
 let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
+let g:vonfry#bundle#last_update_file = g:vonfry#local#cache . '/last-update-date'
 let g:vonfry#bundle#default =
             \ ['file'
             \ , 'navigation'
@@ -103,5 +104,19 @@ function! vonfry#bundle#install()
 endfunction
 
 function! vonfry#bundle#update()
+    call vonfry#bundle#update_maybe()
+endfunction
+
+function! vonfry#bundle#update_maybe()
+    let l:cdate = localtime()
+    let l:ldate = getftime(g:vonfry#bundle#last_update_file)
+    let l:delta = l:ldate - l:cdate
+    if l:delta >= 7 || l:ldate == -1
+        call vonfry#bundle#update_now()
+    endif
+endfunction
+
+function! vonfry#bundle#update_now()
     call dein#update()
+    call writefile([l:cdate], g:vonfry#bundle#last_update_file)
 endfunction

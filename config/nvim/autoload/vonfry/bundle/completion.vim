@@ -31,7 +31,7 @@ function! vonfry#bundle#completion#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_action, ':call LanguageClient#textDocument_codeAction()<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#code_help, ':call LanguageClient#textDocument_hover()<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#go, ':call LanguageClient#textDocument_definition()<CR>')
-    call vonfry#mapping#leader([g:vonfry#mapping#nmap#go_rename, 'r'], ':call LanguageClient#textDocument_rename()<CR>')
+    call vonfry#mapping#leader([g:vonfry#mapping#nmap#lang_action, 'r'], ':call LanguageClient#textDocument_rename()<CR>')
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"

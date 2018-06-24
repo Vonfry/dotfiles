@@ -97,7 +97,9 @@
 
   '(custom-file vonfry-custom-file)
   '(save-abbrevs 'silently)
-  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)))
+  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir))
+
+  '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 
