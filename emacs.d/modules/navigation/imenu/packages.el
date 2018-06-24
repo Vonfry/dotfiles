@@ -14,7 +14,6 @@
   :custom
   (imenu-list-focus-after-activation t)
   (imenu-list-auto-resize t)
-  :hook (prog-mode . imenu-list-minor-mode)
   :general
   (nmap :prefix +nmap-leader
     +nmap-tag 'imenu-list-smart-toggle))
