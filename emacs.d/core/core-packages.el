@@ -109,6 +109,10 @@ is undefined(It always is loaded by alpha order)."
       (vonfry--package! pkg)
       (require pkg)))
 
+(defun vonfry/reload-modules ()
+  (interactive)
+  (vonfry-load-modules vonfry-exclude-modules))
+
 (package! package-utils)
 (package! paradox :config (paradox-enable))
 (package! diminish)
@@ -118,7 +122,8 @@ is undefined(It always is loaded by alpha order)."
   (auto-package-update-delete-old-versions t)
   (apu-last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
   (auto-package-update-hide-results t)
-  :hook (after-init . auto-package-update-maybe))
+  :hook ((after-init . auto-package-update-maybe)
+         (auto-package-update-after . vonfry/reload-modules)))
 (package! auto-compile
   :custom
   (load-prefer-newer t)
