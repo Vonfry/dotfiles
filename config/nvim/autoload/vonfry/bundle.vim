@@ -118,5 +118,5 @@ endfunction
 
 function! vonfry#bundle#update_now()
     call dein#update()
-    call writefile([l:cdate], g:vonfry#bundle#last_update_file)
+    call writefile([localtime()], g:vonfry#bundle#last_update_file)
 endfunction
