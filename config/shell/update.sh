@@ -127,7 +127,7 @@ function vonfry-update()
     fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update end ${ECHO_RST}\n"
-    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please do a check. Some action may failed, specially what need to being built at local, such as gentoo.${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}-- ${ECHO_MSG}Please do a check. Some action may failed, specially what need to being built at local, such as gentoo.${ECHO_RST}"
 
     cd $current_dir
 
@@ -152,7 +152,7 @@ else
     need_update=0
 fi
 if [ $need_update = 0 ] ; then
-    echo -e "\n${ECHO_SYM}[vonfry]${ECHO_MSG} Environment is needed to update.${ECHO_RST}\c"
+    echo -e "\n${ECHO_SYM}[vonfry]${ECHO_MSG} Environment is needed to update.${ECHO_RST}\n"
 fi
 unset update_epoch_file
 unset need_update
