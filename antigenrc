@@ -19,6 +19,7 @@ antigen bundles <<EOBUNDLES
     terminal
     utility
 
+    paulirish/git-open
     # mafredri/zsh-async
 EOBUNDLES
 
