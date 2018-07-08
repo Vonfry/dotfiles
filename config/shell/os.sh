@@ -6,6 +6,7 @@ case "$(uname)" in
         export PATH="/usr/local/opt/sqlite/bin:$PATH"
         export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
         export PATH="/usr/local/opt/curl/bin:$PATH"
+        export PATH="/usr/local/opt/gcc:$PATH"
         export PATH="/usr/local/opt/llvm/bin:$PATH"
         export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
         export fpath=(/usr/local/share/zsh-completions $fpath)
