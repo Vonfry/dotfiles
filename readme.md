@@ -14,10 +14,10 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
 - [ ustc ] pypi
-- [ ustc ] hackage & stackage ( without `cabal`)
+- [ tuna ] hackage & stackage ( without `cabal`)
 - [ tuna ] elpa
-- [ ustc ] CRAN
-- [ ustc ] rubygems
+- [ tuna ] CRAN
+- [ tuna ] rubygems
 
 ## system
 

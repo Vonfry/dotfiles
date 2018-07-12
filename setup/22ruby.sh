@@ -2,8 +2,7 @@ echo_info "** setup ruby"
 
 if command -v gem > /dev/null 2>&1; then
     echo_info "*** setup gem"
-    gem sources --remove https://rubygems.org/  #移除默认源
-    gem sources -a https://mirrors.ustc.edu.cn/rubygems/  #添加科大源
+    gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
     gem install --silent --no-lock -g $script_dir/config/pkgs/gem.txt
     if command -v bundle > /dev/null 2>&1; then
         bundle config mirror.https://rubygems.org https://mirrors.ustc.edu.cn/rubygems/
