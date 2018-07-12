@@ -1,1 +1,1 @@
-options("repos" = c(CRAN="https://mirrors.ustc.edu.cn/CRAN/"))
+options("repos" = c(CRAN="https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
