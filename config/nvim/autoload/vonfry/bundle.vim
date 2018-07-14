@@ -110,7 +110,7 @@ endfunction
 function! vonfry#bundle#update_maybe()
     let l:cdate = localtime()
     let l:ldate = getftime(g:vonfry#bundle#last_update_file)
-    let l:delta = l:ldate - l:cdate
+    let l:delta =  l:cdate - l:ldate
     if l:delta >= 7 || l:ldate == -1
         call vonfry#bundle#update_now()
     endif
