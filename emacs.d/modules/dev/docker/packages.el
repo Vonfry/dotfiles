@@ -2,11 +2,10 @@
 ;;
 
 (package! docker
-  :config
-  (docker-global-mode t)
   :general
   (nmap :prefix +nmap-docker-prefix
         ""  '(nil :which-key "docker")
+        "'"  'docker
         "c" 'docker-containers
         "d" 'docker-rmi
         "e" 'docker-unpause
