@@ -35,6 +35,8 @@ brew reinstall handbrake                     # video transcoder
 brew reinstall parallel
 brew reinstall gpatch
 brew reinstall tmux
+brew reinstall mc
+brew reinstall most
 
 # C & Cpp libs
 brew reinstall gcc --with-nls
