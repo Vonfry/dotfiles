@@ -5,3 +5,4 @@ net-analyzer/vnstat
 app-admin/denyhosts
 dev-python/ipaddr
 sys-apps/lshw
+sys-process/lsof
