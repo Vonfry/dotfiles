@@ -80,8 +80,6 @@ sudo emerge --sync --quiet
 
 sudo emerge $emerge_args @vonfry00portage
 sudo eix-sync
-sudo layman-updater -R
-sudo layman -S
 
 # system basic tools
 sudo emerge $emerge_args @vonfry10system
@@ -95,7 +93,7 @@ sudo emerge $emerge_args @vonfry20shell
 sudo emerge $emerge_args @vonfry30editor
 
 # development
-sudo layman -a haskell
+eselect repository enable haskell
 sudo emerge $emerge_args @vonfry40lang
 sudo emerge $emerge_args @vonfry41db
 sudo emerge $emerge_args @vonfry42misc
