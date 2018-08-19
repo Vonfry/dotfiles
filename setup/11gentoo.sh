@@ -96,6 +96,7 @@ sudo emerge $emerge_args @vonfry30editor
 
 # development
 sudo layman -a haskell
+eselect repository enable haskell
 sudo emerge $emerge_args @vonfry40lang
 sudo emerge $emerge_args @vonfry41db
 sudo emerge $emerge_args @vonfry42misc

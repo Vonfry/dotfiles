@@ -8,3 +8,4 @@ app-portage/portage-utils
 app-portage/genlop
 app-portage/repoman
 app-portage/layman
+app-eselect/eselect-repository
