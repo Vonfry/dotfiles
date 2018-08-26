@@ -58,7 +58,7 @@ function vonfry-update()
     fi
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}sources${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}lsp${ECHO_RST}\n"
+    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}lsp${ECHO_RST}"
     echo -e "\n${ECHO_SYM}--- ${ECHO_MSG}Please update by yourself. ${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}haskell${ECHO_RST}"
