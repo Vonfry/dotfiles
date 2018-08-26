@@ -14,7 +14,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
 - [ ustc ] pypi
-- [ tuna ] hackage & stackage ( without `cabal`)
+- ~~[ tuna ] hackage & stackage ( without `cabal`)~~  Too unstable
 - [ tuna ] elpa
 - [ tuna ] CRAN
 - [ tuna ] rubygems
@@ -31,8 +31,8 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## command-line
 
-- [x]  zsh
-- [x]  ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it. 
+- [x] zsh
+- [x] ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it. 
 
 ## window manager
 
@@ -40,10 +40,10 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## editor
 
-- [x]  ~~Vim~~ stop maintaining. You can check tag `20180605.193` to use it. 
-- [x]  Neovim 
-- [x]  Emacs
-Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
+- [x] ~~Vim~~ stop maintaining. You can check tag `20180605.193` to use it. 
+- [x] Neovim 
+- [x] Emacs
+      Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
 ## lang
 
