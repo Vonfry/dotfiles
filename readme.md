@@ -42,7 +42,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## editor
 
-- [x] ~~Vim~~ stop maintaining. You can check tag `20180605.193` to use it. 
+- [x] ~~Vim~~ stop maintaining. You can check tag `develop/vim` to use it. 
 - [x] Neovim 
 - [x] Emacs
       Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
