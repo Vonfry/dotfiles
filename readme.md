@@ -17,11 +17,13 @@ Checkout `develop/mirrors` to see an example.
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
+- [ ustc ] Gentoo portage
 - [ ustc ] pypi
 - [ tuna ] hackage & stackage ( without `cabal`）
 - [ tuna ] elpa
 - [ tuna ] CRAN
 - [ tuna ] rubygems
+- [ tuna ] CTAN
 
 ## system
 

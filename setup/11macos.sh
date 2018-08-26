@@ -103,8 +103,6 @@ brew cask install quicklook-pat
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
-sudo tlmgr option repository https://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet
-
 echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
