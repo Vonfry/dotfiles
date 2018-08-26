@@ -18,9 +18,9 @@
 
 (defcustom vonfry-elpa-mirror
   (list
-    (cons "elpa"  "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-    (cons "melpa" "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-    (cons "org"   "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/"))
+    (cons "elpa"  "https://elpa.gnu.org/packages/")
+    (cons "melpa" "https://melpa.org/packages/")
+    (cons "org"   "https://orgmode.org/elpa"))
   "Set elpa mirror."
   :group 'vonfry)
 

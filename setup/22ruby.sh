@@ -2,10 +2,8 @@ echo_info "** setup ruby"
 
 if command -v gem > /dev/null 2>&1; then
     echo_info "*** setup gem"
-    gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
     gem install --silent --no-lock -g $script_dir/config/pkgs/gem.txt
     if command -v bundle > /dev/null 2>&1; then
-        bundle config mirror.https://rubygems.org https://mirrors.ustc.edu.cn/rubygems/
         bundle config console pry
     else
         echo_info "!!!! WARN: Ruby bundle isn't installed. The mirror haven't been set."

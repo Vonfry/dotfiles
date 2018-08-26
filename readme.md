@@ -8,13 +8,17 @@ services' configure), but there are a lot of things that the server doesn't need
 
 ## mirror
 
-Becase of I'm in China, most of mirror is used with tuna or ustc by default.
+A mirror can help us to get resources quickly. But it is unstable. Only using them when the network is bad.
+
+Checkout `develop/mirrors` to see an example.
+
+### Reference
 
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
 - [ ustc ] pypi
-- [ tuna ] hackage & stackage ( without `cabal`)
+- [ tuna ] hackage & stackage ( without `cabal`）
 - [ tuna ] elpa
 - [ tuna ] CRAN
 - [ tuna ] rubygems
@@ -31,8 +35,8 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## command-line
 
-- [x]  zsh
-- [x]  ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it. 
+- [x] zsh
+- [x] ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it. 
 
 ## window manager
 
@@ -40,10 +44,10 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 
 ## editor
 
-- [x]  ~~Vim~~ stop maintaining. You can check tag `20180605.193` to use it. 
-- [x]  Neovim 
-- [x]  Emacs
-Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
+- [x] ~~Vim~~ stop maintaining. You can check tag `develop/vim` to use it. 
+- [x] Neovim 
+- [x] Emacs
+      Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
 ## lang
 
