@@ -21,7 +21,7 @@
   (projectile-global-mode t))
 
 (package! counsel-projectile
-  :after projectile
+  :after projectile counsel
   :hook (projectile-mode . counsel-projectile-mode)
   :general
   (nmap :prefix +nmap-leader
@@ -45,7 +45,7 @@
   (org-projectile-per-project))
 
 (package! ibuffer-projectile
-  :after ibuffer
+  :after ibuffer projectile
   :hook
   (ibuffer .
     (lambda ()

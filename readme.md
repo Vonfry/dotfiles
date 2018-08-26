@@ -8,13 +8,15 @@ services' configure), but there are a lot of things that the server doesn't need
 
 ## mirror
 
-Becase of I'm in China, most of mirror is used with tuna or ustc by default.
+A mirror can help us to get resources quickly. But it is unstable. Only using them when the network is bad.
+
+### Reference
 
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
 
 - [ ustc ] homebrew.git & homebrew-core & homebrew-cask & homebrew-bottle
 - [ ustc ] pypi
-- ~~[ tuna ] hackage & stackage ( without `cabal`)~~  Too unstable
+- [ tuna ] hackage & stackage ( without `cabal`）
 - [ tuna ] elpa
 - [ tuna ] CRAN
 - [ tuna ] rubygems
