@@ -10,6 +10,8 @@ services' configure), but there are a lot of things that the server doesn't need
 
 A mirror can help us to get resources quickly. But it is unstable. Only using them when the network is bad.
 
+Checkout `develop/mirrors` to see an example.
+
 ### Reference
 
 Here is a list of used mirror with this repo. Some things like `~/.cabal/config` which aren't contain in the repo should be set by yourself.
