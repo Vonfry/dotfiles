@@ -55,7 +55,7 @@ is undefined(It always is loaded by alpha order)."
   '(use-package-always-demand t)
   '(use-package-always-ensure t))
 
-(require 'package)
+(eval-when-compile (require 'package))
 (setq package-archives vonfry-elpa-mirror)
 (package-initialize)
 (when (not package-archive-contents)
@@ -104,10 +104,11 @@ is undefined(It always is loaded by alpha order)."
     (autoload func autoload-file docstring interactive type)))
 
 ;; load the basic packages
-(dolist (pkg '(use-package))
-  (unless (require pkg nil t)
+(eval-when-compile
+  (dolist (pkg '(use-package))
+    (unless (require pkg nil t)
       (vonfry--package! pkg)
-      (require pkg)))
+      (require pkg))))
 
 (defun vonfry/reload-modules ()
   (interactive)
