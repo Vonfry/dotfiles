@@ -18,7 +18,7 @@ function vonfry-update()
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}homebrew${ECHO_RST}\n"
             brew update
             brew upgrade
-            brew cask upgrade
+            brew cask upgrade --greedy
             brew cleanup
             echo -e "\n${ECHO_SYM}** ${ECHO_MSG}app store${ECHO_RST}\n"
             sudo softwareupdate --install --all
