@@ -7,6 +7,10 @@ echo "export DOTFILES_DIR=$HOME/dotfiles"                    >> $script_dir/conf
 echo "export DOTFILES_PKGS_DIR=$script_dir/config/pkgs"      >> $script_dir/config/shell/defvar.sh
 echo "export DROPBOX_DIR=$dropbox_dir"                       >> $script_dir/config/shell/defvar.sh
 
+if [ -d $HOME/dotfiles ]; then
+    ln -s $script_dir $HOME/dotfiles
+fi
+
 echo_note "-- Input a path where you will save libs those you downloaded. The path will be saved into a var named
 CLONE_LIB which define in $script_dir/config/shell/defvar.sh"
 read clone_lib_dir
