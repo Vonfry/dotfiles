@@ -64,6 +64,9 @@
 (defconst +nmap-lang-action "*"
   "some lang public action, such as lsp")
 
+(defconst +nmap-lang-action-prefix (concat +nmap-leader +nmap-lang-action)
+  "lang action prefix")
+
 (defconst +nmap-navigation "["
   "Go to somewhere.")
 
