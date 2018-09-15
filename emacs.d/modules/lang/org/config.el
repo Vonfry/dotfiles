@@ -12,11 +12,13 @@
 
 (defconst +org-capture-templates
   '(("t" "Todo" entry (file+headline +org-capture-file "Tasks")
-      "* TODO %?\n  %i\n  %a"))
+     "* TODO %?\n  %i\n  %a")
+    ("n" "Note" entry (file+headline +org-capture-file "Notes")
+      "* %?\n  %i\n  %a"))
   "org capture templates")
 
 (defconst +org-capture-file
-   (expand-file-name "capture.org" vonfry-org-dir)
+   (expand-file-name "notes/capture.org" vonfry-org-dir)
    "org capture")
 
 (defconst +org-brains-path
