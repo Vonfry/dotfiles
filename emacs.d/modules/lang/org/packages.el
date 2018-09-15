@@ -34,8 +34,6 @@
 
 (package! org-brain
   :after org
-  :custom
-  (org-brain-path +org-brains-path)
   :hook
   (org-brain-after-resource-button-functions .
     (lambda (link)
@@ -56,6 +54,7 @@
                       (t
                        (all-the-icons-icon-for-file link)))))))
   :custom
+  (org-brain-path +org-brains-path)
   (org-id-track-globally t)
   (org-id-locations-file (expand-file-name "org-id-locations" vonfry-cache-dir))
   (org-brain-visualize-default-choices 'all)

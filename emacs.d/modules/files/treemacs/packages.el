@@ -6,7 +6,7 @@
   (treemacs-follow-after-init          nil)
   (treemacs-width                      35)
   (treemacs-indentation                4)
-  (treemacs-collapse-dirs              3)
+  (treemacs-collapse-dirs             (if (executable-find "python") 3 0))
   (treemacs-silent-refresh             nil)
   (treemacs-change-root-without-asking nil)
   (treemacs-sorting                    'alphabetic-desc)
@@ -14,6 +14,7 @@
   (treemacs-never-persist              nil)
   (treemacs-is-never-other-window      nil)
   (treemacs-goto-tag-strategy          'refetch-index)
+  (treemacs-persist-file               +treemacs-persist-file)
   :config
   (treemacs-follow-mode t)
   (treemacs-filewatch-mode t)
