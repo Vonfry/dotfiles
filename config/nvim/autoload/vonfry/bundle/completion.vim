@@ -15,6 +15,7 @@ function! vonfry#bundle#completion#config()
     let g:LanguageClient_settingsPath = expand('~/.config/nvim/config/settings.json')
     let g:LanguageClient_serverCommands =
                 \ { 'haskell': ['hie', '--lsp']
+                \ , 'ruby': ['solargraph', 'stdio']
                 \ , 'cpp': ['cquery', '--log-file=/tmp/cq.log']
                 \ , 'c': ['cquery', '--log-file=/tmp/cq.log']
                 \ , 'javascript': ['javascript-typescript-stdio']
