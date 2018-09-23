@@ -26,26 +26,10 @@
         "ig" 'ruby-send-definition-and-go
         "iG" 'ruby-send-region-and-go))
 
-(package! robe
+(package! lsp-ruby
+  :after lsp-mode enh-ruby-mode
   :hook
-  ((enh-ruby-mode . robe-mode)
-  (robe-mode . robe-start)
-  (robe-mode . (lambda () (add-to-list (make-local-variable 'company-backends) 'company-robe))))
-  :general
-  (nmap :keymaps 'robe-mode
-        :definer 'minor-mode
-        :prefix  +nmap-lang-prefix
-        "" '(nil :which-key "ruby")
-        +nmap-go        'robe-jump
-        +nmap-go-prompt 'robe-ask
-        +nmap-code-help 'robe-doc
-        +nmap-go-module 'robe-jump-to-module)
-  (nmap :keymaps 'robe-mode
-        :definer 'minor-mode
-        :prefix +nmap-leader
-        "" '(nil :which-key "ruby")
-        +nmap-code-help 'robe-doc
-        +nmap-go-module 'robe-jump-to-module))
+  (enh-ruby-mode . lsp-ruby-enable))
 
 (package! chruby
   :general
