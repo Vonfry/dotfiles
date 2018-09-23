@@ -6,5 +6,4 @@ app-portage/euses
 app-portage/eix
 app-portage/portage-utils
 app-portage/genlop
-app-portage/repoman
 app-eselect/eselect-repository
