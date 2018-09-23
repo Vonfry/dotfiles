@@ -17,6 +17,7 @@
     - [X] python-mode keybind
     - [ ] eglot and project.el or lsp?
     - [ ] flycheck or flymake
+    - [ ] projectile update error
 *** DONE LSP[5/5]
     CLOSED: [2018-09-23 日 23:19]
     - [X] Haskell
