@@ -22,7 +22,9 @@ function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#file, ':Denite file<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#search, ':Denite grep<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer, ':Denite buffer<CR>')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper, ':Denite jump<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper, ':Denite line<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt, ':Denite jump<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#code, ':Denite tag<CR>')
     " Change file_rec command.
     call denite#custom#var('file_rec', 'command',
                 \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
