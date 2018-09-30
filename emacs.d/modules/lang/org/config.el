@@ -25,5 +25,5 @@
   (expand-file-name "brains" vonfry-org-dir)
   "org-brain path")
 
-(defconst +org-agenda-dirs (expand-file-name "agenda/" vonfry-org-dir)
+(defconst +org-agenda-dirs (list (expand-file-name "agenda/" vonfry-org-dir))
   "global agenda dir")
