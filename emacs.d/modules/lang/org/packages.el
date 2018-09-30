@@ -68,4 +68,4 @@
   :ensure nil
   :after org
   :custom
-  (org-agenda-files (add-to-list 'org-agenda-files +org-agenda-dirs)))
+  (org-agenda-files +org-agenda-files))
