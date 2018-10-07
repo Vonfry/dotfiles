@@ -6,3 +6,5 @@ app-admin/denyhosts
 dev-python/ipaddr
 sys-apps/lshw
 sys-process/lsof
+sys-process/audit
+dev-util/strace
