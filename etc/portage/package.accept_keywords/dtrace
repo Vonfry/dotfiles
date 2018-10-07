@@ -1,0 +1,3 @@
+sys-kernel/dtrace-sources
+dev-libs/libdtrace-ctf
+dev-util/dtrace-user
