@@ -76,6 +76,7 @@ brew reinstall gnuplot --with-x11
 # chat
 brew cask install gitter
 brew reinstall weechat
+brew reinstall mutt
 
 # editor
 brew reinstall editorconfig
