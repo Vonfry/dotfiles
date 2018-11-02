@@ -1,5 +1,5 @@
 echo_info "** set mutt"
 
-echo "set editor=\"nvim\"" >> ~/.muttrc
+cat $script_dir/muttrc >> ~/.muttrc
 
 echo "--- Email client(mutt) config: please edit ~/.muttrc by yourself."
