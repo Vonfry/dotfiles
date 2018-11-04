@@ -7,3 +7,4 @@ app-portage/eix
 app-portage/portage-utils
 app-portage/genlop
 app-eselect/eselect-repository
+app-portage/mirrorselect
