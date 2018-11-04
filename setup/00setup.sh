@@ -16,7 +16,7 @@ echo_sh "System: $(uname)"
 mkdir -p ~/.cache > /dev/null 2>&1
 mkdir -p ~/.local/bin > /dev/null 2>&1
 
-runscript="source"
+runscript="$SHELL"
 $runscript $script_dir/setup/10os.sh
 $runscript $script_dir/setup/20pkgs.sh
 $runscript $script_dir/setup/30editor.sh
