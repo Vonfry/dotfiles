@@ -12,7 +12,7 @@ function vonfry-update()
     cd $DOTFILES_DIR
     git pull
 
-    $SHELL $SHELL_CUSTOM_DIR/update_r.sh
+    source $SHELL_CUSTOM_DIR/update_r.sh
 }
 
 update_epoch_file=$SHELL_CUSTOM_DIR/local/.update_epoch
