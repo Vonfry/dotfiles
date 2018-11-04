@@ -119,4 +119,5 @@ unset ECHO_SYM
 unset ECHO_MSG
 unset ECHO_RST
 unset current_dir
-echo $(_current_epoch) >! $SHELL_CUSTOM_DIR/local/.update_epoch
+# Define in function.sh, but subshell cannot using parent's shell's function.
+echo $(($(date +%s) / 60 / 60 / 24)) >! $SHELL_CUSTOM_DIR/local/.update_epoch
