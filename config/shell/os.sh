@@ -9,6 +9,7 @@ case "$(uname)" in
         export PATH="/usr/local/opt/gcc:$PATH"
         export PATH="/usr/local/opt/llvm/bin:$PATH"
         export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+        export PATH="/usr/local/opt/ruby/bin:$PATH"
         export fpath=(/usr/local/share/zsh-completions $fpath)
         export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
         alias llvm-help=" echo \"
