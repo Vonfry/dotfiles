@@ -101,4 +101,13 @@ function! vonfry#editor#init()
     " set plugin fzf
     let g:fzf_history_dir = '~/.local/share/fzf-history'
     set rtp+=~/.fzf,/usr/local/opt/fzf
+
+    if has("nvim")
+        call vonfry#editor#nvim()
+    end
+endfunction
+
+function! vonfry#editor#nvim()
+    let g:python_host_prog  = 'python2'
+    let g:python3_host_prog = 'python3'
 endfunction

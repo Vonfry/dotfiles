@@ -19,6 +19,7 @@ gem "nokogiri"
 gem "org-ruby"
 gem "rouge"
 gem "licensee"
+gem "neovim"
 
 # blog
 gem "jekyll"
