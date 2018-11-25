@@ -110,4 +110,5 @@ endfunction
 function! vonfry#editor#nvim()
     let g:python_host_prog  = 'python2'
     let g:python3_host_prog = 'python3'
+    let g:ruby_host_prog = 'ruby'
 endfunction
