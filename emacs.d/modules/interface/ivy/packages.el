@@ -1,13 +1,22 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
-(package! ivy)
-(package! swiper)
-(package! counsel
+(package! ivy
+  :defer t
   :config
   (ivy-mode 1)
   :custom
-  (ivy-use-virtual-buffers t)
+  (ivy-use-selectable-prompt t)
+  (ivy-use-virtual-buffers t))
+
+(package! swiper
+  :defer t
+  :custom
+  (swiper-action-recenter t))
+
+(package! counsel
+  :custom
+  (counsel-find-file-at-point t)
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
@@ -18,6 +27,8 @@
         +nmap-swiper 'swiper
         +nmap-marks 'counsel-mark-ring
         +nmap-buffer-switch 'ivy-switch-buffer))
+
+(package! amx :after ivy)
 
 (package! ivy-rich
   :after counsel
