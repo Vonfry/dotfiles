@@ -28,6 +28,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
+  ("M-'" 'ivy-yasnippet)
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
