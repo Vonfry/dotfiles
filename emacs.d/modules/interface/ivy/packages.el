@@ -28,7 +28,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ;("M-'" 'ivy-yasnippet)
+  ("M-[" 'counsel-complete)
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
@@ -37,8 +37,6 @@
 
 (package! amx
   :after ivy
-  :config
-  (amx-mode t)
   :custom
   (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
 
