@@ -1,8 +1,11 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
+(package! amx
+  :custom
+  (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
+
 (package! ivy
-  :defer t
   :config
   (ivy-mode 1)
   :custom
@@ -13,7 +16,6 @@
         +nmap-buffer-switch 'ivy-switch-buffer))
 
 (package! swiper
-  :defer t
   :custom
   (swiper-action-recenter t)
   :general
@@ -34,11 +36,6 @@
         +nmap-file  'counsel-find-file
         +nmap-marks 'counsel-mark-ring
         +nmap-pop-complete 'counsel-complete))
-
-(package! amx
-  :after ivy
-  :custom
-  (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
 
 (package! ivy-rich
   :after counsel
