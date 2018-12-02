@@ -17,4 +17,6 @@
   :after yasnippet)
 
 (package! ivy-yasnippet
-  :after yasnippet ivy)
+  :after yasnippet ivy
+  :general
+  ("M-]" 'ivy-yasnippet))
