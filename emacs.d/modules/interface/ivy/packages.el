@@ -30,7 +30,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ("M-[" 'counsel-complete)
+  ("M-[" 'counsel-company)
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
