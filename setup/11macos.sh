@@ -61,7 +61,6 @@ brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
-brew cask install texpad                     # a tex ide
 brew cask install java
 brew reinstall shellcheck
 brew reinstall shfmt
