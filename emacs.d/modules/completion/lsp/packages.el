@@ -1,6 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (package! lsp-mode
+  :hook (programming-mode . lsp)
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
@@ -13,6 +14,10 @@
         "*"  'lsp-rename
         "R"  'lsp-restart-workspace
         "gI" 'lsp-goto-implementation))
+
+(package! lsp-clients
+  :after lsp-mode
+  :ensure nil)
 
 (package! lsp-ui
   :after lsp-mode evil
