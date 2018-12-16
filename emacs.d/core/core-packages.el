@@ -92,23 +92,14 @@ is undefined(It always is loaded by alpha order)."
           (package-refresh-contents)
           (vonfry--package! pkg min-version t)))))
 
-(defalias #'package! #'use-package)
-
-(defun autoload! (func file &optional interactive docstring type)
-  "autoload file with current load file dir which is called in submodules.
-
-  Note: the &optional arguments has some different from `autoload`."
-  (let* ((current-dir (file-name-directory load-file-name))
-         (autoload-dir (expand-file-name "autoload" current-dir))
-         (autoload-file (expand-file-name file autoload-dir)))
-    (autoload func autoload-file docstring interactive type)))
-
 ;; load the basic packages
 (eval-when-compile
   (dolist (pkg '(use-package))
     (unless (require pkg nil t)
       (vonfry--package! pkg)
       (require pkg))))
+
+(defalias #'package! #'use-package)
 
 (package! package-utils)
 (package! paradox :config (paradox-enable))
@@ -137,6 +128,14 @@ is undefined(It always is loaded by alpha order)."
   (auto-compile-on-load-mode t)
   (auto-compile-on-save-mode t))
 
+(defun autoload! (func file &optional interactive docstring type)
+  "autoload file with current load file dir which is called in submodules.
+
+  Note: the &optional arguments has some different from `autoload`."
+  (let* ((current-dir (file-name-directory load-file-name))
+         (autoload-dir (expand-file-name "autoload" current-dir))
+         (autoload-file (expand-file-name file autoload-dir)))
+    (autoload func autoload-file docstring interactive type)))
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.

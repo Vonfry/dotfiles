@@ -61,14 +61,13 @@ brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
-brew cask install texpad                     # a tex ide
 brew cask install java
 brew reinstall shellcheck
 brew reinstall shfmt
 
 # system tool
 brew cask install xquartz
-brew reinstall wireshark --with-nghttp2 --iwth-headers --with-libssh --with-qt # web package catch
+brew cask install wireshark
 brew cask install docker
 brew reinstall graphviz --with-app
 brew reinstall gnuplot --with-x11
@@ -97,7 +96,7 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
 
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
 
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
