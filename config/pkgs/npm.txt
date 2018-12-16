@@ -3,6 +3,9 @@ typescript
 grunt-cli
 
 javascript-typescript-langserver
+bash-language-server
+vscode-css-languageserver-bin
+vscode-html-languageserver-bin
 prettier
 
 diff-so-fancy
