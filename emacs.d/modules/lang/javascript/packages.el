@@ -10,7 +10,3 @@
   (nmap :keymaps '(js-mode-map js2-mode-map)
         :prefix +nmap-leader
         +nmap-go-module 'js-find-symbol))
-
-(package! lsp-javascript-typescript
-  :after lsp-mode js2-mode
-  :hook ((js-mode js2-mode rjsx-mode typescript-mode) . lsp-javascript-typescript-enable))

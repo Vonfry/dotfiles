@@ -26,11 +26,6 @@
         "ig" 'ruby-send-definition-and-go
         "iG" 'ruby-send-region-and-go))
 
-(package! lsp-ruby
-  :after lsp-mode enh-ruby-mode
-  :hook
-  (enh-ruby-mode . lsp-ruby-enable))
-
 (package! chruby
   :general
   (nmap :keymaps 'robe-mode
