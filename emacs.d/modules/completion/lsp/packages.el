@@ -14,10 +14,6 @@
         "R"  'lsp-restart-workspace
         "gI" 'lsp-goto-implementation))
 
-(package! lsp-imenu
-  :ensure nil
-  :hook (lsp-after-open . lsp-enable-imenu))
-
 (package! lsp-ui
   :after lsp-mode evil
   :hook (lsp-mode . lsp-ui-mode)

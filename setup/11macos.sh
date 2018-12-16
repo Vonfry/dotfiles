@@ -67,7 +67,7 @@ brew reinstall shfmt
 
 # system tool
 brew cask install xquartz
-brew reinstall wireshark
+brew cask install wireshark
 brew cask install docker
 brew reinstall graphviz --with-app
 brew reinstall gnuplot --with-x11
