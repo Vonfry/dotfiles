@@ -12,12 +12,8 @@ case "$(uname)" in
         export PATH="/usr/local/opt/ruby/bin:$PATH"
         export fpath=(/usr/local/share/zsh-completions $fpath)
         export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-        alias llvm-help=" echo \"
-        To use the bundled libc++ please add the following LDFLAGS:
-        LDFLAGS=\"-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib\"
-        compile with configure:
-        LDFLAGS:  -L/usr/local/opt/llvm/lib
-        CPPFLAGS: -I/usr/local/opt/llvm/include\""
+        export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+        export CPPFLAGS="-I/usr/local/opt/llvm/include"
         ;;
     "Linux")
         source /etc/os-release
