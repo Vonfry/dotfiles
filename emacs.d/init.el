@@ -13,6 +13,7 @@
 (require 'core)
 
 (when (file-exists-p custom-file)
+  (custom-save-all)
   (load custom-file))
 
 (provide 'init)
