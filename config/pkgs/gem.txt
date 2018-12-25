@@ -4,9 +4,7 @@ gem "bundler"
 # dev for emacs
 gem "pry"
 gem "pry-doc"
-gem "pry-byebug"
 gem "pry-rails"
-gem "language_server"
 gem 'method_source'
 gem "rufo"
 gem "solargraph"
