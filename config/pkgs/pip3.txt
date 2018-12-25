@@ -20,7 +20,7 @@ asciinema
 
 # datebase
 mysqlclient
-psycopg2
+psycopg2-binary
 
 # image
 pillow
