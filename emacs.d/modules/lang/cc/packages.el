@@ -1,13 +1,6 @@
 ;;; cc packages -*- lexical-binding: t -*-
 ;;
 
-(package! cquery
-  :after lsp-mode
-  :hook ((c-mode c++-mode objc-mode) . lsp-cquery-enable)
-  :custom
-  (cquery-executable "cquery")
-  (cquery-sem-highlight-method 'font-lock))
-
 (package! disaster
   :general
   (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
