@@ -16,8 +16,8 @@ function! vonfry#bundle#completion#config()
     let g:LanguageClient_serverCommands =
                 \ { 'haskell': ['hie', '--lsp']
                 \ , 'ruby': ['solargraph', 'stdio']
-                \ , 'cpp': ['cquery', '--log-file=/tmp/cq.log']
-                \ , 'c': ['cquery', '--log-file=/tmp/cq.log']
+                \ , 'cpp': ['clangd']
+                \ , 'c': ['clangd']
                 \ , 'javascript': ['javascript-typescript-stdio']
                 \ , 'javascript.jsx': ['javascript-typescript-stdio']
                 \ , 'python': ['pyls']

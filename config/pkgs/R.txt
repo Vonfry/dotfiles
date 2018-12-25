@@ -1,3 +1,4 @@
+knitr
 languageserver
 lintr
 ggplot2
