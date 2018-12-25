@@ -43,9 +43,4 @@
 
 (package! ess-site
   :after lsp-mode
-  :ensure ess
-  :config
-  (lsp-define-stdio-client lsp-R "R"
-                           (lambda () default-directory)
-                           '("R" "--quiet" "--slave" "-e" "languageserver::run()"))
-  (add-hook 'R-mode-hook 'lsp-R-enable))
+  :ensure ess)

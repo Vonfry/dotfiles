@@ -14,10 +14,10 @@ function! vonfry#bundle#completion#config()
     let g:LanguageClient_loadSettings = 1
     let g:LanguageClient_settingsPath = expand('~/.config/nvim/config/settings.json')
     let g:LanguageClient_serverCommands =
-                \ { 'haskell': ['hie', '--lsp']
+                \ { 'haskell': ['hie-wrapper']
                 \ , 'ruby': ['solargraph', 'stdio']
-                \ , 'cpp': ['cquery', '--log-file=/tmp/cq.log']
-                \ , 'c': ['cquery', '--log-file=/tmp/cq.log']
+                \ , 'cpp': ['clangd']
+                \ , 'c': ['clangd']
                 \ , 'javascript': ['javascript-typescript-stdio']
                 \ , 'javascript.jsx': ['javascript-typescript-stdio']
                 \ , 'python': ['pyls']
