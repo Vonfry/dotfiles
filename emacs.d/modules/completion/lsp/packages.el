@@ -1,7 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (package! lsp-mode
-  :hook (programming-mode . lsp)
+  :hook (prog-mode . lsp)
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
