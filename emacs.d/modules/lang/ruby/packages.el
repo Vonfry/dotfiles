@@ -4,7 +4,15 @@
 (package! enh-ruby-mode
   :mode (("Appraisals\\'" . enh-ruby-mode)
          ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode)))
+         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
+  :interpreter "pry"
+  :config
+  (lsp-register-client
+    (make-lsp-client :new-connection (lsp-stdio-connection '("solargraph" "stdio"))
+                     :major-modes '(enh-ruby-mode)
+                     :priority -1
+                     :multi-root t
+                     :server-id 'ruby-ls)))
 
 (package! ruby-mode
   :interpreter "pry")

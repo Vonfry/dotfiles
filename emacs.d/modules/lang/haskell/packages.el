@@ -66,5 +66,4 @@
   (haskell-process-log t))
 
 (package! lsp-haskell
-  :after haskell lsp-mode
-  :hook (haskell-mode . lsp-haskell-enable))
+  :after haskell lsp-mode)
