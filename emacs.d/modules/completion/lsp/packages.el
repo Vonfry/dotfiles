@@ -2,6 +2,8 @@
 
 (package! lsp-mode
   :hook (prog-mode . lsp)
+  :custom
+  (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
