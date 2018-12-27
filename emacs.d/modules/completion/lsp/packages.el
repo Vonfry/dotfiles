@@ -17,7 +17,14 @@
 
 (package! lsp-clients
   :after lsp-mode
-  :ensure nil)
+  :ensure nil
+  :config
+  (lsp-register-client
+    (make-lsp-client :new-connection (lsp-stdio-connection '("solargraph" "stdio"))
+                     :major-modes '(enh-ruby-mode)
+                     :priority -1
+                     :multi-root t
+                     :server-id 'ruby-ls)))
 
 (package! lsp-ui
   :after lsp-mode evil
