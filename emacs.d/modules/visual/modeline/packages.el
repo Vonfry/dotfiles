@@ -2,6 +2,7 @@
 ;;
 
 (package! spaceline
+  :disabled
   :init
   (require 'spaceline-config)
   :config
@@ -10,9 +11,11 @@
     '(powerline-default-separator nil))
   (spaceline-spacemacs-theme)
   (spaceline-compile)
-  (spaceline-info-mode))
+  (spaceline-info-mode)
+  )
 
 (package! spaceline-all-the-icons
+  :disabled
   :after spaceline
   :custom
   (powerline-text-scale-factor 1.1)
@@ -21,6 +24,8 @@
   (spaceline-all-the-icons-theme)
   (spaceline-all-the-icons--setup-package-updates)
   (spaceline-all-the-icons--setup-git-ahead)
-  (spaceline-all-the-icons--setup-paradox)
-  (spaceline-all-the-icons--setup-neotree))
+  (spaceline-all-the-icons--setup-paradox))
 
+(package! smart-mode-line
+  :config
+  (sml/setup))
