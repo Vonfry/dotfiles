@@ -43,4 +43,13 @@
 
 (package! ess-site
   :after lsp-mode
-  :ensure ess)
+  :ensure ess
+  :general
+  (nmap :keymaps 'ess-mode-map
+        :prefix +nmap-lang-prefix
+        "" '(nil :which-key "ess")
+        +nmap-repl  (lambda ()
+                      (cond
+                        ((string= "S" ess-language) (call-interactively 'R))
+                        ((string= "STA" ess-language) (call-interactively 'stata))
+                        ((string= "SAS" ess-language) (call-interactively 'SAS))))))

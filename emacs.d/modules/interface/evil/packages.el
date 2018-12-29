@@ -13,7 +13,8 @@
         "b" 'next-buffer)
   (nmap :prefix +nmap-leader
         +nmap-align    'align-regexp
-        +nmap-terminal 'eshell))
+        +nmap-terminal 'eshell
+        +nmap-repl     'comint-run)) ;; send to buff by using `append-to-buffer`
 
 (package! evil-goggles
   :after evil

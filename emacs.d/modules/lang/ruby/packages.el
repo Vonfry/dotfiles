@@ -19,7 +19,8 @@
   (nmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
         ""   '(nil :which-key "ruby")
-        "id" 'ruby-send-definition)
+        "id" 'ruby-send-definition
+        +nmap-repl  'inf-ruby)
   (vmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
         ""   '(nil :which-key "ruby"t)

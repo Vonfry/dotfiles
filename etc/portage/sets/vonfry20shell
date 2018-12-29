@@ -28,3 +28,4 @@ sys-apps/sed
 sys-devel/patch
 app-misc/tmux
 sys-apps/most
+dev-util/direnv

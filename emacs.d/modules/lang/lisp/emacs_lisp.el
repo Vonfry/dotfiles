@@ -1,5 +1,9 @@
 ;;; lisp/emacs_lisp.el -*- lexical-binding: t -*-
 
 (package! ielm :ensure nil
-  :hook (ielm-mode . company-mode))
+  :general
+  (nmap :keymaps '(emacs-lisp-mode-map lisp-interaction-mode)
+        :prefix +nmap-lang-prefix
+        "" '(nil :which-key "emacs lisp")
+        +nmap-repl  'ielm))
 
