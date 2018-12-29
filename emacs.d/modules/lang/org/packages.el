@@ -34,25 +34,6 @@
 
 (package! org-brain
   :after org
-  :hook
-  (org-brain-after-resource-button-functions .
-    (lambda (link)
-      (insert (format "%s "
-                (cond ((string-prefix-p "http" link)
-                       (cond ((string-match "wikipedia\\.org" link)
-                              (all-the-icons-faicon "wikipedia-w"))
-                             ((string-match "github\\.com" link)
-                              (all-the-icons-octicon "mark-github"))
-                             ((string-match "vimeo\\.com" link)
-                              (all-the-icons-faicon "vimeo"))
-                             ((string-match "youtube\\.com" link)
-                              (all-the-icons-faicon "youtube"))
-                             (t
-                              (all-the-icons-faicon "globe"))))
-                      ((string-prefix-p "brain:" link)
-                       (all-the-icons-fileicon "brain"))
-                      (t
-                       (all-the-icons-icon-for-file link)))))))
   :custom
   (org-brain-path +org-brains-path)
   (org-id-track-globally t)
