@@ -10,7 +10,6 @@
                           (scheme-mode . geiser)
                           (lisp-mode . slime)
                           (lisp-interaction-mode . ielm)
-                          (js2-mode . node)
                           (ess-mode .
                             (lambda ()
                              (cond
