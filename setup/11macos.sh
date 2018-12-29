@@ -29,6 +29,7 @@ brew reinstall parallel
 brew reinstall gpatch
 brew reinstall tmux
 brew reinstall most
+brew reinstall direnv
 
 # C & Cpp libs
 brew reinstall gcc --with-nls
