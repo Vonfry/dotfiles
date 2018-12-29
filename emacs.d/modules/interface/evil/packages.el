@@ -13,7 +13,8 @@
         "b" 'next-buffer)
   (nmap :prefix +nmap-leader
         +nmap-align    'align-regexp
-        +nmap-terminal 'eshell))
+        +nmap-terminal 'eshell
+        +nmap-repl     'comint-run))
 
 (package! evil-goggles
   :after evil
