@@ -9,7 +9,6 @@
   :config
   (ivy-mode 1)
   :custom
-  (ivy-use-selectable-prompt t)
   (ivy-use-virtual-buffers t)
   :general
   (nmap :prefix +nmap-leader
