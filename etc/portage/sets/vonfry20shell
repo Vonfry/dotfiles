@@ -29,3 +29,4 @@ sys-devel/patch
 app-misc/tmux
 sys-apps/most
 dev-util/direnv
+app-misc/ranger
