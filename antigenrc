@@ -20,7 +20,8 @@ antigen bundles <<EOBUNDLES
     utility
 
     paulirish/git-open
-    # mafredri/zsh-async
+    mafredri/zsh-async
+    sindresorhus/pure
 EOBUNDLES
 
 if [[ $(uname) = 'Darwin' ]]; then
