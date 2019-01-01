@@ -43,7 +43,7 @@ brew reinstall boost-python3
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
-brew reinstall doxygen --with-doxywizard --with-graphviz
+brew cask install doxygen
 
 # code search
 brew reinstall ack the_silver_searcher awk gawk
