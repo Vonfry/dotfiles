@@ -97,7 +97,7 @@ sudo emerge $emerge_args @vonfry30editor
 # development
 sudo emerge $emerge_args @vonfry40lang
 sudo emerge $emerge_args @vonfry41db
-sudo emerge $emerge_args @vonfry42misc
+sudo emerge $emerge_args @vonfry4zmisc
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && ln -s -f $source_dir/rbenv $user_dir/.rbenv && cd $current_dir # rbenv
 
 # X11
