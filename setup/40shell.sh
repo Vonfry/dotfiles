@@ -19,7 +19,6 @@ unset clone_lib_dir
 
 echo "$(thefuck --alias)" >> $script_dir/config/shell/local/thefuck.sh
 echo "$(stack --bash-completion-script stack)" >> $script_dir/config/shell/local/stack.sh
-echo "$(opam config env)" >> $script_dir/config/shell/local/ocaml.sh
 
 $runscript $script_dir/setup/41git.sh
 $runscript $script_dir/setup/42ln.sh

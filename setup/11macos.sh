@@ -54,7 +54,6 @@ brew reinstall cabal-install haskell-stack
 brew reinstall ruby
 brew reinstall rbenv
 brew reinstall clisp sbcl
-brew reinstall ocaml opam
 brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python3
 brew reinstall python

@@ -9,7 +9,6 @@ dev-lang/ruby
 dev-ruby/rails
 dev-ruby/rubygems
 dev-ruby/bundler
-dev-lang/ocaml
 dev-ml/opam
 dev-lang/R
 dev-lang/python
