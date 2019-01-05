@@ -22,7 +22,11 @@ temparory flag, and `*.local` is used for a package that only flag used at local
 
 Format: `vonfry_<name>`
 
-## usage
+### name
+
+use `-` instead of `space`.
+
+## use
 
 Use package name as file name.
 
