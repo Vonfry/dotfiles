@@ -78,30 +78,30 @@ echo_note "--- All configure in the repo is minimum. For example: python or ruby
 sudo emerge-websync
 sudo emerge --sync --quiet
 
-sudo emerge $emerge_args @vonfry00portage
+sudo emerge $emerge_args @vonfry_portage
 sudo eselect repository enable haskell
 sudo eseelct repository enable go-overlay
 sudo eix-sync
 
 # system basic tools
-sudo emerge $emerge_args @vonfry10system
+sudo emerge $emerge_args @vonfry_system
 sudo rc-update add ulogd default
 echo_note "--- Make sure you have a correct configure with iptables and then run `rc-update add iptables default`"
 
 # shell
-sudo emerge $emerge_args @vonfry20shell
+sudo emerge $emerge_args @vonfry_shell
 
 # editor
-sudo emerge $emerge_args @vonfry30editor
+sudo emerge $emerge_args @vonfry_editor
 
 # development
-sudo emerge $emerge_args @vonfry40lang
-sudo emerge $emerge_args @vonfry41db
-sudo emerge $emerge_args @vonfry42misc
+sudo emerge $emerge_args @vonfry_lang
+sudo emerge $emerge_args @vonfry_db
+sudo emerge $emerge_args @vonfry_misc
 git clone https://github.com/rbenv/rbenv.git $source_dir/rbenv  && cd $source_dir/rbenv && src/configure && make --quiet -C src && ln -s -f $source_dir/rbenv $user_dir/.rbenv && cd $current_dir # rbenv
 
 # X11
-sudo emerge $emerge_args @vonfry50x
+sudo emerge $emerge_args @vonfry_x
 # TODO X11
 
 echo_note "--- If you want to install docker, please install it by yourself. It needs some configure in kernel."
