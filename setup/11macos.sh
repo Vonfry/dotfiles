@@ -53,11 +53,10 @@ brew reinstall ghc
 brew reinstall cabal-install haskell-stack
 brew reinstall ruby
 brew reinstall rbenv
-brew reinstall clisp sbcl
 brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python3
 brew reinstall python
-brew reinstall go node
+brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
