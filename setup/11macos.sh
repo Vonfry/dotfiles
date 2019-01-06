@@ -53,11 +53,10 @@ brew reinstall ghc
 brew reinstall cabal-install haskell-stack
 brew reinstall ruby
 brew reinstall rbenv
-brew reinstall clisp sbcl
 brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python3
 brew reinstall python
-brew reinstall go node
+brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
@@ -96,8 +95,6 @@ brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
-
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
 
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.

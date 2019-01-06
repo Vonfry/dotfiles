@@ -2,18 +2,13 @@ dev-lang/ghc
 dev-haskell/cabal
 dev-haskell/cabal-install
 dev-haskell/stack-bin
-dev-lisp/sbcl
-dev-lisp/gcl
-dev-lisp/clisp
 dev-lang/ruby
 dev-ruby/rails
 dev-ruby/rubygems
 dev-ruby/bundler
-dev-ml/opam
 dev-lang/R
 dev-lang/python
 dev-python/pip
-dev-lang/go
 net-libs/nodejs
 dev-util/cmake
 sys-devel/gcc
@@ -30,4 +25,3 @@ dev-util/cloc
 app-text/poppler
 app-text/texlive
 app-office/texstudio
-dev-java/javacc
