@@ -99,6 +99,9 @@ brew cask install mark-text
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
+# variable
+echo "export HOMEBREW_OPT_INIT_FUNCTION=()" >> $script_dir/config/shell/defvar.sh
+
 echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins

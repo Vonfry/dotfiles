@@ -13,8 +13,8 @@ export PATH=/usr/local/bin:$PATH
 
 source $SHELL_CUSTOM_DIR/unalias.sh
 source $SHELL_CUSTOM_DIR/alias.sh
-source $SHELL_CUSTOM_DIR/os.sh
 source $SHELL_CUSTOM_DIR/function.sh
+source $SHELL_CUSTOM_DIR/os.sh
 
 export PATH=$HOME/.local/bin:$PATH
 
