@@ -11,5 +11,5 @@ endfunction
 function! vonfry#bundle#file#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#treenode, ':NERDTreeToggle<CR>')
 
-    let g:rooter_patterns = ['.gitignore', 'Makefile', 'CMakeLists.txt', 'readme.md', 'readme.org' , '.projectile', '.projections.json', '.vimprj', '.git/']
+    let g:rooter_patterns = ['Makefile', 'CMakeLists.txt', '.projectile', '.projections.json', '.vimprj', '.git/']
 endfunction
