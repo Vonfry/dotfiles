@@ -1,4 +1,4 @@
-system-ghc: false
+system-ghc: true
 templates:
   params:
     author-name: Vonfry
