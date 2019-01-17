@@ -11,6 +11,7 @@ function brew_opt_init()
     brew_opt_curl_init
     brew_opt_ruby_init
     brew_opt_gsed_init
+    brew_opt_binutils_init
 }
 
 function brew_opt_deinit()
@@ -23,6 +24,7 @@ function brew_opt_deinit()
     brew_opt_curl_deinit
     brew_opt_ruby_deinit
     brew_opt_gsed_deinit
+    brew_opt_binutils_deinit
 }
 
 function brew_opt_llvm_init()
@@ -119,6 +121,20 @@ function brew_opt_ruby_deinit()
     _remove_from_variable PATH "/usr/local/opt/ruby/bin" ":"
     _remove_from_variable CPPFLAGS "-I/usr/local/opt/ruby/include" " "
     _remove_from_variable LDFLAGS "-L/usr/local/opt/ruby/lib" " "
+}
+
+function brew_opt_binutils_init()
+{
+    export PATH="/usr/local/opt/binutils/bin:$PATH"
+    export LDFLAGS="-L/usr/local/opt/binutils/lib $LDFLAGS"
+    export CPPFLAGS="-I/usr/local/opt/binutils/include $CPPFLAGS"
+}
+
+function brew_opt_binutils_deinit()
+{
+    _remove_from_variable PATH "/usr/local/opt/binutils/bin" ":"
+    _remove_from_variable LDFLAGS "-L/usr/local/opt/binutils/lib" " "
+    _remove_from_variable CPPFLAGS "-I/usr/local/opt/binutils/include" " "
 }
 
 if [[ -n $HOMEBREW_OPT_INIT_FUNCTION && $HOMEBREW_OPT_INIT_FUNCTION = "all" ]]; then

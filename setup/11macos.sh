@@ -36,6 +36,7 @@ brew reinstall ranger
 brew reinstall gcc --with-nls
 brew reinstall llvm --with-lldb --with-graphviz --with-toolchain
 brew reinstall gdb --with-all-targets --with-python
+brew reinstall binutils
 brew reinstall cmake --with-completion
 brew reinstall ninja
 brew reinstall boost zlib libffi
