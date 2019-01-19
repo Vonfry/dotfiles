@@ -4,10 +4,11 @@ export fpath=(/usr/local/share/zsh-completions $fpath)
 function brew_opt_init()
 {
     brew_opt_llvm_init
-    brew_opt_gcc
+    brew_opt_gcc_init
     brew_opt_go_init
     brew_opt_sqlite_init
     brew_opt_tar_init
+    brew_opt_make_init
     brew_opt_curl_init
     brew_opt_ruby_init
     brew_opt_gsed_init
@@ -21,6 +22,7 @@ function brew_opt_deinit()
     brew_opt_go_deinit
     brew_opt_sqlite_deinit
     brew_opt_tar_deinit
+    brew_opt_make_deinit
     brew_opt_curl_deinit
     brew_opt_ruby_deinit
     brew_opt_gsed_deinit
@@ -67,11 +69,22 @@ function brew_opt_tar_init()
     export MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
 }
 
-function brew_opt_tar_init()
+function brew_opt_tar_deinit()
 {
     _remove_from_variable PATH "/usr/local/opt/gnu-tar/libexec/gnubin" ":"
     _remove_from_variable MANPATH "/usr/local/opt/gnu-tar/libexec/gnuman" ":"
 }
+
+function brew_opt_make_init()
+{
+    PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+}
+
+function brew_opt_make_deinit()
+{
+    _remove_from_variable PATH "/usr/local/opt/make/libexec/gnubin" ":"
+}
+
 
 function brew_opt_curl_init()
 {
