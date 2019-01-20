@@ -100,6 +100,8 @@ brew cask install mark-text
 
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
 
+echo_info "*** install nix for macos"
+sh <(curl https://nixos.org/nix/install)
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
