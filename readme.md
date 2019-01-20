@@ -58,7 +58,7 @@ Here is a list of used mirror with this repo. Some things like `~/.cabal/config`
 - Haskell - ghc & stack
 - ~~Lisp~~
 - Ruby - chenv 
-- R 
+- ~~R~~
 - Python3 
 - Web - js, html, css/sass, ts
 
