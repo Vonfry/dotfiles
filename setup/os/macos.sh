@@ -20,7 +20,6 @@ brew reinstall autojump
 brew reinstall googler
 # brew reinstall htop
 brew reinstall lolcat                        # colorful print
-brew reinstall cloc                          # code statistics
 brew reinstall tree                          # file browser
 brew reinstall colordiff
 brew reinstall fortune cmatrix figlet        # 诗词，代码雨，ascii-art
@@ -47,7 +46,8 @@ brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctag
 brew cask install doxygen
 
 # code search
-brew reinstall ack the_silver_searcher awk gawk
+brew reinstall the_silver_searcher gawk
+brew reinstall cloc                          # code statistics
 
 # lang
 brew reinstall ghc
