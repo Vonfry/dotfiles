@@ -11,4 +11,6 @@ alias eqk='equery k'
 alias eqm='equery m'
 alias eqy='equery y'
 alias eqs='equery s'
-alias eqw='equery w'
+aias eqw='equery w'
+
+source $HOME/.nix-profile/etc/profile.d/nix.sh
