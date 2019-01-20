@@ -36,6 +36,7 @@ brew reinstall ranger
 brew reinstall gcc --with-nls
 brew reinstall llvm --with-lldb --with-graphviz --with-toolchain
 brew reinstall gdb --with-all-targets --with-python
+brew reinstall binutils
 brew reinstall cmake --with-completion
 brew reinstall ninja
 brew reinstall boost zlib libffi
@@ -53,12 +54,10 @@ brew reinstall ghc
 brew reinstall cabal-install haskell-stack
 brew reinstall ruby
 brew reinstall rbenv
-brew reinstall clisp sbcl
-brew reinstall ocaml opam
 brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python3
 brew reinstall python
-brew reinstall go node
+brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
@@ -98,12 +97,14 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
 
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json webpquicklook suspicious-package quicklookase qlvideo
-
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
+
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
+
+# variable
+echo "export HOMEBREW_OPT_INIT_FUNCTION=()" >> $script_dir/config/shell/defvar.sh
 
 echo_info "*** Here are some useful tools for mac.
 See:

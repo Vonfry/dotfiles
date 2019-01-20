@@ -1,13 +1,13 @@
 case "$(unname)" in
     "Darwin")
-        $runscript $script_dir/setup/11macos.sh
+        $runscript $script_dir/setup/os/macos.sh
         ;;
     "Linux")
         $runscript /etc/os-release
         sudo ln -f -s $script_dir/etc/issue /etc/issue
         case "$(ID)" in
             "gentoo")
-                $runscript $script_dir/setup/11gentoo.sh
+                $runscript $script_dir/setup/os/gentoo.sh
                 ;;
             "nixos")
                 $runscript $script_dir/setup/11nixos.sh

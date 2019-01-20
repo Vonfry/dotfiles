@@ -20,17 +20,7 @@ temparory flag, and `*.local` is used for a package that only flag used at local
 
 ## sets
 
-Format: `vonfry<cat><idx><name>`
-
-### cat (category)
-
-- 0: portage
-- 1: system
-- 2: shell tools
-- 3: editor
-- 4: devel
-- 5: X
-- 6: life
+Format: `vonfry_<name>`
 
 ### name
 

@@ -9,12 +9,14 @@ setopt extendedglob
 setopt rm_star_silent
 setopt clobber
 
-export PATH=/usr/local/bin:$PATH
+if [[ ! $PATH =~ "/usr/local/bin"  ]]; then
+    export PATH=/usr/local/bin:$PATH
+fi
 
 source $SHELL_CUSTOM_DIR/unalias.sh
 source $SHELL_CUSTOM_DIR/alias.sh
-source $SHELL_CUSTOM_DIR/os.sh
 source $SHELL_CUSTOM_DIR/function.sh
+source $SHELL_CUSTOM_DIR/os.sh
 
 export PATH=$HOME/.local/bin:$PATH
 
