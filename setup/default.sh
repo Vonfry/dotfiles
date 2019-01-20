@@ -17,11 +17,11 @@ mkdir -p ~/.cache > /dev/null 2>&1
 mkdir -p ~/.local/bin > /dev/null 2>&1
 
 runscript="$SHELL"
-$runscript $script_dir/setup/10os.sh
-$runscript $script_dir/setup/20pkgs.sh
-$runscript $script_dir/setup/30editor.sh
-$runscript $script_dir/setup/40shell.sh
-$runscript $script_dir/setup/50x.sh
+$runscript $script_dir/setup/os/default.sh
+$runscript $script_dir/setup/pkgs/default.sh
+$runscript $script_dir/setup/editor/default.sh
+$runscript $script_dir/setup/shell/default.sh
+$runscript $script_dir/setup/x/default.sh
 
 # alert
 echo "
