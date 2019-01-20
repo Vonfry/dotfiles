@@ -20,7 +20,8 @@ unset clone_lib_dir
 echo "$(thefuck --alias)" >> $script_dir/config/shell/local/thefuck.sh
 echo "$(stack --bash-completion-script stack)" >> $script_dir/config/shell/local/stack.sh
 
-$runscript $script_dir/setup/41git.sh
-$runscript $script_dir/setup/42ln.sh
-$runscript $script_dir/setup/43zsh.sh
-$runscript $script_dir/setup/44fortunes.sh
+$runscript $script_dir/setup/shell/git.sh
+$runscript $script_dir/setup/shell/ln.sh
+$runscript $script_dir/setup/shell/zsh.sh
+$runscript $script_dir/setup/shell/fortunes.sh
+$runscript $script_dir/setup/shell/email.sh
