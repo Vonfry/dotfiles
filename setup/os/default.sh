@@ -10,7 +10,7 @@ case "$(unname)" in
                 $runscript $script_dir/setup/os/gentoo.sh
                 ;;
             "nixos")
-                $runscript $script_dir/setup/11nixos.sh
+                $runscript $script_dir/setup/os/nixos.sh
                 ;;
             "*")
                 echo_warn " ! The linux release is not supported."
