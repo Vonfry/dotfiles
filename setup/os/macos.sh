@@ -27,9 +27,9 @@ brew reinstall handbrake                     # video transcoder
 brew reinstall parallel
 brew reinstall gpatch
 brew reinstall tmux
-brew reinstall most
 brew reinstall direnv
 brew reinstall ranger
+brew reinstall pinfo
 
 # C & Cpp libs
 brew reinstall gcc --with-nls

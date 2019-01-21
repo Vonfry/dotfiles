@@ -26,6 +26,6 @@ sys-apps/gawk
 sys-apps/sed
 sys-devel/patch
 app-misc/tmux
-sys-apps/most
 dev-util/direnv
 app-misc/ranger
+app-text/pinfo
