@@ -8,3 +8,4 @@ sys-apps/lshw
 sys-process/lsof
 sys-process/audit
 dev-util/strace
+net-fs/sshfs
