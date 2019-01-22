@@ -30,7 +30,6 @@ brew reinstall tmux
 brew reinstall direnv
 brew reinstall ranger
 brew reinstall pinfo
-brew cask install osxfuse; brew reinstall sshfs
 
 # C & Cpp libs
 brew reinstall gcc --with-nls
