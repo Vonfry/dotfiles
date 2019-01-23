@@ -2,7 +2,6 @@ ECHO_SYM="\033[0;31m"
 ECHO_MSG="\033[0;36m"
 ECHO_RST="\033[0m"
 current_dir=$(pwd)
-prefixsudo=""
 
 case "$(uname)" in
     "Darwin")
@@ -19,7 +18,6 @@ case "$(uname)" in
         # if ctags is updated, emacs needs being recompiled.
         "Linux")
         source /etc/os-release
-        prefixsudo="sudo"
         echo -e "\n${ECHO_SYM}* ${ECHO_MSG}system: ${ID}${ECHO_RST}"
         case "$ID" in
             "fedora")
@@ -39,9 +37,20 @@ case "$(uname)" in
                 sudo emerge --quiet --update --with-bdeps=y @world
                 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}Run emerge --depclean --quiet if you want to clean old packages.${ECHO_RST}\n"
                 ;;
+            "nixos")
+                echo -e "\n${ECHO_SYM}** ${ECHO_MSG}nixos${ECHO_RST}"
+                echo -e "\n${ECHO_SYM}** ${ECHO_MSG}sync portage and custom repos${ECHO_RST}\n"
+                sudo nixos-rebuild switch --upgrade
+                ;;
         esac
         ;;
 esac
+
+if command -v nix-env >/dev/null 2>&1 &&
+    [[ ! (-f /etc/os-release && $(cat /etc/os-release) =~ "nixos") ]]; then
+    nix-channel --update
+    nix-env -u
+fi
 
 if command -v antigen >/dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}antigen${ECHO_RST}\n"
@@ -71,33 +80,25 @@ echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file
 echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}"
 if command -v pip3 > /dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
-    if [ -z $prefixsudo ]; then
-        pip3 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
-    else
-        pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
-    fi
+    pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
 fi
 
 if command -v pip2 > /dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
-    if [ -z $prefixsudo ]; then
-        pip2 install --quiet --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
-    else
-        pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
-    fi
+    pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
 fi
 
 if command -v gem > /dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
-    gem update --quiet && gem update --system --quiet
+    gem update --user-install --quiet && gem update --system --quiet
     gem cleanup --quiet
 fi
 
 if command -v npm > /dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}node${ECHO_RST}\n"
     echo -e "\n${ECHO_SYM}** ${ECHO_MSG}npm${ECHO_RST}\n"
-    $prefixsudo npm update -g --silent
+    npm update --silent
 fi
 
 if [ -f ~/.config/nvim/init.vim ]; then

@@ -28,4 +28,3 @@ sys-devel/patch
 app-misc/tmux
 dev-util/direnv
 app-misc/ranger
-app-text/pinfo
