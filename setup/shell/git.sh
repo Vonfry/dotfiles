@@ -17,8 +17,6 @@ if [ $git_global_gpg != "n" ]; then
 fi
 
 git config --global core.excludesfile ~/.gitignore_global
-git config --global commit.tempalet ~/.gitcommit_global
-ln -f -s $script_dir/gitcommit_global ~/.gitcommit_global
 git config --global core.editor nvim
 unset git_global_user
 unset git_global_email
