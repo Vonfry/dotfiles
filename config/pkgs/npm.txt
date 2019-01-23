@@ -1,7 +1,3 @@
-typescript
-
-grunt-cli
-
 javascript-typescript-langserver
 bash-language-server
 vscode-css-languageserver-bin
@@ -13,7 +9,3 @@ mathjax-node-cli
 
 npm-check
 font-spider
-
-commitizen
-cz-conventional-changelog
-conventional-changelog-cli

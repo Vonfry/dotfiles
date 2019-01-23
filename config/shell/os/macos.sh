@@ -170,12 +170,6 @@ else
     done
 fi
 
-# ssh
-function start-sshd()
-{
-    sudo /usr/sbin/sshd
-}
-
 # autojump
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 

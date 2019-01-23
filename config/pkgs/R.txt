@@ -1,9 +1,0 @@
-knitr
-languageserver
-lintr
-ggplot2
-ggthemes
-packrat
-devtools
-data.table
-latex2exp

@@ -1,0 +1,3 @@
+haskellPackages.hoogle
+dhall
+haskellPackages.hindent
