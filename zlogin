@@ -19,7 +19,7 @@
 
   # Print a random, hopefully interesting, adage.
   if (( $+commands[fortune] )); then
-    fortune -s
+    fortune -s ~/.local/src/fortunes/data all
     print
   fi
 
