@@ -15,7 +15,6 @@ function! vonfry#editor#init()
         set termguicolors
     endif
 
-    set shell=/bin/bash
     set to
     set tm=400
     set number

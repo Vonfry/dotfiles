@@ -6,7 +6,7 @@ if [ $(uname) = "Darwin" ]; then
     strfile fortunes/data/song100
     strfile fortunes/data/diet
     cp ~/.local/src/fortunes/data/* /usr/local/share/games/fortunes/
-
+elif [ -f /etc/NIXOS ]; then
 else
-    sudo cp ~/.local/src/fortunes/data/* /usr/local/share/games/fortunes/
+    sudo cp ~/.local/src/fortunes/data/* /usr/share/games/fortunes/
 fi
