@@ -22,7 +22,13 @@ services' configure), but there are a lot of things that the server doesn't need
 
 Now, only use nix with a build tool on other system.~~
 
-Rethinking again. And try it again! I find some surprising feature for nixos!
+~~Rethinking again. And try it again! I find some surprising feature for nixos!~~
+
+For production environment, nixos is a good choice. But for development environment, we need a lot of tools to code and check, which are dependent on libraries linking, specially for auto-completion and syntax-check tools. 
+
+Another important problem is many tools with third part package management which are built during installing, requiring some libraries in path.
+
+It means all thing in nixos must use nix.
 
 ## command-line
 
