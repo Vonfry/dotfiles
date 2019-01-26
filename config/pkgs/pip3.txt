@@ -8,8 +8,6 @@ ipython
 # code complete and check
 python-language-server[all]
 
-# lib
-pytz
 
 # tools
 httpstat
@@ -17,13 +15,6 @@ mycli
 pgcli
 neovim
 asciinema
-
-# datebase
-mysqlclient
-psycopg2-binary
-
-# image
-pillow
 
 # math with ipython
 scipy
