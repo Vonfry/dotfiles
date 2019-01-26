@@ -27,7 +27,6 @@ brew reinstall handbrake                     # video transcoder
 brew reinstall parallel
 brew reinstall gpatch
 brew reinstall tmux
-brew reinstall most
 brew reinstall direnv
 brew reinstall ranger
 
@@ -38,8 +37,7 @@ brew reinstall gdb --with-all-targets --with-python
 brew reinstall binutils
 brew reinstall cmake --with-completion
 brew reinstall ninja
-brew reinstall boost zlib libffi
-brew reinstall boost-python3
+brew reinstall zlib libffi
 
 # C & Cpp developing tools
 brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
@@ -55,7 +53,6 @@ brew reinstall cabal-install haskell-stack
 brew reinstall ruby
 brew reinstall rbenv
 brew reinstall r libomp                      # libomp is required for a packages
-brew reinstall python3
 brew reinstall python
 brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
@@ -77,6 +74,7 @@ brew reinstall gnuplot --with-x11
 brew cask install gitter
 brew reinstall weechat
 brew reinstall mutt
+brew reinstall hub
 
 # editor
 brew reinstall editorconfig
@@ -96,6 +94,9 @@ brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
+
+echo_info "*** install nix for macos"
+sh <(curl https://nixos.org/nix/install)
 
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.

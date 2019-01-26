@@ -6,7 +6,6 @@ dev-lang/ruby
 dev-ruby/rails
 dev-ruby/rubygems
 dev-ruby/bundler
-dev-lang/R
 dev-lang/python
 dev-python/pip
 net-libs/nodejs

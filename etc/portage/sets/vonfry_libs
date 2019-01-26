@@ -1,2 +1,3 @@
 sys-libs/ncurses
 sys-libs/libomp
+sys-apps/nix

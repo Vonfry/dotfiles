@@ -16,8 +16,6 @@ else
     set termguicolors
 endif
 
-set shell=/bin/bash
-
 set t_Co=256
 
 set background=dark
