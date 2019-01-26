@@ -95,6 +95,9 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
 
+echo_info "*** install nix for macos"
+sh <(curl https://nixos.org/nix/install)
+
 # brew services start emacs
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
