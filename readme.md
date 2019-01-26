@@ -18,9 +18,11 @@ services' configure), but there are a lot of things that the server doesn't need
 
 ### NixOS
 
-I have tried it. The nix and nixos configuration are good designed. BUT! There are too many non-standard things, such as lib dir, if I want to install something without nix, it will be failed certainly because of the building time linking. The OS is too young. I will retry it after years.
+~~I have tried it. The nix and nixos configuration are good designed. BUT! There are too many non-standard things, such as lib dir, if I want to install something without nix, it will be failed certainly because of the building time linking. The OS is too young. I will retry it after years.
 
-Now, only use nix with a build tool on other system.
+Now, only use nix with a build tool on other system.~~
+
+Rethinking again. And try it again! I find some surprising feature for nixos!
 
 ## command-line
 
