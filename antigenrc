@@ -8,6 +8,7 @@ antigen bundles <<EOBUNDLES
     directory
     docker
     git
+    ssh
     gpg
     haskell
     helper
