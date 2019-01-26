@@ -13,6 +13,7 @@ ln -f -s $script_dir/czrc ~/.czrc
 mkdir ~/.ssh 2> /dev/null
 
 mkdir ~/.gnupg  2> /dev/null
-ln -f -s $script_dir/gnupg/* ~/.gnupg/
+cp -f $script_dir/gnupg/* ~/.gnupg/
+echo_note "--- enable ssh-agent is disable by default, because some tools will automaticly set ssh-agent."
 
 ln -f -s $script_dir/tmux.conf ~/.tmux.conf
