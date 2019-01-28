@@ -59,16 +59,18 @@ user's downloads dir"
   (unless (file-exists-p dir)
     (make-directory dir)))
 
-(defun vonfry-system-sets (&rest alist)
+(defmacro vonfry-system-sets (&rest alist)
   "set with system type. The param is a list like (darwin (message \"darwin\") (message \"MacOS\")). The first element
 is system type and the other are the actions."
-  (let* ((fst (car alist))
-         (lst (cdr alist))
-         (which-system (car fst))
-         (actions      (cdr fst)))
-    (if (eq system-type which-system)
-      (dolist (act actions)
-        (eval act))
-      (vonfry-system-sets lst))))
+  (let ((actions
+          (-non-nil (-reduce-from
+                      (lambda (memo item)
+                        (let* ((which-system (car item))
+                               (actions      (cdr item)))
+                          (if (eq system-type which-system)
+                            (-concat memo actions)
+                            memo)))
+                      nil alist))))
+    `(progn ,@actions)))
 
 (provide 'core-local)

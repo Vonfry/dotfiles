@@ -6,7 +6,7 @@
   (nmap :prefix +nmap-leader
         +nmap-version-control 'magit-status)
   :config
-  (vonfry-system-sets '(darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
+  (vonfry-system-sets (darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
 
 (package! git-commit :after magit)
 (package! magit-popup :after magit)
