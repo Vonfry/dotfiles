@@ -9,6 +9,8 @@ read git_global_email
 git config --global user.email $git_global_user
 git config --global user.name $git_global_email
 curl -L -s https://www.gitignore.io/api/vim,tags,macos,linux,emacs,windows > ~/.gitignore_global
+echo ".direnv\n.envrc" >> ~/.gitignore_global
+
 echo_note "--- input gpg keys([key]/n):"
 read git_global_gpg
 if [ $git_global_gpg != "n" ]; then
