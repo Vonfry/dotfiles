@@ -46,12 +46,6 @@ case "$(uname)" in
         ;;
 esac
 
-if command -v nix-env >/dev/null 2>&1 &&
-    [[ ! (-f /etc/os-release && $(cat /etc/os-release) =~ "nixos") ]]; then
-    nix-channel --update
-    nix-env -u
-fi
-
 if command -v antigen >/dev/null 2>&1; then
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}antigen${ECHO_RST}\n"
     antigen update
@@ -77,28 +71,34 @@ if command -v hoogle > /dev/null 2>&1; then
 fi
 echo -e "\n${ECHO_MSG}All things with haskell are only updated with indexed file, please update each package by yourself."
 
-echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}"
-if command -v pip3 > /dev/null 2>&1; then
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
-    pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
-fi
+if [[ ! -f /etc/NIXOS ]]; then
+    if command -v nix-env >/dev/null 2>&1 && [[ ! -f /etc/NIXOS  ]]; then
+        nix-channel --update
+        nix-env -u
+    fi
+    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}python${ECHO_RST}"
+    if command -v pip3 > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip3${ECHO_RST}\n"
+        pip3 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip3.txt
+    fi
 
-if command -v pip2 > /dev/null 2>&1; then
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
-    pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
-fi
+    if command -v pip2 > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}pip2${ECHO_RST}\n"
+        pip2 install --quiet --user --upgrade -r $DOTFILES_DIR/config/pkgs/pip2.txt
+    fi
 
-if command -v gem > /dev/null 2>&1; then
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
-    gem update --user-install --quiet && gem update --system --quiet
-    gem cleanup --quiet
-fi
+    if command -v gem > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}ruby${ECHO_RST}"
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}gem${ECHO_RST}\n"
+        gem update --user-install --quiet && gem update --system --quiet
+        gem cleanup --quiet
+    fi
 
-if command -v npm > /dev/null 2>&1; then
-    echo -e "\n${ECHO_SYM}* ${ECHO_MSG}node${ECHO_RST}\n"
-    echo -e "\n${ECHO_SYM}** ${ECHO_MSG}npm${ECHO_RST}\n"
-    npm update --silent
+    if command -v npm > /dev/null 2>&1; then
+        echo -e "\n${ECHO_SYM}* ${ECHO_MSG}node${ECHO_RST}\n"
+        echo -e "\n${ECHO_SYM}** ${ECHO_MSG}npm${ECHO_RST}\n"
+        npm update -g --silent
+    fi
 fi
 
 if [ -f ~/.config/nvim/init.vim ]; then
