@@ -2,7 +2,6 @@ pip
 setuptools
 wheel
 
-virtualenv
 ipython
 
 # code complete and check
