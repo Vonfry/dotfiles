@@ -39,6 +39,7 @@ function jekyll-new-post()
     fi
 
     echo "---" >> $postfile
+    echo "\n<!-- more -->\n" >> $postfile
 
     case "$(uname)" in
         "Darwin")
