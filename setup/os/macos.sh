@@ -62,6 +62,7 @@ brew cask install mactex                     # providing tex basic tools
 brew cask install java
 brew reinstall shellcheck
 brew reinstall shfmt
+brew reinstall yq
 
 # system tool
 brew cask install xquartz
