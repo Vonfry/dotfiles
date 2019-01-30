@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  services.nfs.server = {
+  services.nfs.server = { 
     enable = true;
-    exports =
+    exports = 
       ''
-      / <ip/host/...>(rw,fsid=0,sec=krb5p,no_subtree_check,insecure)
-      /home/vonfry <ip/host/...>(rw,sec=krb5p,no_subtree_check,insecure)
+      / 10.0.0.0/8(rw,fsid=0,sec=krb5p,no_subtree_check,insecure)
+      /home/vonfry 10.0.0.0/8(rw,sec=krb5p,no_subtree_check,insecure)
       '';
   };
 }
