@@ -2,7 +2,6 @@ pip
 setuptools
 wheel
 
-virtualenv
 ipython
 
 # code complete and check
@@ -15,6 +14,7 @@ mycli
 pgcli
 neovim
 asciinema
+sqlparse
 
 # math with ipython
 scipy

@@ -6,34 +6,48 @@ it directly.
 It contains developing environment and some test environment. So the setup file also can be used for server (without
 services' configure), but there are a lot of things that the server doesn't need.
 
-## system
+## System
 
 - [x] macOS
 
 - [ ] Gentoo - It is also testing, and without X11. See [todo](#todo)
 
-- [ ] NixOS - I'm trying it. Used possiblly is it or nix.
+- [ ] ~~NixOS~~ - See [below](#NixOS). old files by checking tag `develop/nixos` 
 
-- [ ] ~~Fedora~~ - stop maintaining, You can check the old tag to take a look.
+- [ ] ~~Fedora~~ - stop maintaining, old files by checking tag but I forget which one is.
+
+### NixOS
+
+~~I have tried it. The nix and nixos configuration are good designed. BUT! There are too many non-standard things, such as lib dir, if I want to install something without nix, it will be failed certainly because of the building time linking. The OS is too young. I will retry it after years.
+
+Now, only use nix with a build tool on other system.~~
+
+~~Rethinking again. And try it again! I find some surprising feature for nixos!~~
+
+For production environment, nixos is a good choice. But for development environment, we need a lot of tools to code and check, which are dependent on libraries linking, specially for auto-completion and syntax-check tools. 
+
+Another important problem is many tools with third part package management which are built during installing, requiring some libraries in path.
+
+It means all thing in nixos must use nix.
 
 ## command-line
 
 - [x] zsh
-- [x] ~~fish~~ - stop maintaining. You can check tag `develop/shell-fish` to use it.
+- [x] ~~fish~~ - stop maintaining. old files by checking tag `develop/shell-fish` 
 
-## window manager
+## Window Manager
 
 - [ ] XMonad
 
-## editor
+## Editor
 
-- [x] ~~Vim~~ stop maintaining. You can check tag `develop/vim` to use it. 
+- [x] ~~Vim~~ stop maintaining. old files by checking tag `develop/vim` 
 - [x] Neovim 
 - [x] Emacs
 
       Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
-## lang
+## Lang
 
 - orgmode & latex
 - C/C++ - clang/llvm
@@ -47,7 +61,7 @@ services' configure), but there are a lot of things that the server doesn't need
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
 developing environment.
 
-## mirror
+## Mirror
 
 A mirror can help us to get resources quickly. But it is unstable. Only using them when the network is bad.
 
@@ -79,7 +93,7 @@ see :[todo.org](todo.org)
 
 Now the most important thing is to use `lsp` instead of other completion tools. Some of them have done, but some not.
 
-## life
+## Life
 
 I use iTerm on mac and do anything on program with command line. And using ConEmu as terminal on windows.
 

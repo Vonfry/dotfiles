@@ -110,14 +110,8 @@ is undefined(It always is loaded by alpha order)."
   (auto-package-update-delete-old-versions t)
   (auto-package-update-last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
   (auto-package-update-hide-results t)
-  :hook ((after-init . auto-package-update-maybe)
-         (auto-package-update-after .
-            (lambda ()
-              (let* ((emacs-args '()))
-                (cond
-                  ((daemonp) (restart-emacs (cons "--daemon" emacs-args)))
-                  ((y-or-n-p-with-timeout "Do you like to restart emacs after updating?" 10)
-                    (restart-emacs emacs-args))))))))
+  :config
+  (auto-package-update-maybe))
 (package! auto-compile
   :custom
   (load-prefer-newer t)

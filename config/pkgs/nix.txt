@@ -1,3 +1,4 @@
 haskellPackages.hoogle
 dhall
-haskellPackages.hindent
+haskellPackages.brittany
+nox

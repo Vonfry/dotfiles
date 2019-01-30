@@ -9,9 +9,6 @@ case "$(unname)" in
             "gentoo")
                 $runscript $script_dir/setup/os/gentoo.sh
                 ;;
-            "nixos")
-                $runscript $script_dir/setup/os/nixos.sh
-                ;;
             "*")
                 echo_warn " ! The linux release is not supported."
                 exit 1
