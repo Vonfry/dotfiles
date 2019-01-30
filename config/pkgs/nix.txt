@@ -1,3 +1,5 @@
 haskellPackages.hoogle
 dhall
-haskellPackages.hindent
+haskellPackages.brittany
+nox
+cabal2nix

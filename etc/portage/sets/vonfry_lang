@@ -24,3 +24,4 @@ dev-util/cloc
 app-text/poppler
 app-text/texlive
 app-office/texstudio
+app-misc/yq

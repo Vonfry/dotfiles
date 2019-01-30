@@ -1,10 +1,9 @@
 function vonfry-update()
 {
-    ECHO_SYM="\033[0;31m"
-    ECHO_MSG="\033[0;36m"
-    ECHO_RST="\033[0m"
-    current_dir=$(pwd)
-    prefixsudo=""
+    export ECHO_SYM="\033[0;31m"
+    export ECHO_MSG="\033[0;36m"
+    export ECHO_RST="\033[0m"
+    export current_dir=$(pwd)
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}"
 
@@ -12,7 +11,12 @@ function vonfry-update()
     cd $DOTFILES_DIR
     git pull
 
-    $SHELL $SHELL_CUSTOM_DIR/update_r.sh
+    $SHELL $SHELL_CUSTOM_DIR/update/default.sh
+
+    unset ECHO_SYM
+    unset ECHO_MSG
+    unset ECHO_RST
+    unset current_dir
 }
 
 update_epoch_file=$SHELL_CUSTOM_DIR/local/.update_epoch
