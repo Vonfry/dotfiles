@@ -2,3 +2,4 @@ haskellPackages.hoogle
 dhall
 haskellPackages.brittany
 nox
+cabal2nix
