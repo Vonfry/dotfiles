@@ -1,6 +1,9 @@
 "" navigation.vim
 "
 
+function! vonfry#bundle#navigation#pre()
+endfunction
+
 function! vonfry#bundle#navigation#plug()
     call vonfry#bundle#add('easymotion/vim-easymotion')
     call vonfry#bundle#add('majutsushi/tagbar')
