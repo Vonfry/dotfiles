@@ -1,6 +1,9 @@
 "" visual.vim
 "
 
+function! vonfry#bundle#visual#pre()
+endfunction
+
 function vonfry#bundle#visual#plug()
     call vonfry#bundle#add('icymind/NeoSolarized')
     call vonfry#bundle#add('vim-airline/vim-airline',)
