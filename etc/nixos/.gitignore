@@ -1,0 +1,2 @@
+*.local.nix
+/hardware-configuration.nix

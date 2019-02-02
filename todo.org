@@ -1,9 +1,8 @@
 * OS
+** NixOS [/]
+*** TODO X [/]
+    - [ ] XMonad
 ** Gentoo [1/3]
-*** TODO gcl cannot be built on gentoo
-*** DONE Haskell [1/1]
-    CLOSED: [2018-06-07 四 19:36]
-    - [X] stack (use with stack-bin)
 *** TODO Gentoo with X[0/3]
     - [ ] libressl instead of openssl or ssl
     - [X] Rewrite global use flag
@@ -15,7 +14,7 @@
 *** NeoVim
 ** Emacs
     - [X] python-mode keybind
-    - [ ] eglot and project.el or lsp?
+    - [X] eglot and project.el or lsp?
     - [ ] flycheck or flymake
     - [ ] projectile update error
 *** DONE LSP[5/5]
@@ -27,5 +26,6 @@
     - [X] Ruby
 
 * Tools
+** Nix [/]
 ** Haskell[1/1]
     - [X] dHall
