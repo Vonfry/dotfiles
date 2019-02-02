@@ -3,7 +3,13 @@
 {
   imports =
     [ ./hardware-configuration.nix # use `nixos-generate-config` 
-      ./vonfry
+      ./base 
+      ./network 
+      ./shell 
+      ./editor 
+      ./dev 
+      ./user 
+      ./misc 
+      ./x
     ];
-
 }

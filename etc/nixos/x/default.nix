@@ -15,6 +15,6 @@
     };
   };
 
-  imports = with import (dirOf <nixos-config> + /vonfry/libs); 
-    matchFiles ./. "^x\\.[A-z0-9]\\.local\\.nix" [];
+  imports = with import (dirOf <nixos-config> + /libs); 
+    matchFiles ./. "^x\\.local\\.nix" [];
 }

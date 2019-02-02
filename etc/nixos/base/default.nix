@@ -39,4 +39,6 @@
   };
 
   nix.optimise.automatic = true;
+
+  imports = [ ./default.local.nix ]; # This file must be existed.
 }

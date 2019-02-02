@@ -11,9 +11,9 @@
     cabal-install
     stack
 
-    ruby ## rbenv; not! use nix instead.
+    ruby bundler bundix ## rbenv; not! use nix instead.
     
-    python python3Full python36Packages.pip
+    python3Full
 
     nodejs
   ];

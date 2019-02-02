@@ -1,0 +1,16 @@
+source 'https://rubygems.org'
+
+# dev for emacs
+gem "pry"
+gem "pry-doc"
+gem "pry-rails"
+gem "rufo"
+
+# tools
+gem "org-ruby"
+gem "rouge"
+gem "licensee"
+gem "nokogiri"
+
+# gitlab
+gem "gitlab" # see "https://github.com/NARKOZ/gitlab"

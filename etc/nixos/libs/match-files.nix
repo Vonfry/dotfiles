@@ -1,4 +1,5 @@
 path: matchExp: exclude: 
+# Only use this function to match files not under vcs.
 
 let 
   dirFiles = builtins.readDir path;
