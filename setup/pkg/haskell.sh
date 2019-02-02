@@ -2,7 +2,6 @@ echo_info "** setup haskell"
 
 mkdir ~/.ghc 2> /dev/null
 ln -f -s $script_dir/ghc/* ~/.ghc/
-ln -s -f $script_dir/hindent.yaml ~/.hindent.yaml
 
 if command -v cabal >/dev/null 2>&1; then
     echo_info "*** setup cabal"
