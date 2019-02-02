@@ -3,7 +3,6 @@
 
 (package! nix-mode
   :ensure haskell-mode
-  :custom
   :general
   (nmap :keymaps 'nix-mode-map
         :prefix +nmap-lang-prefix
