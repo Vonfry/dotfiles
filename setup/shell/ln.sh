@@ -17,4 +17,3 @@ cp -f $script_dir/gnupg/* ~/.gnupg/
 echo_note "--- enable ssh-agent is disable by default, because some tools will automaticly set ssh-agent."
 
 ln -f -s $script_dir/tmux.conf ~/.tmux.conf
-
