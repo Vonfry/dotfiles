@@ -13,4 +13,8 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     xargs -n1 -I "{}" sed "s/#.*$//" |
     xargs -n1 -I "{}" sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base.local.nix
+nix-env -iA bundix
+cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
+bundix -l
+nix-env -eA bundix
 sudo nixos-rebuild switch
