@@ -1,6 +1,9 @@
 "" interface.vim
 "
 
+function! vonfry#bundle#interface#pre()
+endfunction
+
 function! vonfry#bundle#interface#plug()
     call vonfry#bundle#add('Shougo/denite.nvim')
     call vonfry#bundle#add('terryma/vim-multiple-cursors')

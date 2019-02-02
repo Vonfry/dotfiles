@@ -1,26 +1,18 @@
-gem "rails"
 gem "bundler"
 
 # dev for emacs
 gem "pry"
 gem "pry-doc"
 gem "pry-rails"
-gem 'method_source'
 gem "rufo"
 gem "solargraph"
 
-
 # tools
-gem "sass"
-gem "compass"
 gem "nokogiri"
 gem "org-ruby"
 gem "rouge"
 gem "licensee"
 gem "neovim"
-
-# blog
-gem "jekyll"
 
 # gitlab
 gem "gitlab" # see "https://github.com/NARKOZ/gitlab"

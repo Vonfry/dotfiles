@@ -107,7 +107,13 @@ function! vonfry#editor#init()
 endfunction
 
 function! vonfry#editor#nvim()
-    let g:python_host_prog  = 'python2'
-    let g:python3_host_prog = 'python3'
-    let g:ruby_host_prog = 'ruby'
+    if !exists("g:python_host_prog")
+        let g:python_host_prog='python2'
+    endif
+    if !exists("g:python3_host_prog")
+        let g:python3_host_prog='python3'
+    endif
+    if !exists("g:ruby_host_prog")
+        let g:ruby_host_prog='ruby'
+    endif
 endfunction

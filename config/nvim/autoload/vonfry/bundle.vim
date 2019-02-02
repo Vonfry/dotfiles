@@ -76,6 +76,9 @@ function! vonfry#bundle#end()
 endfunction
 
 function! vonfry#bundle#use()
+    for bundle in g:vonfry#bundle#default
+        exec 'call vonfry#bundle#' . bundle . '#pre()'
+    endfor
     call vonfry#bundle#begin()
     call dein#add(g:vonfry#bundle#manager_dir)
     for bundle in g:vonfry#bundle#default

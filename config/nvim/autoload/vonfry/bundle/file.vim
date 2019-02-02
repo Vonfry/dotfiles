@@ -1,6 +1,9 @@
 "" file.vim
 "
 
+function! vonfry#bundle#file#pre()
+endfunction
+
 function! vonfry#bundle#file#plug()
     call vonfry#bundle#add('scrooloose/nerdtree')
     call vonfry#bundle#add('xuyuanp/nerdtree-git-plugin')

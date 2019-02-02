@@ -49,7 +49,7 @@ brew reinstall cloc                          # code statistics
 
 # lang
 brew reinstall ghc
-brew reinstall cabal-install haskell-stack
+brew reinstall cabal-install
 brew reinstall ruby
 brew reinstall rbenv
 brew reinstall r libomp                      # libomp is required for a packages

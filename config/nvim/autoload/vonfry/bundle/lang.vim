@@ -1,6 +1,9 @@
 "" lang.vim
 "
 
+function! vonfry#bundle#lang#pre()
+endfunction
+
 function! vonfry#bundle#lang#plug()
     call vonfry#bundle#add('sheerun/vim-polyglot')
     call vonfry#bundle#add('tpope/vim-ragtag')
