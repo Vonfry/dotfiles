@@ -4,7 +4,6 @@
 (package! smart-jump
   :after dumb-jump
   :config
-  (smart-jump-register :modes 'ess-mode) ; use xref
   (smart-jump-setup-default-registers)
   :general
   (nmap :keymaps 'prog-mode-map
