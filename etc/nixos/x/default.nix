@@ -15,6 +15,6 @@
     };
   };
 
-  imports = with import (dirOf <nixos-config> + /libs); 
-    matchFiles ./. "^x\\.local\\.nix" [];
+  imports = with import (dirOf <nixos-config> + /libs);
+    matchFiles ./. "^default\\.local\\.nix" [];
 }
