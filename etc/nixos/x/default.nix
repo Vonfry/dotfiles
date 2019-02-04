@@ -8,13 +8,13 @@
     enable = true;
     layout = "us";
     xkbVariant = "dvp";
-    autorun = false;
+    autorun = true;
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
     };
   };
 
-  imports = with import (dirOf <nixos-config> + /libs); 
-    matchFiles ./. "^x\\.local\\.nix" [];
+  imports = with import (dirOf <nixos-config> + /libs);
+    matchFiles ./. "^default\\.local\\.nix" [];
 }
