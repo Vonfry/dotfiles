@@ -13,8 +13,3 @@
 (package! company-quickhelp
   :after company
   :hook (company-mode . company-quickhelp-mode))
-
-(package! company-box
-  :custom
-  (company-box-enable-icon nil)
-  :hook (company-mode . company-box-mode))
