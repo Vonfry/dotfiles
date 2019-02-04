@@ -2,7 +2,6 @@
 ;;
 
 (package! nix-mode
-  :ensure haskell-mode
   :general
   (nmap :keymaps 'nix-mode-map
         :prefix +nmap-lang-prefix
