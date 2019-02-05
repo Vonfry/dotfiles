@@ -7,7 +7,7 @@
     cloc
   ];
 
-  imports = [ 
+  imports = [
     ./lang.nix
     ./db.nix
     ./misc.nix

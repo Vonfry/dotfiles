@@ -1,7 +1,8 @@
 self: super:
 
-let export = import ./.; in
 with self;
 {
-  vonfryPython = export.vonfryPython.override { python = python3 }
+  vonfryPython = callPackage ./dev-lang/python { python = python3 };
+  vonfryRuby = callPackage ./dev-lang/ruby;
+  vonfryXmonad = callPackage ./x11-wm/xmonad;
 }

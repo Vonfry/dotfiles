@@ -6,7 +6,7 @@ Some custom packages installed in global environment.
 
 Two level strutation: `./<categories>/<softerware>/<files for drv>`
 
-Categories' naming use gentoo package as reference. 
+Categories' naming use gentoo package as reference.
 
 Each custom package is saved into an dir though here is only one file.
 
@@ -24,7 +24,7 @@ default.nix: A function with arguments from nixpkgs which return a drv. This is 
 
 ## Update
 
-You know nix-env don't automaticlly update packages in a custom package without version, version must be configured used to update packages. 
+You know nix-env don't automaticlly update packages in a custom package without version, version must be configured used to update packages.
 
 But, nixos-rebuild uses nix-build, not nix-env to update configuration, so every custom packages define in configuration will be rebuilt which will casual upgrading.
 

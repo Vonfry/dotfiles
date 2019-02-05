@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     vim neovim
-    emacs 
+    emacs
     editorconfig-core-c
   ];
   services.emacs.install = true;

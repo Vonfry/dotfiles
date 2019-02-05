@@ -12,7 +12,7 @@
     stack
 
     ruby bundler bundix ## rbenv; not! use nix instead.
-    
+
     python3Full
 
     nodejs

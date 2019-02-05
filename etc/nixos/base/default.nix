@@ -23,7 +23,7 @@
       allowSFTP = true;
       passwordAuthentication = false;
       permitRootLogin = "prohibit-password";
-      extraConfig = 
+      extraConfig =
         ''
         ClientAliveInterval 60
         ClientAliveCountMax 4
