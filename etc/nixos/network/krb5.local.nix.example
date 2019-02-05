@@ -13,7 +13,7 @@
     libdefaults = {
       default_realm = "<realm>";
     };
-    extraConfig = 
+    extraConfig =
       ''
       [logging]
       kdc = FILE:/var/log/krb5kdc.log

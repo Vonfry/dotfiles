@@ -5,6 +5,6 @@
     sqlite
     mysql
     postgresql
-    redis 
+    redis
   ];
 }

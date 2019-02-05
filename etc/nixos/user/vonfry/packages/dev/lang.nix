@@ -9,7 +9,7 @@ with pkgs; [
   universal-ctags
   doxygen
   shfmt
-  shellcheck 
+  shellcheck
   yq
 
   texlive.combined.scheme-basic

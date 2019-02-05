@@ -1,14 +1,14 @@
-path: matchExp: exclude: 
+path: matchExp: exclude:
 # Only use this function to match files not under vcs.
 
-let 
+let
   dirFiles = builtins.readDir path;
   isMatch = fileName: builtins.match matchExp fileName != null;
-  isExclude = fileName: 
-    builtins.any 
+  isExclude = fileName:
+    builtins.any
       (epath:
         (builtins.match
-	  ".*/${builtins.replaceStrings ["."] ["\\."] fileName}$" 
+	  ".*/${builtins.replaceStrings ["."] ["\\."] fileName}$"
 	  (toString epath))
 	!= null)
       exclude;

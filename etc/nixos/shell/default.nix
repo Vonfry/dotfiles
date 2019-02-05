@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs = { 
+  programs = {
     zsh.enable = true;
     tmux.enable = true;
     gnupg.agent = {
@@ -11,8 +11,8 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget curl 
-    git git-lfs 
+    wget curl
+    git git-lfs
     zsh gnupg
   ];
 }
