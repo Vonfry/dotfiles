@@ -8,11 +8,11 @@ function vonfry-update()
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}update start${ECHO_RST}"
 
     echo -e "\n${ECHO_SYM}* ${ECHO_MSG}dotfiles${ECHO_RST}\n"
-    cd $DOTFILES_DIR
-    git pull
+    git -C $DOTFILES_DIR pull
 
     $SHELL $SHELL_CUSTOM_DIR/update/default.sh
 
+    cd $current_dir
     unset ECHO_SYM
     unset ECHO_MSG
     unset ECHO_RST
