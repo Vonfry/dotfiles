@@ -37,7 +37,9 @@
   '(use-dialog-box nil)
   '(inhibit-startup-screen t)
   '(inhibit-startup-echo-area-message t)
-  '(display-time-mode t))
+
+  '(display-time-mode t)
+  '(display-time-24hr-format t))
 
 (let ((no-border '(internal-border-width . 0)))
   (add-to-list 'default-frame-alist no-border)
