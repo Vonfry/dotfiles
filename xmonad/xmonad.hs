@@ -1,10 +1,11 @@
 import XMonad
-import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageDocks (docks)
+import XMonad.Util.Run (spawnPipe)
 import System.IO
 
-main = do
-    xmproc <- spawn "xmobar "
-    xmonad $ docks def
-        { modMask = mod4Mask
-        , terminal = "xterm"
-        }
+myDef = def
+    { modMask = mod4Mask
+    , terminal = "xterm"
+    }
+
+main = xmonad myDef
