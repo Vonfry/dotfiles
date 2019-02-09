@@ -1,12 +1,13 @@
 * OS
-** NixOS [/]
-*** TODO X [/]
-    - [ ] XMonad
-** Gentoo [1/3]
-*** TODO Gentoo with X[0/3]
+** NixOS [1/1]
+*** DONE X [1/1]
+    CLOSED: [2019-02-09 六 17:17]
+    - [X] XMonad
+** Gentoo [0/1]
+*** TODO Gentoo with X[2/3]
     - [ ] libressl instead of openssl or ssl
     - [X] Rewrite global use flag
-    - [ ] XMonad
+    - [X] XMonad
 ** macOS
 
 * Editor
@@ -26,6 +27,6 @@
     - [X] Ruby
 
 * Tools
-** Nix [/]
+** Nix
 ** Haskell[1/1]
     - [X] dHall
