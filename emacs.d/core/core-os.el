@@ -9,10 +9,6 @@
   (darwin
     (custom-set-variables
       '(mac-command-modifier 'meta)
-      '(mac-option-modifier 'super)))
-  (linux
-    (custom-set-variables
-      '(x-meta-keysym 'super)
-      '(x-super-keysym 'meta))))
+      '(mac-option-modifier 'super))))
 
 (provide 'core-os)
