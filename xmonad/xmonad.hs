@@ -9,21 +9,28 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.FuzzyMatch
-import XMonad.Prompt.Window
+import XMonad.Prompt.Layout
 import XMonad.Layout.ShowWName
-import XMonad.Layout.WindowArranger
+import XMonad.Layout.Grid
+import XMonad.Layout.Accordion
+import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
 
 myFont = "xft:Hack-11"
 myModMask = mod4Mask
+myTerm = "xterm"
 
 myXPC = def
     { font = myFont
     , searchPredicate = fuzzyMatch
     }
 
-myGSC = def
+myGSC = myGSConf
+myGSConf = def
+    { gs_font = myFont
+    }
+myGSConfW = def
     { gs_font = myFont
     }
 
@@ -32,7 +39,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
     , ((modm, xK_slash     ), promptSearch myXPC multi)
 
-    , ((modm, xK_space), switchLayer)
+    , ((modm, xK_at), switchLayer)
     , ((modm, xK_l), windowGo R False)
     , ((modm, xK_h), windowGo L False)
     , ((modm, xK_k), windowGo U False)
@@ -54,34 +61,21 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. mod1Mask, xK_k), windowToScreen U False)
     , ((modm .|. mod1Mask, xK_j), windowToScreen D False)
 
-    , ((modm .|. controlMask              , xK_s    ), sendMessage  Arrange         )
-    , ((modm .|. controlMask .|. shiftMask, xK_s    ), sendMessage  DeArrange       )
-    , ((modm .|. controlMask              , xK_Left ), sendMessage (MoveLeft      1))
-    , ((modm .|. controlMask              , xK_Right), sendMessage (MoveRight     1))
-    , ((modm .|. controlMask              , xK_Down ), sendMessage (MoveDown      1))
-    , ((modm .|. controlMask              , xK_Up   ), sendMessage (MoveUp        1))
-    , ((modm                 .|. shiftMask, xK_Left ), sendMessage (IncreaseLeft  1))
-    , ((modm                 .|. shiftMask, xK_Right), sendMessage (IncreaseRight 1))
-    , ((modm                 .|. shiftMask, xK_Down ), sendMessage (IncreaseDown  1))
-    , ((modm                 .|. shiftMask, xK_Up   ), sendMessage (IncreaseUp    1))
-    , ((modm .|. controlMask .|. shiftMask, xK_Left ), sendMessage (DecreaseLeft  1))
-    , ((modm .|. controlMask .|. shiftMask, xK_Right), sendMessage (DecreaseRight 1))
-    , ((modm .|. controlMask .|. shiftMask, xK_Down ), sendMessage (DecreaseDown  1))
-    , ((modm .|. controlMask .|. shiftMask, xK_Up   ), sendMessage (DecreaseUp    1))
-
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
+    , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
 
+    , ((modm .|. controlMask, xK_at), layoutPrompt myXPC)
     , ((modm, xK_o), windowMenu)
     ]
 
-myLayout = windowArrangeAll $ layoutHook def
+myLayout = Grid ||| Full ||| Accordion ||| layoutHook def
 
 myNav2D = withNavigation2DConfig def
 
 myDef = def
     { modMask = myModMask
-    , terminal = "xterm"
+    , terminal = myTerm
     , keys =  myKeys <+> keys def
     , layoutHook = myLayout
     }
