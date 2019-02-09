@@ -1,7 +1,8 @@
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}nixos${ECHO_RST}"
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}update custom packages${ECHO_RST}\n"
-cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
-rm Gemfile.lock  gemset.nix
-bundix -l
+custom_ruby_path=/etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
+sudo rm $custom_ruby_path/Gemfile.lock  $custom_ruby_path/gemset.nix
+sudo sh -c "cd $custom_ruby_path; bundix -l"
+unset custom_ruby_path
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}rebuild${ECHO_RST}\n"
 sudo nixos-rebuild switch --upgrade
