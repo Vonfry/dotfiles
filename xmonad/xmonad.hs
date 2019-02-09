@@ -3,7 +3,7 @@ import XMonad.Hooks.ManageDocks
 import System.IO
 
 main = do
-    xmproc <- spawnPipe "xmobar "
+    xmproc <- spawn "xmobar "
     xmonad $ docks def
         { modMask = mod4Mask
         , terminal = "xterm"
