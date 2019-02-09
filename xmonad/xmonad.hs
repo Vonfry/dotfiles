@@ -11,7 +11,6 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Layout
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Window
-import XMonad.Layout.Grid
 import XMonad.Layout.ShowWName
 import XMonad.Layout.WindowArranger
 import qualified  Data.Map as M
@@ -78,7 +77,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_o), windowMenu)
     ]
 
-myLayout = windowArrangeAll $ Grid ||| Full ||| layoutHook def
+myLayout = windowArrangeAll $ layoutHook def
 
 myNav2D = withNavigation2DConfig def
 
