@@ -8,7 +8,6 @@ import XMonad.Actions.Navigation2D
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
-import XMonad.Prompt.Layout
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Window
 import XMonad.Layout.ShowWName
@@ -70,7 +69,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. controlMask .|. shiftMask, xK_Down ), sendMessage (DecreaseDown  1))
     , ((modm .|. controlMask .|. shiftMask, xK_Up   ), sendMessage (DecreaseUp    1))
 
-    , ((modm .|. controlMask, xK_m), layoutPrompt myXPC)
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
 
