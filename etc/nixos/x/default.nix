@@ -3,6 +3,7 @@
 {
   programs.chromium.enable = true;
   environment.systemPackages = with pkgs; [
+    xclip
   ];
   services.xserver = {
     enable = true;

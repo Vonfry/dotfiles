@@ -18,3 +18,4 @@ cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
 bundix -l
 nix-env -eA bundix
 sudo nixos-rebuild switch
+echo_info "--- Run fcitx-configtool to config."
