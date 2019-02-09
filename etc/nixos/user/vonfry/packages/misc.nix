@@ -1,3 +1,3 @@
 { pkgs, ... }:
 
-with pkgs; [ handbrake graphviz gnuplot ]
+with pkgs; [ handbrake graphviz gnuplot chromium ]
