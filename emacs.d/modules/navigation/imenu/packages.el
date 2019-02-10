@@ -2,13 +2,10 @@
 ;;
 
 (package! imenu
-  :ensure nil)
-
-(package! imenu-anywhere
-  :config
+  :ensure nil
   :general
   (nmap :prefix +nmap-leader
-    +nmap-code 'ivy-imenu-anywhere))
+    +nmap-code 'imenu))
 
 (package! imenu-list
   :custom
