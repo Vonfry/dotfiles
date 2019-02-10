@@ -1,7 +1,7 @@
-$SHELL $DOTFILES_DIR/config/update/pkgs/haskell.sh
+$SHELL $SHELL_CUSTOM_DIR/update/pkgs/haskell.sh
 if ! [ -f /etc/NIXOS ]; then
-  $SHELL $DOTFILES_DIR/config/update/pkgs/nix.sh
-  $SHELL $DOTFILES_DIR/config/update/pkgs/ruby.sh
-  $SHELL $DOTFILES_DIR/config/update/pkgs/python.sh
+  $SHELL $SHELL_CUSTOM_DIR/update/pkgs/nix.sh
+  $SHELL $SHELL_CUSTOM_DIR/update/pkgs/ruby.sh
+  $SHELL $SHELL_CUSTOM_DIR/update/pkgs/python.sh
 fi
-$SHELL $DOTFILES_DIR/config/update/pkgs/node.sh
+$SHELL $SHELL_CUSTOM_DIR/update/pkgs/node.sh
