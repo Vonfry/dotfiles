@@ -14,5 +14,6 @@
     wget curl
     git git-lfs
     zsh gnupg
+    file
   ];
 }

@@ -4,8 +4,6 @@ import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.Launcher
 import XMonad.Actions.GridSelect
-import XMonad.Actions.WorkspaceNames
-import XMonad.Actions.TagWindows
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -52,15 +50,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_Right), shiftNextScreen)
     , ((modm .|. shiftMask, xK_Left),  shiftPrevScreen)
     , ((modm .|. shiftMask, xK_z),     toggleWS)
-
-    , ((modm .|. shiftMask,   xK_n), renameWorkspace myXPC)
-    , ((modm,                 xK_r), tagPrompt    myXPC (withFocused . addTag))
-    , ((modm .|. controlMask, xK_r), tagDelPrompt myXPC)
-    , ((modm .|. shiftMask,   xK_r), tagPrompt    myXPC (\s -> withTaggedGlobal s float))
-    , ((modm .|. mod1Mask,                 xK_r), tagPrompt myXPC (\s -> withTaggedP s (W.shiftWin "2")))
-    , ((modm .|. mod1Mask .|. shiftMask,   xK_r), tagPrompt myXPC (\s -> withTaggedGlobalP s shiftHere))
-    , ((modm .|. mod1Mask .|. controlMask, xK_r), tagPrompt myXPC focusUpTaggedGlobal)
-
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
