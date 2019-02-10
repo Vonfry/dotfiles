@@ -9,7 +9,6 @@
     # haskell
     ghc
     cabal-install
-    stack
 
     ruby bundler bundix ## rbenv; not! use nix instead.
 
