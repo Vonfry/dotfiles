@@ -4,8 +4,8 @@ XTerm*renderFont: true
 XTerm*faceNameDoublesize: Source Han Sans
 XTerm*faceName: Hack
 XTerm*faceSize: 11
-!Xterm*locale:zh_CN.UTF-8
 XTerm*selectToClipboard: true
+*boldColors: false
 
 !! color scheem
 #define S_base03        #002b36
