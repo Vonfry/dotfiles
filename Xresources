@@ -5,7 +5,8 @@ XTerm*faceNameDoublesize: Source Han Sans
 XTerm*faceName: Hack
 XTerm*faceSize: 11
 XTerm*selectToClipboard: true
-*boldColors: false
+XTerm*boldColors: false
+XTerm*SaveLines: 4096
 
 !! color scheem
 #define S_base03        #002b36
