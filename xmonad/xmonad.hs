@@ -13,6 +13,10 @@ import XMonad.Prompt.Layout
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
 import XMonad.Layout.Accordion
+import XMonad.Layout.Tabbed
+import XMonad.Layout.Hidden
+import XMonad.Layout.NoBorders
+import XMonad.Util.Paste
 import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
@@ -53,19 +57,43 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
+
+    , ((modm,               xK_d), withFocused hideWindow)
+    , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
+
     , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
+
+    , ((modm, xK_p), pasteSelection)
 
     , ((modm .|. controlMask, xK_at), layoutPrompt myXPC)
     , ((modm, xK_o), windowMenu)
     ]
 
-myLayout = Grid ||| Full ||| Accordion ||| layoutHook def
+myLayout = beforeLayouts layouts
+  where
+    layouts = Grid |||
+              noBorders (tabbed shrinkText def
+                  { inactiveBorderColor = "#586e75" -- solarized base01
+                  , activeBorderColor   = "#586e75" -- solarized base01
+                  , inactiveTextColor   = "#586e75" -- solarized base01
+                  , activeTextColor     = "#ffffff" -- solarized white
+                  , inactiveColor       = "#073642" -- solarized base02
+                  , activeColor         = "#b58900" -- solarized yellow
+                  , fontName            = myFont
+                  }) |||
+              Accordion |||
+              tiled |||
+              Mirror tiled
+    tiled = Tall 1 (3/100) (1/2)
+    beforeLayouts = hiddenWindows
 
 myDef = def
     { modMask = myModMask
     , terminal = myTerm
     , keys =  myKeys <+> keys def
     , layoutHook = myLayout
+    , focusedBorderColor = "#268bd2" -- solarized blue
+    , normalBorderColor = "#073642" -- solarized base03
     }
 
 main = xmonad myDef
