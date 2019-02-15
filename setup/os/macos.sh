@@ -12,7 +12,7 @@ brew install caskroom/cask/brew-cask
 brew tap beeftornado/rmtree # rm pkg with deps
 brew reinstall gnu-sed gnu-tar unzip unrar
 brew cask install gpg-suite
-brew reinstall git --with-gettext --with-openssl --with-curl --with-blk-sha1
+brew reinstall git
 brew reinstall zsh wget git-flow tig
 brew reinstall fzf && /usr/local/opt/fzf/install
 brew reinstall thefuck
@@ -31,16 +31,15 @@ brew reinstall direnv
 brew reinstall ranger
 
 # C & Cpp libs
-brew reinstall gcc --with-nls
-brew reinstall llvm --with-lldb --with-graphviz --with-toolchain
-brew reinstall gdb --with-all-targets --with-python
+brew reinstall gcc
+brew reinstall llvm
+brew reinstall gdb
 brew reinstall binutils
-brew reinstall cmake --with-completion
+brew reinstall cmake
 brew reinstall ninja
 brew reinstall zlib libffi
 
 # C & Cpp developing tools
-brew tap universal-ctags/universal-ctags && brew reinstall --HEAD universal-ctags
 brew cask install doxygen
 
 # code search
@@ -52,7 +51,6 @@ brew reinstall ghc
 brew reinstall cabal-install
 brew reinstall ruby
 brew reinstall rbenv
-brew reinstall r libomp                      # libomp is required for a packages
 brew reinstall python
 brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
@@ -65,27 +63,20 @@ brew reinstall shfmt
 brew reinstall yq
 
 # system tool
-brew cask install xquartz
 brew cask install wireshark
 brew cask install docker
-brew reinstall graphviz --with-app
-brew reinstall gnuplot --with-x11
+brew reinstall graphviz
+brew reinstall gnuplot
 
 # chat
-brew cask install gitter
 brew reinstall weechat
 brew reinstall mutt
 brew reinstall hub
 
 # editor
 brew reinstall editorconfig
-brew reinstall macvim --with-override-system-vim
 brew reinstall neovim
-brew reinstall emacs --with-cocoa --with-gnutls --with-imagemagick@6 --with-librsvg --with-mailutils --with-dbus
-# TODO change imagemagick@6 to other version
-# TODO use emacs-port instead of gnu-emacs until it supports with multi-tty
-# brew tap railwaycat/emacsmacport
-# brew install emacs-mac --with-glib --with-gnutls --with-modern-icon --with-natural-title-bar --with-xml2 --with-imagemagick\n
+brew reinstall emacs
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life

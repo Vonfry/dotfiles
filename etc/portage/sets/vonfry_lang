@@ -10,8 +10,6 @@ dev-python/pip
 net-libs/nodejs
 dev-util/cmake
 sys-devel/gcc
-dev-util/ctags
-dev-util/cscope
 sys-devel/clang
 sys-devel/llvm
 dev-util/ninja
