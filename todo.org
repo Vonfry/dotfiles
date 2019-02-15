@@ -1,10 +1,9 @@
-* OS
+* System
 ** NixOS [1/1]
 *** DONE X [1/1]
     CLOSED: [2019-02-09 六 17:17]
     - [X] XMonad
-** Gentoo [0/1]
-*** TODO Gentoo with X[2/3]
+** Gentoo [2/3]
     - [ ] libressl instead of openssl or ssl
     - [X] Rewrite global use flag
     - [X] XMonad
@@ -13,18 +12,17 @@
 * Editor
 ** Vim
 *** NeoVim
-** Emacs
+** Emacs [4/4]
     - [X] python-mode keybind
     - [X] eglot and project.el or lsp?
-    - [ ] flycheck or flymake
-    - [ ] projectile update error
-*** DONE LSP[5/5]
-    CLOSED: [2018-09-23 日 23:19]
-    - [X] Haskell
-    - [X] CC
-    - [X] Javascript
-    - [X] Python
-    - [X] Ruby
+    - [X] +flycheck or+ flymake
+    - [X] projectile update error
+** LSP [5/5]
+   - [X] Haskell
+   - [X] CC
+   - [X] Javascript
+   - [X] Python
+   - [X] Ruby
 
 * Tools
 ** Nix

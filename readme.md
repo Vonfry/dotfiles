@@ -10,7 +10,7 @@ services' configure), but there are a lot of things that the server doesn't need
 
 - [x] macOS
 
-- [ ] NixOS - See [nixos readme](./etc/nixos/readme.md). 
+- [x] NixOS - See [nixos readme](./etc/nixos/readme.md). 
 
 - [ ] Gentoo - It is also testing, and without X11. See [todo](#todo)
 
@@ -23,7 +23,7 @@ services' configure), but there are a lot of things that the server doesn't need
 
 ## Window Manager
 
-- [ ] XMonad
+- [x] XMonad
 
 ## Editor
 

@@ -6,7 +6,6 @@ with pkgs; [
   haskellPackages.hoogle
   cabal2nix
 
-  universal-ctags
   doxygen
   shfmt
   shellcheck
