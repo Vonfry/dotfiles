@@ -1,0 +1,13 @@
+set editor="nvim"
+
+set edit_headers = yes
+set use_from = yes
+set charset = UTF-8
+set use_domain = no
+
+set header_cache = ~/.cache/mutt_header
+set message_cachedir = ~/.cache/mutt
+
+set folder = "~/Mail"
+source ~/.mutt/mailboxes
+source ~/.mutt/vonfry/default
