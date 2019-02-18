@@ -18,4 +18,5 @@ cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
 bundix -l
 nix-env -eA bundix
 sudo nixos-rebuild switch
+systemctl --user enable offlineimap
 echo_info "--- Run fcitx-configtool to config."
