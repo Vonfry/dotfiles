@@ -70,7 +70,6 @@ brew reinstall gnuplot
 
 # chat
 brew reinstall weechat
-brew reinstall mutt
 brew reinstall hub
 
 # editor

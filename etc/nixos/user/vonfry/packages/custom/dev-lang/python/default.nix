@@ -1,3 +1,6 @@
 { python }:
 
-python.withPackages (pythonPackages: with pythonPackages; [ scipy numpy pandas matplotlib sympy ipython ])
+python.withPackages (pythonPackages: with pythonPackages; [ 
+  gpgme # dropbox required
+  scipy numpy pandas matplotlib sympy ipython 
+  ])
