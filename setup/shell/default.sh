@@ -24,4 +24,5 @@ $runscript $script_dir/setup/shell/git.sh
 $runscript $script_dir/setup/shell/ln.sh
 $runscript $script_dir/setup/shell/zsh.sh
 $runscript $script_dir/setup/shell/fortunes.sh
+$runscript $script_dir/setup/shell/dropbox.sh
 $runscript $script_dir/setup/shell/email.sh
