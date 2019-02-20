@@ -30,9 +30,9 @@ function! vonfry#editor#init()
     set laststatus=2
     set ignorecase smartcase
     set ruler
-    set textwidth=120
+    set textwidth=80
     set wrap
-    set colorcolumn=120
+    set colorcolumn=80
 
     set lazyredraw
     set ttyfast
