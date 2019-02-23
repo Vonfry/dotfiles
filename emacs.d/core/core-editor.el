@@ -12,7 +12,7 @@
   "The default frame width and height"
   :group 'vonfry-editor)
 
-(defcustom vonfry-text-width 120
+(defcustom vonfry-text-width 80
   "The width for a line"
   :type 'number
   :group 'vonfry-editor)

@@ -10,8 +10,6 @@
     };
   };
 
-  services.offlineimap.install = true;
-
   environment.systemPackages = with pkgs; [
     wget curl
     git git-lfs
