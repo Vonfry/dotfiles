@@ -5,8 +5,9 @@ set use_from = yes
 set charset = UTF-8
 set use_domain = no
 
-set header_cache = ~/.cache/mutt_header
-set message_cachedir = ~/.cache/mutt
+# Use offline tools, these are not necessary.
+# set header_cache = ~/.cache/mutt_header
+# set message_cachedir = ~/.cache/mutt
 
 set folder = "~/Mail"
 source ~/.mutt/mailboxes
