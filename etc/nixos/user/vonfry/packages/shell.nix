@@ -21,4 +21,5 @@ with pkgs; [
   googler
   lolcat
   fortune cmatrix figlet
+  dropbox-cli
 ]
