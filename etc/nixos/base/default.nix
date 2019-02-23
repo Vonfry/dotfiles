@@ -40,5 +40,5 @@
 
   nix.optimise.automatic = true;
 
-  imports = [ ./default.local.nix ]; # This file must be existed.
+  imports = [ ./unfree.nix ./default.local.nix ]; # This file must be existed.
 }
