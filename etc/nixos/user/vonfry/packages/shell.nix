@@ -17,7 +17,7 @@ with pkgs; [
   shellcheck
   unzip
   weechat
-  mutt msmtp
+  mutt msmtp offlineimap
   googler
   lolcat
   fortune cmatrix figlet
