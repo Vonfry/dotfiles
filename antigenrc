@@ -29,7 +29,7 @@ if [[ $(uname) = 'Darwin' ]]; then
     antigen bundle osx
 fi
 
-export GEOMETRY_PROMPT_PLUGINS=(hostname virtualenv exec_time jobs git hg kube)
+export GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git hg kube)
 antigen theme geometry-zsh/geometry
 
 antigen apply
