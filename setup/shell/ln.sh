@@ -8,6 +8,10 @@ echO "flake8 nvim pkgs shell" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{}
 mkdir ~/.config/direnv 2> /dev/null
 ln -sf $script_dir/config/direnv/direnvrc ~/.config/direnv/direnvrc
 
+ln -sf $dropbox_dir/config/* ~/.config
+
+mkdir -p ~/.local/passwd 2> /dev/null
+
 ln -sf $script_dir/gdbinit ~/.gdbinit
 
 mkdir ~/.ssh 2> /dev/null
