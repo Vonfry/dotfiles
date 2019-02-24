@@ -13,10 +13,10 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     xargs -n1 -I "{}" sed "s/#.*$//" |
     xargs -n1 -I "{}" sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base.local.nix
-nix-env -iA bundix
+nix-env -iA nixos.bundix
 cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
 bundix -l
-nix-env -eA bundix
+nix-env -eA nixos.bundix
+sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nixos-rebuild switch
-systemctl --user enable offlineimap
 echo_info "--- Run fcitx-configtool to config."
