@@ -4,13 +4,13 @@
   i18n = {
     consoleFont = "hack-11";
     consoleKeyMap = "dvorak-programmer";
-    defaultLocale = "en_US.UTF-8";
+    defaultLocale = "en_US.utf8";
     consolePackages = with pkgs; [ hack-font ];
   };
 
   time.timeZone = "Asia/Shanghai";
 
-  environment.systemPackages = with pkgs; [ sudo ];
+  environment.systemPackages = with pkgs; [ sudo openssl cacert ];
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
