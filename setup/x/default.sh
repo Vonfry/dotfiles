@@ -2,8 +2,7 @@ if [ $(uname) = "Linux" ]; then
     echo_info "* X"
     ln -f -s $script_dir/xsession ~/.xsession
     ln -f -s $script_dir/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
-    mkdir -p ~/.config/alacritty
-    ln -f -s $script_dir/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+    ln -f -s $script_dir/Xresources ~/.Xresources
 
     if command -v xmonad &> /dev/null; then
         xmonad --recompile

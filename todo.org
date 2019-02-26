@@ -1,8 +1,9 @@
 * System
 ** NixOS [1/1]
-*** DONE X [1/1]
+*** TODO X [1/2]
     CLOSED: [2019-02-09 六 17:17]
     - [X] XMonad
+    - [ ] alacritty
 ** Gentoo [2/3]
     - [ ] libressl instead of openssl or ssl
     - [X] Rewrite global use flag
