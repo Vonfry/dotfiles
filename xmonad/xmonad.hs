@@ -21,10 +21,10 @@ import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
 
-myFont = "xft:Hack:pixelsize=11"
-myFontCJK = "xft:Source Han Sans CN:pixelsize=11"
+myFont = "xft:Hack:size=11"
+myFontCJK = "xft:Source Han Sans CN:size=11"
 myModMask = mod4Mask
-myTerm = "urxvt"
+myTerm = "alacritty"
 
 myXPC = def
     { font = myFont
