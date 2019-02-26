@@ -9,7 +9,11 @@
   (vonfry-system-sets (darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
 
 (package! git-commit :after magit)
-(package! transient :after magit)
+(package! transient :after magit
+  :custom
+  (transient-history-file (expand-file-name "transient/history.el" vonfry-cache-dir))
+  (transient-values-file (expand-file-name "transient/values.el" vonfry-cache-dir))
+  (transient-levels-file (expand-file-name "transient/levels.el" vonfry-cache-dir)))
 (package! with-editor :after magit)
 (package! gitconfig-mode :after magit)
 (package! gitignore-mode :after magit)
