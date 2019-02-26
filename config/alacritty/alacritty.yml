@@ -20,17 +20,17 @@ tabspaces: 4
 
 font:
   normal:
-    family: Hack
+    family: monospace
     # style: Regular
 
   # Bold font face
   bold:
-    family: Hack
+    family: monospace
     # style: Bold
 
   # Italic font face
   italic:
-    family: Hack
+    family: monospace
     # style: Italic
 
   size: 11.0
