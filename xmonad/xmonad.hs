@@ -21,9 +21,10 @@ import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
 
-myFont = "xft:Hack-11"
+myFont = "xft:Hack:size=11"
+myFontCJK = "xft:Source Han Sans CN:size=11"
 myModMask = mod4Mask
-myTerm = "xterm"
+myTerm = "alacritty"
 
 myXPC = def
     { font = myFont
@@ -79,7 +80,7 @@ myLayout = beforeLayouts layouts
                   , activeTextColor     = "#ffffff" -- solarized white
                   , inactiveColor       = "#073642" -- solarized base02
                   , activeColor         = "#b58900" -- solarized yellow
-                  , fontName            = myFont
+                  , fontName            = myFontCJK
                   }) |||
               Accordion |||
               tiled |||
@@ -92,6 +93,7 @@ myDef = def
     , terminal = myTerm
     , keys =  myKeys <+> keys def
     , layoutHook = myLayout
+    , focusFollowsMouse = False
     , focusedBorderColor = "#268bd2" -- solarized blue
     , normalBorderColor = "#073642" -- solarized base03
     }

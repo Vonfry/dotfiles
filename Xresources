@@ -1,12 +1,9 @@
 !! font
 
-XTerm*renderFont: true
-XTerm*faceNameDoublesize: Source Han Sans
-XTerm*faceName: Hack
-XTerm*faceSize: 11
-XTerm*selectToClipboard: true
-XTerm*boldColors: false
-XTerm*SaveLines: 4096
+URxvt*font: xft:Hack:pixelsize=13,\
+            xft:Source Han Sans CN:pixelsize=13
+URxvt*scrollBar: False
+URxvt*saveLines: 4096
 
 !! color scheem
 #define S_base03        #002b36
