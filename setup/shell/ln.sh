@@ -11,7 +11,10 @@ ln -sf $script_dir/config/direnv/direnvrc ~/.config/direnv/direnvrc
 ln -sf $script_dir/gdbinit ~/.gdbinit
 
 mkdir ~/.ssh 2> /dev/null
-ln -sf $dropbox_dir/ssh/config ~/.ssh/config
+cp -sf $dropbox_dir/ssh/config ~/.ssh/config
+if [ $(uname) = "Linux" ]; then
+  sed -i ~/.ssh/config -e /^UseKeychain.*/d
+fi
 
 mkdir ~/.gnupg  2> /dev/null
 cp -f $script_dir/gnupg/* ~/.gnupg/
