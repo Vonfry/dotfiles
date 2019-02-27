@@ -10,6 +10,6 @@
 
   i18n.inputMethod = {
     enabled = "fcitx";
-    fcitx.engines = with pkgs.fcitx-engines; [ table-other ]; # table-other: wubi
+    fcitx.engines = with pkgs.fcitx-engines; [ table-other ]; # wubi
   };
 }

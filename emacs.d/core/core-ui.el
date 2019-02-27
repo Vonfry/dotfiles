@@ -32,6 +32,7 @@
 
 (custom-set-variables
   '(tool-bar-mode nil)
+  '(menu-bar-mode nil)
 
   '(use-file-dialog nil)
   '(use-dialog-box nil)
