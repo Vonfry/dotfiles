@@ -3,6 +3,7 @@ antigen use prezto
 antigen bundles <<EOBUNDLES
     environment
     archive
+    syntax-highlighting
     autosuggestions
     completion
     directory
@@ -16,7 +17,6 @@ antigen bundles <<EOBUNDLES
     history
     prompt
     spectrum
-    syntax-highlighting
     terminal
     utility
 
