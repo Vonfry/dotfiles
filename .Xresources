@@ -1,7 +1,7 @@
 !! font
 
 XTerm*renderFont: true
-XTerm*faceNameDoublesize: Source Han Sans
+XTerm*faceNameDoublesize: Source Han Sans CN
 XTerm*faceName: Hack
 XTerm*faceSize: 11
 XTerm*selectToClipboard: true
