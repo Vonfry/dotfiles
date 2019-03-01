@@ -73,10 +73,10 @@ is undefined(It always is loaded by alpha order)."
 ;;
 ;; define function for packages
 ;;
-(defalias #'vonfry/list-packages       #'paradox-list-packages)
-(defalias #'vonfry/install-packages    #'package-install)
-(defalias #'vonfry/update-packages     #'package-utils-upgrade-by-name)
-(defalias #'vonfry/update-all-packages #'package-utils-upgrade-all)
+(defalias #'vonfry/list-packages         #'paradox-list-packages)
+(defalias #'vonfry/install-packages      #'package-install)
+(defalias #'vonfry/update-packages-maybe #'auto-package-update-maybe)
+(defalias #'vonfry/update-packages-now   #'auto-package-update-now)
 
 (defun vonfry--package! (pkg &optional min-version no-refresh)
   "Define packages dependence and install it.
@@ -101,7 +101,6 @@ is undefined(It always is loaded by alpha order)."
 
 (defalias #'package! #'use-package)
 
-(package! package-utils)
 (package! paradox :config (paradox-enable))
 (package! diminish)
 (package! dash)
