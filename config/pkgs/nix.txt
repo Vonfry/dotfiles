@@ -1,3 +1,5 @@
+ghc
+cabal-install
 haskellPackages.hoogle
 dhall
 haskellPackages.brittany
