@@ -1,6 +1,3 @@
-dev-lang/ghc
-dev-haskell/cabal
-dev-haskell/cabal-install
 dev-lang/ruby
 dev-ruby/rails
 dev-ruby/rubygems

@@ -47,8 +47,6 @@ brew reinstall the_silver_searcher gawk
 brew reinstall cloc                          # code statistics
 
 # lang
-brew reinstall ghc
-brew reinstall cabal-install
 brew reinstall ruby
 brew reinstall rbenv
 brew reinstall python
