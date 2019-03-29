@@ -28,7 +28,8 @@ function! vonfry#bundle#lang#config()
     let g:html5_aria_attirbutes_complete = 0
     let g:html5_event_handler_attirbutes_complete = 0
 
-    let g:vim_markdown_folding_disable = 0
+    let g:vim_markdown_folding_disable = 1
+    let g:vim_markdown_conceal = 0
     let g:vim_markdown_math = 1
     let g:fencview_autodetect = 0 " Do not auto detect
 
