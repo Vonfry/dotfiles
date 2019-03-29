@@ -14,6 +14,10 @@ cat <<EXCL >> ~/.gitignore_global
 # Direnv stuff
 .direnv
 .envrc
+
+# Nix
+result/
+result
 EXCL
 
 echo_note "--- input gpg keys([key]/n):"

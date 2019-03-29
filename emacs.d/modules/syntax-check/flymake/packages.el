@@ -5,5 +5,5 @@
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-leader
-        +nmap-check 'flymake-show-diagnostic))
+        +nmap-check 'flymake-show-diagnostics-buffer))
 

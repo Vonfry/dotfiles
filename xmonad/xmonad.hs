@@ -81,6 +81,7 @@ myLayout = beforeLayouts layouts
                   , inactiveColor       = "#073642" -- solarized base02
                   , activeColor         = "#b58900" -- solarized yellow
                   , fontName            = myFontCJK
+                  , decoHeight          = 24
                   }) |||
               Accordion |||
               tiled |||

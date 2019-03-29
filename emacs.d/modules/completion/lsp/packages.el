@@ -9,25 +9,20 @@
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
         "" '(nil :which-key "lsp")
-        +nmap-run       'lsp-execute-code-action
-        +nmap-format    'lsp-format-buffer
-        +nmap-highlight 'lsp-symbol-highlight
-        "i"  'lsp-info-under-point
-        "dt" 'lsp-goto-type-definition
+        +nmap-run          'lsp-execute-code-action
+        +nmap-format       'lsp-format-buffer
+        +nmap-highlight    'lsp-symbol-highlight
+        +nmap-go-prompt    'lsp-find-definition
+        +nmap-go-reference 'lsp-find-references
         "*"  'lsp-rename
         "R"  'lsp-restart-workspace
-        "gI" 'lsp-goto-implementation))
+        "D"  'lsp-describe-session
+        "[t" 'lsp-goto-type-definition
+        "[i" 'lsp-goto-implementation))
 
 (package! lsp-clients
   :after lsp-mode
-  :ensure nil
-  :config
-  (lsp-register-client
-    (make-lsp-client :new-connection (lsp-stdio-connection '("solargraph" "stdio"))
-                     :major-modes '(enh-ruby-mode)
-                     :priority -1
-                     :multi-root t
-                     :server-id 'ruby-ls)))
+  :ensure nil)
 
 (package! lsp-ui
   :after lsp-mode evil
@@ -44,13 +39,13 @@
         "tf" 'lsp-ui-peek--toggle-file
         "sn" 'lsp-ui-peek--select-next
         "sp" 'lsp-ui-peek--select-prev
-        "gx" 'lsp-ui-peek--goto-xref
-        "go" 'lsp-ui-peek--goto-xref-other-window
         "!"  'lsp-ui-peek--abort
-        "gf" 'lsp-ui-peek-find-references
-        "gd" 'lsp-ui-peek-find-definitions
-        "gi" 'lsp-ui-peek-find-implementation
-        "gs" 'lsp-ui-peek-find-workspace-symbol))
+        "{x" 'lsp-ui-peek--goto-xref
+        "{o" 'lsp-ui-peek--goto-xref-other-window
+        "{f" 'lsp-ui-peek-find-references
+        "{d" 'lsp-ui-peek-find-definitions
+        "{i" 'lsp-ui-peek-find-implementation
+        "{s" 'lsp-ui-peek-find-workspace-symbol))
 
 (package! company-lsp
   :after lsp-mode company

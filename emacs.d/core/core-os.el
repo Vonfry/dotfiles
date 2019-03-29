@@ -10,7 +10,7 @@
     (custom-set-variables
       '(mac-command-modifier 'meta)
       '(mac-option-modifier 'super)))
-  (linux
+  (gnu/linux
     (custom-set-variables
       '(x-super-keysym 'meta))))
 
