@@ -26,7 +26,7 @@
   :general
   (nmap :prefix +nmap-leader
     +nmap-ctrlp  'counsel-projectile-find-file
-    +nmap-search 'counsel-projectile-ag))
+    +nmap-search 'counsel-projectile-rg))
 
 (package! org-projectile
   :after projectile org org-agenda

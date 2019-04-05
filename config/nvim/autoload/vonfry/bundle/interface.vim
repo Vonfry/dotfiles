@@ -30,7 +30,7 @@ function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#code, ':Denite tag<CR>')
     " Change file_rec command.
     call denite#custom#var('file_rec', 'command',
-                \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+                \ ['rg', '--files', '--glob', '!.git'])
     " Change matchers.
     call denite#custom#source(
                 \ 'file_mru', 'matchers', ['matcher_fuzzy', 'matcher_project_files'])

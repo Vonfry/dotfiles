@@ -11,7 +11,7 @@
     layout = "us";
     xkbVariant = "dvp";
     autorun = true;
-    displayManager.lgihtdm.enable = true;
+    displayManager.lightdm.enable = true;
     windowManager = {
       default = "xmonad";
       xmonad = {

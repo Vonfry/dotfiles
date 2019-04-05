@@ -21,7 +21,7 @@ app-arch/zip
 net-irc/weechat
 app-text/pandoc
 net-analyzer/goaccess
-sys-apps/the_silver_searcher
+sys-apps/ripgrep
 sys-apps/gawk
 sys-apps/sed
 sys-devel/patch

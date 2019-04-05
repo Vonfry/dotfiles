@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    silver-searcher
+    ripgrep
     gawk
     cloc
   ];
