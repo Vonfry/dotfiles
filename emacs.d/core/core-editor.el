@@ -96,8 +96,8 @@
   '(recentf-save-file (expand-file-name "recentf" vonfry-cache-dir))
 
   '(custom-file vonfry-custom-file)
-  '(save-abbrevs 'silently)
   '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir))
+  '(save-abbrevs 'silently)
 
   '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
 
