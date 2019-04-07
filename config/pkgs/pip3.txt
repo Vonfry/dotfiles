@@ -10,11 +10,8 @@ python-language-server[all]
 
 # tools
 httpstat
-mycli
-pgcli
 neovim
 asciinema
-sqlparse
 
 # math with ipython
 scipy

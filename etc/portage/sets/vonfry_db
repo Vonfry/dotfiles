@@ -2,3 +2,5 @@ dev-db/mysql
 dev-db/postgresql
 dev-db/sqlite
 dev-db/redis
+dev-db/mycli
+dev-db/pgcli

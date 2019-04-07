@@ -22,4 +22,5 @@ with pkgs; [
   lolcat
   fortune cmatrix figlet
   unstable.dropbox-cli
+  asciinema
 ]

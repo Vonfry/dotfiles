@@ -3,3 +3,4 @@ sci-visualization/gnuplot
 media-gfx/graphviz
 media-video/handbrake
 dev-vcs/hub
+dev-python/httpstat
