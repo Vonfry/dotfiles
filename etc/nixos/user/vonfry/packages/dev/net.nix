@@ -1,3 +1,3 @@
 { pkgs, ... }:
 
-with pkgs; [ nmap ]
+with pkgs; [ nmap httpstat ]

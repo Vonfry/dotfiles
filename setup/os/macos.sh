@@ -52,6 +52,7 @@ brew reinstall rbenv
 brew reinstall python
 brew reinstall node
 brew reinstall sqlite mysql postgresql redis # database
+brew reinstall pgcli mycli
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
@@ -65,6 +66,7 @@ brew cask install wireshark
 brew cask install docker
 brew reinstall graphviz
 brew reinstall gnuplot
+brew reinstall asciinema httpstat
 
 # chat
 brew reinstall weechat
