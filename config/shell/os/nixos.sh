@@ -10,6 +10,6 @@ else
     shell=$(echo ${SHELL} | awk -F/ '{ print $NF }')
 fi
 if  command -v autojump > /dev/null 2>&1; then
-    source $(nixos nix-store -q $(nix-store -qd $(which autojump)))/share/autojump/autojump.$shell
+    source $(nix-store -q $(nix-store -qd $(which autojump)))/share/autojump/autojump.$shell
 fi
 unset shell
