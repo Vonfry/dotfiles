@@ -7,4 +7,5 @@ with pkgs; [
   chromium
   feh
   libsForQt5.vlc
+  inkscape
 ]
