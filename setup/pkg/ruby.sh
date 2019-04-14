@@ -1,5 +1,9 @@
 echo_info "** setup ruby"
 
+GEM="gem"
+if [ $(uname) = "Darwin" ]; then
+    GEM=/usr/local/opt/ruby/bin/gem
+fi
 if ! [ -f /etc/NIXOS ]; then
     ln $script_dir/gemrc ~/.gemrc
     mkdir -p ~/.gem/bin
