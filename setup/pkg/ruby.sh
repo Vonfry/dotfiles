@@ -10,7 +10,7 @@ if ! [ -f /etc/NIXOS ]; then
 
     if command -v gem > /dev/null 2>&1; then
         echo_info "*** setup gem"
-        gem install --quiet --no-lock --user-install -g $script_dir/config/pkgs/gem.txt
+        $GEM install --quiet --no-lock --user-install -g $script_dir/config/pkgs/gem.txt
         if command -v bundle > /dev/null 2>&1; then
             bundle config console pry
         else
