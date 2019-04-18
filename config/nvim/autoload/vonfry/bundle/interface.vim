@@ -15,7 +15,6 @@ function! vonfry#bundle#interface#plug()
     call vonfry#bundle#add('osyo-manga/vim-over')
     call vonfry#bundle#add(['Shougo/vimproc.vim', {'build' : 'make'}])
     call vonfry#bundle#add('godlygeek/tabular')
-    call vonfry#bundle#add('sbdchd/neoformat')
     call vonfry#bundle#add('liuchengxu/vim-which-key')
 endfunction
 
@@ -64,7 +63,6 @@ function! vonfry#bundle#interface#config()
     let g:better_whitespace_operator='<leader>ws'
 
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#align, ':Tabularize /')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#format, ':Neoformat')
 
     " whitespace
     let g:better_whitespace_operator = ''

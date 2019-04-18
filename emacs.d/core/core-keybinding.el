@@ -55,9 +55,6 @@
 (defconst +nmap-go-module "#"
   "go to file or module, or jump back. In some module, such as C, it is used to switch between head and source file. ")
 
-(defconst +nmap-format "("
-  "format code")
-
 (defconst +nmap-align "="
   "align regex")
 
