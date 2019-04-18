@@ -57,9 +57,6 @@ brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
 brew cask install mactex                     # providing tex basic tools
 brew cask install java
-brew reinstall shellcheck
-brew reinstall shfmt
-brew reinstall yq
 
 # system tool
 brew cask install wireshark

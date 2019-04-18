@@ -14,7 +14,6 @@ with pkgs; [
   colordiff
   tmux
   patch
-  shellcheck
   unzip
   weechat
   mutt msmtp offlineimap

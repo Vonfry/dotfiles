@@ -10,7 +10,6 @@ dev-vcs/tig
 app-text/tree
 games-misc/lolcat
 app-misc/colordiff
-dev-util/shellcheck
 app-shells/autojump
 app-shells/thefuck
 app-misc/cmatrix

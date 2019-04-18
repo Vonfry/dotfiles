@@ -6,20 +6,26 @@ it directly.
 It contains developing environment and some test environment. So the setup file also can be used for server (without
 services' configure), but there are a lot of things that the server doesn't need.
 
+## DEPRECATED Tag 
+
+Some feature are not used with time going. I add a tag in the last commit
+supposed them. All of them are started with `deprecated`
+
+
 ## System
 
 - [x] macOS
 
 - [x] NixOS - See [nixos readme](./etc/nixos/readme.md). 
 
-- [ ] Gentoo - It is also testing, and without X11. See [todo](#todo)
+- [ ] ~~Gentoo - It is also testing, and without X11. See [todo](#todo)~~
 
 - [ ] ~~Fedora~~ - stop maintaining, old files by checking tag but I forget which one is.
 
 ## command-line
 
 - [x] zsh
-- [x] ~~fish~~ - stop maintaining. old files by checking tag `develop/shell-fish` 
+- [x] ~~fish~~ 
 
 ## Window Manager
 
@@ -27,11 +33,9 @@ services' configure), but there are a lot of things that the server doesn't need
 
 ## Editor
 
-- [x] ~~Vim~~ stop maintaining. old files by checking tag `develop/vim` 
+- [x] ~~Vim~~ 
 - [x] Neovim 
 - [x] Emacs
-
-      Now I'm using ivy, the old helm config can check by tag `develop/emacs-helm`
 
 ## Lang
 
@@ -42,7 +46,7 @@ services' configure), but there are a lot of things that the server doesn't need
 - Ruby - chenv 
 - ~~R~~
 - Python3 
-- Web - js, html, css/sass, ts
+- ~~Web - js, html, css/sass, ts~~
 
 The other languages are also supposed in system and editor, but they aren't used usally so they haven't a complete
 developing environment.
@@ -50,8 +54,6 @@ developing environment.
 ## Mirror
 
 A mirror can help us to get resources quickly. But it is unstable. Only using them when the network is bad.
-
-Checkout `develop/mirrors` to see an example.
 
 # TODO
 

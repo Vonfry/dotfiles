@@ -1,8 +1,4 @@
-javascript-typescript-langserver
 bash-language-server
-vscode-css-languageserver-bin
-vscode-html-languageserver-bin
-prettier
 
 diff-so-fancy
 mathjax-node-cli
