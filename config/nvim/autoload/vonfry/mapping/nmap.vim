@@ -17,7 +17,6 @@ let g:vonfry#mapping#nmap#code = ';'
 let g:vonfry#mapping#nmap#swiper = '/'
 let g:vonfry#mapping#nmap#code_help = '?'
 
-let g:vonfry#mapping#nmap#format = '('
 let g:vonfry#mapping#nmap#align = '='
 
 let g:vonfry#mapping#nmap#repl = "'"

@@ -4,10 +4,6 @@
     CLOSED: [2019-02-09 六 17:17]
     - [X] XMonad
     - [ ] alacritty
-** Gentoo [2/3]
-    - [ ] libressl instead of openssl or ssl
-    - [X] Rewrite global use flag
-    - [X] XMonad
 ** macOS
 
 * Editor
@@ -18,12 +14,16 @@
     - [X] eglot and project.el or lsp?
     - [X] +flycheck or+ flymake
     - [X] projectile update error
-** LSP [5/5]
+** LSP [5/6]
    - [X] Haskell
    - [X] CC
    - [X] Javascript
    - [X] Python
    - [X] Ruby
+   - [ ] Rust
+
+* Language
+** Rust
 
 * Tools
 ** Nix

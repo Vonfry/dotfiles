@@ -17,6 +17,11 @@ nix-env -iA nixos.bundix
 cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
 bundix -l
 nix-env -eA nixos.bundix
+nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nixos-rebuild switch
+mkdir -p ~/.config/nix
+mkdir -p ~/.config/nixpkgs
+ln -s -f $script_dir/config/nix/* ~/.config/nix
+ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
 echo_info "--- Run fcitx-configtool to config."
