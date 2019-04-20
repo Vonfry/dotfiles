@@ -12,4 +12,7 @@ fi
 if  command -v autojump > /dev/null 2>&1; then
     source $(nix-store --quiet -r $(which autojump))/share/autojump/autojump.$shell
 fi
+if  command -v fzf > /dev/null 2>&1; then
+    source $(nix-store --quiet -r $(which fzf))/share/fzf/*.$shell
+fi
 unset shell
