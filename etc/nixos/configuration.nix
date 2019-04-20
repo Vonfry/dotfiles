@@ -11,5 +11,6 @@
       ./user
       ./misc
       ./x
+      ./local
     ];
 }
