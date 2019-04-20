@@ -22,4 +22,5 @@ with pkgs; [
   fortune cmatrix figlet
   unstable.dropbox-cli
   asciinema
+  lynx
 ]
