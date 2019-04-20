@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   users.users.vonfry = {
@@ -10,5 +10,5 @@
   };
   imports = with import (dirOf <nixos-config> + /libs);
     let localFiles = matchFiles ./. "default\\.local\\.nix" [];
-    in mergeList localFiles [ ./packages ];
+    in lib.lists.flatten [localFiles [ ./packages ]];
 }
