@@ -21,6 +21,6 @@
     };
   };
 
-  imports = with import (dirOf <nixos-config> + /libs);
+  imports = with import <nixos-vonfry-lib>;
     matchFiles ./. "^default\\.local\\.nix" [];
 }

@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
-let lib = import (dirOf <nixos-config> + /libs); in
+let lib = import <nixos-vonfry-lib>; in
 {
   imports = lib.matchFiles ./. "default\\.local\\.nix" [];
-  users.users.vonfry.packages = with import (dirOf <nixos-config> + /libs);
+  users.users.vonfry.packages = 
     let args = { pkgs = pkgs; customDir = ./custom; };
         importList = [ ./misc.nix ./shell.nix ./dev ./media.nix ];
     in builtins.foldl' (x: y: x ++ import y args) [] importList;
