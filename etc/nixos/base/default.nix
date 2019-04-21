@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  nix.nixPath = lib.mkOptionDefault [
+    "nixos-vonfry-lib=/etc/nixos/lib"
+  ];
   i18n = {
     consoleFont = "hack-11";
     consoleKeyMap = "dvorak-programmer";

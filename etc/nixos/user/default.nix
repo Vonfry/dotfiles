@@ -2,6 +2,6 @@
 
 {
   imports = let users = [ ./vonfry ]; in
-    with import (dirOf <nixos-config> + /libs);
+    with import <nixos-vonfry-lib>;
        lib.lists.flatten [users (matchFiles ./. "default\\.local\\.nix" [])];
 }

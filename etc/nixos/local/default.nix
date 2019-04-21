@@ -1,11 +1,9 @@
 { config, pkgs, ... }:
 
 let 
-  thisDir = builtins.readDir ./.;
-  isLocalNixFile = (name: name != "default.nix" && builtins.match ".*\\.nix" name != null);
-  fileNames = builtins.filter isLocalNixFile (builtins.attrNames thisDir);
-  files = builtins.map (n: ./. + ("/" + n)) fileNames;
+  lib = import <nixos-vonfry-lib>;
+  inherit (lib) matchFiles;
 in
 {
-  imports = files;
+  imports = matchFiles ./. ".*\\.nix" [ ./default.nix ];
 }

@@ -8,7 +8,7 @@
     extraGroups = [ "wheel" "docker" ];
     shell = pkgs.zsh;
   };
-  imports = with import (dirOf <nixos-config> + /libs);
+  imports = with import <nixos-vonfry-lib>;
     let localFiles = matchFiles ./. "default\\.local\\.nix" [];
     in lib.lists.flatten [localFiles [ ./packages ]];
 }
