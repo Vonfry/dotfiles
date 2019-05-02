@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 with pkgs; [
+  glibcInfo
+
   haskellPackages.dhall
   haskellPackages.hoogle
   cabal2nix
