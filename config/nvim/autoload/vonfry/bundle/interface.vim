@@ -20,7 +20,7 @@ endfunction
 
 function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#x, ':Denite command<CR>')
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp, ':Denite file_rec<CR>')
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp, ':Denite file/rec<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#file, ':Denite file<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#search, ':Denite grep<CR>')
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer, ':Denite buffer<CR>')
