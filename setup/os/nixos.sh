@@ -15,8 +15,9 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base.local.nix
 nix-env -iA nixos.bundix
 cd /etc/nixos/user/vonfry/packages/custom/dev-lang/ruby
+bundle lock
 bundix -l
-nix-env -eA nixos.bundix
+nix-env -e bundle bundix
 nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 export NIX_PATH=$NIX_PATH:nixos-vonfry-lib=/etc/nixos/lib
