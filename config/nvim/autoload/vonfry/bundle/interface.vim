@@ -19,13 +19,13 @@ function! vonfry#bundle#interface#plug()
 endfunction
 
 function! vonfry#bundle#interface#config()
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#x         , ':CommandTCommand<CR>' )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp     , ':CommandT<CR>'        )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#file      , ':CommandTMRU<CR>'     )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#search    , ':CommandTSearch<CR>'  )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer    , ':CommandTBuffer<CR>'  )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , ':CommandTLine<CR>'    )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , ':CommandTJump<CR>'    )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#x         , '<Plug>(CommandTCommand)' )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp     , '<Plug>(CommandT)'        )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#file      , '<Plug>(CommandTMRU)'     )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#search    , '<Plug>(CommandTSearch)'  )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer    , '<Plug>(CommandTBuffer)'  )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , '<Plug>(CommandTLine)'    )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , '<Plug>(CommandTJump)'    )
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"
