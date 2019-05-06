@@ -1,5 +1,5 @@
 GEM="gem"
-if [ $uname = "Darwin" ]; then
+if [ $(uname) = "Darwin" ]; then
     GEM="/usr/local/opt/ruby/bin/gem"
 fi
 if command -v gem > /dev/null 2>&1; then

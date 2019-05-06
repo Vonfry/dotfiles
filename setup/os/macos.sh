@@ -90,7 +90,7 @@ sh <(curl https://nixos.org/nix/install)
 # Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
 # variable
-echo "export HOMEBREW_OPT_INIT_FUNCTION=()" >> $script_dir/config/shell/defvar.sh
+echo "export HOMEBREW_OPT_INIT_FUNCTION=(ruby)" >> $script_dir/config/shell/defvar.sh
 
 echo_info "*** Here are some useful tools for mac.
 See:

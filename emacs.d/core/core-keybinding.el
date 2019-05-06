@@ -61,6 +61,9 @@
 (defconst +nmap-repl "'"
   "repl")
 
+(defconst +nmap-format "("
+  "format code")
+
 (defconst +nmap-lang-action "*"
   "some lang public action, such as lsp")
 

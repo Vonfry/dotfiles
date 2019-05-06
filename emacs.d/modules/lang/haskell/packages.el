@@ -14,7 +14,6 @@
         +nmap-go-module 'haskell-navigate-imports)
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-haskell-compile-prefix
-        ""  '(nil :which-key "haskell-compile")
         "r" 'haskell-compile
         "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
