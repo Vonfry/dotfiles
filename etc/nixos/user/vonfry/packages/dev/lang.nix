@@ -1,11 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, customDir, ... }:
 
+let
+    hie = callPackage (customDir + /dev-haskell/hie) { };
+in
 with pkgs; [
   glibcInfo
 
   haskellPackages.dhall
   haskellPackages.hoogle
   cabal2nix
+  hie
 
   doxygen
 
