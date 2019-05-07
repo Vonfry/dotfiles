@@ -1,5 +1,0 @@
-[dtrace]
-location = /var/lib/portage/dtrace
-sync-type = git
-sync-uri = https://github.com/robertek/dtrace-portage-overlay
-auto-sync = yes

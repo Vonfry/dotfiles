@@ -1,8 +1,9 @@
 self: super:
 
-with self;
+with super;
 {
-  vonfryPython = callPackage ./dev-lang/python { python = python3 };
-  vonfryRuby = callPackage ./dev-lang/ruby;
-  vonfryXmonad = callPackage ./x11-wm/xmonad;
+  # python3Env = callPackage ./dev-lang/python { python = python3; };
+  # rubyPkgs = callPackage ./dev-ruby/self-pkgs { };
+  hie = callPackage ./dev-haskell/hie { };
+  # xmonad = callPackage ./x11-wm/xmonad { };
 }

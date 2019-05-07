@@ -1,2 +1,0 @@
-sys-devel/clang default-compiler-rt default-libcxx static-analyzer json xml
-sys-devel/llvm ncurses libffi

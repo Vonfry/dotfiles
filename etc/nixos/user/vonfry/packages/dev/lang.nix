@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, customPkgs, ... }:
 
+let
+    hie = customPkgs.hie;
+    rubyPkgs = customPkgs.rubyPkgs;
+in
 with pkgs; [
   glibcInfo
 
   haskellPackages.dhall
   haskellPackages.hoogle
   cabal2nix
+  hie
 
   doxygen
 
