@@ -1,7 +1,8 @@
-{ pkgs, customDir, ... }:
+{ pkgs, customPkgs, ... }:
 
 let
-    hie = callPackage (customDir + /dev-haskell/hie) { };
+    hie = customPkgs.hie;
+    rubyPkgs = customPkgs.rubyPkgs;
 in
 with pkgs; [
   glibcInfo
