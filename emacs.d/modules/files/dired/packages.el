@@ -11,11 +11,10 @@
       ("LaTeX"
        (extension "tex" "bib"))
       ("Source"
-       (extension "c" "cpp" "hs" "rb" "py" "r" "cs" "el" "lisp" "html" "js" "css"))
+       (extension "c" "cpp" "h" "hpp" "hs" "rb" "py" "r" "cs" "el" "lisp"
+                  "html" "js" "css" "ts"))
       ("Doc"
-       (extension "md" "rst" "txt"))
-      ("Org"
-       (extension . "org"))
+       (extension "org" "md" "rst" "txt"))
       ("Archives"
        (extension "zip" "rar" "gz" "bz2" "tar")))))
   :hook

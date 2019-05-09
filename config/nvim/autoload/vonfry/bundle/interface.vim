@@ -5,7 +5,7 @@ function! vonfry#bundle#interface#pre()
 endfunction
 
 function! vonfry#bundle#interface#plug()
-    call vonfry#bundle#add(['wincent/command-t', {"build": "cd ruby/command-t/ext/command-t/; make clean; ruby extconf.rb; make"}])
+    call vonfry#bundle#add(['Yggdroot/LeaderF', {"build": "./install.sh"}])
     call vonfry#bundle#add('terryma/vim-multiple-cursors')
     call vonfry#bundle#add('editorconfig/editorconfig-vim')
     call vonfry#bundle#add('ntpeters/vim-better-whitespace')
@@ -19,13 +19,17 @@ function! vonfry#bundle#interface#plug()
 endfunction
 
 function! vonfry#bundle#interface#config()
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#x         , '<Plug>(CommandTCommand)' )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp     , '<Plug>(CommandT)'        )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#file      , '<Plug>(CommandTMRU)'     )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#search    , '<Plug>(CommandTSearch)'  )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer    , '<Plug>(CommandTBuffer)'  )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , '<Plug>(CommandTLine)'    )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , '<Plug>(CommandTJump)'    )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#x         , ':LeaderfSelf<CR>'          )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp     , ':LeaderfFile<CR>'          )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#file      , ':LeaderfFile<CR>'          )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#search    , ':LeaderfRgInteractive<CR>' )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer    , ':LeaderfBufferAll<CR>'     )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , ':LeaderfLineAll<CR>'       )
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , ':LeaderfFunctionAll<CR>'   )
+
+    let g:Lf_CacheDirectory = g:vonfry#local#cache
+    let g:Lf_StlColorscheme = "one"
+    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"
