@@ -27,6 +27,10 @@ function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , ':LeaderfLineAll<CR>'       )
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , ':LeaderfFunctionAll<CR>'   )
 
+    let g:Lf_CacheDirectory = g:vonfry#local#cache
+    let g:Lf_StlColorscheme = "one"
+    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"
 
