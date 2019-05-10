@@ -14,7 +14,7 @@ Note: Local files don't load by default except some special ones, so you should 
 
 ## Dir Structure
 
-`./libs`: nix scripts are used in configure.
+`./lib`: nix scripts are used in configure.
 
 ## Packages
 
