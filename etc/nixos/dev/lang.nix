@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     # c family
-    gcc gdb llvmPackages.clang-unwrapped llvm lldb
+    gcc gdb llvmPackages.clang llvm lldb
     binutils ninja cmake gnumake
 
     # haskell

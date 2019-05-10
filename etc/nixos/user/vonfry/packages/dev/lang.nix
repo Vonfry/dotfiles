@@ -6,6 +6,7 @@ let
 in
 with pkgs; [
   glibcInfo
+  clang-tools
 
   haskellPackages.dhall
   haskellPackages.hoogle
