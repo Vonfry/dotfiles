@@ -6,4 +6,5 @@
   :custom
   (doom-modeline-python-executable nil)
   (doom-modeline-mu4e nil)
+  (doom-modeline-buffer-file-name-style 'relative-from-project)
   (doom-modeline-irc nil))
