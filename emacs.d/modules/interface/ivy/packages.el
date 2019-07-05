@@ -40,3 +40,5 @@
   :after counsel
   :config
   (ivy-rich-mode 1))
+
+(package! counsel-tramp)
