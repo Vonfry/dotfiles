@@ -56,8 +56,8 @@ is undefined(It always is loaded by alpha order)."
   '(use-package-always-ensure t))
 
 (eval-when-compile (require 'package))
-(setq package-archives vonfry-elpa-mirror)
 (package-initialize)
+(setq package-archives vonfry-elpa-mirror)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
