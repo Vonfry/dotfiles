@@ -15,6 +15,7 @@ brew cask install gpg-suite
 brew reinstall git
 brew reinstall zsh wget git-flow tig
 brew reinstall fzf && /usr/local/opt/fzf/install
+brew reinstall dbus
 brew reinstall thefuck
 brew reinstall autojump
 brew reinstall googler

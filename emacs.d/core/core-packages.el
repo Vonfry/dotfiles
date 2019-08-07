@@ -19,8 +19,7 @@
 (defcustom vonfry-elpa-mirror
   (list
     (cons "elpa"  "https://elpa.gnu.org/packages/")
-    (cons "melpa" "https://melpa.org/packages/")
-    (cons "org"   "https://orgmode.org/elpa"))
+    (cons "melpa" "https://melpa.org/packages/"))
   "Set elpa mirror."
   :group 'vonfry)
 
@@ -56,8 +55,8 @@ is undefined(It always is loaded by alpha order)."
   '(use-package-always-ensure t))
 
 (eval-when-compile (require 'package))
-(setq package-archives vonfry-elpa-mirror)
 (package-initialize)
+(setq package-archives vonfry-elpa-mirror)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
