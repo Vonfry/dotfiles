@@ -40,9 +40,6 @@
   :config
   (global-whitespace-cleanup-mode t))
 
-(when (file-exists-p vonfry-custom-file-before)
-  (load vonfry-custom-file-before))
-
 (custom-set-variables
   '(exec-path-from-shell-check-startup-files nil)
   '(initial-frame-alist vonfry-frame)

@@ -50,6 +50,10 @@
   nil)
 
 (require 'core-local)
+
+(when (file-exists-p vonfry-custom-file-before)
+  (load vonfry-custom-file-before))
+
 (require 'core-packages)
 (require 'core-ui)
 (require 'core-editor)
@@ -61,5 +65,9 @@
   "Vonfry's emacs group about modules")
 
 (vonfry-load-modules vonfry-exclude-modules)
+
+(when (file-exists-p custom-file)
+  (custom-save-all)
+  (load custom-file))
 
 (provide 'core)
