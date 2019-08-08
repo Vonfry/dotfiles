@@ -9,7 +9,6 @@ brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 
 # shell
-brew tap beeftornado/rmtree # rm pkg with deps
 brew reinstall gnu-sed gnu-tar unzip unrar
 brew cask install gpg-suite
 brew reinstall git
@@ -73,7 +72,7 @@ brew reinstall hub
 # editor
 brew reinstall editorconfig
 brew reinstall neovim
-brew reinstall emacs
+brew cask install emacs-mac
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
@@ -86,9 +85,6 @@ brew cask install mark-text
 
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
-
-# brew services start emacs
-# Macos launch isn't use the same shell with user, which cannot work correctly with exec-path-from-shell-path.
 
 # variable
 echo "export HOMEBREW_OPT_INIT_FUNCTION=(ruby)" >> $script_dir/config/shell/defvar.sh
