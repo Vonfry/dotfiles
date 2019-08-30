@@ -63,7 +63,7 @@ see :[todo.org](todo.org)
 
 I use iTerm on mac and do anything on program with command line. And using ConEmu as terminal on windows.
 
-Gentoo is a good linux distribution, we can control a lot of things in our system.
+NixOS and Gentoo are good linux distributions, we can control a lot of things in our system. I'm mainly using NixOS now, which isn't only a system but also a kind of thinking.
 
 I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
 
