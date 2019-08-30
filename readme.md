@@ -41,7 +41,7 @@ supposed them. All of them are started with `deprecated`
 
 - orgmode & latex
 - C/C++ - clang/llvm
-- Haskell - ghc & stack
+- Haskell - ghc & cabal ( without stack ) & nix
 - ~~Lisp~~
 - Ruby - chenv 
 - ~~R~~
@@ -69,4 +69,4 @@ I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
 
 Some of them are supported in my configure but I don't use them usually.
 
-I only use org-mode to save todo in projects and feed for some update atom such as hackage and stackage.
+I only use org-mode to save todo in projects and feed for some update atom such as hackage.
