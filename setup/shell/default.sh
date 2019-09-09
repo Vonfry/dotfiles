@@ -17,8 +17,7 @@ read clone_lib_dir
 echo "export CLONE_LIB=$clone_lib_dir"                     >> $script_dir/config/shell/defvar.sh
 unset clone_lib_dir
 
-echo "$(thefuck --alias)" >> $script_dir/config/shell/local/thefuck.sh
-echo "$(stack --bash-completion-script stack)" >> $script_dir/config/shell/local/stack.sh
+thefuck --alias > $script_dir/config/shell/local/thefuck.sh
 
 $runscript $script_dir/setup/shell/git.sh
 $runscript $script_dir/setup/shell/ln.sh
