@@ -5,7 +5,7 @@
     isNormalUser = true;
     home = "/home/vonfry";
     description = "Vonfry";
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "vboxusers" ];
     shell = pkgs.zsh;
   };
   imports = with import <nixos-vonfry-lib>;
