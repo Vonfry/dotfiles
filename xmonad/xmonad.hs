@@ -85,7 +85,8 @@ myLayout = beforeLayouts layouts
                   }) |||
               Accordion |||
               tiled |||
-              Mirror tiled
+              Mirror tiled |||
+              Full
     tiled = Tall 1 (3/100) (1/2)
     beforeLayouts = hiddenWindows
 
