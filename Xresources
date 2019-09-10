@@ -3,7 +3,7 @@
 XTerm*renderFont: true
 XTerm*faceNameDoublesize: Source Han Sans CN
 XTerm*faceName: Hack
-XTerm*faceSize: 11
+XTerm*faceSize: 8
 XTerm*selectToClipboard: true
 XTerm*boldColors: false
 XTerm*SaveLines: 4096
