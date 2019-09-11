@@ -2,5 +2,4 @@
 
 with pkgs; [
   tdesktop
-  xcrot
 ]

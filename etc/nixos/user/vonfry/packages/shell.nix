@@ -23,4 +23,5 @@ with pkgs; [
   unstable.dropbox-cli
   asciinema
   lynx
+  scrot
 ]
