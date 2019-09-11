@@ -20,7 +20,4 @@
       };
     };
   };
-
-  imports = with import <nixos-vonfry-lib>;
-    matchFiles ./. "^default\\.local\\.nix" [];
 }
