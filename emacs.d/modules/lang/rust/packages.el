@@ -19,7 +19,7 @@
   :hook (rust-mode . cargo-minor-mode)
   :general
   (nmap :keymaps 'rust-mode-map
-        :prefix +nmap-rust-compile-prefix
+        :prefix +nmap-rust-lang-compile-prefix
         "e" 'cargo-process-bench
         "b" 'cargo-process-build
         "l" 'cargo-process-clean
