@@ -23,7 +23,7 @@ import System.IO
 
 myFont = "xft:Hack:size=11"
 myFontCJK = "xft:Source Han Sans CN:size=11"
-myModMask = mod1Mask
+myModMask = mod4Mask
 myTerm = "xterm"
 
 myXPC = def
