@@ -12,6 +12,6 @@
       '(mac-option-modifier 'super)))
   (gnu/linux
     (custom-set-variables
-      '(x-super-keysym 'meta))))
+      '(x-alt-keysym 'meta))))
 
 (provide 'core-os)
