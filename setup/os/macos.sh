@@ -51,6 +51,7 @@ brew reinstall ruby
 brew reinstall rbenv
 brew reinstall python
 brew reinstall node
+brew reinstall rustc
 brew reinstall sqlite mysql postgresql redis # database
 brew reinstall pgcli mycli
 brew reinstall poppler                       # pdf generator

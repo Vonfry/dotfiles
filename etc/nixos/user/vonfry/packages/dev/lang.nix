@@ -13,7 +13,13 @@ with pkgs; [
   cabal2nix
   hie
 
+  rustc
+  cargo
+  rustup
+
   doxygen
+
+  coq
 
   texlive.combined.scheme-basic
   poppler
