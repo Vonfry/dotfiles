@@ -2,7 +2,7 @@
 ;;
 
 (package! rust-mode
-  :mode "\\.rs\\"
+  :mode "\\.rs\\'"
 
   :general
   (nmap :keymaps 'rust-mode
