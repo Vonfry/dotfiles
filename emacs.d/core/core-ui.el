@@ -18,7 +18,9 @@
 
 (if window-system
   (progn
-    (set-face-attribute 'default nil :font "Hack 11")
+    (vonfry-system-sets
+      (darwin (set-face-attribute 'default nil :font "Hack 11"))
+      (gnu/linux  (set-face-attribute 'default nil :font "Hack 8"))
     ;; Chinese Font 配制中文字体
     (defmacro chinese-font (font-name font-size)
       `(dolist (charset '(kana han symbol cjk-misc bopomofo))
