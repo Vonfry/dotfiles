@@ -44,6 +44,7 @@ supposed them. All of them are started with `deprecated`
 - Haskell - ghc & cabal ( without stack ) & nix
 - ~~Lisp~~
 - Ruby - chenv 
+- Rust
 - ~~R~~
 - Python3 
 - ~~Web - js, html, css/sass, ts~~

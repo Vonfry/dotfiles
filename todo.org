@@ -14,18 +14,18 @@
     - [X] eglot and project.el or lsp?
     - [X] +flycheck or+ flymake
     - [X] projectile update error
-** LSP [5/6]
+** LSP [6/6]
    - [X] Haskell
    - [X] CC
    - [X] Javascript
    - [X] Python
    - [X] Ruby
-   - [ ] Rust
+   - [X] Rust
 
 * Language
-** Rust
+** DONE Rust
 
 * Tools
-** Nix
-** Haskell[1/1]
+** DONE Nix
+** DONE Haskell[1/1]
     - [X] dHall

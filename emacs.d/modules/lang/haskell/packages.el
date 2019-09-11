@@ -34,7 +34,7 @@
   (haskell-mode .
     (lambda ()
       (haskell-auto-insert-module-template t)
-      (custom-set-variables '(compile-command "stack build")))))
+      (custom-set-variables '(compile-command "cabal build")))))
 
 (package! haskell-interactive-mode
   :ensure nil
