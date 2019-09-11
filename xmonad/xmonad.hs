@@ -44,6 +44,10 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
     , ((modm, xK_slash     ), promptSearch myXPC multi)
 
+    , ((modm                , xK_Print), spawn "scrot --focused '~/.local/screenshot/window_%s_$wx$h.png'")
+    , ((modm .|. shiftMask  , xK_Print), spawn "scrot '~/.local/screenshot/screen_%s_$wx$h.png'")
+    , ((modm .|. controlMask, xK_Print), spawn "scrot --select '~/.local/screenshot/select_%s_$wx$h.png'")
+
     , ((modm .|. shiftMask, xK_t), withFocused float)
 
     , ((modm,               xK_Down),  nextWS)
