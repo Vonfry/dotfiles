@@ -4,4 +4,10 @@
   # boot.loader
 
   # system.stateVersion
+
+  nix.gc = {
+    automatic = false;
+    options = "-d";
+    dates = "Sun 19:00";
+  };
 }
