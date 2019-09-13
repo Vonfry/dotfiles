@@ -17,6 +17,8 @@ with pkgs; [
   cargo
   rustup
 
+  rubyPkgs
+
   doxygen
 
   coq
