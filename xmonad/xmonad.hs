@@ -24,7 +24,7 @@ import System.IO
 myFont = "xft:Hack:size=8"
 myFontCJK = "xft:Source Han Sans CN:size=8"
 myModMask = mod4Mask
-myTerm = "alacritty"
+myTerm = "xterm"
 
 myXPC = def
     { font = myFont

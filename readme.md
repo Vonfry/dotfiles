@@ -35,7 +35,7 @@ supposed them. All of them are started with `deprecated`
 
 - [X] ~~xterm~~
 - [ ] ~~termonad~~ - Its most feature can be done in xmonad. 
-- [X] alacritty - A good term with gpu
+- [X] alacritty - A good term with gpu, but having some problem on my machine.
 
 ## Editor
 
