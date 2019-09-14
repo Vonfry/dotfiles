@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 {
+  sound.enable = true;
   fonts = {
     fonts = with pkgs; [ hack-font source-han-sans-simplified-chinese ];
     fontconfig = {
