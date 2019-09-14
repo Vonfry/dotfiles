@@ -7,7 +7,7 @@
   i18n = {
     consoleFont = "hack-11";
     consoleKeyMap = "dvorak-programmer";
-    defaultLocale = "en_US.utf8";
+    defaultLocale = "en_US.UTF-8";
     consolePackages = with pkgs; [ hack-font ];
   };
 
