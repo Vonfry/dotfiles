@@ -56,6 +56,10 @@ colors:
     background: '0x002b36' # base03
     foreground: '0x839496' # base0
 
+  cursor:
+    text:   '0x002b36' # base03
+    cursor: '0x839496' # base0
+
   normal:
     black:   '0x073642' # base02
     red:     '0xdc322f' # red
