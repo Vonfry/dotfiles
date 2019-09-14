@@ -33,10 +33,9 @@ supposed them. All of them are started with `deprecated`
 
 ### Term
 
-- [X] xterm
+- [X] ~~xterm~~
 - [ ] ~~termonad~~ - Its most feature can be done in xmonad. 
-- [ ] alacritty - A good term with gpu, but its config file contains too many
-    options, such as arrow keys and xterm is enough for me. 
+- [X] alacritty - A good term with gpu
 
 ## Editor
 

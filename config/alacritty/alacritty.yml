@@ -1,13 +1,16 @@
-# env:
-#   TERM: xterm-256color
+#env:
+  # TERM: xterm-256color
 
 window:
   dimensions:
     columns: 80
     lines: 24
+
   padding:
     x: 2
     y: 2
+
+  dynamic_padding: false
   decorations: full
 
 scrolling:
@@ -21,19 +24,20 @@ tabspaces: 4
 font:
   normal:
     family: monospace
-    # style: Regular
+    style: Regular
 
-  # Bold font face
   bold:
     family: monospace
-    # style: Bold
+    style: Bold
 
-  # Italic font face
   italic:
     family: monospace
-    # style: Italic
+    style: Italic
 
-  size: 11.0
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+  size: 8.0
 
   offset:
     x: 0
@@ -43,13 +47,9 @@ font:
     x: 0
     y: 0
 
-  scale_with_dpi: true
+  use_thin_strokes: true
 
-render_timer: false
-
-custom_cursor_colors: false
-
-draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: true
 
 colors:
   primary:
@@ -82,25 +82,15 @@ visual_bell:
 
 background_opacity: 1.0
 
-mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
-
-mouse:
-  double_click: { threshold: 300 }
-  triple_click: { threshold: 300 }
-
 selection:
-  semantic_escape_chars: ",│`|:\"' ()[]{}<>"
-
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
   save_to_clipboard: true
 
 dynamic_title: true
 
-hide_cursor_when_typing: false
-
-cursor_style: Block
-
-unfocused_hollow_cursor: true
+cursor:
+  style: Block
+  unfocused_hollow: true
 
 live_config_reload: false
 
