@@ -31,6 +31,12 @@ supposed them. All of them are started with `deprecated`
 
 - [x] XMonad
 
+### Term
+
+- [X] ~~xterm~~
+- [ ] ~~termonad~~ - Its most feature can be done in xmonad. 
+- [X] alacritty - A good term with gpu, but having some problem on my machine.
+
 ## Editor
 
 - [x] ~~Vim~~ 
@@ -66,8 +72,7 @@ I use iTerm on mac and do anything on program with command line. And using ConEm
 
 NixOS and Gentoo are good linux distributions, we can control a lot of things in our system. I'm mainly using NixOS now, which isn't only a system but also a kind of thinking.
 
-I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.
-
-Some of them are supported in my configure but I don't use them usually.
+I use Omnifocus for GTD, fantastical for calander, Feedly for feeds.  
+Some of them have another tools supported in my configure but I don't use them usually.
 
 I only use org-mode to save todo in projects and feed for some update atom such as hackage.

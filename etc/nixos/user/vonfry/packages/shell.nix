@@ -24,4 +24,5 @@ with pkgs; [
   asciinema
   lynx
   scrot
+  lm_sensors
 ]
