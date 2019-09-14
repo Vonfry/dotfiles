@@ -31,6 +31,12 @@ supposed them. All of them are started with `deprecated`
 
 - [x] XMonad
 
+### Term
+
+- [X] xterm
+- [ ] ~~termonad~~ Its most feature can be done in xmonad. 
+- [ ] alacritty
+
 ## Editor
 
 - [x] ~~Vim~~ 
