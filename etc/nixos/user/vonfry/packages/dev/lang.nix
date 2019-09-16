@@ -13,8 +13,6 @@ with pkgs; [
   cabal2nix
   hie
 
-  rustc
-  cargo
   rustup
 
   rubyPkgs
