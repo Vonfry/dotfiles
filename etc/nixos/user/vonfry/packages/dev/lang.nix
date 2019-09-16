@@ -28,6 +28,7 @@ with pkgs; [
   pandoc
 
   solargraph
+  ctags
 
   httpstat
   mycli
