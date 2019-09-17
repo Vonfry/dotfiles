@@ -13,8 +13,6 @@ with pkgs; [
   cabal2nix
   hie
 
-  rustc
-  cargo
   rustup
 
   rubyPkgs
@@ -28,6 +26,7 @@ with pkgs; [
   pandoc
 
   solargraph
+  ctags
 
   httpstat
   mycli
