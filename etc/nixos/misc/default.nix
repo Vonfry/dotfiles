@@ -2,6 +2,8 @@
 
 {
   sound.enable = true;
+  hardware.pulseaudio.enable = true;
+
   fonts = {
     fonts = with pkgs; [ hack-font source-han-sans-simplified-chinese ];
     fontconfig = {
