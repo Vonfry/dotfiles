@@ -8,4 +8,5 @@ with pkgs; [
   feh
   libsForQt5.vlc
   inkscape
+  mupdf
 ]
