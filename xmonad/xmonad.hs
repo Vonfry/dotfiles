@@ -70,7 +70,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_p), pasteSelection)
 
-    , ((modm .|. controlMask, xK_at), layoutPrompt myXPC)
+    , ((modm, xK_at), layoutPrompt myXPC)
     , ((modm, xK_o), windowMenu)
     ]
 
