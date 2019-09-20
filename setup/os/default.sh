@@ -6,9 +6,6 @@ case "$(unname)" in
         $runscript /etc/os-release
         sudo ln -f -s $script_dir/etc/issue /etc/issue
         case "$(ID)" in
-            "gentoo")
-                $runscript $script_dir/setup/os/gentoo.sh
-                ;;
             "nixos")
                 $runscript $script_dir/setup/os/nixos.sh
                 ;;
