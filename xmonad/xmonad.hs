@@ -42,7 +42,7 @@ myGSConfW = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x         ), shellPrompt  myXPC)
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
-    , ((modm, xK_slash     ), promptSearch myXPC multi)
+    , ((modm, xK_slash     ), promptSearchBrowser myXPC "chromium" multi)
 
     , ((modm                , xK_Print), spawn "scrot --focused 'window_%s_$wx$h.png' -e 'mv $f ~/screenshot/'")
     , ((modm .|. shiftMask  , xK_Print), spawn "scrot 'screen_%s_$wx$h.png' -e 'mv ~/screenshot/'")
