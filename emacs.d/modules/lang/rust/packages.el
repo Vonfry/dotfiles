@@ -5,13 +5,13 @@
   :mode "\\.rs\\'"
 
   :general
-  (nmap :keymaps 'rust-mode
+  (nmap :keymaps 'rust-mode-map
         :prefix +nmap-lang-prefix
         +nmap-align 'rust-mode-indent-line
         "t" 'rust-test
         "c" 'rust-compile
         "R" 'rust-run)
-  (nmap :keymaps 'haskell-mode-map
+  (nmap :keymaps 'rust-mode-map
         :prefix +nmap-leader
         +nmap-run 'rust-compile))
 
