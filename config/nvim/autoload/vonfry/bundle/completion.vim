@@ -22,6 +22,7 @@ function! vonfry#bundle#completion#config()
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_reference, ":ALEFindReferences<CR>")
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#code_help, ":ALEHover<CR>")
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#code, ":ALESymbolSearch<CR>")
+    call vonfry#mapping#leader(g:vonfry#mapping#nmap#check, ":ALEDetail<CR>")
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"

@@ -21,7 +21,6 @@
         ""   '(nil :which-key "haskell")
         +nmap-go  'haskell-mode-jump-to-def
         +nmap-go-module 'haskell-navigate-imports
-        "y"  'hasky-extensions
         "qh" 'hoogle
         "ql" 'haskell-hoogle-lookup-from-local
         "qe" 'engine/search-hoogle
@@ -66,3 +65,9 @@
 
 (package! lsp-haskell
   :after haskell lsp-mode)
+
+(package! hasky-extensions
+  :general
+  (nmap :keymaps 'haskell-mode-map
+        :prefix +nmap-lang-prefix
+        "y"  'hasky-extensions)

@@ -4,7 +4,7 @@
 (package! evil-nerd-commenter
   :after evil
   :config
-  (evilnc-default-hotkeys t)
+  (evilnc-default-hotkeys nil t)
   :general
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-nc-prefix
