@@ -70,4 +70,4 @@
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
-        "y"  'hasky-extensions)
+        "y"  'hasky-extensions))
