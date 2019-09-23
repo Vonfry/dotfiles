@@ -5,6 +5,8 @@ let
     rubyPkgs = customPkgs.rubyPkgs;
 in
 with pkgs; [
+  zeal
+
   glibcInfo
   clang-tools
 
