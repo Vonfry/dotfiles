@@ -9,7 +9,7 @@ set use_domain = no
 # set header_cache = ~/.cache/mutt_header
 # set message_cachedir = ~/.cache/mutt
 
-set sort = "reverse-threads"
+set sort = "reverse-date"
 set change_folder_next = yes
 
 set folder = "~/mail"
