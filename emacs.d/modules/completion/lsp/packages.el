@@ -8,6 +8,8 @@
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
         "" '(nil :which-key "lsp")
+        +nmap-go           'lsp-goto-type-definition
+        +nmap-code         'lsp-lens-show
         +nmap-run          'lsp-execute-code-action
         +nmap-format       'lsp-format-buffer
         +nmap-highlight    'lsp-symbol-highlight
@@ -32,7 +34,7 @@
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
-        +nmap-code 'lsp-ui-find-workspace-symbol
+        +nmap-swiper 'lsp-ui-find-workspace-symbol
         "fn" 'lsp-ui-find-next-reference
         "fp" 'lsp-ui-find-prev-reference
         "tf" 'lsp-ui-peek--toggle-file

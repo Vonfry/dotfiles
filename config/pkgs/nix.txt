@@ -1,6 +1,7 @@
 ghc
 cabal-install
 haskellPackages.hoogle
+haskellPackages.stylish-haskell
 dhall
 nox
 cabal2nix
