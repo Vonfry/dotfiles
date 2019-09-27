@@ -9,7 +9,7 @@ gem "solargraph"
 # tools
 gem "nokogigi"
 gem "org-ruby"
-gem "rougify"
+gem "rouge"
 gem "licensee"
 gem "neovim"
 
