@@ -12,10 +12,12 @@ with pkgs; [
 
   haskellPackages.dhall
   haskellPackages.hoogle
+  haskellPackages.stylish-haskell
   cabal2nix
   hie
 
   rustup
+  rls
 
   rubyPkgs
 

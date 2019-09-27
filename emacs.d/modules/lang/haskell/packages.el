@@ -11,6 +11,7 @@
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-leader
+        +nmap-align     'haskell-mode-stylish-buffer
         +nmap-go-module 'haskell-navigate-imports)
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-haskell-compile-prefix
@@ -70,4 +71,4 @@
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
-        "y"  'hasky-extensions)
+        "y"  'hasky-extensions))
