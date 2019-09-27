@@ -29,3 +29,5 @@
 ** DONE Nix
 ** DONE Haskell[1/1]
     - [X] dHall
+** TODO Mail
+- imapsync instead offlineimap
