@@ -55,7 +55,7 @@ brew reinstall sqlite mysql postgresql redis # database
 brew reinstall pgcli mycli
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
-brew cask install mactex                     # providing tex basic tools
+brew reinstall tectonic
 brew cask install java
 
 # system tool
