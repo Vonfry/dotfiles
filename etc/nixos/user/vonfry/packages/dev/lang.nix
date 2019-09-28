@@ -25,7 +25,7 @@ with pkgs; [
 
   coq
 
-  texlive.combined.scheme-basic
+  tectonic
   poppler
   pandoc
 
