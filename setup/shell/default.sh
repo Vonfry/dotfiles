@@ -6,6 +6,7 @@ echo "export DOTFILES_SOURCE_DIR=$script_dir"                >> $script_dir/conf
 echo "export DOTFILES_DIR=$HOME/dotfiles"                    >> $script_dir/config/shell/defvar.sh
 echo "export DOTFILES_PKGS_DIR=$script_dir/config/pkgs"      >> $script_dir/config/shell/defvar.sh
 echo "export DROPBOX_DIR=$dropbox_dir"                       >> $script_dir/config/shell/defvar.sh
+echo "export UPDATE_INTERVAL=6"                              >> $script_dir/config/shell/defvar.sh
 
 if [ -d $HOME/dotfiles ]; then
     ln -s $script_dir $HOME/dotfiles
