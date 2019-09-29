@@ -25,4 +25,5 @@ with pkgs; [
   lynx
   scrot
   lm_sensors
+  neofetch
 ]
