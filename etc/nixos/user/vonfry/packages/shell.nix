@@ -7,14 +7,8 @@ with pkgs; [
   direnv
   autojump
   thefuck
-  htop
-  tree
   ranger
   parallel
-  colordiff
-  tmux
-  patch
-  unzip
   weechat
   mutt msmtp offlineimap
   googler
@@ -22,8 +16,6 @@ with pkgs; [
   fortune cmatrix figlet
   unstable.dropbox-cli
   asciinema
-  lynx
   flameshot
-  lm_sensors
   neofetch
 ]
