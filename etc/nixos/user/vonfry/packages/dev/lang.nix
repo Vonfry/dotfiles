@@ -10,6 +10,8 @@ with pkgs; [
   glibcInfo
   clang-tools
 
+  ghc
+  cabal-install
   haskellPackages.dhall
   haskellPackages.hoogle
   haskellPackages.stylish-haskell
@@ -19,11 +21,16 @@ with pkgs; [
   rustup
   rls
 
+  ruby bundler bundix ## rbenv; not! use nix instead.
   rubyPkgs
+
+  python3Full
 
   doxygen
 
   coq
+
+  nodejs
 
   tectonic
   poppler

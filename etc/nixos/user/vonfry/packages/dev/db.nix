@@ -1,4 +1,9 @@
 { pkgs, ... }:
 
 with pkgs;
-[ mycli pgcli ]
+[ sqlite
+  mysql
+  postgresql
+  redis
+  mycli
+  pgcli ]
