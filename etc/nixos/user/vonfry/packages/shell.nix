@@ -5,7 +5,6 @@ with pkgs; [
   gitAndTools.hub
   zsh fzf
   direnv
-  autojump
   thefuck
   ranger
   parallel

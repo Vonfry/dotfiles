@@ -18,6 +18,7 @@
     tree
     file
     fzf
+    autojump
     colordiff
     tmux
     lynx
