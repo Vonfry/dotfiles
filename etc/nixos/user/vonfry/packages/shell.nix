@@ -23,7 +23,7 @@ with pkgs; [
   unstable.dropbox-cli
   asciinema
   lynx
-  scrot
+  flameshot
   lm_sensors
   neofetch
 ]

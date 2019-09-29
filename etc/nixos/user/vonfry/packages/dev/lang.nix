@@ -24,8 +24,6 @@ with pkgs; [
   ruby bundler bundix ## rbenv; not! use nix instead.
   rubyPkgs
 
-  python3Full
-
   doxygen
 
   coq
