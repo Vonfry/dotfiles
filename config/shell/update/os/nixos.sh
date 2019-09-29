@@ -9,4 +9,4 @@ echo -e "\n${ECHO_SYM}** ${ECHO_MSG}channel${ECHO_RST}\n"
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}unstable${ECHO_RST}\n"
 sudo nix-channel --update nixos-unstable
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}rebuild${ECHO_RST}\n"
-sudo nixos-rebuild switch --upgrade
+sudo nixos-rebuild boot --upgrade
