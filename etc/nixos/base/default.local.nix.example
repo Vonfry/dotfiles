@@ -7,7 +7,7 @@
 
   nix.gc = {
     automatic = false;
-    options = "-d";
+    options = "+5";
     dates = "Sun 19:00";
   };
 }
