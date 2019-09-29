@@ -39,7 +39,4 @@ with pkgs; [
 
   solargraph
   ctags
-
-  mycli
-  pgcli
 ]
