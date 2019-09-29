@@ -3,6 +3,7 @@
 let
     hie = customPkgs.hie;
     rubyPkgs = customPkgs.rubyPkgs;
+    pythonPkgs = customPkgs.python;
 in
 with pkgs; [
   zeal
@@ -21,10 +22,10 @@ with pkgs; [
   rustup
   rls
 
+  pythonPkgs
+
   ruby bundler bundix ## rbenv; not! use nix instead.
   rubyPkgs
-
-  python3Full
 
   doxygen
 
@@ -38,9 +39,4 @@ with pkgs; [
 
   solargraph
   ctags
-
-  httpstat
-  mycli
-  pgcli
-  asciinema
 ]
