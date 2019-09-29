@@ -1,9 +1,11 @@
 * System
-** NixOS [1/1]
-*** TODO X [1/2]
+** NixOS [0/1]
+    - [ ] fix collision between ruby and rls packages
+*** TODO X [2/3]
     CLOSED: [2019-02-09 六 17:17]
     - [X] XMonad
-    - [ ] alacritty
+    - [X] alacritty
+    - [ ] use wayland instead
 ** macOS
 
 * Editor
@@ -29,5 +31,3 @@
 ** DONE Nix
 ** DONE Haskell[1/1]
     - [X] dHall
-** TODO Mail
-- imapsync instead offlineimap
