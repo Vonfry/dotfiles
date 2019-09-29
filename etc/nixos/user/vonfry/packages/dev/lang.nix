@@ -40,8 +40,6 @@ with pkgs; [
   solargraph
   ctags
 
-  httpstat
   mycli
   pgcli
-  asciinema
 ]
