@@ -9,7 +9,6 @@
 
   imports = [
     ./lang.nix
-    ./db.nix
     ./vm.nix
     ./misc.nix
   ];
