@@ -2,7 +2,7 @@
 ;;
 
 (package! flycheck
-  :hook prog-mode
+  :hook (prog-mode . flycheck-mode)
   :custom
   (flycheck-global-modes nil)
   :general
