@@ -7,6 +7,8 @@
   :config
   :custom
   (reftex-plug-into-AUCTeX t)
+  (latex-command "tectonic")
+  (tex-command "tectonic")
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-master nil)
@@ -32,7 +34,7 @@
   (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   ((TeX-mode LaTeX-mode) .
     (lambda()
-      (custom-set-variables '(compile-command "xelatex"))
+      (custom-set-variables '(compile-command "tectonic"))
       (require 'preview)
       (require 'tex-site)
       ;; use pdfview with auctex
@@ -92,11 +94,6 @@
         "ze" 'TeX-fold-env
         "zm" 'TeX-fold-macro
         "zr" 'TeX-fold-region))
-
-(package! auctex-latexmk
-  :after latex
-  :hook
-  ((LaTeX-mode TeX-mode) . auctex-latexmk-setup))
 
 (package! company-math
  :after company
