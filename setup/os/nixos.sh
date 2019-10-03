@@ -1,7 +1,7 @@
 sudo nixos-generate-config
 sudo cp -r $script_dir/etc/nixos/vonfry /etc/nixos/
 find . -name "*.local.nix.example" |
-    xargs -n1 -I "{}" sed /\.example$/d |
+    sed s/\.example$// |
     xargs -n1 -I "{}" sudo cp {}.example {}
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo cp $script_dir/etc/nixos/configuration.nix /etc/nixos/configuration.nix
@@ -13,7 +13,6 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     xargs -n1 -I "{}" sed "s/#.*$//" |
     xargs -n1 -I "{}" sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base.local.nix
-sudo cp /etc/nixos/base/unmask.local.nix.example /etc/nixos/base/unmask.local.nix
 nix-env -iA nixos.bundix nixos.bundler
 cd /etc/nixos/user/vonfry/packages/custom/dev-ruby/self-pkgs
 bundle lock
@@ -27,4 +26,5 @@ mkdir -p ~/.config/nix
 mkdir -p ~/.config/nixpkgs
 ln -s -f $script_dir/config/nix/* ~/.config/nix
 ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
+sudo curl https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -O /etc/nixos/x/haskellwiki_logo.png
 echo_info "--- Run fcitx-configtool to config."

@@ -10,4 +10,21 @@
     options = "+5";
     dates = "Sun 19:00";
   };
+
+  services.openssh =  {
+    enable = false;
+    allowSFTP = false;
+    passwordAuthentication = false;
+    permitRootLogin = "prohibit-password";
+    extraConfig =
+      ''
+      ClientAliveInterval 60
+      ClientAliveCountMax 4
+      '';
+  };
+
+  security = {
+    sudo.extraConfig = "Defaults timestamp_timeout=30 ";
+    pam.enableSSHAgentAuth = true;
+  };
 }
