@@ -14,6 +14,16 @@
     wget curl
     git git-lfs
     zsh gnupg
+    htop
+    tree
     file
+    fzf
+    autojump
+    colordiff
+    tmux
+    lynx
+    patch
+    unzip
+    lm_sensors
   ];
 }

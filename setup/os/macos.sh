@@ -13,6 +13,7 @@ brew reinstall gnu-sed gnu-tar unzip unrar
 brew cask install gpg-suite
 brew reinstall git
 brew reinstall zsh wget git-flow tig
+brew cask install alacritty
 brew reinstall fzf && /usr/local/opt/fzf/install
 brew reinstall dbus
 brew reinstall thefuck
@@ -55,7 +56,7 @@ brew reinstall sqlite mysql postgresql redis # database
 brew reinstall pgcli mycli
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
-brew cask install mactex                     # providing tex basic tools
+brew reinstall tectonic
 brew cask install java
 
 # system tool

@@ -24,7 +24,7 @@ import System.IO
 myFont = "xft:Hack:size=8"
 myFontCJK = "xft:Source Han Sans CN:size=8"
 myModMask = mod4Mask
-myTerm = "xterm"
+myTerm = "alacritty"
 
 myXPC = def
     { font = myFont
@@ -44,9 +44,9 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
     , ((modm, xK_slash     ), promptSearch myXPC multi)
 
-    , ((modm                , xK_Print), spawn "scrot --focused 'window_%s_$wx$h.png' -e 'mv $f ~/screenshot/'")
-    , ((modm .|. shiftMask  , xK_Print), spawn "scrot 'screen_%s_$wx$h.png' -e 'mv ~/screenshot/'")
-    , ((modm .|. controlMask, xK_Print), spawn "scrot --select 'select_%s_$wx$h.png' -e 'mv $f ~/screenshot/'")
+    , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/")
+    , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
+    , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot")
 
     , ((modm .|. shiftMask, xK_t), withFocused float)
 
