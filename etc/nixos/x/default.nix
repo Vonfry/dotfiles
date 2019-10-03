@@ -11,7 +11,10 @@
     layout = "us";
     xkbVariant = "dvp";
     autorun = true;
-    displayManager.sddm.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      theme = "maldives";
+    };
     windowManager = {
       default = "xmonad";
       xmonad = {

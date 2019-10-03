@@ -20,28 +20,11 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  nix.optimise.automatic = true;
   services = {
-    openssh =  {
-      enable = true;
-      allowSFTP = true;
-      passwordAuthentication = false;
-      permitRootLogin = "prohibit-password";
-      extraConfig =
-        ''
-        ClientAliveInterval 60
-        ClientAliveCountMax 4
-        '';
-    };
     syslog-ng.enable = true;
     logrotate.enable = true;
   };
-
-  security = {
-    sudo.extraConfig = "Defaults timestamp_timeout=30 ";
-    pam.enableSSHAgentAuth = true;
-  };
-
-  nix.optimise.automatic = true;
 
   imports = [ ./unmask.nix ./unmask.local.nix ./default.local.nix ]; # This file must be existed.
 }
