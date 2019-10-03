@@ -23,5 +23,4 @@
       };
     };
   };
-  imports = [ ./default.local.nix ];
 }
