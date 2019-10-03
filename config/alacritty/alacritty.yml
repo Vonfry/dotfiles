@@ -57,8 +57,12 @@ colors:
     foreground: '0x839496' # base0
 
   cursor:
-    text:   '0x002b36' # base03
-    cursor: '0x839496' # base0
+    text:       '0x002b36' # base03
+    cursor:     '0x93a1a1' # base1
+
+  selection:
+    text:       '0x93a1a1' # base1
+    background: '0x586e75' # base01
 
   normal:
     black:   '0x073642' # base02
