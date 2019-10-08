@@ -67,10 +67,10 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
-    , ((modm .|. shiftMask, xK_g), windowPrompt myXPC Goto wsWindows)
-    , ((modm .|. controlMask, xK_g), windowPrompt myXPC Goto allWindows)
-    , ((modm .|. shiftMask, xK_b), windowPrompt myXPC Bring wsWindows)
-    , ((modm .|. controlMask, xK_b), windowPrompt myXPC Bring allWindows)
+    , ((modm .|. shiftMask, xK_g), windowPrompt myXPC Goto allWindows)
+    , ((modm .|. controlMask, xK_g), windowPrompt myXPC Goto wsWindows)
+    , ((modm .|. shiftMask, xK_b), windowPrompt myXPC Bring allWindows)
+    , ((modm .|. controlMask, xK_b), windowPrompt myXPC Bring wsWindows)
 
 
     , ((modm,               xK_d), withFocused hideWindow)
