@@ -16,7 +16,7 @@
 ** Emacs [4/4]
     - [X] python-mode keybind
     - [X] eglot and project.el or lsp?
-    - [X] +flycheck or+ flymake
+    - [X] flycheck +or flymake+
     - [X] projectile update error
 ** LSP [6/6]
    - [X] Haskell
