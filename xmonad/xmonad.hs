@@ -18,6 +18,7 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
 import XMonad.Layout.CenteredMaster
 import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.Renamed
 import XMonad.Prompt.Layout
 import XMonad.Util.Paste
 import qualified XMonad.StackSet as W
@@ -78,7 +79,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
 
-    , ((modm .|. shiftMask, xK_at), layoutPrompt myXPC)
+    , ((modm, xK_period), layoutPrompt myXPC)
 
     , ((modm, xK_p), pasteSelection)
 
@@ -88,7 +89,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 myLayout = beforeLayouts layouts
   where
     layouts =
-            noBorders (tabbed shrinkText def
+            renamed [ Replace "Tab" ] (noBorders $ tabbed shrinkText def
                 { inactiveBorderColor = "#586e75" -- solarized base01
                 , activeBorderColor   = "#586e75" -- solarized base01
                 , inactiveTextColor   = "#586e75" -- solarized base01
@@ -98,14 +99,14 @@ myLayout = beforeLayouts layouts
                 , fontName            = myFontCJK
                 , decoHeight          = 24
                 })
-        ||| Accordion
-        ||| tiled
-        ||| Mirror tiled
-        ||| Grid
-        ||| Full
-        ||| centerMaster tiled
-        ||| centerMaster (Mirror tiled)
-        ||| centerMaster Grid
+        ||| renamed [ Replace "Accordion" ] Accordion
+        ||| renamed [ Replace "Tiled"     ] tiled
+        ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
+        ||| renamed [ Replace "Grid"      ] Grid
+        ||| renamed [ Replace "Full"      ] Full
+        ||| renamed [ Replace "CTiled"    ] (centerMaster tiled)
+        ||| renamed [ Replace "CMTiled"   ] (centerMaster $ Mirror tiled)
+        ||| renamed [ Replace "CGrid"     ] (centerMaster Grid)
     tiled = Tall 1 (3/100) (1/2)
     beforeLayouts = showWName . hiddenWindows
 
