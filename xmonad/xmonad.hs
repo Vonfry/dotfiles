@@ -1,21 +1,24 @@
-import XMonad
-import XMonad.Actions.Submap
+import XMonad hiding ((|||))
+-- import XMonad.Actions.Submap
 import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
-import XMonad.Actions.Launcher
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
+import XMonad.Prompt.Man
 import XMonad.Prompt.FuzzyMatch
-import XMonad.Prompt.Layout
+import XMonad.Prompt.Window
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
 import XMonad.Layout.Accordion
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
+import XMonad.Layout.CenteredMaster
+import XMonad.Layout.LayoutCombinators
+import XMonad.Prompt.Layout
 import XMonad.Util.Paste
 import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
@@ -44,6 +47,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
     , ((modm, xK_slash     ), promptSearch myXPC multi)
 
+    , ((modm, xK_F1), manPrompt myXPC)
+
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/")
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
     , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot")
@@ -62,37 +67,47 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
+    , ((modm .|. shiftMask, xK_g), windowPrompt myXPC Goto wsWindows)
+    , ((modm .|. controlMask, xK_g), windowPrompt myXPC Goto allWindows)
+    , ((modm .|. shiftMask, xK_b), windowPrompt myXPC Bring wsWindows)
+    , ((modm .|. controlMask, xK_b), windowPrompt myXPC Bring allWindows)
+
 
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
 
     , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
 
+    , ((modm .|. shiftMask, xK_at), layoutPrompt myXPC)
+
     , ((modm, xK_p), pasteSelection)
 
-    , ((modm, xK_at), layoutPrompt myXPC)
     , ((modm, xK_o), windowMenu)
     ]
 
 myLayout = beforeLayouts layouts
   where
-    layouts = Grid |||
-              noBorders (tabbed shrinkText def
-                  { inactiveBorderColor = "#586e75" -- solarized base01
-                  , activeBorderColor   = "#586e75" -- solarized base01
-                  , inactiveTextColor   = "#586e75" -- solarized base01
-                  , activeTextColor     = "#ffffff" -- solarized white
-                  , inactiveColor       = "#073642" -- solarized base02
-                  , activeColor         = "#b58900" -- solarized yellow
-                  , fontName            = myFontCJK
-                  , decoHeight          = 24
-                  }) |||
-              Accordion |||
-              tiled |||
-              Mirror tiled |||
-              Full
+    layouts =
+            noBorders (tabbed shrinkText def
+                { inactiveBorderColor = "#586e75" -- solarized base01
+                , activeBorderColor   = "#586e75" -- solarized base01
+                , inactiveTextColor   = "#586e75" -- solarized base01
+                , activeTextColor     = "#ffffff" -- solarized white
+                , inactiveColor       = "#073642" -- solarized base02
+                , activeColor         = "#b58900" -- solarized yellow
+                , fontName            = myFontCJK
+                , decoHeight          = 24
+                })
+        ||| Accordion
+        ||| tiled
+        ||| Mirror tiled
+        ||| Grid
+        ||| Full
+        ||| centerMaster tiled
+        ||| centerMaster (Mirror tiled)
+        ||| centerMaster Grid
     tiled = Tall 1 (3/100) (1/2)
-    beforeLayouts = hiddenWindows
+    beforeLayouts = showWName . hiddenWindows
 
 myDef = def
     { modMask = myModMask
