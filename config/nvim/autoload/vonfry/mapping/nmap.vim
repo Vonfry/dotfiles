@@ -2,6 +2,7 @@
 " normal map mapping, this will depead to leader.
 
 let g:vonfry#mapping#nmap#leader = "\<Space>"
+let g:vonfry#mapping#nmap#localleader = "\\"
 
 let g:vonfry#mapping#nmap#x = 'x'
 

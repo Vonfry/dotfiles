@@ -46,4 +46,5 @@ function! vonfry#bundle#interface#config()
 
     " whichkey
     exec "nmap <silent> <leader> :<c-u>WhichKey '" . g:vonfry#mapping#nmap#leader . "'<CR>"
+    exec "nmap <silent> <localleader> :<c-u>WhichKey '" . g:vonfry#mapping#nmap#localleader . "'<CR>"
 endfunction
