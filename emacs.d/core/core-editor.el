@@ -52,6 +52,7 @@
   '(show-trailing-whitespace t)
   '(global-whitespace-modes t)
   '(case-fold-search t)
+  '(line-spacing 0)
 
   '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-cache-dir))
 
