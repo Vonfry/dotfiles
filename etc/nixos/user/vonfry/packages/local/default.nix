@@ -1,4 +1,4 @@
 args@{ pkgs, lib, ... }:
 
 let nixFiles = lib.matchFiles ./. "^.*\\.nix$" [ ./default.nix ];
-in map (f: import f args) nixFiles
+in builtins.foldl' (p: f: p ++ import f args) [] nixFiles
