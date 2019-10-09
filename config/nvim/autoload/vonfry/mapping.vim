@@ -4,6 +4,7 @@
 
 function! vonfry#mapping#init()
     let g:mapleader = g:vonfry#mapping#nmap#leader
+    let l:mapleader = g:vonfry#mapping#nmap#localleader
 endfunction
 
 function! vonfry#mapping#leader(keys, func)
