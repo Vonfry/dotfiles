@@ -4,6 +4,7 @@ import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
+import XMonad.Actions.WorkspaceNames
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -73,13 +74,14 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_b), windowPrompt myXPC Bring allWindows)
     , ((modm .|. controlMask, xK_b), windowPrompt myXPC Bring wsWindows)
 
-
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
 
     , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
 
-    , ((modm, xK_period), layoutPrompt myXPC)
+    , ((modm, xK_colon), renameWorkspace myXPC)
+
+    , ((modm, xK_semicolon), layoutPrompt myXPC)
 
     , ((modm, xK_p), pasteSelection)
 
