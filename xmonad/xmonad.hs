@@ -9,8 +9,6 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.Man
-import XMonad.Prompt.FuzzyMatch
-import XMonad.Prompt.Window
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
 import XMonad.Layout.Accordion
@@ -33,7 +31,6 @@ myTerm = "alacritty"
 
 myXPC = def
     { font = myFont
-    , searchPredicate = fuzzyMatch
     }
 
 myGSC = myGSConf
@@ -69,10 +66,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
-    , ((modm .|. shiftMask, xK_g), windowPrompt myXPC Goto allWindows)
-    , ((modm .|. controlMask, xK_g), windowPrompt myXPC Goto wsWindows)
-    , ((modm .|. shiftMask, xK_b), windowPrompt myXPC Bring allWindows)
-    , ((modm .|. controlMask, xK_b), windowPrompt myXPC Bring wsWindows)
 
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
