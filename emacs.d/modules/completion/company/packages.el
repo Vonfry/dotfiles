@@ -3,10 +3,11 @@
 
 (package! company
   :custom
-  (company-idle-delay 0.4)
+  (company-idle-delay 0.5)
   (company-tooltip-limit 16)
   (company-minimum-prefix-length 4)
   (company-tooltip-flip-when-above t)
+  (company-tooltip-offset-display 'lines)
   :config
   (global-company-mode))
 
