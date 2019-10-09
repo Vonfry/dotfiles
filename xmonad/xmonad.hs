@@ -15,7 +15,6 @@ import XMonad.Layout.Accordion
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
-import XMonad.Layout.CenteredMaster
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Prompt.Layout
@@ -99,9 +98,6 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "Full"      ] Full
-        ||| renamed [ Replace "CTiled"    ] (centerMaster tiled)
-        ||| renamed [ Replace "CMTiled"   ] (centerMaster $ Mirror tiled)
-        ||| renamed [ Replace "CGrid"     ] (centerMaster Grid)
     tiled = Tall 1 (3/100) (1/2)
     beforeLayouts = showWName . hiddenWindows
 
