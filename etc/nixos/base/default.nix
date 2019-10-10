@@ -26,5 +26,11 @@
     logrotate.enable = true;
   };
 
-  imports = [ ./unmask.nix ./unmask.local.nix ./default.local.nix ]; # This file must be existed.
+  imports =
+    [ ./unmask.nix
+      ./unmask.local.nix
+      ./default.local.nix
+      ./hdfmt.nix
+      ./nix.nix
+    ];
 }
