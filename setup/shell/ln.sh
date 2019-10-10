@@ -4,7 +4,7 @@ echo_info "** copy other dotfiles"
 ln -sf $script_dir/agignore ~/.agignore
 
 mkdir ~/.config 2> /dev/null
-echo "flake8 nvim pkgs shell" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{} ~/.config/
+echo "nvim pkgs shell" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{} ~/.config/
 mkdir ~/.config/direnv 2> /dev/null
 ln -sf $script_dir/config/direnv/direnvrc ~/.config/direnv/direnvrc
 
