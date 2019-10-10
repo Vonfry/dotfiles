@@ -10,9 +10,9 @@ else
     shell=$(echo ${SHELL} | awk -F/ '{ print $NF }')
 fi
 if  command -v autojump > /dev/null 2>&1; then
-    source $(nix-store --quiet -r $(which autojump))/share/autojump/autojump.$shell
+    source $(nix-store --quiet --quiet -r $(which autojump))/share/autojump/autojump.$shell
 fi
 if  command -v fzf > /dev/null 2>&1; then
-    source $(nix-store --quiet -r $(which fzf))/share/fzf/*.$shell
+    source $(nix-store --quiet --quiet -r $(which fzf))/share/fzf/*.$shell
 fi
 unset shell
