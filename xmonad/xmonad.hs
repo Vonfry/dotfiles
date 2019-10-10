@@ -28,24 +28,28 @@ myFontCJK = "xft:Source Han Sans CN:size=8"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
-myXPC = def
+myXPConf = def
     { font = myFont
     }
 
-myGSC = myGSConf
 myGSConf = def
     { gs_font = myFont
     }
-myGSConfW = def
+myGSConfWs = def
+    { gs_font = myFont
+    }
+myGSConfS = def
     { gs_font = myFont
     }
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
-    [ ((modm, xK_x         ), shellPrompt  myXPC)
-    , ((modm, xK_apostrophe), xmonadPrompt myXPC)
-    , ((modm, xK_slash     ), promptSearch myXPC multi)
+    [ ((modm, xK_x              ), shellPrompt  myXPConf)
+    , ((modm .|. shiftMask, xK_x), spawnSelected myGSConfS
+        ["chromium", "VirtualBox", "telegram-desktop"])
+    , ((modm, xK_apostrophe), xmonadPrompt myXPConf)
+    , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
-    , ((modm, xK_F1), manPrompt myXPC)
+    , ((modm, xK_F1), manPrompt myXPConf)
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/")
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
@@ -63,17 +67,17 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_Left),  shiftPrevScreen)
     , ((modm .|. shiftMask, xK_z),     toggleWS)
 
-    , ((modm, xK_g), goToSelected myGSC)
-    , ((modm, xK_b), bringSelected myGSC)
+    , ((modm, xK_g), goToSelected myGSConf)
+    , ((modm, xK_b), bringSelected myGSConf)
 
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
 
-    , ((modm, xK_z), gridselectWorkspace myGSConfW W.view)
+    , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
 
-    , ((modm, xK_colon), renameWorkspace myXPC)
+    , ((modm, xK_colon), renameWorkspace myXPConf)
 
-    , ((modm, xK_semicolon), layoutPrompt myXPC)
+    , ((modm, xK_semicolon), layoutPrompt myXPConf)
 
     , ((modm, xK_p), pasteSelection)
 
