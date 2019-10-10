@@ -11,8 +11,8 @@
       ("LaTeX"
        (extension "tex" "bib"))
       ("Source"
-       (extension "c" "cpp" "h" "hpp" "hs" "rb" "py" "r" "cs" "el" "lisp"
-                  "html" "js" "css" "ts"))
+       (extension "c" "cpp" "h" "hpp" "hs" "rb" "py" "r" "cs" "el" "lisp" "v"
+                  "rust" "html" "js" "css" "ts"))
       ("Doc"
        (extension "org" "md" "rst" "txt"))
       ("Archives"
