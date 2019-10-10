@@ -17,6 +17,4 @@
       };
     };
   };
-
-  imports = [ ./hdfmt.nix ];
 }
