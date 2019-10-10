@@ -43,7 +43,7 @@ myGSConfW = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x              ), shellPrompt  myXPC)
     , ((modm .|. shiftMask, xK_x), spawnSelected myGSC
-        [ "chromium" "VirtualBox" "telegram-desktop" ])
+        ["chromium", "VirtualBox", "telegram-desktop"])
     , ((modm, xK_apostrophe), xmonadPrompt myXPC)
     , ((modm, xK_slash     ), promptSearch myXPC multi)
 
