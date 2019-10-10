@@ -67,8 +67,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_g), goToSelected myGSC)
     , ((modm, xK_b), bringSelected myGSC)
-    , ((modm .|. shiftMask,   xK_g), gridselect       myGSC)
-    , ((modm .|. controlMask, xK_g), gridselectWindow myGSC)
 
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
