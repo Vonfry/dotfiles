@@ -25,5 +25,8 @@
     patch
     unzip
     lm_sensors
+    ripgrep
+    gawk
+    fd
   ];
 }
