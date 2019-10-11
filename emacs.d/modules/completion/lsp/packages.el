@@ -14,12 +14,14 @@
         +nmap-format       'lsp-format-buffer
         +nmap-highlight    'lsp-symbol-highlight
         +nmap-go-prompt    'lsp-find-definition
-        +nmap-go-reference 'lsp-find-references
-        "*"  'lsp-rename
-        "R"  'lsp-restart-workspace
-        "D"  'lsp-describe-session
-        "[t" 'lsp-goto-type-definition
-        "[i" 'lsp-goto-implementation))
+        ">"                'lsp-find-references
+        +nmap-go-reference 'lsp-goto-implementation
+        "i"                'imenu
+        "*"                'lsp-rename
+        "R"                'lsp-restart-workspace
+        "D"                'lsp-describe-session
+        "TAB"              'completion-at-point
+        ))
 
 (package! lsp-clients
   :after lsp-mode

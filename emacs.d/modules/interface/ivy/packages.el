@@ -29,7 +29,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ("M-[" 'counsel-company)
+  ((concat "M-" +nmap-pop-complete) 'counsel-company)
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
