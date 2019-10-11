@@ -43,7 +43,7 @@
 (defconst +nmap-swiper "/"
   "show lines matched with swiper/swoop")
 
-(defconst +nmap-go-prompt ">"
+(defconst +nmap-go-prompt "["
   "go to file or module with a prompt to search it. It is similiar to imenu.")
 
 (defconst +nmap-pop-complete "&"
@@ -70,8 +70,11 @@
 (defconst +nmap-lang-action-prefix (concat +nmap-leader +nmap-lang-action)
   "lang action prefix")
 
-(defconst +nmap-navigation "["
+(defconst +nmap-navigation ">"
   "Go to somewhere.")
+
+(defconst +nmap-snippet ")"
+  "snippets")
 
 (defconst +nmap-g "g"
   "Go to text/char")
@@ -141,7 +144,6 @@
 
 (defconst +nmap-lang-prefix (concat +nmap-leader +nmap-lang)
   "lang nmap prefix")
-
 
 (package! general
   :config
