@@ -73,6 +73,9 @@
 (defconst +nmap-navigation ">"
   "Go to somewhere.")
 
+(defconst +nmap-snippet ")"
+  "snippets")
+
 (defconst +nmap-g "g"
   "Go to text/char")
 
