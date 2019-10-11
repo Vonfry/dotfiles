@@ -44,7 +44,7 @@ brew reinstall zlib libffi
 brew cask install doxygen
 
 # code search
-brew reinstall ripgrep gawk
+brew reinstall ripgrep gawk fd
 brew reinstall cloc                          # code statistics
 
 # lang
