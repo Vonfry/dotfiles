@@ -45,7 +45,11 @@ myGSConfS = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x              ), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), spawnSelected myGSConfS
-        ["chromium", "VirtualBox", "telegram-desktop"])
+        [ "zeal"
+        , "alacritty -e \"weechat -r \"/connect freenode\"\""
+        , "chromium"
+        , "VirtualBox"
+        , "telegram-desktop"])
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf)
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
