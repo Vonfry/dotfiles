@@ -47,6 +47,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_x), spawnSelected myGSConfS
         [ "zeal"
         , "alacritty -e \"weechat -r \"/connect freenode\"\""
+        , "alacritty -e \"mutt\""
         , "chromium"
         , "VirtualBox"
         , "telegram-desktop"])
