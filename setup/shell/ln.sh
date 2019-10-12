@@ -1,8 +1,6 @@
 # copy other dotfiles
 echo_info "** copy other dotfiles"
 
-ln -sf $script_dir/agignore ~/.agignore
-
 mkdir ~/.config 2> /dev/null
 echo "nvim pkgs shell" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{} ~/.config/
 mkdir ~/.config/direnv 2> /dev/null
