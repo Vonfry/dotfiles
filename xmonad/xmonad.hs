@@ -80,7 +80,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
 
-    , ((modm, xK_colon), renameWorkspace myXPConf)
+    , ((modm, xK_r), renameWorkspace myXPConf)
 
     , ((modm, xK_semicolon), layoutPrompt myXPConf)
 
