@@ -2,7 +2,6 @@
 
 with pkgs; [
   gitAndTools.gitflow tig gitAndTools.git-extras
-  gitAndTools.hub
   zsh fzf
   direnv
   thefuck

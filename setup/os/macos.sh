@@ -68,7 +68,6 @@ brew reinstall asciinema httpstat
 
 # chat
 brew reinstall weechat
-brew reinstall hub
 
 # editor
 brew reinstall editorconfig

@@ -1,6 +1,4 @@
 source $HOME/.config/shell/defvar.sh
-source ~/.local/src/antigen/antigen.zsh
-antigen init ~/.antigenrc
 
 # User configuration
 
@@ -9,10 +7,11 @@ setopt extendedglob
 setopt rm_star_silent
 setopt clobber
 
-if [[ ! $PATH =~ "/usr/local/bin"  ]]; then
+if [[ ! $PATH =~ "/usr/local/bin" && -d /usr/local/bin ]]; then
     export PATH=/usr/local/bin:$PATH
 fi
 
+source $SHELL_CUSTOM_DIR/zplug.zsh
 source $SHELL_CUSTOM_DIR/unalias.sh
 source $SHELL_CUSTOM_DIR/alias.sh
 source $SHELL_CUSTOM_DIR/function.sh
