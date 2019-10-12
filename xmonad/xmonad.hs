@@ -4,7 +4,6 @@ import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
-import XMonad.Actions.WorkspaceNames
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -79,8 +78,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
 
     , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
-
-    , ((modm, xK_r), renameWorkspace myXPConf)
 
     , ((modm, xK_semicolon), layoutPrompt myXPConf)
 
