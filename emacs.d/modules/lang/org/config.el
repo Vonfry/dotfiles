@@ -25,7 +25,7 @@
 
 (let* ((agenda-dir-with (lambda (p) (expand-file-name p (expand-file-name "agenda/" vonfry-org-dir))))
        (gtd-file (funcall agenda-dir-with "gtd.org"))
-       (someday-file (funcall agenda-dir-with "someday.org"))))
+       (someday-file (funcall agenda-dir-with "someday.org")))
   (defconst +org-agenda-files
     (list +org-capture-file
           gtd-file
@@ -33,8 +33,7 @@
     "global agenda dir")
     (defconst +org-refile-targets
       '((gtd-file :maxlevel . 3)
-        (someday-file :level . 1)))
-)
+        (someday-file :level . 1))))
 
 (defconst +org-agenda-custom-commands
   '((":d" "Categoriy: dev" tags-todo "dev"
