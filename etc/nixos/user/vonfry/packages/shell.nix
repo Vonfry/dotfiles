@@ -15,4 +15,5 @@ with pkgs; [
   asciinema
   flameshot
   neofetch
+  nextcloud-client
 ]
