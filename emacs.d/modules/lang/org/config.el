@@ -23,15 +23,17 @@
   (expand-file-name "brains" vonfry-org-dir)
   "org-brain path")
 
-(let ((agenda-dir-with (lambda (p) (expand-file-name p (expand-file-name "agenda/" vonfry-org-dir)))))
+(let* ((agenda-dir-with (lambda (p) (expand-file-name p (expand-file-name "agenda/" vonfry-org-dir))))
+       (gtd-file (funcall agenda-dir-with "gtd.org"))
+       (someday-file (funcall agenda-dir-with "someday.org"))))
   (defconst +org-agenda-files
     (list +org-capture-file
-          (agenda-dir-with "gtd.org")
-          (agenda-dir-with "someday.org"))
+          gtd-file
+          someday-file)
     "global agenda dir")
     (defconst +org-refile-targets
-      '(((agenda-dir-with "gtd.org") :maxlevel . 3)
-        ((agenda-dir-with "someday.org") :level . 1)))
+      '((gtd-file :maxlevel . 3)
+        (someday-file :level . 1)))
 )
 
 (defconst +org-agenda-custom-commands
