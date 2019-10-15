@@ -1,4 +1,4 @@
-echo_info "** setup git"
+echo_info "** git"
 git config --global core.fileMode true
 git config --global color.ui true
 

@@ -1,4 +1,4 @@
-echo_info "** setup shell var"
+echo_info "** shell var"
 
 echo "export SHELL_CUSTOM_DIR=$HOME/.config/shell"           >> $script_dir/config/shell/defvar.sh
 echo "export SHELL_CUSTOM_DIR_LOCAL=$SHELL_CUSTOM_DIR/local" >> $script_dir/config/shell/defvar.sh
@@ -6,7 +6,7 @@ echo "export DOTFILES_SOURCE_DIR=$script_dir"                >> $script_dir/conf
 echo "export DOTFILES_DIR=$HOME/dotfiles"                    >> $script_dir/config/shell/defvar.sh
 echo "export DOTFILES_PKGS_DIR=$script_dir/config/pkgs"      >> $script_dir/config/shell/defvar.sh
 echo "export ZPLUG_HOME=$HOME/.local/src/zplug"              >> $script_dir/config/shell/defvar.sh
-echo "export DROPBOX_DIR=$dropbox_dir"                       >> $script_dir/config/shell/defvar.sh
+echo "export CLOUDDISK_DIR=$clouddisk_dir"                   >> $script_dir/config/shell/defvar.sh
 echo "export UPDATE_INTERVAL=7"                              >> $script_dir/config/shell/defvar.sh
 
 if [ -d $HOME/dotfiles ]; then
@@ -25,6 +25,6 @@ $runscript $script_dir/setup/shell/git.sh
 $runscript $script_dir/setup/shell/ln.sh
 $runscript $script_dir/setup/shell/zsh.sh
 $runscript $script_dir/setup/shell/fortunes.sh
-$runscript $script_dir/setup/shell/dropbox.sh
+$runscript $script_dir/setup/shell/clouddisk.sh
 $runscript $script_dir/setup/shell/email.sh
 $runscript $script_dir/setup/shell/weechat.sh
