@@ -1,4 +1,4 @@
-echo_info "** setup ruby"
+echo_info "** ruby"
 
 GEM="gem"
 if [ $(uname) = "Darwin" ]; then
@@ -9,7 +9,7 @@ if ! [ -f /etc/NIXOS ]; then
     mkdir -p ~/.gem/bin
 
     if command -v gem > /dev/null 2>&1; then
-        echo_info "*** setup gem"
+        echo_info "*** gem"
         $GEM install --quiet --no-lock --user-install -g $script_dir/config/pkgs/gem.txt
         if command -v bundle > /dev/null 2>&1; then
             bundle config console pry

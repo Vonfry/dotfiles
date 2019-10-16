@@ -1,4 +1,4 @@
-echo_info "** setup node"
+echo_info "** node"
 
 if command -v npm > /dev/null 2>&1; then
     echo_info "*** setup nmp"

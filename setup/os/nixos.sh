@@ -1,3 +1,5 @@
+echo_info "* system is NixOS"
+echo_info "** Nix"
 sudo nixos-generate-config
 sudo cp -r $script_dir/etc/nixos/vonfry /etc/nixos/
 find . -name "*.local.nix.example" |

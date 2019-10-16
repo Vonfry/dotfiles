@@ -1,4 +1,4 @@
-echo_info "** setup haskell"
+echo_info "** haskell"
 
 mkdir ~/.ghc 2> /dev/null
 ln -f -s $script_dir/ghc/* ~/.ghc/

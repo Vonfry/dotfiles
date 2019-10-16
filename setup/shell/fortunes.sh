@@ -1,3 +1,4 @@
+echo_info "** fortunes"
 git clone https://github.com/ruanyf/fortunes.git ~/.local/src/fortunes
 strfile ~/.local/src/fortunes/data/fortunes
 strfile ~/.local/src/fortunes/data/chinese

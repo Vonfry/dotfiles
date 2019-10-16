@@ -1,4 +1,4 @@
-echo_info "** setup nix"
+echo_info "** nix"
 
 mkdir ~/.config/nix 2> /dev/null
 ln -s $script_dir/config/nix/nix.conf ~/.config/nix/nix.conf

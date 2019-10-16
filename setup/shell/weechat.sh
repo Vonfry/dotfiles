@@ -1,3 +1,4 @@
+echo_info "** weechat"
 weechat -r "/set irc.look.smart_filter on"
 weechat -r "/set irc.look.smart_filter_delay 5"
 weechat -r "/filter add irc_smart * irc_smart_filter *"
