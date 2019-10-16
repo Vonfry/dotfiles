@@ -100,7 +100,6 @@ myLayout = beforeLayouts layouts
                 , fontName            = myFontCJK
                 , decoHeight          = 24
                 })
-        ||| renamed [ Replace "Accordion" ] Accordion
         ||| renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Grid"      ] Grid
