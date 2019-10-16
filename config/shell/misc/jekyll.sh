@@ -5,7 +5,7 @@ function jekyll-new-post()
     postfile=$(date +%F)-$slug.md
     touch $postfile
 
-    echo "---" > $postfile
+    echo "---" >> $postfile
 
     echo -n "title: "
     read title
