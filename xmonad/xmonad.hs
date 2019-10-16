@@ -10,7 +10,6 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Man
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
-import XMonad.Layout.Accordion
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
@@ -100,7 +99,6 @@ myLayout = beforeLayouts layouts
                 , fontName            = myFontCJK
                 , decoHeight          = 24
                 })
-        ||| renamed [ Replace "Accordion" ] Accordion
         ||| renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Grid"      ] Grid
