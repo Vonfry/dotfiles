@@ -8,6 +8,7 @@
   (org-capture-templates +org-capture-templates)
   (org-todo-keywords +org-todo-keywords-sequence)
   (org-clock-persist-file +org-clock-persist-file)
+  (org-agenda-custom-commands +org-agenda-custom-commands)
   (org-log-done 'time)
   (todo-directory vonfry-org-dir)
   (todo-default-todo-file "todo.org")
