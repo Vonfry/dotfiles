@@ -1,0 +1,11 @@
+export SHELL_CUSTOM_DIR=<shell-custom-dir>
+export SHELL_CUSTOM_DIR_LOCAL=<shell-custom-dir-local>
+export DOTFILES_SOURCE_DIR=<dotfiles-source-dir>
+export DOTFILES_DIR=<dotfiles-dir>
+export DOTFILES_PKGS_DIR=<dotfiles-pkgs-dir>
+export CLOUDDISK_DIR=<clouddisk-dir>
+export APPIMAGE_APP_DIR=<appimage-app-dir>
+
+export CLONE_LIB=<clone-lib>
+export UPDATE_INTERVAL=<update-interval>
+export ZPLUG_HOME=<zplug-home>
