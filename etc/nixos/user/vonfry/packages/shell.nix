@@ -12,7 +12,6 @@ with pkgs; [
   googler
   lolcat
   fortune cmatrix figlet
-  unstable.dropbox-cli
   asciinema
   flameshot
   neofetch

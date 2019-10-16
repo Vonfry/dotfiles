@@ -1,4 +1,4 @@
-echo_info "** setup python"
+echo_info "** python"
 mkdir ~/.pip 2> /dev/null
 
 if ! [ -f /etc/NIXOS ]; then

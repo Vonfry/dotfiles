@@ -1,4 +1,4 @@
-echo_info "** setup shell var"
+echo_info "** shell var"
 
 export config_defvar_file=$script_dir/config/shell/defvar.sh
 cp $script_dir/config/shell/defvar.sh.example $config_defvar_file
@@ -20,7 +20,7 @@ $runscript $script_dir/setup/shell/git.sh
 $runscript $script_dir/setup/shell/ln.sh
 $runscript $script_dir/setup/shell/zsh.sh
 $runscript $script_dir/setup/shell/fortunes.sh
-$runscript $script_dir/setup/shell/dropbox.sh
+$runscript $script_dir/setup/shell/clouddisk.sh
 $runscript $script_dir/setup/shell/email.sh
 $runscript $script_dir/setup/shell/weechat.sh
 

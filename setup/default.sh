@@ -38,7 +38,7 @@ unset -f echo_warn
 unset -f echo_info
 unset -f echo_note
 unset script_dir
-unset dropbox_dir
+unset clouddisk_dir
 unset source_dir
 unset runscript
 

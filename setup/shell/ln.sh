@@ -9,7 +9,7 @@ ln -sf $script_dir/config/direnv/direnvrc ~/.config/direnv/direnvrc
 ln -sf $script_dir/gdbinit ~/.gdbinit
 
 mkdir ~/.ssh 2> /dev/null
-cp -sf $dropbox_dir/ssh/config ~/.ssh/config
+cp -sf $clouddisk_dir/dotfiles/ssh/config ~/.ssh/config
 if [ $(uname) = "Linux" ]; then
   sed -i ~/.ssh/config -e /^UseKeychain.*/d
 fi

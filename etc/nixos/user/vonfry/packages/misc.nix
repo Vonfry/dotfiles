@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, customPkgs, ... }:
 
-with pkgs; [
+let
+  appimage-run-with-extra = customPkgs.appimage-run;
+in with pkgs; [
   tdesktop
+  appimage-run-with-extra
 ]
