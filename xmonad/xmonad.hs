@@ -10,7 +10,6 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Man
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
-import XMonad.Layout.Accordion
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
