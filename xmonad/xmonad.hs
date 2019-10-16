@@ -43,13 +43,14 @@ myGSConfS = def
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x              ), shellPrompt  myXPConf)
-    , ((modm .|. shiftMask, xK_x), spawnSelected myGSConfS
-        [ "zeal"
-        , "alacritty -e \"weechat -r \"/connect freenode\"\""
-        , "alacritty -e \"mutt\""
-        , "chromium"
-        , "VirtualBox"
-        , "telegram-desktop"])
+    , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
+        [ ("zeal",       spawn "zeal")
+        , ("freenode",   spawn "alacritty -e \"weechat -r \"/connect freenode\"\"")
+        , ("mutt",       spawn "alacritty -e \"mutt\"")
+        , ("chromium",   spawn "chromium")
+        , ("virtualbox", spawn "VirtualBox")
+        , ("pcloud",     spawn "appimage-run $APPIMAGE_APP_DIR/pcloud")
+        , ("telegram",   spawn "telegram-desktop")])
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf)
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 

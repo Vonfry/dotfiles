@@ -51,3 +51,5 @@
   :after org
   :custom
   (org-agenda-files +org-agenda-files))
+
+(require 'org-archive)
