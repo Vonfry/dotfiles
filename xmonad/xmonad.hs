@@ -49,6 +49,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , "alacritty -e \"mutt\""
         , "chromium"
         , "VirtualBox"
+        , "appimage-run $APPIMAGE_APP_DIR/pcloud"
         , "telegram-desktop"])
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf)
     , ((modm, xK_slash     ), promptSearch myXPConf multi)

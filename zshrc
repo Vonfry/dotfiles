@@ -1,4 +1,6 @@
-source $HOME/.config/shell/defvar.sh
+if [ ! -v SHELL_CUSTOM_DIR ]; then
+    source $HOME/.zprofile
+fi
 
 # User configuration
 
@@ -6,10 +8,6 @@ setopt nonomatch
 setopt extendedglob
 setopt rm_star_silent
 setopt clobber
-
-if [[ ! $PATH =~ "/usr/local/bin" && -d /usr/local/bin ]]; then
-    export PATH=/usr/local/bin:$PATH
-fi
 
 source $SHELL_CUSTOM_DIR/zplug.zsh
 source $SHELL_CUSTOM_DIR/unalias.sh

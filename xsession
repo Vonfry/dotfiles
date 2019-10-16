@@ -1,5 +1,3 @@
-export BROWSER=chromium
-export EDITOR=nvim
-export VISUAL=nvim
+source $HOME/.zprofile
 feh --bg-center ~/.config/bgm.png
 xmonad
