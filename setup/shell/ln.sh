@@ -1,5 +1,4 @@
-# copy other dotfiles
-echo_info "** copy other dotfiles"
+echo_info "** link or copy other dotfiles"
 
 mkdir ~/.config 2> /dev/null
 echo "nvim pkgs shell" | xargs -n1 -I "{}" ln -f -s $script_dir/config/{} ~/.config/

@@ -1,5 +1,4 @@
-echo_info "* system is Darwin"
-echo_info "** brew and a lot of software"
+echo_info "* system packages: brew and others"
 echo_info "-- Please make sure you have installed xcode and run xcode-select --install; open open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_<version>.pkg"
 # cmd line tools
 sudo chown $(whoami) -R /usr/local/share/man

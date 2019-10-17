@@ -1,4 +1,4 @@
-echo_info "** set mutt"
+echo_info "** email"
 
 if [ $(uname) = "Linux" ]
     mkdir ~/.mutt 2> /dev/null

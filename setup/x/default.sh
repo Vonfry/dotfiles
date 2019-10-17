@@ -7,7 +7,7 @@ if [ $(uname) = "Linux" ]; then
         xmonad --recompile
     fi
 
-    echo_note "--- Default font: Hack(en), Source Han Sans(cn). You need to installing them by yourself."
+    echo_note "-- Default font: Hack(en), Source Han Sans(cn). You need to installing them by yourself."
 fi
 
 mkdir -p ~/.config/alacritty

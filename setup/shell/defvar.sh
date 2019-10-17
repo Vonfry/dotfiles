@@ -1,3 +1,4 @@
+echo_info "** defvar"
 sed -i "s:<shell-custom-dir>:$HOME/.config/shell"           $config_defvar_file
 sed -i "s:<shell-custom-dir-local>:$SHELL_CUSTOM_DIR/local" $config_defvar_file
 sed -i "s:<dotfiles-source-dir>:$script_dir"                $config_defvar_file
