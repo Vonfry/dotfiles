@@ -15,7 +15,6 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
-import XMonad.Prompt.Layout
 import XMonad.Util.Paste
 import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
@@ -41,35 +40,37 @@ myGSConfS = def
     }
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
-    [ ((modm, xK_x              ), shellPrompt  myXPConf)
+    [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
-        [ ("zeal",       spawn "zeal")
-        , ("freenode",   spawn "alacritty -e weechat -r \"/connect freenode\"")
-        , ("mutt",       spawn "alacritty -e mutt")
-        , ("chromium",   spawn "chromium")
-        , ("virtualbox", spawn "VirtualBox")
-        , ("pcloud",     spawn "appimage-run $APPIMAGE_APP_DIR/pcloud")
-        , ("telegram",   spawn "telegram-desktop")])
-    , ((modm, xK_apostrophe), xmonadPrompt myXPConf)
+        [ ("zeal"       , spawn "zeal"                                          )
+        , ("freenode"   , spawn "alacritty -e weechat -r \"/connect freenode\"" )
+        , ("mutt"       , spawn "alacritty -e mutt"                             )
+        , ("chromium"   , spawn "chromium"                                      )
+        , ("virtualbox" , spawn "VirtualBox"                                    )
+        , ("pcloud"     , spawn "appimage-run $APPIMAGE_APP_DIR/pcloud"         )
+        , ("telegram"   , spawn "telegram-desktop"                              )
+        ]
+      )
+    , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
     , ((modm, xK_F1), manPrompt myXPConf)
 
-    , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/")
+    , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
-    , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot")
+    , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot"  )
 
     , ((modm .|. shiftMask, xK_t), withFocused float)
 
-    , ((modm,               xK_Down),  nextWS)
-    , ((modm,               xK_Up),    prevWS)
-    , ((modm .|. shiftMask, xK_Down),  shiftToNext)
-    , ((modm .|. shiftMask, xK_Up),    shiftToPrev)
-    , ((modm,               xK_Right), nextScreen)
-    , ((modm,               xK_Left),  prevScreen)
-    , ((modm .|. shiftMask, xK_Right), shiftNextScreen)
-    , ((modm .|. shiftMask, xK_Left),  shiftPrevScreen)
-    , ((modm .|. shiftMask, xK_z),     toggleWS)
+    , ((modm,               xK_Down  ), nextWS          )
+    , ((modm,               xK_Up    ), prevWS          )
+    , ((modm .|. shiftMask, xK_Down  ), shiftToNext     )
+    , ((modm .|. shiftMask, xK_Up    ), shiftToPrev     )
+    , ((modm,               xK_Right ), nextScreen      )
+    , ((modm,               xK_Left  ), prevScreen      )
+    , ((modm .|. shiftMask, xK_Right ), shiftNextScreen )
+    , ((modm .|. shiftMask, xK_Left  ), shiftPrevScreen )
+    , ((modm .|. shiftMask, xK_z     ), toggleWS        )
 
     , ((modm, xK_g), goToSelected myGSConf)
     , ((modm, xK_b), bringSelected myGSConf)
@@ -79,8 +80,14 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
 
-    , ((modm, xK_semicolon), layoutPrompt myXPConf)
-
+    , ((modm, xK_semicolon), runSelectedAction myGSConfS
+        [ ("Tab"   , sendMessage $ JumpToLayout "Tab"   )
+        , ("Tiled" , sendMessage $ JumpToLayout "Tiled" )
+        , ("MTiled", sendMessage $ JumpToLayout "MTiled")
+        , ("Grid"  , sendMessage $ JumpToLayout "Grid"  )
+        , ("Full"  , sendMessage $ JumpToLayout "Full"  )
+        ]
+      )
     , ((modm, xK_p), pasteSelection)
 
     , ((modm, xK_o), windowMenu)
@@ -107,13 +114,13 @@ myLayout = beforeLayouts layouts
     beforeLayouts = showWName . hiddenWindows
 
 myDef = def
-    { modMask = myModMask
-    , terminal = myTerm
-    , keys =  myKeys <+> keys def
-    , layoutHook = myLayout
-    , focusFollowsMouse = False
+    { modMask            = myModMask
+    , terminal           = myTerm
+    , keys               = myKeys <+> keys def
+    , layoutHook         = myLayout
+    , focusFollowsMouse  = False
     , focusedBorderColor = "#268bd2" -- solarized blue
-    , normalBorderColor = "#073642" -- solarized base03
+    , normalBorderColor  = "#073642" -- solarized base03
     }
 
 main = xmonad myDef
