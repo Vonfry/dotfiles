@@ -44,8 +44,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x              ), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
         [ ("zeal",       spawn "zeal")
-        , ("freenode",   spawn "alacritty -e \"weechat -r \"/connect freenode\"\"")
-        , ("mutt",       spawn "alacritty -e \"mutt\"")
+        , ("freenode",   spawn "alacritty -e weechat -r \"/connect freenode\"")
+        , ("mutt",       spawn "alacritty -e mutt")
         , ("chromium",   spawn "chromium")
         , ("virtualbox", spawn "VirtualBox")
         , ("pcloud",     spawn "appimage-run $APPIMAGE_APP_DIR/pcloud")
