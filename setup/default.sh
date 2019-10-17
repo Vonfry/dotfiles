@@ -7,11 +7,11 @@ function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 export current_dir=$(pwd)
 export script_dir=$( cd "$( dirname "$0" )/.." && pwd )
 export clouddisk_dir="$HOME/pCloud"
-echo_note "--- input a path that where to save the third lib or tools needing to be built by youself."
+echo_note "Input a path that where to save the third lib or tools needing to be built by youself."
 read source_dir
 export source_dir=$source_dir
-echo_sh "dir: $script_dir"
-echo_sh "System: $(uname)"
+echo_info "dir: $script_dir"
+echo_info "System: $(uname)"
 
 mkdir -p ~/.cache > /dev/null 2>&1
 mkdir -p ~/.local/bin > /dev/null 2>&1
@@ -33,7 +33,6 @@ Any applications were not been initialized., such as \`mysql\`, \`postgresql\` a
 "
 
 # unset var and function
-unset -f echo_sh
 unset -f echo_warn
 unset -f echo_info
 unset -f echo_note

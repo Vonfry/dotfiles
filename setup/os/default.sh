@@ -1,3 +1,4 @@
+echo_info "* system"
 case "$(unname)" in
     "Darwin")
         $runscript $script_dir/setup/os/macos.sh

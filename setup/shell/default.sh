@@ -1,4 +1,4 @@
-echo_info "** shell var"
+echo_info "* shell"
 
 export config_defvar_file=$script_dir/config/shell/defvar.sh
 cp $script_dir/config/shell/defvar.sh.example $config_defvar_file
@@ -8,7 +8,7 @@ if [ -d $HOME/dotfiles ]; then
     ln -s $script_dir $HOME/dotfiles
 fi
 
-echo_note "-- Input a path where you will save libs those you downloaded. The path will be saved into a var named
+echo_note "--- Input a path where you will save libs those you downloaded. The path will be saved into a var named
 CLONE_LIB which define in $script_dir/config/shell/defvar.sh"
 read clone_lib_dir
 sed -i s/<clone-lib>/$clone_lib_dir $config_defvar_file

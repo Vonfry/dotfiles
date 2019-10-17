@@ -1,5 +1,4 @@
-echo_info "* system is NixOS"
-echo_info "** Nix"
+echo_info "* system packages: Nix"
 sudo nixos-generate-config
 sudo cp -r $script_dir/etc/nixos/vonfry /etc/nixos/
 find . -name "*.local.nix.example" |
@@ -29,4 +28,4 @@ mkdir -p ~/.config/nixpkgs
 ln -s -f $script_dir/config/nix/* ~/.config/nix
 ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
 curl https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -O ~/.config/bgm.png
-echo_info "--- Run fcitx-configtool to config."
+echo_info "-- Run fcitx-configtool to config."
