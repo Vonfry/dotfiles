@@ -24,7 +24,7 @@ with pkgs; [
 
   pythonPkgs
 
-  ruby bundler bundix ## rbenv; not! use nix instead.
+  ruby bundix ## rbenv; not! use nix instead.
   rubyPkgs
 
   doxygen
