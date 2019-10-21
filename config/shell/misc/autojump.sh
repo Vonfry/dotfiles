@@ -9,11 +9,9 @@ elif [ -n "${version}" ]; then
 else
     shell=$(echo ${SHELL} | awk -F/ '{ print $NF }')
 fi
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-if   [ -f ~/.fzf.zsh ]; then
-    source ~/.fzf.zsh
+if [ -f /usr/local/etc/profile.d/autojump.sh ]; then
+    source /usr/local/etc/profile.d/autojump.sh
 elif [ $ID == nixos ]; then
-    fd /.*\\.$shell/ $(nix-store --quiet --quiet -r $(which fzf))/share/fzf | parallel source
+    source $(nix-store --quiet --quiet -r $(which autojump))/share/autojump/autojump.$shell
 fi
 unset shell
