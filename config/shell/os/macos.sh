@@ -170,9 +170,5 @@ else
     done
 fi
 
-# autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
 # nix
-source $HOME/.nix-profile/etc/profile.d/nix.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -L  $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh
