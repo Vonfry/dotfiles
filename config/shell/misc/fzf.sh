@@ -14,7 +14,6 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 if   [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
 elif [ $ID == nixos ]; then
-    echo $ID
     for f in $(nix-store --quiet --quiet -r $(which fzf))/share/fzf/*.$shell; do
         source $f
     done
