@@ -20,6 +20,7 @@ with pkgs; [
   hie
 
   rustup
+  carnix
   rls
 
   pythonPkgs
