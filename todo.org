@@ -22,8 +22,7 @@
 ** DONE Python
 
 * Shell
-** ZSH[/]
-   - [ ] use rossmacarthur/sheldon instead of zplug
+** ZSH
 
 * Tools
 ** DONE Nix
