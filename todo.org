@@ -1,8 +1,6 @@
 * System
-** NixOS [1/1]
-    - [X] fix collision between ruby and rls packages
-*** TODO X [2/3]
-    CLOSED: [2019-02-09 六 17:17]
+** NixOS
+*** X [2/3]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
@@ -12,24 +10,19 @@
 
 * Editor
 ** Vim
-*** NeoVim
-** Emacs [4/4]
-    - [X] python-mode keybind
-    - [X] eglot and project.el or lsp?
-    - [X] flycheck +or flymake+
-    - [X] projectile update error
-** LSP [6/6]
-   - [X] Haskell
-   - [X] CC
-   - [X] Javascript
-   - [X] Python
-   - [X] Ruby
-   - [X] Rust
+*** DONE NeoVim
+** DONE Emacs
+** DONE LSP
 
 * Language
+** DONE Haskell
+** DONE CC
 ** DONE Rust
+** DONE Ruby
+** DONE Python
+
+* Shell
+** ZSH
 
 * Tools
 ** DONE Nix
-** DONE Haskell[1/1]
-    - [X] dHall
