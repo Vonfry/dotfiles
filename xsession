@@ -1,3 +1,3 @@
 source $HOME/.zprofile
-feh --bg-center ~/.config/bgm.png
+feh --bg-center ~/.config/bg.png
 xmonad
