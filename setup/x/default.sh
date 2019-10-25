@@ -12,3 +12,6 @@ fi
 
 mkdir -p ~/.config/alacritty
 ln -s -f $script_dir/config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+curl https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -O ~/.config/bg.png
+ln -s ~/.config/bg.png ~/.face.icon
