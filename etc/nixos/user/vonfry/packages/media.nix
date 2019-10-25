@@ -10,4 +10,5 @@ with pkgs; [
   inkscape
   gimp
   mupdf
+  qbittorrent
 ]
