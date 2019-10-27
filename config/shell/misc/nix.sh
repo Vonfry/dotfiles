@@ -1,5 +1,5 @@
 is_eval_nix_path=0
-if [ $ID == nixos ]; then
+if [[ -n $ID && $ID == nixos ]]; then
     is_eval_nix_path=1
     if [[ ! $(ls -al ~/.nix-profile) =~ /nix/var/nix/profiles/per-users/$USER/profiles ]]; then
         rm ~/.nix-profile

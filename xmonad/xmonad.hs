@@ -10,6 +10,7 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Man
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
+import XMonad.Layout.Column
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
@@ -106,11 +107,14 @@ myLayout = beforeLayouts layouts
                 , fontName            = myFontCJK
                 , decoHeight          = 24
                 })
+        ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
-        ||| renamed [ Replace "Grid"      ] Grid
+        ||| renamed [ Replace "Column"    ] column
+        ||| renamed [ Replace "MColumn"   ] (Mirror column)
         ||| renamed [ Replace "Full"      ] Full
     tiled = Tall 1 (3/100) (1/2)
+    column = Column 1
     beforeLayouts = showWName . hiddenWindows
 
 myDef = def
