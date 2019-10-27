@@ -40,6 +40,7 @@ myGSConfS = def
     { gs_font = myFont
     }
 
+
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
@@ -82,11 +83,13 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
 
     , ((modm, xK_semicolon), runSelectedAction myGSConfS
-        [ ("Tab"   , sendMessage $ JumpToLayout "Tab"   )
-        , ("Tiled" , sendMessage $ JumpToLayout "Tiled" )
-        , ("MTiled", sendMessage $ JumpToLayout "MTiled")
-        , ("Grid"  , sendMessage $ JumpToLayout "Grid"  )
-        , ("Full"  , sendMessage $ JumpToLayout "Full"  )
+        [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
+        , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
+        , ("Tiled"   , sendMessage $ JumpToLayout "Tiled"   )
+        , ("MTiled"  , sendMessage $ JumpToLayout "MTiled"  )
+        , ("Column"  , sendMessage $ JumpToLayout "Column"  )
+        , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
+        , ("Full"    , sendMessage $ JumpToLayout "Full"    )
         ]
       )
     , ((modm, xK_p), pasteSelection)
@@ -98,12 +101,12 @@ myLayout = beforeLayouts layouts
   where
     layouts =
             renamed [ Replace "Tab" ] (noBorders $ tabbed shrinkText def
-                { inactiveBorderColor = "#586e75" -- solarized base01
-                , activeBorderColor   = "#586e75" -- solarized base01
-                , inactiveTextColor   = "#586e75" -- solarized base01
-                , activeTextColor     = "#ffffff" -- solarized white
-                , inactiveColor       = "#073642" -- solarized base02
-                , activeColor         = "#b58900" -- solarized yellow
+                { inactiveBorderColor = solarizedBase01
+                , activeBorderColor   = solarizedBase01
+                , inactiveTextColor   = solarizedBase01
+                , activeTextColor     = solarizedBase00
+                , inactiveColor       = solarizedBase02
+                , activeColor         = solarizedYellow
                 , fontName            = myFontCJK
                 , decoHeight          = 24
                 })
@@ -123,8 +126,25 @@ myDef = def
     , keys               = myKeys <+> keys def
     , layoutHook         = myLayout
     , focusFollowsMouse  = False
-    , focusedBorderColor = "#268bd2" -- solarized blue
-    , normalBorderColor  = "#073642" -- solarized base03
+    , focusedBorderColor = solarizedViolet
+    , normalBorderColor  = solarizedBlue
     }
+
+solarizedBase03  = "#002b36"
+solarizedBase02  = "#073642"
+solarizedBase01  = "#586e75"
+solarizedBase00  = "#657b83"
+solarizedBase0   = "#839496"
+solarizedBase1   = "#93a1a1"
+solarizedBase2   = "#eee8d5"
+solarizedBase3   = "#fdf6e3"
+solarizedYellow  = "#b58900"
+solarizedOrange  = "#cb4b16"
+solarizedRed     = "#dc322f"
+solarizedMagenta = "#d33682"
+solarizedViolet  = "#6c71c4"
+solarizedBlue    = "#268bd2"
+solarizedCyan    = "#2aa198"
+solarizedGreen   = "#859900"
 
 main = xmonad myDef
