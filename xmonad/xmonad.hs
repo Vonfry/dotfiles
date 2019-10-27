@@ -82,11 +82,13 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
 
     , ((modm, xK_semicolon), runSelectedAction myGSConfS
-        [ ("Tab"   , sendMessage $ JumpToLayout "Tab"   )
-        , ("Tiled" , sendMessage $ JumpToLayout "Tiled" )
-        , ("MTiled", sendMessage $ JumpToLayout "MTiled")
-        , ("Grid"  , sendMessage $ JumpToLayout "Grid"  )
-        , ("Full"  , sendMessage $ JumpToLayout "Full"  )
+        [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
+        , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
+        , ("Tiled"   , sendMessage $ JumpToLayout "Tiled"   )
+        , ("MTiled"  , sendMessage $ JumpToLayout "MTiled"  )
+        , ("Column"  , sendMessage $ JumpToLayout "Column"  )
+        , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
+        , ("Full"    , sendMessage $ JumpToLayout "Full"    )
         ]
       )
     , ((modm, xK_p), pasteSelection)
