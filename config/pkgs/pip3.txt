@@ -4,14 +4,8 @@ wheel
 
 ipython
 
-# code complete and check
-python-language-server[all]
-
-
 # tools
-httpstat
 neovim
-asciinema
 
 # math with ipython
 scipy
