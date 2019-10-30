@@ -84,12 +84,12 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
 
     , ((modm, xK_semicolon), runSelectedAction myGSConfS
         [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
-        , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
         , ("Tiled"   , sendMessage $ JumpToLayout "Tiled"   )
-        , ("MTiled"  , sendMessage $ JumpToLayout "MTiled"  )
         , ("Column"  , sendMessage $ JumpToLayout "Column"  )
-        , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
+        , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
         , ("Full"    , sendMessage $ JumpToLayout "Full"    )
+        , ("MTiled"  , sendMessage $ JumpToLayout "MTiled"  )
+        , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
         ]
       )
     , ((modm, xK_p), pasteSelection)

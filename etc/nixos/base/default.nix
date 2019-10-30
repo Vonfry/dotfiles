@@ -21,10 +21,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   nix.optimise.automatic = true;
-  services = {
-    syslog-ng.enable = true;
-    logrotate.enable = true;
-  };
 
   imports =
     [ ./unmask.nix
@@ -34,5 +30,6 @@
       ./nix.nix
       ./font.nix
       ./sound.nix
+      ./log.nix
     ];
 }
