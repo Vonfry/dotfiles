@@ -12,7 +12,6 @@
   (org-log-done 'time)
   (todo-directory vonfry-org-dir)
   (todo-default-todo-file "todo.org")
-  (org-display-custom-times t)
   :config
   (org-clock-persistence-insinuate))
 
