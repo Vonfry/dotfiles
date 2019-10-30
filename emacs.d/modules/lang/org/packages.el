@@ -13,7 +13,6 @@
   (todo-directory vonfry-org-dir)
   (todo-default-todo-file "todo.org")
   (org-display-custom-times t)
-  (org-time-stamp-custom-formats '("<%Y-%m-%d %Z>" . "<%Y-%m-%d %H:%M:%S %z>"))
   :config
   (org-clock-persistence-insinuate))
 
