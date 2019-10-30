@@ -5,3 +5,7 @@ echo "zshrc zlogin zprofile zprezto zshenv" | xargs -n1 -I '{}' echo ln -f -s $s
 chsh -s $(which zsh)
 zplug install
 parallel --citation
+
+if command -v op > /dev/null 2>&1; then
+    echo_note "--- run \"op signup my.1password.com <email> <secret-key>\" to signup 1password"
+fi
