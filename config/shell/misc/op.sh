@@ -9,7 +9,7 @@ if command -v op > /dev/null 2>&1; then
     function op-format()
     {
         # read -E is zsh only
-        read -E | python -m json.tool | rougify highlight json
+        read -E | python -m json.tool | rougify highlight --lexer jsonnet
     }
     alias opf=op-format
 fi
