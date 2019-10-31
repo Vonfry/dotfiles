@@ -5,7 +5,7 @@ if command -v op > /dev/null 2>&1; then
     {
         eval $(op signup my)
     }
-    alias osm=op-sign-my
+    alias opsm=op-sign-my
     function op-format()
     {
         # read -E is zsh only
@@ -13,4 +13,5 @@ if command -v op > /dev/null 2>&1; then
     }
     alias opf=op-format
     alias opgi="op get item"
+    alias opp="op-get-password-from-json"
 fi
