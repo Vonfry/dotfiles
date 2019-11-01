@@ -3,7 +3,8 @@
 if command -v op > /dev/null 2>&1; then
     functino op-sign-my()
     {
-        eval $(op signup my)
+        op signin my > $SHELL_CUSTOM_DIR_LOCAL/op.sh
+        source $SHELL_CUSTOM_DIR_LOCAL/op.sh
     }
     alias opsm=op-sign-my
     function op-format()
