@@ -9,6 +9,6 @@ with pkgs; [
   libsForQt5.vlc
   inkscape
   gimp
-  mupdf
   qbittorrent
+  qpdfview
 ]

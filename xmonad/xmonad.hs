@@ -45,12 +45,14 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                                          )
-        , ("freenode"   , spawn "alacritty -e weechat -r \"/connect freenode\"" )
-        , ("mutt"       , spawn "alacritty -e mutt"                             )
+        , ("libreoffice", spawn "libreoffice"                                   )
+        , ("qpdfview"   , spawn "qpdfview"                                      )
         , ("chromium"   , spawn "chromium"                                      )
         , ("virtualbox" , spawn "VirtualBox"                                    )
-        , ("pcloud"     , spawn "appimage-run $APPIMAGE_APP_DIR/pcloud"         )
         , ("telegram"   , spawn "telegram-desktop"                              )
+        , ("pcloud"     , spawn "appimage-run $APPIMAGE_APP_DIR/pcloud"         )
+        , ("freenode"   , spawn "alacritty -e weechat -r \"/connect freenode\"" )
+        , ("mutt"       , spawn "alacritty -e mutt"                             )
         ]
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
