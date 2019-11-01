@@ -8,7 +8,7 @@ with pkgs; [
   ranger
   parallel
   weechat
-  mutt msmtp offlineimap
+  msmtp offlineimap
   googler
   lolcat
   fortune cmatrix figlet
