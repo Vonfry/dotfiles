@@ -11,4 +11,5 @@ with pkgs; [
   gimp
   mupdf
   qbittorrent
+  qpdfview
 ]
