@@ -2,13 +2,17 @@
 
 {
   fonts = {
-    fonts = with pkgs; [ hack-font source-han-sans-simplified-chinese ];
+    fonts = with pkgs; [
+      hack-font
+      source-han-sans-simplified-chinese
+      fira-code-symbols
+    ];
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Hack" ];
-	sansSerif = [ "Source Han Sans CN" ];
-	serif = [];
+        monospace = [ "Hack" "Fira Code Symbol" ];
+	    sansSerif = [ "Source Han Sans CN" ];
+	    serif = [];
       };
     };
   };
