@@ -48,7 +48,6 @@
   '(buffers-menu-max-size 32)
   '(column-number-mode t)
   '(global-linum-mode t)
-  '(global-prettify-symbols-mode t)
   '(show-trailing-whitespace t)
   '(global-whitespace-modes t)
   '(case-fold-search t)
