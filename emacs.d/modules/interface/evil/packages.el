@@ -7,14 +7,16 @@
   (fset 'evil-visual-update-x-selection 'ignore)
   :custom
   (evil-shift-width 4)
+  (evil-search-module 'evil-search)
   :general
   (nmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
   (nmap :prefix +nmap-leader
-        +nmap-align    'align-regexp
-        +nmap-terminal 'eshell
-        +nmap-repl     'comint-run)) ;; send to buff by using `append-to-buffer`
+        +nmap-align     'align-regexp
+        +nmap-terminal  'eshell
+        +nmap-highlight 'evil-ex-nohighlight
+        +nmap-repl      'comint-run)) ;; send to buff by using `append-to-buffer`
 
 (package! evil-goggles
   :after evil

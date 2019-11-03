@@ -4,8 +4,7 @@
 (package! hl-todo
   :hook (prog-mode . hl-todo-mode)
   :general
-  (nmap :prefix +nmap-hl-todo-prefix
-        ""  '(nil :which-key "hl-todo")
+  (nmap :prefix (concat +nmap-leader +nmap-todo)
         "p" 'hl-todo-previous
         "n" 'hl-todo-next
         "o" 'hl-todo-occur))
