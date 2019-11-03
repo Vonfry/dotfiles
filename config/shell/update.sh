@@ -23,7 +23,7 @@ update_epoch_file=$SHELL_CUSTOM_DIR/local/.update_epoch
 need_update=1
 if [ -f $update_epoch_file ]; then
     read last_update < $update_epoch_file
-    during_last_update=$(($(_current_epoch) - $last_update))
+    during_last_update=$(($(_current_epoch --tz) - $last_update))
     if [ $during_last_update -ge $UPDATE_INTERVAL ]; then
        need_update=0
     fi

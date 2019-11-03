@@ -1,6 +1,16 @@
 function _current_epoch()
 {
-   echo $(($(date +%s) / 60 / 60 / 24))
+    epoch=$(date +%s)
+    per_day_sec=$((60 * 60 * 24))
+    if [[ -n $1 && $1 = "--tz" ]]; then
+        tz=$(date +%z)
+        tz_hour=$((tz / 100))
+        tz_min=$((tz % 100))
+        tz_adjust=$((($tz_hour * 60 + $tz_min) * 60 ))
+        echo $((($epoch +  $tz_adjust) / $per_day_sec))
+    else
+        echo $(($epoch / $per_day_sec))
+    fi
 }
 
 function _remove_from_variable()
