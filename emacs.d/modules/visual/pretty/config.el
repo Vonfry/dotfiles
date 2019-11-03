@@ -1,59 +1,198 @@
 ;;; pretty config -*- lexical-binding: t -*-
+;; A copy from doom-emacs
+;; https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/pretty-code/config.el
 ;;
 
-(defun fira-code-mode--make-alist (list)
-  "Generate prettify-symbols alist from LIST."
-  (let ((idx -1))
-    (mapcar
-     (lambda (s)
-       (setq idx (1+ idx))
-       (let* ((code (+ #Xe100 idx))
-          (width (string-width s))
-          (prefix ())
-          (suffix '(?\s (Br . Br)))
-          (n 1))
-     (while (< n width)
-       (setq prefix (append prefix '(?\s (Br . Bl))))
-       (setq n (1+ n)))
-     (cons s (append prefix suffix (list (decode-char 'ucs code))))))
-     list)))
+(defvar +pretty-code-symbols
+  '(;; org
+    :name          "»"
+    :src_block     "»"
+    :src_block_end "«"
+    ;; Functional
+    :lambda        "λ"
+    :def           "ƒ"
+    :composition   "∘"
+    :map           "↦"
+    ;; Types
+    :null          "∅"
+    :true          "𝕋"
+    :false         "𝔽"
+    :int           "ℤ"
+    :float         "ℝ"
+    :str           "𝕊"
+    :bool          "𝔹"
+    ;; Flow
+    :not           "￢"
+    :in            "∈"
+    :not-in        "∉"
+    :and           "∧"
+    :or            "∨"
+    :for           "∀"
+    :some          "∃"
+    :return        "⟼"
+    :yield         "⟻"
+    ;; Other
+    :tuple         "⨂"
+    :pipe          "" ;; FIXME: find a non-private char
+    :dot           "•")
+  "Options plist for `set-pretty-symbols!'.
 
-(defconst fira-code-mode--ligatures
-  '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-    "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
-    "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-    "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-    ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-    "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-    "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-    "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-    ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-    "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-    "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-    "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-    "x" ":" "+" "+" "*"))
+This should not contain any symbols from the Unicode Private Area! There is no
+universal way of getting the correct symbol as that area varies from font to
+font.")
 
-(defvar fira-code-mode--old-prettify-alist)
 
-(defun fira-code-mode--enable ()
-  "Enable Fira Code ligatures in current buffer."
-  (setq-local fira-code-mode--old-prettify-alist prettify-symbols-alist)
-  (setq-local prettify-symbols-alist (append (fira-code-mode--make-alist fira-code-mode--ligatures) fira-code-mode--old-prettify-alist))
-  (prettify-symbols-mode t))
+(defun +pretty-code--correct-symbol-bounds (ligature-alist)
+  "Prepend non-breaking spaces to a ligature.
+This way `compose-region' (called by `prettify-symbols-mode') will use the
+correct width of the symbols instead of the width measured by `char-width'."
+  (let ((len (length (car ligature-alist)))
+        (acc (list   (cdr ligature-alist))))
+    (while (> len 1)
+      (setq acc (cons #X00a0 (cons '(Br . Bl) acc))
+            len (1- len)))
+    (cons (car ligature-alist) acc)))
 
-(defun fira-code-mode--disable ()
-  "Disable Fira Code ligatures in current buffer."
-  (setq-local prettify-symbols-alist fira-code-mode--old-prettify-alist)
-  (prettify-symbols-mode -1))
+(defvar +pretty-code-enabled-modes t
+  "List of major modes in which `prettify-symbols-mode' should be enabled.
+If t, enable it everywhere. If the first element is 'not, enable it in any mode
+besides what is listed.")
 
-(define-minor-mode fira-code-mode
-  "Fira Code ligatures minor mode"
-  :lighter " Fira Code"
-  (setq-local prettify-symbols-unprettify-at-point 'right-edge)
-  (if fira-code-mode
-      (fira-code-mode--enable)
-    (fira-code-mode--disable)))
+(defun +pretty-code-init-pretty-symbols-h ()
+  "Enable `prettify-symbols-mode'.
+If in fundamental-mode, or a mode derived from special, comint, eshell or term
+modes, this function does nothing.
+Otherwise it builds `prettify-code-symbols-alist' according to
+`+pretty-code-symbols-alist' for the current major-mode."
+  (unless (or (eq major-mode 'fundamental-mode)
+              (eq (get major-mode 'mode-class) 'special)
+              (derived-mode-p 'comint-mode 'eshell-mode 'term-mode))
+    (when (or (eq +pretty-code-enabled-modes t)
+              (if (eq (car +pretty-code-enabled-modes) 'not)
+                  (not (memq major-mode (cdr +pretty-code-enabled-modes)))
+                (memq major-mode +pretty-code-enabled-modes)))
+      (setq prettify-symbols-alist
+            (append (cdr (assq major-mode +pretty-code-symbols-alist))
+                    (default-value 'prettify-symbols-alist)))
+      (when prettify-symbols-mode
+        (prettify-symbols-mode -1))
+      (prettify-symbols-mode +1))))
 
-(defun fira-code-mode--setup ()
-  "Setup Fira Code Symbols"
-  (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol"))
+(defvar +pretty-code-fira-code-font-name "Fira Code Symbol"
+  "Name of the fira code ligature font.")
+
+(defvar +pretty-code-fira-code-font-ligatures
+  '(("www"    . #Xe100)
+    ("**"     . #Xe101)
+    ("***"    . #Xe102)
+    ("**/"    . #Xe103)
+    ("*>"     . #Xe104)
+    ("*/"     . #Xe105)
+    ("\\\\"   . #Xe106)
+    ("\\\\\\" . #Xe107)
+    ("{-"     . #Xe108)
+    ("[]"     . #Xe109)
+    ("::"     . #Xe10a)
+    (":::"    . #Xe10b)
+    (":="     . #Xe10c)
+    ("!!"     . #Xe10d)
+    ("!="     . #Xe10e)
+    ("!=="    . #Xe10f)
+    ("-}"     . #Xe110)
+    ("--"     . #Xe111)
+    ("---"    . #Xe112)
+    ("-->"    . #Xe113)
+    ("->"     . #Xe114)
+    ("->>"    . #Xe115)
+    ("-<"     . #Xe116)
+    ("-<<"    . #Xe117)
+    ("-~"     . #Xe118)
+    ("#{"     . #Xe119)
+    ("#["     . #Xe11a)
+    ("##"     . #Xe11b)
+    ("###"    . #Xe11c)
+    ("####"   . #Xe11d)
+    ("#("     . #Xe11e)
+    ("#?"     . #Xe11f)
+    ("#_"     . #Xe120)
+    ("#_("    . #Xe121)
+    (".-"     . #Xe122)
+    (".="     . #Xe123)
+    (".."     . #Xe124)
+    ("..<"    . #Xe125)
+    ("..."    . #Xe126)
+    ("?="     . #Xe127)
+    ("??"     . #Xe128)
+    (";;"     . #Xe129)
+    ("/*"     . #Xe12a)
+    ("/**"    . #Xe12b)
+    ("/="     . #Xe12c)
+    ("/=="    . #Xe12d)
+    ("/>"     . #Xe12e)
+    ("//"     . #Xe12f)
+    ("///"    . #Xe130)
+    ("&&"     . #Xe131)
+    ("||"     . #Xe132)
+    ("||="    . #Xe133)
+    ("|="     . #Xe134)
+    ("|>"     . #Xe135)
+    ("^="     . #Xe136)
+    ("$>"     . #Xe137)
+    ("++"     . #Xe138)
+    ("+++"    . #Xe139)
+    ("+>"     . #Xe13a)
+    ("=:="    . #Xe13b)
+    ("=="     . #Xe13c)
+    ("==="    . #Xe13d)
+    ("==>"    . #Xe13e)
+    ("=>"     . #Xe13f)
+    ("=>>"    . #Xe140)
+    ("<="     . #Xe141)
+    ("=<<"    . #Xe142)
+    ("=/="    . #Xe143)
+    (">-"     . #Xe144)
+    (">="     . #Xe145)
+    (">=>"    . #Xe146)
+    (">>"     . #Xe147)
+    (">>-"    . #Xe148)
+    (">>="    . #Xe149)
+    (">>>"    . #Xe14a)
+    ("<*"     . #Xe14b)
+    ("<*>"    . #Xe14c)
+    ("<|"     . #Xe14d)
+    ("<|>"    . #Xe14e)
+    ("<$"     . #Xe14f)
+    ("<$>"    . #Xe150)
+    ("<!--"   . #Xe151)
+    ("<-"     . #Xe152)
+    ("<--"    . #Xe153)
+    ("<->"    . #Xe154)
+    ("<+"     . #Xe155)
+    ("<+>"    . #Xe156)
+    ("<="     . #Xe157)
+    ("<=="    . #Xe158)
+    ("<=>"    . #Xe159)
+    ("<=<"    . #Xe15a)
+    ("<>"     . #Xe15b)
+    ("<<"     . #Xe15c)
+    ("<<-"    . #Xe15d)
+    ("<<="    . #Xe15e)
+    ("<<<"    . #Xe15f)
+    ("<~"     . #Xe160)
+    ("<~~"    . #Xe161)
+    ("</"     . #Xe162)
+    ("</>"    . #Xe163)
+    ("~@"     . #Xe164)
+    ("~-"     . #Xe165)
+    ("~="     . #Xe166)
+    ("~>"     . #Xe167)
+    ("~~"     . #Xe168)
+    ("~~>"    . #Xe169)
+    ("%%"     . #Xe16a)))
+
+(defun +pretty-code-setup-fira-ligatures-h ()
+  (set-fontset-font t '(#Xe100 . #Xe16f) +pretty-code-fira-code-font-name)
+  (setq-default prettify-symbols-alist
+                (append prettify-symbols-alist
+                        (mapcar #'+pretty-code--correct-symbol-bounds
+                                +pretty-code-fira-code-font-ligatures))))
