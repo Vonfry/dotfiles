@@ -76,8 +76,7 @@ is undefined(It always is loaded by alpha order)."
 ;;
 (defalias #'vonfry/list-packages         #'paradox-list-packages)
 (defalias #'vonfry/install-packages      #'package-install)
-(defalias #'vonfry/update-packages-maybe #'auto-package-update-maybe)
-(defalias #'vonfry/update-packages-now   #'auto-package-update-now)
+(defalias #'vonfry/update-packages   #'paradox-upgrade-packages)
 
 (defun vonfry--package! (pkg &optional min-version no-refresh)
   "Define packages dependence and install it.
@@ -105,13 +104,6 @@ is undefined(It always is loaded by alpha order)."
 (package! paradox :config (paradox-enable))
 (package! diminish)
 (package! dash)
-(package! auto-package-update
-  :custom
-  (auto-package-update-delete-old-versions t)
-  (auto-package-update-last-update-day-filename (expand-file-name "last-package-update-day" vonfry-cache-dir))
-  (auto-package-update-hide-results t)
-  :config
-  (auto-package-update-maybe))
 (package! auto-compile
   :custom
   (load-prefer-newer t)
@@ -141,7 +133,7 @@ is undefined(It always is loaded by alpha order)."
 
   (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
          (file-path (expand-file-name file module-dir)))
-    (load file-path t)))
+    (load file-path t t)))
 
 (defun vonfry-load-module-packages (module-name)
   (vonfry-load-module module-name "packages"))
