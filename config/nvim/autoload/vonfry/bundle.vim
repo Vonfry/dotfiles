@@ -94,7 +94,6 @@ function! vonfry#bundle#use()
     for bundle in g:vonfry#bundle#default
         exec 'call vonfry#bundle#' . bundle . '#config()'
     endfor
-    autocmd VimEnter * call vonfry#bundle#update()
 endfunction
 
 function! vonfry#bundle#install()
@@ -107,19 +106,6 @@ function! vonfry#bundle#install()
 endfunction
 
 function! vonfry#bundle#update()
-    call vonfry#bundle#update_maybe()
-endfunction
-
-function! vonfry#bundle#update_maybe()
-    let l:cdate = localtime()
-    let l:ldate = getftime(g:vonfry#bundle#last_update_file)
-    let l:delta =  (l:cdate - l:ldate) / 60 / 60 / 24
-    if l:delta >= 7 || l:ldate == -1
-        call vonfry#bundle#update_now()
-    endif
-endfunction
-
-function! vonfry#bundle#update_now()
     call dein#update()
     call writefile([localtime()], g:vonfry#bundle#last_update_file)
 endfunction

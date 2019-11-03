@@ -36,7 +36,7 @@
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
   (nmap :prefix (concat +nmap-leader +nmap-todo)
-        "" '(nil :which-key "org-projectile")
+        "" '(nil :which-key "todo highlight")
         "," 'org-projectile-project-todo-completing-read
         "." 'org-projectile-goto-location-for-project)
   :hook
