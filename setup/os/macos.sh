@@ -81,6 +81,7 @@ brew cask install deluge # torrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
+brew cask install amethyst
 
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
