@@ -4,5 +4,6 @@ if ! [ -f /etc/NIXOS ]; then
   $SHELL $SHELL_CUSTOM_DIR/update/pkgs/nix.sh
   $SHELL $SHELL_CUSTOM_DIR/update/pkgs/ruby.sh
   $SHELL $SHELL_CUSTOM_DIR/update/pkgs/python.sh
+  $SHELL $SHELL_CUSTOM_DIR/update/pkgs/rust.sh
 fi
 $SHELL $SHELL_CUSTOM_DIR/update/pkgs/node.sh
