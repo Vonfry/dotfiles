@@ -7,7 +7,7 @@ gem "pry-rails"
 gem "solargraph"
 
 # tools
-gem "nokorigi"
+gem "nokogiri"
 gem "org-ruby"
 gem "rouge"
 gem "licensee"
