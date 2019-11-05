@@ -7,4 +7,3 @@ sed -i "s:<dotfiles-pkgs-dir>:$script_dir/config/pkgs"      $config_defvar_file
 sed -i "s:<zplug-home>:$HOME/.local/src/zplug"              $config_defvar_file
 sed -i "s:<clouddisk-dir>:$clouddisk_dir"                   $config_defvar_file
 sed -i "s:<update-interval>:7"                              $config_defvar_file
-sed -i "s:<appimage-app-dir>:$HOME/.local/appimage"         $config_defvar_file
