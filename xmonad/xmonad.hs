@@ -50,7 +50,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , ("chromium"   , spawn "chromium"                                      )
         , ("virtualbox" , spawn "VirtualBox"                                    )
         , ("telegram"   , spawn "telegram-desktop"                              )
-        , ("pcloud"     , spawn "appimage-run $APPIMAGE_APP_DIR/pcloud"         )
         , ("freenode"   , spawn "alacritty -e weechat -r \"/connect freenode\"" )
         , ("mutt"       , spawn "alacritty -e mutt"                             )
         ]
