@@ -2,6 +2,10 @@
 
 appimage-run.override {
   extraPkgs = pkgs: with pkgs; [
-    fuse # used by pcloud
+    # pcloud
+    fuse
+    glib
+    gtk3
+    gsettings-desktop-schemas
   ];
 }
