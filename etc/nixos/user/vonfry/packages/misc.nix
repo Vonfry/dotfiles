@@ -6,4 +6,5 @@ in with pkgs; [
   tdesktop
   appimage-run-with-extra
   _1password
+  syncthing
 ]
