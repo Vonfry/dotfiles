@@ -75,9 +75,9 @@ brew cask install emacs-mac
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
+brew reinstall syncthing
 brew cask install iina # video
-brew reinstall axel # http download
-brew cask install deluge # torrent
+brew cask install qbittorrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text

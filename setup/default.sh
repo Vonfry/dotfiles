@@ -6,7 +6,7 @@ function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 
 export current_dir=$(pwd)
 export script_dir=$( cd "$( dirname "$0" )/.." && pwd )
-export clouddisk_dir="$HOME/pCloud"
+export clouddisk_dir="$HOME/cloud"
 echo_note "Input a path that where to save the third lib or tools needing to be built by youself."
 read source_dir
 export source_dir=$source_dir
