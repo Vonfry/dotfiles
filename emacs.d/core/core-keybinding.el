@@ -46,7 +46,7 @@
 (defconst +nmap-go-prompt "["
   "go to file or module with a prompt to search it. It is similiar to imenu.")
 
-(defconst +nmap-pop-complete "&"
+(defconst +nmap-pop-complete "!"
   "pop a complete in min buffer or virtual window.")
 
 (defconst +nmap-code-help "?"

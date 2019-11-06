@@ -25,4 +25,6 @@
 ** ZSH
 
 * Tools
-** DONE Nix
+** Nix
+*** TODO lorri instead of nix-shell
+*** TODO niv?

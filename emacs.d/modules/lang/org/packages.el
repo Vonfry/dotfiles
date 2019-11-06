@@ -12,11 +12,9 @@
   (org-log-done 'time)
   (todo-directory vonfry-org-dir)
   (todo-default-todo-file "todo.org")
+  (org-refile-targets +org-refile-targets)
   :config
   (org-clock-persistence-insinuate))
-
-(package! ob-ipython :after org)
-(package! ob-http :after org)
 
 (package! org-bullets
   :after org
@@ -41,8 +39,7 @@
   (org-brain-title-max-length 16)
   :config
   (with-eval-after-load 'evil
-    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
-  (push '("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1) +org-capture-templates))
+    (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
 
 (package! org-agenda
   :ensure nil
