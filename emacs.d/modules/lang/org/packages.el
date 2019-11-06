@@ -12,6 +12,7 @@
   (org-log-done 'time)
   (todo-directory vonfry-org-dir)
   (todo-default-todo-file "todo.org")
+  (org-refile-targets +org-refile-targets)
   :config
   (org-clock-persistence-insinuate))
 

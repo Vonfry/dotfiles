@@ -18,7 +18,7 @@
   '(("c" "capture to inbox, refile later" entry (file+headline +org-capture-file "Tasks")
      "\n** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
     ("i" "capture to inbox, refile later" entry (file+headline +org-capture-file "Ideals")
-     "\n** %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n" :empty-lines 1)
+     "\n** %?\n:PROPERTIES:\n:CREATED: %U\n\n" :empty-lines 1)
     ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1))
   "org capture templates")
 
