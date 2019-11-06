@@ -75,7 +75,7 @@ brew cask install emacs-mac
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
-brew cask install syncthing
+brew reinstall syncthing
 brew cask install iina # video
 brew cask install qbittorrent
 brew cask install intel-power-gadget # cpu monitor
