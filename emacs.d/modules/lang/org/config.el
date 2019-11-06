@@ -38,9 +38,19 @@
       '((gtd-file :maxlevel . 3)
         (someday-file :level . 1))))
 
+(load (expand-file-name "agenda/custom" vonfry-org-dir) t t)
 (defconst +org-agenda-custom-commands
-  '((":d" "Categoriy: dev" tags-todo "dev"
-     ((org-agenda-overriding-header "Dev")))
-    ("@hs" "Context: haskell" tags-todo "@haskell"
-         ((org-agenda-overriding-header "Haskell")))))
+  (if (boundp 'vonfry--org-agenda-custom-tags)
+    (map
+      (lambda (m)
+        (let ((key   (-elem-index 0 m))
+              (desc  (-elem-index 1 m))
+              (tag   (-elem-index 2 m)))
+          `(,key ,desc tags-todo ,tag)
+        ))
+      vonfry--org-agenda-custom-tags)
+    vonfry--org-agenda-custom-tags
+    '((":d"  "Categoriy: dev"    tags-todo "dev")
+      ("@hs" "Context: haskell"  tags-todo "@haskell")))
+  "org agenda custom commands")
 
