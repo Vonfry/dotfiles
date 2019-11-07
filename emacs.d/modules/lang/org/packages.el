@@ -14,7 +14,10 @@
   (todo-default-todo-file "todo.org")
   (org-refile-targets +org-refile-targets)
   :config
-  (org-clock-persistence-insinuate))
+  (org-clock-persistence-insinuate)
+  :general
+  ("C-c C" 'org-capture-goto-target)
+  ("C-c a" 'org-agenda))
 
 (package! org-bullets
   :after org
