@@ -20,25 +20,23 @@
   (defconst vonfry--org-agenda-tags-m
     '((":d"  "Category: dev"     tags "dev"     )
       ("@hs" "Context: haskell"  tags "@haskell"))
-    "vonfry tags\nIt is a list of '(key desc tag).\nThe key start with ':' is category and start with '@' is context.\nCategory: number of ':' means the level of category.\nThe first level will be saved as a file."))
+    "vonfry tags\nIt is a list of '(key desc tag).\nThe key start with ':' is category and start with '@' is context.\nCategory: number of ':' means the level of category.\nFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda"))
 
 (let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
        (file-with-org   (lambda (f) (concat f ".org")))
-       (agenda-dir-with (lambda (f) (expand-file-name (funcall file-with-org f) (funcall org-dir-with "agenda/"))))
-       (note-dir-with   (lambda (f) (expand-file-name (funcall file-with-org f) (funcall org-dir-with "note/"  ))))
+       (agenda-dir      (funcall org-dir-with "agenda/"))
+       (agenda-dir-with (lambda (f) (expand-file-name (funcall file-with-org f) agenda-dir)))
+       (agenda-files    (directory-files agenda-dir t "^.*\\.org$"))
+       (note-dir        (funcall org-dir-with "notes/"))
+       (note-files      (directory-files note-dir   t "^.*\\.org$"))
+       (note-dir-with   (lambda (f) (expand-file-name (funcall file-with-org f) note-dir)))
        (get-key  (lambda (m) (nth 0 m)))
        (get-desc (lambda (m) (nth 1 m)))
        (get-tag  (lambda (m) (nth 2 m)))
-       (is-top-level-tag
-         (lambda (m)
-               (let ((k (funcall get-key m)))
-                 (and (string-prefix-p ":" k)
-                      (not (string-prefix-p "::" k))))))
-       (top-level-m (-filter is-top-level-tag vonfry--org-agenda-tags-m))
        (all-tags
-         (-map get-tag vonfry--org-agenda-tags-m))
-       (top-level-tags
-         (-map get-tag top-level-m)))
+         (-map get-tag vonfry--org-agenda-tags-m)))
+  (defconst +org-agenda-files agenda-files
+    "global agenda dir")
   (defconst +org-capture-templates
     (let ((default-templates
             '(("c" "capture to inbox, refile later" entry (file+headline +org-capture-file "Tasks")
@@ -48,19 +46,14 @@
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)))
           (agenda-templates
             (-map
-              (lambda (m)
-                (let* ((key  (funcall get-key  m))
-                       (desc (funcall get-desc m))
-                       (tag  (funcall get-tag  m))
-                       (key-no-colon (substring key 1 (length key))))
-                  `(,key-no-colon ,(concat "capture to " tag ", refile later") entry (file ,(funcall agenda-dir-with tag))
-                    ,(concat "\n* TODO %?\t:" tag ":\n:PROPERTIES:\n:CREATED: %U\n:END:\n") :empty-lines 1)))
-              top-level-m)))
+              (lambda (file-path)
+                (let* ((file-name (file-name-nondirectory file-path))
+                       (file-firstchar (substring file-name 0 1)))
+                  `(,file-firstchar ,(concat "capture to " file-name ", refile later") entry (file ,file-path)
+                    "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
+              agenda-files)))
       (append default-templates agenda-templates))
     "org capture templates")
-  (defconst +org-agenda-files
-    (-map agenda-dir-with top-level-tags)
-    "global agenda dir")
   (defconst +org-refile-targets
     (-map
       (lambda (f)
