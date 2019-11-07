@@ -1,6 +1,8 @@
 ;;; avy config -*- lexical-binding: t -*-
 ;;
 
-(defconst +nmap-avy-prefix
+(defcustom +nmap-avy-prefix
   (concat +nmap-leader +nmap-g)
-  "nmap avy prefix")
+  "nmap avy prefix"
+  :type 'string
+  :group 'vonfry-modules)

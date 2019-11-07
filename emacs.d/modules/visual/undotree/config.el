@@ -1,6 +1,8 @@
 ;;; undotree config -*- lexical-binding: t -*-
 ;;
 
-(defconst +undotree-history-directory
+(defcustom +undotree-history-directory
   (expand-file-name "undotree/" vonfry-cache-dir)
-  "undotree history directory")
+  "undotree history directory"
+  :type 'directory
+  :group 'vonfry-modules)

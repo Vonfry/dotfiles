@@ -1,6 +1,8 @@
 ;;; bm config -*- lexical-binding: t -*-
 ;;
 
-(defconst +bm-nmap-prefix
+(defcustom +bm-nmap-prefix
   (concat +nmap-leader +nmap-book-marks)
-  "bm keybind map")
+  "bm keybind map"
+  :type 'string
+  :group 'vonfry-modules)
