@@ -159,8 +159,8 @@ modules."
           (let ((module-name (concat module "/" submodule)))
             (unless (member  module-name exclude))
               (push module-name module-alist))))
-      (mapcar 'vonfry-load-module-config module-alist)
-      (mapcar 'vonfry-load-module-packages module-alist)
-      (mapcar 'vonfry-load-autoload module-alist)))
+      (-map 'vonfry-load-module-config   module-alist)
+      (-map 'vonfry-load-module-packages module-alist)
+      (-map 'vonfry-load-autoload        module-alist)))
 
 (provide 'core-packages)
