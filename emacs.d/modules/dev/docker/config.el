@@ -1,6 +1,8 @@
 ;;; docker config -*- lexical-binding: t -*-
 ;;
 
-(defconst +nmap-docker-prefix
+(defcustom +nmap-docker-prefix
   (concat +nmap-leader +nmap-virtual)
-  "docker nmap prefix")
+  "docker nmap prefix"
+  :type 'string
+  :group 'vonfry-modules)
