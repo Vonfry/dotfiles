@@ -51,7 +51,7 @@
                   0
                   ,(nth 1 cat-tag)
                   ,(nth 1 ctx-tag)))
-              `(,m ,l nil ,prefix-level nil nil))))
+              `(,m ,l nil ,prefix-level ,(nth 1 (nth 1 l)) ,(nth 1 (nth 2 l))))))
     (if is-top
       (-let* (((cat-subtag ctx-subtag) m)
               (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil cat-tag-sym 1))
@@ -60,7 +60,10 @@
       (-reduce-r-from
         (lambda (i c)
           (let ((l (let* ((tag (nth 0 i))
-                          (tag-name (nth 0 tag))
+                          (tag-name
+                            (if (string= prefix ctx-tag-sym))
+                              (concat prefix (nth 0 tag))
+                              (nth 0 tag))
                           (tag-abbr (nth 1 tag))
                           (tag-prefix (-reduce-from 'concat "" (-repeat prefix-level prefix)))
                           (l (cons (list tag-name (concat tag-prefix tag-abbr)) l)))
