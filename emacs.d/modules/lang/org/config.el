@@ -27,52 +27,89 @@
 
 (load +org-agenda-tags-file t t)
 
-(unless (boundp 'vonfry--org-agenda-tags-m)
-  (defcustom vonfry--org-agenda-tags-m
-    '((("gtd" "#")
-      ((("category" ":")
+(unless (boundp 'vonfry--org-tags-m)
+  (defcustom vonfry--org-tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (defcustom vonfry--org-tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (defcustom vonfry--org-tags-ctx-sym "@" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (defcustom vonfry--org-tags-m
+    `((("gtd" ,vonfry--org-tags-gtd-sym)
+       ((("category" ,vonfry--org-tags-cat-sym)
          ((("dev" "d"))))
-       (("context"  "@")
+        (("context"  ,vonfry--org-tags-ctx-sym)
          ((("haskell" "hs")))))))
     "vonfry tags\nIt is a list of '(((tag abbr) (subtags) (subtags) ...)).\nEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list. Each tag is a list, first element is the whole name, and second is a abbr name.\nThe key start with ':' is category and start with '@' is context.\nCategory: number of ':' means the level of category.\nFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda."
     :group 'vonfry-modules))
 
 (defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level)
-  "expend 'vonfry--org-agenda-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence."
-  (-let (((m l is-top prefix-level cat-tag-sym ctx-tag-sym)
+  "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence."
+  (-let (((m l is-top prefix-level)
             (if (not (or l prefix prefix-level))
               (-let* ((gtd (nth 0 m))
                       ((gtd-tag gtd-subtag) gtd)
+                      ((gtd-name gtd-sym) gtd-tag)
                       ((cat-tag cat-subtag) (nth 0 gtd-subtag))
-                      ((ctx-tag ctx-subtag) (nth 1 gtd-subtag)))
+                      ((cat-name cat-sym) cat-tag)
+                      ((ctx-tag ctx-subtag) (nth 1 gtd-subtag))
+                      ((ctx-name ctx-sym) ctx-tag))
                 `((,cat-subtag ,ctx-subtag)
-                  (,gtd-tag ,cat-tag ,ctx-tag)
+                  ((,(concat gtd-sym gtd-name) ,gtd-sym)
+                   (,(concat cat-sym cat-name) ,cat-sym)
+                   (,(concat ctx-sym ctx-name) ,ctx-sym))
                   t
-                  0
-                  ,(nth 1 cat-tag)
-                  ,(nth 1 ctx-tag)))
-              `(,m ,l nil ,prefix-level ,(nth 1 (nth 1 l)) ,(nth 1 (nth 2 l))))))
+                  0))
+              `(,m ,l nil ,prefix-level))))
     (if is-top
       (-let* (((cat-subtag ctx-subtag) m)
-              (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil cat-tag-sym 1))
-              (ctx-m (vonfry--unzip-org-agenda-tags-m ctx-subtag nil ctx-tag-sym 1)))
+              (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil vonfry--org-tags-cat-sym 1))
+              (ctx-m (vonfry--unzip-org-agenda-tags-m ctx-subtag nil vonfry--org-tags-ctx-sym 1)))
         (append l cat-m ctx-m))
       (-reduce-r-from
         (lambda (i c)
           (let ((l (let* ((tag (nth 0 i))
                           (tag-name
-                            (if (string= prefix ctx-tag-sym))
+                            (if (string= prefix vonfry--org-tags-ctx-sym)
                               (concat prefix (nth 0 tag))
-                              (nth 0 tag))
+                              (nth 0 tag)))
                           (tag-abbr (nth 1 tag))
                           (tag-prefix (-reduce-from 'concat "" (-repeat prefix-level prefix)))
                           (l (cons (list tag-name (concat tag-prefix tag-abbr)) l)))
                       (if (> (length i) 1)
-                        (vonfry--unzip-org-agenda-tags-m (cdr i) l prefix (1+ prefix-level))
+                        (vonfry--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level))
                         l))))
             (append l c)))
         nil
         m))))
+
+(defun vonfry--org-tag-alist-generate (m &optional prefix level)
+  "generate 'org-tag-alist' from 'vonfry--org-tags-m'"
+  (-let ((prefix (if (not level) vonfry--org-tags-gtd-sym prefix))
+         (level (if level level 0)))
+    (-reduce-r-from
+      (lambda (i c)
+        (-let* ((tag (car i))
+                ((tag-name tag-abbr) tag)
+                (tag-name (concat prefix tag-name)))
+          (if (= 1 (length i))
+            (cons `(,tag-name) c)
+            (let* ((prefix
+                    (cond ((and (= 1 level)
+                                (string= tag-abbr vonfry--org-tags-ctx-sym))
+                            tag-abbr)
+                          ((> 1 level) prefix)
+                          (t nil)))
+                   (l `((:startgrouptag)
+                        (,tag-name)
+                        (:grouptags)
+                        ,@(vonfry--org-tag-alist-generate (nth 1 i) prefix (1+ level))
+                        (:endgrouptag))))
+               (append l c)))))
+      nil
+      m)))
+
+(defcustom +org-tag-alist
+  (vonfry--org-tag-alist-generate vonfry--org-tags-m)
+  "org tag alist"
+  :group 'vonfry-modules)
 
 (let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
        (file-with-org   (lambda (f) (concat f ".org")))
@@ -82,20 +119,20 @@
        (note-dir        (funcall org-dir-with "notes/"))
        (note-files      (directory-files note-dir   t "^.*\\.org$"))
        (note-dir-with   (lambda (f) (expand-file-name (funcall file-with-org f) note-dir)))
-       (unzip-tags-m (vonfry--unzip-org-agenda-tags-m vonfry--org-agenda-tags-m))
+       (unzip-tags-m (vonfry--unzip-org-agenda-tags-m vonfry--org-tags-m))
        (gtd-prefix (nth 0 (nth 0 unzip-tags-m)))
        (cat-prefix (nth 1 (nth 1 unzip-tags-m)))
        (ctx-prefix (nth 1 (nth 2 unzip-tags-m)))
        (unzip-tags-m-filtered
-         (-filter (-lambda ((_tag tagabbr))
+         (-filter (-lambda ((_ tagabbr))
                     (not (or (string= tagabbr cat-prefix)
                              (string= tagabbr ctx-prefix))))
                   unzip-tags-m))
        (get-key   (lambda (um) (nth 1 um)))
        (get-tag   (lambda (um) (nth 0 um)))
-       (get-desc  (lambda (tag)
-                    (cond ((string-prefix-p cat-prefix tag) (concat "[TAGS:Category] " tag))
-                          ((string-prefix-p ctx-prefix tag) (concat "[TAGS:Context] "  tag)))))
+       (get-desc  (-lambda ((tag key))
+                    (cond ((string-prefix-p cat-prefix key) (concat "[TAGS:Category] " tag))
+                          ((string-prefix-p ctx-prefix key) (concat "[TAGS:Context] "  tag)))))
        (all-tags
          (-map get-tag unzip-tags-m)))
   (defcustom +org-agenda-files agenda-files
@@ -133,12 +170,12 @@
     (let ((custom-tags-commands
             (-map
               (-lambda ((tag key))
-                  `(,key ,(funcall get-desc tag) tags ,tag))
+                  `(,key ,(funcall get-desc `(,tag ,key)) tags ,tag))
               unzip-tags-m-filtered))
           (custom-commands
-            '((cat-prefix . "[TAGS]Category select")
-              (ctx-prefix . "[TAGS]Context  select")
-              (gtd-prefix . "[TAGS]All GTD")
+            `((,cat-prefix . "[TAGS]Category select")
+              (,ctx-prefix . "[TAGS]Context  select")
+              (,gtd-prefix . "[TAGS]All GTD")
               (">" . "[TODO]Keyword  select")
               (">t" tags "TODO"     )
               (">w" tags "WAITING"  )
