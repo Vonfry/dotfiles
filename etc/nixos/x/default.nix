@@ -13,7 +13,7 @@
     autorun = true;
     displayManager.sddm = {
       enable = true;
-      theme = "maldives";
+      theme = "elarun";
     };
     windowManager = {
       default = "xmonad";
