@@ -3,5 +3,5 @@
 
 (defcustom +elfeed-org-files (list (expand-file-name "feed.org" vonfry-cache-dir))
   "elfeed-org-files save dir"
-  :type '(list string)
+  :type '(repeat string)
   :group 'vonfry-modules)
