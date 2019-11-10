@@ -12,8 +12,8 @@
 ** DONE Vim
 *** TODO NeoVim
 **** TODO ?use internal lsp
-** TODO Emacs[/]
-*** TODO ?use raxod502/straight.el instead of package.el
+** DONE Emacs[/]
+*** DONE use raxod502/straight.el instead of package.el
 ** DONE LSP
 
 * Language

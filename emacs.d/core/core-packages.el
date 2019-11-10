@@ -41,7 +41,7 @@ is undefined(It always is loaded by alpha order)."
 (setq straight-base-dir vonfry-packages-dir)
 
 (custom-set-variables
-  '(straight-vc-git-default-clone-depth 0)
+  '(straight-vc-git-default-clone-depth 1)
   '(straight-use-package-by-default t)
   '(straight-base-dir vonfry-packages-dir)
   '(use-package-always-demand t)
@@ -85,7 +85,8 @@ is undefined(It always is loaded by alpha order)."
 (eval-when-compile
   (dolist (pkg vonfry-basic-packages)
     (let ((qpkg `(quote ,pkg)))
-      (eval `(straight-use-package ,qpkg)))))
+      (eval `(straight-use-package ,qpkg))
+      (require pkg))))
 
 (defalias #'package! #'use-package)
 

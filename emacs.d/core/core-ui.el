@@ -6,7 +6,7 @@
 (package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
 
 (package! solarized
-  :ensure solarized-theme
+  :straight solarized-theme
   :config
   (load-theme 'solarized-dark t))
 

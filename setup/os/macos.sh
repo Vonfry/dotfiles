@@ -71,7 +71,8 @@ brew reinstall weechat
 # editor
 brew reinstall editorconfig
 brew reinstall neovim
-brew cask install emacs-mac
+brew tap d12frosted/emacs-plus
+brew reinstall emacs-plus --with-dbus
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
@@ -85,9 +86,6 @@ brew cask install amethyst
 
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
-
-# variable
-echo "export HOMEBREW_OPT_INIT_FUNCTION=(ruby)" >> $script_dir/config/shell/defvar.sh
 
 echo_info "*** Here are some useful tools for mac.
 See:
