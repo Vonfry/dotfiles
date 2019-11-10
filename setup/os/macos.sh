@@ -87,9 +87,6 @@ brew cask install amethyst
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
 
-# variable
-echo "export HOMEBREW_OPT_INIT_FUNCTION=(ruby)" >> $script_dir/config/shell/defvar.sh
-
 echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
