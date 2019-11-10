@@ -85,7 +85,8 @@ is undefined(It always is loaded by alpha order)."
 (eval-when-compile
   (dolist (pkg vonfry-basic-packages)
     (let ((qpkg `(quote ,pkg)))
-      (eval `(straight-use-package ,qpkg)))))
+      (eval `(straight-use-package ,qpkg))
+      (require pkg))))
 
 (defalias #'package! #'use-package)
 
