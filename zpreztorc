@@ -9,6 +9,7 @@ zstyle ':prezto:load' zmodule 'attr' 'stat'
 zstyle ':prezto:load' zfunction 'zargs' 'zmv'
 
 zstyle ':prezto:load' pmodule  \
+    'archive'                  \
     'environment'              \
     'archive'                  \
     'syntax-highlighting'      \
