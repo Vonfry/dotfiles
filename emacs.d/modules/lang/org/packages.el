@@ -14,8 +14,6 @@
   (todo-default-todo-file "todo.org")
   (org-refile-targets +org-refile-targets)
   (org-tag-alist +org-tag-alist)
-  :config
-  (org-clock-persistence-insinuate)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda))
