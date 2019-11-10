@@ -37,6 +37,9 @@ is undefined(It always is loaded by alpha order)."
 ;; setup package manager
 ;;
 
+;; use setq because of straight bootstrap needed
+(setq straight-base-dir vonfry-packages-dir)
+
 (custom-set-variables
   '(straight-vc-git-default-clone-depth 0)
   '(straight-use-package-by-default t)
@@ -62,10 +65,12 @@ is undefined(It always is loaded by alpha order)."
 ;; define some basic packages
 ;;
 
-(defconst vonfry-basic-packages '(
+(defcustom vonfry-basic-packages '(
     use-package
   )
-  "These are the default basic packages, which are used by modules.")
+  "These are the default basic packages, which are used by modules."
+  :type '(repeat symbol)
+  :group 'vonfry)
 
 ;;
 ;; define function for packages
@@ -78,8 +83,9 @@ is undefined(It always is loaded by alpha order)."
 
 ;; load the basic packages
 (eval-when-compile
-  (dolist (pkg '(use-package))
-    (eval `(straight-use-package ,pkg))))
+  (dolist (pkg vonfry-basic-packages)
+    (let ((qpkg `(quote ,pkg)))
+      (eval `(straight-use-package ,qpkg)))))
 
 (defalias #'package! #'use-package)
 
