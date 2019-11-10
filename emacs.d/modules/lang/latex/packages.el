@@ -2,7 +2,7 @@
 ;;
 
 (package! latex
-  :ensure auctex
+  :straight auctex
   :after company
   :config
   :custom

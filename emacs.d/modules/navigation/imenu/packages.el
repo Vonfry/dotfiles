@@ -2,7 +2,7 @@
 ;;
 
 (package! imenu
-  :ensure nil
+  :straight nil
   :general
   (nmap :prefix +nmap-leader
     +nmap-code 'imenu))

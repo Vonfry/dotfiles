@@ -2,7 +2,7 @@
 ;;
 
 (package! haskell
-  :ensure haskell-mode
+  :straight haskell-mode
   :custom
   (haskell-indentation-layout-offset 2)
   (imenu-add-menubar-index t)
@@ -37,7 +37,7 @@
       (custom-set-variables '(compile-command "cabal build")))))
 
 (package! haskell-interactive-mode
-  :ensure nil
+  :straight nil
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
@@ -48,7 +48,7 @@
         "sc" 'haskell-session-change-target))
 
 (package! haskell-process
-  :ensure nil
+  :straight nil
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix

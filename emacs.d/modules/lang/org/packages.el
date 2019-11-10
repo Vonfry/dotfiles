@@ -46,7 +46,7 @@
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
 
 (package! org-agenda
-  :ensure nil
+  :straight nil
   :after org
   :custom
   (org-agenda-files +org-agenda-files))

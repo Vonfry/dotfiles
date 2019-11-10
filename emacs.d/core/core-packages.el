@@ -16,25 +16,12 @@
 ;; define some variables for packages
 ;;
 
-(defcustom vonfry-elpa-mirror
-  (list
-    (cons "elpa"  "https://elpa.gnu.org/packages/")
-    (cons "melpa" "https://melpa.org/packages/")
-    (cons "org"   "https://orgmode.org/elpa"))
-  "Set elpa mirror."
-  :group 'vonfry)
-
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
   :group 'vonfry)
 
 (defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-cache-dir)
   "The dir is where the elpa and packages manager download files."
-  :type 'directory
-  :group 'vonfry-dir)
-
-(defcustom vonfry-elpa-dir (expand-file-name "elpa/" vonfry-packages-dir)
-  "The dir is where the elpa files."
   :type 'directory
   :group 'vonfry-dir)
 
@@ -51,16 +38,25 @@ is undefined(It always is loaded by alpha order)."
 ;;
 
 (custom-set-variables
-  '(package-user-dir vonfry-elpa-dir)
+  '(straight-vc-git-default-clone-depth 0)
+  '(straight-use-package-by-default t)
+  '(straight-base-dir vonfry-packages-dir)
   '(use-package-always-demand t)
-  '(use-package-always-ensure t)
-  '(package-enable-at-startup nil))
+  '(use-package-always-ensure nil))
 
-(eval-when-compile (require 'package))
-(setq package-archives vonfry-elpa-mirror)
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; A copy from https://github.com/raxod502/straight.el/#bootstrapping-straightel
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" vonfry-packages-dir))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
 ;;
 ;; define some basic packages
@@ -74,34 +70,19 @@ is undefined(It always is loaded by alpha order)."
 ;;
 ;; define function for packages
 ;;
-(defalias #'vonfry/list-packages         #'paradox-list-packages)
-(defalias #'vonfry/install-packages      #'package-install)
-(defalias #'vonfry/update-packages   #'paradox-upgrade-packages)
-
-(defun vonfry--package! (pkg &optional min-version no-refresh)
-  "Define packages dependence and install it.
-
-  This is a private function. It is only used in core."
-    (if (package-installed-p pkg min-version)
-      t
-      (if (or (assoc pkg package-archive-contents) no-refresh)
-        (if (boundp 'package-selected-packages)
-          (package-install pkg nil)
-          (package-install pkg))
-        (progn
-          (package-refresh-contents)
-          (vonfry--package! pkg min-version t)))))
+(defalias #'vonfry/list-packages        #'paradox-list-packages)
+(defalias #'vonfry/install-packages     #'package-install)
+(defalias #'vonfry/update-packages      #'straight-pull-package-and-deps)
+(defalias #'vonfry/update-all-packages  #'straight-pull-all)
+(defalias #'vonfry/prune-packages       #'straight-prune-build)
 
 ;; load the basic packages
 (eval-when-compile
   (dolist (pkg '(use-package))
-    (unless (require pkg nil t)
-      (vonfry--package! pkg)
-      (require pkg))))
+    (eval `(straight-use-package ,pkg))))
 
 (defalias #'package! #'use-package)
 
-(package! paradox :config (paradox-enable))
 (package! diminish)
 (package! dash)
 (package! auto-compile
