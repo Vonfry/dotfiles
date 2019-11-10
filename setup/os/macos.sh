@@ -71,7 +71,7 @@ brew reinstall weechat
 # editor
 brew reinstall editorconfig
 brew reinstall neovim
-brew cask install emacs-mac
+brew reinstall railwaycat/emacsmacport/emacs-mac --with-dbus
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
