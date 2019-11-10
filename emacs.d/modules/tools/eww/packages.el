@@ -2,6 +2,6 @@
 ;;
 
 (package! eww
-  :ensure nil
+  :straight nil
   :custom
   (eww-download-directory vonfry-downloads-dir))

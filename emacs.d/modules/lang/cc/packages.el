@@ -10,7 +10,7 @@
 
 ;; this is used in all program lang
 (package! compile
-  :ensure nil
+  :straight nil
   :general
   (nmap :prefix +nmap-leader
         +nmap-run 'compile))
