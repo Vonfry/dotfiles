@@ -1,6 +1,6 @@
 * System
-** NixOS
-*** X [2/3]
+** TODO NixOS
+*** TODO X [2/3]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
@@ -9,9 +9,11 @@
 ** macOS
 
 * Editor
-** Vim
-*** DONE NeoVim
-** DONE Emacs
+** DONE Vim
+*** TODO NeoVim
+**** TODO ?use internal lsp
+** TODO Emacs[/]
+*** TODO ?use raxod502/straight.el instead of package.el
 ** DONE LSP
 
 * Language
@@ -22,7 +24,7 @@
 ** DONE Python
 
 * Shell
-** ZSH
+** DONE ZSH
 
 * Tools
 ** Nix
