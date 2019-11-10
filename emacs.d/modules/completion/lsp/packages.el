@@ -25,7 +25,7 @@
 
 (package! lsp-clients
   :after lsp-mode
-  :ensure nil)
+  :straight nil)
 
 (package! lsp-ui
   :after lsp-mode evil
