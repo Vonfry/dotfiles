@@ -9,6 +9,7 @@ brew install caskroom/cask/brew-cask
 
 # shell
 brew reinstall gnu-sed gnu-tar unzip unrar
+brew cask install the-unarchiver
 brew cask install gpg-suite
 brew reinstall git
 brew reinstall zsh wget git-flow tig
