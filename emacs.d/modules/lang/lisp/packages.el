@@ -26,6 +26,4 @@
         :prefix +nmap-leader
         +nmap-go-module 'lispy-goto-local))
 
-; (load (expand-file-name "./common_lisp.el" (file-name-directory load-file-name)))
-(load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)))
-; (load (expand-file-name "./scheme.el"      (file-name-directory load-file-name)))
+(load (expand-file-name "./emacs_lisp.el"  (file-name-directory load-file-name)) t t)
