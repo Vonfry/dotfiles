@@ -12,4 +12,3 @@ export ZPLUG_HOME=<zplug-home>
 export HOMEBREW_OPT_INIT_FUNCTION=(ruby emacsplus)
 
 export ENHANCD_DIR=~/.cache/enchancd
-export ENHANCD_DISABLE_HOME=1
