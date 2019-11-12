@@ -1,5 +1,5 @@
-if [ ! -v SHELL_CUSTOM_DIR ]; then
-    source $HOME/.zprofile
+if [ ! -v VONFRY_SHELL ]; then
+    source $HOME/.zshenv
 fi
 
 # User configuration

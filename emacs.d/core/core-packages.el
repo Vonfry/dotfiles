@@ -78,18 +78,15 @@ is undefined(It always is loaded by alpha order)."
 ;;
 ;; define function for packages
 ;;
-(defalias #'vonfry/list-packages        #'paradox-list-packages)
-(defalias #'vonfry/install-packages     #'package-install)
+(defalias #'vonfry/install-packages     #'straight-use-package)
 (defalias #'vonfry/update-packages      #'straight-pull-package-and-deps)
 (defalias #'vonfry/update-all-packages  #'straight-pull-all)
 (defalias #'vonfry/prune-packages       #'straight-prune-build)
 
 ;; load the basic packages
-(eval-when-compile
-  (dolist (pkg vonfry-basic-packages)
-    (let ((qpkg `(quote ,pkg)))
-      (eval `(straight-use-package ,qpkg))
-      (require pkg))))
+(dolist (pkg vonfry-basic-packages)
+  (let ((qpkg `(quote ,pkg)))
+    (eval `(straight-use-package ,qpkg))))
 
 (defalias #'package! #'use-package)
 
