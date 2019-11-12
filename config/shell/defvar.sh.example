@@ -1,14 +1,15 @@
-export SHELL_CUSTOM_DIR=<shell-custom-dir>
-export SHELL_CUSTOM_DIR_LOCAL=<shell-custom-dir-local>
 export DOTFILES_SOURCE_DIR=<dotfiles-source-dir>
-export DOTFILES_DIR=<dotfiles-dir>
-export DOTFILES_PKGS_DIR=<dotfiles-pkgs-dir>
 export CLOUDDISK_DIR=<clouddisk-dir>
+export DOTFILES_DIR=~/dotfiles
+export SHELL_CUSTOM_DIR=$DOTFILES_DIR/config/shell
+export SHELL_CUSTOM_DIR_LOCAL=$SHELL_CUSTOM_DIR/local
+export DOTFILES_PKGS_DIR=$DOTFILES_DIR/config/pkgs
 
 export CLONE_LIB=<clone-lib>
-export UPDATE_INTERVAL=<update-interval>
-export ZPLUG_HOME=<zplug-home>
+export UPDATE_INTERVAL=7
+export ZPLUG_HOME=~/.local/src/zplug
 
 export HOMEBREW_OPT_INIT_FUNCTION=(ruby emacsplus)
 
 export ENHANCD_DIR=~/.cache/enchancd
+export ENHANCD_FILTER=fzf

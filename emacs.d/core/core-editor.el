@@ -101,7 +101,9 @@
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 
 (package! exec-path-from-shell
-  :when (and (memq window-system '(mac ns x)) (not (string-match "fish" (getenv "SHELL"))))
+  :when (and (memq window-system '(mac ns x))
+             (not (string-match "fish" (getenv "SHELL")))
+             (not (getenv "VONFRY_SHELL")))
   :config
   (exec-path-from-shell-initialize))
 
