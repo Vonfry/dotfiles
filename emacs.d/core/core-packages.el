@@ -85,11 +85,9 @@ is undefined(It always is loaded by alpha order)."
 (defalias #'vonfry/prune-packages       #'straight-prune-build)
 
 ;; load the basic packages
-(eval-when-compile
-  (dolist (pkg vonfry-basic-packages)
-    (let ((qpkg `(quote ,pkg)))
-      (eval `(straight-use-package ,qpkg))
-      (require pkg))))
+(dolist (pkg vonfry-basic-packages)
+  (let ((qpkg `(quote ,pkg)))
+    (eval `(straight-use-package ,qpkg))))
 
 (defalias #'package! #'use-package)
 
