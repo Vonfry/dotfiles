@@ -5,6 +5,7 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
+  (evil-set-initial-state 'dired-mode 'emacs)
   :custom
   (evil-shift-width 4)
   (evil-search-module 'evil-search)
