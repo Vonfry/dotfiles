@@ -18,11 +18,17 @@
         +nmap-highlight 'evil-ex-nohighlight
         +nmap-repl      'comint-run)) ;; send to buff by using `append-to-buffer`
 
-(package! evil-goggles
-  :after evil
+(package! evil-org
+  :after evil org
+  :hook (org-mode-hook . evil-org-mode)
   :config
-  (evil-goggles-mode)
-  (evil-goggles-use-diff-faces))
+  (evil-org-set-key-theme))
+
+(package! evil-org-agenda
+  :after evil-org
+  :straight nil
+  :config
+  (evil-org-agenda-set-keys))
 
 (package! evil-numbers
   :after evil
@@ -34,11 +40,6 @@
   :after evil
   :config
   (global-evil-surround-mode 1))
-
-(package! evil-visualstar
-  :after evil
-  :config
-  (global-evil-visualstar-mode t))
 
 (package! evil-matchit
   :after evil
