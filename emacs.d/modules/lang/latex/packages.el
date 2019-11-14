@@ -45,7 +45,6 @@
   :general
   (nmap :keymaps '(LaTeX-mode-map tex-mode-map)
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "latex")
         "\\" 'TeX-insert-macro
         "-"  'TeX-recenter-output-buffer
         "%"  'TeX-comment-or-uncomment-paragraph

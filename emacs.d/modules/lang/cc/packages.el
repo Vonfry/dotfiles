@@ -5,7 +5,6 @@
   :general
   (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
         :prefix +nmap-lang-prefix
-        ""  '(nil :which-key "cc")
         "d" 'disaster))
 
 ;; this is used in all program lang
@@ -21,7 +20,6 @@
   :general
   (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
         :prefix +nmap-lang-prefix
-        "" '(nil :which-key "cc")
         +nmap-go        'fa-jump
         +nmap-go-peek   'fa-show
         +nmap-virtual   'moo-propose-virtual
