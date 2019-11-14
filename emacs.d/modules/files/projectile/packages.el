@@ -8,9 +8,9 @@
   :custom
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))
-  (projectile-known-projects-file +projectile-cache-dir)
+  (projectile-known-projects-file +projectile-cache-known-project-file)
   (projectile-completion-system 'ivy)
-  (projectile-cache-file +projectile-cache-dir)
+  (projectile-cache-file +projectile-cache-file)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   (projectile-switch-project-action 'neotree-projectile-action)
   :general
