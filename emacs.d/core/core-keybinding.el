@@ -100,6 +100,9 @@
 (defconst +nmap-ctrlp "p"
   "project file search")
 
+(defconst +nmap-fzf "P"
+  "fzf search")
+
 (defconst +nmap-file "f"
   "file search without recursion.")
 
