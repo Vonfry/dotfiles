@@ -16,7 +16,7 @@ function! vonfry#editor#init()
     endif
 
     set to
-    set tm=400
+    set tm=1000
     set number
     set autoindent
     set smartindent

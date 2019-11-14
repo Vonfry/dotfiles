@@ -2,6 +2,7 @@
 "
 
 function! vonfry#bundle#navigation#pre()
+    let g:EasyMotion_leader_key="<leader>".g:vonfry#mapping#nmap#g
 endfunction
 
 function! vonfry#bundle#navigation#plug()
@@ -10,10 +11,9 @@ function! vonfry#bundle#navigation#plug()
 endfunction
 
 function! vonfry#bundle#navigation#config()
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#g, '<Plug>(easymotion-prefix)')
+    " call vonfry#mapping#leader(g:vonfry#mapping#nmap#g, '<Plug>(easymotion-prefix)')
 
     call vonfry#mapping#leader(g:vonfry#mapping#nmap#tag, ':TagbarToggle<CR>')
-
     let g:tagbar_show_linenumbers = 0
     let g:tagbar_autopreview = 0
     let g:tagbar_autoclose = 1
