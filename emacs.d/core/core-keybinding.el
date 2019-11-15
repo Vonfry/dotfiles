@@ -46,12 +46,6 @@
 (defconst +nmap-go-prompt "["
   "go to file or module with a prompt to search it. It is similiar to imenu.")
 
-(defconst +nmap-pop-complete "}"
-  "pop a complete in min buffer or virtual window.")
-
-(defconst +map-pop-complete (concat "C-" +nmap-pop-complete)
-  "pop a complete in min buffer or virtual window.")
-
 (defconst +nmap-code-help "?"
   "pop a window to show help for some code.")
 
@@ -76,10 +70,10 @@
 (defconst +nmap-navigation ">"
   "Go to somewhere.")
 
-(defconst +nmap-snippet "("
-  "snippets")
+(defconst +map-pop-complete "C-{"
+  "pop a complete in min buffer or virtual window.")
 
-(defconst +map-snippet (concat "C-" +nmap-snippet)
+(defconst +map-snippet "C-}"
   "snippets")
 
 (defconst +nmap-g "g"

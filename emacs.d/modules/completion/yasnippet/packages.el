@@ -19,6 +19,4 @@
 (package! ivy-yasnippet
   :after yasnippet ivy
   :general
-  (+map-snippet 'ivy-yasnippet)
-  (nmap :prefix +nmap-leader
-        +nmap-snippet 'ivy-yasnippet))
+  (general-define-key +map-snippet 'ivy-yasnippet))
