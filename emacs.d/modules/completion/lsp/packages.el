@@ -1,6 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (package! lsp-mode
+  :after yasnippet
   :hook (prog-mode . lsp)
   :custom
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))

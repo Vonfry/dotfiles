@@ -6,7 +6,8 @@
   :custom
   (yas-snippet-dirs
     (list (expand-file-name "snippets/" vonfry-local-dir)
-          (expand-file-name "snippets/" vonfry-custom-dir)))
+          (expand-file-name "snippets/" vonfry-custom-dir)
+          'yasnippet-snippets-dir))
   :hook (company-mode . yas-minor-mode)
   :config
   (dolist (tmp-dir yas-snippet-dirs)
@@ -18,5 +19,7 @@
 
 (package! ivy-yasnippet
   :after yasnippet ivy
+  :custom
+  (ivy-yasnippet-expand-key 'smart)
   :general
   (general-define-key +map-snippet 'ivy-yasnippet))
