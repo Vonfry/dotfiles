@@ -1,10 +1,6 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
-(package! amx
-  :custom
-  (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
-
 (package! ivy
   :config
   (ivy-mode 1)
@@ -29,7 +25,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ((concat "M-" +nmap-pop-complete) 'counsel-company)
+  (+map-pop-complete 'counsel-company)
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
@@ -38,8 +34,17 @@
         +nmap-pop-complete 'counsel-complete))
 
 (package! ivy-rich
-  :after counsel
+  :after ivy
   :config
-  (ivy-rich-mode 1))
+  (ivy-rich-mode t))
 
-(package! counsel-tramp)
+(package! counsel-tramp
+  :after counsel)
+
+(package! ivy-prescient
+  :after ivy prescient
+  :custom
+  (prescient-save-file (expand-file-name "prescient" vonfry-cache-dir))
+  (ivy-prescient-retain-classic-highlighting t)
+  :config
+  (ivy-prescient-mode t))

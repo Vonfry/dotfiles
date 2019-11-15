@@ -19,6 +19,6 @@
 (package! ivy-yasnippet
   :after yasnippet ivy
   :general
-  ((concat "M-" +nmap-snippet) 'ivy-yasnippet)
+  (+map-snippet 'ivy-yasnippet)
   (nmap :prefix +nmap-leader
         +nmap-snippet 'ivy-yasnippet))

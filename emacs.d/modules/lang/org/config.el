@@ -37,11 +37,11 @@
          ((("dev" "d"))))
         (("context"  ,vonfry--org-tags-ctx-sym)
          ((("haskell" "hs")))))))
-    "vonfry tags\nIt is a list of '(((tag abbr) (subtags) (subtags) ...)).\nEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list. Each tag is a list, first element is the whole name, and second is a abbr name.\nThe key start with ':' is category and start with '@' is context.\nCategory: number of ':' means the level of category.\nFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda."
+     "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see '+org-tag-alist'"
     :group 'vonfry-modules))
 
 (defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level)
-  "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence."
+  "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence.\n"
   (-let (((m l is-top prefix-level)
             (if (not (or l prefix prefix-level))
               (-let* ((gtd (nth 0 m))
@@ -108,7 +108,7 @@
 
 (defcustom +org-tag-alist
   (vonfry--org-tag-alist-generate vonfry--org-tags-m)
-  "org tag alist"
+  "org tag alist. It is generated from 'vonfry--org-tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in 'vonfry--org-tags-m'."
   :group 'vonfry-modules)
 
 (let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
