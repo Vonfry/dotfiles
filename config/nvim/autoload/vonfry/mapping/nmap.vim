@@ -8,7 +8,7 @@ let g:vonfry#mapping#nmap#x                 = 'x'
 
 let g:vonfry#mapping#nmap#go                = '.'
 let g:vonfry#mapping#nmap#go_action         = ','
-let g:vonfry#mapping#nmap#go_context        = '<'
+let g:vonfry#mapping#nmap#go_context        = '&'
 let g:vonfry#mapping#nmap#go_reference      = '{'
 let g:vonfry#mapping#nmap#go_implementation = '}'
 let g:vonfry#mapping#nmap#go_prompt         = '['

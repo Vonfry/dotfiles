@@ -31,11 +31,11 @@
 (defconst +nmap-go-back ","
   "go back")
 
-(defconst +nmap-go-peek "{"
+(defconst +nmap-go-peek "&"
   "go peek")
 
-(defconst +nmap-go-reference "}"
-  "Go eference. Reference may only work for C/C++")
+(defconst +nmap-go-reference "{"
+  "Go reference. Reference may only work for C/C++")
 
 (defconst +nmap-code ";"
   "show code struct like ebrower and imenu.")
@@ -46,7 +46,10 @@
 (defconst +nmap-go-prompt "["
   "go to file or module with a prompt to search it. It is similiar to imenu.")
 
-(defconst +nmap-pop-complete "!"
+(defconst +nmap-pop-complete "}"
+  "pop a complete in min buffer or virtual window.")
+
+(defconst +map-pop-complete (concat "C-" +nmap-pop-complete)
   "pop a complete in min buffer or virtual window.")
 
 (defconst +nmap-code-help "?"
@@ -61,7 +64,7 @@
 (defconst +nmap-repl "'"
   "repl")
 
-(defconst +nmap-format "("
+(defconst +nmap-format ")"
   "format code")
 
 (defconst +nmap-lang-action "*"
@@ -73,7 +76,10 @@
 (defconst +nmap-navigation ">"
   "Go to somewhere.")
 
-(defconst +nmap-snippet ")"
+(defconst +nmap-snippet "("
+  "snippets")
+
+(defconst +map-snippet (concat "C-" +nmap-snippet)
   "snippets")
 
 (defconst +nmap-g "g"

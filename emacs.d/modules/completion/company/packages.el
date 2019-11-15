@@ -17,4 +17,10 @@
 
 (package! company-quickhelp
   :after company
-  :hook (company-mode . company-quickhelp-mode))
+  :config
+  (company-quickhelp-mode t))
+
+(package! company-prescient
+  :after company prescient
+  :config
+  (company-prescient-mode t))
