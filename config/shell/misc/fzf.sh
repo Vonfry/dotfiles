@@ -9,7 +9,7 @@ elif [ -n "${version}" ]; then
 else
     shell=$(echo ${SHELL} | awk -F/ '{ print $NF }')
 fi
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 if   [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh

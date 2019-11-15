@@ -19,7 +19,6 @@
         "c" 'run-haskell)
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "haskell")
         +nmap-go  'haskell-mode-jump-to-def
         +nmap-go-module 'haskell-navigate-imports
         "qh" 'hoogle
@@ -41,7 +40,6 @@
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "haskell")
         +nmap-repl  'haskell-interactive-bring
         "k"  'haskell-interactive-mode-clear
         "sm" 'haskell-menu
@@ -52,7 +50,6 @@
   :general
   (nmap :keymaps 'haskell-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "haskell")
         "pl" 'haskell-process-load-or-reload
         "pt" 'haskell-process-do-type
         "pi" 'haskell-process-do-info

@@ -4,6 +4,5 @@
   :general
   (nmap :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
         :prefix +nmap-lang-prefix
-        "" '(nil :which-key "emacs lisp")
         +nmap-repl  'ielm))
 

@@ -33,6 +33,7 @@
   (nmap :prefix +nmap-leader
         +nmap-M-x   'counsel-M-x
         +nmap-file  'counsel-find-file
+        +nmap-fzf   'counsel-fzf
         +nmap-marks 'counsel-mark-ring
         +nmap-pop-complete 'counsel-complete))
 

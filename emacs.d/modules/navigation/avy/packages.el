@@ -11,7 +11,7 @@
         "T" 'avy-goto-word-0
         "w" 'avy-goto-word-1
         "W" 'avy-goto-subword-1
-        "s" 'avy-goto-symbol
+        "s" 'avy-goto-symbol-1
         "," 'avy-pop-mark
         ";" 'avy-push-mark))
 

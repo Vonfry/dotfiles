@@ -13,6 +13,7 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (nmap :prefix +nmap-leader
+        +nmap-lang      '(nil :which-key "lang")
         +nmap-align     'align-regexp
         +nmap-terminal  'eshell
         +nmap-highlight 'evil-ex-nohighlight

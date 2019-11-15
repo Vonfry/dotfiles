@@ -18,12 +18,10 @@
   :general
   (nmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "ruby")
         "id" 'ruby-send-definition
         +nmap-repl  'inf-ruby)
   (vmap :keymaps 'enh-ruby-mode-map
         :prefix +nmap-lang-prefix
-        ""   '(nil :which-key "ruby"t)
         "ir" 'ruby-send-region
         "ig" 'ruby-send-definition-and-go
         "iG" 'ruby-send-region-and-go))
@@ -33,6 +31,5 @@
   (nmap :keymaps 'robe-mode
         :definer 'minor-mode
         :prefix  +nmap-lang-prefix
-        ""  '(nil :which-key "ruby")
         "c" 'chruby-use))
 
