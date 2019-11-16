@@ -49,7 +49,7 @@ supposed them. All of them are started with `deprecated`
 - C/C++ - clang/llvm
 - Haskell - ghc & cabal ( without stack ) & nix
 - ~~Lisp~~
-- Ruby - chenv 
+- Ruby
 - Rust
 - ~~R~~
 - Python3 

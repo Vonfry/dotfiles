@@ -15,14 +15,6 @@
         "es" 'py-execute-statement
         "eS" 'py-execute-statement-pdb))
 
-(package! pyvenv
-  :general
-  (nmap :keymaps 'python-mode-map
-        :prefix +nmap-lang-prefix
-        "v" 'pyvenv-activate
-        "d" 'pyvenv-deactivate
-        "w" 'pyvenv-workon))
-
 (package! pydoc
   :general
   (nmap :keymaps 'python-mode-map

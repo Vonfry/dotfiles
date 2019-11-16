@@ -25,11 +25,3 @@
         "ir" 'ruby-send-region
         "ig" 'ruby-send-definition-and-go
         "iG" 'ruby-send-region-and-go))
-
-(package! chruby
-  :general
-  (nmap :keymaps 'robe-mode
-        :definer 'minor-mode
-        :prefix  +nmap-lang-prefix
-        "c" 'chruby-use))
-

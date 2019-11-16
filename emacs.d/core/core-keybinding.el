@@ -70,10 +70,10 @@
 (defconst +nmap-navigation ">"
   "Go to somewhere.")
 
-(defconst +map-pop-complete "C-;"
+(defconst +map-pop-complete "C-&"
   "pop a complete in minbuffer or virtual window for completion.")
 
-(defconst +map-snippet "C-,"
+(defconst +map-snippet "C-;"
   "pop a complete in minbuffer or virtual for snippets")
 
 (defconst +nmap-g "g"
