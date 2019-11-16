@@ -30,7 +30,7 @@
 
 (package! company-coq
   :after proof-general company
-  :hook coq-mode
+  :hook (coq-mode . company-coq-mode)
   :general
   (nmap :prefix +nmap-lang-prefix
         :keymaps 'coq-mode-map
