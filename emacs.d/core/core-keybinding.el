@@ -34,10 +34,16 @@
 (defconst +nmap-go-peek "&"
   "go peek")
 
-(defconst +nmap-go-reference "{"
+(defconst +nmap-go-implementation "{"
+  "Go implementation")
+
+(defconst +nmap-go-reference "}"
   "Go reference. Reference may only work for C/C++")
 
 (defconst +nmap-code ";"
+  "show code struct like ebrower and imenu.")
+
+(defconst +nmap-code-prefix (concat +nmap-leader +nmap-code)
   "show code struct like ebrower and imenu.")
 
 (defconst +nmap-swiper "/"
@@ -100,11 +106,18 @@
 (defconst +nmap-ctrlp "p"
   "project file search")
 
-(defconst +nmap-fzf "P"
-  "fzf search")
+(defconst +nmap-project "P"
+  "project action")
+
+(defconst +nmap-project-prefix (concat +nmap-leader +nmap-project)
+  "project action prefix")
+
 
 (defconst +nmap-file "f"
   "file search without recursion.")
+
+(defconst +nmap-fzf "F"
+  "fzf search")
 
 (defconst +nmap-tag "t"
   "taglist")
