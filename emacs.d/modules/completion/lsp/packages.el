@@ -21,8 +21,7 @@
         "*"                'lsp-rename
         "R"                'lsp-restart-workspace
         "D"                'lsp-describe-session
-        "TAB"              'completion-at-point
-        ))
+        "TAB"              'completion-at-point))
 
 (package! lsp-clients
   :after lsp-mode
