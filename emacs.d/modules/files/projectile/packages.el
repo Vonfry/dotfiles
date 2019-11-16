@@ -12,7 +12,6 @@
   (projectile-completion-system 'ivy)
   (projectile-cache-file +projectile-cache-file)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
-  (projectile-switch-project-action 'neotree-projectile-action)
   :general
   (nmap :prefix +nmap-lang-prefix
         :keymaps '(c-mode-map c++-mode-map objc-mode-map)
