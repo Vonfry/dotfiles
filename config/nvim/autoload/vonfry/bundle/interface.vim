@@ -6,7 +6,6 @@ endfunction
 
 function! vonfry#bundle#interface#plug()
     call vonfry#bundle#add(['Yggdroot/LeaderF', {"build": "./install.sh"}])
-    call vonfry#bundle#add('terryma/vim-multiple-cursors')
     call vonfry#bundle#add('editorconfig/editorconfig-vim')
     call vonfry#bundle#add('ntpeters/vim-better-whitespace')
     call vonfry#bundle#add('mbbill/fencview')
