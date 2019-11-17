@@ -56,8 +56,7 @@
         +nmap-swiper            'lsp-ui-find-workspace-symbol
         +nmap-go-reference      'lsp-ui-peek-find-references
         +nmap-go                'lsp-ui-peek-find-definitions
-        +nmap-go-implementation 'lsp-ui-peek-find-implementation
-        )
+        +nmap-go-implementation 'lsp-ui-peek-find-implementation)
   (nmap :keymaps 'lsp-mode-map
         :prefix +nmap-lsp-prefix
         +nmap-swiper  'lsp-ui-find-workspace-symbol
