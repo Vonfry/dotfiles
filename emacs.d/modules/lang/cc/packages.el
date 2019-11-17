@@ -3,28 +3,27 @@
 
 (package! disaster
   :general
-  (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
-        :prefix +nmap-lang-prefix
-        "d" 'disaster))
+  (+nmap-lang-cc-def
+    :keymaps
+    "d" 'disaster))
 
 ;; this is used in all program lang
 (package! compile
   :straight nil
   :general
-  (nmap :prefix +nmap-leader
-        +nmap-run 'compile))
+  (+nmap-leader-cc-def
+    "r" 'compile))
 
 (package! function-args
   :custom (moo-select-method 'ivy)
   :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
   :general
-  (nmap :keymaps '(c-mode-map c++-mode-map objc-mode-map)
-        :prefix +nmap-lang-prefix
-        +nmap-go        'fa-jump
-        +nmap-go-peek   'fa-show
-        +nmap-virtual   'moo-propose-virtual
-        +nmap-swiper    'moo-jump-local
-        "o" 'moo-propose-override))
+  (+nmap-lang-cc-def
+    "." 'fa-jump
+    "&" 'fa-show
+    "v" 'moo-propose-virtual
+    "/" 'moo-jump-local
+    "o" 'moo-propose-override))
 
 (package! cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")
@@ -35,3 +34,4 @@
   :after cmake-mode
   :hook
   (cmake-mode . cmake-font-lock-activate))
+

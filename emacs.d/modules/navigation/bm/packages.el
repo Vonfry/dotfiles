@@ -3,7 +3,7 @@
 
 (package! bm
   :general
-  (nmap :prefix +bm-nmap-prefix
-        "" '(nil :which-key "bookmork")
-        "t" 'bm-toggle
-        "m" 'counsel-bookmark))
+  (+nmap-bm-def
+    "" '(nil :which-key "bookmork")
+    "t" 'bm-toggle
+    "m" 'counsel-bookmark))

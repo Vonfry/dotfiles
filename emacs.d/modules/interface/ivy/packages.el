@@ -7,16 +7,15 @@
   :custom
   (ivy-use-virtual-buffers t)
   :general
-  (nmap :prefix +nmap-leader
-        +nmap-buffer-switch 'ivy-switch-buffer))
+  (+nmap-leader-def
+    "b" 'ivy-switch-buffer))
 
 (package! swiper
   :custom
   (swiper-action-recenter t)
   :general
-  (nmap :prefix +nmap-leader
-        +nmap-swiper 'swiper
-        +nmap-buffer-switch 'ivy-switch-buffer))
+  (+nmap-leader-def
+    "/" 'swiper))
 
 (package! counsel
   :custom
@@ -25,12 +24,12 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  (general-define-key +map-pop-complete 'counsel-company)
-  (nmap :prefix +nmap-leader
-        +nmap-M-x   'counsel-M-x
-        +nmap-file  'counsel-find-file
-        +nmap-fzf   'counsel-fzf
-        +nmap-marks 'counsel-mark-ring))
+  ("C-&" 'counsel-company)
+  (+nmap-leader-def
+    "x" 'counsel-M-x
+    "f" 'counsel-find-file
+    "F" 'counsel-fzf
+    "m" 'counsel-mark-ring))
 
 (package! ivy-rich
   :after ivy

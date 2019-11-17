@@ -4,13 +4,13 @@
 (package! imenu
   :straight nil
   :general
-  (nmap :prefix +nmap-code-prefix
-    "i" 'imenu))
+  (+nmap-leader-def
+    "; i" 'imenu))
 
 (package! imenu-list
   :custom
   (imenu-list-focus-after-activation t)
   (imenu-list-auto-resize t)
   :general
-  (nmap :prefix +nmap-leader
-    +nmap-tag 'imenu-list-smart-toggle))
+  (+nmap-leader-def
+    "t" 'imenu-list-smart-toggle))

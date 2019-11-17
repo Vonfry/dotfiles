@@ -22,4 +22,4 @@
   :custom
   (ivy-yasnippet-expand-key 'smart)
   :general
-  (general-define-key +map-snippet 'ivy-yasnippet))
+  ("C-;" 'ivy-yasnippet))
