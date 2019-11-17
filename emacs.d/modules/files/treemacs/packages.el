@@ -14,7 +14,10 @@
   :after treemacs evil)
 
 (package! treemacs-projectile
-  :after treemacs projectile)
+  :after treemacs projectile
+  :general
+  (nmap :prefix +nmap-project-prefix
+        "t" 'treemacs-projectile))
 
 (package! treemacs-magit
   :after treemacs magit)

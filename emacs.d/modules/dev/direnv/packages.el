@@ -6,8 +6,6 @@
   (direnv-non-file-modes
     '(ielm-mode
       eshell-mode
-      haskell-interactive-mode
-      inf-ruby-mode
       geiser-mode
       slime-mode))
   :config

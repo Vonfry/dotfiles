@@ -23,9 +23,19 @@
   :after projectile counsel
   :hook (projectile-mode . counsel-projectile-mode)
   :general
+  (nmap :prefix +nmap-project-prefix
+        "a" 'counsel-projectile-rg
+        "p" 'counsel-projectile
+        "s" 'counsel-projectile-switch-project
+        "f" 'counsel-projectile-find-file
+        "F" 'counsel-projectile-find-file-dwim
+        "d" 'counsel-projectile-find-dir
+        "b" 'counsel-projectile-switch-to-buffer
+        "c" 'counsel-projectile-org-capture
+        "g" 'counsel-projectile-org-agenda)
   (nmap :prefix +nmap-leader
-    +nmap-ctrlp  'counsel-projectile-find-file
-    +nmap-search 'counsel-projectile-rg))
+        +nmap-ctrlp  'counsel-projectile
+        +nmap-search 'counsel-projectile-rg))
 
 (package! org-projectile
   :after projectile org org-agenda

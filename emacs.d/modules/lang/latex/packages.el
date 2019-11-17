@@ -97,7 +97,7 @@
 (package! company-math
  :after company
  :config
- (add-to-list (make-local-variable 'company-backends) 'company-math-symbols-unicode))
+ (add-to-list 'company-backends 'company-math-symbols-unicode))
 
 
 (package! company-auctex
