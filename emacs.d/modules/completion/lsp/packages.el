@@ -6,22 +6,27 @@
   :custom
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
   :general
-  (nmap :keymaps 'prog-mode-map
+  (nmap :keymaps 'lsp-mode-map
         :prefix +nmap-lsp-prefix
         "" '(nil :which-key "lsp")
-        +nmap-go           'lsp-goto-type-definition
-        +nmap-code         'lsp-lens-show
-        +nmap-run          'lsp-execute-code-action
-        +nmap-format       'lsp-format-buffer
-        +nmap-highlight    'lsp-symbol-highlight
-        +nmap-go-prompt    'lsp-find-definition
-        ">"                'lsp-find-references
-        +nmap-go-reference 'lsp-goto-implementation
-        "i"                'imenu
-        "*"                'lsp-rename
-        "R"                'lsp-restart-workspace
-        "D"                'lsp-describe-session
-        "TAB"              'completion-at-point))
+        +nmap-go                'lsp-goto-type-definition
+        +nmap-run               'lsp-execute-code-action
+        +nmap-format            'lsp-format-buffer
+        +nmap-highlight         'lsp-symbol-highlight
+        +nmap-go-prompt         'lsp-find-definition
+        +nmap-go-reference      'lsp-find-references
+        +nmap-go-module         'lsp-organize-imports
+        +nmap-go-implementation 'lsp-goto-implementation
+        "i"                     'imenu
+        "*"                     'lsp-rename
+        "R"                     'lsp-restart-workspace
+        "D"                     'lsp-describe-session
+        "TAB"                   'completion-at-point)
+  (nmap :keymaps 'lsp-mode-map
+        :prefix +nmap-code-prefix
+        "ll" 'lsp-lens-show
+        "lL" 'lsp-lens-hide
+        "la" 'lsp-avy-lens))
 
 (package! lsp-clients
   :after lsp-mode
@@ -30,9 +35,11 @@
 (package! lsp-ui
   :after lsp-mode evil
   :hook (lsp-mode . lsp-ui-mode)
+  :custom
+  (lsp-ui-flycheck-enable t)
   :general
-  :general
-  (:keymaps 'lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
+  (:keymaps 'lsp-ui-mode-map
+            [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
   (nmap :keymaps 'prog-mode-map
         :prefix +nmap-lsp-prefix
@@ -59,3 +66,19 @@
   (company-lsp-enable-recompletion t)
   :config
   (push 'company-lsp company-backends))
+
+(package! lsp-treemacs
+  :after treemacs lsp-mode
+  :general
+  (nmap :keymaps 'lsp-mode-map
+        :prefix +nmap-leader
+        +nmap-tag   'lsp-treemacs-symbols
+        +nmap-check 'lsp-treemacs-quick-fix)
+  (nmap :keymaps 'lsp-mode-map
+        :prefix +nmap-code-prefix
+        "t" 'lsp-treemacs-symbols
+        "q" 'lsp-treemacs-quick-fix
+        "d" 'lsp-treemacs-deps-list)
+  :config
+  (lsp-metals-treeview-enable t)
+  (lsp-treemacs-sync-mode t))

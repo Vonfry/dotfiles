@@ -4,8 +4,8 @@
 (package! imenu
   :straight nil
   :general
-  (nmap :prefix +nmap-leader
-    +nmap-code 'imenu))
+  (nmap :prefix +nmap-code-prefix
+    "i" 'imenu))
 
 (package! imenu-list
   :custom

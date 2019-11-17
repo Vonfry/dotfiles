@@ -32,8 +32,8 @@
   :hook
   (haskell-mode .
     (lambda ()
-      (haskell-auto-insert-module-template t)
-      (custom-set-variables '(compile-command "cabal build")))))
+      (haskell-auto-insert-module-template)
+      (set (make-local-variable 'compile-command) "cabal build"))))
 
 (package! haskell-interactive-mode
   :straight nil
