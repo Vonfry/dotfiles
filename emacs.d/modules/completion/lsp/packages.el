@@ -41,12 +41,11 @@
   (:keymaps 'lsp-ui-mode-map
             [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
-  (nmap :keymaps 'lsp-mode-map
-        :prefix +nmap-code-prefix
-        +nmap-swiper            'lsp-ui-find-workspace-symbol
-        +nmap-go-reference      'lsp-ui-peek-find-references
-        +nmap-go                'lsp-ui-peek-find-definitions
-        +nmap-go-implementation 'lsp-ui-peek-find-implementation)
+  (+nmap-lsp-def
+    "; /" 'lsp-ui-find-workspace-symbol
+    "; }" 'lsp-ui-peek-find-references
+    "; ." 'lsp-ui-peek-find-definitions
+    "; {" 'lsp-ui-peek-find-implementation)
   (+nmap-lsp-prefix-def
     "/"    'lsp-ui-find-workspace-symbol
     "n"    'lsp-ui-find-next-reference
