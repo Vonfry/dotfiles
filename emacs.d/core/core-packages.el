@@ -148,7 +148,7 @@ modules."
             (unless (member  module-name exclude))
               (push module-name module-alist))))
       (-map 'vonfry-load-module-config   module-alist)
-      (-map 'vonfry-load-module-packages module-alist)
+      ;(-map 'vonfry-load-module-packages module-alist)
       (-map 'vonfry-load-autoload        module-alist)))
 
 (provide 'core-packages)

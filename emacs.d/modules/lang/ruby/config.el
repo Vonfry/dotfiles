@@ -8,5 +8,5 @@
   :keymaps +ruby-keymaps)
 
 ;; +vmap-lang-ruby-def
-(vonfry-def-vmap-lang-prefix ruby nil)
+(vonfry-def-vmap-lang-prefix ruby nil
   :keymaps +ruby-keymaps)

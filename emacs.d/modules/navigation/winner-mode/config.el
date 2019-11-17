@@ -2,4 +2,4 @@
 ;;
 
 ;; +nmap-winner-def
-(vonfry-def-nmap-leader-prefix winner nil)
+(vonfry-def-nmap-leader-prefix winner "W")

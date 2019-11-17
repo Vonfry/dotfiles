@@ -3,7 +3,6 @@
 
 (package! rust-mode
   :mode "\\.rs\\'"
-
   :general
   (+nmap-lang-rust-def
     "=" 'rust-mode-indent-line
