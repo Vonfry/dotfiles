@@ -1,10 +1,11 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (package! lsp-mode
-  :after yasnippet
+  :after yasnippet projectile
   :hook (prog-mode . lsp)
   :custom
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
+  (lsp-prefer-flymake nil)
   :general
   (nmap :keymaps 'lsp-mode-map
         :prefix +nmap-lsp-prefix
@@ -63,14 +64,14 @@
         "n"           'lsp-ui-find-next-reference
         "p"           'lsp-ui-find-prev-reference
         "t"           'lsp-ui-peek--toggle-file
-        "pn"          'lsp-ui-peek--select-next
-        "pp"          'lsp-ui-peek--select-prev
-        "p!"          'lsp-ui-peek--abort
-        "px"          'lsp-ui-peek--goto-xref
-        "po"          'lsp-ui-peek--goto-xref-other-window
-        "p}"          'lsp-ui-peek-find-references
-        "p."          'lsp-ui-peek-find-definitions
-        "p{"          'lsp-ui-peek-find-implementation))
+        "*n"          'lsp-ui-peek--select-next
+        "*p"          'lsp-ui-peek--select-prev
+        "*!"          'lsp-ui-peek--abort
+        "*x"          'lsp-ui-peek--goto-xref
+        "*o"          'lsp-ui-peek--goto-xref-other-window
+        "*}"          'lsp-ui-peek-find-references
+        "*."          'lsp-ui-peek-find-definitions
+        "*{"          'lsp-ui-peek-find-implementation))
 
 (package! company-lsp
   :after lsp-mode company
