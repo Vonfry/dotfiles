@@ -10,6 +10,7 @@
         :prefix +nmap-lsp-prefix
         "" '(nil :which-key "lsp")
         +nmap-go                'lsp-goto-type-definition
+        +nmap-go-back           'pop-tag-mark
         +nmap-run               'lsp-execute-code-action
         +nmap-format            'lsp-format-buffer
         +nmap-highlight         'lsp-symbol-highlight
@@ -24,6 +25,14 @@
         "TAB"                   'completion-at-point)
   (nmap :keymaps 'lsp-mode-map
         :prefix +nmap-code-prefix
+        +nmap-go                'lsp-goto-type-definition
+        +nmap-run               'lsp-execute-code-action
+        +nmap-format            'lsp-format-buffer
+        +nmap-highlight         'lsp-symbol-highlight
+        +nmap-go-prompt         'lsp-find-definition
+        +nmap-go-reference      'lsp-find-references
+        +nmap-go-module         'lsp-organize-imports
+        +nmap-go-implementation 'lsp-goto-implementation
         "ll" 'lsp-lens-show
         "lL" 'lsp-lens-hide
         "la" 'lsp-avy-lens))
@@ -41,21 +50,27 @@
   (:keymaps 'lsp-ui-mode-map
             [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
-  (nmap :keymaps 'prog-mode-map
+  (nmap :keymaps 'lsp-mode-map
+        :prefix +nmap-code-prefix
+        +nmap-swiper            'lsp-ui-find-workspace-symbol
+        +nmap-go-reference      'lsp-ui-peek-find-references
+        +nmap-go                'lsp-ui-peek-find-definitions
+        +nmap-go-implementation 'lsp-ui-peek-find-implementation
+        )
+  (nmap :keymaps 'lsp-mode-map
         :prefix +nmap-lsp-prefix
-        +nmap-swiper 'lsp-ui-find-workspace-symbol
-        "fn" 'lsp-ui-find-next-reference
-        "fp" 'lsp-ui-find-prev-reference
-        "tf" 'lsp-ui-peek--toggle-file
-        "sn" 'lsp-ui-peek--select-next
-        "sp" 'lsp-ui-peek--select-prev
-        "!"  'lsp-ui-peek--abort
-        "{x" 'lsp-ui-peek--goto-xref
-        "{o" 'lsp-ui-peek--goto-xref-other-window
-        "{f" 'lsp-ui-peek-find-references
-        "{d" 'lsp-ui-peek-find-definitions
-        "{i" 'lsp-ui-peek-find-implementation
-        "{s" 'lsp-ui-peek-find-workspace-symbol))
+        +nmap-swiper  'lsp-ui-find-workspace-symbol
+        "n"           'lsp-ui-find-next-reference
+        "p"           'lsp-ui-find-prev-reference
+        "t"           'lsp-ui-peek--toggle-file
+        "pn"          'lsp-ui-peek--select-next
+        "pp"          'lsp-ui-peek--select-prev
+        "p!"          'lsp-ui-peek--abort
+        "px"          'lsp-ui-peek--goto-xref
+        "po"          'lsp-ui-peek--goto-xref-other-window
+        "p}"          'lsp-ui-peek-find-references
+        "p."          'lsp-ui-peek-find-definitions
+        "p{"          'lsp-ui-peek-find-implementation))
 
 (package! company-lsp
   :after lsp-mode company
