@@ -5,12 +5,13 @@
   :general
   (+nmap-avy-def
     "" '(nil :which-key "avy")
-    "f" 'avy-goto-char
-    "F" 'avy-goto-char-2
-    "t" 'avy-goto-char-timer
-    "T" 'avy-goto-word-0
+    "t" 'avy-goto-char
+    "f" 'avy-goto-char-2
+    "g" 'avy-goto-char-timer
+    "b" 'avy-goto-word-0
     "w" 'avy-goto-word-1
     "W" 'avy-goto-subword-1
+    "l" 'avy-goto-line
     "s" 'avy-goto-symbol-1
     "," 'avy-pop-mark
     ";" 'avy-push-mark))
