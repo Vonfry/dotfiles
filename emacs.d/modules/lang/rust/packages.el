@@ -7,7 +7,6 @@
   (+nmap-lang-rust-def
     "=" 'rust-mode-indent-line
     "t" 'rust-test
-    "c" 'rust-compile
     "R" 'rust-run)
   (+nmap-rust-def
     "r" 'rust-compile))

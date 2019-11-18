@@ -16,13 +16,13 @@
   (+nmap-lsp-def
     ""      '(nil :which-key "lsp")
     "."     'lsp-find-definition
-    ">"     'lsp-goto-type-definition
     ","     'pop-tag-mark
     "r"     'lsp-execute-code-action
     "="     'lsp-format-buffer
     "}"     'lsp-find-references
     "#"     'lsp-organize-imports
     "{"     'lsp-goto-implementation
+    "; &"   'lsp-goto-type-definition
     "; h"   'lsp-symbol-highlight
     "; l"   '(nil :which-key "lens")
     "; l l" 'lsp-lens-show
@@ -43,7 +43,7 @@
             [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
   (+nmap-lsp-def
-    "["   'lsp-ui-find-workspace-symbol
+    ">"   'lsp-ui-find-workspace-symbol
     "; }" 'lsp-ui-peek-find-references
     "; ." 'lsp-ui-peek-find-definitions
     "; {" 'lsp-ui-peek-find-implementation)
@@ -60,6 +60,13 @@
     "( }"  'lsp-ui-peek-find-references
     "( ."  'lsp-ui-peek-find-definitions
     "( {"  'lsp-ui-peek-find-implementation))
+
+(package! lsp-ivy
+  :after ivy lsp-mode
+  :general
+  (+nmap-lsp-def
+    "["   'lsp-ivy-workspace-symbol
+    "; [" 'lsp-ivy-global-workspace-symbol))
 
 (package! company-lsp
   :after lsp-mode company yasnippet

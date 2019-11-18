@@ -1,23 +1,24 @@
 ;;; shell packages -*- lexical-binding: t -*-
 ;;
 
-(setq eshell-cmpl-cycle-completions nil
-      ;; auto truncate after 20k lines
-      eshell-buffer-maximum-lines 20000
-      ;; history size
-      eshell-history-size 350
-      ;; no duplicates in history
-      eshell-hist-ignoredups t
-      ;; buffer shorthand -> echo foo > #'buffer
-      eshell-buffer-shorthand t
-      ;; my prompt is easy enough to see
-      eshell-highlight-prompt nil
-      ;; treat 'echo' like shell echo
-      eshell-plain-echo-behavior t
-      ;; cache directory
-      eshell-directory-name (expand-file-name  "eshell/" vonfry-cache-dir))
+(package! eshell
+  :custom
+  (eshell-cmpl-cycle-completions nil)
+  (eshell-buffer-maximum-lines 20000)
+  (eshell-history-size 350)
+  (eshell-hist-ignoredups t)
+  (eshell-buffer-shorthand t)
+  (eshell-highlight-prompt nil)
+  (eshell-plain-echo-behavior t)
+  (eshell-directory-name (expand-file-name  "eshell/" vonfry-cache-dir))
+  :straight nil
+  :general
+  (+nmap-leader-def
+    :keymaps 'shell-mode-map
+    "R" 'realgud-track-mode))
+
 
 (package! company-shell
-  :after company
+  :after company eshell
   :config
   (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))

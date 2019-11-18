@@ -18,11 +18,10 @@
     "="   'align-regexp
     "$"   'eshell
     "h"   'evil-ex-nohighlight
-    "'"   'comint-run
-    "\""  '(nil :which-key "comint action")
-    "\"a" 'append-to-buffer)
+    "\""  'comint-run
+    "'"   '(nil :which-key "repl action"))
   (+vmap-leader-def
-    "\"a" 'append-to-buffer))
+    "'a" 'append-to-buffer))
 
 (package! evil-org
   :after evil org

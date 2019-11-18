@@ -16,10 +16,16 @@
   :hook
   (enh-ruby-mode . inf-ruby-minor-mode)
   :general
-  (+nmap-lang-ruby-def
-    "i d" 'ruby-send-definition
-    "'"   'inf-ruby)
-  (+vmap-lang-ruby-def
-    "i r" 'ruby-send-region
-    "i g" 'ruby-send-definition-and-go
-    "i G" 'ruby-send-region-and-go))
+  (+nmap-ruby-def
+    "\""  'inf-ruby
+    "' r" 'ruby-send-region
+    "' ." 'ruby-send-definition-and-go
+    "' >" 'ruby-send-definition)
+  (+vmap-ruby-def
+    "' ," 'ruby-send-region
+    "' <" 'ruby-send-region-and-go))
+
+(package! realgud-pry
+  :general
+  (+nmap-ruby-def
+    "R" 'realgud:pry))

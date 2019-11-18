@@ -10,7 +10,7 @@
 (package! compile
   :straight nil
   :general
-  (+nmap-leader-cc-def
+  (+nmap-leader-def
     "r" 'compile))
 
 (package! function-args
@@ -34,3 +34,8 @@
   :hook
   (cmake-mode . cmake-font-lock-activate))
 
+(package! realgud-lldb
+  :after realgud
+  :general
+  (+nmap-cc-def
+    "R" 'realgud:lldb))

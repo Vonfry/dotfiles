@@ -4,20 +4,25 @@
 (package! python-mode
   :custom
   (python-shell-interpreter "ipython3")
+  (python-shell-exec-path   "ipython3")
   :general
+  (+nmap-python-def
+    "R"   'realgud:pdb)
+  (+nmap-python-def
+    "\""  'python
+    "; ." 'py-find-definition
+    "RET" 'py-execute-line
+    "' r" 'py-execute-region
+    "' R" 'py-execute-region-pdb
+    "' s" 'py-execute-statement
+    "' S" 'py-execute-statement-pdb)
   (+nmap-lang-python-def
-    "."   'py-find-definition
     "#"   'py-update-imports
-    "s s" 'py-switch-shell
-    "e r" 'py-execute-region
-    "e R" 'py-execute-region-pdb
-    "e s" 'py-execute-statement
-    "e S" 'py-execute-statement-pdb))
+    "s"   'py-switch-shell))
 
 (package! pydoc
   :general
   (+nmap-python-def
     "?"   'pydoc)
   (+nmap-lang-python-def
-    "p p" 'pydoc
-    "p b" 'pydoc-browse))
+    "b" 'pydoc-browse))
