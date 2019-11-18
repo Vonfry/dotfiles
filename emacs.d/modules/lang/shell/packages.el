@@ -14,7 +14,7 @@
   :straight nil
   :general
   (+nmap-leader-def
-    :keymaps '(shell-mode-map eshell-mode-map)
+    :keymaps 'shell-mode-map
     "R" 'realgud-track-mode))
 
 
