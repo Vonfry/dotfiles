@@ -5,5 +5,4 @@
 
 ;; +nmap-lang-tex-def
 (vonfry-def-nmap-lang-prefix tex nil
-  :keymaps +tex-keymaps
-  :prefix +nmap-lang-prefix)
+  :keymaps +tex-keymaps)
