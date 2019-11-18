@@ -83,7 +83,7 @@ function! vonfry#editor#init()
     set fileencoding=utf-8
 
     " hide highlight when searching if not using.
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#highlight, ":nohlsearch<CR>")
+    call vonfry#mapping#leader("h", ":nohlsearch<CR>")
 
     nmap gb :bn<CR>
     nmap gB :bp<CR>

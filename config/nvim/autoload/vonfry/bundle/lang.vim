@@ -34,7 +34,7 @@ function! vonfry#bundle#lang#config()
 
     let g:fencview_autodetect = 0 " Do not auto detect
 
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#terminal, ':terminal<CR>')
+    call vonfry#mapping#leader("$", ':terminal<CR>')
 
     let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
     let g:org_agenda_files=['~/.org/*.org']

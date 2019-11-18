@@ -19,12 +19,12 @@ function! vonfry#bundle#completion#config()
 
     " let g:ale_fixers = { " set in config not in ftplugin to keep file content tidily.
     " \}
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go, ":ALEGoToDefinition") " add intab or split by self
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_action, ":ALEGoToTypeDefinition")
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_reference, ":ALEFindReferences<CR>")
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#code_help, ":ALEHover<CR>")
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#code, ":ALESymbolSearch<CR>")
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#check, ":ALEDetail<CR>")
+    call vonfry#mapping#leader(".", ":ALEGoToDefinition") " add intab or split by self
+    call vonfry#mapping#leader(">", ":ALEGoToTypeDefinition")
+    call vonfry#mapping#leader("}", ":ALEFindReferences<CR>")
+    call vonfry#mapping#leader("?", ":ALEHover<CR>")
+    call vonfry#mapping#leader(";", ":ALESymbolSearch<CR>")
+    call vonfry#mapping#leader("q", ":ALEDetail<CR>")
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
