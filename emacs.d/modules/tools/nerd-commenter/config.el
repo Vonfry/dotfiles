@@ -1,8 +1,6 @@
 ;;; nerd-commenter config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +nmap-nc-prefix
-  (concat +nmap-leader +nmap-commenter)
-  "nerd-commenter prefix key"
-  :type 'string
-  :group 'vonfry-modules)
+;; +nmap-nc-def
+(vonfry-def-nmap-leader-prefix nc "c"
+  :keymaps 'prog-mode-map)

@@ -13,9 +13,7 @@
   (projectile-cache-file +projectile-cache-file)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
-  (nmap :prefix +nmap-lang-prefix
-        :keymaps '(c-mode-map c++-mode-map objc-mode-map)
-        "h" 'projectile-find-other-file)
+  (+nmap-lang-cc-def "h" 'projectile-find-other-file)
   :config
   (projectile-global-mode t))
 
@@ -23,19 +21,19 @@
   :after projectile counsel
   :hook (projectile-mode . counsel-projectile-mode)
   :general
-  (nmap :prefix +nmap-project-prefix
-        "a" 'counsel-projectile-rg
-        "p" 'counsel-projectile
-        "s" 'counsel-projectile-switch-project
-        "f" 'counsel-projectile-find-file
-        "F" 'counsel-projectile-find-file-dwim
-        "d" 'counsel-projectile-find-dir
-        "b" 'counsel-projectile-switch-to-buffer
-        "c" 'counsel-projectile-org-capture
-        "g" 'counsel-projectile-org-agenda)
-  (nmap :prefix +nmap-leader
-        +nmap-ctrlp  'counsel-projectile
-        +nmap-search 'counsel-projectile-rg))
+  (+nmap-leader-def
+    "p"   'counsel-projectile
+    "a"   'counsel-projectile-rg
+    "P"   '(nil :which-key "projectile")
+    "P a" 'counsel-projectile-rg
+    "P p" 'counsel-projectile
+    "P s" 'counsel-projectile-switch-project
+    "P f" 'counsel-projectile-find-file
+    "P F" 'counsel-projectile-find-file-dwim
+    "P d" 'counsel-projectile-find-dir
+    "P b" 'counsel-projectile-switch-to-buffer
+    "P c" 'counsel-projectile-org-capture
+    "P g" 'counsel-projectile-org-agenda))
 
 (package! org-projectile
   :after projectile org org-agenda
@@ -44,10 +42,9 @@
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
-  (nmap :prefix (concat +nmap-leader +nmap-todo)
-        "" '(nil :which-key "todo highlight")
-        "," 'org-projectile-project-todo-completing-read
-        "." 'org-projectile-goto-location-for-project)
+  (+nmap-todo-def
+    "," 'org-projectile-project-todo-completing-read
+    "." 'org-projectile-goto-location-for-project)
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config

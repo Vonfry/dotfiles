@@ -1,7 +1,12 @@
 ;;; rust config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +nmap-rust-lang-compile-prefix (concat +nmap-lang-prefix +nmap-run)
-  "keybind for cargo"
-  :type 'string
-  :group 'vonfry-modules)
+(defconst +rust-keymaps 'rust-mode-map)
+
+;; +nmap-lang-rust-def
+(vonfry-def-nmap-lang-prefix rust nil
+  :keymaps +rust-keymaps)
+
+;; +nmap-rust-def
+(vonfry-def-nmap-leader-prefix rust nil
+  :keymaps +rust-keymaps)

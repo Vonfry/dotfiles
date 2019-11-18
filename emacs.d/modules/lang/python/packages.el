@@ -5,22 +5,19 @@
   :custom
   (python-shell-interpreter "ipython3")
   :general
-  (nmap :keymaps 'python-mode-map
-        :prefix +nmap-lang-prefix
-        +nmap-go        'py-find-definition
-        +nmap-go-module 'py-update-imports
-        "ss" 'py-switch-shell
-        "er" 'py-execute-region
-        "eR" 'py-execute-region-pdb
-        "es" 'py-execute-statement
-        "eS" 'py-execute-statement-pdb))
+  (+nmap-lang-python-def
+    "."   'py-find-definition
+    "#"   'py-update-imports
+    "s s" 'py-switch-shell
+    "e r" 'py-execute-region
+    "e R" 'py-execute-region-pdb
+    "e s" 'py-execute-statement
+    "e S" 'py-execute-statement-pdb))
 
 (package! pydoc
   :general
-  (nmap :keymaps 'python-mode-map
-        :prefix +nmap-leader
-        +nmap-code-help 'pydoc)
-  (nmap :keymaps 'python-mode-map
-        :prefix +nmap-lang-prefix
-        "pp" 'pydoc
-        "pb" 'pydoc-browse))
+  (+nmap-python-def
+    "?"   'pydoc)
+  (+nmap-lang-python-def
+    "p p" 'pydoc
+    "p b" 'pydoc-browse))

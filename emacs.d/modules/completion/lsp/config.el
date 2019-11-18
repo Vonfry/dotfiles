@@ -1,7 +1,12 @@
 ;;; lsp config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +nmap-lsp-prefix +nmap-lang-action-prefix
-  "lsp prefix using lang action"
-  :type 'string
-  :group 'vonfry-modules)
+(defconst +lsp-keymaps 'lsp-mode-map)
+
+;; +nmap-lsp-def
+(vonfry-def-nmap-leader-prefix lsp nil
+  :keymaps +lsp-keymaps)
+
+;; +nmap-lsp-prefix-def
+(vonfry-def-nmap-leader-prefix lsp-prefix "*"
+  :keymaps +lsp-keymaps)

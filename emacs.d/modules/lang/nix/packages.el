@@ -3,8 +3,7 @@
 
 (package! nix-mode
   :general
-  (nmap :keymaps 'nix-mode-map
-        :prefix +nmap-lang-prefix
-        "'"  'nix-repl
-        "u"  'nix-unpack
-        "c"  'nix-build))
+  (+nmap-lang-nix-def
+    "'"  'nix-repl
+    "u"  'nix-unpack
+    "c"  'nix-build))

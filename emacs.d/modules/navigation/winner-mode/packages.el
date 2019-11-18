@@ -3,7 +3,7 @@
 
 (winner-mode t)
 
-(nmap :prefix +nmap-winner-prefix
-      ""  '(nil :which-key "winner")
-      "r" 'winner-mode-redo
-      "u" 'winner-mode-undo)
+(+nmap-winner-def
+  ""  '(nil :which-key "winner")
+  "r" 'winner-mode-redo
+  "u" 'winner-mode-undo)

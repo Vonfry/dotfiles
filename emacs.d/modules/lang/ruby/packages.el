@@ -16,12 +16,10 @@
   :hook
   (enh-ruby-mode . inf-ruby-minor-mode)
   :general
-  (nmap :keymaps 'enh-ruby-mode-map
-        :prefix +nmap-lang-prefix
-        "id" 'ruby-send-definition
-        +nmap-repl  'inf-ruby)
-  (vmap :keymaps 'enh-ruby-mode-map
-        :prefix +nmap-lang-prefix
-        "ir" 'ruby-send-region
-        "ig" 'ruby-send-definition-and-go
-        "iG" 'ruby-send-region-and-go))
+  (+nmap-lang-ruby-def
+    "i d" 'ruby-send-definition
+    "'"   'inf-ruby)
+  (+vmap-lang-ruby-def
+    "i r" 'ruby-send-region
+    "i g" 'ruby-send-definition-and-go
+    "i G" 'ruby-send-region-and-go))

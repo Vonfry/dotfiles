@@ -43,56 +43,55 @@
       (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
       (imenu-add-menubar-index))))
   :general
-  (nmap :keymaps '(LaTeX-mode-map tex-mode-map)
-        :prefix +nmap-lang-prefix
-        "\\" 'TeX-insert-macro
-        "-"  'TeX-recenter-output-buffer
-        "%"  'TeX-comment-or-uncomment-paragraph
-        ";"  'TeX-comment-or-uncomment-region
-        "a"  'TeX-command-run-all
-        "b"  'latex/build
-        "k"  'TeX-kill-job
-        "l"  'TeX-recenter-output-buffer
-        "m"  'TeX-insert-macro
-        "v"  'TeX-view
-        "d"  'TeX-doc
-        "b"  'latex/font-bold
-        "tc" 'latex/font-code
-        "te" 'latex/font-emphasis
-        "fi" 'latex/font-italic
-        "r"  'latex/font-clear
-        "o"  'latex/font-oblique
-        "fc" 'latex/font-small-caps
-        "ff" 'latex/font-sans-serif
-        "fr" 'latex/font-serif
-        "*"  'LaTeX-mark-section
-        "."  'LaTeX-mark-environment
-        "c"  'LaTeX-close-environment
-        "e"  'LaTeX-environment
-        "ii" 'LaTeX-insert-item
-        "s"  'LaTeX-section
-        "fe" 'LaTeX-fill-environment
-        "fp" 'LaTeX-fill-paragraph
-        "fr" 'LaTeX-fill-region
-        "fs" 'LaTeX-fill-section
-        "pb" 'preview-buffer
-        "pc" 'preview-clearout
-        "pd" 'preview-document
-        "pe" 'preview-environment
-        "pf" 'preview-cache-preamble
-        "pp" 'preview-at-point
-        "pr" 'preview-region
-        "ps" 'preview-section
-        "B"  'latex/font-medium
-        "r"  'latex/font-clear
-        "fa" 'latex/font-calligraphic
-        "fn" 'latex/font-normal
-        "fu" 'latex/font-upright
-        "z=" 'TeX-fold-math
-        "zb" 'TeX-fold-buffer
-        "ze" 'TeX-fold-env
-        "zm" 'TeX-fold-macro
-        "zr" 'TeX-fold-region))
+  (+nmap-lang-tex-def
+    "\\"  'TeX-insert-macro
+    "-"   'TeX-recenter-output-buffer
+    "%"   'TeX-comment-or-uncomment-paragraph
+    ";"   'TeX-comment-or-uncomment-region
+    "a"   'TeX-command-run-all
+    "b"   'latex/build
+    "k"   'TeX-kill-job
+    "l"   'TeX-recenter-output-buffer
+    "m"   'TeX-insert-macro
+    "v"   'TeX-view
+    "d"   'TeX-doc
+    "b"   'latex/font-bold
+    "t c" 'latex/font-code
+    "t e" 'latex/font-emphasis
+    "f i" 'latex/font-italic
+    "r"   'latex/font-clear
+    "o"   'latex/font-oblique
+    "f c" 'latex/font-small-caps
+    "f f" 'latex/font-sans-serif
+    "f r" 'latex/font-serif
+    "*"   'LaTeX-mark-section
+    "."   'LaTeX-mark-environment
+    "c"   'LaTeX-close-environment
+    "e"   'LaTeX-environment
+    "i i" 'LaTeX-insert-item
+    "s"   'LaTeX-section
+    "f e" 'LaTeX-fill-environment
+    "f p" 'LaTeX-fill-paragraph
+    "f r" 'LaTeX-fill-region
+    "f s" 'LaTeX-fill-section
+    "p b" 'preview-buffer
+    "p c" 'preview-clearout
+    "p d" 'preview-document
+    "p e" 'preview-environment
+    "p f" 'preview-cache-preamble
+    "p p" 'preview-at-point
+    "p r" 'preview-region
+    "p s" 'preview-section
+    "B"   'latex/font-medium
+    "r"   'latex/font-clear
+    "f a" 'latex/font-calligraphic
+    "f n" 'latex/font-normal
+    "f u" 'latex/font-upright
+    "z =" 'TeX-fold-math
+    "z b" 'TeX-fold-buffer
+    "z e" 'TeX-fold-env
+    "z m" 'TeX-fold-macro
+    "z r" 'TeX-fold-region))
 
 (package! company-math
  :after company

@@ -33,7 +33,6 @@
        (t (format "%8d" (buffer-size)))))
   :general
   ("C-x C-b" 'ibuffer)
-  (nmap :prefix +nmap-leader
-    +nmap-buffer 'ibuffer))
+  (+nmap-leader-def "B" 'ibuffer))
 
 (package! ibuffer-vc :after ibuffer)
