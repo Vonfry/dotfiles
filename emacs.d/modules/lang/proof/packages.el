@@ -3,6 +3,12 @@
 
 (package! proof-general
   :general
+  (+nmap-proof-def
+    "\""     'proof-shell-start
+    "' x"    'proof-shell-exit
+    "' >"    'proof-autosend-toggle
+    "' u"    'proof-undo-last-successful-command
+    "RET"    'proof-goto-point)
   (+nmap-lang-proof-def
     "RET"    'proof-goto-point
     "b"      'proof-process-buffer
