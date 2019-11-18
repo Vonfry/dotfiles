@@ -18,13 +18,13 @@ function! vonfry#bundle#interface#plug()
 endfunction
 
 function! vonfry#bundle#interface#config()
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#x         , ':LeaderfSelf<CR>'          )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#ctrlp     , ':LeaderfFile<CR>'          )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#file      , ':LeaderfFile<CR>'          )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#search    , ':LeaderfRgInteractive<CR>' )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#buffer    , ':LeaderfBufferAll<CR>'     )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#swiper    , ':LeaderfLineAll<CR>'       )
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#go_prompt , ':LeaderfFunctionAll<CR>'   )
+    call vonfry#mapping#leader("x" , ':LeaderfSelf<CR>'          )
+    call vonfry#mapping#leader("p" , ':LeaderfFile<CR>'          )
+    call vonfry#mapping#leader("f" , ':LeaderfFile<CR>'          )
+    call vonfry#mapping#leader("," , ':LeaderfRgInteractive<CR>' )
+    call vonfry#mapping#leader("b" , ':LeaderfBufferAll<CR>'     )
+    call vonfry#mapping#leader("/" , ':LeaderfLineAll<CR>'       )
+    call vonfry#mapping#leader("[" , ':LeaderfFunctionAll<CR>'   )
 
     let g:Lf_CacheDirectory = g:vonfry#local#cache
     let g:Lf_StlColorscheme = "one"
@@ -38,12 +38,11 @@ function! vonfry#bundle#interface#config()
     let g:strip_whitespace_on_save = 1
     let g:better_whitespace_operator='<leader>ws'
 
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#align, ':Tabularize /')
+    call vonfry#mapping#leader("=", ':Tabularize /')
 
     " whitespace
     let g:better_whitespace_operator = ''
 
     " whichkey
-    exec "nmap <silent> <leader> :<c-u>WhichKey '" . g:vonfry#mapping#nmap#leader . "'<CR>"
-    exec "nmap <silent> <localleader> :<c-u>WhichKey '" . g:vonfry#mapping#nmap#localleader . "'<CR>"
+    exec "nmap <silent> <leader> :<c-u>WhichKey '" . g:mapleader . "'<CR>"
 endfunction

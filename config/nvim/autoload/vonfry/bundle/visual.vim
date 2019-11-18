@@ -39,5 +39,5 @@ function vonfry#bundle#visual#config()
     let g:airline_symbols.paste      = '∥'
     let g:airline_symbols.whitespace = 'Ξ'
 
-    call vonfry#mapping#leader(g:vonfry#mapping#nmap#undotree, ':MundoToggle<CR>')
+    call vonfry#mapping#leader("u", ':MundoToggle<CR>')
 endfunction
