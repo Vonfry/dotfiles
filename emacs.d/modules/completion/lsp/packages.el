@@ -61,7 +61,7 @@
     "* {"  'lsp-ui-peek-find-implementation))
 
 (package! company-lsp
-  :after lsp-mode company
+  :after lsp-mode company yasnippet
   :custom
   (company-lsp-async t)
   (company-lsp-cache-candidates t)

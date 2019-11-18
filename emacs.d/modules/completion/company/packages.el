@@ -8,6 +8,10 @@
   (company-minimum-prefix-length 4)
   (company-tooltip-flip-when-above t)
   (company-tooltip-offset-display 'lines)
+  :general
+  (:keymaps 'company-active-map
+    "C-n" 'company-select-next
+    "C-p" 'company-select-previous)
   :config
   (global-company-mode))
 

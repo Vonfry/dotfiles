@@ -13,12 +13,16 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (+nmap-leader-def
-    "z" '(nil :which-key "lang")
-    ";" '(nil :which-key "code")
-    "=" 'align-regexp
-    "$" 'eshell
-    "h" 'evil-ex-nohighlight
-    "'" 'comint-run)) ;; send to buff by using `append-to-buffer`
+    "z"   '(nil :which-key "lang")
+    ";"   '(nil :which-key "code")
+    "="   'align-regexp
+    "$"   'eshell
+    "h"   'evil-ex-nohighlight
+    "'"   'comint-run
+    "\""  '(nil :which-key "comint action")
+    "\"a" 'append-to-buffer)
+  (+vmap-leader-def
+    "\"a" 'append-to-buffer))
 
 (package! evil-org
   :after evil org

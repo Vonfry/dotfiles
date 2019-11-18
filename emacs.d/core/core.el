@@ -38,7 +38,7 @@
 (defconst vonfry-core-dir (expand-file-name "core/" vonfry-config-dir)
   "The dir to saves the core module.")
 
-(defcustom vonfry-debug t
+(defcustom vonfry-debug nil
   "debug flag."
   :group 'vonfry
   :type 'boolean)
