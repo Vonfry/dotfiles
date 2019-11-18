@@ -27,13 +27,13 @@
 
 (defmacro vonfry-def-map-prefix (states name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (make-symbol (format "%s-def" (symbol-name name)))))
+  (let ((name-with (intern (format "%s-def" (symbol-name name)))))
     `(general-create-definer ,name-with :prefix ,(eval keys) :states ,states ,@args)))
 
 (defmacro vonfry-def-nmap-prefix (name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (make-symbol (format "+nmap-%s" (symbol-name name)))))
-    `(vonfry-def-map-prefix 'normal ,name-with ,(eval keys)  ,@args)))
+  (let ((name-with (intern (format "+nmap-%s" (symbol-name name)))))
+    `(vonfry-def-map-prefix 'normal ,name-with ,(eval keys) ,@args)))
 
 (defmacro vonfry-def-nmap-leader-prefix (name keys &rest args)
   "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
@@ -42,13 +42,13 @@
 
 (defmacro vonfry-def-nmap-lang-prefix (name keys &rest args)
   "Define a key definer with leader lang prefix.\nPass `nil' to second argument to generate for lang prefix."
-  (let ((name-with (make-symbol (format "lang-%s" (symbol-name name))))
+  (let ((name-with (intern (format "lang-%s" (symbol-name name))))
         (key-with (concat +nmap-lang " " keys)))
     `(vonfry-def-nmap-leader-prefix ,name-with ,key-with ,@args)))
 
 (defmacro vonfry-def-vmap-prefix (name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (make-symbol (format "+vmap-%s" (symbol-name name)))))
+  (let ((name-with (intern (format "+vmap-%s" (symbol-name name)))))
     `(vonfry-def-map-prefix 'visual ,name-with ,(eval keys) ,@args)))
 
 (defmacro vonfry-def-vmap-leader-prefix (name keys &rest args)
@@ -58,7 +58,7 @@
 
 (defmacro vonfry-def-vmap-lang-prefix (name keys &rest args)
   "Define a key definer with leader lang prefix.\nPass `nil' to second argument to generate for lang prefix."
-  (let ((name-with (make-symbol (format "lang-%s" (symbol-name name))))
+  (let ((name-with (intern (format "lang-%s" (symbol-name name))))
         (key-with (concat +nmap-lang " " keys)))
     `(vonfry-def-vmap-leader-prefix ,name-with ,key-with ,@args)))
 
