@@ -59,7 +59,7 @@
   '(delete-selection-mode t)
 
   '(tab-always-indent 'always)
-  '(indent-tabs-mode t)
+  '(indent-tabs-mode nil)
   '(tab-width 4)
   '(c-default-style "k&r")
   '(c-basic-offset 4)
