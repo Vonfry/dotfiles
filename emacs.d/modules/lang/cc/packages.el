@@ -10,7 +10,7 @@
 (package! compile
   :straight nil
   :general
-  (+nmap-leader-cc-def
+  (+nmap-leader-def
     "r" 'compile))
 
 (package! function-args

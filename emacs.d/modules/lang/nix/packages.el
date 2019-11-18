@@ -4,7 +4,7 @@
 (package! nix-mode
   :general
   (+nmap-nix-def
-    "'"  'nix-repl)
+    "\"" 'nix-repl
+    "r"  'nix-build)
   (+nmap-lang-nix-def
-    "u"  'nix-unpack
-    "c"  'nix-build))
+    "u"  'nix-unpack))

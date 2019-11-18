@@ -17,10 +17,10 @@
   (enh-ruby-mode . inf-ruby-minor-mode)
   :general
   (+nmap-ruby-def
-    "'"   'inf-ruby)
-  (+nmap-lang-ruby-def
-    "i d" 'ruby-send-definition)
-  (+vmap-lang-ruby-def
-    "i r" 'ruby-send-region
-    "i g" 'ruby-send-definition-and-go
-    "i G" 'ruby-send-region-and-go))
+    "\""  'inf-ruby
+    "' r" 'ruby-send-region
+    "' ." 'ruby-send-definition-and-go
+    "' >" 'ruby-send-definition)
+  (+vmap-ruby-def
+    "' ," 'ruby-send-region
+    "' <" 'ruby-send-region-and-go))

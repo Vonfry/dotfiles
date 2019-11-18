@@ -10,8 +10,8 @@
 
 (package! ielm :straight nil
   :general
-  (+nmap-lang-elisp-def
-    "'"  'ielm)
   (+nmap-leader-def
-    "'"  'ielm))
+    "\""  'ielm
+    "' b" 'eval-buffer
+    "' r" 'eval-region))
 

@@ -10,18 +10,19 @@
   (haskell-process-type 'auto)
   :general
   (+nmap-haskell-def
-    "=" 'haskell-mode-stylish-buffer
-    "#" 'haskell-navigate-imports)
+    "="   'haskell-mode-stylish-buffer
+    "r"   'haskell-compile
+    "R"   'haskell-debug
+    "#"   'haskell-navigate-imports)
   (+nmap-lang-haskell-def
-    "r r" 'haskell-compile
-    "r c" 'run-haskell
+    "R"   'run-haskell
     "."   'haskell-mode-jump-to-def
-    "#"   'haskell-navigate-imports
-    "q h" 'hoogle
+    "h"   'hoogle
+    "q"   '(nil :which-key "query")
     "q l" 'haskell-hoogle-lookup-from-local
     "q e" 'engine/search-hoogle
     "q s" 'haskell-hoogle-start-server
-    "q k" 'haskell-hoogle-start-server
+    "q k" 'haskell-hoogle-kill-server
     "t"   'haskell-mode-show-type-at
     "k"   'haskell-interactive-mode-clear
     "c"   'haskell-cabal-visit-file)
@@ -35,15 +36,16 @@
   :straight nil
   :general
   (+nmap-haskell-def
-    "'"   'haskell-interactive-bring
-    "k"   'haskell-interactive-mode-clear
-    "s m" 'haskell-menu
-    "s c" 'haskell-session-change-target))
+    "\"" 'haskell-interactive-bring
+    "k"  'haskell-interactive-mode-clear
+    "m"  'haskell-menu
+    "C"  'haskell-session-change-target))
 
 (package! haskell-process
   :straight nil
   :general
   (+nmap-lang-haskell-def
+    "p"   '(nil :which-key "process")
     "p l" 'haskell-process-load-or-reload
     "p t" 'haskell-process-do-type
     "p i" 'haskell-process-do-info
@@ -61,4 +63,4 @@
 (package! hasky-extensions
   :general
   (+nmap-lang-haskell-def
-    "y"  'hasky-extensions))
+    "{"  'hasky-extensions))
