@@ -12,5 +12,5 @@
   (imenu-list-focus-after-activation t)
   (imenu-list-auto-resize t)
   :general
-  (+nmap-leader-def
+  (+nmap-imenu-def
     "t" 'imenu-list-smart-toggle))

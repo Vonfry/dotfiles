@@ -20,11 +20,14 @@
 (package! counsel
   :custom
   (counsel-find-file-at-point t)
+  :config
+  (counsel-mode t)
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ("C-&" 'counsel-company)
+  (:keymaps 'prog-mode-map
+    "C-&" 'counsel-company)
   (+nmap-leader-def
     "x" 'counsel-M-x
     "f" 'counsel-find-file

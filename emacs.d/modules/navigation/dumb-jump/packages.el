@@ -3,8 +3,7 @@
 
 (package! dumb-jump
   :general
-  (+nmap-leader-def
-    :keymaps 'prog-mode-map
+  (+nmap-dumb-def
     "."   'dumb-jump-go
     ","   'dumb-jump-back
     "&"   'dumb-jump-quick-look
