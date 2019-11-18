@@ -16,7 +16,7 @@
     "' S" 'py-execute-statement-pdb)
   (+nmap-lang-python-def
     "#"   'py-update-imports
-    "s"   'py-switch-shell)
+    "s"   'py-switch-shell))
 
 (package! pydoc
   :general
