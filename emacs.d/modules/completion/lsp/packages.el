@@ -24,6 +24,7 @@
     "#"     'lsp-organize-imports
     "{"     'lsp-goto-implementation
     "; h"   'lsp-symbol-highlight
+    "; l"   '(nil :which-key "lens")
     "; l l" 'lsp-lens-show
     "; l L" 'lsp-lens-hide
     "; l a" 'lsp-avy-lens))
