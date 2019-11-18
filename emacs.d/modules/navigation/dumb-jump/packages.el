@@ -16,5 +16,6 @@
     "> >" 'dumb-jump-quick-look
     "> <" 'dumb-jump-go-prefer-external
     "> :" 'dumb-jump-go-prefer-external-other-window)
+  :hook (prog-mode . dumb-jump-mode)
   :custom
   (dumb-jump-selector 'ivy))

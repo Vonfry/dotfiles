@@ -3,4 +3,4 @@
 
 ;; +nmap-dumb-def
 (vonfry-def-nmap-leader-prefix dumb nil
-  :keymaps 'prog-mode-map)
+  :keymaps 'dumb-mode-map)
