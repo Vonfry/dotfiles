@@ -3,8 +3,7 @@
 
 (package! proof-general
   :general
-  (nmap :prefix +nmap-lang-prefix
-    :keymaps 'coq-mode-map
+  (+nmap-lang-proof-def
     "RET"    'proof-goto-point
     "b"      'proof-process-buffer
     "r"      'proof-retract-buffer
@@ -32,6 +31,5 @@
   :after proof-general company
   :hook (coq-mode . company-coq-mode)
   :general
-  (nmap :prefix +nmap-lang-prefix
-        :keymaps 'coq-mode-map
-        "B" 'company-coq-cite))
+  (+nmap-lang-proof-def
+    "B" 'company-coq-cite))

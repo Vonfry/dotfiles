@@ -71,7 +71,7 @@
                               (concat prefix (nth 0 tag))
                               (nth 0 tag)))
                           (tag-abbr (nth 1 tag))
-                          (tag-prefix (-reduce-from 'concat "" (-repeat prefix-level prefix)))
+                          (tag-prefix (mapconcat 'identity (-repeat prefix-level prefix) ""))
                           (l (cons (list tag-name (concat tag-prefix tag-abbr)) l)))
                       (if (> (length i) 1)
                         (vonfry--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level))

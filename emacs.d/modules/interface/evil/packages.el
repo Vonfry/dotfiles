@@ -12,12 +12,17 @@
   (nmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
-  (nmap :prefix +nmap-leader
-        +nmap-lang      '(nil :which-key "lang")
-        +nmap-align     'align-regexp
-        +nmap-terminal  'eshell
-        +nmap-highlight 'evil-ex-nohighlight
-        +nmap-repl      'comint-run)) ;; send to buff by using `append-to-buffer`
+  (+nmap-leader-def
+    "z"   '(nil :which-key "lang")
+    ";"   '(nil :which-key "code")
+    "="   'align-regexp
+    "$"   'eshell
+    "h"   'evil-ex-nohighlight
+    "'"   'comint-run
+    "\""  '(nil :which-key "comint action")
+    "\"a" 'append-to-buffer)
+  (+vmap-leader-def
+    "\"a" 'append-to-buffer))
 
 (package! evil-org
   :after evil org

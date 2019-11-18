@@ -5,6 +5,6 @@
   :config
   (require 'google-translate-smooth-ui)
   :general
-  ("\C-ct" 'google-translate-at-point)
-  ("\C-cT" 'google-translate-query-translate))
+  ("C-c t" 'google-translate-at-point)
+  ("C-c T" 'google-translate-query-translate))
 

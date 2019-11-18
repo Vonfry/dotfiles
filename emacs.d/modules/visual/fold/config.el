@@ -1,4 +1,6 @@
 ;;; fold config -*- lexical-binding: t -*-
 ;;
-(defconst +nmap-origaml-prefix
-   "zZ" "nmap origmal prefix")
+
+;; +nmap-zZ-def
+(vonfry-def-nmap-leader-prefix zZ "zZ"
+  :keymaps '(text-mode prog-mode))

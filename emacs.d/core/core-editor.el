@@ -58,7 +58,8 @@
   '(mouse-yank-at-point t)
   '(delete-selection-mode t)
 
-  '(indent-tabs-mode nil)
+  '(tab-always-indent 'complete)
+  '(indent-tabs-mode t)
   '(tab-width 4)
   '(c-default-style "k&r")
   '(c-basic-offset 4)

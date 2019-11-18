@@ -1,6 +1,6 @@
 ;;; dumb-jump config -*- lexical-binding: t -*-
 ;;
 
-(defconst +dumb-jump-nmap-prefix
-  (concat +nmap-leader +nmap-navigation)
-  "dumb jump nmap")
+;; +nmap-dumb-def
+(vonfry-def-nmap-leader-prefix dumb nil
+  :keymaps 'prog-mode-map)
