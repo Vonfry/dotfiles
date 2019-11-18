@@ -7,6 +7,8 @@
   (python-shell-exec-path   "ipython3")
   :general
   (+nmap-python-def
+    "R"   'realgud:pdb)
+  (+nmap-python-def
     "\""  'python
     "; ." 'py-find-definition
     "RET" 'py-execute-line

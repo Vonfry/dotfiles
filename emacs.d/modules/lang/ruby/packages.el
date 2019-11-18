@@ -24,3 +24,8 @@
   (+vmap-ruby-def
     "' ," 'ruby-send-region
     "' <" 'ruby-send-region-and-go))
+
+(package! realgud-pry
+  :general
+  (+nmap-ruby-def
+    "R" 'realgud:pry))

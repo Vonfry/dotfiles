@@ -34,3 +34,8 @@
   :hook
   (cmake-mode . cmake-font-lock-activate))
 
+(package! realgud-lldb
+  :after realgud
+  :general
+  (+nmap-cc-def
+    "R" 'realgud:lldb))
