@@ -16,9 +16,10 @@
   :hook
   (enh-ruby-mode . inf-ruby-minor-mode)
   :general
-  (+nmap-lang-ruby-def
-    "i d" 'ruby-send-definition
+  (+nmap-ruby-def
     "'"   'inf-ruby)
+  (+nmap-lang-ruby-def
+    "i d" 'ruby-send-definition)
   (+vmap-lang-ruby-def
     "i r" 'ruby-send-region
     "i g" 'ruby-send-definition-and-go
