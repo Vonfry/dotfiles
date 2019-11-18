@@ -4,7 +4,6 @@
 (package! disaster
   :general
   (+nmap-lang-cc-def
-    :keymaps
     "d" 'disaster))
 
 ;; this is used in all program lang

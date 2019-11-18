@@ -8,7 +8,7 @@
     "."   'dumb-jump-go
     ","   'dumb-jump-back
     "&"   'dumb-jump-quick-look
-    "["   'dumb-jump-go-prompt)
+    "["   'dumb-jump-go-prompt
     ">"   '(nil :which-key "dumb-jump")
     "> ." 'dumb-jump-go
     "> ," 'dumb-jump-back
