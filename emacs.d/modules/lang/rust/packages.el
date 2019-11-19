@@ -9,7 +9,8 @@
     "t" 'rust-test
     "R" 'rust-run)
   (+nmap-rust-def
-    "r" 'rust-compile))
+    "r" 'rust-compile
+    "R" 'realgud:lldb))
 
 (package! cargo
   :hook (rust-mode . cargo-minor-mode)
