@@ -33,7 +33,7 @@
 (defmacro vonfry-def-mmap-prefix (name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
   (let ((name-with (intern (format "+mmap-%s" (symbol-name name)))))
-    `(vonfry-def-map-prefix '(normal motion visual evilified) ,name-with ,(eval keys) ,@args)))
+    `(vonfry-def-map-prefix '(normal visual) ,name-with ,(eval keys) ,@args)))
 
 (defmacro vonfry-def-mmap-leader-prefix (name keys &rest args)
   "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
