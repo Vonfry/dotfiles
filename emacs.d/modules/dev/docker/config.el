@@ -1,5 +1,5 @@
 ;;; docker config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-docker-def
-(vonfry-def-nmap-leader-prefix docker "v")
+;; +mmap-docker-def
+(vonfry-def-mmap-leader-prefix docker "v")

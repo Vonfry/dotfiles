@@ -1,5 +1,5 @@
 ;;; winner-mode config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-winner-def
-(vonfry-def-nmap-leader-prefix winner "W")
+;; +mmap-winner-def
+(vonfry-def-mmap-leader-prefix winner "W")

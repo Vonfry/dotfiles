@@ -34,7 +34,7 @@ with pkgs; [
 
   nodejs
 
-  tectonic
+  texlive.combined.scheme-full
   poppler
   pandoc
 

@@ -14,16 +14,15 @@
   :custom
   (inf-ruby-default-implementation "pry")
   :general
-  (+nmap-ruby-def
+  (+mmap-ruby-def
     "\""  'inf-ruby
     "' r" 'ruby-send-region
     "' ." 'ruby-send-definition-and-go
-    "' >" 'ruby-send-definition)
-  (+vmap-ruby-def
+    "' >" 'ruby-send-definition
     "' ," 'ruby-send-region
     "' <" 'ruby-send-region-and-go))
 
 (package! realgud-pry
   :general
-  (+nmap-ruby-def
+  (+mmap-ruby-def
     "R" 'realgud:pry))

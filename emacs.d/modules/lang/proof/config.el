@@ -1,10 +1,10 @@
 ;;; proof config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-lang-proof-def
-(vonfry-def-nmap-lang-prefix proof nil
+;; +mmap-lang-proof-def
+(vonfry-def-mmap-lang-prefix proof nil
   :keymaps 'coq-mode-map)
 
-;; +nmap-proof-def
-(vonfry-def-nmap-leader-prefix proof nil
+;; +mmap-proof-def
+(vonfry-def-mmap-leader-prefix proof nil
   :keymaps 'coq-mode-map)

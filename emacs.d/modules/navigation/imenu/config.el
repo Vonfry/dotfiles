@@ -1,6 +1,6 @@
 ;;; imenu config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-imenu-def
-(vonfry-def-nmap-leader-prefix imenu nil
+;; +mmap-imenu-def
+(vonfry-def-mmap-leader-prefix imenu nil
   :keymaps 'prog-mode-map)

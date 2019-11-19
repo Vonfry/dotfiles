@@ -55,7 +55,6 @@ brew reinstall sqlite mysql postgresql redis # database
 brew reinstall pgcli mycli
 brew reinstall poppler                       # pdf generator
 brew reinstall pandoc                        # markdown
-brew reinstall tectonic
 brew cask install java
 
 # system tool
@@ -83,6 +82,7 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install mark-text
 brew cask install amethyst
+brew cask install mactex
 
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)

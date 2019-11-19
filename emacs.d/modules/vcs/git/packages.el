@@ -3,7 +3,7 @@
 
 (package! magit
   :general
-  (+nmap-magit-def "-" 'magit-status)
+  (+mmap-magit-def "-" 'magit-status)
   :config
   (vonfry-system-sets (darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
 

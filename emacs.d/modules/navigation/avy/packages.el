@@ -3,7 +3,7 @@
 
 (package! avy
   :general
-  (+nmap-avy-def
+  (+mmap-avy-def
     "" '(nil :which-key "avy")
     "t" 'avy-goto-char
     "f" 'avy-goto-char-2
@@ -23,4 +23,4 @@
   (aw-minibuffer-flag t)
   (aw-dispatch-always t)
   :general
-  (+nmap-leader-def "w" 'ace-window))
+  (+mmap-leader-def "w" 'ace-window))

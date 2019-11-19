@@ -7,14 +7,14 @@
   :custom
   (ivy-use-virtual-buffers t)
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "b" 'ivy-switch-buffer))
 
 (package! swiper
   :custom
   (swiper-action-recenter t)
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "/" 'swiper))
 
 (package! counsel
@@ -28,7 +28,7 @@
   ("C-x C-f" 'counsel-find-file)
   (:keymaps 'prog-mode-map
     "C-&" 'counsel-company)
-  (+nmap-leader-def
+  (+mmap-leader-def
     "x" 'counsel-M-x
     "f" 'counsel-find-file
     "F" 'counsel-fzf
