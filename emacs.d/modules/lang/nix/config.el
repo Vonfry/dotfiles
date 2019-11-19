@@ -1,10 +1,10 @@
 ;;; nix config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-lang-nix-def
-(vonfry-def-nmap-lang-prefix nix nil
+;; +mmap-lang-nix-def
+(vonfry-def-mmap-lang-prefix nix nil
   :keymaps 'nix-mode-map)
 
-;; +nmap-nix-def
-(vonfry-def-nmap-leader-prefix nix nil
+;; +mmap-nix-def
+(vonfry-def-mmap-leader-prefix nix nil
   :keymaps 'nix-mode-map)

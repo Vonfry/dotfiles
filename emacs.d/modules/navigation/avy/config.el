@@ -1,5 +1,5 @@
 ;;; avy config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-avy-def
-(vonfry-def-nmap-leader-prefix avy "g")
+;; +mmap-avy-def
+(vonfry-def-mmap-leader-prefix avy "g")

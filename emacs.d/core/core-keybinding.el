@@ -18,11 +18,11 @@
   :type 'string
   :set
   (lambda (sym newvalue)
-    (defconst +nmap-leader newvalue "leader key")
+    (defconst +mmap-leader newvalue "leader key")
     (set-default sym newvalue))
   :group 'vonfry-keybind)
 
-(defconst +nmap-lang "z"
+(defconst +mmap-lang "z"
   "lang configure")
 
 (defmacro vonfry-def-map-prefix (states name keys &rest args)
@@ -30,37 +30,21 @@
   (let ((name-with (intern (format "%s-def" (symbol-name name)))))
     `(general-create-definer ,name-with :prefix ,(eval keys) :states ,states ,@args)))
 
-(defmacro vonfry-def-nmap-prefix (name keys &rest args)
+(defmacro vonfry-def-mmap-prefix (name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (intern (format "+nmap-%s" (symbol-name name)))))
-    `(vonfry-def-map-prefix 'normal ,name-with ,(eval keys) ,@args)))
+  (let ((name-with (intern (format "+mmap-%s" (symbol-name name)))))
+    `(vonfry-def-map-prefix '(normal motion visual evilified) ,name-with ,(eval keys) ,@args)))
 
-(defmacro vonfry-def-nmap-leader-prefix (name keys &rest args)
+(defmacro vonfry-def-mmap-leader-prefix (name keys &rest args)
   "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
-  (let ((key-with (concat +nmap-leader " " (eval keys))))
-    `(vonfry-def-nmap-prefix ,name ,key-with ,@args)))
+  (let ((key-with (concat +mmap-leader " " (eval keys))))
+    `(vonfry-def-mmap-prefix ,name ,key-with ,@args)))
 
-(defmacro vonfry-def-nmap-lang-prefix (name keys &rest args)
+(defmacro vonfry-def-mmap-lang-prefix (name keys &rest args)
   "Define a key definer with leader lang prefix.\nPass `nil' to second argument to generate for lang prefix."
   (let ((name-with (intern (format "lang-%s" (symbol-name name))))
-        (key-with (concat +nmap-lang " " keys)))
-    `(vonfry-def-nmap-leader-prefix ,name-with ,key-with ,@args)))
-
-(defmacro vonfry-def-vmap-prefix (name keys &rest args)
-  "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (intern (format "+vmap-%s" (symbol-name name)))))
-    `(vonfry-def-map-prefix 'visual ,name-with ,(eval keys) ,@args)))
-
-(defmacro vonfry-def-vmap-leader-prefix (name keys &rest args)
-  "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
-  (let ((key-with (concat +nmap-leader " " (eval keys))))
-    `(vonfry-def-vmap-prefix ,name ,key-with ,@args)))
-
-(defmacro vonfry-def-vmap-lang-prefix (name keys &rest args)
-  "Define a key definer with leader lang prefix.\nPass `nil' to second argument to generate for lang prefix."
-  (let ((name-with (intern (format "lang-%s" (symbol-name name))))
-        (key-with (concat +nmap-lang " " keys)))
-    `(vonfry-def-vmap-leader-prefix ,name-with ,key-with ,@args)))
+        (key-with (concat +mmap-lang " " keys)))
+    `(vonfry-def-mmap-leader-prefix ,name-with ,key-with ,@args)))
 
 (package! general
   :custom
@@ -68,7 +52,7 @@
   (general-vim-definer-default 'states)
   :config
   (general-evil-setup t t)
-  ;; +nmap-leader-def
-  (vonfry-def-nmap-prefix leader +nmap-leader))
+  ;; +mmap-leader-def
+  (vonfry-def-mmap-prefix leader +mmap-leader))
 
 (provide 'core-keybinding)

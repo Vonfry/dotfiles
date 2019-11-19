@@ -1,12 +1,12 @@
 ;;; rust config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-lang-rust-def
-(vonfry-def-nmap-lang-prefix rust nil
+;; +mmap-lang-rust-def
+(vonfry-def-mmap-lang-prefix rust nil
   :keymaps 'rust-mode-map)
 
-;; +nmap-rust-def
-(vonfry-def-nmap-leader-prefix rust nil
+;; +mmap-rust-def
+(vonfry-def-mmap-leader-prefix rust nil
   :keymaps 'rust-mode-map)
 
 (defun +rust/lldb ()

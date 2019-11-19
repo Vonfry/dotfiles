@@ -1,5 +1,5 @@
 ;;; todo config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-todo-def
-(vonfry-def-nmap-leader-prefix todo "~")
+;; +mmap-todo-def
+(vonfry-def-mmap-leader-prefix todo "~")

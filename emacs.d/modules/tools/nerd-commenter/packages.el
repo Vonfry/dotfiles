@@ -6,7 +6,7 @@
   :config
   (evilnc-default-hotkeys nil t)
   :general
-  (+nmap-nc-def
+  (+mmap-nc-def
     ""  '(nil :which-key "nerd-commenter")
     "i" 'evilnc-comment-or-uncomment-lines
     "l" 'evilnc-quick-comment-or-uncomment-to-the-line

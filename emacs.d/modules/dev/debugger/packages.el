@@ -7,7 +7,7 @@
     (lambda ()
       (local-set-key "\C-c" realgud:shortkey-mode-map)))
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     :keymaps 'realgud-short-key-mode-map
     "'" 'realgud:shortkey-mode-map))
 

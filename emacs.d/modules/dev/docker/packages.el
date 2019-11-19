@@ -3,7 +3,7 @@
 
 (package! docker
   :general
-  (+nmap-docker-def
+  (+mmap-docker-def
     ""   '(nil :which-key "docker")
     "\"" 'docker
     "c"  'docker-containers

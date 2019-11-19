@@ -3,21 +3,21 @@
 
 (package! disaster
   :general
-  (+nmap-lang-cc-def
+  (+mmap-lang-cc-def
     "d" 'disaster))
 
 ;; this is used in all program lang
 (package! compile
   :straight nil
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "r" 'compile))
 
 (package! function-args
   :custom (moo-select-method 'ivy)
   :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
   :general
-  (+nmap-lang-cc-def
+  (+mmap-lang-cc-def
     "." 'fa-jump
     "&" 'fa-show
     "v" 'moo-propose-virtual
@@ -37,5 +37,5 @@
 (package! realgud-lldb
   :after realgud
   :general
-  (+nmap-cc-def
+  (+mmap-cc-def
     "R" '+cc/lldb))

@@ -7,7 +7,7 @@
   (treemacs-filewatch-mode t)
   (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-cache-dir))
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "d" 'treemacs))
 
 (package! treemacs-evil
@@ -16,7 +16,7 @@
 (package! treemacs-projectile
   :after treemacs projectile
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "P t" 'treemacs-projectile))
 
 (package! treemacs-magit
