@@ -38,4 +38,4 @@
   :after realgud
   :general
   (+nmap-cc-def
-    "R" 'realgud--lldb))
+    "R" '+cc/lldb))

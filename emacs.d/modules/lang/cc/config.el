@@ -8,3 +8,7 @@
 ;; +nmap-cc-def
 (vonfry-def-nmap-leader-prefix cc nil
   :keymaps '(c-mode-map c++-mode-map objc-mode-map))
+
+(defun +cc/lldb ()
+  (interactive)
+  (realgud--lldb "lldb"))
