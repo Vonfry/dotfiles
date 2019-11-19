@@ -21,7 +21,7 @@
     "\""  'comint-run
     "'"   '(nil :which-key "repl action"))
   (+vmap-leader-def
-    "'a" 'append-to-buffer))
+    "RET" 'append-to-buffer))
 
 (package! evil-org
   :after evil org
