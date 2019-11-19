@@ -8,3 +8,7 @@
 ;; +nmap-rust-def
 (vonfry-def-nmap-leader-prefix rust nil
   :keymaps 'rust-mode-map)
+
+(defun +rust/lldb ()
+  (interactive)
+  (realgud--lldb "rust-lldb"))

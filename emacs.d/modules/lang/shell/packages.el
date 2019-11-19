@@ -11,11 +11,7 @@
   (eshell-highlight-prompt nil)
   (eshell-plain-echo-behavior t)
   (eshell-directory-name (expand-file-name  "eshell/" vonfry-cache-dir))
-  :straight nil
-  :general
-  (+nmap-leader-def
-    :keymaps 'shell-mode-map
-    "R" 'realgud-track-mode))
+  :straight nil)
 
 
 (package! company-shell
