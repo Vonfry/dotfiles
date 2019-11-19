@@ -50,3 +50,9 @@
   (org-agenda-files +org-agenda-files))
 
 (require 'org-archive)
+
+(package! org-super-agenda
+  :after org
+  :hook (org-agenda-mode . org-super-agenda-mode)
+  :custom
+  (org-super-agenda-groups +org-super-agenda-groups))

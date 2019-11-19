@@ -127,8 +127,9 @@ myDef = def
     , keys               = myKeys <+> keys def
     , layoutHook         = myLayout
     , focusFollowsMouse  = False
-    , focusedBorderColor = solarizedViolet
-    , normalBorderColor  = solarizedBlue
+    , focusedBorderColor = solarizedCyan
+    , normalBorderColor  = solarizedViolet
+    , borderWidth        = 1
     }
 
 solarizedBase03  = "#002b36"
