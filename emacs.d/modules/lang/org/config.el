@@ -40,7 +40,7 @@
      "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see '+org-tag-alist'"
     :group 'vonfry-modules))
 
-(defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level)
+(defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
   "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence.\n"
   (-let (((m l is-top prefix-level)
             (if (not (or l prefix prefix-level))
@@ -60,8 +60,8 @@
               `(,m ,l nil ,prefix-level))))
     (if is-top
       (-let* (((cat-subtag ctx-subtag) m)
-              (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil vonfry--org-tags-cat-sym 1))
-              (ctx-m (vonfry--unzip-org-agenda-tags-m ctx-subtag nil vonfry--org-tags-ctx-sym 1)))
+              (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil vonfry--org-tags-cat-sym 1 nil))
+              (ctx-m (vonfry--unzip-org-agenda-tags-m ctx-subtag nil vonfry--org-tags-ctx-sym 1 nil)))
         (append l cat-m ctx-m))
       (-reduce-r-from
         (lambda (i c)
@@ -71,10 +71,13 @@
                               (concat prefix (nth 0 tag))
                               (nth 0 tag)))
                           (tag-abbr (nth 1 tag))
-                          (tag-prefix (mapconcat 'identity (-repeat prefix-level prefix) ""))
-                          (l (cons (list tag-name (concat tag-prefix tag-abbr)) l)))
+                          (abbr-prefix (mapconcat 'identity (-repeat prefix-level prefix) ""))
+                          (tag-names (if prefix-tag
+                                         (concat prefix-tag prefix tag-name)
+                                         tag-name))
+                          (l (cons (list tag-names (concat abbr-prefix tag-abbr)) l)))
                       (if (> (length i) 1)
-                        (vonfry--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level))
+                        (vonfry--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level) tag-names)
                         l))))
             (append l c)))
         nil
@@ -120,12 +123,17 @@
        (note-files      (directory-files note-dir   t "^.*\\.org$"))
        (note-dir-with   (lambda (f) (expand-file-name (funcall file-with-org f) note-dir)))
        (unzip-tags-m (vonfry--unzip-org-agenda-tags-m vonfry--org-tags-m))
-       (gtd-prefix (nth 0 (nth 0 unzip-tags-m)))
+       (gtd-prefix (nth 1 (nth 0 unzip-tags-m)))
        (cat-prefix (nth 1 (nth 1 unzip-tags-m)))
        (ctx-prefix (nth 1 (nth 2 unzip-tags-m)))
+       (tag-name     (lambda (names) (-last-item (split-string names cat-prefix))))
+       (tag-level    (lambda (names) (if (string-prefix-p ctx-prefix names)
+                                         77
+                                         (length (split-string names cat-prefix)))))
        (unzip-tags-m-filtered
          (-filter (-lambda ((_ tagabbr))
-                    (not (or (string= tagabbr cat-prefix)
+                    (not (or (string= tagabbr gtd-prefix)
+                             (string= tagabbr cat-prefix)
                              (string= tagabbr ctx-prefix))))
                   unzip-tags-m))
        (get-key   (lambda (um) (nth 1 um)))
@@ -134,7 +142,7 @@
                     (cond ((string-prefix-p cat-prefix key) (concat "[TAGS:Category] " tag))
                           ((string-prefix-p ctx-prefix key) (concat "[TAGS:Context] "  tag)))))
        (all-tags
-         (-map get-tag unzip-tags-m)))
+         (-map (lambda (tag) (funcall tag-name (funcall get-tag tag))) unzip-tags-m)))
   (defcustom +org-agenda-files agenda-files
     "global agenda dir"
     :group 'vonfry-modules)
@@ -165,6 +173,13 @@
             all-tags))
       +org-agenda-files)
     "org refile targets"
+    :group 'vonfry-modules)
+  (defcustom +org-super-agenda-groups
+    (-map
+     (-lambda ((tag abbr))
+       `(:name ,(funcall tag-name tag) :tag ,(funcall tag-name tag) :order ,(funcall tag-level tag)))
+     unzip-tags-m-filtered)
+    "org super agenda groups"
     :group 'vonfry-modules)
   (defcustom +org-agenda-custom-commands
     (let ((custom-tags-commands
