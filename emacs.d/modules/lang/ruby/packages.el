@@ -13,8 +13,6 @@
 (package! inf-ruby
   :custom
   (inf-ruby-default-implementation "pry")
-  :hook
-  (enh-ruby-mode . inf-ruby-minor-mode)
   :general
   (+nmap-ruby-def
     "\""  'inf-ruby

@@ -8,13 +8,13 @@
   (lsp-prefer-flymake nil)
   :general
   (+nmap-lsp-prefix-def
+    ""    '(nil :which-key "lsp")
     "i"   'imenu
     "*"   'lsp-rename
     "R"   'lsp-restart-workspace
     "D"   'lsp-describe-session
     "TAB" 'completion-at-point)
   (+nmap-lsp-def
-    ""      '(nil :which-key "lsp")
     "."     'lsp-find-definition
     ","     'pop-tag-mark
     "r"     'lsp-execute-code-action
@@ -51,6 +51,7 @@
     "n"    'lsp-ui-find-next-reference
     "p"    'lsp-ui-find-prev-reference
     "t"    'lsp-ui-peek--toggle-file
+    "q"    'lsp-ui-flycheck-list
     "("    '(nil :which-key "lsp-ui peek")
     "( n"  'lsp-ui-peek--select-next
     "( p"  'lsp-ui-peek--select-prev
@@ -85,7 +86,6 @@
     "t"   'lsp-treemacs-symbols
     "q"   'lsp-treemacs-quick-fix
     "; t" 'lsp-treemacs-symbols
-    "; q" 'lsp-treemacs-quick-fix
     "; d" 'lsp-treemacs-deps-list)
   :config
   (lsp-metals-treeview-enable t)
