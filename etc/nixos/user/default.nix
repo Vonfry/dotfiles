@@ -23,7 +23,7 @@ Co-exist with Heaven and Earth, and united with everything.
 
 --------------------------------------------
 
-'':
+'';
   imports = [
     ./vonfry
     ./local
