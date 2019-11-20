@@ -1,15 +1,17 @@
-if [ $(uname) = "linux" ]; then
+cp $script_dir/latexmkrc ~/.latexmkrc
 
-cat <<EOF > ~/.latexmkrc
+if [ $(uname) = "Linux" ]; then
+
+cat <<EOF >> ~/.latexmkrc
 
 \$dvi_previewer = 'xdvi -watchfile 1.5';
 \$ps_previewer  = 'feh';
-\$pdf_previewer = 'qpdfviewer';
+\$pdf_previewer = 'qpdfview';
 EOF
 
-elif [ $(uname) = 'darwin' ]; then
+elif [ $(uname) = 'Darwin' ]; then
 
-cat <<EOF > ~/.latexmkrc
+cat <<EOF >> ~/.latexmkrc
 
 \$pdf_previewer = 'open -a Skim';
 \$pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
