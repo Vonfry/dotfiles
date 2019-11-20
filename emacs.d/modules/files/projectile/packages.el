@@ -13,7 +13,7 @@
   (projectile-cache-file +projectile-cache-file)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
-  (+nmap-lang-cc-def "h" 'projectile-find-other-file)
+  (+mmap-lang-cc-def "h" 'projectile-find-other-file)
   :config
   (projectile-global-mode t))
 
@@ -21,7 +21,7 @@
   :after projectile counsel
   :hook (projectile-mode . counsel-projectile-mode)
   :general
-  (+nmap-leader-def
+  (+mmap-leader-def
     "p"   'counsel-projectile
     "a"   'counsel-projectile-rg
     "P"   '(nil :which-key "projectile")
@@ -42,7 +42,7 @@
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
-  (+nmap-todo-def
+  (+mmap-todo-def
     "," 'org-projectile-project-todo-completing-read
     "." 'org-projectile-goto-location-for-project)
   :hook

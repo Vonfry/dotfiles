@@ -9,18 +9,17 @@
   (evil-shift-width 4)
   (evil-search-module 'evil-search)
   :general
-  (nmap :prefix "g"
+  (mmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
-  (+nmap-leader-def
+  (+mmap-leader-def
     "z"   '(nil :which-key "lang")
     ";"   '(nil :which-key "code")
     "="   'align-regexp
     "$"   'eshell
     "h"   'evil-ex-nohighlight
     "\""  'comint-run
-    "'"   '(nil :which-key "repl action"))
-  (+vmap-leader-def
+    "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
 (package! evil-org

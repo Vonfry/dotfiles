@@ -3,7 +3,7 @@
 
 (package! dumb-jump
   :general
-  (+nmap-dumb-def
+  (+mmap-dumb-def
     "."   'dumb-jump-go
     ","   'dumb-jump-back
     "&"   'dumb-jump-quick-look

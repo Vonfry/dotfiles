@@ -7,14 +7,14 @@
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
   (lsp-prefer-flymake nil)
   :general
-  (+nmap-lsp-prefix-def
+  (+mmap-lsp-prefix-def
     ""    '(nil :which-key "lsp")
     "i"   'imenu
     "*"   'lsp-rename
     "R"   'lsp-restart-workspace
     "D"   'lsp-describe-session
     "TAB" 'completion-at-point)
-  (+nmap-lsp-def
+  (+mmap-lsp-def
     "."     'lsp-find-definition
     ","     'pop-tag-mark
     "r"     'lsp-execute-code-action
@@ -42,12 +42,12 @@
   (:keymaps 'lsp-ui-mode-map
             [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
             [remap xref-find-references]  #'lsp-ui-peek-find-references)
-  (+nmap-lsp-def
+  (+mmap-lsp-def
     ">"   'lsp-ui-find-workspace-symbol
     "; }" 'lsp-ui-peek-find-references
     "; ." 'lsp-ui-peek-find-definitions
     "; {" 'lsp-ui-peek-find-implementation)
-  (+nmap-lsp-prefix-def
+  (+mmap-lsp-prefix-def
     "n"    'lsp-ui-find-next-reference
     "p"    'lsp-ui-find-prev-reference
     "t"    'lsp-ui-peek--toggle-file
@@ -65,7 +65,7 @@
 (package! lsp-ivy
   :after ivy lsp-mode
   :general
-  (+nmap-lsp-def
+  (+mmap-lsp-def
     "["   'lsp-ivy-workspace-symbol
     "; [" 'lsp-ivy-global-workspace-symbol))
 
@@ -82,7 +82,7 @@
 (package! lsp-treemacs
   :after treemacs lsp-mode
   :general
-  (+nmap-lsp-def
+  (+mmap-lsp-def
     "t"   'lsp-treemacs-symbols
     "q"   'lsp-treemacs-quick-fix
     "; t" 'lsp-treemacs-symbols

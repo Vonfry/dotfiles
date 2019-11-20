@@ -9,12 +9,12 @@
   (haskell-decl-scan-mode t)
   (haskell-process-type 'auto)
   :general
-  (+nmap-haskell-def
+  (+mmap-haskell-def
     "="   'haskell-mode-stylish-buffer
     "r"   'haskell-compile
     "R"   'haskell-debug
     "#"   'haskell-navigate-imports)
-  (+nmap-lang-haskell-def
+  (+mmap-lang-haskell-def
     "R"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle
@@ -35,7 +35,7 @@
 (package! haskell-interactive-mode
   :straight nil
   :general
-  (+nmap-haskell-def
+  (+mmap-haskell-def
     "\"" 'haskell-interactive-bring
     "k"  'haskell-interactive-mode-clear
     "m"  'haskell-menu
@@ -44,7 +44,7 @@
 (package! haskell-process
   :straight nil
   :general
-  (+nmap-lang-haskell-def
+  (+mmap-lang-haskell-def
     "p"   '(nil :which-key "process")
     "p l" 'haskell-process-load-or-reload
     "p t" 'haskell-process-do-type
@@ -62,5 +62,5 @@
 
 (package! hasky-extensions
   :general
-  (+nmap-lang-haskell-def
+  (+mmap-lang-haskell-def
     "{"  'hasky-extensions))

@@ -4,7 +4,7 @@
 (package! origami
   :hook ((text-mode prog-mode) . origami-mode)
   :general
-  (+nmap-zZ-def
+  (+mmap-zZ-def
     ""  '(nil :which-key "origaml")
     "o" 'origami-open-node
     "O" 'origami-open-node-recursively

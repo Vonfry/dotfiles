@@ -3,8 +3,8 @@
 
 (package! nix-mode
   :general
-  (+nmap-nix-def
+  (+mmap-nix-def
     "\"" 'nix-repl
     "r"  'nix-build)
-  (+nmap-lang-nix-def
+  (+mmap-lang-nix-def
     "u"  'nix-unpack))

@@ -1,5 +1,5 @@
 ;;; bm config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-bm-def
-(vonfry-def-nmap-leader-prefix bm "M")
+;; +mmap-bm-def
+(vonfry-def-mmap-leader-prefix bm "M")

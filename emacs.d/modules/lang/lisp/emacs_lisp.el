@@ -1,12 +1,12 @@
 ;;; lisp/emacs_lisp.el -*- lexical-binding: t -*-
 
-;; +nmap-elisp-def
-(vonfry-def-nmap-leader-prefix elisp nil
+;; +mmap-elisp-def
+(vonfry-def-mmap-leader-prefix elisp nil
   :keymaps 'emacs-lisp-mode-map)
 
 (package! ielm :straight nil
   :general
-  (+nmap-elisp-def
+  (+mmap-elisp-def
     "\""  'ielm
     "' b" 'eval-buffer
     "' r" 'eval-region))

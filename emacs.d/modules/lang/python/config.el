@@ -1,10 +1,10 @@
 ;;; python config -*- lexical-binding: t -*-
 ;;
 
-;; +nmap-lang-python-def
-(vonfry-def-nmap-lang-prefix python nil
+;; +mmap-lang-python-def
+(vonfry-def-mmap-lang-prefix python nil
   :keymaps 'python-mode-map)
 
-;; +nmap-python-def
-(vonfry-def-nmap-leader-prefix python nil
+;; +mmap-python-def
+(vonfry-def-mmap-leader-prefix python nil
   :keymaps 'python-mode-map)
