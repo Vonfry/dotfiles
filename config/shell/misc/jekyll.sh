@@ -46,7 +46,7 @@ function jekyll-new-post()
             open $postfile
         ;;
         "Linux")
-            $(EDITOR) $postfile
+            $EDITOR $postfile
         ;;
     esac
 }

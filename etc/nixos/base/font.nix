@@ -5,6 +5,7 @@
     fonts = with pkgs; [
       hack-font
       source-han-sans-simplified-chinese
+      symbola
       fira-code-symbols
     ];
     fontconfig = {
