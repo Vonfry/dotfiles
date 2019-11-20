@@ -84,6 +84,10 @@ brew cask install mark-text
 brew cask install amethyst
 brew cask install mactex
 
+# font
+brew cask install font-hack
+brew cask install font-symbola
+
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
 
