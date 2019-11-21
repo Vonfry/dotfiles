@@ -109,6 +109,7 @@ modes, this function does nothing.
 Otherwise it builds `prettify-code-symbols-alist' according to
 `+pretty-code-symbols-alist' for the current major-mode."
   (unless (or (eq major-mode 'fundamental-mode)
+              (eq major-mode 'coq-mode) ;; comany-coq
               (eq (get major-mode 'mode-class) 'special)
               (derived-mode-p 'comint-mode 'eshell-mode 'term-mode))
     (when (or (eq +pretty-code-enabled-modes t)

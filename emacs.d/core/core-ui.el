@@ -27,7 +27,12 @@
         (set-fontset-font (frame-parameter nil 'font)
                           charset
                           (font-spec :family ,font-name :size ,font-size))))
-
+    (dolist (charset '(unicode greek))
+      (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      (font-spec :family "Symbola" :size 11)
+                      nil
+                      'append))
     (vonfry-system-sets (darwin (chinese-font "Hei" 10)))))
 
 (package! info)
