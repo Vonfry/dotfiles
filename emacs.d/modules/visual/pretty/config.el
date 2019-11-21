@@ -3,87 +3,96 @@
 ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/pretty-code/config.el
 ;;
 
-(defvar +pretty-code-symbols-alist '((t))
+(defcustom +pretty-code-symbols-alist '((t))
   "An alist containing a mapping of major modes to its value for
-`prettify-symbols-alist'.")
+`prettify-symbols-alist'."
+  :group 'vonfry-module)
 
-(defun set-pretty-symbols! (modes &rest plist)
-  "Associates string patterns with icons in certain major-modes.
-  MODES is a major mode symbol or a list of them.
-  PLIST is a property list whose keys must match keys in `+pretty-code-symbols',
-and whose values are strings representing the text to be replaced with that
-symbol. If the car of PLIST is nil, then unset any pretty symbols previously
-defined for MODES.
-The following properties are special:
-  :alist ALIST
-    Appends ALIST to `prettify-symbols-alist' literally, without mapping text to
-    `+pretty-code-symbols'.
-  :merge BOOL
-    If non-nil, merge with previously defined `prettify-symbols-alist',
-    otherwise overwrite it.
-For example, the rule for emacs-lisp-mode is very simple:
-  (set-pretty-symbols! 'emacs-lisp-mode
-    :lambda \"lambda\")
-This will replace any instances of \"lambda\" in emacs-lisp-mode with the symbol
-assicated with :lambda in `+pretty-code-symbols'.
-Pretty symbols can be unset for emacs-lisp-mode with:
-  (set-pretty-symbols! 'emacs-lisp-mode nil)"
-  (declare (indent defun))
-  (if (null (car-safe plist))
-      (dolist (mode (doom-enlist modes))
-        (delq (assq mode +pretty-code-symbols-alist)
-              +pretty-code-symbols-alist))
-    (let (results merge key)
-      (while plist
-        (pcase (setq key (pop plist))
-          (:merge (setq merge (pop plist)))
-          (:alist (setq results (append (pop plist) results)))
-          (_
-           (when-let (char (plist-get +pretty-code-symbols key))
-             (push (cons (pop plist) char) results)))))
-      (dolist (mode (doom-enlist modes))
-        (unless merge
-          (delq (assq mode +pretty-code-symbols-alist)
-                +pretty-code-symbols-alist))
-        (push (cons mode results) +pretty-code-symbols-alist)))))
-
-(defvar +pretty-code-symbols
+(defcustom +pretty-code-symbols
   '(;; org
-    :name          "»"
-    :src_block     "»"
-    :src_block_end "«"
+    ("name"          . ?»)
+    ("src_block"     . ?»)
+    ("src_block_end" . ?«)
     ;; Functional
-    :lambda        "λ"
-    :def           "ƒ"
-    :composition   "∘"
-    :map           "↦"
+    ("lambda"        . ?λ)
+    ("def"           . ?ƒ)
+    ("composition"   . ?∘)
+    ("map"           . ?↦)
     ;; Types
-    :null          "∅"
-    :true          "𝕋"
-    :false         "𝔽"
-    :int           "ℤ"
-    :float         "ℝ"
-    :str           "𝕊"
-    :bool          "𝔹"
+    ("null"          . ?∅)
+    ("true"          . ?𝕋)
+    ("false"         . ?𝔽)
+    ("int"           . ?ℤ)
+    ("float"         . ?ℝ)
+    ("str"           . ?𝕊)
+    ("bool"          . ?𝔹)
     ;; Flow
-    :not           "￢"
-    :in            "∈"
-    :not-in        "∉"
-    :and           "∧"
-    :or            "∨"
-    :for           "∀"
-    :some          "∃"
-    :return        "⟼"
-    :yield         "⟻"
+    ("not"           . ?￢)
+    ("in"            . ?∈)
+    ("not-in"        . ?∉)
+    ("and"           . ?∧)
+    ("or"            . ?∨)
+    ("for"           . ?∀)
+    ("forall"        . ?∀)
+    ("some"          . ?∃)
+    ("exists"        . ?∃)
+    ("return"        . ?⟼)
+    ("yield"         . ?⟻)
     ;; Other
-    :tuple         "⨂"
-    :pipe          "" ;; FIXME: find a non-private char
-    :dot           "•")
-  "Options plist for `set-pretty-symbols!'.
-
-This should not contain any symbols from the Unicode Private Area! There is no
-universal way of getting the correct symbol as that area varies from font to
-font.")
+    ("tuple"         . ?⨂)
+    ("pipe"          . ?) ;; FIXME: find a non-private char
+    ("dot"           . ?•)
+    ;; greek
+    ("Alpha"         . ?Α)
+    ("Beta"          . ?Β)
+    ("Gamma"         . ?Γ)
+    ("Delta"         . ?Δ)
+    ("Epsilon"       . ?Ε)
+    ("Zeta"          . ?Ζ)
+    ("Eta"           . ?Η)
+    ("Theta"         . ?Θ)
+    ("Iota"          . ?Ι)
+    ("Kappa"         . ?Κ)
+    ("Lambda"        . ?Λ)
+    ("Mu"            . ?Μ)
+    ("Nu"            . ?Ν)
+    ("Xi"            . ?Ξ)
+    ("Omicron"       . ?Ο)
+    ("Pi"            . ?Π)
+    ("Rho"           . ?Ρ)
+    ("Sigma"         . ?Σ)
+    ("Tau"           . ?Τ)
+    ("Upsilon"       . ?Υ)
+    ("Phi"           . ?Φ)
+    ("Chi"           . ?Χ)
+    ("Psi"           . ?Ψ)
+    ("Omega"         . ?Ω)
+    ("alpha"         . ?α)
+    ("beta"          . ?β)
+    ("gamma"         . ?γ)
+    ("delta"         . ?δ)
+    ("epsilon"       . ?ε)
+    ("zeta"          . ?ζ)
+    ("eta"           . ?η)
+    ("theta"         . ?θ)
+    ("iota"          . ?ι)
+    ("kappa"         . ?κ)
+    ("lambda"        . ?λ)
+    ("mu"            . ?μ)
+    ("nu"            . ?ν)
+    ("xi"            . ?ξ)
+    ("omicron"       . ?ο)
+    ("pi"            . ?π)
+    ("rho"           . ?ρ)
+    ("sigma"         . ?σ)
+    ("tau"           . ?τ)
+    ("upsilon"       . ?υ)
+    ("phi"           . ?φ)
+    ("chi"           . ?χ)
+    ("psi"           . ?ψ)
+    ("omega"         . ?ω))
+  "a custom pretty symbol alist"
+  :group 'vonfry-module)
 
 
 (defun +pretty-code--correct-symbol-bounds (ligature-alist)
@@ -97,10 +106,11 @@ correct width of the symbols instead of the width measured by `char-width'."
             len (1- len)))
     (cons (car ligature-alist) acc)))
 
-(defvar +pretty-code-enabled-modes t
+(defcustom +pretty-code-enabled-modes t
   "List of major modes in which `prettify-symbols-mode' should be enabled.
 If t, enable it everywhere. If the first element is 'not, enable it in any mode
-besides what is listed.")
+besides what is listed."
+  :group 'vonfry-module)
 
 (defun +pretty-code-init-pretty-symbols-h ()
   "Enable `prettify-symbols-mode'.
@@ -122,10 +132,13 @@ Otherwise it builds `prettify-code-symbols-alist' according to
         (prettify-symbols-mode -1))
       (prettify-symbols-mode +1))))
 
-(defvar +pretty-code-fira-code-font-name "Fira Code Symbol"
-  "Name of the fira code ligature font.")
+(defcustom +pretty-code-symbol-font-name "Symbola"
+  "Name of the Symbola code ligature font.")
 
-(defvar +pretty-code-fira-code-font-ligatures
+(defcustom +pretty-code-ligatures-font-name "Fira Code Symbol"
+  "Name of the ligature font.")
+
+(defcustom +pretty-code-ligatures
   '(("www"    . #Xe100)
     ("**"     . #Xe101)
     ("***"    . #Xe102)
@@ -232,11 +245,25 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("~>"     . #Xe167)
     ("~~"     . #Xe168)
     ("~~>"    . #Xe169)
-    ("%%"     . #Xe16a)))
+    ("%%"     . #Xe16a))
+  "pretty code ligatures"
+  :group 'vonfry-module)
 
-(defun +pretty-code-setup-fira-ligatures-h ()
-  (set-fontset-font t '(#Xe100 . #Xe16f) +pretty-code-fira-code-font-name)
+(defun +pretty-code-setup-h ()
+  (dolist (charset (mapcar 'string-to-char (-filter 'stringp +pretty-code-symbols)))
+    (set-fontset-font t charset
+                      +pretty-code-symbol-font-name
+                      nil 'prepend))
+  (dolist (charset (mapcar 'cdr company-coq-prettify-symbols-alist))
+    (set-fontset-font t charset
+                      +pretty-code-symbol-font-name
+                      nil 'prepend))
+  (set-fontset-font t '(#Xe100 . #Xe16f) +pretty-code-ligatures-font-name nil 'prepend)
   (setq-default prettify-symbols-alist
                 (append prettify-symbols-alist
                         (mapcar #'+pretty-code--correct-symbol-bounds
-                                +pretty-code-fira-code-font-ligatures))))
+                                +pretty-code-symbols)
+                        (mapcar #'+pretty-code--correct-symbol-bounds
+                                +pretty-code-ligatures)
+                        (mapcar #'+pretty-code--correct-symbol-bounds
+                                company-coq-prettify-symbols-alist))))

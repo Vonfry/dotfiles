@@ -69,7 +69,7 @@
   '(set-mark-command-repeat-pop t)
   '(tooltip-delay 0.7)
 
-  '(word-wrap t)
+  '(word-wrap nil)
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
   '(auto-fill-mode t)

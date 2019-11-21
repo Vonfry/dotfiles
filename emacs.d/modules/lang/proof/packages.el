@@ -31,6 +31,8 @@
 (package! company-coq
   :after proof-general company
   :hook (coq-mode . company-coq-mode)
+  :custom
+  (company-coq-disabled-features '(prettify-symbols))
   :general
   (+mmap-lang-proof-def
     "B" 'company-coq-cite))
