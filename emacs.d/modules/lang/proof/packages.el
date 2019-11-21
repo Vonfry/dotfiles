@@ -33,11 +33,4 @@
   :hook (coq-mode . company-coq-mode)
   :general
   (+mmap-lang-proof-def
-    "B" 'company-coq-cite)
-  :config
-  (dolist (charset '(unicode greek))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "Symbola" :size 8)
-                      nil
-                      'append)))
+    "B" 'company-coq-cite))
