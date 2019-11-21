@@ -19,6 +19,7 @@
 (if window-system
   (progn
     (vonfry-system-sets
+      ;; other font will use fc-list on list
       (darwin (set-face-attribute 'default nil :font "Hack-11"))
       (gnu/linux  (set-face-attribute 'default nil :font "Hack-8")))
     ;; Chinese Font 配制中文字体
