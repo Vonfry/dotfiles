@@ -18,17 +18,16 @@
 
 (if window-system
   (progn
-    (vonfry-system-sets
-      ;; other font will use fc-list on list
-      (darwin (set-face-attribute 'default nil :font "Hack-11"))
-      (gnu/linux  (set-face-attribute 'default nil :font "Hack-8")))
-    ;; Chinese Font 配制中文字体
-    (defmacro chinese-font (font-name font-size)
-      `(dolist (charset '(kana han symbol cjk-misc bopomofo))
-        (set-fontset-font (frame-parameter nil 'font)
-                          charset
-                          (font-spec :family ,font-name :size ,font-size))))
-    (vonfry-system-sets (darwin (chinese-font "Hei" 10)))))
+    (let ((fontsize (if (eq system-type 'gnu/linux) 9 11)))
+        (set-face-attribute 'default nil :family "Hack" :height (* 10 fontsize))
+        (set-fontset-font nil 'unicode (font-spec :name "Symbola" :height (* 10 fontsize)) nil 'append)
+        (dolist (charset '(greek symbol))
+          (set-fontset-font nil charset (font-spec :name "Symbola" :height (* 10 fontsize)) nil 'prepend))
+        (dolist (font '("Hei" "Source Han Sans CN"))
+          (dolist (charset '(kana han symbol cjk-misc bopomofo))
+            (set-fontset-font nil
+              charset
+              (font-spec :family font :size fontsize)))))))
 
 (package! info)
 
