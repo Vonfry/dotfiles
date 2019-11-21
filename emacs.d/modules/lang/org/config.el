@@ -143,6 +143,9 @@
                           ((string-prefix-p ctx-prefix key) (concat "[TAGS:Context] "  tag)))))
        (all-tags
          (-map (lambda (tag) (funcall tag-name (funcall get-tag tag))) unzip-tags-m)))
+  (defcustom +org-agenda-dir agenda-dir
+    "my agenda dir"
+    :group 'vonfry-modules)
   (defcustom +org-agenda-files agenda-files
     "global agenda dir"
     :group 'vonfry-modules)

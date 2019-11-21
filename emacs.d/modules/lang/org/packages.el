@@ -47,7 +47,14 @@
   :straight nil
   :after org
   :custom
-  (org-agenda-files +org-agenda-files))
+  (org-agenda-files +org-agenda-files)
+  :general
+  (+mmap-todo-def
+    "a" 'org-agenda
+    "A" '+org/find-agenda
+    "b" '+org/append-to-agenda-file
+    "B" 'append-to-buffer
+    "c" 'counsel-org-capture))
 
 (require 'org-archive)
 

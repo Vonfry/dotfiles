@@ -2,4 +2,4 @@
 ;;
 
 ;; +mmap-todo-def
-(vonfry-def-mmap-leader-prefix todo "~")
+(vonfry-def-mmap-leader-prefix todo "!")
