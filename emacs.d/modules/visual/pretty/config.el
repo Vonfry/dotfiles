@@ -72,7 +72,9 @@ Pretty symbols can be unset for emacs-lisp-mode with:
     :and           "∧"
     :or            "∨"
     :for           "∀"
+    :forall        "∀"
     :some          "∃"
+    :exists        "∃"
     :return        "⟼"
     :yield         "⟻"
     ;; Other
@@ -109,8 +111,8 @@ modes, this function does nothing.
 Otherwise it builds `prettify-code-symbols-alist' according to
 `+pretty-code-symbols-alist' for the current major-mode."
   (unless (or (eq major-mode 'fundamental-mode)
-              (eq major-mode 'coq-mode) ;; comany-coq
               (eq (get major-mode 'mode-class) 'special)
+              (eq major-mode 'coq-mode) ;; company coq deal with this
               (derived-mode-p 'comint-mode 'eshell-mode 'term-mode))
     (when (or (eq +pretty-code-enabled-modes t)
               (if (eq (car +pretty-code-enabled-modes) 'not)
