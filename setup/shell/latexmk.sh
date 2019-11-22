@@ -6,7 +6,7 @@ cat <<EOF >> ~/.latexmkrc
 
 \$dvi_previewer = 'xdvi -watchfile 1.5';
 \$ps_previewer  = 'feh';
-\$pdf_previewer = 'qpdfview';
+\$pdf_previewer = 'mupdf-gl';
 EOF
 
 elif [ $(uname) = 'Darwin' ]; then

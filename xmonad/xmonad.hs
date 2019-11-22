@@ -46,7 +46,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                                        )
         , ("libreoffice", spawn "libreoffice"                                 )
-        , ("qpdfview"   , spawn "qpdfview"                                    )
+        , ("mupdf"      , spawn "mupdf-gl"                                    )
         , ("chromium"   , spawn "chromium"                                    )
         , ("virtualbox" , spawn "VirtualBox"                                  )
         , ("telegram"   , spawn "telegram-desktop"                            )
