@@ -44,14 +44,15 @@ myGSConfS = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
-        [ ("zeal"       , spawn "zeal"                                          )
-        , ("libreoffice", spawn "libreoffice"                                   )
-        , ("qpdfview"   , spawn "qpdfview"                                      )
-        , ("chromium"   , spawn "chromium"                                      )
-        , ("virtualbox" , spawn "VirtualBox"                                    )
-        , ("telegram"   , spawn "telegram-desktop"                              )
-        , ("freenode"   , spawn "alacritty -e weechat -r \"/connect freenode\"" )
-        , ("mutt"       , spawn "alacritty -e mutt"                             )
+        [ ("zeal"       , spawn "zeal"                                        )
+        , ("libreoffice", spawn "libreoffice"                                 )
+        , ("qpdfview"   , spawn "qpdfview"                                    )
+        , ("chromium"   , spawn "chromium"                                    )
+        , ("virtualbox" , spawn "VirtualBox"                                  )
+        , ("telegram"   , spawn "telegram-desktop"                            )
+        , ("freenode"   ,
+            spawn "alacritty -t freenade -e weechat -r \"/connect freenode\"" )
+        , ("mutt"       , spawn "alacritty -t mutt -e mutt"                   )
         ]
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
