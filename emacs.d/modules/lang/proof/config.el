@@ -9,6 +9,14 @@
 (vonfry-def-mmap-leader-prefix proof nil
   :keymaps 'coq-mode-map)
 
+(defcustom +proof-use-special-font nil
+  "If not nil, use special font."
+  :group 'vonfry-module)
+
 (defface +proof-buffer-local-face
     '((t :family "Symbola" :height 110))
     "proof buffer-local face")
+
+(defcustom +proof-special-font '+proof-buffer-local-face
+  "The special face."
+  :group 'vonfry-module)
