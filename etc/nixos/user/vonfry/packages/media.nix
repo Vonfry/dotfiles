@@ -10,5 +10,5 @@ with pkgs; [
   inkscape
   gimp
   qbittorrent
-  qpdfview
+  mupdf
 ]

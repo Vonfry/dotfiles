@@ -48,9 +48,10 @@ supposed them. All of them are started with `deprecated`
 - orgmode & latex
 - C/C++ - clang/llvm
 - Haskell - ghc & cabal ( without stack ) & nix
+- Coq
+- Rust
 - ~~Lisp~~
 - Ruby
-- Rust
 - ~~R~~
 - Python3 
 - ~~Web - js, html, css/sass, ts~~
