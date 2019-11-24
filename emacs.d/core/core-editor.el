@@ -99,6 +99,7 @@
   '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'prog-mode-hook 'turn-on-auto-fill)
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 
