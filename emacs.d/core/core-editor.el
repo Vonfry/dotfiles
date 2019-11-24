@@ -72,7 +72,6 @@
   '(word-wrap nil)
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
-  '(auto-fill-mode t)
   '(fill-column vonfry-text-width)
 
   '(save-interprogram-paste-before-kill t)
@@ -98,6 +97,8 @@
   '(save-abbrevs 'silently)
 
   '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 
