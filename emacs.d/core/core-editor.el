@@ -37,8 +37,9 @@
     (make-directory tmp-dir)))
 
 (package! whitespace-cleanup-mode
-  :config
-  (global-whitespace-cleanup-mode t))
+  :hook
+  ((prog-mode . whitespace-cleanup-mode)
+   (text-mode . whitespace-cleanup-mode)))
 
 (custom-set-variables
   '(exec-path-from-shell-check-startup-files nil)
@@ -72,7 +73,6 @@
   '(word-wrap nil)
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
-  '(auto-fill-mode t)
   '(fill-column vonfry-text-width)
 
   '(save-interprogram-paste-before-kill t)
@@ -98,6 +98,9 @@
   '(save-abbrevs 'silently)
 
   '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
+
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'prog-mode-hook 'turn-on-auto-fill)
 
 (add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
 

@@ -7,4 +7,9 @@
 
   If you want to remove them, run in shell, find . -name *.elc | parallel rm"
   (interactive)
-  (byte-recompile-directory vonfry-config-dir nil t))
+  (mapcar
+    (lambda (f) (delete-file f nil))
+    (directory-files-recursively vonfry-config-dir "^.*\\.elc$"))
+  (mapcar
+    (lambda (f) (byte-compile-file f))
+    (directory-files-recursively vonfry-config-dir "^.*\\.el$")))

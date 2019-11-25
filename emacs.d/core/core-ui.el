@@ -25,9 +25,10 @@
           (set-fontset-font nil charset (font-spec :name "Symbola" :height (* 10 fontsize)) nil 'prepend))
         (dolist (font '("Hei" "Source Han Sans CN"))
           (dolist (charset '(kana han symbol cjk-misc bopomofo))
-            (set-fontset-font nil
+            (set-fontset-font (frame-parameter nil 'font)
               charset
-              (font-spec :family font :size fontsize)))))))
+              (font-spec :family font :size (+ 2 fontsize))
+              nil 'append))))))
 
 (package! info)
 
