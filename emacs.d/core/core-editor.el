@@ -37,8 +37,9 @@
     (make-directory tmp-dir)))
 
 (package! whitespace-cleanup-mode
-  :config
-  (global-whitespace-cleanup-mode t))
+  :hook
+  ((prog-mode . whitespace-cleanup-mode)
+   (text-mode . whitespace-cleanup-mode)))
 
 (custom-set-variables
   '(exec-path-from-shell-check-startup-files nil)
