@@ -27,7 +27,7 @@
           (dolist (charset '(kana han symbol cjk-misc bopomofo))
             (set-fontset-font nil
               charset
-              (font-spec :family font :size fontsize)))))))
+              (font-spec :family font :size (+ 2 fontsize))))))))
 
 (package! info)
 
