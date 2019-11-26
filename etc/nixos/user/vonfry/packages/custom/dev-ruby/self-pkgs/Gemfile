@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # dev for emacs
 gem "pry"
-gem "pry-debug"
+gem "pry-byebug"
 gem "pry-doc"
 gem "pry-rails"
 
