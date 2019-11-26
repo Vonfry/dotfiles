@@ -2,6 +2,7 @@ gem "bundler"
 
 # dev for emacs
 gem "pry"
+gem "pry-byebug"
 gem "pry-doc"
 gem "pry-rails"
 gem "solargraph"
