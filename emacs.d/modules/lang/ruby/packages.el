@@ -2,9 +2,9 @@
 ;;
 
 (package! enh-ruby-mode
-  :mode (("Appraisals\\'" . enh-ruby-mode)
-         ("\\(Rake\\|Thor\\|Guard\\|Gem\\|Cap\\|Vagrant\\|Berks\\|Pod\\|Puppet\\)file\\'" . enh-ruby-mode)
-         ("\\.\\(rb\\|rabl\\|ru\\|builder\\|rake\\|thor\\|gemspec\\|jbuilder\\)\\'" . enh-ruby-mode))
+  :mode ("\\.\\(?:pry\\|irb\\)rc\\'" . enh-ruby-mode)
+  :mode ("\\.\\(?:rb\\|rake\\|rabl\\|ru\\|builder\\|gemspec\\|jbuilder\\|thor\\)\\'" . enh-ruby-mode)
+  :mode ("/\\(?:Berks\\|Cap\\|Gem\\|Guard\\|Pod\\|Puppet\\|Rake\\|Thor\\|Vagrant\\)file\\'" . enh-ruby-mode)
   :interpreter "pry")
 
 (package! ruby-mode
