@@ -102,7 +102,7 @@ correct width of the symbols instead of the width measured by `char-width'."
   (let ((len (length (car ligature-alist)))
         (acc (list   (cdr ligature-alist))))
     (while (> len 1)
-      (setq acc (cons #X00a0 (cons '(Br . Bl) acc))
+      (setq acc (cons ?\s (cons '(Br . Bl) acc))
             len (1- len)))
     (cons (car ligature-alist) acc)))
 
@@ -261,8 +261,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
   (set-fontset-font t '(#Xe100 . #Xe16f) +pretty-code-ligatures-font-name nil 'prepend)
   (setq-default prettify-symbols-alist
                 (append prettify-symbols-alist
-                        (mapcar #'+pretty-code--correct-symbol-bounds
-                                +pretty-code-symbols)
+                        +pretty-code-symbols
                         (mapcar #'+pretty-code--correct-symbol-bounds
                                 +pretty-code-ligatures)
                         (mapcar #'+pretty-code--correct-symbol-bounds
