@@ -1,6 +1,6 @@
 echo_info "** email"
 
-if [ $(uname) = "Linux" ]
+if [ $(uname) = "Linux" ]; then
     mkdir -p ~/.mutt
     ln -sf $script_dir/mutt/* ~/.mutt/
     ln -sf $clouddisk_dir/dotfiles/mutt/* ~/.mutt/
