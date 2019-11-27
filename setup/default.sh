@@ -13,8 +13,8 @@ export source_dir=$source_dir
 echo_info "dir: $script_dir"
 echo_info "System: $(uname)"
 
-mkdir -p ~/.cache > /dev/null 2>&1
-mkdir -p ~/.local/bin > /dev/null 2>&1
+mkdir -p ~/.cache
+mkdir -p ~/.local/bin
 
 runscript="$SHELL"
 $runscript $script_dir/setup/os/default.sh

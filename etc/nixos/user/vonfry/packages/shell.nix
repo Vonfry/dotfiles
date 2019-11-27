@@ -9,6 +9,7 @@ with pkgs; [
   parallel
   weechat
   mutt msmtp offlineimap
+  vdirsyncerStable khard khal
   googler
   lolcat
   fortune cmatrix figlet
