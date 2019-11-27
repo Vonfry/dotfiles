@@ -1,6 +1,6 @@
 echo_info "** haskell"
 
-mkdir ~/.ghc 2> /dev/null
+mkdir -p ~/.ghc
 ln -f -s $script_dir/ghc/* ~/.ghc/
 
 if ! [ -f /etc/NIXOS ]; then
