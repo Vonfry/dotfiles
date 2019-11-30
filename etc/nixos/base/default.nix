@@ -28,8 +28,6 @@
       ./default.local.nix
       ./hdfmt.nix
       ./nix.nix
-      ./font.nix
-      ./sound.nix
       ./log.nix
     ];
 }

@@ -1,5 +1,9 @@
 { config, pkgs, ...}:
 
 {
-  imports = [ ./teamviewer.nix ];
+  imports =
+    [./teamviewer.nix
+      ./font.nix
+      ./sound.nix
+    ];
 }
