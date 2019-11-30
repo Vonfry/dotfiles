@@ -14,7 +14,7 @@
     wget curl
     git git-lfs
     zsh gnupg
-    atop htop slabtop
+    atop htop
     tree
     file
     fzf
