@@ -13,7 +13,7 @@ set sort = "threads"
 set sort_aux = "reverse-date"
 set change_folder_next = yes
 
-set folder = "~/mail"
+set folder = "~/.mail"
 source ~/.mutt/mailboxes
 source ~/.mutt/vonfry/default
 

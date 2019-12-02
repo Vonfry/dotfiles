@@ -1,5 +1,5 @@
 echo_info "** python"
-mkdir ~/.pip 2> /dev/null
+mkdir -p ~/.pip
 
 if ! [ -f /etc/NIXOS ]; then
     if command -v pip3 >/dev/null 2>&1; then

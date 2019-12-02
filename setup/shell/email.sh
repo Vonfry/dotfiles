@@ -1,7 +1,7 @@
 echo_info "** email"
 
-if [ $(uname) = "Linux" ]
-    mkdir ~/.mutt 2> /dev/null
+if [ $(uname) = "Linux" ]; then
+    mkdir -p ~/.mutt
     ln -sf $script_dir/mutt/* ~/.mutt/
     ln -sf $clouddisk_dir/dotfiles/mutt/* ~/.mutt/
     ln -sf $clouddisk_dir/dotfiles/offlineimaprc ~/.offlineimaprc

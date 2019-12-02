@@ -29,6 +29,7 @@
     "a"   'counsel-projectile-rg
     "P"   '(nil :which-key "projectile")
     "P a" 'counsel-projectile-rg
+    "P A" 'projectile-add-known-project
     "P p" 'counsel-projectile
     "P s" 'counsel-projectile-switch-project
     "P f" 'counsel-projectile-find-file

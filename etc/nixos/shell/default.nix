@@ -14,7 +14,7 @@
     wget curl
     git git-lfs
     zsh gnupg
-    htop
+    atop htop
     tree
     file
     fzf
@@ -22,8 +22,8 @@
     tmux
     lynx
     patch
-    unzip
-    lm_sensors
+    zip unzip
+    lm_sensors lsof
     ripgrep
     gawk
     fd
