@@ -6,7 +6,7 @@ export SHELL_CUSTOM_DIR_LOCAL=$SHELL_CUSTOM_DIR/local
 export DOTFILES_PKGS_DIR=$DOTFILES_DIR/config/pkgs
 
 export CLONE_LIB=<clone-lib>
-export UPDATE_INTERVAL=7
+export UPDATE_INTERVAL=30
 export ZPLUG_HOME=~/.local/src/zplug
 
 export HOMEBREW_OPT_INIT_FUNCTION=(ruby emacsplus)
