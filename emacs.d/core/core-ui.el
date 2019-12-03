@@ -19,18 +19,17 @@
 (defcustom vonfry-fontsize (if (eq system-type 'gnu/linux) 9 11)
   "vonfry fontsize in window system"
   :group 'vonfry-module)
-(if window-system
-  (progn
-    (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
-    (set-fontset-font nil 'unicode (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'append)
-    (dolist (charset '(greek symbol))
-      (set-fontset-font nil charset (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'prepend))
-    (dolist (font '("Hei" "Source Han Sans CN"))
-      (dolist (charset '(kana han symbol cjk-misc bopomofo))
-        (set-fontset-font (frame-parameter nil 'font)
-                          charset
-                          (font-spec :family font :size (+ 2 vonfry-fontsize))
-                          nil 'append)))))
+(progn
+  (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
+  (set-fontset-font nil 'unicode (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'append)
+  (dolist (charset '(greek symbol))
+    (set-fontset-font nil charset (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'prepend))
+  (dolist (font '("Hei" "Source Han Sans CN"))
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family font :size (+ 2 vonfry-fontsize))
+                        nil 'append))))
 
 (package! info)
 
