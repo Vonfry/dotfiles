@@ -35,9 +35,15 @@
    (company-coq-mode .
     (lambda ()
       (if +proof-use-special-font
-        (call-interactively '+proof/buffer-use-spceial-font)))))
+          (call-interactively '+proof/buffer-use-spceial-font)))))
   :custom
   (company-coq-disabled-features '(prettify-symbols))
+  :config
+  (+pretty-code-mode-with-ligatures
+    'coq-mode
+    '(("\\/" . #X110084)
+      ("/\\" . #X110083)
+      ("<>"  . #X110067)))
   :general
   (+mmap-lang-proof-def
     "B" 'company-coq-cite
