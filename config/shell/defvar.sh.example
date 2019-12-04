@@ -4,6 +4,7 @@ export DOTFILES_DIR=~/dotfiles
 export SHELL_CUSTOM_DIR=$DOTFILES_DIR/config/shell
 export SHELL_CUSTOM_DIR_LOCAL=$SHELL_CUSTOM_DIR/local
 export DOTFILES_PKGS_DIR=$DOTFILES_DIR/config/pkgs
+export ORG_NOTE_DIR=~/orgmode
 
 export CLONE_LIB=<clone-lib>
 export UPDATE_INTERVAL=30

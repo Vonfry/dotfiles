@@ -21,7 +21,6 @@ with pkgs; [
 
   rustup
   carnix
-  rls
 
   pythonPkgs
 
