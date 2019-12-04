@@ -5,5 +5,5 @@ with pkgs; [
   _1password
   syncthing
   filezilla
-  fontfogre-gtk
+  fontforge-gtk
 ]
