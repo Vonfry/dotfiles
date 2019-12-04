@@ -24,8 +24,6 @@
 (defcustom +proof-prettify-symbol-alist
   '(("/\\"  . ?∧)
     ("\\/"  . ?∨)
-    ("<-->" . 10231)
-    (">->"  . 8611)
-    ("<>"   . #Xe12c))
+    ("<>"   . #X1100ca))
   "a partial copy from `company-coq', which are only used in coq mode"
   :group 'vonfry-module)
