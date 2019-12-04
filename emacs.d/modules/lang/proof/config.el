@@ -22,10 +22,8 @@
   :group 'vonfry-module)
 
 (defcustom +proof-prettify-symbol-alist
-  '(("/\\"  . ?∧)
-    ("\\/"  . ?∨)
-    ("<-->" . 10231)
-    (">->"  . 8611)
-    ("<>"   . #Xe12c))
+  '(("\\/" . #X110084)
+    ("/\\" . #X110083)
+    ("<>"  . #X110067))
   "a partial copy from `company-coq', which are only used in coq mode"
   :group 'vonfry-module)

@@ -41,9 +41,7 @@
   :config
   (+pretty-code-mode-with-ligatures
     'coq-mode
-    '(("\\/" . #X110084)
-      ("/\\" . #X110083)
-      ("<>"  . #X110067)))
+    +proof-prettify-symbol-alist)
   :general
   (+mmap-lang-proof-def
     "B" 'company-coq-cite
