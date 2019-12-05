@@ -7,6 +7,6 @@ if [[ -n $ID && $ID == nixos ]]; then
     fi
 fi
 if [ is_eval_nix_path ]; then
-    export NIX_PATH=$NIX_PATH:nixpkgs-overlays=$DOTFILES_DIR/etc/nixos/user/vonfry/packages/custom/overlays.nix
+    export NIX_PATH=$NIX_PATH:nixpkgs-overlays=$DOTFILES_DIR/etc/nixos/user/vonfry/package/custom/overlays.nix
 fi
 unset is_eval_nix_path
