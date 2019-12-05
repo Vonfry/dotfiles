@@ -13,7 +13,8 @@
 *** TODO NeoVim
 **** TODO ?use internal lsp
 ** TODO Emacs[/]
-    - [ ] Fira code ligatures without patch method
+    - [ ] Fira code ligatures without patch method: rev:
+    8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
 *** DONE use raxod502/straight.el instead of package.el
 ** DONE LSP
 
