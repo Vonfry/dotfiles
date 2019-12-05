@@ -12,7 +12,8 @@
 ** DONE Vim
 *** TODO NeoVim
 **** TODO ?use internal lsp
-** DONE Emacs[/]
+** TODO Emacs[/]
+    - [ ] Fira code ligatures without patch method
 *** DONE use raxod502/straight.el instead of package.el
 ** DONE LSP
 
