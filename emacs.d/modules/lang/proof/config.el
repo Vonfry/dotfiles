@@ -20,4 +20,3 @@
 (defcustom +proof-special-font '+proof-buffer-local-face
   "The special face."
   :group 'vonfry-module)
-
