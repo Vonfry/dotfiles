@@ -15,6 +15,8 @@ Note: Local files don't load by default except some special ones, so you should 
 
 ## Dir Structure
 
+All dirs is named as singular word, which represents a category.
+
 `./lib`: nix scripts are used in configure.
 
 `**/local`: nix scripts are used in local.
