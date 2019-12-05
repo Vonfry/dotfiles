@@ -7,7 +7,7 @@
       ./network
       ./shell
       ./editor
-      ./dev
+      ./development
       ./user
       ./misc
       ./x

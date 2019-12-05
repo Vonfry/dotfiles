@@ -1,12 +1,14 @@
 { config, pkgs, ...}:
 
-{
+let vonfryCustom = pkgs.callPackages (import ../user/vonfry/package/custom) {};
+    fira-code-symbols = vonfryCustom.fira-code-symbols;
+in {
   fonts = {
-    fonts = with pkgs; [
-      hack-font
-      source-han-sans-simplified-chinese
+    fonts = [
+      pkgs.hack-font
+      pkgs.source-han-sans-simplified-chinese
       fira-code-symbols
-      symbola
+      pkgs.symbola
     ];
     fontconfig = {
       enable = true;

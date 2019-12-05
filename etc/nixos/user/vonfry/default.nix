@@ -8,5 +8,5 @@
     extraGroups = [ "wheel" "docker" "vboxusers" ];
     shell = pkgs.zsh;
   };
-  imports = [ ./packages ./local ];
+  imports = [ ./package ./local ];
 }

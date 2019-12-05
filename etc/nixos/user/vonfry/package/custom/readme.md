@@ -4,11 +4,7 @@ Some custom packages installed in global environment.
 
 ## Directory Structation
 
-Two level strutation: `./<categories>/<softerware>/<files for drv>`
-
-Categories' naming use gentoo package as reference.
-
-Each custom package is saved into an dir though here is only one file.
+Reference nixpkgs' directories.
 
 ## Top level dir
 
