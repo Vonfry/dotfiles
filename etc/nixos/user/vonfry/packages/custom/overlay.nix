@@ -2,5 +2,5 @@ self: super:
 
 with super;
 {
-  hie = callPackage ./dev-haskell/hie { };
+  hie = callPackage ./development/haskell/hie { };
 }

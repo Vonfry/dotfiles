@@ -1,8 +1,8 @@
 { callPackage, python3 }:
 
 {
-  python = callPackage ./dev-lang/python { python = python3; };
-  rubyPkgs = callPackage ./dev-ruby/self-pkgs { };
-  hie = callPackage ./dev-haskell/hie { };
-  xmonad = callPackage ./x11-wm/xmonad { };
+  python = callPackage ./development/python/python { python = python3; };
+  rubyPkgs = callPackage ./development/ruby/self-pkgs { };
+  hie = callPackage ./development/haskell/hie { };
+  xmonad = callPackage ./applications/window-managers/xmonad { };
 }
