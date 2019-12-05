@@ -20,10 +20,3 @@
 (defcustom +proof-special-font '+proof-buffer-local-face
   "The special face."
   :group 'vonfry-module)
-
-(defcustom +proof-prettify-symbol-alist
-  '(("\\/" . #Xe13c)
-    ("/\\" . #Xe13b)
-    ("<>"  . #Xe11f))
-  "a partial copy from `company-coq', which are only used in coq mode"
-  :group 'vonfry-module)
