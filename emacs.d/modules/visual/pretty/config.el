@@ -307,10 +307,12 @@ Otherwise it builds `prettify-code-symbols-alist' according to
                       nil 'append))
   (dolist (charset (mapcar 'cdr company-coq-prettify-symbols-alist))
     (set-fontset-font t charset
-                      +pretty-code-symbol-font-name
+                      (font-spec :family +pretty-code-symbol-font-name
+                                 :size (+ 4 vonfry-fontsize))
                       nil 'prepend))
   (set-fontset-font t +pretty-code-ligatures-range
-                    +pretty-code-ligatures-font-name
+                    (font-spec :family +pretty-code-ligatures-font-name
+                               :size (+ 4 vonfry-fontsize))
                     nil 'prepend)
   (setq-default prettify-symbols-alist
                 (append prettify-symbols-alist
