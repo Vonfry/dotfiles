@@ -16,7 +16,7 @@
 ;; customize the fonts
 ;;
 
-(defcustom vonfry-fontsize (if (eq system-type 'gnu/linux) 9 11)
+(defcustom vonfry-fontsize 11
   "vonfry fontsize in window system"
   :group 'vonfry-module)
 (progn
