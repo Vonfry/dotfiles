@@ -5,7 +5,7 @@
     "nixos-vonfry-lib=/etc/nixos/lib"
   ];
   i18n = {
-    consoleFont = "hack-11";
+    consoleFont = "Hack-11";
     consoleKeyMap = "dvorak-programmer";
     defaultLocale = "en_US.UTF-8";
     consolePackages = with pkgs; [ hack-font ];

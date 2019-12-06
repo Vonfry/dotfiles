@@ -21,8 +21,8 @@ import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
 
-myFont = "xft:Hack:size=8"
-myFontCJK = "xft:Source Han Sans CN:size=8"
+myFont = "xft:Hack:size=11"
+myFontCJK = "xft:Source Han Sans CN:size=13"
 myModMask = mod4Mask
 myTerm = "alacritty"
 

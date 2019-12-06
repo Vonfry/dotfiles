@@ -9,4 +9,6 @@ let inherit (super) callPackage;
 in rec {
   unstable = unstableNixos;
   hie = callPackage ./development/haskell/hie { };
+  fira-code-symbols = callPackage ./data/fonts/fira-code-symbols
+                                  { fira-code = unstable.fira-code; };
 }
