@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     xclip
     alacritty
+    firefox
   ];
   services.xserver = {
     enable = true;

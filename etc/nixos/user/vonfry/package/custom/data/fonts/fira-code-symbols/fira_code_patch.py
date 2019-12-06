@@ -19,9 +19,6 @@ ADDITIONAL_LIGATURES = [
 def run(fontpath, outpath, starting_point=0xe100):
     try:
         font = fontforge.open(fontpath)
-        font.fontname   = font.fontname.replace('FiraCode', 'FiraCodeSymbols')
-        font.fullname   = font.fullname.replace('Fira Code', 'Fira Code Symbols' )
-        font.familyname = font.familyname.replace('Fira Code', 'Fira Code Symbols' )
         ligatures = list(filter(lambda x: x.glyphname.endswith('.liga'),
                                 font.glyphs()))
 

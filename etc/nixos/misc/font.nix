@@ -10,7 +10,7 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        monospace = [ "Hack" "Fira Code Symbols" ];
+        monospace = [ "Hack" "Fira Code" ];
         sansSerif = [ "Source Han Sans CN" ];
         serif = [ "Symbola"  ];
       };
