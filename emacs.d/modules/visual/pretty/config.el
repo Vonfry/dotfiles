@@ -140,7 +140,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
 (defcustom +pretty-code-symbol-font-name "Symbola"
   "Name of the Symbola code ligature font.")
 
-(defcustom +pretty-code-ligatures-font-name "Fira Code Symbols VF"
+(defcustom +pretty-code-ligatures-font-name "Fira Code"
   "Name of the ligature font.")
 
 (defcustom +pretty-code-ligatures-range '(#Xe100 . #Xe18a)
