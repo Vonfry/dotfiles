@@ -110,7 +110,7 @@ myLayout = beforeLayouts layouts
                 , inactiveColor       = solarizedBase02
                 , activeColor         = solarizedYellow
                 , fontName            = myFontCJK
-                , decoHeight          = 24
+                , decoHeight          = 32
                 })
         ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "Tiled"     ] tiled
