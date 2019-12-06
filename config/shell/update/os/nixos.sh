@@ -1,6 +1,6 @@
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}nixos${ECHO_RST}"
 echo -e "\n${ECHO_SYM}** ${ECHO_MSG}update custom packages${ECHO_RST}\n"
-custom_ruby_path=/etc/nixos/user/vonfry/packages/custom/dev-ruby/self-pkgs
+custom_ruby_path=/etc/nixos/user/vonfry/package/custom/development/ruby/self-pkgs
 sudo rm $custom_ruby_path/Gemfile.lock  $custom_ruby_path/gemset.nix
 sudo sh -c "cd $custom_ruby_path; bundle lock"
 sudo sh -c "cd $custom_ruby_path; bundix -l"

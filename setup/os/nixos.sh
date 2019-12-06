@@ -15,7 +15,7 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base/default.local.nix
 nix-env -iA nixos.bundix nixos.bundler
-cd /etc/nixos/user/vonfry/packages/custom/dev-ruby/self-pkgs
+cd /etc/nixos/user/vonfry/package/custom/development/ruby/self-pkgs
 bundle lock
 bundix -l
 nix-env -e bundle bundix
