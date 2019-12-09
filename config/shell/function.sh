@@ -25,3 +25,16 @@ function _remove_from_variable()
 }
 
 export PATH=$SHELL_CUSTOM_DIR/bin:$PATH
+
+if [ -n "${BASH}" ]; then
+    SHELL_NAME="bash"
+elif [ -n "${ZSH_NAME}" ]; then
+    SHELL_NAME="zsh"
+elif [ -n "${__fish_datadir}" ]; then
+    SHELL_NAME="fish"
+elif [ -n "${version}" ]; then
+    SHELL_NAME="tcsh"
+else
+    SHELL_NAME=$(echo ${SHELL} | awk -F/ '{ print $NF }')
+fi
+export SHELL_NAME
