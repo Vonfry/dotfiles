@@ -11,4 +11,5 @@ with pkgs; [
   gimp
   qbittorrent
   mupdf
+  unstable.tor-browser-bundle-bin
 ]
