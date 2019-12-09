@@ -9,6 +9,7 @@
           allowUnfree = true;
         };
       };
+      vonfryPackages = pkgs.callPackage ../user/vonfry/package/custom {  };
     };
   };
 }
