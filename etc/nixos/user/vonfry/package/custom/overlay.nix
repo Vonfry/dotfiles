@@ -12,7 +12,7 @@ in rec {
     hie = callPackage ./development/haskell/hie { };
     fira-code-symbols = callPackage ./data/fonts/fira-code-symbols
                                     { fira-code = unstable.fira-code; };
-    python = callPackage ./development/python/python { python = python3; };
+    python = callPackage ./development/python/python { python = super.python3; };
     rubyPkgs = callPackage ./development/ruby/self-pkgs { };
     xmonad = callPackage ./applications/window-managers/xmonad { };
   };
