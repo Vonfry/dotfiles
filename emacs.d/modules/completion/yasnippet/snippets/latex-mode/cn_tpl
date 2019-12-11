@@ -1,0 +1,65 @@
+# -*- mode: snippet -*-
+# name: cn_tpl
+# key: cdt
+# --
+\documentclass{${0:article}}
+\usepackage{fontspec,xltxtra,xunicode,hyperref}
+\usepackage[nofonts]{ctex}
+
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{tabularx}
+\usepackage{longtable}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+
+
+% 英文字体，linux
+\setmainfont{${1:Liberation Serif}}
+\setsansfont{${1}}
+\setmonofont{${2:Liberation Sans}}
+
+% 中文字体，linux
+\setCJKmainfont{${3:Noto Sans CJK SC}}
+\setCJKsansfont{${3}}
+\setCJKmonofont{${3}}
+
+\usepackage[a4paper]{geometry}
+\usepackage{microtype}
+
+\usepackage{verbatim}
+\usepackage{listings}
+
+% 从零开始计录章节
+\setcounter{section}{${4:-1}}
+
+% 开启索引，xelatex限定
+\usepackage{imakeidx}
+\makeindex
+
+% 信息
+\title{${5}}
+\author{论极语易-Vonfry}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+${6}
+\end{abstract}
+
+\tableofcontents
+% 正文
+
+% 附录
+\appendix
+
+% 索引附录
+\section{索引}
+\printindex
+
+\end{document}
