@@ -40,7 +40,7 @@
 \usepackage{fancyhdr}
 \fancyhead[L,C]{}
 \fancyhead[R]{\textbf{${5}}}
-\fancyfoot[L]{${7:Vonfry}}
+\fancyfoot[L]{${7}}
 \fancyfoot[C]{}
 \fancyfoot[R]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -52,8 +52,7 @@
 
 % 信息
 \title{${5:title}}
-\author{论极语易-Vonfry}
-\email{mail@vonfry.name}
+\author{${7:论极语易-Vonfry}}
 \date{\today}
 
 \begin{document}
@@ -66,12 +65,17 @@
 ${6:abstract}
 \end{abstract}
 
+\newpage
+
 \tableofcontents
+
+\newpage
 
 % 正文
 \pagenumbering{arabic}
 
 % 附录
+\newpage
 \pagenumbering{Alph}
 \appendix
 
