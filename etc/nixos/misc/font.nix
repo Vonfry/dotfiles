@@ -11,13 +11,14 @@ in {
       fira-code-symbols
       pkgs.symbola
       pkgs.noto-fonts-cjk
+      pkgs.liberation_ttf
     ];
     fontconfig = {
       enable = true;
       defaultFonts = {
         monospace = [ "Hack" "Fira Code" ];
-        sansSerif = [ "Source Han Sans CN" ];
-        serif = [ "Symbola" "Noto Sans CJK SC" ];
+        sansSerif = [ "Liberation Sans" "Source Han Sans CN" ];
+        serif = [ "Liberation Serif" "Noto Sans CJK SC" "Symbola" ];
       };
     };
   };

@@ -41,7 +41,7 @@
 \makeindex
 
 % 信息
-\title{${5}}
+\title{${5:title}}
 \author{论极语易-Vonfry}
 \date{\today}
 
@@ -49,7 +49,7 @@
 \maketitle
 
 \begin{abstract}
-${6}
+${6:abstract}
 \end{abstract}
 
 \tableofcontents
