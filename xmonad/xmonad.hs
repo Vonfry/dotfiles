@@ -21,8 +21,9 @@ import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
 
-myFont = "xft:Hack:size=8"
-myFontCJK = "xft:Source Han Sans CN:size=10"
+myFont = "xft:Hack:size=9"
+myFontCJK = "xft:Source Han Sans CN:size=11"
+myFontCJKSmall = "xft:Source Han Sans CN:size=6"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -106,10 +107,10 @@ myLayout = beforeLayouts layouts
                 { inactiveBorderColor = solarizedBase01
                 , activeBorderColor   = solarizedBase01
                 , inactiveTextColor   = solarizedBase01
-                , activeTextColor     = solarizedBase1
+                , activeTextColor     = solarizedBase03
                 , inactiveColor       = solarizedBase02
                 , activeColor         = solarizedYellow
-                , fontName            = myFontCJK
+                , fontName            = myFontCJKSmall
                 , decoHeight          = 20
                 })
         ||| renamed [ Replace "Grid"      ] Grid
