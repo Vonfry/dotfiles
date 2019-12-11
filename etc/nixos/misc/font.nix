@@ -10,13 +10,14 @@ in {
       pkgs.source-han-sans-simplified-chinese
       fira-code-symbols
       pkgs.symbola
+      pkgs.noto-fonts-cjk
     ];
     fontconfig = {
       enable = true;
       defaultFonts = {
         monospace = [ "Hack" "Fira Code" ];
         sansSerif = [ "Source Han Sans CN" ];
-        serif = [ "Symbola"  ];
+        serif = [ "Symbola" "Noto Sans CJK SC" ];
       };
     };
   };
