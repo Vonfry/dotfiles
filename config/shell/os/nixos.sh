@@ -11,6 +11,7 @@ function nixos-merge-from-dotfiles()
         gemset.nix
         readme.\*
         .gitignore
+        \*.orig
     )
     ignore_command=""
     for f in "${ignore_files[@]}"; do
