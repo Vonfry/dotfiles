@@ -12,7 +12,6 @@ in {
       pkgs.symbola
     ];
     fontconfig = {
-      dpi = 80;
       enable = true;
       defaultFonts = {
         monospace = [ "Hack" "Fira Code" ];
