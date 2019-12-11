@@ -23,6 +23,7 @@ import System.IO
 
 myFont = "xft:Hack:size=9"
 myFontCJK = "xft:Source Han Sans CN:size=11"
+myFontCJKSmall = "xft:Source Han Sans CN:size=6"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -106,11 +107,11 @@ myLayout = beforeLayouts layouts
                 { inactiveBorderColor = solarizedBase01
                 , activeBorderColor   = solarizedBase01
                 , inactiveTextColor   = solarizedBase01
-                , activeTextColor     = solarizedBase00
+                , activeTextColor     = solarizedBase03
                 , inactiveColor       = solarizedBase02
                 , activeColor         = solarizedYellow
-                , fontName            = myFontCJK
-                , decoHeight          = 24
+                , fontName            = myFontCJKSmall
+                , decoHeight          = 20
                 })
         ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "Tiled"     ] tiled

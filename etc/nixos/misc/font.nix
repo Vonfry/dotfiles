@@ -10,14 +10,15 @@ in {
       pkgs.source-han-sans-simplified-chinese
       fira-code-symbols
       pkgs.symbola
+      pkgs.noto-fonts-cjk
+      pkgs.liberation_ttf
     ];
     fontconfig = {
-      dpi = 80;
       enable = true;
       defaultFonts = {
         monospace = [ "Hack" "Fira Code" ];
-        sansSerif = [ "Source Han Sans CN" ];
-        serif = [ "Symbola"  ];
+        sansSerif = [ "Liberation Sans" "Source Han Sans CN" ];
+        serif = [ "Liberation Serif" "Noto Sans CJK SC" "Symbola" ];
       };
     };
   };

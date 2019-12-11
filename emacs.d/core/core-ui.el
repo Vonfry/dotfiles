@@ -16,7 +16,8 @@
 ;; customize the fonts
 ;;
 
-(defcustom vonfry-fontsize 11
+(defcustom vonfry-fontsize (vonfry-system-sets (darwin 11)
+                                               (gnu/linux 9))
   "vonfry fontsize in window system"
   :group 'vonfry-module)
 (progn

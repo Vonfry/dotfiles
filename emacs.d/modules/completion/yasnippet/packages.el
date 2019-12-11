@@ -7,6 +7,7 @@
   (yas-snippet-dirs
     (list (expand-file-name "snippets/" vonfry-local-dir)
           (expand-file-name "snippets/" vonfry-custom-dir)
+          +yas-snippet-dir
           'yasnippet-snippets-dir))
   :hook (company-mode . yas-minor-mode)
   :config
