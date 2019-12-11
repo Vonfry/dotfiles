@@ -36,26 +36,47 @@
 % 从零开始计录章节
 \setcounter{section}{${4:-1}}
 
+% 页眉脚
+\usepackage{fancyhdr}
+\fancyhead[L,C]{}
+\fancyhead[R]{\textbf{${5}}}
+\fancyfoot[L]{${7}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
 % 开启索引，xelatex限定
 \usepackage{imakeidx}
 \makeindex
 
 % 信息
 \title{${5:title}}
-\author{论极语易-Vonfry}
+\author{${7:论极语易-Vonfry}}
 \date{\today}
 
 \begin{document}
 \maketitle
 
+\pagenumbering{roman}
+\pagestyle{fancy}
+
 \begin{abstract}
 ${6:abstract}
 \end{abstract}
 
+\newpage
+
 \tableofcontents
+
+\newpage
+
 % 正文
+\pagenumbering{arabic}
 
 % 附录
+\newpage
+\pagenumbering{Alph}
 \appendix
 
 % 索引附录

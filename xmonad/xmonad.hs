@@ -23,7 +23,7 @@ import System.IO
 
 myFont = "xft:Hack:size=9"
 myFontCJK = "xft:Source Han Sans CN:size=11"
-myFontCJKSmall = "xft:Source Han Sans CN:size=6"
+myFontCJKSmall = "xft:Source Han Sans CN:size=9"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
