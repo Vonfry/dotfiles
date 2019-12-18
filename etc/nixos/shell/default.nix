@@ -20,7 +20,7 @@
     fzf
     colordiff
     tmux
-    lynx
+    w3m
     patch
     zip unzip
     lm_sensors lsof
