@@ -3,6 +3,7 @@ echo_info "** email"
 if [ $(uname) = "Linux" ]; then
     mkdir -p ~/.mutt
     ln -sf $script_dir/mutt/* ~/.mutt/
+    ln -sf $script_dir/mailcap ~/.mailcap
     ln -sf $clouddisk_dir/dotfiles/mutt/* ~/.mutt/
     ln -sf $clouddisk_dir/dotfiles/offlineimaprc ~/.offlineimaprc
     mkdir -p ~/.local/passwd
