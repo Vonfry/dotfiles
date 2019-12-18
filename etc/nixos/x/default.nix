@@ -7,6 +7,7 @@
     alacritty
     firefox
   ];
+  services.xbanish.enable = true;
   services.xserver = {
     enable = true;
     layout = "us";
