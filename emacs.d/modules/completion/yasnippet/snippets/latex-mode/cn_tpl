@@ -2,7 +2,7 @@
 # name: cn_tpl
 # key: cdt
 # --
-\documentclass{${0:article}}
+\documentclass[twocolumn]{${0:article}}
 \usepackage{fontspec,xltxtra,xunicode,hyperref}
 \usepackage[nofonts]{ctex}
 
