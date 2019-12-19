@@ -2,8 +2,7 @@
 
 {
   imports =
-    [./teamviewer.nix
-      ./font.nix
+    [ ./font.nix
       ./sound.nix
     ];
 }
