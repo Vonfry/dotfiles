@@ -15,6 +15,8 @@ set change_folder_next = yes
 
 set folder = "~/.mail"
 set sidebar_visible = yes
+bind index ,c sidebar-open
+bind index ,C sidebar-open
 bind index ,p sidebar-prev
 bind index ,P sidebar-prev-new
 bind index ,n sidebar-next
