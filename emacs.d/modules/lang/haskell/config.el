@@ -1,8 +1,8 @@
 ;;; haskell config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-lang-haskell-def
-(vonfry-def-mmap-lang-prefix haskell nil
+;; +mmap-mode-haskell-def
+(vonfry-def-mmap-mode-prefix haskell nil
   :keymaps 'haskell-mode-map)
 
 ;; +mmap-haskell-def

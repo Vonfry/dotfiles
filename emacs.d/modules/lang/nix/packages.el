@@ -6,5 +6,5 @@
   (+mmap-nix-def
     "\"" 'nix-repl
     "r"  'nix-build)
-  (+mmap-lang-nix-def
+  (+mmap-mode-nix-def
     "u"  'nix-unpack))

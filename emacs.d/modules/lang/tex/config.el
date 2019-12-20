@@ -1,8 +1,8 @@
 ;;; latex config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-lang-tex-def
-(vonfry-def-mmap-lang-prefix tex nil
+;; +mmap-mode-tex-def
+(vonfry-def-mmap-mode-prefix tex nil
   :keymaps '(LaTeX-mode-map TeX-mode-map))
 
 ;; +mmap-tex-def

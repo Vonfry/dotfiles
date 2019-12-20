@@ -46,7 +46,7 @@
     "?"   'TeX-doc
     "RET" 'preview-at-point
     "r"   'TeX-command-run-all)
-  (+mmap-lang-tex-def
+  (+mmap-mode-tex-def
     "\\"  'TeX-insert-macro
     "-"   'TeX-recenter-output-buffer
     "%"   'TeX-comment-or-uncomment-paragraph

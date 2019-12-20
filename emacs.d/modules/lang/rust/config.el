@@ -1,8 +1,8 @@
 ;;; rust config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-lang-rust-def
-(vonfry-def-mmap-lang-prefix rust nil
+;; +mmap-mode-rust-def
+(vonfry-def-mmap-mode-prefix rust nil
   :keymaps 'rust-mode-map)
 
 ;; +mmap-rust-def

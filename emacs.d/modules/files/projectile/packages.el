@@ -16,7 +16,7 @@
   (projectile-cache-file +projectile-cache-file)
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
-  (+mmap-lang-cc-def "h" 'projectile-find-other-file)
+  (+mmap-mode-cc-def "h" 'projectile-find-other-file)
   :config
   (projectile-global-mode t))
 

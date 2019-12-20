@@ -13,7 +13,8 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (+mmap-leader-def
-    "z"   '(nil :which-key "lang")
+    "z"   '(nil :which-key "mode special")
+    "@"   '(nil :which-key "mail/chat/..")
     ";"   '(nil :which-key "code")
     "="   'align-regexp
     "$"   'eshell

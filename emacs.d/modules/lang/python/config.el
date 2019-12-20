@@ -1,8 +1,8 @@
 ;;; python config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-lang-python-def
-(vonfry-def-mmap-lang-prefix python nil
+;; +mmap-mode-python-def
+(vonfry-def-mmap-mode-prefix python nil
   :keymaps 'python-mode-map)
 
 ;; +mmap-python-def

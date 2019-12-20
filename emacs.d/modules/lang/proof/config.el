@@ -1,8 +1,8 @@
 ;;; proof config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-lang-proof-def
-(vonfry-def-mmap-lang-prefix proof nil
+;; +mmap-mode-proof-def
+(vonfry-def-mmap-mode-prefix proof nil
   :keymaps 'coq-mode-map)
 
 ;; +mmap-proof-def

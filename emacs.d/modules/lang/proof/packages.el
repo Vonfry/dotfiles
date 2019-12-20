@@ -17,7 +17,7 @@
     "' u"    'proof-undo-last-successful-command
     "DEL"    'proof-undo-and-delete-last-successful-command
     "RET"    'proof-goto-point)
-  (+mmap-lang-proof-def
+  (+mmap-mode-proof-def
     "b"      'proof-process-buffer
     "r"      'proof-retract-buffer
     "p"      'proof-prf
@@ -50,6 +50,6 @@
     'coq-mode
     +proof-prettify-symbol-alist)
   :general
-  (+mmap-lang-proof-def
+  (+mmap-mode-proof-def
     "B" 'company-coq-cite
     "F" '+proof/buffer-use-spceial-font))
