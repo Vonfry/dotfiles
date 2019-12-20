@@ -27,6 +27,3 @@
     ("<>"  . #Xe11f))
   "a partial copy from `company-coq', which are only used in coq mode"
   :group 'vonfry-module)
-
-(setq pg-init--script-full-path (locate-library "proof-general")
-      pg-init--pg-root (file-name-directory pg-init--script-full-path))

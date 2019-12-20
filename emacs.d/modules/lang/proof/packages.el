@@ -2,6 +2,9 @@
 ;;
 
 (package! proof-general
+  :init
+  (setq pg-init--script-full-path (locate-library "proof-general")
+        pg-init--pg-root (file-name-directory pg-init--script-full-path))
   :general
   (+mmap-proof-def
     "\""     'proof-shell-start
