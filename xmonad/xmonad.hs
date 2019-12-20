@@ -113,8 +113,8 @@ myLayout = beforeLayouts layouts
                 , fontName            = myFontCJKSmall
                 , decoHeight          = 20
                 })
-        ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "Tiled"     ] tiled
+        ||| renamed [ Replace "Grid"      ] Grid
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
