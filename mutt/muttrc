@@ -14,6 +14,10 @@ set sort_aux = "reverse-date"
 set change_folder_next = yes
 
 set folder = "~/.mail"
+set sidebar_visible = yes
+bind index ,p sidebar-prev
+bind index ,P sidebar-prev-new
+bind index ,n sidebar-next
+bind index ,N sidebar-next-new
 source ~/.mutt/mailboxes
 source ~/.mutt/vonfry/default
-
