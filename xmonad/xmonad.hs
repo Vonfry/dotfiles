@@ -53,9 +53,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , ("browser"    , spawn myBrowser                                     )
         , ("virtualbox" , spawn "VirtualBox"                                  )
         , ("telegram"   , spawn "telegram-desktop"                            )
-        , ("freenode"   ,
-            spawn "alacritty -t freenade -e weechat -r \"/connect freenode\"" )
-        , ("mutt"       , spawn "alacritty -t mutt -e mutt"                   )
         ]
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )

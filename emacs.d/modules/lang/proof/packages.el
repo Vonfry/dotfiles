@@ -3,12 +3,11 @@
 
 (package! proof-general
   :init
-  (add-to-list
-    'straight-use-package-pre-build-functions
-    (lambda (pkg &rest args)
+  (defun +proof-general-build-hook (pkg &rest args)
       (when (string= pkg "proof-general")
         (setq pg-init--script-full-path (locate-library "proof-general")
-              pg-init--pg-root (file-name-directory pg-init--script-full-path)))))
+              pg-init--pg-root (file-name-directory pg-init--script-full-path))))
+  (add-to-list 'straight-use-package-pre-build-functions #'+proof-general-build-hook)
   :general
   (+mmap-proof-def
     "\""     'proof-shell-start
