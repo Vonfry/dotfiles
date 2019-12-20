@@ -4,6 +4,7 @@ import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
+import XMonad.Actions.SpawnOn
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -26,6 +27,7 @@ myFontCJK = "xft:Source Han Sans CN:size=11"
 myFontCJKSmall = "xft:Source Han Sans CN:size=9"
 myModMask = mod4Mask
 myTerm = "alacritty"
+myBrowser = "chromium"
 
 myXPConf = def
     { font = myFont
@@ -44,11 +46,11 @@ myGSConfS = def
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
-    , ((modm .|. shiftMask, xK_x), runSelectedAction myGSConfS
+    , ((modm, xK_numbersign), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                                        )
         , ("libreoffice", spawn "libreoffice"                                 )
         , ("mupdf"      , spawn "mupdf-gl"                                    )
-        , ("chromium"   , spawn "chromium"                                    )
+        , ("browser"    , spawn myBrowser                                     )
         , ("virtualbox" , spawn "VirtualBox"                                  )
         , ("telegram"   , spawn "telegram-desktop"                            )
         , ("freenode"   ,
@@ -75,7 +77,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm,               xK_Left  ), prevScreen      )
     , ((modm .|. shiftMask, xK_Right ), shiftNextScreen )
     , ((modm .|. shiftMask, xK_Left  ), shiftPrevScreen )
-    , ((modm .|. shiftMask, xK_z     ), toggleWS        )
+    , ((modm .|. shiftMask, xK_period), toggleWS        )
 
     , ((modm, xK_g), goToSelected myGSConf)
     , ((modm, xK_b), bringSelected myGSConf)
@@ -83,7 +85,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm,               xK_d), withFocused hideWindow)
     , ((modm .|. shiftMask, xK_d), popOldestHiddenWindow)
 
-    , ((modm, xK_z), gridselectWorkspace myGSConfWs W.view)
+    , ((modm, xK_period), gridselectWorkspace myGSConfWs W.view)
 
     , ((modm, xK_semicolon), runSelectedAction myGSConfS
         [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
@@ -123,6 +125,23 @@ myLayout = beforeLayouts layouts
     column = Column 1
     beforeLayouts = showWName . hiddenWindows
 
+myWorkspaces = [ "home"
+               , "web"
+               , "3"
+               , "4"
+               , "5"
+               , "terminal"
+               , "7"
+               , "8"
+               , "9"
+               ]
+myStartup = do
+    spawnOn "home" "emacs"
+    spawnOn "web"  myBrowser
+    spawnOn "web"  "zeal"
+    spawnOn "web"  "telegram-desktop"
+    spawnOn "terminal" $ myTerm ++ "-e start_ss"
+
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
@@ -131,7 +150,9 @@ myDef = def
     , focusFollowsMouse  = False
     , focusedBorderColor = solarizedCyan
     , normalBorderColor  = solarizedViolet
-    , borderWidth        = 1
+    , borderWidth        = 2
+    , startupHook        = myStartup
+    , workspaces         = myWorkspaces
     }
 
 solarizedBase03  = "#002b36"
