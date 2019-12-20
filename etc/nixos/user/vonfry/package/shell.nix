@@ -7,8 +7,7 @@ with pkgs; [
   thefuck
   ranger
   parallel
-  weechat
-  mutt msmtp offlineimap
+  msmtp offlineimap
   vdirsyncerStable khard khal
   googler
   lolcat
