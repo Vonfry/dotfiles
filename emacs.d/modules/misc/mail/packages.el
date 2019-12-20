@@ -1,8 +1,8 @@
 ;;; mail packages -*- lexical-binding: t -*-
 ;;
 
-(package! wanderlust
-  :custom
+(package! wl
+  :straight wanderlust
   :config
   (if +mail-local-config-file
     (load +mail-local-config-file t t)
