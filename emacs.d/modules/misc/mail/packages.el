@@ -22,16 +22,23 @@
 	(wl-init-file (expand-file-name "dotfiles/emacs/wl/wl" (getenv "CLOUDDISK_DIR")))
   (wl-folders-file (expand-file-name "dotfiles/emacs/wl/folders" (getenv "CLOUDDISK_DIR")))
   (wl-forward-subject-prefix "Fwd: ")
-  (elmo-message-ignored-field-list '(".*"))
-  (elmo-message-visible-field-list '("^From.*" "^Cc.*" "^Subject.*" "^To.*"
+  (wl-message-ignored-field-list '(".*"))
+  (wl-message-visible-field-list '("^From.*" "^Cc.*" "^Subject.*" "^To.*"
                                      "^Bcc.*" "^Fcc.*" "^Reply-To.*"
                                      "^List-Archive.*" "^Delivered-To.*"))
   (mime-view-mailcap-files '("~/.mailcap"))
+  (mime-view-type-subtype-score-alist
+   '(((text . plain) . 4)
+     ((text . enriched) . 3)
+     ((text . html) . 2)
+     ((text . richtext) . 1)
+     (multipart . mime-view-multipart-entity-score)))
   :hook
-  (evil-after-load . (lambda ()
+  ((evil-after-load . (lambda ()
     (let ((modes '(wl-folder-mode wl-summary-mode)))
       (dolist (m modes)
         (evil-set-initial-state m 'emacs)))))
+   (wl-message-mode . 'whitespace-mode))
   :general
   (+mmap-at-def
     "m"   '(nil :which-key "mail")
