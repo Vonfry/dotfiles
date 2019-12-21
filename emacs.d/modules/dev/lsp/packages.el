@@ -22,6 +22,7 @@
     "}"     'lsp-find-references
     "#"     'lsp-organize-imports
     "{"     'lsp-goto-implementation
+    ";"     '(nil :which-key "code")
     "; &"   'lsp-goto-type-definition
     "; h"   'lsp-symbol-highlight
     "; l"   '(nil :which-key "lens")

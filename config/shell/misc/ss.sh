@@ -3,7 +3,7 @@ function start_ss()
     ss_config=$1
     ss_path=$2
     if [ -z $ss_config ]; then
-        ss_path="~/.local/ss/config.json"
+        ss_config=~/.local/ss/config.json
     fi
     if [ -z $ss_path ]; then
         ss_path=$CLONE_LIB/shadowsocr-native-nix/result/bin/ssr-local
@@ -14,7 +14,7 @@ function start_ss()
     fi
     echo "keep this terminal open."
     privoxy --no-daemon ~/.local/ss/privoxy &
-    $ss_path -c ${ss_config}
+    $ss_path -c $ss_config
 }
 
 function export_ss()

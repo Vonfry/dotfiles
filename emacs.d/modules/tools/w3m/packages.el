@@ -4,4 +4,5 @@
 (package! w3m
   :general
   (+mmap-at-def
+    ""  '(nil :which-key "web/..")
     "w" 'w3m))
