@@ -21,7 +21,7 @@
 	(wl-init-file (expand-file-name "dotfiles/emacs/wl/wl" (getenv "CLOUDDISK_DIR")))
   (wl-folders-file (expand-file-name "dotfiles/emacs/wl/folders" (getenv "CLOUDDISK_DIR")))
   (wl-forward-subject-prefix "Fwd: ")
-  (elmo-message-ignore-field-list '(".*"))
+  (elmo-message-ignored-field-list '(".*"))
   (elmo-message-visible-field-list '("^From.*" "^CC.*" "^Subject.*" "^To.*"
                                      "^Reply-To.*" "^List-Archive.*" "^Delivered-To.*"))
   :hook
