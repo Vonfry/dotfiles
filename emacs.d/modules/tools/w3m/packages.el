@@ -4,6 +4,9 @@
 (package! w3m
   :general
   (+mmap-at-def
-    ""  '(nil :which-key "web/..")
-    "w" 'w3m
-    "." 'w3m-browse-url))
+    ""    '(nil :which-key "web/..")
+    "w"   '(nil :which-key "browse")
+    "."   'browse-url-at-point
+    "w w" 'w3m
+    "w W" 'browse-url-generic
+    "w ." 'w3m-browse-url))
