@@ -26,6 +26,7 @@
   (elmo-message-visible-field-list '("^From.*" "^Cc.*" "^Subject.*" "^To.*"
                                      "^Bcc.*" "^Fcc.*" "^Reply-To.*"
                                      "^List-Archive.*" "^Delivered-To.*"))
+  (mime-view-mailcap-files '("~/.mailcap"))
   :hook
   (evil-after-load . (lambda ()
     (let ((modes '(wl-folder-mode wl-summary-mode)))
@@ -36,6 +37,6 @@
     "m"   '(nil :which-key "mail")
     "m m" 'wl))
 
-(package! mime-w3m)
+(package! mime-w3m
   :straight nil
   :after w3m)
