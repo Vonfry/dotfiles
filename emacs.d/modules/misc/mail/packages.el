@@ -36,3 +36,6 @@
     "m"   '(nil :which-key "mail")
     "m m" 'wl))
 
+(package! mime-w3m)
+  :straight nil
+  :after w3m)
