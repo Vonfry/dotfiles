@@ -13,8 +13,6 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (+mmap-leader-def
-    "z"   '(nil :which-key "lang")
-    ";"   '(nil :which-key "code")
     "="   'align-regexp
     "$"   'eshell
     "h"   'evil-ex-nohighlight

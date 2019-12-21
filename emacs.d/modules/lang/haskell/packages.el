@@ -14,7 +14,8 @@
     "r"   'haskell-compile
     "R"   'haskell-debug
     "#"   'haskell-navigate-imports)
-  (+mmap-lang-haskell-def
+  (+mmap-mode-haskell-def
+    ""    '(nil :which-key "mode special")
     "R"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle
@@ -44,7 +45,7 @@
 (package! haskell-process
   :straight nil
   :general
-  (+mmap-lang-haskell-def
+  (+mmap-mode-haskell-def
     "p"   '(nil :which-key "process")
     "p l" 'haskell-process-load-or-reload
     "p t" 'haskell-process-do-type
@@ -62,5 +63,5 @@
 
 (package! hasky-extensions
   :general
-  (+mmap-lang-haskell-def
+  (+mmap-mode-haskell-def
     "{"  'hasky-extensions))

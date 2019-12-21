@@ -4,7 +4,7 @@
 (package! rust-mode
   :mode "\\.rs\\'"
   :general
-  (+mmap-lang-rust-def
+  (+mmap-mode-rust-def
     "=" 'rust-mode-indent-line
     "t" 'rust-test
     "R" 'rust-run)
@@ -15,7 +15,7 @@
 (package! cargo
   :hook (rust-mode . cargo-minor-mode)
   :general
-  (+mmap-lang-rust-def
+  (+mmap-mode-rust-def
     "r e" 'cargo-process-bench
     "r b" 'cargo-process-build
     "r l" 'cargo-process-clean

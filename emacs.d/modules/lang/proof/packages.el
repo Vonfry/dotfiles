@@ -3,12 +3,11 @@
 
 (package! proof-general
   :init
-  (add-to-list
-    'straight-use-package-pre-build-functions
-    (lambda (pkg &rest args)
+  (defun +proof-general-build-hook (pkg &rest args)
       (when (string= pkg "proof-general")
         (setq pg-init--script-full-path (locate-library "proof-general")
-              pg-init--pg-root (file-name-directory pg-init--script-full-path)))))
+              pg-init--pg-root (file-name-directory pg-init--script-full-path))))
+  (add-to-list 'straight-use-package-pre-build-functions #'+proof-general-build-hook)
   :general
   (+mmap-proof-def
     "\""     'proof-shell-start
@@ -17,7 +16,7 @@
     "' u"    'proof-undo-last-successful-command
     "DEL"    'proof-undo-and-delete-last-successful-command
     "RET"    'proof-goto-point)
-  (+mmap-lang-proof-def
+  (+mmap-mode-proof-def
     "b"      'proof-process-buffer
     "r"      'proof-retract-buffer
     "p"      'proof-prf
@@ -50,6 +49,6 @@
     'coq-mode
     +proof-prettify-symbol-alist)
   :general
-  (+mmap-lang-proof-def
+  (+mmap-mode-proof-def
     "B" 'company-coq-cite
     "F" '+proof/buffer-use-spceial-font))

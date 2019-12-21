@@ -64,9 +64,6 @@ brew reinstall graphviz
 brew reinstall gnuplot
 brew reinstall asciinema httpstat
 
-# chat
-brew reinstall weechat
-
 # editor
 brew reinstall editorconfig
 brew reinstall neovim

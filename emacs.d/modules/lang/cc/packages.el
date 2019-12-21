@@ -3,7 +3,7 @@
 
 (package! disaster
   :general
-  (+mmap-lang-cc-def
+  (+mmap-mode-cc-def
     "d" 'disaster))
 
 ;; this is used in all program lang
@@ -17,7 +17,7 @@
   :custom (moo-select-method 'ivy)
   :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
   :general
-  (+mmap-lang-cc-def
+  (+mmap-mode-cc-def
     "." 'fa-jump
     "&" 'fa-show
     "v" 'moo-propose-virtual

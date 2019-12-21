@@ -22,8 +22,8 @@
     (set-default sym newvalue))
   :group 'vonfry-keybind)
 
-(defconst +mmap-lang "z"
-  "lang configure")
+(defconst +mmap-mode "z"
+  "mode special configure")
 
 (defmacro vonfry-def-map-prefix (states name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
@@ -40,10 +40,10 @@
   (let ((key-with (concat +mmap-leader " " (eval keys))))
     `(vonfry-def-mmap-prefix ,name ,key-with ,@args)))
 
-(defmacro vonfry-def-mmap-lang-prefix (name keys &rest args)
-  "Define a key definer with leader lang prefix.\nPass `nil' to second argument to generate for lang prefix."
-  (let ((name-with (intern (format "lang-%s" (symbol-name name))))
-        (key-with (concat +mmap-lang " " keys)))
+(defmacro vonfry-def-mmap-mode-prefix (name keys &rest args)
+  "Define a key definer with leader mode prefix.\nPass `nil' to second argument to generate for mode prefix."
+  (let ((name-with (intern (format "mode-%s" (symbol-name name))))
+        (key-with (concat +mmap-mode " " keys)))
     `(vonfry-def-mmap-leader-prefix ,name-with ,key-with ,@args)))
 
 (package! general

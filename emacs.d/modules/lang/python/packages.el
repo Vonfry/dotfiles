@@ -16,7 +16,7 @@
     "' R" 'py-execute-region-pdb
     "' s" 'py-execute-statement
     "' S" 'py-execute-statement-pdb)
-  (+mmap-lang-python-def
+  (+mmap-mode-python-def
     "#"   'py-update-imports
     "s"   'py-switch-shell))
 
@@ -24,5 +24,5 @@
   :general
   (+mmap-python-def
     "?"   'pydoc)
-  (+mmap-lang-python-def
+  (+mmap-mode-python-def
     "b" 'pydoc-browse))
