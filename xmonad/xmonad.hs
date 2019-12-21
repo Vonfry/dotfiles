@@ -4,7 +4,6 @@ import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.GridSelect
 import XMonad.Actions.CycleWS
-import XMonad.Actions.SpawnOn
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -132,23 +131,16 @@ myWorkspaces = [ "home"
                , "8"
                , "9"
                ]
-myStartup = do
-    spawnOn "home" "emacs"
-    spawnOn "web"  myBrowser
-    spawnOn "web"  "zeal"
-    spawnOn "web"  "telegram-desktop"
-    spawnOn "terminal" $ myTerm ++ "-e start_ss"
 
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
     , keys               = myKeys <+> keys def
     , layoutHook         = myLayout
-    , focusFollowsMouse  = False
+    , focusFollowsMouse  = True
     , focusedBorderColor = solarizedCyan
     , normalBorderColor  = solarizedViolet
-    , borderWidth        = 2
-    , startupHook        = myStartup
+    , borderWidth        = 1
     , workspaces         = myWorkspaces
     }
 
