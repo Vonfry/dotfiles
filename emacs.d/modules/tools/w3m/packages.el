@@ -5,4 +5,5 @@
   :general
   (+mmap-at-def
     ""  '(nil :which-key "web/..")
-    "w" 'w3m))
+    "w" 'w3m
+    "." 'w3m-browse-url))
