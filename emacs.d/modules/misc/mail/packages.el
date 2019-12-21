@@ -12,6 +12,7 @@
 (package! wl
   :straight wanderlust
   :custom
+  (elmo-localdir-folder-path "~/.mail")
   (elmo-cache-directory "~/.mail/cache")
   (wl-default-folder ".~/.mail/INBOX")
   (wl-draft-folder   ".~/.mail/draft")
