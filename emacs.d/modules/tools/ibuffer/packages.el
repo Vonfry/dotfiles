@@ -3,6 +3,11 @@
 
 (package! ibuffer
   :straight nil
+  :custom
+  (ibuffer-filter-groups
+   '(("Circe" (or  (mode . circe-channel-mode)
+                  (mode . circe-query-mode)
+                  (mode . circe-server-mode)))))
   :init
   (setq-default ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-formats

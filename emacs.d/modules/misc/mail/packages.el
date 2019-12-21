@@ -12,6 +12,7 @@
 (package! wl
   :straight wanderlust
   :custom
+  (elmo-localdir-folder-path "~/.mail")
   (elmo-cache-directory "~/.mail/cache")
   (wl-default-folder ".~/.mail/INBOX")
   (wl-draft-folder   ".~/.mail/draft")
@@ -20,7 +21,12 @@
   (wl-temporary-file-directory "~/.mail/tmp")
 	(wl-init-file (expand-file-name "dotfiles/emacs/wl/wl" (getenv "CLOUDDISK_DIR")))
   (wl-folders-file (expand-file-name "dotfiles/emacs/wl/folders" (getenv "CLOUDDISK_DIR")))
-	(wl-forward-subject-prefix "Fwd: ")
+  (wl-forward-subject-prefix "Fwd: ")
+  (elmo-message-ignored-field-list '(".*"))
+  (elmo-message-visible-field-list '("^From.*" "^Cc.*" "^Subject.*" "^To.*"
+                                     "^Bcc.*" "^Fcc.*" "^Reply-To.*"
+                                     "^List-Archive.*" "^Delivered-To.*"))
+  (mime-view-mailcap-files '("~/.mailcap"))
   :hook
   (evil-after-load . (lambda ()
     (let ((modes '(wl-folder-mode wl-summary-mode)))
@@ -31,3 +37,6 @@
     "m"   '(nil :which-key "mail")
     "m m" 'wl))
 
+(package! mime-w3m
+  :straight nil
+  :after w3m)

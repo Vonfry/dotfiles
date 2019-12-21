@@ -8,4 +8,3 @@ if [ $(uname) = "Linux" ]; then
     mkdir -p ~/.local/passwd
 fi
 
-echo "--- Email client(mutt) config: please edit ~/.muttrc by yourself."
