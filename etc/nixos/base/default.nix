@@ -13,7 +13,7 @@
 
   time.timeZone = "Asia/Shanghai";
 
-  environment.systemPackages = with pkgs; [ sudo openssl cacert pciutils ];
+  environment.systemPackages = with pkgs; [ sudo gnutls cacert pciutils ];
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
