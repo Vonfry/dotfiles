@@ -11,7 +11,23 @@
                  "smtpmail.el") "flim-pkg.el")))
 (package! wl
   :straight wanderlust
-  :config
-  (if +mail-local-config-file
-    (load +mail-local-config-file t t)
-    nil))
+  :custom
+  (elmo-cache-directory "~/.mail/cache")
+  (wl-default-folder ".~/.mail/INBOX")
+  (wl-draft-folder   ".~/.mail/draft")
+  (wl-trash-folder   ".~/.mail/trash")
+  (wl-queue-folder   ".~/.mail/queue")
+  (wl-temporary-file-directory "~/.mail/tmp")
+	(wl-init-file (expand-file-name "dotfiles/emacs/wl/wl" (getenv "CLOUDDISK_DIR")))
+  (wl-folders-file (expand-file-name "dotfiles/emacs/wl/folders" (getenv "CLOUDDISK_DIR")))
+	(wl-forward-subject-prefix "Fwd: ")
+  :hook
+  (evil-after-load . (lambda ()
+    (let ((modes '(wl-folder-mode wl-summary-mode)))
+      (dolist (m modes)
+        (evil-set-initial-state m 'emacs)))))
+  :general
+  (+mmap-at-def
+    "m"   '(nil :which-key "mail")
+    "m m" 'wl))
+
