@@ -17,7 +17,7 @@
 					  (:flags          .   4)
 						(:from           .  22)
 						(:maildir        .  16)
-					  (:thread-subject .  44)))
+					  (:thread-subject .  nil)))
   (mu4e-view-show-adresses t)
   :general
   (+mmap-at-def
