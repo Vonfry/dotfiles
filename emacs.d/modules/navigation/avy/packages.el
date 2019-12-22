@@ -19,7 +19,7 @@
 (package! ace-window
   :after avy
   :custom
-  (aw-keys '(?& ?[ ?{ ?} ?( ?\) ?+ ?] ?!))
+  (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (aw-minibuffer-flag t)
   (aw-dispatch-always t)
   :general

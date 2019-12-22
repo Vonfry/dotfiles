@@ -18,7 +18,6 @@
       theme = "elarun";
     };
     windowManager = {
-      default = "none";
       xmonad = {
         enable = true;
         enableContribAndExtras = true;

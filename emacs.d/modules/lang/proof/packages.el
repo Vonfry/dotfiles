@@ -6,7 +6,8 @@
   (defun +proof-general-build-hook (pkg &rest args)
       (when (string= pkg "proof-general")
         (setq pg-init--script-full-path (locate-library "proof-general")
-              pg-init--pg-root (file-name-directory pg-init--script-full-path))))
+              pg-init--pg-root (file-name-directory pg-init--script-full-path)
+              proof-splash-enable nil)))
   (add-to-list 'straight-use-package-pre-build-functions #'+proof-general-build-hook)
   :general
   (+mmap-proof-def

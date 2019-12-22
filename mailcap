@@ -1,6 +1,0 @@
-text/html; $BROWSER %s; test=test -n "$DISPLAY"; nametemplate=%s.html
-text/html; w3m -v -F -T text/html %s; nametemplate=%s.html; needsterminal
-application/*; xdg-open %s
-image/*; feh %s
-video/*; vlc %s
-audio/*; vlc %s

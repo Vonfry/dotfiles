@@ -4,8 +4,6 @@
 (package! circe
   :custom
   (circe-reduce-lurker-spam t)
-  :config
-  (load +irc-local-config-file t t)
   :general
   (+mmap-at-def
     "i"   '(nil :which-key "irc")

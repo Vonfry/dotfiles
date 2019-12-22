@@ -7,6 +7,7 @@ with pkgs; [
   thefuck
   ranger
   parallel
+  mu fetchmail
   vdirsyncerStable khard khal
   googler
   lolcat

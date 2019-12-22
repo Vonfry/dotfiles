@@ -1,42 +1,36 @@
 ;;; mail packages -*- lexical-binding: t -*-
 ;;
-(straight-override-recipe
-  '(apel :host github :repo "wanderlust/apel" :branch "apel-wl"))
-(straight-override-recipe
-  '(semi :host github :repo "wanderlust/semi" :branch "semi-1_14-wl"))
-(straight-override-recipe
-  '(flim :host github :repo "wanderlust/flim" :branch "flim-1_14-wl"
-         :files ("*.texi" "*.el" (:exclude "md5-dl.el"
-                 "md5-el.el" "mel-b-dl.el" "sha1-dl.el"
-                 "smtpmail.el") "flim-pkg.el")))
-(package! wl
-  :straight wanderlust
+
+(package! mu4e
   :custom
-  (elmo-localdir-folder-path "~/.mail")
-  (elmo-cache-directory "~/.mail/cache")
-  (wl-default-folder ".~/.mail/INBOX")
-  (wl-draft-folder   ".~/.mail/draft")
-  (wl-trash-folder   ".~/.mail/trash")
-  (wl-queue-folder   ".~/.mail/queue")
-  (wl-temporary-file-directory "~/.mail/tmp")
-	(wl-init-file (expand-file-name "dotfiles/emacs/wl/wl" (getenv "CLOUDDISK_DIR")))
-  (wl-folders-file (expand-file-name "dotfiles/emacs/wl/folders" (getenv "CLOUDDISK_DIR")))
-  (wl-forward-subject-prefix "Fwd: ")
-  (elmo-message-ignored-field-list '(".*"))
-  (elmo-message-visible-field-list '("^From.*" "^Cc.*" "^Subject.*" "^To.*"
-                                     "^Bcc.*" "^Fcc.*" "^Reply-To.*"
-                                     "^List-Archive.*" "^Delivered-To.*"))
-  (mime-view-mailcap-files '("~/.mailcap"))
-  :hook
-  (evil-after-load . (lambda ()
-    (let ((modes '(wl-folder-mode wl-summary-mode)))
-      (dolist (m modes)
-        (evil-set-initial-state m 'emacs)))))
+	(mail-user-agent 'mu4e-user-agent)
+	(mu4e-maildir +maildir-path)
+	(mu4e-get-mail-command "offlineimap")
+	(mu4e-update-interval 300)
+	(mu4e-attachment-dir (expand-file-name "mu4e" vonfry-cache-dir))
+	(mu4e-sent-folder "/local/sent")
+	(mu4e-trash-folder "/local/trash")
+	(mu4e-refire-folder "/local/archive")
+	(mu4e-drafts-folder "/local/drafts")
+  (mu4e-headers-fields
+          '((:human-date     .  16)
+					  (:flags          .   4)
+						(:from           .  22)
+						(:maildir        .  16)
+					  (:thread-subject .  nil)))
+  (mu4e-view-show-adresses t)
   :general
   (+mmap-at-def
-    "m"   '(nil :which-key "mail")
-    "m m" 'wl))
+    "m" 'mu4e))
 
-(package! mime-w3m
-  :straight nil
-  :after w3m)
+(package! auth-source
+  :custom
+  (auth-sources '("~/.local/passwd/authinfo.gpg" "~/.authinfo")))
+
+(package! smtpmail
+  :custom
+  (smtpmail-stream-type 'starttls)
+  (starttls-use-gnutls  t)
+  (smtpmail-queue-dir  "~/.mail/local/queue/cur")
+	(send-mail-function 'smtpmail-send-it)
+	(message-send-mail-function 'smtpmail-send-it))
