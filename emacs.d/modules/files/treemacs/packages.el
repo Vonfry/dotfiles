@@ -14,7 +14,6 @@
   :after treemacs evil)
 
 (package! treemacs-projectile
-  :after treemacs projectile
   :general
   (+mmap-leader-def
     "P t" 'treemacs-projectile))
