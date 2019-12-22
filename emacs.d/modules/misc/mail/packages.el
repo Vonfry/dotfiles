@@ -14,8 +14,8 @@
 	(mu4e-drafts-folder "/local/drafts")
   (mu4e-headers-fields
           '((:human-date     .  16)
-					  (:flags          .  16)
-						(:from           .  16)
+					  (:flags          .   4)
+						(:from           .  22)
 						(:maildir        .  16)
 					  (:thread-subject .  44)))
   (mu4e-view-show-adresses t)
