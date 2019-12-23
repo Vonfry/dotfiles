@@ -63,7 +63,7 @@ brew cask install docker
 brew reinstall graphviz
 brew reinstall gnuplot
 brew reinstall asciinema httpstat
-brew reinstall growlnotify
+brew cask install growlnotify
 
 # editor
 brew reinstall editorconfig
