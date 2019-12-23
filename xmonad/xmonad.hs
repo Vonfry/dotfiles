@@ -125,13 +125,13 @@ myLayout = beforeLayouts layouts
 
 myWorkspaces = [ "home"
                , "web"
-               , "3"
-               , "4"
-               , "5"
-               , "terminal"
+               , "doc"
+               , "taichi"
+               , "misc"
+               , "bg"
                , "vbox"
-               , "8"
-               , "9"
+               , "magic"
+               , "play"
                ]
 
 myDef = def
