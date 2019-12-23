@@ -38,8 +38,8 @@
 
 (package! mu4e-alert
   :after mu4e
-  :after
-  (mu4e-alert-enable-mode-line-display))
+  :hook
+  (after-init . mu4e-alert-enable-mode-line-display))
 
 (package! mu4e-maildirs-extension
   :after mu4e-vars
