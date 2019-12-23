@@ -2,18 +2,10 @@
 ;;
 
 (package! elfeed
-  :disabled
-  :general ("C-x w" 'elfeed)
   :general
-  ;; set elfeed in custom or local files and load it by yourself.
-  ;;
-  ;; :config
-  ;; (setq elfeed-feeds
-  ;;   '(("http://nullprogram.com/feed/" blog emacs)
-  ;;      "http://www.50ply.com/atom.xml"  ; no autotagging
-  ;;     ("http://nedroid.com/feed/" webcomic)))
-  ;;
-  )
+  ("C-x w" 'elfeed)
+  (+mmap-at-def
+    "f" 'elfeed))
 
 (package! elfeed-org
   :disabled
