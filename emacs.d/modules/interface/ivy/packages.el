@@ -1,6 +1,13 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
+(package! amx
+  :custom
+  (amx-save-file +amx-save-file))
+
+(package! flx
+  :defer t)
+
 (package! ivy
   :config
   (ivy-mode 1)
