@@ -3,5 +3,5 @@
 
 (defcustom +maildir-path "~/.mail"
   "maildir path"
-  :group 'vonfry-module
+  :group 'vonfry-modules
   :type 'directory)

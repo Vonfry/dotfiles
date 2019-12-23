@@ -19,7 +19,7 @@
 (defcustom vonfry-fontsize (vonfry-system-sets (darwin 11)
                                                (gnu/linux 9))
   "vonfry fontsize in window system"
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 (progn
   (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
   (set-fontset-font nil 'unicode (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'append)

@@ -55,12 +55,3 @@
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config
   (org-projectile-per-project))
-
-(package! ibuffer-projectile
-  :after ibuffer projectile
-  :hook
-  (ibuffer .
-    (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic)))))
