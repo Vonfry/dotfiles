@@ -27,5 +27,6 @@
     ripgrep
     gawk
     fd
+    autojump
   ];
 }

@@ -7,4 +7,3 @@ elif [ $ID == nixos ]; then
         source $f
     done
 fi
-unset shell
