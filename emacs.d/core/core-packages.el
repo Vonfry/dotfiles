@@ -41,7 +41,6 @@ is undefined(It always is loaded by alpha order)."
 (setq straight-base-dir vonfry-packages-dir)
 
 (custom-set-variables
-  '(straight-vc-git-default-clone-depth 1)
   '(straight-use-package-by-default t)
   '(straight-base-dir vonfry-packages-dir)
   '(use-package-always-demand t)
