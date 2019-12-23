@@ -16,7 +16,7 @@
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
-  (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
+  (TeX-auto-private +tex-auto-private)
   ;; Synctex support
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows

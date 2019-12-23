@@ -8,3 +8,9 @@
 ;; +mmap-lsp-prefix-def
 (vonfry-def-mmap-leader-prefix lsp-prefix "*"
   :keymaps 'lsp-mode-map)
+
+(defcustom +lsp-session-file
+  (expand-file-name "lsp-session" vonfry-cache-dir)
+  "lsp session file, see `lsp-session-file'"
+  :group 'vonfry-modules
+  :type 'file)

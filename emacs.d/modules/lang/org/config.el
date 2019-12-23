@@ -3,19 +3,19 @@
 
 (defcustom +org-clock-persist-file
    (expand-file-name "org-clock-save.el" vonfry-cache-dir)
-   "org clock save"
+   "org clock save, see `org-clock-persist-file'"
    :type 'file
    :group 'vonfry-modules)
 
 (defcustom +org-todo-keywords-sequence
   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
-  "org todo keywords"
+  "org todo keywords, see `org-todo-keywords-sequence'"
   :group 'vonfry-modules)
 
 (defcustom +org-capture-file
    (expand-file-name "inbox.org" vonfry-org-dir)
-   "org capture"
+   "org capture, see `org-capture-file'"
    :type 'file
    :group 'vonfry-modules)
 
@@ -144,10 +144,10 @@
        (all-tags
          (-map (lambda (tag) (funcall tag-name (funcall get-tag tag))) unzip-tags-m)))
   (defcustom +org-agenda-dir agenda-dir
-    "my agenda dir"
+    "my agenda dir, see `agenda-dir'"
     :group 'vonfry-modules)
   (defcustom +org-agenda-files agenda-files
-    "global agenda dir"
+    "global agenda dir, see `org-agenda-files'"
     :group 'vonfry-modules)
   (defcustom +org-capture-templates
     (let ((default-templates
@@ -175,14 +175,14 @@
             `(,f :tag . ,tag))
             all-tags))
       +org-agenda-files)
-    "org refile targets"
+    "org refile targets, see `org-refile-targets'"
     :group 'vonfry-modules)
   (defcustom +org-super-agenda-groups
     (-map
      (-lambda ((tag abbr))
        `(:name ,(funcall tag-name tag) :tag ,(funcall tag-name tag) :order ,(funcall tag-level tag)))
      unzip-tags-m-filtered)
-    "org super agenda groups"
+    "org super agenda groups, see `org-super-agenda-groups'"
     :group 'vonfry-modules)
   (defcustom +org-agenda-custom-commands
     (let ((custom-tags-commands
@@ -201,12 +201,12 @@
               (">d" tags "DONE"     )
               (">c" tags "CANCELLED"))))
       (append custom-tags-commands custom-commands))
-  "org agenda custom commands"
+  "org agenda custom commands, see `org-agenda-custom-commands'"
   :group 'vonfry-modules))
 
 (defcustom +org-brains-path
   (expand-file-name "brains/" vonfry-org-dir)
-  "org-brain path"
+  "org-brain path, see `org-brains-path'"
   :type 'directory
   :group 'vonfry-modules)
 

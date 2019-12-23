@@ -6,7 +6,7 @@
 (defcustom +pretty-code-symbols-alist '((t))
   "An alist containing a mapping of major modes to its value for
 `prettify-symbols-alist'."
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defcustom +pretty-code-symbols
   '(;; Functional
@@ -92,7 +92,7 @@
     ("psi"           . ?ψ)
     ("omega"         . ?ω))
   "a custom pretty symbol alist"
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 
 (defun +pretty-code--correct-symbol-bounds (ligature-alist)
@@ -115,7 +115,7 @@ correct width of the symbols instead of the width measured by `char-width'."
   "List of major modes in which `prettify-symbols-mode' should be enabled.
 If t, enable it everywhere. If the first element is 'not, enable it in any mode
 besides what is listed."
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defun +pretty-code-init-pretty-symbols-h ()
   "Enable `prettify-symbols-mode'.
@@ -145,7 +145,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
 
 (defcustom +pretty-code-ligatures-range '(#Xe100 . #Xe18a)
   "ligatures charset range"
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defcustom +pretty-code-ligatures
   '(("Fl"                . #Xe100)
@@ -295,7 +295,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("^="                . #Xe189)
     ("%%"                . #Xe18a))
   "pretty code ligatures"
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defun +pretty-code-setup-h ()
   (dolist (charset (mapcar 'string-to-char (-filter 'stringp +pretty-code-symbols)))

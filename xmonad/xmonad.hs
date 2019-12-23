@@ -47,12 +47,13 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm, xK_comma), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                                        )
-        , ("emacs"      , spawn "emacs"                                       )
-        , ("libreoffice", spawn "libreoffice"                                 )
-        , ("mupdf"      , spawn "mupdf-gl"                                    )
         , ("browser"    , spawn myBrowser                                     )
+        , ("ranger"     , spawn "alacritty -e ranger"                         )
+        , ("libreoffice", spawn "libreoffice"                                 )
         , ("virtualbox" , spawn "VirtualBox"                                  )
+        , ("mupdf"      , spawn "mupdf-gl"                                    )
         , ("telegram"   , spawn "telegram-desktop"                            )
+        , ("emacs"      , spawn "emacs"                                       )
         ]
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
@@ -124,13 +125,13 @@ myLayout = beforeLayouts layouts
 
 myWorkspaces = [ "home"
                , "web"
-               , "3"
-               , "4"
-               , "5"
-               , "terminal"
-               , "7"
-               , "8"
-               , "9"
+               , "doc"
+               , "taichi"
+               , "misc"
+               , "bg"
+               , "vbox"
+               , "magic"
+               , "play"
                ]
 
 myDef = def

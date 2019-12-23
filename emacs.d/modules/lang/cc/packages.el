@@ -26,8 +26,7 @@
 
 (package! cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")
-  :config
-  (autoload 'cmake-mode "~/CMake/Auxiliary/cmake-mode.el" t))
+  :config)
 
 (package! cmake-font-lock
   :after cmake-mode

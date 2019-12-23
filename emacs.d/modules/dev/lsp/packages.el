@@ -4,7 +4,7 @@
   :after yasnippet projectile
   :hook (prog-mode . lsp)
   :custom
-  (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
+  (lsp-session-file +lsp-session-file)
   (lsp-prefer-flymake nil)
   :general
   (+mmap-lsp-prefix-def

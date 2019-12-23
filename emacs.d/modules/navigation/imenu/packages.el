@@ -5,6 +5,7 @@
   :straight nil
   :general
   (+mmap-leader-def
+    "i"   'imenu
     "; i" 'imenu))
 
 (package! imenu-list
