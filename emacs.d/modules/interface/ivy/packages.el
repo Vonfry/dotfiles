@@ -50,10 +50,3 @@
 
 (package! counsel-tramp
   :after counsel)
-
-(package! ivy-prescient
-  :after ivy prescient
-  :custom
-  (ivy-prescient-retain-classic-highlighting t)
-  :config
-  (ivy-prescient-mode t))
