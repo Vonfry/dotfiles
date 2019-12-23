@@ -80,13 +80,12 @@ NixOS and Gentoo are good linux distributions, we can control a lot of things in
 our system. I'm mainly using NixOS now, which isn't only a system but also a
 kind of thinking. Further more, Nix is a awesome build tools.
 
-I mainly use Omnifocus for GTD and Feedly for feeds. Fastmail is
-a interesting mail suppiler, which only offer mail, contacts and calendars, but
-these are enough. On macOS, Fantastical is a beautiful calander. On Linux, I use
-mutt for mail client, offlineimap for imap downloads, vdirsyncer for contcats
+I mainly use Omnifocus for GTD and Feedly for feeds. Zoho is a interesting mail
+suppiler. On macOS, Fantastical is a beautiful calander. On Linux, I use emacs
+for mail client, offlineimap for imap downloads, vdirsyncer for contcats
 and calendars downloads, khal for calendar and khard for contacts.
 So me of them have another tools supported in my configure but I don't use them
-usually,
+usually, Elfeed for scributions.
 
 I only use org-mode to save todo in projects. Sometimes, I use it on a special
 computer to note working process.
