@@ -2,6 +2,6 @@
 ;;
 
 (defcustom +eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir)
-  "eshell directory name"
+  "eshell directory name, see `eshell-directory-name'"
   :group 'vonfry-modules
   :type 'directory)

@@ -11,5 +11,6 @@
 
 (defcustom +tex-auto-private
   (expand-file-name "tex/" vonfry-cache-dir)
+  "tex auto private file, see `tex-auto-private'"
   :group 'vonfry-modules
   :type 'directory)

@@ -11,5 +11,6 @@
 
 (defcustom +lsp-session-file
   (expand-file-name "lsp-session" vonfry-cache-dir)
+  "lsp session file, see `lsp-session-file'"
   :group 'vonfry-modules
   :type 'file)
