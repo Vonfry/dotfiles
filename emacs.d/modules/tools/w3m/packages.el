@@ -2,6 +2,9 @@
 ;;
 
 (package! w3m
+  :custom
+  (browse-url-browser-function #'w3m-browse-url)
+  (browse-url-generic-program (getenv "BROWSER"))
   :general
   (+mmap-at-def
     ""    '(nil :which-key "web/..")
@@ -9,4 +12,6 @@
     "."   'browse-url-at-point
     "w w" 'w3m
     "w W" 'browse-url-generic
-    "w ." 'w3m-browse-url))
+    "w ." 'w3m-browse-url
+    "w g" '+browse/switch-emacs
+    "w G" '+browse/switch-generic))
