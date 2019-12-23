@@ -54,7 +54,7 @@
   '(case-fold-search t)
   '(line-spacing 0)
 
-  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-cache-dir))
+  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
 
   '(mouse-yank-at-point t)
   '(delete-selection-mode t)

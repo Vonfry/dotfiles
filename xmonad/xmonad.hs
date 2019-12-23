@@ -45,8 +45,9 @@ myGSConfS = def
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
-    , ((modm, xK_numbersign), runSelectedAction myGSConfS
+    , ((modm, xK_comma), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                                        )
+        , ("emacs"      , spawn "emacs"                                       )
         , ("libreoffice", spawn "libreoffice"                                 )
         , ("mupdf"      , spawn "mupdf-gl"                                    )
         , ("browser"    , spawn myBrowser                                     )
@@ -57,7 +58,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
-    , ((modm, xK_F1), manPrompt myXPConf)
+    , ((modm, xK_question), manPrompt myXPConf)
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")

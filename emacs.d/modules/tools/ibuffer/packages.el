@@ -3,11 +3,6 @@
 
 (package! ibuffer
   :straight nil
-  :custom
-  (ibuffer-filter-groups
-   '(("Circe" (or  (mode . circe-channel-mode)
-                  (mode . circe-query-mode)
-                  (mode . circe-server-mode)))))
   :init
   (setq-default ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-formats
@@ -29,6 +24,13 @@
                 (vc-status 16 16 :left)
                 " "
                 filename-and-process)))(setq ibuffer-filter-group-name-face 'font-lock-doc-face)
+  :hook
+  (ibuffer .
+    (lambda ()
+      (ibuffer-projectile-set-filter-groups)
+      (unless (eq ibuffer-sorting-mode 'alphabetic)
+        (ibuffer-do-sort-by-alphabetic))
+      (setq ibuffer-filter-groups (append ibuffer-filter-groups +ibuffer-filter-groups))))
   :config
   (define-ibuffer-column size-h
       (:name "Size" :inline t)
@@ -41,3 +43,6 @@
   (+mmap-leader-def "B" 'ibuffer))
 
 (package! ibuffer-vc :after ibuffer)
+
+(package! ibuffer-projectile
+  :after ibuffer projectile)

@@ -63,12 +63,3 @@
   :hook (org-agenda-mode . org-super-agenda-mode)
   :custom
   (org-super-agenda-groups +org-super-agenda-groups))
-
-(package! org-mime
-  :after wl
-  :config
-  (setq org-mime-library 'semi)
-  :general
-  (+mmap-at-def
-    "m h" 'org-mime-htmlize
-    "m H" 'org-mime-org-buffer-htmlize))

@@ -1,23 +1,19 @@
 ;;; elfeed packages -*- lexical-binding: t -*-
 ;;
 
+;(defun +elfeed-general-build-hook (pkg &rest args)
+;  (when (string= pkg "elfeed")
+;    (straight--fix-org-function "org")))
+;(add-to-list 'straight-use-package-prepare-functions #'+elfeed-general-build-hook)
 (package! elfeed
-  :disabled
-  :general ("C-x w" 'elfeed)
+  :custom
+  (elfeed-db-directory (expand-file-name "elfeed/db" vonfry-local-dir))
+  (elfeed-enclosure-directory (expand-file-name "elfeed/enclosure" vonfry-local-dir))
+  :hook
+  (evil-mode . (lambda ()
+    (evil-set-initial-state 'elfeed-search-mode 'emacs)
+    (evil-set-initial-state 'elfeed-show-mode   'emacs)))
   :general
-  ;; set elfeed in custom or local files and load it by yourself.
-  ;;
-  ;; :config
-  ;; (setq elfeed-feeds
-  ;;   '(("http://nullprogram.com/feed/" blog emacs)
-  ;;      "http://www.50ply.com/atom.xml"  ; no autotagging
-  ;;     ("http://nedroid.com/feed/" webcomic)))
-  ;;
-  )
-
-(package! elfeed-org
-  :disabled
-  :after elfeed org
-  :custom (rmh-elfeed-org-files (list +elfeed-org-files))
-  :config
-  (elfeed-org))
+  ("C-x w" 'elfeed)
+  (+mmap-at-def
+    "f" 'elfeed))

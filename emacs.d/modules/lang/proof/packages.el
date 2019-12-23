@@ -8,7 +8,7 @@
         (setq pg-init--script-full-path (locate-library "proof-general")
               pg-init--pg-root (file-name-directory pg-init--script-full-path)
               proof-splash-enable nil)))
-  (add-to-list 'straight-use-package-pre-build-functions #'+proof-general-build-hook)
+  (add-to-list 'straight-use-package-prepare-functions #'+proof-general-build-hook)
   :general
   (+mmap-proof-def
     "\""     'proof-shell-start
