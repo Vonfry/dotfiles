@@ -1,6 +1,15 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
+(package! amx
+  :custom
+  (amx-save-file +amx-save-file))
+
+(package! flx
+  :defer t
+  :custom
+  (ivy-flx-limit 10000))
+
 (package! ivy
   :config
   (ivy-mode 1)
@@ -41,10 +50,3 @@
 
 (package! counsel-tramp
   :after counsel)
-
-(package! ivy-prescient
-  :after ivy prescient
-  :custom
-  (ivy-prescient-retain-classic-highlighting t)
-  :config
-  (ivy-prescient-mode t))

@@ -21,6 +21,10 @@
   (company-quickhelp-mode t))
 
 (package! company-prescient
-  :after company prescient
+  :after company
+  :custom
+  (prescient-save-file +prescient-save-file)
+  :hook
+  (company-mode . company-prescient-mode)
   :config
-  (company-prescient-mode t))
+  (prescient-persist-mode t))

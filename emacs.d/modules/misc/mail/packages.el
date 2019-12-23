@@ -37,7 +37,14 @@
   (message-send-mail-function 'smtpmail-send-it))
 
 (package! mu4e-alert
-  :after mu4e)
+  :after mu4e
+  :hook
+  (after-init .
+    (lambda ()
+      (mu4e-alert-enable-mode-line-display)
+      (vonfry-system-sets (darwin (nmu4e-alert-set-default-style 'growl))
+                          (gnu/linux (mu4e-alert-set-default-style 'notifications)))
+      (mu4e-alert-enable-notifications))))
 
 (package! mu4e-maildirs-extension
   :after mu4e-vars

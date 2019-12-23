@@ -2,9 +2,6 @@
 ;;
 
 (package! engine-mode
-  :custom
-  (browse-url-browser-function #'w3m-browse-url)
-  (browse-url-generic-program (getenv "BROWSER"))
   :config
   (engine-mode t)
   (defengine github
@@ -39,8 +36,4 @@
 		:keybinding "H")
   (defengine hoogle
     "https://www.haskell.org/hoogle/?hoogle=%s"
-    :keybinding "h")
-  :general
-  (+mmap-at-def
-    "w g" '+browse/switch-emacs
-    "w G" '+browse/switch-generic))
+    :keybinding "h"))
