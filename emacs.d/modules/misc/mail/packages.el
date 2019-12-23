@@ -34,3 +34,11 @@
   (smtpmail-queue-dir  "~/.mail/local/queue/cur")
 	(send-mail-function 'smtpmail-send-it)
 	(message-send-mail-function 'smtpmail-send-it))
+
+(package! mu4e-alert
+  :after mu4e)
+
+(package! mu4e-maildirs-extension
+  :after mu4e-vars
+  :config
+  (mu4e-maildirs-extension))
