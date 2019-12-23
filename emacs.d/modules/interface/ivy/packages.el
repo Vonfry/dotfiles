@@ -45,7 +45,6 @@
 (package! ivy-prescient
   :after ivy prescient
   :custom
-  (prescient-save-file (expand-file-name "prescient" vonfry-cache-dir))
   (ivy-prescient-retain-classic-highlighting t)
   :config
   (ivy-prescient-mode t))

@@ -10,7 +10,7 @@
   (eshell-buffer-shorthand t)
   (eshell-highlight-prompt nil)
   (eshell-plain-echo-behavior t)
-  (eshell-directory-name (expand-file-name  "eshell/" vonfry-cache-dir))
+  (eshell-directory-name +eshell-directory-name)
   :straight nil)
 
 

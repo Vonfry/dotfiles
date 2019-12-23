@@ -11,7 +11,7 @@
 
 (defcustom +proof-use-special-font nil
   "If not nil, use special font."
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defface +proof-buffer-local-face
     '((t :family "Symbola" :height 110))
@@ -19,11 +19,11 @@
 
 (defcustom +proof-special-font '+proof-buffer-local-face
   "The special face."
-  :group 'vonfry-module)
+  :group 'vonfry-modules)
 
 (defcustom +proof-prettify-symbol-alist
   '(("\\/" . #Xe13c)
     ("/\\" . #Xe13b)
     ("<>"  . #Xe11f))
   "a partial copy from `company-coq', which are only used in coq mode"
-  :group 'vonfry-module)
+  :group 'vonfry-modules)

@@ -7,8 +7,8 @@
 ;(add-to-list 'straight-use-package-prepare-functions #'+elfeed-general-build-hook)
 (package! elfeed
   :custom
-  (elfeed-db-directory (expand-file-name "elfeed/db" vonfry-local-dir))
-  (elfeed-enclosure-directory (expand-file-name "elfeed/enclosure" vonfry-local-dir))
+  (elfeed-db-directory +feed-db-directory)
+  (elfeed-enclosure-directory +feed-enclousure-directory)
   :hook
   (evil-mode . (lambda ()
     (evil-set-initial-state 'elfeed-search-mode 'emacs)
