@@ -6,7 +6,9 @@
   (amx-save-file +amx-save-file))
 
 (package! flx
-  :defer t)
+  :defer t
+  :custom
+  (ivy-flx-limit 10000))
 
 (package! ivy
   :config

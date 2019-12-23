@@ -19,8 +19,3 @@
   :after company
   :config
   (company-quickhelp-mode t))
-
-(package! company-prescient
-  :after company prescient
-  :config
-  (company-prescient-mode t))
