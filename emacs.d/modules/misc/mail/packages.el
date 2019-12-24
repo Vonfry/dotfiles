@@ -20,6 +20,9 @@
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
   (mu4e-view-show-adresses t)
+  :config
+  (unless (file-exists-p mu4e-attachment-dir)
+    (make-directory mu4e-attachment-dir t))
   :general
   (+mmap-at-def
     "m" 'mu4e))
