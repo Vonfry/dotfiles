@@ -5,6 +5,7 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
+  (evil-initial-state 'process-menu-mode 'emacs)
   :custom
   (evil-shift-width 4)
   (evil-search-module 'evil-search)
@@ -17,6 +18,8 @@
     "$"   'eshell
     "h"   'evil-ex-nohighlight
     "\""  'comint-run
+    "l"  'list-processes
+    "L"  'proced
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
