@@ -5,10 +5,9 @@
   :after company
   :custom
   (yas-snippet-dirs +yas-snippet-dirs)
-  :hook (company-mode . yas-minor-mode))
-
-(package! yasnippet-snippets
-  :after yasnippet)
+  :hook (company-mode . yas-minor-mode)
+  :config
+  (package! yasnippet-snippets))
 
 (package! ivy-yasnippet
   :after yasnippet ivy
