@@ -8,6 +8,7 @@ with pkgs; [
   ranger
   parallel
   mu fetchmail
+  rclone
   vdirsyncerStable khard khal
   googler
   lolcat
