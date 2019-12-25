@@ -23,7 +23,8 @@
                 " "
                 (vc-status 16 16 :left)
                 " "
-                filename-and-process)))(setq ibuffer-filter-group-name-face 'font-lock-doc-face)
+                filename-and-process)))
+  (setq ibuffer-filter-group-name-face 'font-lock-doc-face)
   :hook
   (ibuffer .
     (lambda ()
