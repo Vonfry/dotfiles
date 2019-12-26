@@ -2,17 +2,20 @@
 ;;
 
 (package! mu4e
+  :straight nil
+  :init
+  (vonfry-system-sets (darwin (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")))
   :custom
-	(mail-user-agent 'mu4e-user-agent)
-	(mu4e-maildir +maildir-path)
-    (mu4e-view-show-addresses t)
-	(mu4e-get-mail-command +mail-get-mail-command)
-	(mu4e-update-interval 300)
-	(mu4e-attachment-dir +mail-attachment-dir)
-	(mu4e-sent-folder "/local/sent")
-	(mu4e-trash-folder "/local/trash")
-	(mu4e-refire-folder "/local/archive")
-	(mu4e-drafts-folder "/local/drafts")
+  (mail-user-agent 'mu4e-user-agent)
+  (mu4e-maildir +maildir-path)
+  (mu4e-view-show-addresses t)
+  (mu4e-get-mail-command +mail-get-mail-command)
+  (mu4e-update-interval 300)
+  (mu4e-attachment-dir +mail-attachment-dir)
+  (mu4e-sent-folder "/local/sent")
+  (mu4e-trash-folder "/local/trash")
+  (mu4e-refire-folder "/local/archive")
+  (mu4e-drafts-folder "/local/drafts")
   (mu4e-headers-fields
           '((:human-date     .  16)
 			(:flags          .   4)
