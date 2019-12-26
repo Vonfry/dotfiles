@@ -1,6 +1,53 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
+(defcustom +org-diary-dir (expand-file-name "diary" vonfry-org-dir)
+  "org diary dir."
+  :type 'directory
+  :group 'vonfry-modules)
+
+(defcustom +org-diary-templates-get-location-function
+  (lambda (&rest args)
+    (interactive)
+    (let* ((date (format-time-string "%Y%m%d"))
+           (sep "-")
+           (slug (read-string "slug: "))
+           (ext ".org")
+           (filename (concat date sep slug ext))
+           (path (expand-file-name filename +org-diary-dir)))
+      (set-buffer (org-capture-target-buffer path))
+      (widen)
+      (org-capture-put-target-region-and-position)
+      (goto-char (point-max))))
+  "location for org diary by org-capture under `+org-diary-dir'."
+  :type 'function
+  :group 'vonfry-modules)
+
+(defun +org-diary-templates-get-location (&rest args)
+  (funcall +org-diary-templates-get-location-function args)
+  "call `+org-diary-templates-get-location-function'")
+
+(defcustom +org-note-dir (expand-file-name "notes" vonfry-org-dir)
+  "org note dir."
+  :type 'directory
+  :group 'vonfry-modules)
+
+(defcustom +org-note-templates-get-location-function
+  (lambda (&rest args)
+    (interactive)
+    (let* ((path (read-file-name "note file: " +org-note-dir)))
+      (set-buffer (org-capture-target-buffer path))
+      (widen)
+      (org-capture-put-target-region-and-position)
+      (goto-char (point-max))))
+  "location for org diary by org-capture under `+org-diary-dir'."
+  :type 'function
+  :group 'vonfry-modules)
+
+(defun +org-note-templates-get-location (&rest args)
+  (funcall +org-diary-templates-get-location-function args)
+  "call `+org-note-templates-get-location-function'")
+
 (defcustom +org-clock-persist-file
    (expand-file-name "org-clock-save.el" vonfry-cache-dir)
    "org clock save, see `org-clock-persist-file'"
@@ -155,13 +202,19 @@
                "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
               ("i" "capture to inbox, refile later" entry (file+headline +org-capture-file "Ideals")
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
-              ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)))
+              ("d" "capture to diary" plain (function +org-diary-templates-get-location)
+               "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
+              ("n" "capture to note" plain (function +org-note-templates-get-location)
+               "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
+              ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
+              ("a" "capture to agenda")))
           (agenda-templates
             (-map
               (lambda (file-path)
                 (let* ((file-name (file-name-nondirectory file-path))
-                       (file-firstchar (substring file-name 0 1)))
-                  `(,file-firstchar ,(concat "capture to " file-name ", refile later") entry (file ,file-path)
+                       (file-chars (substring file-name 0 1))
+                       (keys (concat "a" file-chars)))
+                  `(,keys ,(concat "capture to " file-name ", refile later") entry (file ,file-path)
                     "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
               agenda-files)))
       (append default-templates agenda-templates))
@@ -201,12 +254,11 @@
               (">d" tags "DONE"     )
               (">c" tags "CANCELLED"))))
       (append custom-tags-commands custom-commands))
-  "org agenda custom commands, see `org-agenda-custom-commands'"
-  :group 'vonfry-modules))
+    "org agenda custom commands, see `org-agenda-custom-commands'"
+    :group 'vonfry-modules))
 
 (defcustom +org-brains-path
   (expand-file-name "brains/" vonfry-org-dir)
   "org-brain path, see `org-brains-path'"
   :type 'directory
   :group 'vonfry-modules)
-
