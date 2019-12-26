@@ -58,10 +58,27 @@
     "B" 'append-to-buffer
     "c" 'counsel-org-capture))
 
-(require 'org-archive)
+(package! org-archive
+  :straight nil
+  :general
+  (+mmap-mode-org-def
+    "a" 'org-archive-subtree-default))
 
 (package! org-super-agenda
   :after org
   :hook (org-agenda-mode . org-super-agenda-mode)
   :custom
   (org-super-agenda-groups +org-super-agenda-groups))
+
+(package! org-web-tools
+  :after org
+  :general
+  (+mmap-at-def
+    "w o" 'org-web-tools-read-url-as-org)
+  (+mmap-mode-org-def
+   "w"   '(nil :which-key "web")
+   "w o" 'org-web-tools-read-url-as-org
+   "w l" 'org-web-tools-insert-link-for-url
+   "w e" 'org-web-tools-insert-web-page-as-entry
+   "w A" 'org-web-tools-archive-view
+   "w a" 'org-web-tools-archive-attach))

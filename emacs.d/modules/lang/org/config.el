@@ -1,6 +1,9 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
+(vonfry-def-mmap-mode-prefix org nil
+  :keymaps 'org-mode-map)
+
 (defcustom +org-diary-dir (expand-file-name "diary" vonfry-org-dir)
   "org diary dir."
   :type 'directory
