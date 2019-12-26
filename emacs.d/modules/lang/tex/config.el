@@ -14,3 +14,9 @@
   "tex auto private file, see `tex-auto-private'"
   :group 'vonfry-modules
   :type 'directory)
+
+(defcustom +tex-region
+  (expand-file-name "_region_" +tex-auto-private)
+  "tex region ile, see `TeX-region'"
+  :group 'vonfry-modules
+  :type 'directory)

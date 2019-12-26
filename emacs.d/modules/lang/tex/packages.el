@@ -17,6 +17,7 @@
   (TeX-engine 'xetex)
   (TeX-save-query nil)
   (TeX-auto-private +tex-auto-private)
+  (TeX-region +tex-region)
   ;; Synctex support
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
@@ -75,7 +76,7 @@
     "."   'LaTeX-mark-environment
     "c"   'LaTeX-close-environment
     "e"   'LaTeX-environment
-    "i i" 'LaTeX-insert-item
+    "i"   'LaTeX-insert-item
     "s"   'LaTeX-section
     "f"   '(nil :which-key "fill")
     "f e" 'LaTeX-fill-environment
@@ -116,7 +117,7 @@
   (bibtex-completion-library-path '("./refs"))
   :general
   (+mmap-mode-tex-def
-    "i" 'ivy-bibtex))
+    "I" 'ivy-bibtex))
 
 (package! company-auctex
   :after company latex yasnippet
