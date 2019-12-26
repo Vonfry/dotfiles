@@ -3,8 +3,7 @@
 
 (package! mu4e
   :straight nil
-  :init
-  (vonfry-system-sets (darwin (add-to-list 'load-path "/usr/local/share/emacs/site-lisp")))
+  :unless (eq system-type 'darwin)
   :custom
   (mail-user-agent 'mu4e-user-agent)
   (mu4e-maildir +maildir-path)
@@ -33,10 +32,12 @@
     "m" 'mu4e))
 
 (package! auth-source
+  :unless (eq system-type 'darwin)
   :custom
   (auth-sources +auth-sources))
 
 (package! smtpmail
+  :unless (eq system-type 'darwin)
   :custom
   (smtpmail-stream-type 'starttls)
   (starttls-use-gnutls  t)
@@ -50,8 +51,7 @@
   (after-init .
     (lambda ()
       (mu4e-alert-enable-mode-line-display)
-      (vonfry-system-sets (darwin (nmu4e-alert-set-default-style 'growl))
-                          (gnu/linux (mu4e-alert-set-default-style 'notifications)))
+      (vonfry-system-sets (gnu/linux (mu4e-alert-set-default-style 'notifications)))
       (mu4e-alert-enable-notifications))))
 
 (package! mu4e-maildirs-extension
