@@ -37,5 +37,5 @@ function! vonfry#bundle#lang#config()
     call vonfry#mapping#leader("$", ':terminal<CR>')
 
     let g:DoxygenToolkit_authorName = "论极语易-Vonfry"
-    let g:org_agenda_files=['~/.org/*.org']
+    let g:org_agenda_files=['~/orgmode/agenda/*.org']
 endfunction

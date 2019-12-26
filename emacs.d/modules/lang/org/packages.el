@@ -52,6 +52,8 @@
   (+mmap-todo-def
     "a" 'org-agenda
     "A" '+org/find-agenda
+    "n" '+org/find-notes
+    "d" '+org/find-diary
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
     "c" 'counsel-org-capture))

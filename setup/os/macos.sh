@@ -29,6 +29,7 @@ brew reinstall gpatch
 brew reinstall tmux
 brew reinstall direnv
 brew reinstall ranger
+brew reinstall w3m
 
 # C & Cpp libs
 brew reinstall gcc

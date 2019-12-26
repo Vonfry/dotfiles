@@ -88,4 +88,5 @@ So me of them have another tools supported in my configure but I don't use them
 usually, Elfeed for scributions.
 
 I only use org-mode to save todo in projects. Sometimes, I use it on a special
-computer to note working process.
+computer to note working process. I tried to move GTD and notes into orgmode, but
+it is difficute to use them on iOS, so I do this.

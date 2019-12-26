@@ -23,14 +23,17 @@
                 " "
                 (vc-status 16 16 :left)
                 " "
-                filename-and-process)))(setq ibuffer-filter-group-name-face 'font-lock-doc-face)
+                filename-and-process)))
+  (setq ibuffer-filter-group-name-face 'font-lock-doc-face)
   :hook
   (ibuffer .
     (lambda ()
       (ibuffer-projectile-set-filter-groups)
       (unless (eq ibuffer-sorting-mode 'alphabetic)
         (ibuffer-do-sort-by-alphabetic))
-      (setq ibuffer-filter-groups (append ibuffer-filter-groups +ibuffer-filter-groups))))
+      (setq ibuffer-filter-groups (append ibuffer-filter-groups
+                                          +ibuffer-filter-groups))
+      (ibuffer-update t)))
   :config
   (define-ibuffer-column size-h
       (:name "Size" :inline t)
