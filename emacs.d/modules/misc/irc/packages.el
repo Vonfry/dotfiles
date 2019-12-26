@@ -15,5 +15,4 @@
     "i j" 'circe-command-JOIN
     "i p" 'circe-command-PART
     "i R" 'circe-reconnect
-    "i c" '+irc/ivy-jump-to-channel
     "i n" 'circe-command-NAMES))
