@@ -80,13 +80,12 @@ NixOS and Gentoo are good linux distributions, we can control a lot of things in
 our system. I'm mainly using NixOS now, which isn't only a system but also a
 kind of thinking. Further more, Nix is a awesome build tools.
 
-I mainly use Omnifocus for GTD and Feedly for feeds. Zoho is a interesting mail
-suppiler. On macOS, Fantastical is a beautiful calander. On Linux, I use emacs
-for mail client, offlineimap for imap downloads, vdirsyncer for contcats
-and calendars downloads, khal for calendar and khard for contacts.
-So me of them have another tools supported in my configure but I don't use them
-usually, Elfeed for scributions.
+Zoho is a interesting mail suppiler. On macOS, Fantastical is a beautiful 
+calander. On Linux, I use emacs for mail client(mu4e), offlineimap for imap
+downloads, vdirsyncer for contcats and calendars downloads, khal for calendar 
+and khard for contacts, elfeed for scributions. I'm find a replacement for 
+vdirsyncer, org-caldav can work with caldav, but there isn't a tool to sync 
+carddav well.
 
-I only use org-mode to save todo in projects. Sometimes, I use it on a special
-computer to note working process. I tried to move GTD and notes into orgmode, but
-it is difficute to use them on iOS, so I do this.
+I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is not 
+easy like evernote, but I like it. Some website use w3m with org for capturing.
