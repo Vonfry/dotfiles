@@ -7,6 +7,8 @@
 
 (package! solarized
   :straight solarized-theme
+  :custom
+  (solarized-use-variable-pitch nil)
   :config
   (load-theme 'solarized-dark t))
 

@@ -209,11 +209,10 @@
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
               ("a" "capture to agenda")))
           (agenda-templates
-            (-map
-              (lambda (file-path)
+            (-map-indexed
+              (lambda (index file-path)
                 (let* ((file-name (file-name-nondirectory file-path))
-                       (file-chars (substring file-name 0 1))
-                       (keys (concat "a" file-chars)))
+                       (keys (concat "a" (string (+ ?A index)))))
                   `(,keys ,(concat "capture to " file-name ", refile later") entry (file ,file-path)
                     "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
               agenda-files)))
