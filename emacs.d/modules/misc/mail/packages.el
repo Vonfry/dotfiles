@@ -3,7 +3,9 @@
 
 (package! mu4e
   :straight nil
-  :unless (eq system-type 'darwin)
+  :load-path
+  (lambda ()
+    (vonfry-system-sets (darwin "/usr/local/share/emacs/site-lisp/mu/mu4e")))
   :custom
   (mail-user-agent 'mu4e-user-agent)
   (mu4e-maildir +maildir-path)
@@ -32,12 +34,12 @@
     "m" 'mu4e))
 
 (package! auth-source
-  :unless (eq system-type 'darwin)
+  :straight nil
   :custom
   (auth-sources +auth-sources))
 
 (package! smtpmail
-  :unless (eq system-type 'darwin)
+  :straight nil
   :custom
   (smtpmail-stream-type 'starttls)
   (starttls-use-gnutls  t)
