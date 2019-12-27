@@ -12,11 +12,12 @@
   (TeX-source-correlate-start-server nil)
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
-  (TeX-command-default "latexmk")
+  (TeX-command-default "LaTexMk")
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
   (TeX-auto-private +tex-auto-private)
+  (TeX-region +tex-region)
   ;; Synctex support
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
@@ -40,7 +41,8 @@
        ;; have the buffer refresh after compilation
        (turn-on-reftex)
        (define-key TeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
-       (imenu-add-menubar-index))))
+       (imenu-add-menubar-index)
+       (auto-fill-mode nil))))
   :general
   (+mmap-tex-def
     "?"   'TeX-doc
@@ -75,7 +77,7 @@
     "."   'LaTeX-mark-environment
     "c"   'LaTeX-close-environment
     "e"   'LaTeX-environment
-    "i i" 'LaTeX-insert-item
+    "i"   'LaTeX-insert-item
     "s"   'LaTeX-section
     "f"   '(nil :which-key "fill")
     "f e" 'LaTeX-fill-environment
@@ -109,7 +111,25 @@
  :config
  (add-to-list 'company-backends 'company-math-symbols-unicode))
 
+(package! ivy-bibtex
+  :after ivy
+  :custom
+  (bibtex-completion-bibliography '("./refs/refs.bib"))
+  (bibtex-completion-library-path '("./refs"))
+  :general
+  (+mmap-mode-tex-def
+    "I" 'ivy-bibtex))
+
 (package! company-auctex
   :after company latex yasnippet
   :hook
   (TeX-mode . company-auctex-init))
+
+(package! auctex-latexmk
+  :after auctex
+  :custom
+  (auctex-latexmk-inherit-TeX-PDF-mode t)
+  :hook
+  (LaTeX-mode . (lambda () (setq TeX-command-default "LatexMk")))
+  :config
+  (auctex-latexmk-setup))

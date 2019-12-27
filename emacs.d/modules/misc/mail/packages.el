@@ -2,17 +2,21 @@
 ;;
 
 (package! mu4e
+  :straight nil
+  :load-path
+  (lambda ()
+    (vonfry-system-sets (darwin "/usr/local/share/emacs/site-lisp/mu/mu4e")))
   :custom
-	(mail-user-agent 'mu4e-user-agent)
-	(mu4e-maildir +maildir-path)
-    (mu4e-view-show-addresses t)
-	(mu4e-get-mail-command +mail-get-mail-command)
-	(mu4e-update-interval 300)
-	(mu4e-attachment-dir +mail-attachment-dir)
-	(mu4e-sent-folder "/local/sent")
-	(mu4e-trash-folder "/local/trash")
-	(mu4e-refire-folder "/local/archive")
-	(mu4e-drafts-folder "/local/drafts")
+  (mail-user-agent 'mu4e-user-agent)
+  (mu4e-maildir +maildir-path)
+  (mu4e-view-show-addresses t)
+  (mu4e-get-mail-command +mail-get-mail-command)
+  (mu4e-update-interval 300)
+  (mu4e-attachment-dir +mail-attachment-dir)
+  (mu4e-sent-folder "/local/sent")
+  (mu4e-trash-folder "/local/trash")
+  (mu4e-refire-folder "/local/archive")
+  (mu4e-drafts-folder "/local/drafts")
   (mu4e-headers-fields
           '((:human-date     .  16)
 			(:flags          .   4)
@@ -30,10 +34,12 @@
     "m" 'mu4e))
 
 (package! auth-source
+  :straight nil
   :custom
   (auth-sources +auth-sources))
 
 (package! smtpmail
+  :straight nil
   :custom
   (smtpmail-stream-type 'starttls)
   (starttls-use-gnutls  t)
@@ -47,8 +53,7 @@
   (after-init .
     (lambda ()
       (mu4e-alert-enable-mode-line-display)
-      (vonfry-system-sets (darwin (nmu4e-alert-set-default-style 'growl))
-                          (gnu/linux (mu4e-alert-set-default-style 'notifications)))
+      (vonfry-system-sets (gnu/linux (mu4e-alert-set-default-style 'notifications)))
       (mu4e-alert-enable-notifications))))
 
 (package! mu4e-maildirs-extension

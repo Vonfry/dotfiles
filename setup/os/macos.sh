@@ -30,6 +30,7 @@ brew reinstall tmux
 brew reinstall direnv
 brew reinstall ranger
 brew reinstall w3m
+brew reinstall offlineimap mu4e
 
 # C & Cpp libs
 brew reinstall gcc
