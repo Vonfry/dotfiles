@@ -17,7 +17,6 @@ brew cask install alacritty
 brew reinstall fzf && /usr/local/opt/fzf/install
 brew reinstall dbus
 brew reinstall thefuck
-brew reinstall googler
 # brew reinstall htop
 brew reinstall lolcat                        # colorful print
 brew reinstall tree                          # file browser
