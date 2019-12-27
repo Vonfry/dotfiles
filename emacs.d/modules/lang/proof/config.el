@@ -26,4 +26,5 @@
     ("/\\" . #Xe13b)
     ("<>"  . #Xe11f))
   "a partial copy from `company-coq', which are only used in coq mode"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)

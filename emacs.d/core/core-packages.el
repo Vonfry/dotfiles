@@ -18,6 +18,7 @@
 
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
+  :type '(repeat string)
   :group 'vonfry)
 
 (defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-cache-dir)
@@ -145,7 +146,7 @@ modules."
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
         (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-match))
           (let ((module-name (concat module "/" submodule)))
-            (unless (member  module-name exclude))
+            (unless (member module-name exclude))
               (push module-name module-alist))))
       (-map 'vonfry-load-module-config   module-alist)
       (-map 'vonfry-load-module-packages module-alist)

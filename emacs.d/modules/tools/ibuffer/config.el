@@ -21,4 +21,5 @@
                      (name . "\\*direnv\\*")
                      (mode . help-mode))))
   "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'"
+  :type 'sexp
   :group 'vonfry-modules)

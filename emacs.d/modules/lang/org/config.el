@@ -61,6 +61,7 @@
   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
   "org todo keywords, see `org-todo-keywords-sequence'"
+  :type 'sexp
   :group 'vonfry-modules)
 
 (defcustom +org-capture-file
@@ -88,6 +89,7 @@
         (("context"  ,vonfry--org-tags-ctx-sym)
          ((("haskell" "hs")))))))
      "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see '+org-tag-alist'"
+    :type 'sexp
     :group 'vonfry-modules))
 
 (defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
@@ -162,6 +164,7 @@
 (defcustom +org-tag-alist
   (vonfry--org-tag-alist-generate vonfry--org-tags-m)
   "org tag alist. It is generated from 'vonfry--org-tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in 'vonfry--org-tags-m'."
+  :type 'sexp
   :group 'vonfry-modules)
 
 (let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
@@ -195,9 +198,11 @@
          (-map (lambda (tag) (funcall tag-name (funcall get-tag tag))) unzip-tags-m)))
   (defcustom +org-agenda-dir agenda-dir
     "my agenda dir, see `agenda-dir'"
+    :type 'directory
     :group 'vonfry-modules)
   (defcustom +org-agenda-files agenda-files
     "global agenda dir, see `org-agenda-files'"
+    :type '(repeat file)
     :group 'vonfry-modules)
   (defcustom +org-capture-templates
     (let ((default-templates
@@ -220,7 +225,8 @@
                     "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
               agenda-files)))
       (append default-templates agenda-templates))
-    "org capture templates"
+    "org capture templates, see `org-capture-templates'"
+    :type 'sexp
     :group 'vonfry-modules)
   (defcustom +org-refile-targets
     (-map
@@ -231,6 +237,7 @@
             all-tags))
       +org-agenda-files)
     "org refile targets, see `org-refile-targets'"
+    :type 'sexp
     :group 'vonfry-modules)
   (defcustom +org-super-agenda-groups
     (-map
@@ -238,6 +245,7 @@
        `(:name ,(funcall tag-name tag) :tag ,(funcall tag-name tag) :order ,(funcall tag-level tag)))
      unzip-tags-m-filtered)
     "org super agenda groups, see `org-super-agenda-groups'"
+    :type 'sexp
     :group 'vonfry-modules)
   (defcustom +org-agenda-custom-commands
     (let ((custom-tags-commands
@@ -257,6 +265,9 @@
               (">c" tags "CANCELLED"))))
       (append custom-tags-commands custom-commands))
     "org agenda custom commands, see `org-agenda-custom-commands'"
+    :type '(choice (const :tag "Disabled" nil)
+                   (character)
+                   (string))
     :group 'vonfry-modules))
 
 (defcustom +org-brains-path

@@ -6,6 +6,7 @@
 (defcustom +pretty-code-symbols-alist '((t))
   "An alist containing a mapping of major modes to its value for
 `prettify-symbols-alist'."
+  :type 'sexp
   :group 'vonfry-modules)
 
 (defcustom +pretty-code-symbols
@@ -92,6 +93,7 @@
     ("psi"           . ?ψ)
     ("omega"         . ?ω))
   "a custom pretty symbol alist"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
 
 
@@ -115,6 +117,7 @@ correct width of the symbols instead of the width measured by `char-width'."
   "List of major modes in which `prettify-symbols-mode' should be enabled.
 If t, enable it everywhere. If the first element is 'not, enable it in any mode
 besides what is listed."
+  :type 'boolean
   :group 'vonfry-modules)
 
 (defun +pretty-code-init-pretty-symbols-h ()
@@ -138,13 +141,18 @@ Otherwise it builds `prettify-code-symbols-alist' according to
       (prettify-symbols-mode +1))))
 
 (defcustom +pretty-code-symbol-font-name "Symbola"
-  "Name of the Symbola code ligature font.")
+  "Name of the Symbola code ligature font."
+  :type 'string
+  :group 'vonfry-modules)
 
 (defcustom +pretty-code-ligatures-font-name "Fira Code"
-  "Name of the ligature font.")
+  "Name of the ligature font."
+  :type 'string
+  :group 'vonfry-modules)
 
 (defcustom +pretty-code-ligatures-range '(#Xe100 . #Xe18a)
   "ligatures charset range"
+  :type '(alist :key-type character :value-type character)
   :group 'vonfry-modules)
 
 (defcustom +pretty-code-ligatures
@@ -295,6 +303,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("^="                . #Xe189)
     ("%%"                . #Xe18a))
   "pretty code ligatures"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
 
 (defun +pretty-code-setup-h ()

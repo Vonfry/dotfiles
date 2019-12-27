@@ -28,6 +28,7 @@
 (defcustom vonfry-fontsize (vonfry-system-sets (darwin 11)
                                                (gnu/linux 9))
   "vonfry fontsize in window system"
+  :type 'integer
   :group 'vonfry-modules)
 (progn
   (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
