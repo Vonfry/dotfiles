@@ -2,9 +2,12 @@
 # name: cn_tpl
 # key: cdt
 # --
+
 \documentclass[twocolumn]{${0:article}}
 \usepackage{fontspec,xltxtra,xunicode,hyperref}
 \usepackage[nofonts]{ctex}
+\usepackage{biblatex}
+\addbibresource{${8:refs/refs.bib}}
 
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
@@ -12,6 +15,7 @@
 
 \usepackage{tabularx}
 \usepackage{longtable}
+\usepackage{enumitem}
 
 \usepackage{graphicx}
 \usepackage{tikz}
@@ -82,5 +86,7 @@ ${6:abstract}
 % 索引附录
 \section{索引}
 \printindex
+
+\printbibliography[title=参考文献]
 
 \end{document}
