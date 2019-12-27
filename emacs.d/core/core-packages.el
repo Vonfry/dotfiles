@@ -91,6 +91,7 @@ is undefined(It always is loaded by alpha order)."
 
 (package! diminish)
 (package! dash)
+(package! s)
 (package! auto-compile
   :custom
   (load-prefer-newer t)
