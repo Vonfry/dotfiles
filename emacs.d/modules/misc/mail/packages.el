@@ -50,11 +50,7 @@
 (package! mu4e-alert
   :after mu4e
   :hook
-  (after-init .
-    (lambda ()
-      (mu4e-alert-enable-mode-line-display)
-      (vonfry-system-sets (gnu/linux (mu4e-alert-set-default-style 'notifications)))
-      (mu4e-alert-enable-notifications))))
+  (after-init . mu4e-alert-enable-mode-line-display))
 
 (package! mu4e-maildirs-extension
   :after mu4e-vars
