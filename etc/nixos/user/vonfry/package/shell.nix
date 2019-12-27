@@ -10,7 +10,6 @@ with pkgs; [
   mu unstable.offlineimap
   rclone
   vdirsyncerStable khard khal
-  googler
   lolcat
   fortune cmatrix figlet
   asciinema
