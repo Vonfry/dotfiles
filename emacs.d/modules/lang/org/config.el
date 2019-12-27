@@ -206,7 +206,7 @@
               ("i" "capture to inbox(Idea), refile later" entry (file+headline +org-capture-file "Idea")
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
               ("d" "capture to diary" plain (function +org--diary-templates-get-location)
-               "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
+               "\n#+TITLE:%^{title}\n#+DATE:%U\n\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
               ("n" "capture to note" plain (function +org--note-templates-get-location)
                "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
