@@ -19,7 +19,6 @@ brew reinstall dbus
 brew reinstall thefuck
 # brew reinstall htop
 brew reinstall lolcat                        # colorful print
-brew reinstall tree                          # file browser
 brew reinstall colordiff
 brew reinstall fortune cmatrix figlet        # 诗词，代码雨，ascii-art
 brew reinstall handbrake                     # video transcoder
