@@ -52,7 +52,7 @@ horizontal_padding = 6
 
 separator_color = frame
 
-startup_notification = true
+startup_notification = no
 
 dmenu = /usr/bin/dmenu -p dunst:
 
