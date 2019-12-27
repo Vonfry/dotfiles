@@ -17,7 +17,7 @@ in {
       enable = true;
       defaultFonts = {
         monospace = [ "Hack" "Fira Code" ];
-        sansSerif = [ "Liberation Sans" "Source Han Sans CN" ];
+        sansSerif = [ "Source Han Sans CN" ];
         serif = [ "Liberation Serif" "Noto Sans CJK SC" "Symbola" ];
       };
     };

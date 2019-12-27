@@ -7,10 +7,9 @@ with pkgs; [
   thefuck
   ranger
   parallel
-  mu fetchmail
+  mu unstable.offlineimap
   rclone
   vdirsyncerStable khard khal
-  googler
   lolcat
   fortune cmatrix figlet
   asciinema

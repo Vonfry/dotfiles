@@ -15,7 +15,6 @@
     git git-lfs
     zsh gnupg
     atop htop
-    tree
     file
     fzf
     colordiff

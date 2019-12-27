@@ -2,6 +2,7 @@ if [ $(uname) = "Linux" ]; then
     echo_info "* X"
     ln -f -s $script_dir/xsession ~/.xsession
     ln -f -s $script_dir/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+    ln -f -s $script_dir/config/dunst ~/.config/dunst
 
     if command -v xmonad &> /dev/null; then
         xmonad --recompile
