@@ -121,7 +121,7 @@
                               (concat prefix (nth 0 tag))
                               (nth 0 tag)))
                           (tag-abbr (nth 1 tag))
-                          (abbr-prefix (mapconcat 'identity (-repeat prefix-level prefix) ""))
+                          (abbr-prefix (s-repeat prefix-level prefix))
                           (tag-names (if prefix-tag
                                          (concat prefix-tag prefix tag-name)
                                          tag-name))
