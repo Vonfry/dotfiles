@@ -7,7 +7,7 @@ with pkgs; [
   thefuck
   ranger
   parallel
-  mu unstable.offlineimap
+  mu isync
   rclone
   vdirsyncerStable khard khal
   lolcat

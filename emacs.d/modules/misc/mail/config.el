@@ -11,7 +11,7 @@
   :group 'vonfry-modules
   :type 'directory)
 
-(defcustom +mail-get-mail-command "offlineimap"
+(defcustom +mail-get-mail-command "mbsync"
   "get mail command, see `mu4e-get-mail-command'"
   :group 'vonfry-modules
   :type 'string)
