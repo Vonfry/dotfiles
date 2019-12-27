@@ -81,7 +81,7 @@ our system. I'm mainly using NixOS now, which isn't only a system but also a
 kind of thinking. Further more, Nix is a awesome build tools.
 
 Zoho is a interesting mail suppiler. On macOS, Fantastical is a beautiful 
-calander. On Linux, I use emacs for mail client(mu4e), offlineimap for imap
+calander. On Linux, I use emacs for mail client(mu4e), isync for imap
 downloads, vdirsyncer for contcats and calendars downloads, khal for calendar 
 and khard for contacts, elfeed for scributions. I'm find a replacement for 
 vdirsyncer, org-caldav can work with caldav, but there isn't a tool to sync 

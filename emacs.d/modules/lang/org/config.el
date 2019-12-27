@@ -26,7 +26,7 @@
   :type 'function
   :group 'vonfry-modules)
 
-(defun +org-diary-templates-get-location (&rest args)
+(defun +org--diary-templates-get-location (&rest args)
   (funcall +org-diary-templates-get-location-function args)
   "call `+org-diary-templates-get-location-function'")
 
@@ -47,7 +47,7 @@
   :type 'function
   :group 'vonfry-modules)
 
-(defun +org-note-templates-get-location (&rest args)
+(defun +org--note-templates-get-location (&rest args)
   (funcall +org-diary-templates-get-location-function args)
   "call `+org-note-templates-get-location-function'")
 
@@ -205,9 +205,9 @@
                "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
               ("i" "capture to inbox, refile later" entry (file+headline +org-capture-file "Ideals")
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
-              ("d" "capture to diary" plain (function +org-diary-templates-get-location)
+              ("d" "capture to diary" plain (function +org--diary-templates-get-location)
                "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
-              ("n" "capture to note" plain (function +org-note-templates-get-location)
+              ("n" "capture to note" plain (function +org--note-templates-get-location)
                "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
               ("a" "capture to agenda")))
