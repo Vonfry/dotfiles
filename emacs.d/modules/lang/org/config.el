@@ -201,9 +201,9 @@
     :group 'vonfry-modules)
   (defcustom +org-capture-templates
     (let ((default-templates
-            '(("c" "capture to inbox, refile later" entry (file+headline +org-capture-file "Tasks")
+            '(("c" "capture to inbox(Tasks), refile later" entry (file+headline +org-capture-file "Tasks")
                "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
-              ("i" "capture to inbox, refile later" entry (file+headline +org-capture-file "Ideals")
+              ("i" "capture to inbox(Idea), refile later" entry (file+headline +org-capture-file "Idea")
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
               ("d" "capture to diary" plain (function +org--diary-templates-get-location)
                "\n#+TITLE:%^{title}\n#+DATE:%U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
