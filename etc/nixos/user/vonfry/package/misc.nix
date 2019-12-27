@@ -5,5 +5,4 @@ with pkgs; [
   _1password
   filezilla
   fontforge-gtk
-  libnotify
 ]

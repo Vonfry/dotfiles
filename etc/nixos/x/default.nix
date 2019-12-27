@@ -24,4 +24,5 @@
       };
     };
   };
+  imports = [ ./notify.nix ];
 }
