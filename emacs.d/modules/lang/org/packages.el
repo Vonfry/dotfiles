@@ -7,14 +7,12 @@
 ; (org-default-notes-file +org-capture-file)
 ; (org-capture-templates +org-capture-templates)
 ; (org-todo-keywords +org-todo-keywords-sequence)
-  (org-clock-persist-file
-    (expand-file-name "org-clock-save.el" vonfry-cache-dir))
 ; (org-agenda-custom-commands +org-agenda-custom-commands)
-  (org-log-done 'time)
-  (todo-directory vonfry-org-dir) ; TODO check this
-  (todo-default-todo-file "todo.org")
 ; (org-refile-targets +org-refile-targets)
 ; (org-tag-alist +org-tag-alist)
+  (expand-file-name "org-clock-save.el" vonfry-cache-dir))
+  (org-clock-persist-file
+  (org-log-done 'time)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda))
@@ -89,10 +87,13 @@
 ; (org-journal-dir +org-journal-dir)
 ; (org-journal-tag-alist +org-journal-tag-alist)
   (org-journal-find-file 'counsel-find-file)
+  (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-enable-agenda-integration t)
+  :config
+  (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
   (+mmap-todo-def
-    "j d" 'org-journal-new-entry
+    "j n" 'org-journal-new-entry
     "j j" 'org-journal-open-next-entry
     "j k" 'org-journal-open-previous-entry
     "j /" 'org-journal-search
