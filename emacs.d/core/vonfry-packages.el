@@ -123,8 +123,7 @@ is undefined(It always is loaded by alpha order)."
 
 (defun autoload! (func file &optional interactive docstring type)
   "autoload file with current load file dir which is called in submodules.
-
-  Note: the &optional arguments has some different from `autoload`."
+Note: the &optional arguments has some different from `autoload`."
   (let* ((current-dir (file-name-directory load-file-name))
          (autoload-dir (expand-file-name "autoload" current-dir))
          (autoload-file (expand-file-name file autoload-dir)))

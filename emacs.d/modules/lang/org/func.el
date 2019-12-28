@@ -18,4 +18,4 @@
 
 (fun! +org/find-notes ()
   (interactive)
-  (+org/find-diary +org-note-dir))
+  (+org/find +org-note-dir))
