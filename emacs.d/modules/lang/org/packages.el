@@ -4,15 +4,15 @@
 (package! org
   :custom
   (org-clock-persist t)
+  (org-clock-persist-file
+    (expand-file-name "org-clock-save.el" vonfry-cache-dir))
+  (org-log-done 'time)
+; (org-agenda-custom-commands +org-agenda-custom-commands)
 ; (org-default-notes-file +org-capture-file)
 ; (org-capture-templates +org-capture-templates)
 ; (org-todo-keywords +org-todo-keywords-sequence)
-; (org-agenda-custom-commands +org-agenda-custom-commands)
 ; (org-refile-targets +org-refile-targets)
 ; (org-tag-alist +org-tag-alist)
-  (expand-file-name "org-clock-save.el" vonfry-cache-dir))
-  (org-clock-persist-file
-  (org-log-done 'time)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda))
