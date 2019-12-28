@@ -9,7 +9,8 @@
   "Vonfry's group about editor")
 
 (defcustom vonfry-frame '((width . 160) (height . 72))
-  "The default frame width and height"
+  "The default frame width and height, see `initial-frame-alist'"
+  :type 'sexp
   :group 'vonfry-editor)
 
 (defcustom vonfry-text-width 80
@@ -111,4 +112,4 @@
   :config
   (exec-path-from-shell-initialize))
 
-(provide 'core-editor)
+(provide 'vonfry-editor)

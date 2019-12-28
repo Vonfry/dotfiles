@@ -14,4 +14,4 @@
     (custom-set-variables
       '(x-alt-keysym 'meta))))
 
-(provide 'core-os)
+(provide 'vonfry-os)

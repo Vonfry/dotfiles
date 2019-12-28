@@ -55,4 +55,4 @@
   ;; +mmap-leader-def
   (vonfry-def-mmap-prefix leader +mmap-leader))
 
-(provide 'core-keybinding)
+(provide 'vonfry-keybinding)

@@ -5,4 +5,6 @@
 (autoload! 'vonfry/insert-current-date "date" t)
 (autoload! 'vonfry/compile-init-files "compile" t)
 
-(provide 'core-func)
+(defalias #'plist-delete #'vonfry--plist-delete)
+
+(provide 'vonfry-func)

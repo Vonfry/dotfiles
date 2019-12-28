@@ -6,7 +6,7 @@
 (package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
 
 (package! solarized
-  :straight solarized-theme
+  :ensure solarized-theme
   :custom
   (solarized-use-variable-pitch nil)
   (solarized-scale-org-headlines nil)
@@ -28,6 +28,7 @@
 (defcustom vonfry-fontsize (vonfry-system-sets (darwin 11)
                                                (gnu/linux 9))
   "vonfry fontsize in window system"
+  :type 'integer
   :group 'vonfry-modules)
 (progn
   (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
@@ -66,4 +67,4 @@
 (defgroup vonfry-ui nil
   "vonfry's emacs ui custom group")
 
-(provide 'core-ui)
+(provide 'vonfry-ui)

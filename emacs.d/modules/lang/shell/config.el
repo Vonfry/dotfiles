@@ -1,7 +1,6 @@
 ;;; shell config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir)
-  "eshell directory name, see `eshell-directory-name'"
-  :group 'vonfry-modules
-  :type 'directory)
+(const! +eshell-directory-name
+  (expand-file-name "eshell/" vonfry-cache-dir)
+  "eshell directory name, see `eshell-directory-name'")

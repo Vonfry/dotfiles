@@ -21,9 +21,10 @@
   "The special face."
   :group 'vonfry-modules)
 
-(defcustom +proof-prettify-symbol-alist
+(custom! +proof-prettify-symbol-alist
   '(("\\/" . #Xe13c)
     ("/\\" . #Xe13b)
     ("<>"  . #Xe11f))
   "a partial copy from `company-coq', which are only used in coq mode"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)

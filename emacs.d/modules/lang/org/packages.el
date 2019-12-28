@@ -4,16 +4,17 @@
 (package! org
   :custom
   (org-clock-persist t)
-  (org-default-notes-file +org-capture-file)
-  (org-capture-templates +org-capture-templates)
-  (org-todo-keywords +org-todo-keywords-sequence)
-  (org-clock-persist-file +org-clock-persist-file)
-  (org-agenda-custom-commands +org-agenda-custom-commands)
+; (org-default-notes-file +org-capture-file)
+; (org-capture-templates +org-capture-templates)
+; (org-todo-keywords +org-todo-keywords-sequence)
+  (org-clock-persist-file
+    (expand-file-name "org-clock-save.el" vonfry-cache-dir))
+; (org-agenda-custom-commands +org-agenda-custom-commands)
   (org-log-done 'time)
-  (todo-directory vonfry-org-dir)
+  (todo-directory vonfry-org-dir) ; TODO check this
   (todo-default-todo-file "todo.org")
-  (org-refile-targets +org-refile-targets)
-  (org-tag-alist +org-tag-alist)
+; (org-refile-targets +org-refile-targets)
+; (org-tag-alist +org-tag-alist)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda))
@@ -34,7 +35,7 @@
 (package! org-brain
   :after org
   :custom
-  (org-brain-path +org-brains-path)
+; (org-brain-path +org-brains-path)
   (org-id-track-globally t)
   (org-id-locations-file (expand-file-name "org-id-locations" vonfry-cache-dir))
   (org-brain-visualize-default-choices 'all)
@@ -44,22 +45,21 @@
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
 
 (package! org-agenda
-  :straight nil
+  :ensure nil
   :after org
-  :custom
-  (org-agenda-files +org-agenda-files)
+; :custom
+; (org-agenda-files +org-agenda-files)
   :general
   (+mmap-todo-def
     "a" 'org-agenda
     "A" '+org/find-agenda
     "n" '+org/find-notes
-    "d" '+org/find-diary
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
     "c" 'counsel-org-capture))
 
 (package! org-archive
-  :straight nil
+  :ensure nil
   :general
   (+mmap-mode-org-def
     "a" 'org-archive-subtree-default))
@@ -82,3 +82,18 @@
    "w e" 'org-web-tools-insert-web-page-as-entry
    "w A" 'org-web-tools-archive-view
    "w a" 'org-web-tools-archive-attach))
+
+(package! org-journal
+  :after org
+  :custom
+; (org-journal-dir +org-journal-dir)
+; (org-journal-tag-alist +org-journal-tag-alist)
+  (org-journal-find-file 'counsel-find-file)
+  (org-journal-enable-agenda-integration t)
+  :general
+  (+mmap-todo-def
+    "j d" 'org-journal-new-entry
+    "j j" 'org-journal-open-next-entry
+    "j k" 'org-journal-open-previous-entry
+    "j /" 'org-journal-search
+    "j s" 'org-journal-schedule-view))

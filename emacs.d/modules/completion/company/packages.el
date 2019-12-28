@@ -23,7 +23,7 @@
 (package! company-prescient
   :after company
   :custom
-  (prescient-save-file +prescient-save-file)
+  (prescient-save-file (expand-file-name "prescient" vonfry-cache-dir))
   :hook
   (company-mode . company-prescient-mode)
   :config

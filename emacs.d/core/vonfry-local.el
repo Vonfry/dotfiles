@@ -74,4 +74,4 @@ is system type and the other are the actions."
                       nil alist))))
     `(progn ,@actions)))
 
-(provide 'core-local)
+(provide 'vonfry-local)

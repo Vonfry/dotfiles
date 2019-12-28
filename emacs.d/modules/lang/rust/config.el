@@ -9,6 +9,6 @@
 (vonfry-def-mmap-leader-prefix rust nil
   :keymaps 'rust-mode-map)
 
-(defun +rust/lldb ()
+(fun! +rust/lldb ()
   (interactive)
   (realgud--lldb "rust-lldb"))

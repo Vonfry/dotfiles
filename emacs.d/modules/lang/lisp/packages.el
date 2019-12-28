@@ -2,7 +2,7 @@
 ;;
 
 (package! eldoc
-  :straight nil
+  :ensure nil
   :hook
   ((emacs-lisp-mode lisp-interaction-mode ielm-mode) . turn-on-eldoc-mode))
 

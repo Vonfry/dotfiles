@@ -3,12 +3,13 @@
 ;; https://github.com/hlissner/doom-emacs/blob/develop/modules/ui/pretty-code/config.el
 ;;
 
-(defcustom +pretty-code-symbols-alist '((t))
+(custom! +pretty-code-symbols-alist '((t))
   "An alist containing a mapping of major modes to its value for
 `prettify-symbols-alist'."
+  :type 'sexp
   :group 'vonfry-modules)
 
-(defcustom +pretty-code-symbols
+(custom! +pretty-code-symbols
   '(;; Functional
     ("lambda"        . ?λ)
     ("def"           . ?ƒ)
@@ -92,10 +93,11 @@
     ("psi"           . ?ψ)
     ("omega"         . ?ω))
   "a custom pretty symbol alist"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
 
 
-(defun +pretty-code--correct-symbol-bounds (ligature-alist)
+(fun! +pretty-code--correct-symbol-bounds (ligature-alist)
   "Prepend non-breaking spaces to a ligature.
 This way `compose-region' (called by `prettify-symbols-mode') will use the
 correct width of the symbols instead of the width measured by `char-width'."
@@ -111,13 +113,14 @@ correct width of the symbols instead of the width measured by `char-width'."
         (cons (car ligature-alist) acc))
       ligature-alist)))
 
-(defcustom +pretty-code-enabled-modes t
+(custom! +pretty-code-enabled-modes t
   "List of major modes in which `prettify-symbols-mode' should be enabled.
 If t, enable it everywhere. If the first element is 'not, enable it in any mode
 besides what is listed."
+  :type 'boolean
   :group 'vonfry-modules)
 
-(defun +pretty-code-init-pretty-symbols-h ()
+(fun! +pretty-code-init-pretty-symbols-h ()
   "Enable `prettify-symbols-mode'.
 If in fundamental-mode, or a mode derived from special, comint, eshell or term
 modes, this function does nothing.
@@ -137,17 +140,22 @@ Otherwise it builds `prettify-code-symbols-alist' according to
         (prettify-symbols-mode -1))
       (prettify-symbols-mode +1))))
 
-(defcustom +pretty-code-symbol-font-name "Symbola"
-  "Name of the Symbola code ligature font.")
-
-(defcustom +pretty-code-ligatures-font-name "Fira Code"
-  "Name of the ligature font.")
-
-(defcustom +pretty-code-ligatures-range '(#Xe100 . #Xe18a)
-  "ligatures charset range"
+(custom! +pretty-code-symbol-font-name "Symbola"
+  "Name of the Symbola code ligature font."
+  :type 'string
   :group 'vonfry-modules)
 
-(defcustom +pretty-code-ligatures
+(custom! +pretty-code-ligatures-font-name "Fira Code"
+  "Name of the ligature font."
+  :type 'string
+  :group 'vonfry-modules)
+
+(custom! +pretty-code-ligatures-range '(#Xe100 . #Xe18a)
+  "ligatures charset range"
+  :type '(alist :key-type character :value-type character)
+  :group 'vonfry-modules)
+
+(custom! +pretty-code-ligatures
   '(("Fl"                . #Xe100)
     ("Tl"                . #Xe101)
     ("fl"                . #Xe102)
@@ -295,9 +303,10 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("^="                . #Xe189)
     ("%%"                . #Xe18a))
   "pretty code ligatures"
+  :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
 
-(defun +pretty-code-setup-h ()
+(fun! +pretty-code-setup-h ()
   (dolist (charset (mapcar 'string-to-char (-filter 'stringp +pretty-code-symbols)))
     (set-fontset-font t charset
                       +pretty-code-ligatures
@@ -320,7 +329,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
                         (mapcar #'+pretty-code--correct-symbol-bounds
                                 +pretty-code-ligatures))))
 
-(defun +pretty-code-mode-with-ligatures (mode append-to &optional remove-from)
+(fun! +pretty-code-mode-with-ligatures (mode append-to &optional remove-from)
   "set mode with other ligatures with arguments append-to or remove-from. Both of
 them are a list which contains alist. `(list '(ligstr . charcode))'"
   (add-hook (intern (concat (symbol-name mode) "-hook"))

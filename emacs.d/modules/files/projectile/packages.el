@@ -43,8 +43,8 @@
 
 (package! org-projectile
   :after projectile org org-agenda
-  :custom
-  (org-projectile-per-project-filepath +org-projectile-todo-project-file)
+; :custom
+; (org-projectile-per-project-filepath +org-projectile-todo-project-file)
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
