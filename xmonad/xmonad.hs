@@ -46,14 +46,21 @@ myGSConfS = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm, xK_comma), runSelectedAction myGSConfS
-        [ ("zeal"       , spawn "zeal"                                        )
-        , ("browser"    , spawn myBrowser                                     )
-        , ("ranger"     , spawn "alacritty -e ranger"                         )
-        , ("libreoffice", spawn "libreoffice"                                 )
-        , ("virtualbox" , spawn "VirtualBox"                                  )
-        , ("mupdf"      , spawn "mupdf-gl"                                    )
-        , ("telegram"   , spawn "telegram-desktop"                            )
-        , ("emacs"      , spawn "emacs"                                       )
+        [ ("zeal"       , spawn "zeal"               )
+        , ("browser"    , spawn myBrowser            )
+        , ("ranger"     , spawn "alacritty -e ranger")
+        , ("libreoffice", spawn "libreoffice"        )
+        , ("virtualbox" , spawn "VirtualBox"         )
+        , ("mupdf"      , spawn "mupdf-gl"           )
+        , ("telegram"   , spawn "telegram-desktop"   )
+        , ("emacs"      , spawn "emacs"              )
+        ]
+      )
+    , ((modm, xK_dollar), runSelectedAction myGSConfS
+        [ ("poweroff"    , spawn "poweroff"         )
+        , ("suspend"     , spawn "systemctl suspend")
+        , ("reboot"      , spawn "reboot"           )
+        , ("halt"        , spawn "halt"             )
         ]
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
