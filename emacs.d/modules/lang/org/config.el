@@ -4,31 +4,22 @@
 (vonfry-def-mmap-mode-prefix org nil
   :keymaps 'org-mode-map)
 
-(defcustom +org-diary-dir (expand-file-name "diary" vonfry-org-dir)
-  "org diary dir."
+(defcustom +org-journal-dir (expand-file-name "diary" vonfry-org-dir)
+  "org journal dir, see `org-journal-dir'"
   :type 'directory
   :group 'vonfry-modules)
 
-(defcustom +org-diary-templates-get-location-function
-  (lambda (&rest args)
-    (interactive)
-    (let* ((date (format-time-string "%Y%m%d"))
-           (sep "-")
-           (slug (read-string "slug: "))
-           (ext ".org")
-           (filename (concat date sep slug ext))
-           (path (expand-file-name filename +org-diary-dir)))
-      (set-buffer (org-capture-target-buffer path))
-      (widen)
-      (org-capture-put-target-region-and-position)
-      (goto-char (point-max))))
-  "location for org diary by org-capture under `+org-diary-dir'."
-  :type 'function
-  :group 'vonfry-modules)
+(load (expand-file-name "tags.el" +org-journal-dir) t t)
+(unless (bounp 'vonfry--org-journal-tag-alist)
+  (defcustom vonfry--org-journal-tag-alist nil
+    "see `org-journal-tag-alist'"
+    :type sexp
+    :group 'vonfry-modules))
 
-(defun +org--diary-templates-get-location (&rest args)
-  (funcall +org-diary-templates-get-location-function args)
-  "call `+org-diary-templates-get-location-function'")
+(defcustom +org-journal-tag-alist vonfry--org-journal-tag-alist
+  "org journal dir, see `org-journal-dir'"
+  :type 'directory
+  :group 'vonfry-modules)
 
 (defcustom +org-note-dir (expand-file-name "notes" vonfry-org-dir)
   "org note dir."
@@ -39,10 +30,10 @@
   (lambda (&rest args)
     (interactive)
     (let* ((path (read-file-name "note file: " +org-note-dir)))
-      (set-buffer (org-capture-target-buffer path))
-      (widen)
-      (org-capture-put-target-region-and-position)
-      (goto-char (point-max))))
+           (set-buffer (org-capture-target-buffer path))
+           (widen)
+           (org-capture-put-target-region-and-position)
+           (goto-char (point-max))))
   "location for org diary by org-capture under `+org-diary-dir'."
   :type 'function
   :group 'vonfry-modules)
@@ -210,10 +201,10 @@
                "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
               ("i" "capture to inbox(Idea), refile later" entry (file+headline +org-capture-file "Idea")
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
-              ("d" "capture to diary" plain (function +org--diary-templates-get-location)
-               "\n#+TITLE: %^{title}\n#+DATE: %U\n\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
               ("n" "capture to note" plain (function +org--note-templates-get-location)
                "\n#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
+              ("j" "Journal entry" entry (function org-journal-find-location)
+                               "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
               ("a" "capture to agenda")))
           (agenda-templates

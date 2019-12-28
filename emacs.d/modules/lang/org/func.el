@@ -19,7 +19,3 @@
 (defun +org/find-notes ()
   (interactive)
   (+org/find-diary +org-note-dir))
-
-(defun +org/find-diary ()
-  (interactive)
-  (+org--find +org-diary-dir))

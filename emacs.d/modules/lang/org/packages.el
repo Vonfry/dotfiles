@@ -53,7 +53,6 @@
     "a" 'org-agenda
     "A" '+org/find-agenda
     "n" '+org/find-notes
-    "d" '+org/find-diary
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
     "c" 'counsel-org-capture))
@@ -82,3 +81,18 @@
    "w e" 'org-web-tools-insert-web-page-as-entry
    "w A" 'org-web-tools-archive-view
    "w a" 'org-web-tools-archive-attach))
+
+(package! org-journal
+  :after org
+  :custom
+  (org-journal-dir +org-journal-dir)
+  (org-journal-tag-alist +org-journal-tag-alist)
+  (org-journal-find-file 'counsel-find-file)
+  (org-journal-enable-agenda-integration t)
+  :general
+  (+mmap-todo-def
+    "j d" 'org-journal-new-entry
+    "j j" 'org-journal-open-next-entry
+    "j k" 'org-journal-open-previous-entry
+    "j /" 'org-journal-search
+    "j s" 'org-journal-schedule-view))
