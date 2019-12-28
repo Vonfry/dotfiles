@@ -17,8 +17,9 @@
     '((t :family "Symbola" :height 110))
     "proof buffer-local face")
 
-(defcustom +proof-special-font '+proof-buffer-local-face
+(custom! +proof-special-font '+proof-buffer-local-face
   "The special face."
+  :type 'face
   :group 'vonfry-modules)
 
 (custom! +proof-prettify-symbol-alist

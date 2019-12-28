@@ -5,9 +5,6 @@
 ;; (projectile-edit-dir-locals)
 
 (package!  projectile
-  :init
-  (unless (file-exists-p +projectile-cache-dir)
-    (make-directory +projectile-cache-dir))
   :custom
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))

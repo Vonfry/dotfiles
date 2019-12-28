@@ -3,7 +3,7 @@
 
 (package! amx
   :custom
-  (amx-save-file +amx-save-file))
+  (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
 
 (package! flx
   :defer t
