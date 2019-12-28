@@ -20,12 +20,13 @@
     "\""  'comint-run
     "l"  'list-processes
     "L"  'proced
+    "o"  'calendar
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
 (package! evil-org
   :after evil org
-  :hook (org-mode-hook . evil-org-mode)
+  :hook (org-mode . evil-org-mode)
   :config
   (evil-org-set-key-theme))
 

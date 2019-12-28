@@ -15,7 +15,11 @@
 ; (org-tag-alist +org-tag-alist)
   :general
   ("C-c C" 'org-capture-goto-target)
-  ("C-c a" 'org-agenda))
+  ("C-c a" 'org-agenda)
+  (+mmap-mode-org-def
+    "/"  'org-sparse-tree
+    "\\" 'org-tags-sparse-tree
+    "t"  'org-tags-view))
 
 (package! org-bullets
   :after org
