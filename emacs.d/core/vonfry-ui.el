@@ -6,7 +6,7 @@
 (package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
 
 (package! solarized
-  :straight solarized-theme
+  :ensure solarized-theme
   :custom
   (solarized-use-variable-pitch nil)
   (solarized-scale-org-headlines nil)
@@ -67,4 +67,4 @@
 (defgroup vonfry-ui nil
   "vonfry's emacs ui custom group")
 
-(provide 'core-ui)
+(provide 'vonfry-ui)

@@ -2,7 +2,7 @@
 ;;
 
 (package! ibuffer
-  :straight nil
+  :ensure nil
   :init
   (setq-default ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-formats

@@ -6,7 +6,7 @@
 ;; submodule, config.el, packages.el and func.el file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
 ;; config.el define custom, const and other varible for configure.
-;; packages.el define the dependence and default configure with `package!`
+;; packages.el define the dependence and default configure with `package!'
 ;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
@@ -15,6 +15,15 @@
 
 ;; define some variables for packages
 ;;
+
+(defun vonfry--plist-delete (plist property)
+  "A copy from `org-plist-delete'."
+  (let (p)
+    (while plist
+      (if (not (eq property (car plist)))
+        (setq p (plist-put p (car plist) (cadr plist))))
+      (setq plist (cddr plist)))
+    p))
 
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
@@ -88,7 +97,16 @@ is undefined(It always is loaded by alpha order)."
   (let ((qpkg `(quote ,pkg)))
     (eval `(straight-use-package ,qpkg))))
 
-(defalias #'package! #'use-package)
+(defmacro package! (pkg &rest args)
+  "config package, the arguments is the same as `use-package', but redefine :ensure to :straight"
+  ;; Because of dash not loading, code replace method by myself.
+  `(use-package ,pkg
+      ,@(mapcar
+          (lambda (elem)
+            (if (eq elem :ensure)
+              :straight
+              elem))
+          args)))
 
 (package! diminish)
 (package! dash)
@@ -115,10 +133,10 @@ is undefined(It always is loaded by alpha order)."
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
 
-  module: The category of a module. It is the dir-name under modules.
-  submodule: The name of a module. It is the dir-name under a module dir.
+module: The category of a module. It is the dir-name under modules.
+submodule: The name of a module. It is the dir-name under a module dir.
 
-  This function finds module with the file, and loads it."
+This function finds module with the file, and loads it."
 
   (let* ((module-dir (expand-file-name module-name vonfry-modules-dir))
          (file-path (expand-file-name file module-dir)))
@@ -136,11 +154,7 @@ is undefined(It always is loaded by alpha order)."
 (defun vonfry-load-modules (&rest exclude)
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
-  All modules should use function and macro in this file. By default, every modules should have a file named
-packages.el which is used to define the dependence with `package!`. This file will be loaded at first for each
-modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module
-which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the
-modules."
+All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `package!`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
   (let* ((module-alist '())
          (regexp-match "^[^\\.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
@@ -152,4 +166,27 @@ modules."
       (-map 'vonfry-load-module-packages module-alist)
       (-map 'vonfry-load-autoload        module-alist)))
 
-(provide 'core-packages)
+(defmacro custom! (varname form docstring &rest args)
+  "This macro is used for `defcustom' :set param. Make it easy to config other variable by using keyword :custom-set."
+  (let* ((custom-set (plist-get args :custom-set))
+         (args (vonfry--plist-delete args :custom-set))
+         (custom-form (when custom-set
+                       `(lambda (name value)
+                          (set-default name value)
+                          (let ((varname ,custom-set))
+                            (custom-set-variables `(,varname ',value))))))
+         (docstring (if custom-form
+                      (let ((docsep (if (< 0 (string-width docstring)) "\n" "")))
+                        (concat "See: `"
+                                (symbol-name (cadr custom-set))
+                                "'"
+                                docsep
+                                docstring))
+                      docstring)))
+    `(defcustom ,varname ,form ,docstring :set ,custom-form ,@args)))
+
+(defalias #'fun!   #'defun)
+(defalias #'var!   #'defvar)
+(defalias #'const! #'defconst)
+
+(provide 'vonfry-packages)

@@ -8,7 +8,7 @@
 ;;   vonfry:...   an evil operator, motion or command
 ;;   vonfry|...   hook function
 ;;   vonfry*...   advising functions
-;;   ...!         a macro or function that configures Vonfry
+;;   ...!         a macro or function that configures Vonfry in modules
 ;;   %...         functions used for in-snippet logic
 ;;   +...         Any of the above but part of a module, e.g. `+emacs-lisp|init-hook'
 ;;
@@ -49,17 +49,17 @@
     (setq debug-on-error t))
   nil)
 
-(require 'core-local)
+(require 'vonfry-local)
 
 (when (file-exists-p vonfry-custom-file-before)
   (load vonfry-custom-file-before))
 
-(require 'core-packages)
-(require 'core-ui)
-(require 'core-editor)
-(require 'core-keybinding)
-(require 'core-os)
-(require 'core-func)
+(require 'vonfry-packages)
+(require 'vonfry-ui)
+(require 'vonfry-editor)
+(require 'vonfry-keybinding)
+(require 'vonfry-os)
+(require 'vonfry-func)
 
 (defgroup vonfry-modules nil
   "Vonfry's emacs group about modules")
@@ -70,4 +70,4 @@
   (custom-save-all)
   (load custom-file))
 
-(provide 'core)
+(provide 'vonfry)

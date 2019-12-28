@@ -2,7 +2,7 @@
 ;;
 
 (package! imenu
-  :straight nil
+  :ensure nil
   :general
   (+mmap-leader-def
     "i"   'imenu

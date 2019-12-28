@@ -8,7 +8,7 @@
 
 ;; this is used in all program lang
 (package! compile
-  :straight nil
+  :ensure nil
   :general
   (+mmap-leader-def
     "r" 'compile))

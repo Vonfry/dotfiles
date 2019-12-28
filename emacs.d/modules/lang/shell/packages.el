@@ -11,7 +11,7 @@
   (eshell-highlight-prompt nil)
   (eshell-plain-echo-behavior t)
   (eshell-directory-name +eshell-directory-name)
-  :straight nil)
+  :ensure nil)
 
 
 (package! company-shell

@@ -4,7 +4,7 @@
 (vonfry-def-mmap-leader-prefix elisp nil
   :keymaps 'emacs-lisp-mode-map)
 
-(package! ielm :straight nil
+(package! ielm :ensure nil
   :general
   (+mmap-elisp-def
     "\""  'ielm

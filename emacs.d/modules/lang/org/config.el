@@ -4,29 +4,32 @@
 (vonfry-def-mmap-mode-prefix org nil
   :keymaps 'org-mode-map)
 
-(defcustom +org-journal-dir (expand-file-name "diary" vonfry-org-dir)
-  "org journal dir, see `org-journal-dir'"
+(custom! +org-journal-dir
+  (expand-file-name "diary" vonfry-org-dir)
+  ""
   :type 'directory
-  :group 'vonfry-modules)
+  :group 'vonfry-modules
+  :custom-set 'org-journal-dir)
 
 (load (expand-file-name "tags.el" +org-journal-dir) t t)
-(unless (bounp 'vonfry--org-journal-tag-alist)
-  (defcustom vonfry--org-journal-tag-alist nil
-    "see `org-journal-tag-alist'"
-    :type sexp
+(unless (boundp 'vonfry--org-journal-tag-alist)
+  (custom! vonfry--org-journal-tag-alist nil
+    ""
+    :type 'sexp
     :group 'vonfry-modules))
 
-(defcustom +org-journal-tag-alist vonfry--org-journal-tag-alist
-  "org journal dir, see `org-journal-dir'"
-  :type 'directory
-  :group 'vonfry-modules)
+(custom! +org-journal-tag-alist vonfry--org-journal-tag-alist
+  ""
+  :type 'sexp
+  :group 'vonfry-modules
+  :custom-set 'org-journal-tag-alist)
 
-(defcustom +org-note-dir (expand-file-name "notes" vonfry-org-dir)
+(custom! +org-note-dir (expand-file-name "notes" vonfry-org-dir)
   "org note dir."
   :type 'directory
   :group 'vonfry-modules)
 
-(defcustom +org-note-templates-get-location-function
+(custom! +org-note-templates-get-location-function
   (lambda (&rest args)
     (interactive)
     (let* ((path (read-file-name "note file: " +org-note-dir)))
@@ -38,30 +41,26 @@
   :type 'function
   :group 'vonfry-modules)
 
-(defun +org--note-templates-get-location (&rest args)
+(fun! +org--note-templates-get-location (&rest args)
   (funcall +org-diary-templates-get-location-function args)
   "call `+org-note-templates-get-location-function'")
 
-(defcustom +org-clock-persist-file
-   (expand-file-name "org-clock-save.el" vonfry-cache-dir)
-   "org clock save, see `org-clock-persist-file'"
-   :type 'file
-   :group 'vonfry-modules)
-
-(defcustom +org-todo-keywords-sequence
+(custom! +org-todo-keywords-sequence
   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
-  "org todo keywords, see `org-todo-keywords-sequence'"
+  ""
   :type 'sexp
-  :group 'vonfry-modules)
+  :group 'vonfry-modules
+  :custom-set 'org-todo-keywords-sequence)
 
-(defcustom +org-capture-file
+(custom! +org-capture-file
    (expand-file-name "inbox.org" vonfry-org-dir)
-   "org capture, see `org-capture-file'"
+   ""
    :type 'file
-   :group 'vonfry-modules)
+   :group 'vonfry-modules
+   :custom-set 'org-capture-file)
 
-(defcustom +org-agenda-tags-file
+(custom! +org-agenda-tags-file
    (expand-file-name "agenda/tags" vonfry-org-dir)
    "Custom tag file to read config of tags.\nIts structor is like dir-locals.\n\n'((tag subtag))'\nHere 'subtag' can be another list with '(tag subtag)'."
    :type 'file
@@ -70,20 +69,20 @@
 (load +org-agenda-tags-file t t)
 
 (unless (boundp 'vonfry--org-tags-m)
-  (defcustom vonfry--org-tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (defcustom vonfry--org-tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (defcustom vonfry--org-tags-ctx-sym "@" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (defcustom vonfry--org-tags-m
+  (custom! vonfry--org-tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (custom! vonfry--org-tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (custom! vonfry--org-tags-ctx-sym "@" "org tags symbol" :type 'string :group 'vonfry-modules)
+  (custom! vonfry--org-tags-m
     `((("gtd" ,vonfry--org-tags-gtd-sym)
        ((("category" ,vonfry--org-tags-cat-sym)
          ((("dev" "d"))))
         (("context"  ,vonfry--org-tags-ctx-sym)
          ((("haskell" "hs")))))))
-     "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see '+org-tag-alist'"
+     "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see `+org-tag-alist'"
     :type 'sexp
     :group 'vonfry-modules))
 
-(defun vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
+(fun! vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
   "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence.\n"
   (-let (((m l is-top prefix-level)
             (if (not (or l prefix prefix-level))
@@ -126,7 +125,7 @@
         nil
         m))))
 
-(defun vonfry--org-tag-alist-generate (m &optional prefix level)
+(fun! vonfry--org-tag-alist-generate (m &optional prefix level)
   "generate 'org-tag-alist' from 'vonfry--org-tags-m'"
   (-let ((prefix (if (not level) vonfry--org-tags-gtd-sym prefix))
          (level (if level level 0)))
@@ -152,11 +151,12 @@
       nil
       m)))
 
-(defcustom +org-tag-alist
+(custom! +org-tag-alist
   (vonfry--org-tag-alist-generate vonfry--org-tags-m)
   "org tag alist. It is generated from 'vonfry--org-tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in 'vonfry--org-tags-m'."
   :type 'sexp
-  :group 'vonfry-modules)
+  :group 'vonfry-modules
+  :custom-set 'org-tag-alist)
 
 (let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
        (file-with-org   (lambda (f) (concat f ".org")))
@@ -187,15 +187,16 @@
                           ((string-prefix-p ctx-prefix key) (concat "[TAGS:Context] "  tag)))))
        (all-tags
          (-map (lambda (tag) (funcall tag-name (funcall get-tag tag))) unzip-tags-m)))
-  (defcustom +org-agenda-dir agenda-dir
-    "my agenda dir, see `agenda-dir'"
+  (custom! +org-agenda-dir agenda-dir
+    ""
     :type 'directory
     :group 'vonfry-modules)
-  (defcustom +org-agenda-files agenda-files
-    "global agenda dir, see `org-agenda-files'"
+  (custom! +org-agenda-files agenda-files
+    ""
     :type '(repeat file)
-    :group 'vonfry-modules)
-  (defcustom +org-capture-templates
+    :group 'vonfry-modules
+    :custom-set 'org-agenda-files)
+  (custom! +org-capture-templates
     (let ((default-templates
             '(("c" "capture to inbox(Tasks), refile later" entry (file+headline +org-capture-file "Tasks")
                "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
@@ -216,10 +217,11 @@
                     "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
               agenda-files)))
       (append default-templates agenda-templates))
-    "org capture templates, see `org-capture-templates'"
+    ""
     :type 'sexp
-    :group 'vonfry-modules)
-  (defcustom +org-refile-targets
+    :group 'vonfry-modules
+    :custom-set 'org-capture-templates)
+  (custom! +org-refile-targets
     (-map
       (lambda (f)
         (-map
@@ -227,18 +229,20 @@
             `(,f :tag . ,tag))
             all-tags))
       +org-agenda-files)
-    "org refile targets, see `org-refile-targets'"
+    ""
     :type 'sexp
-    :group 'vonfry-modules)
-  (defcustom +org-super-agenda-groups
+    :group 'vonfry-modules
+    :custom-set 'org-refile-targets)
+  (custom! +org-super-agenda-groups
     (-map
      (-lambda ((tag abbr))
        `(:name ,(funcall tag-name tag) :tag ,(funcall tag-name tag) :order ,(funcall tag-level tag)))
      unzip-tags-m-filtered)
-    "org super agenda groups, see `org-super-agenda-groups'"
+    ""
     :type 'sexp
-    :group 'vonfry-modules)
-  (defcustom +org-agenda-custom-commands
+    :group 'vonfry-modules
+    :custom-set 'org-super-agenda-groups)
+  (custom! +org-agenda-custom-commands
     (let ((custom-tags-commands
             (-map
               (-lambda ((tag key))
@@ -255,14 +259,16 @@
               (">d" tags "DONE"     )
               (">c" tags "CANCELLED"))))
       (append custom-tags-commands custom-commands))
-    "org agenda custom commands, see `org-agenda-custom-commands'"
+    ""
     :type '(choice (const :tag "Disabled" nil)
                    (character)
                    (string))
-    :group 'vonfry-modules))
+    :group 'vonfry-modules
+    :custom-set 'org-agenda-custom-commands))
 
-(defcustom +org-brains-path
-  (expand-file-name "brains/" vonfry-org-dir)
-  "org-brain path, see `org-brains-path'"
+(custom! +org-brains-path
+  (expand-file-name "brains" vonfry-org-dir)
+  ""
   :type 'directory
-  :group 'vonfry-modules)
+  :group 'vonfry-modules
+  :custom-set 'org-brains-path)

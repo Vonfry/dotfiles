@@ -3,7 +3,7 @@
 
 (package! proof-general
   :init
-  (defun +proof-general-build-hook (pkg &rest args)
+  (fun! +proof-general-build-hook (pkg &rest args)
       (when (string= pkg "proof-general")
         (setq pg-init--script-full-path (locate-library "proof-general")
               pg-init--pg-root (file-name-directory pg-init--script-full-path)

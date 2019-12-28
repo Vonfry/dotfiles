@@ -9,6 +9,6 @@
 (vonfry-def-mmap-leader-prefix cc nil
   :keymaps '(c-mode-map c++-mode-map objc-mode-map))
 
-(defun +cc/lldb ()
+(fun! +cc/lldb ()
   (interactive)
   (realgud--lldb "lldb"))

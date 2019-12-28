@@ -21,7 +21,7 @@
   "The special face."
   :group 'vonfry-modules)
 
-(defcustom +proof-prettify-symbol-alist
+(custom! +proof-prettify-symbol-alist
   '(("\\/" . #Xe13c)
     ("/\\" . #Xe13b)
     ("<>"  . #Xe11f))

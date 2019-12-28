@@ -31,7 +31,7 @@
 
 (package! evil-org-agenda
   :after evil-org
-  :straight nil
+  :ensure nil
   :config
   (evil-org-agenda-set-keys))
 

@@ -112,4 +112,4 @@
   :config
   (exec-path-from-shell-initialize))
 
-(provide 'core-editor)
+(provide 'vonfry-editor)

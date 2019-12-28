@@ -1,7 +1,7 @@
 ;;; ibuffer config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +ibuffer-filter-groups
+(custom! +ibuffer-filter-groups
   '(("Circe" (or (mode . circe-channel-mode)
                  (mode . circe-query-mode)
                  (mode . circe-server-mode)))
