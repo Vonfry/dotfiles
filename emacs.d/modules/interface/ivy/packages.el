@@ -41,7 +41,9 @@
     "x" 'counsel-M-x
     "f" 'counsel-find-file
     "F" 'counsel-fzf
-    "m" 'counsel-mark-ring))
+    "m" 'counsel-mark-ring)
+  (+mmap-mode-org-def
+    "f" 'counsel-org-file))
 
 (package! ivy-rich
   :after ivy

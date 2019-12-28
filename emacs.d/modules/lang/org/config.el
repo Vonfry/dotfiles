@@ -18,6 +18,14 @@
     :type 'sexp
     :group 'vonfry-modules))
 
+(defun +org--journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  ;; Position point on the journal's top-level heading so that org-capture
+  ;; will add the new entry as a child entry.
+  (goto-char (point-min)))
+
 (custom! +org-journal-tag-alist vonfry--org-journal-tag-alist
   ""
   :type 'sexp
@@ -204,7 +212,7 @@
                "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
               ("n" "capture to note" plain (function +org--note-templates-get-location)
                "\n#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
-              ("j" "Journal entry" entry (function org-journal-find-location)
+              ("j" "Journal entry" entry (function +org--journal-find-location)
                                "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
               ("a" "capture to agenda")))

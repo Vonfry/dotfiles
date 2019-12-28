@@ -86,7 +86,6 @@
   :custom
 ; (org-journal-dir +org-journal-dir)
 ; (org-journal-tag-alist +org-journal-tag-alist)
-  (org-journal-find-file 'counsel-find-file)
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-enable-agenda-integration t)
   :config
