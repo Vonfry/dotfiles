@@ -8,7 +8,6 @@
   (initial-buffer-choice '+dashboard-goto)
   (dashboard-banner-logo-title "Happy Hacking!")
   (dashboard-show-shortcuts    t)
-  (dashboard-set-navigator     t)
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons    t)
   (dashboard-items '((agenda    . 5)
