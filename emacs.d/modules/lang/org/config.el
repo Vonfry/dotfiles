@@ -59,7 +59,7 @@
   ""
   :type 'sexp
   :group 'vonfry-modules
-  :custom-set 'org-todo-keywords-sequence)
+  :custom-set 'org-todo-keywords)
 
 (custom! +org-capture-file
    (expand-file-name "inbox.org" vonfry-org-dir)
