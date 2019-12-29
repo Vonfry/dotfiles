@@ -14,3 +14,4 @@ export HOMEBREW_OPT_INIT_FUNCTION=(ruby emacsplus)
 
 export ENHANCD_DIR=~/.cache/enchancd
 export ENHANCD_FILTER=fzf
+export ENHANCD_USE_FUZZY_MATCH=0
