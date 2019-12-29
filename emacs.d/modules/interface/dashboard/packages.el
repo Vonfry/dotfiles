@@ -22,14 +22,18 @@
            "Mail"
            "Check Mail"
            (lambda (&rest _) (mu4e)))
-        (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
-          "Freenode"
-          "Freenode"
-          (lambda (&rest _) (circe "Freenode")))
-        (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
-          "Gist"
-          "Gist"
-          (lambda (&rest _) (circe "Gist"))))
+         (,(all-the-icons-material "rss_feed" :height 1.0 :v-adjust 0.0)
+           "Feed"
+           "Feed"
+           (lambda (&rest _) (elfeed)))
+         (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
+           "Freenode"
+           "Freenode"
+           (lambda (&rest _) (circe "Freenode")))
+         (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
+           "Gist"
+           "Gist"
+           (lambda (&rest _) (circe "Gist"))))
         ((,(all-the-icons-fileicon "gitlab" :height 1.0 :v-adjust 0.0)
            "Gitlab"
            "Goto Gitlab"
