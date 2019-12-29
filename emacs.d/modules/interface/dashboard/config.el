@@ -6,3 +6,34 @@
   :type 'sexp
   :group 'vonfry-modules
   :custom-set 'dashboard-startup-banner)
+
+(custom! +dashboard-navigator-buttons
+ `(;; (icon title help action face prefix suffix)
+   ((,(all-the-icons-octicon "mail" :height 1.1 :v-adjust 0.0)
+     "Mail"
+     "Check Mail"
+     (lambda (&rest _) (mu4e)))
+    (,(all-the-icons-material "rss_feed" :height 1.0 :v-adjust 0.0)
+     "Feed"
+     "Feed"
+     (lambda (&rest _) (elfeed)))
+    (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
+     "Freenode"
+     "Freenode"
+     (lambda (&rest _) (circe "Freenode")))
+    (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
+     "Gist"
+     "Gist"
+     (lambda (&rest _) (circe "Gist"))))
+   ((,(all-the-icons-fileicon "gitlab" :height 1.0 :v-adjust 0.0)
+     "Gitlab"
+     "Goto Gitlab"
+     (lambda (&rest _) (browse-url "https://gitlab.com/Vonfry")))
+    (,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
+     "Github"
+     "Goto Github"
+     (lambda (&rest _) (browse-url "https://github.com/Vonfry")))))
+  ""
+  :type 'sexp
+  :group 'vonfry-modules
+  :custom-set 'dashboard-navigator-buttons)
