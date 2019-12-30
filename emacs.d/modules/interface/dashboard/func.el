@@ -2,4 +2,5 @@
 ;;
 (defun +dashboard-goto ()
   (interactive)
-  (switch-to-buffer "*dashboard*"))
+  (switch-to-buffer "*dashboard*")
+  (dashboard-refresh-buffer))
