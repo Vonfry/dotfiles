@@ -23,7 +23,7 @@
     (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
     ""
     (replace-regexp-in-string
-      "\n"
+      "(\n| *)"
       " "
       (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))))
   :config
