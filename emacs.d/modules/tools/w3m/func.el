@@ -7,4 +7,4 @@
 
 (fun! +browse/switch-generic ()
   (interactive)
-  (setq browse-url-browser-function 'browse-url-default-browser))
+  (setq browse-url-browser-function 'browse-url-generic))
