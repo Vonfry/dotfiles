@@ -74,6 +74,7 @@
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
   '(fill-column vonfry-text-width)
+  '(show-trailing-whitespace nil)
 
   '(save-interprogram-paste-before-kill t)
 
@@ -102,14 +103,18 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'prog-mode-hook 'turn-on-auto-fill)
 
-(add-hook 'prog-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
-(add-hook 'text-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
-
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x))
              (not (string-match "fish" (getenv "SHELL")))
              (not (getenv "VONFRY_SHELL")))
   :config
   (exec-path-from-shell-initialize))
+
+(fun! vonfry/toggle-trailing-whitespace ()
+  (interactive)
+  (setq show-trailing-whitespace (not show-trailing-whitespace)))
+
+(add-hook 'text-mode-hook 'vonfry/toggle-trailing-whitespace)
+(add-hook 'prog-mode-hook 'vonfry/toggle-trailing-whitespace)
 
 (provide 'vonfry-editor)

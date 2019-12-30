@@ -7,8 +7,8 @@
   (elfeed-enclosure-directory (expand-file-name "elfeed/enclosure" vonfry-local-dir))
   :hook
   (evil-mode . (lambda ()
-    (evil-set-initial-state 'elfeed-search-mode 'emacs)
-    (evil-set-initial-state 'elfeed-show-mode   'emacs)))
+   (evil-set-initial-state 'elfeed-search-mode 'emacs)
+   (evil-set-initial-state 'elfeed-show-mode   'emacs)))
   :general
   ("C-x w" 'elfeed)
   (+mmap-at-def
