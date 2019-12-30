@@ -74,6 +74,7 @@
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
   '(fill-column vonfry-text-width)
+  '(show-trailing-whitespace t)
 
   '(save-interprogram-paste-before-kill t)
 
@@ -101,9 +102,6 @@
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'prog-mode-hook 'turn-on-auto-fill)
-
-(add-hook 'prog-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
-(add-hook 'text-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
 
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x))
