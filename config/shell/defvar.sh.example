@@ -1,5 +1,6 @@
 export DOTFILES_SOURCE_DIR=<dotfiles-source-dir>
 export CLOUDDISK_DIR=<clouddisk-dir>
+export CLOUDREMOTE_DIR=<cloudremote-dir>
 export DOTFILES_DIR=~/dotfiles
 export SHELL_CUSTOM_DIR=$DOTFILES_DIR/config/shell
 export SHELL_CUSTOM_DIR_LOCAL=$SHELL_CUSTOM_DIR/local
