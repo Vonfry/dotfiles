@@ -21,6 +21,7 @@
     "M s" 'bookmark-save
     "M d" 'bookmark-delete
     "M r" 'bookmark-rename
+    "M w" 'bookmark-write
     "="   'align-regexp
     "$"   'eshell
     "h"   'evil-ex-nohighlight
