@@ -4,7 +4,6 @@
 (package! dashboard
   :custom
   (dashboard-center-content t)
-; (dashboard-startup-banner +dashboard-banner)
   (initial-buffer-choice '+dashboard-goto)
   (dashboard-set-init-info nil)
   (dashboard-banner-logo-title "Happy Hacking!")
@@ -16,7 +15,9 @@
                      (bookmarks . 5)
                      (projects  . 5)
                      (recents   . 5)))
-; (dashboard-navigator-buttons +dashboard-navigator-buttons)
+  ; TODO remove these when dashboard use defcustom instead of defvar
+  (dashboard-navigator-buttons +dashboard-navigator-buttons)
+  (dashboard-startup-banner +dashboard-banner)
   :hook
   (dashboard-mode . (lambda () (custom-set-variables '(show-trailing-whitespace nil))))
   :config

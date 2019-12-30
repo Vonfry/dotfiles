@@ -2,4 +2,4 @@
 ;;
 (defun +dashboard-goto ()
   (interactive)
-  (get-buffer "*dashboard*"))
+  (switch-to-buffer "*dashboard*"))

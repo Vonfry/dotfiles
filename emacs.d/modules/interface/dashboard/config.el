@@ -9,6 +9,10 @@
 
 (custom! +dashboard-navigator-buttons
  `(;; (icon title help action face prefix suffix)
+   ((,(all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0)
+       "Scrath"
+       "Goto scrath buffer"
+       (lambda (&rest _) (switch-to-buffer "*scrath*"))))
    ((,(all-the-icons-octicon "mail" :height 1.1 :v-adjust 0.0)
      "Mail"
      "Check Mail"
