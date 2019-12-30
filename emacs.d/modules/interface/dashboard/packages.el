@@ -19,7 +19,13 @@
   (dashboard-navigator-buttons +dashboard-navigator-buttons)
   (dashboard-startup-banner +dashboard-banner)
   (dashboard-footer
-   (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))
+   (replace-regexp-in-string
+    (concat (string 27) "\\[[0-9]?;?[0-9]?[a-Z]")
+    ""
+    (replace-regexp-in-string
+      "\n"
+      " "
+      (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))))
   :config
   (dashboard-setup-startup-hook)
   :general
