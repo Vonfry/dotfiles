@@ -1,8 +1,12 @@
 ;;; cloud config -*- lexical-binding: t -*-
 ;;
 
-(custom! +cloud-diskdir
-  (getenv "CLOUDDISK_DIR")
+(custom! +cloud-diskdir (getenv "CLOUDDISK_DIR")
+  "where is your cloud dir syncing by commands"
+  :type 'directory
+  :group 'vonfry-modules)
+
+(custom! +cloud-remotedir (getenv "CLOUDREMOTE_DIR")
   "where is your cloud dir syncing by commands"
   :type 'directory
   :group 'vonfry-modules)
@@ -42,22 +46,22 @@
   :type 'string
   :group 'vonfry-modules)
 
-(custom! +cloud-push-argument (s-join " " (list +cloud-diskdir "cloud:cfg"))
+(custom! +cloud-push-argument (s-join " " (list +cloud-diskdir +cloud-remotedir))
   "the push argument "
   :type 'string
   :group 'vonfry-modules)
 
-(custom! +cloud-get-argument (s-join " " (list "cloud:cfg" +cloud-diskdir))
+(custom! +cloud-get-argument (s-join " " (list +cloud-remotedir +cloud-diskdir))
   "the get argument "
   :type 'string
   :group 'vonfry-modules)
 
-(custom! +cloud-copy-to-argument (s-join " " (list +cloud-diskdir "cloud:cfg"))
+(custom! +cloud-copy-to-argument (s-join " " (list +cloud-diskdir +cloud-remotedir))
   "the copy to argument "
   :type 'string
   :group 'vonfry-modules)
 
-(custom! +cloud-copy-from-argument (s-join " " (list "cloud:cfg" +cloud-diskdir))
+(custom! +cloud-copy-from-argument (s-join " " (list +cloud-remotedir +cloud-diskdir))
   "the copy from argument "
   :type 'string
   :group 'vonfry-modules)

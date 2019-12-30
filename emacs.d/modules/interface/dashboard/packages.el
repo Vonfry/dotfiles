@@ -18,8 +18,6 @@
   ; TODO remove these when dashboard use defcustom instead of defvar
   (dashboard-navigator-buttons +dashboard-navigator-buttons)
   (dashboard-startup-banner +dashboard-banner)
-  :hook
-  (dashboard-mode . (lambda () (custom-set-variables '(show-trailing-whitespace nil))))
   :config
   (dashboard-setup-startup-hook)
   :general

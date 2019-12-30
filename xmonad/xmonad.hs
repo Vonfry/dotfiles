@@ -66,8 +66,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
-    , ((modm, xK_question), manPrompt myXPConf)
-
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
     , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot"  )

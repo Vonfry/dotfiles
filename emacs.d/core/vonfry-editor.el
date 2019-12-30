@@ -50,7 +50,6 @@
   '(buffers-menu-max-size 32)
   '(column-number-mode t)
   '(global-linum-mode t)
-  '(show-trailing-whitespace t)
   '(global-whitespace-modes t)
   '(case-fold-search t)
   '(line-spacing 0)
@@ -103,7 +102,8 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'prog-mode-hook 'turn-on-auto-fill)
 
-(add-hook 'minibuffer-setup-hook (lambda () (setq show-trailing-whitespace nil)))
+(add-hook 'prog-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
+(add-hook 'text-mode-hook (lambda () (custom-set-variables '(show-trailing-whitespace t))))
 
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x))

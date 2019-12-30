@@ -24,9 +24,6 @@
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
   (mu4e-view-show-adresses t)
-  :hook
-  ((mu4e-header mu4e-compose mu4e-main mu4e-org mu4e-view) .
-    (lambda () (custom-set-variable 'show-trailing-whitespace nil)))
   :config
   (unless (file-exists-p mu4e-attachment-dir)
     (make-directory mu4e-attachment-dir t))
@@ -56,7 +53,7 @@
     (lambda ()
       (mu4e-alert-enable-mode-line-display)
       (vonfry-system-sets (gnu/linux (mu4e-alert-set-default-style 'libnotify))
-                          (darwin (mu4e-alert-set-default-style 'growl)))
+                          (darwin    (mu4e-alert-set-default-style 'growl)))
       (mu4e-alert-enable-notifications))))
 
 (package! mu4e-maildirs-extension
