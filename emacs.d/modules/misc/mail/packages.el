@@ -25,8 +25,7 @@
 			(:thread-subject .  nil)))
   (mu4e-view-show-adresses t)
   :hook
-  ((mu4e-header mu4e-compose mu4e-main mu4e-org mu4e-view) .
-    (lambda () (custom-set-variable 'show-trailing-whitespace nil)))
+  ((mu4e-header mu4e-compose mu4e-main mu4e-org mu4e-view) . vonfry/toggle-trailing-whitespace)
   :config
   (unless (file-exists-p mu4e-attachment-dir)
     (make-directory mu4e-attachment-dir t))

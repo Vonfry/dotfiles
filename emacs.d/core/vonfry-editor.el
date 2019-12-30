@@ -110,4 +110,10 @@
   :config
   (exec-path-from-shell-initialize))
 
+(fun! vonfry/toggle-trailing-whitespace ()
+  (interactive)
+  (let ((orign show-trailing-whitespace)
+        (new   (not orign) ))
+    (custom-set-variables `(show-trailing-whitespace ,new))))
+
 (provide 'vonfry-editor)

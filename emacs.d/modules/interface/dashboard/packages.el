@@ -19,7 +19,7 @@
   (dashboard-navigator-buttons +dashboard-navigator-buttons)
   (dashboard-startup-banner +dashboard-banner)
   :hook
-  (dashboard-mode . (lambda () (custom-set-variables '(show-trailing-whitespace nil))))
+  (dashboard-mode . vonfry/toggle-trailing-whitespace)
   :config
   (dashboard-setup-startup-hook)
   :general
