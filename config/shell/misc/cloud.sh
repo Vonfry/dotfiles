@@ -11,7 +11,7 @@ function rclone-ask()
     fi
 }
 
-alias rcc="rclone-ask copy $CLOUDDISK_DIR cloud:cfg"
-alias rcC="rclone-ask copy cloud:cfg $CLOUDDISK_DIR"
-alias rcp="rclone-ask sync $CLOUDDISK_DIR cloud:cfg"
-alias rcg="rclone-ask sync cloud:cfg $CLOUDDISK_DIR"
+alias rcc="rclone-ask copy $CLOUDDISK_DIR/dotfiles cloud:cfg/dotfiles"
+alias rcC="rclone-ask copy cloud:cfg/dotfiles $CLOUDDISK_DIR/dotfiles"
+alias rcp="rclone-ask sync $CLOUDDISK_DIR/dotfiles cloud:cfg/dotfiles"
+alias rcg="rclone-ask sync cloud:cfg/dotfiles $CLOUDDISK_DIR/dotfiles"
