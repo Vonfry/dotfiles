@@ -20,7 +20,7 @@
   (dashboard-startup-banner +dashboard-banner)
   (dashboard-footer
    (replace-regexp-in-string
-    (concat (string 27) "\\[[0-9]?;?[0-9]?[a-Z]")
+    (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
     ""
     (replace-regexp-in-string
       "\n"
