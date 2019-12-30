@@ -18,6 +18,8 @@
   ; TODO remove these when dashboard use defcustom instead of defvar
   (dashboard-navigator-buttons +dashboard-navigator-buttons)
   (dashboard-startup-banner +dashboard-banner)
+  (dashboard-footer
+   (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))
   :config
   (dashboard-setup-startup-hook)
   :general
