@@ -20,7 +20,7 @@
     "\""  'comint-run
     "l"  'list-processes
     "L"  'proced
-    "o"  'calendar
+    "O"  'calendar
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
