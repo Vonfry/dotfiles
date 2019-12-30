@@ -74,7 +74,7 @@
   '(truncate-lines nil)
   '(truncate-partial-width-windows vonfry-text-width)
   '(fill-column vonfry-text-width)
-  '(show-trailing-whitespace t)
+  '(show-trailing-whitespace nil)
 
   '(save-interprogram-paste-before-kill t)
 
@@ -112,8 +112,9 @@
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
-  (let ((orign show-trailing-whitespace)
-        (new   (not orign) ))
-    (custom-set-variables `(show-trailing-whitespace ,new))))
+  (setq show-trailing-whitespace (not show-trailing-whitespace)))
+
+(add-hook 'text-mode-hook 'vonfry/toggle-trailing-whitespace)
+(add-hook 'prog-mode-hook 'vonfry/toggle-trailing-whitespace)
 
 (provide 'vonfry-editor)

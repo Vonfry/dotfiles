@@ -4,9 +4,6 @@
 (package! circe
   :custom
   (circe-reduce-lurker-spam t)
-  :hook
-  ((circe-server circe-channel circe-query circe-chat circe-lagmon circe-display circe) .
-   vonfry/toggle-trailing-whitespace)
   :general
   (+mmap-at-def
     "i"   '(nil :which-key "irc")
