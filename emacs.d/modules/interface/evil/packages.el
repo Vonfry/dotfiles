@@ -14,13 +14,21 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (+mmap-leader-def
+    "M"   '(nil :which-key "bookmarks")
+    "M m" 'bookmark-set
+    "M M" 'bookmark-set-no-overwrite
+    "M l" 'bookmark-bmenu-list
+    "M s" 'bookmark-save
+    "M d" 'bookmark-delete
+    "M r" 'bookmark-rename
+    "M w" 'bookmark-write
     "="   'align-regexp
     "$"   'eshell
     "h"   'evil-ex-nohighlight
     "\""  'comint-run
-    "l"  'list-processes
-    "L"  'proced
-    "O"  'calendar
+    "l"   'list-processes
+    "L"   'proced
+    "O"   'calendar
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 

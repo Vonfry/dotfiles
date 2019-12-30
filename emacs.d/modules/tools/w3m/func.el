@@ -2,7 +2,9 @@
 ;;
 
 (fun! +browse/switch-emacs ()
-  (custom-set-variables '(browse-url-browser-function #'w3m-browse-url)))
+  (interactive)
+  (setq browse-url-browser-function 'w3m-browse-url))
 
 (fun! +browse/switch-generic ()
-  (custom-set-variables '(browse-url-browser-function #'browse-url-default-browser)))
+  (interactive)
+  (setq browse-url-browser-function 'browse-url-generic))
