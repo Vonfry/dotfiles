@@ -22,16 +22,18 @@
 
 
 % 英文字体，linux
-\setmainfont{${1:Liberation Serif}}
-\setsansfont{${1}}
-\setmonofont{${2:Liberation Sans}}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont{Liberation Mono}
 
 % 中文字体，linux
-\setCJKmainfont{${3:Noto Sans CJK SC}}
-\setCJKsansfont{${3}}
-\setCJKmonofont{${3}}
+\setCJKmainfont{Source Han Serif CN}
+\setCJKsansfont{Source Han Sans CN}
+\setCJKmonofont{Source Han Sans CN}
 
 \usepackage[a4paper]{geometry}
+\geometry{a4paper,left=2cm,right=2cm,top=2.2cm,bottom=2cm,includehead,includefoot}
+\linespread{1}
 \usepackage{microtype}
 
 \usepackage{verbatim}

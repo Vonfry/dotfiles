@@ -23,7 +23,7 @@
     "M r" 'bookmark-rename
     "M w" 'bookmark-write
     "="   'align-regexp
-    "$"   'eshell
+    "~"   'eshell
     "h"   'evil-ex-nohighlight
     "\""  'comint-run
     "l"   'list-processes

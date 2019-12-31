@@ -118,7 +118,7 @@
   (bibtex-completion-library-path '("./refs"))
   :general
   (+mmap-mode-tex-def
-    "I" 'ivy-bibtex))
+    "[" 'ivy-bibtex))
 
 (package! company-auctex
   :after company latex yasnippet
