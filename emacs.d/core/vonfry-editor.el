@@ -97,7 +97,8 @@
   '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir))
   '(save-abbrevs 'silently)
 
-  '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)))
+  '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir))
+  '(nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir)))
 
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'prog-mode-hook 'turn-on-auto-fill)
