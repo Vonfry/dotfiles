@@ -9,10 +9,8 @@
                       +shell-terminal-extra-arguments))
          (args (concat +shell-terminal-args-pwd
                        " "
-                       pwd))))
-  (start-process-shell-command
-    (concat "*terminal: " pwd "*")
-    nil
-    nil
-    cmd
-    args))
+                       pwd)))
+    (start-process-shell-command
+      (concat "*terminal: " pwd "*")
+      nil nil
+      cmd args)))
