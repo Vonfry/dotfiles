@@ -1,7 +1,7 @@
 ;;; shell config -*- lexical-binding: t -*-
 ;;
 
-(custom! +shell-terminal-command (getenv "TERM")
+(custom! +shell-terminal-command "alacritty"
   "The terminal command is used to open a new window in current directory."
   :type 'string
   :group 'vonfry-modules)
