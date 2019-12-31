@@ -25,7 +25,7 @@
 			(:thread-subject .  nil)))
   (mu4e-view-show-adresses t)
   :hook
-  (after-init . (lambda () (mu4e t)))
+  (emacs-startup . (lambda () (mu4e t)))
   :config
   (unless (file-exists-p mu4e-attachment-dir)
     (make-directory mu4e-attachment-dir t))
