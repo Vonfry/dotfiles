@@ -22,14 +22,14 @@
 
 
 % 英文字体，linux
-\setmainfont{${1:Liberation Serif}}
-\setsansfont{${1}}
-\setmonofont{${2:Liberation Sans}}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont{Liberation Mono}
 
 % 中文字体，linux
-\setCJKmainfont{${3:Noto Sans CJK SC}}
-\setCJKsansfont{${3}}
-\setCJKmonofont{${3}}
+\setCJKmainfont{Source Han Serif CN}
+\setCJKsansfont{Source Han Sans CN}
+\setCJKmonofont{Source Han Sans CN}
 
 \usepackage[a4paper]{geometry}
 \usepackage{microtype}
