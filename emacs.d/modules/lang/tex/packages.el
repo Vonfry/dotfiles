@@ -12,7 +12,8 @@
   (TeX-source-correlate-start-server nil)
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
-  (TeX-command-default "LaTexMk")
+  (TeX-command-default "latexmk")
+  (TeX-command "latexmk")
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
@@ -47,7 +48,7 @@
   (+mmap-tex-def
     "?"   'TeX-doc
     "RET" 'preview-at-point
-    "r"   'TeX-command-run-all)
+    "R"   'TeX-command-run-all)
   (+mmap-mode-tex-def
     "\\"  'TeX-insert-macro
     "-"   'TeX-recenter-output-buffer
