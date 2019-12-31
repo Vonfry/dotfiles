@@ -32,6 +32,8 @@
 \setCJKmonofont{Source Han Sans CN}
 
 \usepackage[a4paper]{geometry}
+\geometry{a4paper,left=2cm,right=2cm,top=2.2cm,bottom=2cm}
+\linespread{1}
 \usepackage{microtype}
 
 \usepackage{verbatim}
