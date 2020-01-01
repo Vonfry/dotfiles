@@ -12,7 +12,7 @@
     (if no-confirm
       (shell-command callc)
       (let* ((output (shell-command-to-string callcd))
-             (question (concat "Result: " output " | Continue? "))
+             (question (concat "Result:\n" output "\nContinue? "))
              (answer '(("yes" ?y)
                        ("no"  ?n)))
              (read-answer-short t))
