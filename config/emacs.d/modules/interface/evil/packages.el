@@ -5,7 +5,8 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
-  (evil-initial-state 'process-menu-mode 'emacs)
+  (evil-set-initial-state 'process-menu-mode 'emacs)
+  (evil-set-initial-state 'calendar-mode 'emacs)
   :custom
   (evil-shift-width 4)
   (evil-search-module 'evil-search)
@@ -24,6 +25,7 @@
     "M w" 'bookmark-write
     "="   'align-regexp
     "~"   'eshell
+    "!"   'calc
     "h"   'evil-ex-nohighlight
     "\""  'comint-run
     "l"   'list-processes
