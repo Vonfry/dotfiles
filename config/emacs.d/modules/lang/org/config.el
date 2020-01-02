@@ -229,27 +229,11 @@
     :type 'sexp
     :group 'vonfry-modules
     :custom-set 'org-capture-templates)
-  (custom! +org-refile-targets
-    (-map
-      (lambda (f)
-        (-map
-          (lambda (tag)
-            `(,f :tag . ,tag))
-            all-tags))
-      +org-agenda-files)
+  (custom! +org-refile-targets nil
     ""
     :type 'sexp
     :group 'vonfry-modules
     :custom-set 'org-refile-targets)
-  (custom! +org-super-agenda-groups
-    (-map
-     (-lambda ((tag abbr))
-       `(:name ,(funcall tag-name tag) :tag ,(funcall tag-name tag) :order ,(funcall tag-level tag)))
-     unzip-tags-m-filtered)
-    ""
-    :type 'sexp
-    :group 'vonfry-modules
-    :custom-set 'org-super-agenda-groups)
   (custom! +org-agenda-custom-commands
     (let ((custom-tags-commands
             (-map

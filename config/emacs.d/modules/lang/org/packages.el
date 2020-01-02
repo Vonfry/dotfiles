@@ -66,12 +66,6 @@
   (+mmap-mode-org-def
     "a" 'org-archive-subtree-default))
 
-(package! org-super-agenda
-  :after org
-  :hook (org-agenda-mode . org-super-agenda-mode)
-  :custom
-  (org-super-agenda-groups +org-super-agenda-groups))
-
 (package! org-web-tools
   :after org
   :general
