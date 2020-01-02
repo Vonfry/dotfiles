@@ -229,14 +229,7 @@
     :type 'sexp
     :group 'vonfry-modules
     :custom-set 'org-capture-templates)
-  (custom! +org-refile-targets
-    (-map
-      (lambda (f)
-        (-map
-          (lambda (tag)
-            `(,f :tag . ,tag))
-            all-tags))
-      +org-agenda-files)
+  (custom! +org-refile-targets nil
     ""
     :type 'sexp
     :group 'vonfry-modules
