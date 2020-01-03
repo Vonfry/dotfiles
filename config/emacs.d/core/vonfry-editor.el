@@ -50,7 +50,7 @@
   '(buffers-menu-max-size 32)
   '(column-number-mode t)
   '(global-linum-mode t)
-  '(global-whitespace-mode t)
+  '(global-whitespace-mode nil)
   '(case-fold-search t)
   '(line-spacing 0)
 
