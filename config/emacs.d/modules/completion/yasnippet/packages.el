@@ -14,5 +14,5 @@
   :custom
   (ivy-yasnippet-expand-key 'smart)
   :general
-  (:keymaps '(prog-mode-map TeX-mode-map org-mode-map)
+  (:keymaps 
     "C-;" 'ivy-yasnippet))
