@@ -35,8 +35,7 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  (:keymaps 
-    "C-&" 'counsel-company)
+  ("C-&" 'counsel-company)
   (+mmap-leader-def
     "x" 'counsel-M-x
     "f" 'counsel-find-file

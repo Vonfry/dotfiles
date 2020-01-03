@@ -14,5 +14,4 @@
   :custom
   (ivy-yasnippet-expand-key 'smart)
   :general
-  (:keymaps 
-    "C-;" 'ivy-yasnippet))
+  ("C-;" 'ivy-yasnippet))
