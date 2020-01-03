@@ -15,7 +15,7 @@
   :general
   (+mmap-mode-cc-def "h" 'projectile-find-other-file)
   (+mmap-leader-def
-    "P"   '(nil :which-key "projectile"
+    "P"   '(nil :which-key "projectile")
     "P i" 'projectile-invalidate-cache)
   :config
   (projectile-global-mode t))
