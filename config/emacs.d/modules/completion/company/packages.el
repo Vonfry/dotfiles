@@ -13,12 +13,12 @@
     "C-n" 'company-select-next
     "C-p" 'company-select-previous)
   :config
-  (global-company-mode))
+  (global-company-mode 1))
 
 (package! company-quickhelp
   :after company
   :config
-  (company-quickhelp-mode t))
+  (company-quickhelp-mode 1))
 
 (package! company-prescient
   :after company
@@ -27,4 +27,4 @@
   :hook
   (company-mode . company-prescient-mode)
   :config
-  (prescient-persist-mode t))
+  (prescient-persist-mode 1))

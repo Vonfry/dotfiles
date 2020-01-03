@@ -118,8 +118,8 @@ is undefined(It always is loaded by alpha order)."
   (auto-compile-mode-line-counter t)
   (auto-compile-source-recreate-deletes-dest t)
   :config
-  (auto-compile-on-load-mode t)
-  (auto-compile-on-save-mode t))
+  (auto-compile-on-load-mode 1)
+  (auto-compile-on-save-mode 1))
 
 (defun autoload! (func file &optional interactive docstring type)
   "autoload file with current load file dir which is called in submodules.

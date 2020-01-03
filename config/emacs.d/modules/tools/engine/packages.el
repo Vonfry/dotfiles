@@ -3,7 +3,7 @@
 
 (package! engine-mode
   :config
-  (engine-mode t)
+  (engine-mode 1)
   (defengine github
     "https://github.com/search?ref=simplesearch&q=%s"
 		:keybinding "u")
