@@ -42,8 +42,7 @@
        ;; have the buffer refresh after compilation
        (turn-on-reftex)
        (define-key TeX-mode-map (kbd "TAB") 'TeX-complete-symbol)
-       (imenu-add-menubar-index)
-       (auto-fill-mode nil))))
+       (imenu-add-menubar-index))))
   :general
   (+mmap-tex-def
     "?"   'TeX-doc

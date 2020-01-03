@@ -30,7 +30,7 @@
   :custom
   (counsel-find-file-at-point t)
   :config
-  (counsel-mode t)
+  (counsel-mode 1)
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
@@ -48,7 +48,7 @@
 (package! ivy-rich
   :after ivy
   :config
-  (ivy-rich-mode t))
+  (ivy-rich-mode 1))
 
 (package! counsel-tramp
   :after counsel)
