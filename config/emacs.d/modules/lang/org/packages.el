@@ -7,15 +7,16 @@
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))
   (org-log-done 'time)
+  (org-startup-indented t)
   (org-adapt-indentation t)
+  (org-indent-indentation-per-level 2)
+  (org-list-indent-offset 2)
 ; (org-agenda-custom-commands +org-agenda-custom-commands)
 ; (org-default-notes-file +org-capture-file)
 ; (org-capture-templates +org-capture-templates)
 ; (org-todo-keywords +org-todo-keywords-sequence)
 ; (org-refile-targets +org-refile-targets)
 ; (org-tag-alist +org-tag-alist)
-  :hook
-  (org-mode . org-indent-mode)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
@@ -32,7 +33,7 @@
 (package! org-bullets
   :after org
   :hook
-  (org-mode . 'org-bullets-mode))
+  (org-mode . org-bullets-mode))
 
 (package! evil-org
   :after evil org
