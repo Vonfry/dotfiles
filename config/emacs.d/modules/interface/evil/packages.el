@@ -34,12 +34,6 @@
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
-(package! evil-org
-  :after evil org
-  :hook (org-mode . evil-org-mode)
-  :config
-  (evil-org-set-key-theme))
-
 (package! evil-org-agenda
   :after evil-org
   :ensure nil

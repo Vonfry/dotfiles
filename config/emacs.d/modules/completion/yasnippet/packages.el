@@ -5,8 +5,8 @@
   :after company
   :custom
   (yas-snippet-dirs +yas-snippet-dirs)
-  :hook (company-mode . yas-minor-mode)
   :config
+  (yas-global-mode 1)
   (package! yasnippet-snippets))
 
 (package! ivy-yasnippet
@@ -14,5 +14,4 @@
   :custom
   (ivy-yasnippet-expand-key 'smart)
   :general
-  (:keymaps '(prog-mode-map TeX-mode-map org-mode-map)
-    "C-;" 'ivy-yasnippet))
+  ("C-;" 'ivy-yasnippet))

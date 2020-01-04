@@ -2,4 +2,4 @@
 ;;
 
 (package! indent-guide
-  :hook prog-mode)
+  :hook (prog-mode . indent-guide-mode))
