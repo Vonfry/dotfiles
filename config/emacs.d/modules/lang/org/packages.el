@@ -7,32 +7,45 @@
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))
   (org-log-done 'time)
+  (org-adapt-indentation t)
 ; (org-agenda-custom-commands +org-agenda-custom-commands)
 ; (org-default-notes-file +org-capture-file)
 ; (org-capture-templates +org-capture-templates)
 ; (org-todo-keywords +org-todo-keywords-sequence)
 ; (org-refile-targets +org-refile-targets)
 ; (org-tag-alist +org-tag-alist)
+  :hook
+  (org-mode . org-indent-mode)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
   (+mmap-mode-org-def
     "/"  'org-sparse-tree
     "\\" 'org-tags-sparse-tree
-    "t"  'org-tags-view))
+    "t"  'org-tags-view
+    "p"  'org-set-property
+    "d"  'org-deadline
+    "s"  'org-schedule
+    "t"  'org-todo
+    "c"  'org-ctrl-c-ctrl-c))
 
 (package! org-bullets
   :after org
   :hook
-  (org-mode . (lambda () (org-bullets-mode 1))))
+  (org-mode . 'org-bullets-mode))
 
 (package! evil-org
   :after evil org
   :hook
-  ((org-mode . evil-org-mode)
-  (org-mode .
-    (lambda ()
-      (evil-org-set-key-theme '(navigation insert textobjects additional))))))
+  (org-mode . evil-org-mode)
+  :config
+  (evil-org-set-key-theme))
+
+(package! evil-org-agenda
+  :after evil-org
+  :ensure nil
+  :config
+  (evil-org-agenda-set-keys))
 
 (package! org-brain
   :after org
