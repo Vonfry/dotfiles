@@ -30,6 +30,9 @@
   (unless (file-exists-p mu4e-attachment-dir)
     (make-directory mu4e-attachment-dir t))
   :general
+  (:keymaps 'mu4e-main-mode-map
+   "q" 'quit-window
+   "Q" 'mu4e-quit)
   (+mmap-at-def
     "m" 'mu4e))
 
