@@ -28,6 +28,7 @@
     "d"  'org-deadline
     "s"  'org-schedule
     "t"  'org-todo
+    "$"  'org-archive-subtree-default
     "c"  'org-ctrl-c-ctrl-c))
 
 (package! org-bullets
