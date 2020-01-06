@@ -100,6 +100,7 @@
 ; (org-journal-dir +org-journal-dir)
 ; (org-journal-tag-alist +org-journal-tag-alist)
   (org-journal-file-format "%Y-%m-%d.org")
+  (org-journal-time-prefix "\n** ")
   (org-journal-enable-agenda-integration t)
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
