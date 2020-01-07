@@ -45,6 +45,8 @@
 (package! smtpmail
   :ensure nil
   :custom
+  (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
+                                     ; work on other client.
   (smtpmail-stream-type 'starttls)
   (starttls-use-gnutls  t)
 ; (smtpmail-queue-dir +mail-queue-dir)
