@@ -45,8 +45,7 @@
     "m" 'mu4e))
 
 (package! auth-source
-  :ensure nil
-)
+  :ensure nil)
 
 (package! smtpmail
   :ensure nil
