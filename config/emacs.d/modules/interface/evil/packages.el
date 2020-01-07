@@ -34,12 +34,6 @@
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer))
 
-(package! evil-org-agenda
-  :after evil-org
-  :ensure nil
-  :config
-  (evil-org-agenda-set-keys))
-
 (package! evil-numbers
   :after evil
   :general
