@@ -26,7 +26,7 @@
   (emacs-startup . (lambda () (mu4e t)))
   :config
   (unless (file-exists-p mu4e-attachment-dir)
-    (make-directory mu4e-attachment-dir t)
+    (make-directory mu4e-attachment-dir t))
   (setf (alist-get 'trash mu4e-marks)
         (list :char '("d" . "▼")
               :prompt "dtrash"
@@ -36,7 +36,7 @@
                         ;; Here's the main difference to the regular trash mark,
                         ;; no +T before -N so the message is not marked as
                         ;; IMAP-deleted:
-                        (mu4e~proc-move docid (mu4e~mark-check-target target) "-N")))))
+                        (mu4e~proc-move docid (mu4e~mark-check-target target) "+S-u-N"))))
   :general
   (:keymaps 'mu4e-main-mode-map
    "q" 'quit-window
