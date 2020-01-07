@@ -10,6 +10,7 @@
   (mail-user-agent 'mu4e-user-agent)
 ; (mu4e-maildir +maildir-path)
   (mu4e-view-show-addresses t)
+  (mu4e-change-filenames-when-moving t)
 ; (mu4e-get-mail-command +mail-get-mail-command)
   (mu4e-update-interval 300)
 ; (mu4e-attachment-dir +mail-attachment-dir)
