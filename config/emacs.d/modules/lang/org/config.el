@@ -11,13 +11,6 @@
   :group 'vonfry-modules
   :custom-set 'org-journal-dir)
 
-(load (expand-file-name "tags.el" +org-journal-dir) t t)
-(unless (boundp 'vonfry--org-journal-tag-alist)
-  (custom! vonfry--org-journal-tag-alist nil
-    ""
-    :type 'sexp
-    :group 'vonfry-modules))
-
 (defun +org--journal-find-location ()
   ;; Open today's journal, but specify a non-nil prefix argument in order to
   ;; inhibit inserting the heading; org-capture will insert the heading.
@@ -26,7 +19,8 @@
   ;; will add the new entry as a child entry.
   (goto-char (point-min)))
 
-(custom! +org-journal-tag-alist vonfry--org-journal-tag-alist
+(load (expand-file-name "tags.el" +org-journal-dir) t t)
+(custom! +org-journal-tag-alist nil
   ""
   :type 'sexp
   :group 'vonfry-modules
@@ -68,30 +62,23 @@
    :group 'vonfry-modules
    :custom-set 'org-capture-file)
 
-(custom! +org-agenda-tags-file
-   (expand-file-name "agenda/tags" vonfry-org-dir)
-   "Custom tag file to read config of tags.\nIts structor is like dir-locals.\n\n'((tag subtag))'\nHere 'subtag' can be another list with '(tag subtag)'."
-   :type 'file
-   :group 'vonfry-modules)
+(load (expand-file-name "agenda/tags" vonfry-org-dir) t t)
 
-(load +org-agenda-tags-file t t)
+(custom! +org--tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
+(custom! +org--tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
+(custom! +org--tags-ctx-sym "@" "org tags symbol" :type 'string :group 'vonfry-modules)
+(custom! +org--tags-m
+  `((("gtd" ,+org--tags-gtd-sym)
+     ((("category" ,+org--tags-cat-sym)
+       ((("dev" "d"))))
+      (("context"  ,+org--tags-ctx-sym)
+       ((("haskell" "hs")))))))
+   "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see `+org-tag-alist'"
+  :type 'sexp
+  :group 'vonfry-modules)
 
-(unless (boundp 'vonfry--org-tags-m)
-  (custom! vonfry--org-tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (custom! vonfry--org-tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (custom! vonfry--org-tags-ctx-sym "@" "org tags symbol" :type 'string :group 'vonfry-modules)
-  (custom! vonfry--org-tags-m
-    `((("gtd" ,vonfry--org-tags-gtd-sym)
-       ((("category" ,vonfry--org-tags-cat-sym)
-         ((("dev" "d"))))
-        (("context"  ,vonfry--org-tags-ctx-sym)
-         ((("haskell" "hs")))))))
-     "vonfry org agenda tags, which is used in org-agenda-custom-commands. The data struct see `+org-tag-alist'"
-    :type 'sexp
-    :group 'vonfry-modules))
-
-(fun! vonfry--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
-  "expend 'vonfry--org-tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence.\n"
+(fun! +org--unzip-org-agenda-tags-m (m &optional l prefix prefix-level prefix-tag)
+  "expend '+org--tags-m' from a hierarchy to a non-hierarchy list.\nThe second optional arguments are used to recurrence.\n"
   (-let (((m l is-top prefix-level)
             (if (not (or l prefix prefix-level))
               (-let* ((gtd (nth 0 m))
@@ -110,14 +97,14 @@
               `(,m ,l nil ,prefix-level))))
     (if is-top
       (-let* (((cat-subtag ctx-subtag) m)
-              (cat-m (vonfry--unzip-org-agenda-tags-m cat-subtag nil vonfry--org-tags-cat-sym 1 nil))
-              (ctx-m (vonfry--unzip-org-agenda-tags-m ctx-subtag nil vonfry--org-tags-ctx-sym 1 nil)))
+              (cat-m (+org--unzip-org-agenda-tags-m cat-subtag nil +org--tags-cat-sym 1 nil))
+              (ctx-m (+org--unzip-org-agenda-tags-m ctx-subtag nil +org--tags-ctx-sym 1 nil)))
         (append l cat-m ctx-m))
       (-reduce-r-from
         (lambda (i c)
           (let ((l (let* ((tag (nth 0 i))
                           (tag-name
-                            (if (string= prefix vonfry--org-tags-ctx-sym)
+                            (if (string= prefix +org--tags-ctx-sym)
                               (concat prefix (nth 0 tag))
                               (nth 0 tag)))
                           (tag-abbr (nth 1 tag))
@@ -127,15 +114,15 @@
                                          tag-name))
                           (l (cons (list tag-names (concat abbr-prefix tag-abbr)) l)))
                       (if (> (length i) 1)
-                        (vonfry--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level) tag-names)
+                        (+org--unzip-org-agenda-tags-m (nth 1 i) l prefix (1+ prefix-level) tag-names)
                         l))))
             (append l c)))
         nil
         m))))
 
-(fun! vonfry--org-tag-alist-generate (m &optional prefix level)
-  "generate 'org-tag-alist' from 'vonfry--org-tags-m'"
-  (-let ((prefix (if (not level) vonfry--org-tags-gtd-sym prefix))
+(fun! +org--tag-alist-generate (m &optional prefix level)
+  "generate 'org-tag-alist' from '+org--tags-m'"
+  (-let ((prefix (if (not level) +org--tags-gtd-sym prefix))
          (level (if level level 0)))
     (-reduce-r-from
       (lambda (i c)
@@ -146,22 +133,22 @@
             (cons `(,tag-name) c)
             (let* ((prefix
                     (cond ((and (= 1 level)
-                                (string= tag-abbr vonfry--org-tags-ctx-sym))
+                                (string= tag-abbr +org--tags-ctx-sym))
                             tag-abbr)
                           ((> 1 level) prefix)
                           (t nil)))
                    (l `((:startgrouptag)
                         (,tag-name)
                         (:grouptags)
-                        ,@(vonfry--org-tag-alist-generate (nth 1 i) prefix (1+ level))
+                        ,@(+org--tag-alist-generate (nth 1 i) prefix (1+ level))
                         (:endgrouptag))))
                (append l c)))))
       nil
       m)))
 
 (custom! +org-tag-alist
-  (vonfry--org-tag-alist-generate vonfry--org-tags-m)
-  "org tag alist. It is generated from 'vonfry--org-tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in 'vonfry--org-tags-m'."
+  (+org--tag-alist-generate +org--tags-m)
+  "org tag alist. It is generated from '+org--tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in '+org--tags-m'."
   :type 'sexp
   :group 'vonfry-modules
   :custom-set 'org-tag-alist)
@@ -174,7 +161,7 @@
        (note-dir        (funcall org-dir-with "notes/"))
        (note-files      (directory-files note-dir   t "^.*\\.org$"))
        (note-dir-with   (lambda (f) (expand-file-name (funcall file-with-org f) note-dir)))
-       (unzip-tags-m (vonfry--unzip-org-agenda-tags-m vonfry--org-tags-m))
+       (unzip-tags-m (+org--unzip-org-agenda-tags-m +org--tags-m))
        (gtd-prefix (nth 1 (nth 0 unzip-tags-m)))
        (cat-prefix (nth 1 (nth 1 unzip-tags-m)))
        (ctx-prefix (nth 1 (nth 2 unzip-tags-m)))

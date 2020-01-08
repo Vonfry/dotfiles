@@ -326,20 +326,20 @@ Otherwise it builds `prettify-code-symbols-alist' according to
   (setq-default prettify-symbols-alist
                 (append prettify-symbols-alist
                         +pretty-code-symbols
-                        (mapcar #'+pretty-code--correct-symbol-bounds
+                        (mapcar '+pretty-code--correct-symbol-bounds
                                 +pretty-code-ligatures))))
 
 (fun! +pretty-code-mode-with-ligatures (mode append-to &optional remove-from)
   "set mode with other ligatures with arguments append-to or remove-from. Both of
 them are a list which contains alist. `(list '(ligstr . charcode))'"
-  (add-hook (intern (concat (symbol-name mode) "-hook"))
-            (lambda ()
-              (setq prettify-symbols-alist
-                    (append (mapcar #'+pretty-code--correct-symbol-bounds
-                                    append-to)
-                            prettify-symbols-alist))
-              (mapcar (lambda (i)
-                        (setq prettify-symbols-alist
-                              (delete i prettify-symbols-alist))
-                        nil)
-                      remove-from))))
+  (hook*! mode
+          (lambda ()
+            (setq prettify-symbols-alist
+                  (append (mapcar '+pretty-code--correct-symbol-bounds
+                                  append-to)
+                          prettify-symbols-alist))
+            (mapcar (lambda (i)
+                      (setq prettify-symbols-alist
+                            (delete i prettify-symbols-alist))
+                      nil)
+                    remove-from))))

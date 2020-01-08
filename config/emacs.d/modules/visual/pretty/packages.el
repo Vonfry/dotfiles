@@ -1,9 +1,9 @@
 ;;; pretty modules -*- lexical-binding: t; -*-
 ;;
 
-(add-hook 'prog-mode-hook #'+pretty-code-init-pretty-symbols-h)
+(hook! prog-mode +pretty-code-init-pretty-symbols-h)
 
-(add-hook 'window-setup-hook #'+pretty-code-setup-h)
+(hook! window-setup +pretty-code-setup-h)
 
-(custom-set-variables
-  '(prettify-symbols-unprettify-at-point 'right-edge))
+(custom-set!
+  prettify-symbols-unprettify-at-point 'right-edge)

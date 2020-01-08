@@ -42,66 +42,66 @@
   ((prog-mode . whitespace-cleanup-mode)
    (text-mode . whitespace-cleanup-mode)))
 
-(custom-set-variables
-  '(exec-path-from-shell-check-startup-files nil)
-  '(initial-frame-alist vonfry-frame)
-  '(default-frame-alist vonfry-frame)
-  '(blink-cursor-interval 0.4)
-  '(buffers-menu-max-size 32)
-  '(column-number-mode t)
-  '(global-linum-mode t)
-  '(global-whitespace-mode nil)
-  '(case-fold-search t)
-  '(line-spacing 0)
+(custom-set!
+  exec-path-from-shell-check-startup-files nil
+  initial-frame-alist vonfry-frame
+  default-frame-alist vonfry-frame
+  blink-cursor-interval 0.4
+  buffers-menu-max-size 32
+  column-number-mode t
+  global-linum-mode t
+  global-whitespace-mode nil
+  case-fold-search t
+  line-spacing 0
 
-  '(bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir))
+  bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
 
-  '(mouse-yank-at-point t)
-  '(delete-selection-mode t)
+  mouse-yank-at-point t
+  delete-selection-mode t
 
-  '(tab-always-indent 'always)
-  '(indent-tabs-mode nil)
-  '(tab-width 4)
-  '(c-default-style "k&r")
-  '(c-basic-offset 4)
+  tab-always-indent 'always
+  indent-tabs-mode nil
+  tab-width 4
+  c-default-style "k&r"
+  c-basic-offset 4
 
-  '(scroll-bar-mode nil)
-  '(scroll-preserve-screen-position 'always)
-  '(set-mark-command-repeat-pop t)
-  '(tooltip-delay 0.7)
+  scroll-bar-mode nil
+  scroll-preserve-screen-position 'always
+  set-mark-command-repeat-pop t
+  tooltip-delay 0.7
 
-  '(word-wrap nil)
-  '(truncate-lines nil)
-  '(truncate-partial-width-windows vonfry-text-width)
-  '(fill-column vonfry-text-width)
-  '(show-trailing-whitespace nil)
+  word-wrap nil
+  truncate-lines nil
+  truncate-partial-width-windows vonfry-text-width
+  fill-column vonfry-text-width
+  show-trailing-whitespace nil
 
-  '(save-interprogram-paste-before-kill t)
+  save-interprogram-paste-before-kill t
 
-  '(make-backup-files t)
-  '(backup-directory-alist `((".*" . ,vonfry-backup-file-dir)))
-  '(auto-save-default nil)
-  '(auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t)))
-  '(auto-save-list-file-prefix vonfry-auto-save-list-prefix)
+  make-backup-files t
+  backup-directory-alist `((".*" . ,vonfry-backup-file-dir))
+  auto-save-default nil
+  auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t))
+  auto-save-list-file-prefix vonfry-auto-save-list-prefix
 
-  '(global-visual-line-mode t)
-  '(show-paren-mode t)
+  global-visual-line-mode t
+  show-paren-mode t
 
-  '(tramp-default-method "ssh")
-  '(tramp-auto-save-directory vonfry-tramp-cache)
-  '(tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache)))
+  tramp-default-method "ssh"
+  tramp-auto-save-directory vonfry-tramp-cache
+  tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))
 
-  '(recentf-save-file (expand-file-name "recentf" vonfry-cache-dir))
+  recentf-save-file (expand-file-name "recentf" vonfry-cache-dir)
 
-  '(custom-file vonfry-custom-file)
-  '(abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir))
-  '(save-abbrevs 'silently)
+  custom-file vonfry-custom-file
+  abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)
+  save-abbrevs 'silently
 
-  '(semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir))
-  '(nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir)))
+  semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)
+  nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir))
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
-(add-hook 'prog-mode-hook 'turn-on-auto-fill)
+(hook! text-mode turn-on-auto-fill)
+(hook! prog-mode turn-on-auto-fill)
 
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x))
@@ -114,7 +114,7 @@
   (interactive)
   (setq show-trailing-whitespace (not show-trailing-whitespace)))
 
-(add-hook 'text-mode-hook 'vonfry/toggle-trailing-whitespace)
-(add-hook 'prog-mode-hook 'vonfry/toggle-trailing-whitespace)
+(hook! text-mode vonfry/toggle-trailing-whitespace)
+(hook! prog-mode vonfry/toggle-trailing-whitespace)
 
 (provide 'vonfry-editor)

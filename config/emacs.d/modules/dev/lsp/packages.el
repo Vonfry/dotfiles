@@ -41,8 +41,8 @@
   (lsp-ui-flycheck-enable t)
   :general
   (:keymaps 'lsp-ui-mode-map
-            [remap xref-find-definitions] #'lsp-ui-peek-find-definitions
-            [remap xref-find-references]  #'lsp-ui-peek-find-references)
+            [remap xref-find-definitions] 'lsp-ui-peek-find-definitions
+            [remap xref-find-references]  'lsp-ui-peek-find-references)
   (+mmap-lsp-def
     ">"   'lsp-ui-find-workspace-symbol
     "; }" 'lsp-ui-peek-find-references
