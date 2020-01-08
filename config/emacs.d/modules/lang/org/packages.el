@@ -11,12 +11,6 @@
   (org-indent-mode-turns-off-org-adapt-indentation nil)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
-; (org-agenda-custom-commands +org-agenda-custom-commands)
-; (org-default-notes-file +org-capture-file)
-; (org-capture-templates +org-capture-templates)
-; (org-todo-keywords +org-todo-keywords-sequence)
-; (org-refile-targets +org-refile-targets)
-; (org-tag-alist +org-tag-alist)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
@@ -38,6 +32,8 @@
 
 (package! evil-org
   :after evil org
+  :custom
+  (evil-org-special-o/O nil)
   :hook
   (org-mode . evil-org-mode)
   :config
@@ -52,7 +48,6 @@
 (package! org-brain
   :after org
   :custom
-; (org-brain-path +org-brains-path)
   (org-id-track-globally t)
   (org-id-locations-file (expand-file-name "org-id-locations" vonfry-cache-dir))
   (org-brain-visualize-default-choices 'all)
@@ -64,8 +59,6 @@
 (package! org-agenda
   :ensure nil
   :after org
-; :custom
-; (org-agenda-files +org-agenda-files)
   :general
   (+mmap-todo-def
     "a" 'org-agenda
@@ -97,8 +90,6 @@
 (package! org-journal
   :after org
   :custom
-; (org-journal-dir +org-journal-dir)
-; (org-journal-tag-alist +org-journal-tag-alist)
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-enable-agenda-integration t)
   :config

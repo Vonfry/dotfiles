@@ -5,6 +5,7 @@
   :custom
   (browse-url-browser-function #'w3m-browse-url)
   (browse-url-generic-program (getenv "BROWSER"))
+  (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
   :general
   (+mmap-at-def
     ""    '(nil :which-key "web/..")
