@@ -342,4 +342,4 @@ them are a list which contains alist. `(list '(ligstr . charcode))'"
                       (setq prettify-symbols-alist
                             (delete i prettify-symbols-alist))
                       nil)
-                    remove-from)))))
+                    remove-from))))

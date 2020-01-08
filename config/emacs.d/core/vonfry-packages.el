@@ -200,7 +200,7 @@ All modules should use function and macro in this file. By default, every module
 (defmacro custom-set! (&rest plist)
   `(custom-set-variables
      ,@(-map (lambda (item)
-              `(quote ,@item))
+              `(quote ,item))
              (-partition 2 plist))))
 
 (defmacro after! (feature &rest body)
