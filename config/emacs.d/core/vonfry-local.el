@@ -45,8 +45,13 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
-(defcustom vonfry-custom-file-before (expand-file-name "custom-before.el" vonfry-custom-dir)
-  "custom for user's emacs. The file is loaded before core-editor. You can set some variables at here which affect the configure in modules.  You can only custom the var in init file, I think."
+(defcustom vonfry-custom-file-before (expand-file-name "pre-custom.el" vonfry-custom-dir)
+  "custom for user's emacs. The file is loaded before core. You can set some variables at here which affect the configure in modules.  You can only custom the var in init file, I think."
+  :type 'file
+  :group 'vonfry-dir)
+
+(defcustom vonfry-custom-file-after (expand-file-name "post-custom.el" vonfry-custom-dir)
+  "custom for user's emacs. The file is loaded after custom. You can set some variables at here which affect the configure in modules.  You can only custom the var in init file, I think."
   :type 'file
   :group 'vonfry-dir)
 
