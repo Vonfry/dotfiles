@@ -70,4 +70,8 @@
   (custom-save-all)
   (load custom-file))
 
+(when (file-exists-p vonfry-custom-file-after)
+  (load vonfry-custom-file-after))
+
+
 (provide 'vonfry)
