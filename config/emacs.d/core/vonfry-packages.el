@@ -187,5 +187,23 @@ All modules should use function and macro in this file. By default, every module
 (defalias #'fun!   #'defun)
 (defalias #'var!   #'defvar)
 (defalias #'const! #'defconst)
+(defalias #'macro! #'defmarco)
+
+(defmacro hook! (&rest args)
+  `(apply 'hook*! '(,@args)))
+
+(defun hook*! (hook &rest args)
+  (apply 'add-hook
+         (intern (concat (symbol-name hook) "-hook"))
+         args))
+
+(defmacro custom-set! (&rest plist)
+  `(custom-set-variables
+     ,@(-map (lambda (item)
+              `(quote ,@item))
+             (-partition 2 plist))))
+
+(defmacro after! (feature &rest body)
+  `(with-eval-after-load ',feature ,@body))
 
 (provide 'vonfry-packages)

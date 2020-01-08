@@ -53,7 +53,7 @@
   (org-brain-visualize-default-choices 'all)
   (org-brain-title-max-length 16)
   :config
-  (with-eval-after-load 'evil
+  (after! evil
     (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
 
 (package! org-agenda

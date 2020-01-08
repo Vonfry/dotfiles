@@ -7,11 +7,11 @@
 
 (vonfry-system-sets
   (darwin
-    (custom-set-variables
-      '(mac-command-modifier 'meta)
-      '(mac-option-modifier 'super)))
+    (custom-set!
+      mac-command-modifier 'meta
+      mac-option-modifier 'super))
   (gnu/linux
-    (custom-set-variables
-      '(x-alt-keysym 'meta))))
+    (custom-set!
+      x-alt-keysym 'meta)))
 
 (provide 'vonfry-os)

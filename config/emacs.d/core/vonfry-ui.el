@@ -25,8 +25,8 @@
 ;; customize the fonts
 ;;
 
-(defcustom vonfry-fontsize (vonfry-system-sets (darwin 11)
-                                               (gnu/linux 9))
+(custom! vonfry-fontsize (vonfry-system-sets (darwin 11)
+                                             (gnu/linux 9))
   "vonfry fontsize in window system"
   :type 'integer
   :group 'vonfry-modules)
@@ -44,23 +44,23 @@
 
 (package! info)
 
-(custom-set-variables
-  '(tool-bar-mode nil)
-  '(menu-bar-mode nil)
+(custom-set!
+  tool-bar-mode nil
+  menu-bar-mode nil
 
-  '(use-file-dialog nil)
-  '(use-dialog-box nil)
-  '(inhibit-startup-screen t)
-  '(inhibit-startup-echo-area-message t)
+  use-file-dialog nil
+  use-dialog-box nil
+  inhibit-startup-screen t
+  inhibit-startup-echo-area-message t
 
-  '(display-time-mode t)
-  '(display-time-24hr-format t))
+  display-time-mode t
+  display-time-24hr-format t)
 
 (let ((no-border '(internal-border-width . 0)))
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
 
-(add-hook 'term-mode-hook
+(hook! term-mode-hook
   (lambda ()
     (setq line-spacing 0)))
 

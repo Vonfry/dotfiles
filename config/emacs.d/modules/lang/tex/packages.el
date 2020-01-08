@@ -35,7 +35,7 @@
    (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
    (TeX-mode  .
      (lambda()
-       (custom-set-variables '(compile-command "latexmk"))
+       (custom-set! compile-command "latexmk")
        (require 'preview)
        (require 'tex-site)
        ;; use pdfview with auctex
