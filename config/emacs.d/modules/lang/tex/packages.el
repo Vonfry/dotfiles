@@ -9,7 +9,6 @@
   (TeX-auto-save t)
   (TeX-parse-self t)
   (TeX-syntactic-comment t)
-  (TeX-source-correlate-start-server nil)
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
   (TeX-command-default "latexmk")
@@ -24,7 +23,7 @@
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
   (TeX-source-correlate-mode t)
-  (TeX-source-correlate-mode t)
+  (TeX-source-correlate-method 'synctex)
   :hook
   ((TeX-mode . font-lock-mode)
    (TeX-mode . LaTeX-mode)
