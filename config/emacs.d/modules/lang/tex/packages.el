@@ -19,6 +19,7 @@
   (TeX-save-query nil)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-region (expand-file-name "_region_" TeX-auto-private))
+  (TeX-view-program-selection '((output-pdf "zathura")))
   ;; Synctex support
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
