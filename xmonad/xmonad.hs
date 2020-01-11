@@ -48,12 +48,10 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_comma), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"               )
         , ("browser"    , spawn myBrowser            )
-        , ("ranger"     , spawn "alacritty -e ranger")
         , ("libreoffice", spawn "libreoffice"        )
         , ("virtualbox" , spawn "VirtualBox"         )
         , ("viewer"     , spawn "zathura"            )
         , ("telegram"   , spawn "telegram-desktop"   )
-        , ("emacs"      , spawn "emacs"              )
         ]
       )
     , ((modm, xK_dollar), runSelectedAction myGSConfS
@@ -65,6 +63,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
+    , ((modm, xK_p         ), spawn "alacritty -e ranger")
+    , ((modm, xK_P         ), spawn "emacs"              )
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
