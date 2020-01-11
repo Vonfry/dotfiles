@@ -10,6 +10,6 @@ with pkgs; [
   inkscape
   gimp
   qbittorrent
-  mupdf
+  zathura
   unstable.tor-browser-bundle-bin
 ]

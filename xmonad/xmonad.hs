@@ -51,7 +51,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , ("ranger"     , spawn "alacritty -e ranger")
         , ("libreoffice", spawn "libreoffice"        )
         , ("virtualbox" , spawn "VirtualBox"         )
-        , ("mupdf"      , spawn "mupdf-gl"           )
+        , ("viewer"     , spawn "zathura"            )
         , ("telegram"   , spawn "telegram-desktop"   )
         , ("emacs"      , spawn "emacs"              )
         ]

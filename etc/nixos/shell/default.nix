@@ -26,5 +26,6 @@
     ripgrep
     gawk
     fd
+    exa
   ];
 }
