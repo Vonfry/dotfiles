@@ -27,5 +27,6 @@
     gawk
     fd
     exa
+    procs
   ];
 }
