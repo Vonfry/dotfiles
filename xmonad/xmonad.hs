@@ -63,8 +63,9 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
       )
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
-    , ((modm, xK_p         ), spawn "alacritty -e ranger")
-    , ((modm, xK_P         ), spawn "emacs"              )
+
+    , ((modm              , xK_p), spawn "alacritty -e ranger")
+    , ((modm .|. shiftMask, xK_p), spawn "emacs"              )
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
@@ -142,7 +143,7 @@ myWorkspaces = [ "home"
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
-    , keys               = myKeys <+> keys def
+    , keys               = keys def <+> myKeys
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
     , focusedBorderColor = solarizedCyan
