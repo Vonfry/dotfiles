@@ -64,8 +64,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
-    , ((modm              , xK_p), spawn "alacritty -e ranger")
-    , ((modm .|. shiftMask, xK_p), spawn "emacs"              )
+    , ((modm              , xK_i), spawn "alacritty -e ranger")
+    , ((modm .|. shiftMask, xK_I), spawn "emacs"              )
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
@@ -101,7 +101,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
         ]
       )
-    , ((modm, xK_p), pasteSelection)
+    , ((modm, xK_y), pasteSelection)
 
     , ((modm, xK_o), windowMenu)
     ]
