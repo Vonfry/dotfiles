@@ -65,7 +65,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
     , ((modm              , xK_i), spawn "alacritty -e ranger")
-    , ((modm .|. shiftMask, xK_I), spawn "emacs"              )
+    , ((modm .|. shiftMask, xK_i), spawn "emacs"              )
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
