@@ -194,11 +194,11 @@
   (custom! +org-capture-templates
     (let ((default-templates
             '(("c" "capture to inbox(Tasks), refile later" entry (file+headline +org-capture-file "Tasks")
-               "\n* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)
+               "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:n" :empty-lines 1)
               ("i" "capture to inbox(Idea), refile later" entry (file+headline +org-capture-file "Idea")
-               "\n* %?\n:PROPERTIES:\n:CREATED: %U\n" :empty-lines 1)
+               "* %?\n:PROPERTIES:\n:CREATED: %Un" :empty-lines 1)
               ("n" "capture to note" plain (function +org--note-templates-get-location)
-               "\n#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
+               "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?" :empty-lines 1)
               ("j" "Journal entry" entry (function +org--journal-find-location)
                                "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
               ("b" "Brain" plain (function org-brain-goto-end) "* %i%?" :empty-lines 1)
@@ -209,7 +209,7 @@
                 (let* ((file-name (file-name-nondirectory file-path))
                        (keys (concat "a" (string (+ ?A index)))))
                   `(,keys ,(concat "capture to " file-name ", refile later") entry (file ,file-path)
-                    "\n* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:\n" :empty-lines 1)))
+                    "* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:" :empty-lines 1)))
               agenda-files)))
       (append default-templates agenda-templates))
     ""
