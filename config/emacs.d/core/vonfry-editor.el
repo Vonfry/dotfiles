@@ -49,7 +49,7 @@
   blink-cursor-interval 0.4
   buffers-menu-max-size 32
   column-number-mode t
-  global-linum-mode t
+  display-line-numbers t
   global-whitespace-mode nil
   case-fold-search t
   line-spacing 0

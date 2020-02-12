@@ -32,8 +32,6 @@
 
 (package! evil-org
   :after evil org
-  :custom
-  (evil-org-special-o/O nil)
   :hook
   (org-mode . evil-org-mode)
   :config

@@ -26,7 +26,7 @@
     ripgrep
     gawk
     fd
-    exa
+    lsd
     procs
   ];
 }
