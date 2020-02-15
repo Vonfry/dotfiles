@@ -39,7 +39,9 @@
   (+mmap-leader-def
     "x" 'counsel-M-x
     "f" 'counsel-find-file
-    "F" 'counsel-fzf
+    "F" '(nil :which-key "counsel misc")
+    "F f" 'counsel-fzf
+    "F r" 'counsel-recentf
     "m" 'counsel-mark-ring)
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
