@@ -7,7 +7,7 @@ function! vonfry#editor#init()
             set macligatures
         endif
         set guioptions=egmti
-        set guifont=Hack:h11
+        set guifont=Hack Nerd Font:h11
         set mousemodel=popup
         set cursorline
         " set cursorcolumn
