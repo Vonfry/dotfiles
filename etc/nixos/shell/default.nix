@@ -27,6 +27,7 @@
     gawk
     fd
     exa
+    bat
     procs
   ];
 }

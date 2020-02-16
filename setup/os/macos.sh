@@ -29,6 +29,7 @@ brew reinstall direnv
 brew reinstall ranger
 brew reinstall w3m
 brew reinstall isync mu4e
+brew reinstall procs
 
 # C & Cpp libs
 brew reinstall gcc
@@ -43,7 +44,7 @@ brew reinstall zlib libffi
 brew cask install doxygen
 
 # code search
-brew reinstall ripgrep gawk fd exa
+brew reinstall ripgrep gawk fd exa bat
 brew reinstall cloc                          # code statistics
 
 # lang
