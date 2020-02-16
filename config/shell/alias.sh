@@ -1,4 +1,4 @@
 alias editor=nvim
 
-alias ls=lsd
+alias ls=exa
 alias lla='ls -lAh'

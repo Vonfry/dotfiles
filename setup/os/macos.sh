@@ -43,7 +43,7 @@ brew reinstall zlib libffi
 brew cask install doxygen
 
 # code search
-brew reinstall ripgrep gawk fd lsd
+brew reinstall ripgrep gawk fd exa
 brew reinstall cloc                          # code statistics
 
 # lang
@@ -82,7 +82,7 @@ brew cask install amethyst
 brew cask install mactex
 
 # font
-brew cask install font-hack-nerd-font
+brew cask install font-hack
 brew cask install font-symbola
 
 echo_info "*** install nix for macos"

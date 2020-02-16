@@ -31,7 +31,7 @@
   :type 'integer
   :group 'vonfry-modules)
 (progn
-  (set-face-attribute 'default nil :family "Hack Nerd Font" :height (* 10 vonfry-fontsize))
+  (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
   (set-fontset-font nil 'unicode (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'append)
   (dolist (charset '(greek symbol))
     (set-fontset-font nil charset (font-spec :name "Symbola" :height (* 10 vonfry-fontsize)) nil 'prepend))
