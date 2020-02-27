@@ -12,6 +12,6 @@
                        " "
                        pwd)))
     (start-process-shell-command
-      (concat "*terminal: " pwd "*")
-      nil nil
-      cmd args)))
+     (concat "*terminal: " pwd "*")
+     nil nil
+     cmd args)))
