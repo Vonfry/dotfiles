@@ -16,6 +16,7 @@
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
+  (TeX-auto-local "latex.out")
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-region (expand-file-name "_region_" TeX-auto-private))
   (TeX-view-program-selection '((output-pdf "zathura")))
