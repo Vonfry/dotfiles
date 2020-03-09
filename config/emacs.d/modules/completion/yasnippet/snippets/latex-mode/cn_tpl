@@ -12,6 +12,7 @@
 \usepackage[fleqn]{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{ulem}
 
 \usepackage{tabularx}
 \usepackage{longtable}
@@ -38,6 +39,16 @@
 
 \usepackage{verbatim}
 \usepackage{listings}
+\lstset{
+  float,
+  basicstyle=\ttfamily,
+  mathescape=true,
+  numbers=left,
+  numbersep=5pt,
+  xleftmargin=20pt,
+  frame=tb,
+  framexleftmargin=20pt
+}
 
 % 从零开始计录章节
 \setcounter{section}{${4:-1}}
