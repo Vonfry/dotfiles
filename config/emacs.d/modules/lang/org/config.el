@@ -1,7 +1,7 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
-(vonfry-def-mmap-mode-prefix org nil
+(mmap-mode-prefix! org nil
   :keymaps 'org-mode-map)
 
 (custom! +org-journal-dir

@@ -7,9 +7,7 @@
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
   (lsp-diagnostic-package :flycheck)
   :general
-  (+mmap-lsp-prefix-def
-    ""    '(nil :which-key "lsp")
-    "i"   'imenu
+  (+mmap-code-def
     "*"   'lsp-rename
     "R"   'lsp-restart-workspace
     "D"   'lsp-describe-session
@@ -21,14 +19,14 @@
     "="     'lsp-format-buffer
     "}"     'lsp-find-references
     "#"     'lsp-organize-imports
-    "{"     'lsp-goto-implementation
-    ";"     '(nil :which-key "code")
-    "; &"   'lsp-goto-type-definition
-    "; h"   'lsp-symbol-highlight
-    "; l"   '(nil :which-key "lens")
-    "; l l" 'lsp-lens-show
-    "; l L" 'lsp-lens-hide
-    "; l a" 'lsp-avy-lens))
+    "{"     'lsp-goto-implementation)
+  (+mmap-code-def
+    "&"   'lsp-goto-type-definition
+    "h"   'lsp-symbol-highlight
+    "l"   '(nil :which-key "lens")
+    "l l" 'lsp-lens-show
+    "l L" 'lsp-lens-hide
+    "l a" 'lsp-avy-lens))
 
 (package! lsp-clients
   :after lsp-mode
@@ -44,11 +42,11 @@
             [remap xref-find-definitions] 'lsp-ui-peek-find-definitions
             [remap xref-find-references]  'lsp-ui-peek-find-references)
   (+mmap-lsp-def
-    ">"   'lsp-ui-find-workspace-symbol
-    "; }" 'lsp-ui-peek-find-references
-    "; ." 'lsp-ui-peek-find-definitions
-    "; {" 'lsp-ui-peek-find-implementation)
-  (+mmap-lsp-prefix-def
+    ">"   'lsp-ui-find-workspace-symbol)
+  (+mmap-code-def
+    "}" 'lsp-ui-peek-find-references
+    "." 'lsp-ui-peek-find-definitions
+    "{" 'lsp-ui-peek-find-implementation
     "n"    'lsp-ui-find-next-reference
     "p"    'lsp-ui-find-prev-reference
     "t"    'lsp-ui-peek--toggle-file
@@ -67,8 +65,9 @@
   :after ivy lsp-mode
   :general
   (+mmap-lsp-def
-    "["   'lsp-ivy-workspace-symbol
-    "; [" 'lsp-ivy-global-workspace-symbol))
+    "["   'lsp-ivy-workspace-symbol)
+  (+mmap-code-def
+    "[" 'lsp-ivy-global-workspace-symbol))
 
 (package! company-lsp
   :after lsp-mode company yasnippet

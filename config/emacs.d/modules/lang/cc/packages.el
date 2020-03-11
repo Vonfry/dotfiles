@@ -10,7 +10,7 @@
 (package! compile
   :ensure nil
   :general
-  (+mmap-leader-def
+  (+mmap-prog-def
     "r" 'compile))
 
 (package! function-args

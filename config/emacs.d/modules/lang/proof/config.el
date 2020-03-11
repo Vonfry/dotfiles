@@ -2,11 +2,11 @@
 ;;
 
 ;; +mmap-mode-proof-def
-(vonfry-def-mmap-mode-prefix proof nil
+(mmap-mode-prefix! proof nil
   :keymaps 'coq-mode-map)
 
 ;; +mmap-proof-def
-(vonfry-def-mmap-leader-prefix proof nil
+(mmap-leader-prefix! proof nil
   :keymaps 'coq-mode-map)
 
 (defcustom +proof-use-special-font nil

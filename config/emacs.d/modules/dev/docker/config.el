@@ -2,4 +2,4 @@
 ;;
 
 ;; +mmap-docker-def
-(vonfry-def-mmap-leader-prefix docker "v")
+(mmap-leader-prefix! docker "v")

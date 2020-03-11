@@ -2,5 +2,5 @@
 ;;
 
 ;; +mmap-dumb-def
-(vonfry-def-mmap-leader-prefix dumb nil
+(mmap-leader-prefix! dumb nil
   :keymaps 'prog-mode-map)

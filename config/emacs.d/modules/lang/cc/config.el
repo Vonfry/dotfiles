@@ -2,11 +2,11 @@
 ;;
 
 ;; +mmap-mode-cc-def
-(vonfry-def-mmap-mode-prefix cc nil
+(mmap-mode-prefix! cc nil
   :keymaps '(c-mode-map c++-mode-map objc-mode-map))
 
 ;; +mmap-cc-def
-(vonfry-def-mmap-leader-prefix cc nil
+(mmap-leader-prefix! cc nil
   :keymaps '(c-mode-map c++-mode-map objc-mode-map))
 
 (fun! +cc/lldb ()

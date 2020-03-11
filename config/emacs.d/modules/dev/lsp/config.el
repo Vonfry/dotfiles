@@ -2,9 +2,14 @@
 ;;
 
 ;; +mmap-lsp-def
-(vonfry-def-mmap-leader-prefix lsp nil
+(mmap-leader-prefix! lsp nil
   :keymaps 'lsp-mode-map)
 
-;; +mmap-lsp-prefix-def
-(vonfry-def-mmap-leader-prefix lsp-prefix "*"
-  :keymaps 'lsp-mode-map)
+;; +mmap-code-def
+(mmap-leader-prefix! code ";"
+  :keymaps 'prog-mode-map)
+(map-which-key! +mmap-code-def "code")
+
+;; +mmap-prog-def
+(mmap-leader-prefix! prog nil
+  :keymaps 'prog-mode-map)

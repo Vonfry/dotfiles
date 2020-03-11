@@ -2,5 +2,5 @@
 ;;
 
 ;; +mmap-nc-def
-(vonfry-def-mmap-leader-prefix nc "c"
+(mmap-leader-prefix! nc "c"
   :keymaps 'prog-mode-map)

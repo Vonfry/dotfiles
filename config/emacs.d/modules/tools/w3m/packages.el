@@ -8,7 +8,6 @@
   (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
   :general
   (+mmap-at-def
-    ""    '(nil :which-key "web/..")
     "w"   '(nil :which-key "browse")
     "."   'browse-url-at-point
     "w w" 'w3m

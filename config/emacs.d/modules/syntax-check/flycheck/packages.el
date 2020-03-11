@@ -6,7 +6,6 @@
   :custom
   (flycheck-global-modes nil)
   :general
-  (+mmap-leader-def
-    :keymaps 'prog-mode-map
+  (+mmap-prog-def
     "q" 'flycheck-list-errors))
 

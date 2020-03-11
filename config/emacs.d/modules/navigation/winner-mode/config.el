@@ -2,4 +2,4 @@
 ;;
 
 ;; +mmap-winner-def
-(vonfry-def-mmap-leader-prefix winner "W")
+(mmap-leader-prefix! winner "W")

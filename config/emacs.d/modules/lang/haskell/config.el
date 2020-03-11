@@ -2,9 +2,9 @@
 ;;
 
 ;; +mmap-mode-haskell-def
-(vonfry-def-mmap-mode-prefix haskell nil
+(mmap-mode-prefix! haskell nil
   :keymaps 'haskell-mode-map)
 
 ;; +mmap-haskell-def
-(vonfry-def-mmap-leader-prefix haskell nil
+(mmap-leader-prefix! haskell nil
   :keymaps 'haskell-mode-map)

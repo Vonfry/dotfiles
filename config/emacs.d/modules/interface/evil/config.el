@@ -2,4 +2,5 @@
 ;;
 
 ;; +mmap-at-def
-(vonfry-def-mmap-leader-prefix at "@")
+(mmap-leader-prefix! at "@")
+(map-which-key! +mmap-at-def "web/..")

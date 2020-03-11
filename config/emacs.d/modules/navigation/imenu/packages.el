@@ -4,14 +4,13 @@
 (package! imenu
   :ensure nil
   :general
-  (+mmap-leader-def
-    "i"   'imenu
-    "; i" 'imenu))
+  (+mmap-prog-def
+    "i" 'imenu))
 
 (package! imenu-list
   :custom
   (imenu-list-focus-after-activation t)
   (imenu-list-auto-resize t)
   :general
-  (+mmap-imenu-def
+  (+mmap-prog-def
     "t" 'imenu-list-smart-toggle))

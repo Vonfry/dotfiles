@@ -2,4 +2,6 @@
 ;;
 
 ;; +mmap-todo-def
-(vonfry-def-mmap-leader-prefix todo "o")
+(mmap-leader-prefix! todo "o")
+
+(+mmap-todo-def "" '(nil :which-key "todo"))

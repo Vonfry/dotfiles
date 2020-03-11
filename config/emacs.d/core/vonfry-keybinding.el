@@ -25,26 +25,26 @@
 (defconst +mmap-mode "z"
   "mode special configure")
 
-(defmacro vonfry-def-map-prefix (states name keys &rest args)
+(defmacro map-prefix! (states name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
   (let ((name-with (intern (format "%s-def" (symbol-name name)))))
     `(general-create-definer ,name-with :prefix ,(eval keys) :states ,states ,@args)))
 
-(defmacro vonfry-def-mmap-prefix (name keys &rest args)
+(defmacro mmap-prefix! (name keys &rest args)
   "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
   (let ((name-with (intern (format "+mmap-%s" (symbol-name name)))))
-    `(vonfry-def-map-prefix '(normal visual) ,name-with ,(eval keys) ,@args)))
+    `(map-prefix! '(normal visual) ,name-with ,(eval keys) ,@args)))
 
-(defmacro vonfry-def-mmap-leader-prefix (name keys &rest args)
+(defmacro mmap-leader-prefix! (name keys &rest args)
   "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
   (let ((key-with (concat +mmap-leader " " (eval keys))))
-    `(vonfry-def-mmap-prefix ,name ,key-with ,@args)))
+    `(mmap-prefix! ,name ,key-with ,@args)))
 
-(defmacro vonfry-def-mmap-mode-prefix (name keys &rest args)
+(defmacro mmap-mode-prefix! (name keys &rest args)
   "Define a key definer with leader mode prefix.\nPass `nil' to second argument to generate for mode prefix."
   (let ((name-with (intern (format "mode-%s" (symbol-name name))))
         (key-with (concat +mmap-mode " " keys)))
-    `(vonfry-def-mmap-leader-prefix ,name-with ,key-with ,@args)))
+    `(mmap-leader-prefix! ,name-with ,key-with ,@args)))
 
 (package! general
   :custom
@@ -53,6 +53,9 @@
   :config
   (general-evil-setup t t)
   ;; +mmap-leader-def
-  (vonfry-def-mmap-prefix leader +mmap-leader))
+  (mmap-prefix! leader +mmap-leader))
+
+(defmacro map-which-key! (definer desc)
+  `(,definer "" '(nil :which-key ,desc)))
 
 (provide 'vonfry-keybinding)

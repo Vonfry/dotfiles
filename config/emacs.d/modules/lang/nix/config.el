@@ -2,9 +2,9 @@
 ;;
 
 ;; +mmap-mode-nix-def
-(vonfry-def-mmap-mode-prefix nix nil
+(mmap-mode-prefix! nix nil
   :keymaps 'nix-mode-map)
 
 ;; +mmap-nix-def
-(vonfry-def-mmap-leader-prefix nix nil
+(mmap-leader-prefix! nix nil
   :keymaps 'nix-mode-map)
