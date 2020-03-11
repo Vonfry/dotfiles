@@ -8,7 +8,7 @@ import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Layout.ShowWName
-import XMonad.Layout.Grid
+import XMonad.Layout.GridVariants
 import XMonad.Layout.Column
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
@@ -93,6 +93,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_semicolon), runSelectedAction myGSConfS
         [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
         , ("Tiled"   , sendMessage $ JumpToLayout "Tiled"   )
+        , ("GridL"   , sendMessage $ JumpToLayout "GridL"   )
         , ("Column"  , sendMessage $ JumpToLayout "Column"  )
         , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
         , ("Full"    , sendMessage $ JumpToLayout "Full"    )
@@ -119,7 +120,8 @@ myLayout = beforeLayouts layouts
                 , decoHeight          = 20
                 })
         ||| renamed [ Replace "Tiled"     ] tiled
-        ||| renamed [ Replace "Grid"      ] Grid
+        ||| renamed [ Replace "GridL"     ] (SplitGrid L 2 3 (2/3) (16/10) (1/100))
+        ||| renamed [ Replace "Grid"      ] (Grid (16/10))
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
