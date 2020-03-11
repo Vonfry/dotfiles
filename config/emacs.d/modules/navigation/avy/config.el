@@ -2,4 +2,4 @@
 ;;
 
 ;; +mmap-avy-def
-(vonfry-def-mmap-leader-prefix avy "g")
+(vonfry-def-mmap-leader-prefix avy "G")

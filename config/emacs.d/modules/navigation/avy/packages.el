@@ -3,9 +3,10 @@
 
 (package! avy
   :general
+  (+mmap-leader-def "g" 'avy-goto-char)
   (+mmap-avy-def
     "" '(nil :which-key "avy")
-    "t" 'avy-goto-char
+    "." 'avy-goto-char
     "f" 'avy-goto-char-2
     "g" 'avy-goto-char-timer
     "b" 'avy-goto-word-0
