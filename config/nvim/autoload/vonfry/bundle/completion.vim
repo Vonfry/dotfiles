@@ -16,8 +16,8 @@ endfunction
 
 function! vonfry#bundle#completion#config()
     let g:deoplete#enable_at_startup = 1
-    
-    ' TODO use nvim lsp, and config the server
+
+    " TODO use nvim lsp, and config the server
 
     let g:UltiSnipsExpandTrigger="<tab>"
     let g:UltiSnipsJumpForwardTrigger="<c-b>"
