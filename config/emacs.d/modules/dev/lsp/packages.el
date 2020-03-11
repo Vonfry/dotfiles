@@ -5,7 +5,7 @@
   :hook (prog-mode . lsp)
   :custom
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
-  (lsp-prefer-flymake nil)
+  (lsp-diagnostic-package :flycheck)
   :general
   (+mmap-lsp-prefix-def
     ""    '(nil :which-key "lsp")
