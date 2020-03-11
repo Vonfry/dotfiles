@@ -7,7 +7,6 @@ import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
-import XMonad.Prompt.Man
 import XMonad.Layout.ShowWName
 import XMonad.Layout.Grid
 import XMonad.Layout.Column
