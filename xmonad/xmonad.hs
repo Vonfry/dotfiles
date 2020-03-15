@@ -13,6 +13,7 @@ import XMonad.Layout.Column
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
+import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Util.Paste
@@ -94,9 +95,11 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         [ ("Tab"     , sendMessage $ JumpToLayout "Tab"     )
         , ("Tiled"   , sendMessage $ JumpToLayout "Tiled"   )
         , ("GridL"   , sendMessage $ JumpToLayout "GridL"   )
+        , ("DrapV"   , sendMessage $ JumpToLayout "DrapV"   )
         , ("Column"  , sendMessage $ JumpToLayout "Column"  )
         , ("Grid"    , sendMessage $ JumpToLayout "Grid"    )
         , ("Full"    , sendMessage $ JumpToLayout "Full"    )
+        , ("DrapH"   , sendMessage $ JumpToLayout "DrapH"   )
         , ("MTiled"  , sendMessage $ JumpToLayout "MTiled"  )
         , ("MColumn" , sendMessage $ JumpToLayout "MColumn" )
         ]
@@ -121,7 +124,9 @@ myLayout = beforeLayouts layouts
                 })
         ||| renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "GridL"     ] (SplitGrid L 2 3 (2/3) (16/10) (1/100))
+        ||| rename  [ Replace "DragV"     ] (dragPane Vectial -2.1 0.5 )
         ||| renamed [ Replace "Grid"      ] (Grid (16/10))
+        ||| rename  [ Replace "DragH"     ] (dragPane Horizontal 0.1 0.5 )
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
