@@ -12,4 +12,6 @@ with pkgs; [
   qbittorrent
   zathura
   unstable.tor-browser-bundle-bin
+  zerotierone
+  nomachine-client
 ]
