@@ -6,6 +6,7 @@
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
+    - [ ] qt5ct and gtk theme for dark
 ** macOS
 
 * Editor
