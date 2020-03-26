@@ -17,6 +17,7 @@ import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Util.Paste
+import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
 import System.IO
@@ -46,12 +47,14 @@ myGSConfS = def
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm, xK_comma), runSelectedAction myGSConfS
-        [ ("zeal"       , spawn "zeal"               )
-        , ("browser"    , spawn myBrowser            )
-        , ("libreoffice", spawn "libreoffice"        )
-        , ("virtualbox" , spawn "VirtualBox"         )
-        , ("viewer"     , spawn "zathura"            )
-        , ("telegram"   , spawn "telegram-desktop"   )
+        [ ("zeal"       , spawn "zeal"                  )
+        , ("browser"    , spawn myBrowser               )
+        , ("voice"      , spawn "alacritty -e alsamixer")
+        , ("libreoffice", spawn "libreoffice"           )
+        , ("virtualbox" , spawn "VirtualBox"            )
+        , ("viewer"     , spawn "zathura"               )
+        , ("telegram"   , spawn "telegram-desktop"      )
+        , ("video"      , spawn "vlc"                   )
         ]
       )
     , ((modm, xK_dollar), runSelectedAction myGSConfS
