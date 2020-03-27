@@ -6,7 +6,7 @@
 \documentclass[twocolumn]{${0:article}}
 \usepackage{fontspec,xltxtra,xunicode,hyperref}
 \usepackage[nofonts]{ctex}
-\usepackage{biblatex}
+\usepackage[sorting=none]{biblatex}
 \addbibresource{${8:refs/refs.bib}}
 
 \usepackage[fleqn]{amsmath}
