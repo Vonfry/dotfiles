@@ -15,9 +15,6 @@
                      (bookmarks . 5)
                      (projects  . 5)
                      (recents   . 5)))
-  ; TODO remove these when dashboard use defcustom instead of defvar
-  (dashboard-navigator-buttons +dashboard-navigator-buttons)
-  (dashboard-startup-banner +dashboard-banner)
   (dashboard-footer
    (replace-regexp-in-string
      " +"

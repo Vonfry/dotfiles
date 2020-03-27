@@ -56,6 +56,10 @@
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
 
+  recentf-mode 1
+  recentf-max-menu-items 10
+  recentf-max-saved-items 1000
+
   mouse-yank-at-point t
   delete-selection-mode t
 
