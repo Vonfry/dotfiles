@@ -30,4 +30,4 @@
   (dashboard-setup-startup-hook)
   :general
   (+mmap-leader-def
-    "X" '+dashboard-goto))
+    "SPC" '+dashboard-goto))
