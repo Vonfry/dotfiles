@@ -78,7 +78,6 @@ brew cask install iina # video
 brew cask install qbittorrent
 brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
-brew cask install mark-text
 brew cask install amethyst
 brew cask install mactex
 
