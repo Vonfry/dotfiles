@@ -1,8 +1,8 @@
 import XMonad hiding ((|||))
--- import XMonad.Actions.Submap
 import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
 import XMonad.Actions.GridSelect
+import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -85,6 +85,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_Right ), shiftNextScreen )
     , ((modm .|. shiftMask, xK_Left  ), shiftPrevScreen )
     , ((modm .|. shiftMask, xK_period), toggleWS        )
+
+    , ((modm, xK_p), changeDir myXPConf)
 
     , ((modm, xK_g), goToSelected myGSConf)
     , ((modm, xK_b), bringSelected myGSConf)
