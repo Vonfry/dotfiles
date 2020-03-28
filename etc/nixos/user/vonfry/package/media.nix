@@ -4,7 +4,7 @@ with pkgs; [
   handbrake
   graphviz
   gnuplot
-  chromium
+  firefox
   feh
   libsForQt5.vlc
   inkscape

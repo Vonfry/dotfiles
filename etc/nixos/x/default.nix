@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-  programs.chromium.enable = true;
   environment.systemPackages = with pkgs; [
     xclip
     alacritty

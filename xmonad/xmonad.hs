@@ -27,7 +27,7 @@ myFontCJK = "xft:Source Han Sans CN:size=11"
 myFontCJKSmall = "xft:Source Han Sans CN:size=9"
 myModMask = mod4Mask
 myTerm = "alacritty"
-myBrowser = "chromium"
+myCLI args = myTerm ++ " -e " ++ args
 
 myXPConf = def
     { font = myFont
@@ -48,8 +48,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm, xK_x), shellPrompt  myXPConf)
     , ((modm, xK_comma), runSelectedAction myGSConfS
         [ ("zeal"       , spawn "zeal"                  )
-        , ("browser"    , spawn myBrowser               )
-        , ("voice"      , spawn "alacritty -e alsamixer")
+        , ("browser"    , spawn "firefox"               )
+        , ("voice"      , spawn $ myCLI "alsamixer"     )
         , ("libreoffice", spawn "libreoffice"           )
         , ("virtualbox" , spawn "VirtualBox"            )
         , ("viewer"     , spawn "zathura"               )
@@ -67,7 +67,7 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm, xK_apostrophe), xmonadPrompt myXPConf      )
     , ((modm, xK_slash     ), promptSearch myXPConf multi)
 
-    , ((modm              , xK_i), spawn "alacritty -e ranger")
+    , ((modm              , xK_i), spawn $ myCLI "ranger")
     , ((modm .|. shiftMask, xK_i), spawn "emacs"              )
 
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )

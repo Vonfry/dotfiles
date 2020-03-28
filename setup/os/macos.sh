@@ -80,6 +80,7 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install amethyst
 brew cask install mactex
+brew cask install firefox
 
 # font
 brew cask install font-hack
