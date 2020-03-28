@@ -7,6 +7,7 @@
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
     - [ ] qt5ct and gtk theme for dark(or systemsettings or something like qt-config), see [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
+    - [ ] sddm theme by environments.extraSetup
 ** macOS
 
 * Editor
