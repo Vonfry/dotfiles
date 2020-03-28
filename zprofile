@@ -1,9 +1,9 @@
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
-elif command -v chromium &> /dev/null; then
-    export BROWSER=chromium
 elif command -v firefox &> /dev/null; then
     export BROWSER=firefox
+elif command -v chromium &> /dev/null; then
+    export BROWSER=chromium
 fi
 
 export EDITOR='nvim'

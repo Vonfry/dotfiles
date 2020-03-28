@@ -5,6 +5,7 @@ with pkgs; [
   graphviz
   gnuplot
   firefox
+  chromium
   feh
   libsForQt5.vlc
   inkscape
