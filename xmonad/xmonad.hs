@@ -51,11 +51,11 @@ myGSConfS = def
     }
 
 myApps =
-    [ ("zeal"      , "zeal"                  )
+    [ ("doc"       , "zeal"                  )
     , ("browser"   , "firefox"               )
     , ("voice"     , myCLI "alsamixer"       )
-    , ("document"  , "libreoffice"           )
-    , ("virtualbox", "VirtualBox"            )
+    , ("office"    , "libreoffice"           )
+    , ("vm"        , "VirtualBox"            )
     , ("viewer"    , "zathura"               )
     , ("telegram"  , "telegram-desktop"      )
     , ("video"     , "vlc"                   )
