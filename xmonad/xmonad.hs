@@ -72,11 +72,13 @@ instance XPrompt MyApps where
 
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm              , xK_x    ), shellPrompt myXPConf)
+    , ((modm .|. shiftMask, xK_x    ), xmonadPrompt myXPConf)
+    , ((modm              , xK_slash), promptSearch myXPConf multi)
     , ((modm              , xK_comma), runSelectedAction myGSConfS $ fmap (\(name, cmd) -> (name, spawn cmd)) myApps)
     , ((modm .|. shiftMask, xK_comma), mkXPrompt MyApps myXPConf
                                                         (mkComplFunFromList $ fst $ unzip myApps)
                                                         ((\case Just cmd -> spawn cmd
-                                                                Nothing  -> return ()) . flip lookup $ myApps )) -- TODO test
+                                                                Nothing  -> return ()) . flip lookup $ myApps)) -- TODO test
     , ((modm, xK_dollar), runSelectedAction myGSConfS
         [ ("poweroff"    , spawn "poweroff"         )
         , ("suspend"     , spawn "systemctl suspend")
@@ -84,69 +86,86 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
         , ("halt"        , spawn "halt"             )
         ]
       )
-    , ((modm .|. shiftMask, xK_x), xmonadPrompt myXPConf)
-    , ((modm, xK_slash), promptSearch myXPConf multi)
 
-    -- file and editor
-    , ((modm              , xK_f), spawn $ myCLI "ranger")
-    , ((modm .|. shiftMask, xK_f), spawn "emacs"         )
-
-    , ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- %! Launch terminal
-    , ((modm .|. shiftMask, xK_c     ), kill) -- %! Close the focused window
-
-    , ((modm,               xK_space ), sendMessage NextLayout) -- %! Rotate through the available layout algorithms
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf) -- %!  Reset the layouts on the current workspace to default
-
-    , ((modm,               xK_n     ), refresh) -- %! Resize viewed windows to the correct size
+    -- basic window
+    , ((modm              , xK_apostrophe), spawn $ myCLI "ranger")
+    , ((modm .|. shiftMask, xK_apostrophe), spawn "emacs"         )
+    , ((modm .|. shiftMask, xK_Return    ), spawn $ XMonad.terminal conf)
+    , ((modm .|. shiftMask, xK_c         ), kill)
+    , ((modm .|. shiftMask, xK_space     ), setLayout $ XMonad.layoutHook conf)
+    , ((modm              , xK_n         ), refresh)
 
     -- move focus up or down the window stack
-    , ((modm,               xK_Tab   ), windows W.focusDown) -- %! Move focus to the next window
-    , ((modm .|. shiftMask, xK_Tab   ), windows W.focusUp  ) -- %! Move focus to the previous window
-    , ((modm,               xK_j     ), windows W.focusDown) -- %! Move focus to the next window
-    , ((modm,               xK_k     ), windows W.focusUp  ) -- %! Move focus to the previous window
-    , ((modm,               xK_m     ), windows W.focusMaster  ) -- %! Move focus to the master window
-
-    -- modifying the window order
-    , ((modm,               xK_Return), windows W.swapMaster) -- %! Swap the focused window and the master window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  ) -- %! Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    ) -- %! Swap the focused window with the previous window
+    , ((modm              , xK_Tab   ), windows W.focusDown  )
+    , ((modm .|. shiftMask, xK_Tab   ), windows W.focusUp    )
+    , ((modm              , xK_m     ), windows W.focusMaster)
+    , ((modm              , xK_Return), windows W.swapMaster )
 
     -- resizing the master/slave ratio
-    , ((modm,               xK_h     ), sendMessage Shrink) -- %! Shrink the master area
-    , ((modm,               xK_l     ), sendMessage Expand) -- %! Expand the master area
+    , ((modm, xK_bracketleft ), sendMessage Shrink)
+    , ((modm, xK_bracketright), sendMessage Expand)
 
     -- floating layer support
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink) -- %! Push window back into tiling
+    , ((modm              , xK_t), withFocused $ windows . W.sink)
+    , ((modm .|. shiftMask, xK_t), withFocused float)
 
     -- increase or decrease number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1)) -- %! Increment the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
+    , ((modm, xK_parenleft ), sendMessage (IncMasterN 1))
+    , ((modm, xK_parenright), sendMessage (IncMasterN (
 
     -- quit, or restart
-    , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess)) -- %! Quit xmonad
-    , ((modm              , xK_q     ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
+    , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
+    , ((modm              , xK_q), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
-    , ((modm .|. shiftMask, xK_slash ), helpCommand) -- %! Run xmessage with a summary of the default keybindings (useful for beginners)
-    -- repeat the binding for non-American layout keyboards
-    , ((modm              , xK_question), spawn ("echo " ++ show help ++ " | xmessage -file -"))
+    -- help
+    , ((modm .|. shiftMask, xK_slash), helpCommand)
 
+    -- screenshot
     , ((modm                , xK_Print), spawn "flameshot gui    -p ~/screenshot/" )
     , ((modm .|. controlMask, xK_Print), spawn "flameshot screen -p  ~/screenshot/")
     , ((modm .|. shiftMask  , xK_Print), spawn "flameshot full   -p ~/screenshot"  )
 
-    , ((modm .|. shiftMask, xK_t), withFocused float)
+    -- Switch between layers
+    , ((modm                , xK_space), switchLayer)
+
+    -- Directional navigation of windows
+    , ((modm                , xK_l    ), windowGo R False)
+    , ((modm                , xK_h    ), windowGo L False)
+    , ((modm                , xK_j    ), windowGo U False)
+    , ((modm                , xK_k    ), windowGo D False)
+
+    -- Swap adjacent windows
+    , ((modm .|. shiftMask  , xK_l    ), windowSwap R False)
+    , ((modm .|. shiftMask  , xK_h    ), windowSwap L False)
+    , ((modm .|. shiftMask  , xK_j    ), windowSwap U False)
+    , ((modm .|. shiftMask  , xK_k    ), windowSwap D False)
+
+    -- Directional navigation of screens
+    , ((modm                , xK_Right), screenGo R False)
+    , ((modm                , xK_Left ), screenGo L False)
+    , ((modm                , xK_Up   ), screenGo U False)
+    , ((modm                , xK_Down ), screenGo D False)
+
+    -- Swap workspaces on adjacent screens
+    , ((modm .|. shiftMask  , xK_Right), screenSwap R False)
+    , ((modm .|. shiftMask  , xK_Left ), screenSwap L False)
+    , ((modm .|. shiftMask  , xK_Up   ), screenSwap U False)
+    , ((modm .|. shiftMask  , xK_Down ), screenSwap D False)
+
+    -- Send window to adjacent screen
+    , ((modm .|. controlMask, xK_Right), windowToScreen R False)
+    , ((modm .|. controlMask, xK_Left ), windowToScreen L False)
+    , ((modm .|. controlMask, xK_Up   ), windowToScreen U False)
+    , ((modm .|. controlMask, xK_Down ), windowToScreen D False)
 
     -- cycle workspace
-    , ((modm,               xK_Down  ), nextWS          )
-    , ((modm,               xK_Up    ), prevWS          )
-    , ((modm .|. shiftMask, xK_Down  ), shiftToNext     )
-    , ((modm .|. shiftMask, xK_Up    ), shiftToPrev     )
-    , ((modm,               xK_Right ), nextScreen      )
-    , ((modm,               xK_Left  ), prevScreen      )
-    , ((modm .|. shiftMask, xK_Right ), shiftNextScreen )
-    , ((modm .|. shiftMask, xK_Left  ), shiftPrevScreen )
-    , ((modm .|. shiftMask, xK_period), toggleWS        )
-    , ((modm, xK_period), gridselectWorkspace myGSConfWs W.view)
+    , ((modm                , xK_bracerigh ), nextWS                               )
+    , ((modm                , xK_braceleft ), prevWS                               )
+    , ((modm .|. shiftMask  , xK_braceright), shiftToNext                          )
+    , ((modm .|. shiftMask  , xK_braceleft ), shiftToPrev                          )
+    , ((modm .|. shiftMask  , xK_period    ), toggleWS                             )
+    , ((modm                , xK_period    ), gridselectWorkspace myGSConfWs W.view)
+    , ((modm .|. controlMask, xK_period    ), workspacePrompt def (windows . W.shift))
 
     -- change pwd for current workspace
     , ((modm, xK_p), changeDir myXPConf)
