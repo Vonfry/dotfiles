@@ -79,13 +79,6 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
                                                         (mkComplFunFromList $ fst $ unzip myApps)
                                                         ((\case Just cmd -> spawn cmd
                                                                 Nothing  -> return ()) . flip lookup $ myApps)) -- TODO test
-    , ((modm, xK_dollar), runSelectedAction myGSConfS
-        [ ("poweroff"    , spawn "poweroff"         )
-        , ("suspend"     , spawn "systemctl suspend")
-        , ("reboot"      , spawn "reboot"           )
-        , ("halt"        , spawn "halt"             )
-        ]
-      )
 
     -- basic window
     , ((modm              , xK_apostrophe), spawn $ myCLI "ranger")
