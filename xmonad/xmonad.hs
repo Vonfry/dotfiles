@@ -1,7 +1,7 @@
 import XMonad hiding ((|||))
 import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
-import XMonad.Actions.GridSelect
+import XMonad.Actions.GridSelect -- TODO remove this if prompt work fine
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
