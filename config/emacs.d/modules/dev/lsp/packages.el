@@ -71,8 +71,9 @@
   :after treemacs lsp-mode
   :general
   (+mmap-lsp-def
-    "t"   'lsp-treemacs-symbols
-    "Q"   'lsp-treemacs-quick-fix)
+    "t" 'lsp-treemacs-symbols
+    "q" 'lsp-treemacs-errors-list
+    "Q" 'lsp-treemacs-quick-fix)
   (+mmap-lsp-ext-def
     "{" 'lsp-treemacs-call-hierarchy
     "#" 'lsp-treemacs-deps-list)
