@@ -2,5 +2,5 @@
 ;;
 
 ;; +mmap-dumb-def
-(mmap-leader-prefix! dumb nil
+(mmap-leader-prefix! dumb "j"
   :keymaps 'prog-mode-map)

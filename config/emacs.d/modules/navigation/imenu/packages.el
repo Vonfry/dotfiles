@@ -5,7 +5,7 @@
   :ensure nil
   :general
   (+mmap-prog-def
-    "i" 'imenu))
+    ";" 'imenu))
 
 (package! imenu-list
   :custom

@@ -3,7 +3,7 @@
 
 (package! avy
   :general
-  (+mmap-leader-def "g" 'avy-goto-char)
+  (+mmap-leader-def "g" 'avy-goto-char-2)
   (+mmap-avy-def
     "" '(nil :which-key "avy")
     "." 'avy-goto-char

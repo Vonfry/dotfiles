@@ -16,9 +16,12 @@
   ("C-c a" 'org-agenda)
   (+mmap-mode-org-def
     "/"  'org-sparse-tree
+    "r"  'org-occur
+    "n"  'next-error
+    "p"  'previous-error
     "\\" 'org-tags-sparse-tree
     "t"  'org-tags-view
-    "p"  'org-set-property
+    ","  'org-set-property
     "d"  'org-deadline
     "s"  'org-schedule
     "t"  'org-todo

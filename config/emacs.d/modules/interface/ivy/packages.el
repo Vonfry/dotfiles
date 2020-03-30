@@ -42,7 +42,10 @@
     "F" '(nil :which-key "counsel misc")
     "F f" 'counsel-fzf
     "F r" 'counsel-recentf
-    "m" 'counsel-mark-ring)
+    "<" 'counsel-mark-ring
+    "?" 'counsel-info-lookup-symbol
+    "y" 'counsel-yank-pop
+    "&" 'counsel-bookmark)
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
 

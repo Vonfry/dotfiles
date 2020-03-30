@@ -5,10 +5,10 @@
 (mmap-leader-prefix! lsp nil
   :keymaps 'lsp-mode-map)
 
-;; +mmap-code-def
-(mmap-leader-prefix! code ";"
-  :keymaps 'prog-mode-map)
-(map-which-key! +mmap-code-def "code")
+;; +mmap-lsp-ext-def
+(mmap-leader-prefix! lsp-ext ">"
+  :keymaps 'lsp-mode-map)
+(map-which-key! +mmap-lsp-ext-def "lsp-ext")
 
 ;; +mmap-prog-def
 (mmap-leader-prefix! prog nil
