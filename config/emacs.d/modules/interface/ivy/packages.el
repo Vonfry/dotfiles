@@ -59,5 +59,6 @@
 
 (package! all-the-icons-ivy-rich
   :after ivy-rich
+  :disabled
   :config
   (all-the-icons-ivy-rich-mode 1))
