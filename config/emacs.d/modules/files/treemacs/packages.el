@@ -9,10 +9,10 @@
   (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-cache-dir))
   :general
   (+mmap-leader-def
-    "d"   'treemacs-find-file
+    "d"   'treemacs
     "m"   'treemacs-bookmark)
   (+mmap-tree-def
-    "d" 'treemacs
+    "d" 'treemacs-find-file
     "p" 'treemacs-add-and-display-current-project))
 
 (package! treemacs-evil
