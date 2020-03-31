@@ -9,10 +9,10 @@
   :general
   (+mmap-leader-def
     "d"   'treemacs
-    "D"   '(nil :which-key "tree")
-    "D d" 'treemacs-find-file
-    "D p" 'treemacs-add-and-display-current-project
-    "m"   'treemacs-bookmark))
+    "m"   'treemacs-bookmark)
+  (+mmap-tree-def
+    "d" 'treemacs-find-file
+    "p" 'treemacs-add-and-display-current-project))
 
 (package! treemacs-evil
   :after treemacs evil)
@@ -25,3 +25,7 @@
 
 (package! treemacs-magit
   :after treemacs magit)
+
+(package! treemacs-icons-dired
+  :config
+  (treemacs-icons-dired-mode))
