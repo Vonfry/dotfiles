@@ -11,13 +11,12 @@
   :general
   (+mmap-lsp-def
     "."   'lsp-find-definition
+    "["   'lsp-find-declaration
     ","   'pop-tag-mark
     "="   'lsp-format-buffer
-    "["   'lsp-find-declaration
-    "{"   'lsp-find-references
     "#"   'lsp-organize-imports
-    "}"   'lsp-goto-implementation
     "TAB" 'completion-at-point
+    "Q"   'lsp-ui-flycheck-list
     "("   'lsp-goto-type-definition)
   (+mmap-lsp-ext-def
     "r"   'lsp-execute-code-action
@@ -34,29 +33,6 @@
   :after lsp-mode
   :ensure nil)
 
-(package! lsp-ui
-  :after lsp-mode evil
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-flycheck-enable t)
-  :general
-  (:keymaps 'lsp-ui-mode-map
-            [remap xref-find-definitions] 'lsp-ui-peek-find-definitions
-            [remap xref-find-references]  'lsp-ui-peek-find-references)
-  (+mmap-lsp-ext-def
-    ">"    '(nil :which-key "lsp-ui peek")
-    "> ."  'lsp-ui-peek-find-definitions
-    "> ;"  'lsp-ui-find-workspace-symbol
-    "> {"  'lsp-ui-peek-find-references
-    "> }"  'lsp-ui-peek-find-implementation
-    "> n"  'lsp-ui-find-next-reference
-    "> p"  'lsp-ui-find-prev-reference
-    "> t"  'lsp-ui-peek--toggle-file
-    "> q"  'lsp-ui-flycheck-list
-    "> !"  'lsp-ui-peek--abort
-    "> >"  'lsp-ui-peek--goto-xref
-    "> <"  'lsp-ui-peek--goto-xref-other-window))
-
 (package! company-lsp
   :after lsp-mode company yasnippet
   :custom
@@ -71,10 +47,12 @@
   :after treemacs lsp-mode
   :general
   (+mmap-lsp-def
-    "t" 'lsp-treemacs-symbols
-    "Q" 'lsp-treemacs-errors-list)
+    "{" 'lsp-treemacs-references
+    "}" 'lsp-treemacs-implementations
+    "T" 'lsp-treemacs-symbols
+    "q" 'lsp-treemacs-errors-list)
   (+mmap-lsp-ext-def
-    "{" 'lsp-treemacs-call-hierarchy
+    "[" 'lsp-treemacs-call-hierarchy
     "#" 'lsp-treemacs-deps-list)
   :config
   (lsp-metals-treeview-enable t)
