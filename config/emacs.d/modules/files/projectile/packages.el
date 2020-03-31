@@ -21,7 +21,7 @@
   (projectile-global-mode t))
 
 (package! counsel-projectile
-  :after projectile counsel
+  :after (projectile counsel)
   :hook (projectile-mode . counsel-projectile-mode)
   :general
   (+mmap-leader-def
@@ -39,7 +39,7 @@
     "P g" 'counsel-projectile-org-agenda))
 
 (package! org-projectile
-  :after projectile org org-agenda
+  :after (projectile org org-agenda)
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)

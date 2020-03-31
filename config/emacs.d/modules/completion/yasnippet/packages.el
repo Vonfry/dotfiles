@@ -10,7 +10,7 @@
   (package! yasnippet-snippets))
 
 (package! ivy-yasnippet
-  :after yasnippet ivy
+  :after (yasnippet ivy)
   :custom
   (ivy-yasnippet-expand-key 'smart)
   :general

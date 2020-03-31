@@ -34,7 +34,7 @@
   (org-mode . org-bullets-mode))
 
 (package! evil-org
-  :after evil org
+  :after (evil org)
   :hook
   (org-mode . evil-org-mode)
   :config

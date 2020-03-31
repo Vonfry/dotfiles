@@ -15,7 +15,7 @@
 
 
 (package! company-shell
-  :after company eshell
+  :after (company eshell)
   :config
   (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)))
 

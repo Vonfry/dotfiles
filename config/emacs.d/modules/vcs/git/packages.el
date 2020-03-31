@@ -23,6 +23,6 @@
   :hook
   (magit-mode . turn-on-magit-gitflow))
 
-(package! evil-magit :after magit evil)
+(package! evil-magit :after (magit evil))
 
 (package! gitlab-ci-mode)

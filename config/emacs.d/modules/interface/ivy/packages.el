@@ -56,3 +56,8 @@
 
 (package! counsel-tramp
   :after counsel)
+
+(package! all-the-icons-ivy-rich
+  :after ivy-rich
+  :config
+  (all-the-icons-ivy-rich-mode 1))

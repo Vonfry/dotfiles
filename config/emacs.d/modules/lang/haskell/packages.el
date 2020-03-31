@@ -59,7 +59,7 @@
   (haskell-process-log t))
 
 (package! lsp-haskell
-  :after haskell lsp-mode)
+  :after (haskell lsp-mode))
 
 (package! hasky-extensions
   :general

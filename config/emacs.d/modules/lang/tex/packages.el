@@ -124,7 +124,7 @@
     "[" 'ivy-bibtex))
 
 (package! company-auctex
-  :after company latex yasnippet
+  :after (company latex yasnippet)
   :hook
   (TeX-mode . company-auctex-init))
 

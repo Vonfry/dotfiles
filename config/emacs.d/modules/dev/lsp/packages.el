@@ -1,7 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (package! lsp-mode
-  :after yasnippet projectile
+  :after (yasnippet projectile)
   :hook ((prog-mode . lsp)
          (lsp-mode  . lsp-enable-which-key-integration))
   :custom
@@ -25,8 +25,9 @@
     "D"   'lsp-describe-session
     "h"   'lsp-symbol-highlight
     "L"   '(nil :which-key "lens")
-    "L l" 'lsp-lens-show
-    "L L" 'lsp-lens-hide
+    "L L" 'lsp-lens-mode
+    "L s" 'lsp-lens-show
+    "L h" 'lsp-lens-hide
     "l"   'lsp-avy-lens))
 
 (package! lsp-clients
@@ -49,7 +50,7 @@
   (+mmap-lsp-def
     "{" 'lsp-treemacs-references
     "}" 'lsp-treemacs-implementations
-    "T" 'lsp-treemacs-symbols
+    "t" 'lsp-treemacs-symbols
     "q" 'lsp-treemacs-errors-list)
   (+mmap-lsp-ext-def
     "[" 'lsp-treemacs-call-hierarchy
