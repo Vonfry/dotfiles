@@ -14,6 +14,7 @@
   :config
   (ivy-mode 1)
   :custom
+  (ivy-initial-inputs-alist nil)
   (ivy-use-virtual-buffers t)
   :general
   (+mmap-leader-def
@@ -59,6 +60,5 @@
 
 (package! all-the-icons-ivy-rich
   :after ivy-rich
-  :disabled
   :config
   (all-the-icons-ivy-rich-mode 1))
