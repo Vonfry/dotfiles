@@ -108,7 +108,7 @@ correct width of the symbols instead of the width measured by `char-width'."
              (>= ac (car +pretty-code-ligatures-range)))
       (progn
         (while (> len 1)
-          (setq acc (cons #X00a0 (cons '(Br . Bl) acc)))
+          (setq acc (cons ?\s (cons '(Br . Bl) acc)))
           (setq len (1- len)))
         (cons (car ligature-alist) acc))
       ligature-alist)))
