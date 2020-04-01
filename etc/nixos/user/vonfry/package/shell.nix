@@ -3,8 +3,8 @@
 with pkgs; [
   gitAndTools.gitflow tig gitAndTools.git-extras
   zsh fzf
-  direnv
-  thefuck
+  direnv thefuck
+  lorri
   ranger
   parallel
   mu isync

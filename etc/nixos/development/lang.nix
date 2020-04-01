@@ -7,4 +7,5 @@
     llvmPackages.clang llvm lldb
     ninja cmake gnumake
   ];
+  services.lorri.enable = true;
 }

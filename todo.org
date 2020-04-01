@@ -1,6 +1,6 @@
 * System
 ** TODO NixOS
-*** TODO X [2/3]
+*** TODO X [4/8]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
@@ -34,4 +34,5 @@
 * Tools
 ** Nix
 *** TODO lorri instead of nix-shell
+*** TODO home-manager instead setup script
 *** TODO niv?
