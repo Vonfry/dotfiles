@@ -14,7 +14,6 @@
   :config
   (ivy-mode 1)
   :custom
-  (ivy-initial-inputs-alist nil)
   (ivy-use-virtual-buffers t)
   :general
   (+mmap-leader-def
@@ -32,6 +31,7 @@
   (counsel-find-file-at-point t)
   :config
   (counsel-mode 1)
+  (custom-set-variables '(ivy-initial-inputs-alist nil))
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
