@@ -5,3 +5,4 @@ haskellPackages.stylish-haskell
 nox
 cabal2nix
 carnix
+lorri

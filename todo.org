@@ -33,6 +33,9 @@
 
 * Tools
 ** Nix
-*** TODO lorri instead of nix-shell
+*** DONE lorri instead of nix-shell
+    CLOSED: [2020-04-01 Wed 08:28]
 *** TODO home-manager instead setup script
+- Note taken on [2020-04-01 Wed 08:04] \\
+  nix only tools? nixos only?
 *** TODO niv?
