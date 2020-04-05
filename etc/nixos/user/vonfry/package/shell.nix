@@ -7,9 +7,6 @@ with pkgs; [
   lorri
   ranger
   parallel
-  mu isync
-  rclone
-  vdirsyncerStable khard khal
   lolcat
   fortune cmatrix figlet
   asciinema
