@@ -52,7 +52,8 @@ myGSConfS = def
 
 myApps =
     [ ("doc"       , "zeal"                  )
-    , ("browser"   , "firefox"               )
+    , ("gbrowser"  , "firefox"               )
+    , ("tbrowser"  , myCLI "w3m"             )
     , ("voice"     , myCLI "alsamixer"       )
     , ("office"    , "libreoffice"           )
     , ("vm"        , "VirtualBox"            )
