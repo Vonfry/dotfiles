@@ -19,6 +19,11 @@
     "r"  'org-occur
     "n"  'next-error
     "p"  'previous-error
+    ";"  'counsel-org-goto
+    "l"  'counsel-org-link
+    "e"  'counsel-org-entity
+    ":"  'counsel-org-tag
+    "#"  'counsel-org-file
     "\\" 'org-tags-sparse-tree
     "t"  'org-tags-view
     ","  'org-set-property
