@@ -49,6 +49,7 @@
   (+mmap-tex-def
     "?"   'TeX-doc
     "RET" 'preview-at-point
+    "r"   'compile
     "R"   'TeX-command-run-all)
   (+mmap-mode-tex-def
     "\\"  'TeX-insert-macro
