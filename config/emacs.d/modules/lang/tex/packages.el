@@ -32,9 +32,8 @@
    (TeX-mode . LaTeX-mode)
    (LaTeX-mode . LaTeX-math-mode)
    (TeX-mode . Tex-source-correlate-mode)
-   (TeX-mode . Tex-PDF-mode)
-   (TeX-mode . Tex-PDF-mode)
-   (TeX-mode . Tex-fold-mode)
+   (TeX-mode . TeX-PDF-mode)
+   (TeX-mode . TeX-fold-mode)
    (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
    (TeX-mode  .
      (lambda()
