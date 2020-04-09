@@ -2,7 +2,7 @@
 ;;
 
 (package! hl-todo
-  :hook (prog-mode . hl-todo-mode)
+  :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
   (+mmap-todo-def
     "p" 'hl-todo-previous
