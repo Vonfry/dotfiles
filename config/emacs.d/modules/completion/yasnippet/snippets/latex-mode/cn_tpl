@@ -9,7 +9,7 @@
 \usepackage[sorting=none]{biblatex}
 \addbibresource{${8:refs/refs.bib}}
 
-\usepackage[fleqn]{amsmath}
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{ulem}
