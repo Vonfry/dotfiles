@@ -10,8 +10,8 @@
 (package! compile
   :ensure nil
   :custom
-  :general
   (compilation-scroll-output t)
+  :general
   (+mmap-prog-def
     "r" 'compile))
 
