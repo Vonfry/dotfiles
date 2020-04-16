@@ -9,7 +9,9 @@
 ;; this is used in all program lang
 (package! compile
   :ensure nil
+  :custom
   :general
+  (compilation-scroll-output t)
   (+mmap-prog-def
     "r" 'compile))
 
