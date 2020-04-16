@@ -11,6 +11,7 @@
   :ensure nil
   :custom
   (compilation-scroll-output t)
+  (compilation-always-kill t)
   :general
   (+mmap-prog-def
     "r" 'compile))
