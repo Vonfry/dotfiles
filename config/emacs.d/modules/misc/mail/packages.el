@@ -9,6 +9,7 @@
   :custom
   (mail-user-agent 'mu4e-user-agent)
   (mu4e-view-show-addresses t)
+  (mu4e-view-prefer-html nil)
   (mu4e-change-filenames-when-moving t)
   (mu4e-update-interval 300)
   (mu4e-sent-folder   "/local/sent")
@@ -21,7 +22,6 @@
 			(:from           .  22)
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
-  (mu4e-view-show-adresses t)
   :hook
   (emacs-startup . (lambda () (mu4e t)))
   :config
