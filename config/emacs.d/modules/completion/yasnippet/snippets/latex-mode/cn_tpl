@@ -15,6 +15,7 @@
 \usepackage{ulem}
 
 \usepackage{tabularx}
+\usepackage{array}
 \usepackage{longtable}
 \usepackage{enumitem}
 
