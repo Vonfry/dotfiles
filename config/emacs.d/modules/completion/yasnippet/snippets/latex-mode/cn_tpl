@@ -21,6 +21,7 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{tikz}
+\usetikzlibrary {arrows.meta,autometa,positioning}
 
 
 % 英文字体，linux
