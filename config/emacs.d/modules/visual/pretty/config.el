@@ -91,7 +91,13 @@
     ("phi"           . ?φ)
     ("chi"           . ?χ)
     ("psi"           . ?ψ)
-    ("omega"         . ?ω))
+    ("omega"         . ?ω)
+    ("or"            . #Xe13c)
+    ("and"           . #Xe13b)
+    ("map"           . #Xe141)
+    ("fmap"          . #Xe141)
+    ("return"        . #Xe141)
+    ("yield"         . #Xe141))
   "a custom pretty symbol alist"
   :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
@@ -217,18 +223,12 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("/>"                . #Xe138)
     ("//"                . #Xe139)
     ("///"               . #Xe13a)
-    ("and"               . #Xe13b)
-    ("or"                . #Xe13c)
     ("_|_"               . #Xe13d)
     ("__"                . #Xe13e)
     ; Don't use #X110088 - # X110093
     ("&&"                . #Xe13f)
     ("|-"                . #Xe140)
     ("|->"               . #Xe141)
-    ("map"               . #Xe141)
-    ("fmap"              . #Xe141)
-    ("return"            . #Xe141)
-    ("yield"             . #Xe141)
     ("|}"                . #Xe142)
     ("|]"                . #Xe143)
     ("||"                . #Xe144)
@@ -309,7 +309,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
 (fun! +pretty-code-setup-h ()
   (dolist (charset (mapcar 'string-to-char (-filter 'stringp +pretty-code-symbols)))
     (set-fontset-font t charset
-                      +pretty-code-ligatures
+                      +pretty-code-ligatures-font-name
                       nil 'append)
     (set-fontset-font t charset
                       +pretty-code-symbol-font-name
