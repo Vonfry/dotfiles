@@ -91,13 +91,7 @@
     ("phi"           . ?φ)
     ("chi"           . ?χ)
     ("psi"           . ?ψ)
-    ("omega"         . ?ω)
-    ("or"            . #Xe13c)
-    ("and"           . #Xe13b)
-    ("map"           . #Xe141)
-    ("fmap"          . #Xe141)
-    ("return"        . #Xe141)
-    ("yield"         . #Xe141))
+    ("omega"         . ?ω))
   "a custom pretty symbol alist"
   :type '(repeat (alist :key-type string :value-type character))
   :group 'vonfry-modules)
@@ -107,7 +101,10 @@
   "Prepend non-breaking spaces to a ligature.
 This way `compose-region' (called by `prettify-symbols-mode') will use the
 correct width of the symbols instead of the width measured by `char-width'."
-  (let* ((len (length (car ligature-alist)))
+  (let* ((lig (car ligature-alist))
+         (orig (if (stringp lig) lig (car lig)))
+         (rep  (if (stringp lig) lig (cdr lig)))
+         (len (length rep))
          (ac  (cdr ligature-alist))
          (acc (list ac)))
     (if (and (<= ac (cdr +pretty-code-ligatures-range))
@@ -116,7 +113,7 @@ correct width of the symbols instead of the width measured by `char-width'."
         (while (> len 1)
           (setq acc (cons ?\s (cons '(Br . Bl) acc)))
           (setq len (1- len)))
-        (cons (car ligature-alist) acc))
+        (cons orig acc))
       ligature-alist)))
 
 (custom! +pretty-code-enabled-modes t
@@ -301,9 +298,18 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("~~"                . #Xe187)
     ("~~>"               . #Xe188)
     ("^="                . #Xe189)
-    ("%%"                . #Xe18a))
+    ("%%"                . #Xe18a)
+    (("and"    . "/\\")  . #Xe13b)
+    (("or"     . "\\/")  . #Xe13c)
+    (("map"    . "|->")  . #Xe141)
+    (("fmap"   . "|->")  . #Xe141)
+    (("return" . "|->")  . #Xe141)
+    (("yield"  . "|->")  . #Xe141))
   "pretty code ligatures"
-  :type '(repeat (alist :key-type string :value-type character))
+  :type '(repeat (alist :key-type (choice string
+                                          (alist :key-type string
+                                                 :value-type string))
+                        :value-type character))
   :group 'vonfry-modules)
 
 (fun! +pretty-code-setup-h ()
