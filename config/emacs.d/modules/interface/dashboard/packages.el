@@ -14,7 +14,7 @@
   (dashboard-items '((agenda    . 5)
                      (bookmarks . 5)
                      (projects  . 5)
-                     (recents   . 5)))
+                     (recents   . 10)))
   (dashboard-footer
    (replace-regexp-in-string
      " +"
