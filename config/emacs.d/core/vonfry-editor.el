@@ -37,11 +37,6 @@
   (unless (file-exists-p tmp-dir)
     (make-directory tmp-dir)))
 
-(package! whitespace-cleanup-mode
-  :hook
-  ((prog-mode . whitespace-cleanup-mode)
-   (text-mode . whitespace-cleanup-mode)))
-
 (custom-set!
   exec-path-from-shell-check-startup-files nil
   initial-frame-alist vonfry-frame
@@ -120,5 +115,33 @@
 
 (hook! text-mode vonfry/toggle-trailing-whitespace)
 (hook! prog-mode vonfry/toggle-trailing-whitespace)
+
+(package! whitespace-cleanup-mode
+  :custom
+  (whitespace-style '(face
+                      tabs
+                      spaces
+                      trailing
+                      lines
+                      space-before-tab
+                      newline
+                      indentation
+                      empty
+                      space-after-tab
+                      space-mark
+                      tab-mark
+                      newline-mark
+                      lines-tail))
+  :hook
+  ((prog-mode . whitespace-cleanup-mode)
+   (text-mode . whitespace-cleanup-mode)))
+
+(package! hl-line
+  :hook
+  (after-init . global-hl-line-mode))
+
+(use-package saveplace
+  :ensure nil
+  :hook (after-init . save-place-mode))
 
 (provide 'vonfry-editor)
