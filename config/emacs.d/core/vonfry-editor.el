@@ -47,8 +47,6 @@
   display-line-numbers t
   whitespace-style '(face
                      trailing
-                     tab
-                     tab-mark
                      lines-tail)
   global-whitespace-mode t
   case-fold-search nil
@@ -78,7 +76,6 @@
   truncate-lines nil
   truncate-partial-width-windows vonfry-text-width
   fill-column vonfry-text-width
-  show-trailing-whitespace nil
 
   save-interprogram-paste-before-kill t
 
@@ -133,6 +130,8 @@
 
 (use-package saveplace
   :ensure nil
+  :custom
+  (save-place-file (expand-file-name saveplace vonfry-cache-dir))
   :hook (after-init . save-place-mode))
 
 (fun! vonfry/local-indent (int)

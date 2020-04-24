@@ -313,7 +313,8 @@ Otherwise it builds `prettify-code-symbols-alist' according to
   :group 'vonfry-modules)
 
 (fun! +pretty-code-setup-h ()
-  (dolist (charset (mapcar 'string-to-char (-filter 'stringp +pretty-code-symbols)))
+  (dolist (charset (mapcar 'string-to-char (-filter 'stringp
+                                                    +pretty-code-symbols)))
     (set-fontset-font t charset
                       +pretty-code-ligatures-font-name
                       nil 'append)
@@ -336,8 +337,8 @@ Otherwise it builds `prettify-code-symbols-alist' according to
                                 +pretty-code-ligatures))))
 
 (fun! +pretty-code-mode-with-ligatures (mode append-to &optional remove-from)
-  "set mode with other ligatures with arguments append-to or remove-from. Both of
-them are a list which contains alist. `(list '(ligstr . charcode))'"
+  "set mode with other ligatures with arguments append-to or remove-from. Both 
+of them are a list which contains alist. `(list '(ligstr . charcode))'"
   (hook*! mode
           (lambda ()
             (setq prettify-symbols-alist
