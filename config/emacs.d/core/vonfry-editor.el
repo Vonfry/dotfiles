@@ -131,7 +131,7 @@
 (use-package saveplace
   :ensure nil
   :custom
-  (save-place-file (expand-file-name saveplace vonfry-cache-dir))
+  (save-place-file (expand-file-name "saveplace" vonfry-cache-dir))
   :hook (after-init . save-place-mode))
 
 (fun! vonfry/local-indent (int)
