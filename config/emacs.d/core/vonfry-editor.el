@@ -45,8 +45,13 @@
   buffers-menu-max-size 32
   column-number-mode t
   display-line-numbers t
-  global-whitespace-mode nil
-  case-fold-search t
+  whitespace-style '(face
+                     trailing
+                     tab
+                     tab-mark
+                     lines-tail)
+  global-whitespace-mode t
+  case-fold-search nil
   line-spacing 0
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
@@ -96,7 +101,8 @@
   abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)
   save-abbrevs 'silently
 
-  semanticdb-default-save-directory (expand-file-name "semanticdb" vonfry-cache-dir)
+  semanticdb-default-save-directory (expand-file-name "semanticdb"
+                                                      vonfry-cache-dir)
   nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir))
 
 (hook! text-mode turn-on-auto-fill)
@@ -117,21 +123,6 @@
 (hook! prog-mode vonfry/toggle-trailing-whitespace)
 
 (package! whitespace-cleanup-mode
-  :custom
-  (whitespace-style '(face
-                      tabs
-                      spaces
-                      trailing
-                      lines
-                      space-before-tab
-                      newline
-                      indentation
-                      empty
-                      space-after-tab
-                      space-mark
-                      tab-mark
-                      newline-mark
-                      lines-tail))
   :hook
   ((prog-mode . whitespace-cleanup-mode)
    (text-mode . whitespace-cleanup-mode)))
