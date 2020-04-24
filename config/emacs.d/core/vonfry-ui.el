@@ -60,9 +60,7 @@
   (add-to-list 'default-frame-alist no-border)
   (add-to-list 'initial-frame-alist no-border))
 
-(hook! term-mode-hook
-  (lambda ()
-    (setq line-spacing 0)))
+(hook! term-mode (setq line-spacing 0))
 
 (defgroup vonfry-ui nil
   "vonfry's emacs ui custom group")

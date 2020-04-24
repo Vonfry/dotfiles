@@ -144,4 +144,8 @@
   :ensure nil
   :hook (after-init . save-place-mode))
 
+(fun! vonfry/local-indent (int)
+  (interactive "Ntab-indent: ")
+  (set (make-local-variable 'tab-indent) int))
+
 (provide 'vonfry-editor)

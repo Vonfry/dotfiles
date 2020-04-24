@@ -11,3 +11,4 @@
     "' b" 'eval-buffer
     "' r" 'eval-region))
 
+(hook! elisp-mode (vonfry/local-indent 2))

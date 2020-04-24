@@ -189,8 +189,10 @@ All modules should use function and macro in this file. By default, every module
 (defalias #'const! #'defconst)
 (defalias #'macro! #'defmarco)
 
-(defmacro hook! (&rest args)
-  `(apply 'hook*! '(,@args)))
+(defmacro hook! (hook func &rest args)
+  (let ((body (cond ((listp func) `(lambda () (,@func)))
+                    (t func))))
+  `(apply 'hook*! '(,hook (,@body) ,@args))))
 
 (defun hook*! (hook &rest args)
   (apply 'add-hook
