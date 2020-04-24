@@ -3,5 +3,4 @@
 
 (package! diff-hl
   :hook
-  (((text-mode prog-mode) . turn-on-diff-hl-mode)
-  (vc-dir-mode . turn-on-diff-hl-mode)))
+  ((text-mode prog-mode) . diff-hl-flydiff-mode))
