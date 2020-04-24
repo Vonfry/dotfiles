@@ -7,6 +7,7 @@
   (fset 'evil-visual-update-x-selection 'ignore)
   (evil-set-initial-state 'process-menu-mode 'emacs)
   (evil-set-initial-state 'calendar-mode 'emacs)
+  (advice-add 'vonfry/local-indent :after (lambda (int) (setq-local evil-shift-width int)))
   :custom
   (evil-shift-width 4)
   (evil-search-module 'evil-search)

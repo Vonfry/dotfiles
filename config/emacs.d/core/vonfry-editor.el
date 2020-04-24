@@ -146,6 +146,6 @@
 
 (fun! vonfry/local-indent (int)
   (interactive "Ntab-indent: ")
-  (set (make-local-variable 'tab-indent) int))
+  (setq-local tab-width int))
 
 (provide 'vonfry-editor)
