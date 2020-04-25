@@ -301,8 +301,6 @@ Otherwise it builds `prettify-code-symbols-alist' according to
     ("%%"                . #Xe18a)
     (("and"    . "/\\")  . #Xe13b)
     (("or"     . "\\/")  . #Xe13c)
-    (("map"    . "|->")  . #Xe141)
-    (("fmap"   . "|->")  . #Xe141)
     (("return" . "|->")  . #Xe141)
     (("yield"  . "|->")  . #Xe141))
   "pretty code ligatures"
