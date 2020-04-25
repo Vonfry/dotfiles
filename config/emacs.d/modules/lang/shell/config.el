@@ -3,7 +3,7 @@
 
 (custom! +shell-terminal-command
   (vonfry-system-sets (gnu/linux "alacritty")
-                      (darwin "open /Applications/iTerm.app"))
+                      (darwin "open"))
   "The terminal command is used to open a new window in current directory for linux."
   :type 'string
   :group 'vonfry-modules)
