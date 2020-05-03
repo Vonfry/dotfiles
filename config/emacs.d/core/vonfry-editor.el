@@ -48,7 +48,7 @@
   whitespace-style '(face
                      trailing
                      lines-tail)
-  global-whitespace-mode t
+  whitespace-mode t
   case-fold-search nil
   line-spacing 0
 
