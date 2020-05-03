@@ -48,7 +48,6 @@
   whitespace-style '(face
                      trailing
                      lines-tail)
-  whitespace-mode t
   case-fold-search nil
   line-spacing 0
 
@@ -118,6 +117,9 @@
 
 (hook! text-mode vonfry/toggle-trailing-whitespace)
 (hook! prog-mode vonfry/toggle-trailing-whitespace)
+
+(hook! prog-mode whitespace-mode)
+(hook! text-mode whitespace-mode)
 
 (package! whitespace-cleanup-mode
   :hook
