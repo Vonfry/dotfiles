@@ -3,7 +3,8 @@
 let pythonEnv = python3.withPackages (p: [ p.fontforge ]);
 in stdenv.mkDerivation {
   name = "fira-code-symbols-20191205";
-  # https://gist.github.com/xieve/d5a01cc59896c3973cb16df9ba8d30d4
+  # Use https://gist.github.com/xieve/d5a01cc59896c3973cb16df9ba8d30d4 script
+  # to patch fira code with current version.
   src = ./fira_code_patch.py;
 
   nativeBuildInputs = [ fontforge pythonEnv fira-code ];
@@ -25,12 +26,9 @@ in stdenv.mkDerivation {
       FiraCode uses ligatures, which some editors don’t support.
       This addition adds them as glyphs to the private unicode use area.
       See https://github.com/tonsky/FiraCode/issues/211.
-
-      Use https://gist.github.com/xieve/d5a01cc59896c3973cb16df9ba8d30d4 script
-      to patch fira code with current version.
     '';
     license = licenses.ofl;
-    maintainers = [ maintainers.Profpatsch maintainers.vonfry ];
+    maintainers = with maintainers; [ Profpatsch vonfry ];
     homepage = "https://github.com/tonsky/FiraCode/issues/211#issuecomment-239058632";
   };
 }
