@@ -8,6 +8,7 @@ if ! [ -f /etc/NIXOS ]; then
         echo_info "*** setup cabal"
         cabal user-config init
         sed -i'.backup' "s/-- *nix: *False/nix: True/" ~/.cabal/config
+        sed -i'.backup' "s/-- *interactive: *False/  interactive: True/" ~/.cabal/config
         cabal update --verbose=1
         echo_note "---- If you want to use a mirror, please set it by yourself."
         echo_note "---- Use nix to manage haskell global packages."
