@@ -23,6 +23,7 @@ import XMonad.Util.Paste
 import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 import qualified  Data.Map as M
+import Data.Ratio
 import System.IO
 
 -- auxiliary configuration
@@ -38,6 +39,12 @@ myXPConf = def
     { font            = myFont
     , searchPredicate = fuzzyMatch
     , sorter          = fuzzySort
+    , position        = CenteredAt (4 % 10) (6 % 10)
+    , bgColor         = solarizedbase02
+    , fgColor         = solarizedBase01
+    , bgHLight        = solarizedYellow
+    , fgHLight        = solarizedBase03
+    , borderColor     = solarizedBase01
     }
 
 myGSConf = def
