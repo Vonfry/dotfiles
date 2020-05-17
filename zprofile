@@ -28,25 +28,17 @@ fi
 
 source $HOME/.config/shell/defvar.sh
 
-for f in $HOME/.config/shell/env/*.sh; do
-    if [ -f $f ]; then
-        source $f
-    fi
+for f in $SHELL_CUSTOM_DIR/env/*.sh; do
+    source $f
 done
 
-for f in $HOME/.config/shell/env/*.zsh; do
-    if [ -f $f ]; then
-        source $f
-    fi
+for f in $SHELL_CUSTOM_DIR/env/*.zsh; do
+    source $f
 done
 
-for file in $SHELL_CUSTOM_DIR/env.local/*.sh; do
-    if [ -f $f ]; then
-        source $f
-    fi
+for f in $SHELL_CUSTOM_DIR/env.local/*.sh; do
+    source $f
 done
-for file in $SHELL_CUSTOM_DIR/env.local/*.zsh; do
-    if [ -f $f ]; then
-        source $f
-    fi
+for f in $SHELL_CUSTOM_DIR/env.local/*.zsh; do
+    source $f
 done

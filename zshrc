@@ -18,24 +18,16 @@ source $SHELL_CUSTOM_DIR/os.sh
 export PATH=$HOME/.local/bin:$PATH
 
 for file in $SHELL_CUSTOM_DIR/misc/*.zsh; do
-    if [ -f $file ]; then
-        source $file
-    fi
+    source $file
 done
 for file in $SHELL_CUSTOM_DIR/misc/*.sh; do
-    if [ -f $file ]; then
-        source $file
-    fi
+    source $file
 done
 for file in $SHELL_CUSTOM_DIR/misc.local/*.zsh; do
-    if [ -f $file ]; then
-        source $file
-    fi
+    source $file
 done
 for file in $SHELL_CUSTOM_DIR/misc.local/*.sh; do
-    if [ -f $file ]; then
-        source $file
-    fi
+    source $file
 done
 
 source $SHELL_CUSTOM_DIR/update.sh
