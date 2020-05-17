@@ -121,6 +121,18 @@ is undefined(It always is loaded by alpha order)."
   (auto-compile-on-load-mode 1)
   (auto-compile-on-save-mode 1))
 
+(progn
+  ; add use-package keywords for myself.
+  (let ((idx (1+ (-elem-index :after use-package-keywords))))
+    (setq use-package-keywords
+         (-insert-at idx :exec-var use-package-keywords)))
+  (defun use-package-normalize/:exec-var (pkg keyword args)
+    args)
+  (defun use-package-handler/:exec-var (pkg keyword vars rest state)
+    (use-package-concat
+     `((exec-var! ,@vars))
+      (use-package-process-keywords pkg rest state))))
+
 (defun autoload! (func file &optional interactive docstring type)
   "autoload file with current load file dir which is called in submodules.
 Note: the &optional arguments has some different from `autoload`."
@@ -208,4 +220,10 @@ All modules should use function and macro in this file. By default, every module
 (defmacro after! (feature &rest body)
   `(with-eval-after-load ',feature ,@body))
 
+(defun exec-var! (&rest vars)
+  "add varible from user shell."
+  (setq exec-path-from-shell-variables
+        (append exec-path-from-shell-variables vars)))
+
 (provide 'vonfry-packages)
+

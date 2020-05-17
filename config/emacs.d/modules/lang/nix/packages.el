@@ -7,4 +7,5 @@
     "\"" 'nix-repl
     "r"  'nix-build)
   (+mmap-mode-nix-def
-    "u"  'nix-unpack))
+    "u"  'nix-unpack)
+  :exec-var "NIX_PATH")
