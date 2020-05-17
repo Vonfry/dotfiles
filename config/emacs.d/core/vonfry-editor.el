@@ -108,7 +108,10 @@
   :when (and (memq window-system '(mac ns x))
              (not (string-match "fish" (getenv "SHELL")))
              (not (getenv "VONFRY_SHELL")))
-  :hook (after-init . exec-path-from-shell-initialize))
+  :hook (after-init . exec-path-from-shell-initialize)
+  :config
+  ; call for PATH variable first, because some package will check it.
+  (exec-path-from-shell-initialize))
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
