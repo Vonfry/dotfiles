@@ -90,6 +90,9 @@ brew cask install font-symbola
 echo_info "*** install nix for macos"
 sh <(curl https://nixos.org/nix/install)
 
+# config
+ln -sf $script_dir/config/rime/* ~/Library/Rime
+
 echo_info "*** Here are some useful tools for mac.
 See:
 https://github.com/sindresorhus/quick-look-plugins
