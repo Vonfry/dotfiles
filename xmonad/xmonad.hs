@@ -39,7 +39,6 @@ myXPConf = def
     { font            = myFont
     , searchPredicate = fuzzyMatch
     , sorter          = fuzzySort
-    , position        = CenteredAt (4 % 10) (6 % 10)
     , bgColor         = solarizedbase02
     , fgColor         = solarizedBase01
     , bgHLight        = solarizedYellow
