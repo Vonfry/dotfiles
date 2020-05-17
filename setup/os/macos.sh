@@ -74,6 +74,7 @@ brew reinstall emacs-plus --with-dbus
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
+brew cask install squirrel
 brew cask install iina # video
 brew cask install qbittorrent
 brew cask install intel-power-gadget # cpu monitor
