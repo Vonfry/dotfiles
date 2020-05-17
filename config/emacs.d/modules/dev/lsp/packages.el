@@ -16,7 +16,6 @@
     "="   'lsp-format-buffer
     "#"   'lsp-organize-imports
     "TAB" 'completion-at-point
-    "Q"   'lsp-ui-flycheck-list
     "("   'lsp-goto-type-definition)
   (+mmap-lsp-ext-def
     "r"   'lsp-execute-code-action
