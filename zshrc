@@ -27,12 +27,12 @@ for file in $SHELL_CUSTOM_DIR/misc/*.sh; do
         source $file
     fi
 done
-for file in $SHELL_CUSTOM_DIR/local/*.zsh; do
+for file in $SHELL_CUSTOM_DIR/misc.local/*.zsh; do
     if [ -f $file ]; then
         source $file
     fi
 done
-for file in $SHELL_CUSTOM_DIR/local/*.sh; do
+for file in $SHELL_CUSTOM_DIR/misc.local/*.sh; do
     if [ -f $file ]; then
         source $file
     fi

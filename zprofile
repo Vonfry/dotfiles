@@ -27,3 +27,26 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
 fi
 
 source $HOME/.config/shell/defvar.sh
+
+for f in $HOME/.config/shell/env/*.sh; do
+    if [ -f $file ]; then
+        source $f
+    fi
+done
+
+for f in $HOME/.config/shell/env/*.zsh; do
+    if [ -f $file ]; then
+        source $f
+    fi
+done
+
+for file in $SHELL_CUSTOM_DIR/env.local/*.sh; do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
+for file in $SHELL_CUSTOM_DIR/env.local/*.zsh; do
+    if [ -f $file ]; then
+        source $file
+    fi
+done
