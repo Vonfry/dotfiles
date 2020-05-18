@@ -4,6 +4,7 @@
 (package! avy
   :general
   (+mmap-leader-def "g" 'avy-goto-char-2)
+  (+mmap-leader-def "/" 'avy-goto-char-timer)
   (+mmap-avy-def
     "" '(nil :which-key "avy")
     "." 'avy-goto-char

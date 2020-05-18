@@ -10,7 +10,7 @@
   :general
   (+mmap-leader-def
     "d"   'treemacs
-    "m"   'treemacs-bookmark)
+    "M m" 'treemacs-bookmark)
   (+mmap-tree-def
     "d" 'treemacs-find-file
     "p" 'treemacs-add-and-display-current-project))

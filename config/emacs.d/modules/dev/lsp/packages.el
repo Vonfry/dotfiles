@@ -16,13 +16,19 @@
     "="   'lsp-format-buffer
     "#"   'lsp-organize-imports
     "TAB" 'completion-at-point
-    "("   'lsp-goto-type-definition)
+    "("   'lsp-goto-type-definition
+    "?"   'lsp-describe-thing-at-point)
   (+mmap-lsp-ext-def
+    "{"   'lsp-find-references
+    "}"   'lsp-find-implementation
+    "."   'lsp-find-type-definition
+    "*"   'lsp-rename
     "r"   'lsp-execute-code-action
     "="   'lsp-format-region
-    "r"   'lsp-restart-workspace
+    "R"   'lsp-restart-workspace
     "D"   'lsp-describe-session
     "h"   'lsp-symbol-highlight
+    "?"   'lsp-document-highlight
     "L"   '(nil :which-key "lens")
     "L L" 'lsp-lens-mode
     "L s" 'lsp-lens-show
@@ -57,3 +63,12 @@
   :config
   (lsp-metals-treeview-enable t)
   (lsp-treemacs-sync-mode t))
+
+
+(package! lsp-ivy
+  :after lsp-mode
+  :general
+  (+mmap-lsp-def
+    "&" 'lsp-ivy-workspace-symbol)
+  (+mmap-lsp-ext-def
+    "&" 'lsp-ivy-global-workspace-symbol))

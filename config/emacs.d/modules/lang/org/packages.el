@@ -31,7 +31,8 @@
     "s"  'org-schedule
     "t"  'org-todo
     "$"  'org-archive-subtree-default
-    "c"  'org-ctrl-c-ctrl-c))
+    "c"  'org-ctrl-c-ctrl-c
+    "h"  'avy-org-goto-heading-timer))
 
 (package! org-bullets
   :after org

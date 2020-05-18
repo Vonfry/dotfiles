@@ -22,9 +22,9 @@
   :general
   (+mmap-mode-cc-def
     "." 'fa-jump
-    "&" 'fa-show
+    "{" 'fa-show
     "v" 'moo-propose-virtual
-    "/" 'moo-jump-local
+    "&" 'moo-jump-local
     "o" 'moo-propose-override))
 
 (package! cmake-mode

@@ -24,14 +24,15 @@
   (swiper-action-recenter t)
   :general
   (+mmap-leader-def
-    "/" 'swiper))
+    ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
+    ;the buffer is large
+    "\\" 'swiper))
 
 (package! counsel
   :custom
   (counsel-find-file-at-point t)
   :config
   (counsel-mode 1)
-  (custom-set-variables '(ivy-initial-inputs-alist nil))
   :general
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
@@ -46,7 +47,7 @@
     "<" 'counsel-mark-ring
     "?" 'counsel-info-lookup-symbol
     "y" 'counsel-yank-pop
-    "&" 'counsel-bookmark)
+    "m" 'counsel-bookmark)
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
 
@@ -57,8 +58,3 @@
 
 (package! counsel-tramp
   :after counsel)
-
-(package! all-the-icons-ivy-rich
-  :after ivy-rich
-  :config
-  (all-the-icons-ivy-rich-mode 1))
