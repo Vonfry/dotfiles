@@ -7,6 +7,12 @@ as `vonfry-custom-file-before'."
   :group 'vonfry-modules
   :type 'directory)
 
+(custom! +jekyll-html-dir (expand-file-name "myblog" temporary-file-directory)
+  "A dir to generate jekyll."
+  :group 'vonfry-modules
+  :type 'directory
+  :custom-set 'easy-jekyll-basedir)
+
 (custom! +jekyll-static-dir (expand-file-name "static" +jekyll-root)
   "A dir saves static files"
   :group 'vonfry-modules
