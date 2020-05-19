@@ -10,6 +10,3 @@ gem "pry-rails"
 gem "org-ruby"
 gem "rouge"
 gem "nokogiri"
-
-# gitlab
-gem "gitlab" # see "https://github.com/NARKOZ/gitlab"

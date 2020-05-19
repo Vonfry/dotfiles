@@ -12,6 +12,3 @@ gem "nokogiri"
 gem "org-ruby"
 gem "rouge"
 gem "neovim"
-
-# gitlab
-gem "gitlab" # see "https://github.com/NARKOZ/gitlab"
