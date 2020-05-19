@@ -15,6 +15,10 @@
 
 ;; define some variables for packages
 ;;
+;; Use `custom-set!` everywhere to config the varibles with defcustom. Only use `setq` somewhere the variables
+;; are temporary such as debug configure.
+;; Because `custom-set!` contains a lot of other behaviors such as set-after.
+;;
 
 (defun vonfry--plist-delete (plist property)
   "A copy from `org-plist-delete'."

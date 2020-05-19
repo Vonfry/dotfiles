@@ -18,9 +18,6 @@
 ;; core packages contain the main function and macros.
 ;; All plugins are in modules, load with use-package to deal with depence.
 ;;
-;; Use `custom-set!` everywhere to config the varibles with defcustom. Only use `setq` somewhere the variables
-;; are temporary such as debug configure.
-;; Because `custom-set!` contains a lot of other behaviors such as set-after.
 
 (require 'cl)
 
