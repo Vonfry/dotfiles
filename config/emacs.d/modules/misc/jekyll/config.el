@@ -2,7 +2,8 @@
 ;;
 
 (custom! +jekyll-root nil
-  "A root for jekyll project"
+  "A root for jekyll project. This variable should be set before this file, such
+as `vonfry-custom-file-before'."
   :group 'vonfry-modules
   'type 'directory)
 
