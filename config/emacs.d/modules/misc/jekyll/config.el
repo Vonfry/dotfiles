@@ -5,12 +5,12 @@
   "A root for jekyll project. This variable should be set before this file, such
 as `vonfry-custom-file-before'."
   :group 'vonfry-modules
-  'type 'directory)
+  :type 'directory)
 
 (custom! +jekyll-static-dir (expand-file-name "static" +jekyll-root)
   "A dir saves static files"
   :group 'vonfry-modules
-  'type 'directory)
+  :type 'directory)
 
 (custom! +jekyll-url "https://vonfry.name"
   "the url where jekyll is run."
