@@ -1,15 +1,14 @@
 * System
 ** TODO NixOS
-*** TODO X [4/9]
-    - [X] XMonad
-    - [X] XMonad layout prompt with newlayout
-    - [X] alacritty
-    - [X] alacritty color scheme fix
-    - [ ] use wayland instead
-    - [ ] qt5ct and gtk theme for dark(or systemsettings or something like qt-config), see [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
-    - [ ] xmonad launcher & keybind
-    - [ ] sddm theme by environments.extraSetup
-    - [ ] quetbrowser instead of firefox or others? How about plugins and syncing
+** TODO X [4/9]
+ - [X] XMonad
+ - [X] XMonad layout prompt with newlayout
+ - [X] alacritty
+ - [X] alacritty color scheme fix
+ - [ ] use wayland instead
+ - [ ] qt5ct and gtk theme for dark(or systemsettings or something like qt-config), see [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
+ - [ ] xmonad launcher & keybind
+ - [ ] sddm theme by environments.extraSetup
 ** macOS
 
 * Editor
@@ -17,11 +16,11 @@
 *** TODO NeoVim
 **** TODO ?use internal lsp
 ** TODO Emacs[/]
-    - [ ] Fira code ligatures without patch method: rev:
-    8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
+- [ ] Fira code ligatures without patch method: rev:
+8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
 *** DONE use raxod502/straight.el instead of package.el
-** DONE LSP
-
+** TODO LSP[0/1]
+- [ ] hls instead of hie?
 * Language
 ** DONE Haskell
 ** DONE CC
