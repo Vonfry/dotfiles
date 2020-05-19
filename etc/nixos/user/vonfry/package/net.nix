@@ -8,4 +8,5 @@ with pkgs; [
   firefox
   chromium
   qbittorrent
+  jekyll
 ]
