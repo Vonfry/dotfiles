@@ -24,7 +24,8 @@
 \usepackage{caption}
 \usepackage{listings}
 \lstset{
-  float,
+  float=H,
+  breaklines=true,
   basicstyle=\ttfamily,
   mathescape=true,
   numbers=left,
