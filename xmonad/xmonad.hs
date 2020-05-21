@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 import XMonad hiding ((|||))
 import XMonad.Actions.Search
 import XMonad.Actions.WindowMenu
@@ -44,6 +46,7 @@ myXPConf = def
     , bgHLight        = solarizedYellow
     , fgHLight        = solarizedBase03
     , borderColor     = solarizedBase01
+    , autoComplete    = Just $ 5 * 10 ^ 5 -- 0.5s
     }
 
 myGSConf = def
@@ -75,17 +78,18 @@ instance XPrompt MyApps where
 
 -- my configurations
 
-{-# LANGUAGE LambdaCase #-}
-
 myKeys conf@(XConfig {modMask = modm}) = M.fromList
     [ ((modm              , xK_x    ), shellPrompt myXPConf)
     , ((modm .|. shiftMask, xK_x    ), xmonadPrompt myXPConf)
     , ((modm              , xK_slash), promptSearch myXPConf multi)
-    , ((modm              , xK_comma), runSelectedAction myGSConfS $ fmap (\(name, cmd) -> (name, spawn cmd)) myApps)
-    , ((modm .|. shiftMask, xK_comma), mkXPrompt MyApps myXPConf
-                                                        (mkComplFunFromList $ fst $ unzip myApps)
-                                                        ((\case Just cmd -> spawn cmd
-                                                                Nothing  -> return ()) . flip lookup $ myApps)) -- TODO test
+    , ((modm              , xK_comma)
+      , runSelectedAction myGSConfS $
+        fmap (\(name, cmd) -> (name, spawn cmd)) myApps)
+    , ((modm .|. shiftMask, xK_comma)
+      , mkXPrompt MyApps myXPConf
+                  (mkComplFunFromList $ fst $ unzip myApps)
+                  ((\case Just cmd -> spawn cmd
+                          Nothing  -> return ()) . flip lookup $ myApps)) -- TODO test
 
     -- basic window
     , ((modm              , xK_apostrophe), spawn $ myCLI "ranger")
