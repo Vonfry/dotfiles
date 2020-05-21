@@ -251,3 +251,19 @@
   :type 'directory
   :group 'vonfry-modules
   :custom-set 'org-brains-path)
+
+(fun! +org-ref--set-dir (name val)
+  "set dir path for org-ref, and auto update some other variables"
+  (set-default name val)
+  (if val
+    (custom-set!
+        xeftex-default-bibliography (expand-file-name "refs.bib" val)
+        org-ref-notes-directory (expand-file-name "notes" val)
+        org-ref-pdf-directory (expand-file-name "pdf" val)))
+    nil)
+
+(custom! +org-ref-dir nil
+  "A dir for org-ref. e.g. global dir or a current work dir"
+  :type 'directory
+  :group 'vonfry-modules
+  :set #'+org-ref--set-dir)
