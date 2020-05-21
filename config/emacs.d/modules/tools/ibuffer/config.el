@@ -19,7 +19,9 @@
     ("Message"   (or (name . "\\*straight.*\\*")
                      (name . "\\*Messages\\*")
                      (name . "\\*direnv\\*")
-                     (mode . help-mode))))
+                     (mode . help-mode)))
+    ("Org Tool"  (or (name . "\\*Deft*\\")
+                     (name . "\\*org-roam\\*"))))
   "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'"
   :type 'sexp
   :group 'vonfry-modules)

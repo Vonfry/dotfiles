@@ -11,20 +11,19 @@
   (org-indent-mode-turns-off-org-adapt-indentation nil)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
+  (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
   (+mmap-mode-org-def
-    "/"  'org-sparse-tree
     "r"  'org-occur
     "n"  'next-error
     "p"  'previous-error
-    ";"  'counsel-org-goto
+    "g"  'counsel-org-goto
     "l"  'counsel-org-link
     "e"  'counsel-org-entity
-    ":"  'counsel-org-tag
+    "@"  'counsel-org-tag
     "#"  'counsel-org-file
-    "\\" 'org-tags-sparse-tree
     "t"  'org-tags-view
     ","  'org-set-property
     "d"  'org-deadline
@@ -52,22 +51,11 @@
   :config
   (evil-org-agenda-set-keys))
 
-(package! org-brain
-  :after org
-  :custom
-  (org-id-track-globally t)
-  (org-id-locations-file (expand-file-name "org-id-locations" vonfry-cache-dir))
-  (org-brain-visualize-default-choices 'all)
-  (org-brain-title-max-length 16)
-  :config
-  (after! evil
-    (evil-set-initial-state 'org-brain-visualize-mode 'emacs)))
-
 (package! org-agenda
   :ensure nil
   :after org
   :general
-  (+mmap-todo-def
+  (+mmap-note-def
     "a" 'org-agenda
     "A" '+org/find-agenda
     "n" '+org/find-notes
@@ -102,9 +90,53 @@
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
-  (+mmap-todo-def
+  (+mmap-note-def
     "j n" 'org-journal-new-entry
     "j j" 'org-journal-open-next-entry
     "j k" 'org-journal-open-previous-entry
     "j /" 'org-journal-search
     "j s" 'org-journal-schedule-view))
+
+(package! org-ql
+  :general
+  (+mmap-mode-org-def
+    ";" 'org-ql-search
+    "," 'org-ql-view
+    "." 'org-ql-sparse-tree))
+
+(package! deft
+  :after evil
+  :custom
+  (deft-recursive t)
+  (deft-directory +org-dir)
+  (deft-extensions '("txt" "md" "org" "tex" "rst"))
+  :config
+  (evil-set-initial-state 'deft-mode 'emacs)
+  :general
+  (+mmap-note-def
+    "/" 'deft))
+
+(package! org-roam
+  :custom
+  (org-roam-directory +org-note-dir)
+  (org-roam-db-location (expand-file-name
+                          (replace-regexp-in-string
+                            "/" "!"
+                             +org-note-dir)
+                          +org-roam-local-dir))
+  :general
+  (+mmap-note-def
+    "{ "  '(nil :which-key "org roam")
+    "{ m" 'org-roam-mode
+    "{ {" 'org-roam
+    "{ o" 'org-roam-find-file
+    "{ g" 'org-roam-graph
+    "{ b" 'org-roam-db-build-cache
+    "{ p" '+org/roam-switch
+    "{ i" 'org-roam-insert
+    "{ c" 'org-roam-capture))
+
+(package! org-roam-server
+  :general
+  (+mmap-note-def
+    "{ s" 'org-roam-server-mode))

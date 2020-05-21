@@ -337,7 +337,7 @@ Otherwise it builds `prettify-code-symbols-alist' according to
 (fun! +pretty-code-mode-with-ligatures (mode append-to &optional remove-from)
   "set mode with other ligatures with arguments append-to or remove-from. Both 
 of them are a list which contains alist. `(list '(ligstr . charcode))'"
-  (hook*! mode
+  (hook~! mode
           (lambda ()
             (setq prettify-symbols-alist
                   (append (mapcar '+pretty-code--correct-symbol-bounds

@@ -1,11 +1,23 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
+;; +mmap-note-def
+(mmap-leader-prefix! note "o")
+
+(+mmap-note-def "" '(nil :which-key "note"))
+
 (mmap-mode-prefix! org nil
   :keymaps 'org-mode-map)
 
+(custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_NOTE_DIR")))
+                    (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
+  "org dir"
+  :type 'directory
+  :group 'vonfry-modules
+  :custom-set 'org-directory)
+
 (custom! +org-journal-dir
-  (expand-file-name "diary" vonfry-org-dir)
+  (expand-file-name "diary" +org-dir)
   ""
   :type 'directory
   :group 'vonfry-modules
@@ -26,7 +38,7 @@
   :group 'vonfry-modules
   :custom-set 'org-journal-tag-alist)
 
-(custom! +org-note-dir (expand-file-name "notes" vonfry-org-dir)
+(custom! +org-note-dir (expand-file-name "notes" +org-dir)
   "org note dir."
   :type 'directory
   :group 'vonfry-modules)
@@ -56,13 +68,13 @@
   :custom-set 'org-todo-keywords)
 
 (custom! +org-capture-file
-   (expand-file-name "inbox.org" vonfry-org-dir)
+   (expand-file-name "inbox.org" +org-dir)
    ""
    :type 'file
    :group 'vonfry-modules
    :custom-set 'org-capture-file)
 
-(load (expand-file-name "agenda/tags" vonfry-org-dir) t t)
+(load (expand-file-name "agenda/tags" +org-dir) t t)
 
 (custom! +org--tags-gtd-sym "#" "org tags symbol" :type 'string :group 'vonfry-modules)
 (custom! +org--tags-cat-sym ":" "org tags symbol" :type 'string :group 'vonfry-modules)
@@ -148,12 +160,12 @@
 
 (custom! +org-tag-alist
   (+org--tag-alist-generate +org--tags-m)
-  "org tag alist. It is generated from '+org--tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under 'vonfry-org-dir'/agenda.\n\tYou can see an example in '+org--tags-m'."
+  "org tag alist. It is generated from '+org--tags-m', which struct is defined as following:\n\n\tvonfry tags\n\tIt is a list.\n\ttag := (list tag abbr)\n\tsubtag := (list tag tag ...)\n\t taglist := (list tag subtag)\n\n\n\tEach list's first element is the tag name and second is its subtag. A subtag is same as a tag list.\n\tEach tag is a list, first element is the whole name, and second is a abbr name.\n\tThe key start with '#' are the kinds used in gtd.The key start with ':' is category and start with '@' is context.\n\tCategory: number of ':' means the level of category.\n\tFiles are organized by workspace such as person and company. They will be set automatically by the filename under '+org-dir'/agenda.\n\tYou can see an example in '+org--tags-m'."
   :type 'sexp
   :group 'vonfry-modules
   :custom-set 'org-tag-alist)
 
-(let* ((org-dir-with    (lambda (d) (expand-file-name d vonfry-org-dir)))
+(let* ((org-dir-with    (lambda (d) (expand-file-name d +org-dir)))
        (file-with-org   (lambda (f) (concat f ".org")))
        (agenda-dir      (funcall org-dir-with "agenda/"))
        (agenda-dir-with (lambda (f) (expand-file-name (funcall file-with-org f) agenda-dir)))
@@ -245,9 +257,4 @@
     :group 'vonfry-modules
     :custom-set 'org-agenda-custom-commands))
 
-(custom! +org-brains-path
-  (expand-file-name "brains" vonfry-org-dir)
-  ""
-  :type 'directory
-  :group 'vonfry-modules
-  :custom-set 'org-brains-path)
+(const! +org-roam-local-dir (expand-file-name "org/roam" vonfry-local-dir))

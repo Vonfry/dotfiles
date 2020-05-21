@@ -19,3 +19,18 @@
 (fun! +org/find-notes ()
   (interactive)
   (+org--find +org-note-dir))
+
+(fun! +org/roam-switch (path)
+  "A path is a roam."
+  (interactive "Droam: ")
+  (eval `(custom-set! org-roam-directory ,path
+                      org-roam-db-location
+                      (expand-file-name
+                          (replace-regexp-in-string
+                          "/" "!"
+                          ,path)
+                          +org-roam-local-dir))))
+
+(fun! +deft/switch-dir (path)
+  (interactive "Ddeft: ")
+  (custom-set! deft-directory path))

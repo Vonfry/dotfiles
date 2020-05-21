@@ -29,12 +29,6 @@ user's downloads dir"
   :type 'directory
   :group 'vonfry-dir)
 
-(defcustom vonfry-org-dir (let ((env-orgmode-dir (getenv "ORG_NOTE_DIR")))
-                            (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
-  "User's own org files saving things like capture or agents."
-  :type 'directory
-  :group 'vonfry-dir)
-
 (defcustom vonfry-custom-file (expand-file-name "custom.el" vonfry-custom-dir)
   "custom for user's emacs"
   :type 'file
@@ -55,7 +49,7 @@ user's downloads dir"
   :type 'file
   :group 'vonfry-dir)
 
-(dolist (dir (list vonfry-cache-dir vonfry-org-dir))
+(dolist (dir (list vonfry-cache-dir))
   (unless (file-exists-p dir)
     (make-directory dir)))
 

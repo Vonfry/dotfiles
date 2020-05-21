@@ -43,9 +43,10 @@
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   ("C-c c" 'org-capture)
-  (+mmap-todo-def
-    "," 'org-projectile-project-todo-completing-read
-    "." 'org-projectile-goto-location-for-project)
+  (+mmap-note-def
+    "o"   '(nil :which-key "org projectile todo")
+    "o ," 'org-projectile-project-todo-completing-read
+    "o ." 'org-projectile-goto-location-for-project)
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config

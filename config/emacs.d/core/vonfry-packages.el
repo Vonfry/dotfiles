@@ -208,9 +208,9 @@ All modules should use function and macro in this file. By default, every module
 (defmacro hook! (hook func &rest args)
   (let ((body (cond ((listp func) `(lambda () (,@func)))
                     (t func))))
-  `(apply 'hook*! '(,hook (,@body) ,@args))))
+  `(apply 'hook~! '(,hook (,@body) ,@args))))
 
-(defun hook*! (hook &rest args)
+(defun hook~! (hook &rest args)
   (apply 'add-hook
          (intern (concat (symbol-name hook) "-hook"))
          args))
