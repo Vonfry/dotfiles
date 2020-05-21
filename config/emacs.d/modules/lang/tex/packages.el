@@ -19,9 +19,6 @@
   (TeX-auto-local "latex.out")
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-region (expand-file-name "_region_" TeX-auto-private))
-  (TeX-view-program-selection '((output-pdf (vonfry-system-sets
-                                              (gnu/linux "zathura")
-                                              (darwin    "open")))))
   ;; Synctex support
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
