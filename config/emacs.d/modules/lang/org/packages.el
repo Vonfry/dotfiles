@@ -108,10 +108,3 @@
     "j k" 'org-journal-open-previous-entry
     "j /" 'org-journal-search
     "j s" 'org-journal-schedule-view))
-
-(package! org-ref
-  :custom
-  (org-latex-pdf-process (list "latexmk -f -pdf %f"))
-  (bibtex-dialect 'biblatex)
-  (org-ref-completion-library 'org-ref-ivy-cite)
-  (org-ref-notes-function 'org-ref-notes-function-many-files))

@@ -19,7 +19,3 @@
 (fun! +org/find-notes ()
   (interactive)
   (+org--find +org-note-dir))
-
-(fun! +org/ref-switch (path)
-  (interactive "Dorg ref dir: ")
-  (custom-set! +org-ref-dir path))
