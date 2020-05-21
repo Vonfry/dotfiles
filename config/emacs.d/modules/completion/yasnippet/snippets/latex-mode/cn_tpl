@@ -53,7 +53,6 @@
 
 \usepackage[a4paper]{geometry}
 \geometry{a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm,includehead,includefoot}
-\linespread{1}
 \usepackage{microtype}
 
 % 从零开始计录章节
