@@ -22,7 +22,6 @@ $runscript $script_dir/setup/shell/zsh.sh
 $runscript $script_dir/setup/shell/fortunes.sh
 $runscript $script_dir/setup/shell/clouddisk.sh
 $runscript $script_dir/setup/shell/email.sh
-$runscript $script_dir/setup/shell/vdir.sh
 $runscript $script_dir/setup/shell/latexmk.sh
 
 unset config_defvar_file
