@@ -81,11 +81,10 @@ our system. I'm mainly using NixOS now, which isn't only a system but also a
 kind of thinking. Further more, Nix is a awesome build tools.
 
 Zoho is a interesting mail suppiler. On macOS, Fantastical is a beautiful 
-calander. On Linux, I use emacs for mail client(mu4e), isync for imap
-downloads, vdirsyncer for contcats and calendars downloads, khal for calendar 
-and khard for contacts, elfeed for scributions. I'm find a replacement for 
-vdirsyncer, org-caldav can work with caldav, but there isn't a tool to sync 
-carddav well.
+calander. On Linux, I use emacs with gnus for mail, newsreader, rss and other
+things. Using gnus to read mail is different from other tools schu as mu4e, you
+can check a description [here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader).
+EBDB is a good contacts in emacs. Calender? Just org agenda.
 
 I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is not 
 easy like evernote, but I like it. Some website use w3m with org for capturing.
