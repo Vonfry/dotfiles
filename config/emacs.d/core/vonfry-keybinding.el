@@ -22,7 +22,7 @@
     (set-default sym newvalue))
   :group 'vonfry-keybind)
 
-(defconst +mmap-mode "z"
+(defconst +mmap-mode "SPC"
   "mode special configure")
 
 (defmacro map-prefix! (states name keys &rest args)
