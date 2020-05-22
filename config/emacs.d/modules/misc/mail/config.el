@@ -7,7 +7,7 @@
   :type 'directory
   :custom-set 'mu4e-maildir)
 
-(custom! +mail-attachment-dir (expand-file-name "mu4e" vonfry-local-dir)
+(custom! +mail-attachment-dir (expand-file-name "attach" vonfry-local-dir)
   ""
   :group 'vonfry-modules
   :type 'directory
@@ -30,3 +30,8 @@
   :group 'vonfry-modules
   :type 'directory
   :custom-set 'smtpmail-queue-dir)
+
+(custom! +mail-local-file (expand-file-name "mail.el" vonfry-local-dir)
+  "A local config for mail, loads by `load'. It can be missing. "
+  :type 'file
+  :group 'vonfry-modules)

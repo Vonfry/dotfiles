@@ -6,6 +6,8 @@
   :load-path
   (lambda ()
     (vonfry-system-sets (darwin "/usr/local/share/emacs/site-lisp/mu/mu4e")))
+  :config
+  (load +mail-local-file t t)
   :custom
   (mail-user-agent 'mu4e-user-agent)
   (mu4e-view-show-addresses t)
