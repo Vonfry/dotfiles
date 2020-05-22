@@ -21,8 +21,8 @@
   :type 'directory
   :group 'vonfry-modules)
 
-(custom! +org-agenda-files (directory-files +org-agenda-dir
-                             nil "^[A-z0-9\\-_]\\.org$")
+(custom! +org-agenda-files (directory-files +org-agenda-dir t
+                                            "^[A-z0-9\\-_]+\\.org$")
   ""
   :type '(repeat file)
   :group 'vonfry-modules
