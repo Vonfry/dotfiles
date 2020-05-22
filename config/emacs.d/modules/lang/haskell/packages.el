@@ -65,3 +65,6 @@
   :general
   (+mmap-mode-haskell-def
     "{"  'hasky-extensions))
+
+(package! haskell-snippets
+  :after (haskell yasnippet))
