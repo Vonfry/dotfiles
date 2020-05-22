@@ -37,7 +37,9 @@
     "RET" 'append-to-buffer
     "e"   '(nil :which-key "emacs")
     "e s" 'server-start
-    "e #" 'server-edit))
+    "e #" 'server-edit
+    "e D" 'diff
+    "e d" 'ediff))
 
 (package! evil-numbers
   :after evil

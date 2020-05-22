@@ -30,7 +30,3 @@
                           "/" "!"
                           ,path)
                           +org-roam-local-dir))))
-
-(fun! +deft/switch-dir (path)
-  (interactive "Ddeft: ")
-  (custom-set! deft-directory path))

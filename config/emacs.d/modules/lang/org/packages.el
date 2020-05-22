@@ -104,18 +104,6 @@
     "," 'org-ql-view
     "." 'org-ql-sparse-tree))
 
-(package! deft
-  :after evil
-  :custom
-  (deft-recursive t)
-  (deft-directory +org-dir)
-  (deft-extensions '("txt" "md" "org" "tex" "rst"))
-  :config
-  (evil-set-initial-state 'deft-mode 'emacs)
-  :general
-  (+mmap-note-def
-    "/" 'deft))
-
 (package! org-roam
   :custom
   (org-roam-directory +org-note-dir)
