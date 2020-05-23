@@ -24,6 +24,9 @@
 			(:from           .  22)
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
+
+  (mu4e-view-actions (add-to-list 'mu4e-view-actions
+                      '("View in browser" . mu4e-action-view-in-browser)))
   :hook
   (emacs-startup . (lambda () (mu4e t)))
   :config
