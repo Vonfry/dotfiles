@@ -1,6 +1,12 @@
 ;;; gnus packages -*- lexical-binding: t -*-
 ;;
 
+;; gnus is a good client for nntp protocol, mail, and feed client, but I want to
+;; divide these function to different tools. And gnus read mail as news reader
+;; which is not suit for me. I want to manage my mail to move them into
+;; different folder for archive or mark as important. The same reson for
+;; feed. Another important reason is gnus' document is not good for me to
+;; check. Perhaps I will use this for mail or feed someday.
 (package! gnus
   :config
   (custom-set! gnus-startup-file
