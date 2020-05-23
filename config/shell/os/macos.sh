@@ -3,6 +3,7 @@ export fpath=(/usr/local/share/zsh-completions $fpath)
 
 function brew_opt_init()
 {
+    brew_opt_emacsmac_init
     brew_opt_emacsplus_init
     brew_opt_python_iinit
     brew_opt_llvm_init
@@ -19,7 +20,7 @@ function brew_opt_init()
 
 function brew_opt_deinit()
 {
-    brew_opt_emacsplus_deinit
+    brew_opt_emacsmac_deinit
     brew_opt_python_deinit
     brew_opt_llvm_deinit
     brew_opt_gcc_deinit
@@ -41,6 +42,16 @@ function brew_opt_emacsplus_init()
 function brew_opt_emacsplus_deinit()
 {
     _remove_from_variable PATH "/usr/local/opt/emacs-plus/bin" " "
+}
+
+function brew_opt_emacsmac_init()
+{
+    PATH="/usr/local/opt/emacs-mac/bin:$PATH"
+}
+
+function brew_opt_emacsmac_deinit()
+{
+    _remove_from_variable PATH "/usr/local/opt/emacs-mac/bin" " "
 }
 
 

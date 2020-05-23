@@ -226,8 +226,9 @@ All modules should use function and macro in this file. By default, every module
 
 (defun exec-var! (&rest vars)
   "add varible from user shell."
-  (setq exec-path-from-shell-variables
-        (append exec-path-from-shell-variables vars)))
+  (when (boundp 'exec-path-from-shell-variables)
+    (setq exec-path-from-shell-variables
+      (append exec-path-from-shell-variables vars))))
 
 (provide 'vonfry-packages)
 
