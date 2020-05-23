@@ -25,13 +25,13 @@
   :hook (projectile-mode . counsel-projectile-mode)
   :general
   (+mmap-leader-def
-    "p"   'counsel-projectile
+    "p"   'counsel-projectile-find-file
     "a"   'counsel-projectile-rg
     "P a" 'counsel-projectile-rg
     "P A" 'projectile-add-known-project
     "P p" 'counsel-projectile
     "P s" 'counsel-projectile-switch-project
-    "P f" 'counsel-projectile-find-file
+    "P f" 'counsel-projectile
     "P F" 'counsel-projectile-find-file-dwim
     "P d" 'counsel-projectile-find-dir
     "P b" 'counsel-projectile-switch-to-buffer

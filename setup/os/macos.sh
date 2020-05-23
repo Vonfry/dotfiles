@@ -64,7 +64,7 @@ brew cask install docker
 brew reinstall graphviz
 brew reinstall gnuplot
 brew reinstall asciinema httpstat
-brew cask install growlnotify
+brew reinstall terminal-notifier
 
 # editor
 brew reinstall editorconfig
