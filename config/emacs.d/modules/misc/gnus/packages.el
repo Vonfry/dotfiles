@@ -5,8 +5,12 @@
 ;; divide these function to different tools. And gnus read mail as news reader
 ;; which is not suit for me. I want to manage my mail to move them into
 ;; different folder for archive or mark as important. The same reson for
-;; feed. Another important reason is gnus' document is not good for me to
-;; check. Perhaps I will use this for mail or feed someday.
+;; feed. One of other important reasons is gnus' document is not good for me to
+;; check. Perhaps I will use this for mail or feed someday. At last, gnus is not
+;; support local db files. For example, elfeed and mu are built a db for their
+;; content to quick search, which is not supported by gnus. Of crouse, gnus can
+;; use the third part such as notmuch for searching, but if I use gnus with
+;; imap4 to get mail, it cannot work. Gnus' cache is only for articles.
 (package! gnus
   :config
   (custom-set! gnus-startup-file
