@@ -15,12 +15,15 @@
 ** DONE Vim
 *** TODO NeoVim
 **** TODO ?use internal lsp
-** TODO Emacs[/]
+** TODO Emacs[0/3]
 - [ ] Fira code ligatures without patch method: rev:
 8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
+- [ ] CHOOSE gnus mu4e elfeed newst-ticker
+- [ ] Fira code v4
 *** DONE use raxod502/straight.el instead of package.el
-** TODO LSP[0/1]
+** TODO LSP[0/2]
 - [ ] hls instead of hie?
+
 * Language
 ** DONE Haskell
 ** DONE CC
