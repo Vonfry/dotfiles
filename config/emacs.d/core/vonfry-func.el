@@ -5,7 +5,7 @@
 (autoload! 'vonfry/insert-current-date "date" t)
 (autoload! 'vonfry/compile-init-files "compile" t)
 
-(alias #'plist-delete #'vonfry--plist-delete)
+(alias! #'plist-delete #'vonfry--plist-delete)
 
 (fun! vonfry-read-passwd (name)
   "read passwd from a gpg file."

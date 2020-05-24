@@ -8,8 +8,11 @@
 
 (fun! +bib/switch-dir-from-search-dir ()
   "switch bib from search dir for notes and others"
+  (interactive)
   (if (fboundp 'ivy-read)
      (let ((path (ivy-read "bib serch dir: " +bib-search-dir
                            :require-match t)))
        (eval `(custom-set! +bib-dir ,path)))
-    (message "Not support")))
+     (let ((path (read-from-minibuffer "bib search dir: " nil nil nil
+                                      +bib-search-dir)))
+       (eval `(custom-set! +bib-dir ,path)))))

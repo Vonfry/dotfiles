@@ -12,13 +12,11 @@
 ;; use the third part such as notmuch for searching, but if I use gnus with
 ;; imap4 to get mail, it cannot work. Gnus' cache is only for articles.
 (package! gnus
-  :config
-  (custom-set! gnus-startup-file
-                 (expand-file-name "newsrc" vonfry-local-dir)
-               gnus-init-file +gnus-local-file)
   :hook
   (gnus-group-mode . gnus-topic-mode)
   :custom
+  (gnus-startup-file (expand-file-name "newsrc" vonfry-local-dir))
+  (gnus-init-file +gnus-local-file)
   (nnrss-directory (expand-file-name "nnrss" vonfry-local-dir))
   (gnus-check-new-newsgroups nil)
   (gnus-save-newsrc-file nil)
