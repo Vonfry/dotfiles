@@ -6,6 +6,7 @@
 ;; And gnus read mail as news reader which is not fit for me. Moreover, it is
 ;; difficult to config. I lose myself amony a lot of things, and it misses
 ;; something, such as an easy folder action.
+;; In other words, it is too heavy for a mail client with me.
 (package! gnus
   :hook
   (gnus-group-mode . gnus-topic-mode)
