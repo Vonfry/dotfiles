@@ -33,6 +33,7 @@
     "l"   'list-processes
     "L"   'proced
     "O"   'calendar
+    "_"   '+evil/switch-scratch
     "'"   '(nil :which-key "repl action")
     "RET" 'append-to-buffer
     "e"   '(nil :which-key "emacs")
