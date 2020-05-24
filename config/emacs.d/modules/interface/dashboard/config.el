@@ -26,13 +26,10 @@
      "Feed"
      (lambda (&rest _) (elfeed)))
     (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
-     "Freenode"
-     "Freenode"
-     (lambda (&rest _) (circe "Freenode")))
-    (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
-     "Gist"
-     "Gist"
-     (lambda (&rest _) (circe "Gist"))))
+     "IRC"
+     "IRC"
+     (lambda (&rest _) (call-interactively +irc/connect)))
+    )
    ((,(all-the-icons-fileicon "gitlab" :height 1.0 :v-adjust 0.0)
      "Gitlab"
      "Goto Gitlab"
