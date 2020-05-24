@@ -36,7 +36,7 @@
    "q" 'quit-window
    "Q" 'mu4e-quit)
   (+mmap-at-def
-    "m" 'mu4e))
+    "@" 'mu4e))
 
 (package! auth-source
   :ensure nil)
