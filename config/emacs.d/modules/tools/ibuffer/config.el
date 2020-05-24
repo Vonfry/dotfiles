@@ -2,9 +2,7 @@
 ;;
 
 (custom! +ibuffer-filter-groups
-  '(("Circe" (or (mode . circe-channel-mode)
-                 (mode . circe-query-mode)
-                 (mode . circe-server-mode)))
+  '(("IRC"       (mode . erc-mode))
     ("Mu4e"      (name . "\\*mu4e-.*\\*"))
     ("Flycheck"  (name . "\\*Flycheck.*\\*"))
     ("Elfeed"    (name . "\\*elfeed.*\\*"))
