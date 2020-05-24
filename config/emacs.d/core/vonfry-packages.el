@@ -204,6 +204,7 @@ All modules should use function and macro in this file. By default, every module
 (defalias #'var!   #'defvar)
 (defalias #'const! #'defconst)
 (defalias #'macro! #'defmarco)
+(defalias #'alias! #'defalias)
 
 (defmacro hook! (hook func &rest args)
   (let ((body (cond ((listp func) `(lambda () (,@func)))

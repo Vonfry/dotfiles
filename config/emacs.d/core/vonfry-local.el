@@ -66,4 +66,9 @@ user's downloads dir"
                       nil alist))))
     `(progn ,@actions)))
 
+(defcustom vonfry-passwd-dir "~/.local/passwd"
+  "a dir to save password"
+  :type 'directory
+  :group 'vonfry-dir)
+
 (provide 'vonfry-local)
