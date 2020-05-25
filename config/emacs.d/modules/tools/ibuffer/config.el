@@ -4,6 +4,10 @@
 (custom! +ibuffer-filter-groups
   '(("IRC"       (mode . "erc-mode"))
     ("Mu4e"      (name . "\\*mu4e-.*\\*"))
+    ("Gnus"      (or (mode . "group-mode")
+                     (mode . "summary-mode")
+                     (mode . "article-mode")
+                     (mode . "compse-mode")))
     ("Flycheck"  (name . "\\*Flycheck.*\\*"))
     ("Elfeed"    (name . "\\*elfeed.*\\*"))
     ("Process"   (or (mode . "process-menu-mode")
