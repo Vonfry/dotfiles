@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 with pkgs; [
-  mu isync
+  isync
   rclone
   clash
   firefox

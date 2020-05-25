@@ -47,6 +47,20 @@
                                                  vonfry-local-dir))
   (mm-text-html-render 'html2text)
   (nndraft-directory (expand-file-name "gnus/draft" vonfry-local-dir))
+  (mail-user-agent 'gnus-user-'agent)
   :general
   (+mmap-at-def
-    "n" 'gnus))
+    "@" 'gnus))
+
+(package! auth-source
+  :ensure nil)
+
+(package! smtpmail
+  :ensure nil
+  :custom
+  (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
+                                     ; work on other client.
+  (smtpmail-stream-type 'starttls)
+  (starttls-use-gnutls  t)
+  (send-mail-function 'smtpmail-send-it)
+  (message-send-mail-function 'smtpmail-send-it))

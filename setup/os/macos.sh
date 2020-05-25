@@ -28,7 +28,7 @@ brew reinstall tmux
 brew reinstall direnv
 brew reinstall ranger
 brew reinstall w3m
-brew reinstall isync mu4e
+brew reinstall isync
 brew reinstall procs
 
 # C & Cpp libs

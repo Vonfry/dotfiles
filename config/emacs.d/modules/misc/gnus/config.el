@@ -6,3 +6,9 @@
  missing."
   :type 'file
   :group 'vonfry-modules)
+
+(custom! +auth-sources '("~/.local/passwd/authinfo.gpg" "~/.authinfo")
+  ""
+  :group 'vonfry-modules
+  :type '(repeat string)
+  :custom-set 'auth-sources)
