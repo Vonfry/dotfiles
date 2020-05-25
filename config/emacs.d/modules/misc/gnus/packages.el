@@ -32,7 +32,7 @@
   (smiley-style 'medium)
   (gnus-keep-backlog '0)
   (gnus-check-new-newsgroups nil)
-  (gnus-active-level 2)
+  (gnus-activate-level 2)
   (gnus-startup-file (expand-file-name "newsrc" vonfry-local-dir))
   (gnus-init-file +gnus-local-file)
   (nnrss-directory (expand-file-name "nnrss" vonfry-local-dir))
@@ -42,5 +42,8 @@
   (gnus-use-cache t)
   (gnus-cache-directory (expand-file-name "gnus" vonfry-cache-dir))
   :general
+  (:keymaps 'gnus-group-mode-map
+   "q" 'quit-window
+   "Q" 'group-exit)
   (+mmap-at-def
     "n" 'gnus))
