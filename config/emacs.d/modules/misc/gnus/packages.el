@@ -11,7 +11,7 @@
   :custom
   (gnus-summary-line-format "%U%R%z %(%&user-date;  %-15,15f  %B (%c) %s%)\n")
   (gnus-user-date-format-alist '((t . "%Y-%m-%d %H:%M")))
-  (gnus-group-line-format "%M%S%p%P%5y:%B %C\n")
+  (gnus-group-line-format "%M%S%p%P%5y:%B %G\n")
   (gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references)
   (gnus-thread-sort-functions '(gnus-thread-sort-by-most-recent-date))
   (gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\”]\”[#’()]")
@@ -28,7 +28,11 @@
   (gnus-auto-select-first nil)
   (smiley-style 'medium)
   (gnus-check-new-newsgroups nil)
-  (gnus-activate-level 4)
+  (gnus-activate-level 4)               ; 1-4 are mail or others which being
+                                        ; always checked
+  (gnus-level-default-subscribed 5)     ; 5-6 are feeds, which not being checked
+  (gnus-level-default-unsubscribed 7)   ; frequently. 7-9 are same as the def of
+                                        ; gnus
   (gnus-startup-file (expand-file-name "newsrc" vonfry-local-dir))
   (gnus-init-file +gnus-local-file)
   (nnrss-directory (expand-file-name "nnrss" vonfry-local-dir))
