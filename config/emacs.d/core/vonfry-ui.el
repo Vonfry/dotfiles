@@ -54,6 +54,7 @@
   inhibit-startup-echo-area-message t
 
   display-time-mode t
+  display-time-default-load-average nil
   display-time-24hr-format t)
 
 (let ((no-border '(internal-border-width . 0)))
