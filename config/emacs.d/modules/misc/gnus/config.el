@@ -50,3 +50,13 @@
   :type 'string
   :group 'vonfry-modules)
 
+(fun! +smtp--set (x)
+  (eval `(custom-set! user-mail-address     ,(nth x 0)
+                      user-full-name        ,(nth x 1)
+                      smtpmail-smtp-server  ,(nth x 2)
+                      smtpmail-smtp-service ,(nth x 3)
+                      smtpmail-smtp-user    ,(nth x 4))))
+
+
+(fun! +smtp*compose (&rest args)
+  (call-interactively '+smtp/switch))

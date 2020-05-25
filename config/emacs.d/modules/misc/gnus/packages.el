@@ -55,9 +55,12 @@
       "gnus-desktop-notify.el/gnus-desktop-notify.el"
       (file-name-directory load-file-name))
     t t)
-  (gnus-dekstop-notify-mode t)
-  (gnus-demon-add-scanmail)
-  (apply 'gnus-demon-add-handler '+mail/sync +mail-sync-idle)
+  :hook
+  (after-init .
+    (lambda ()
+      (gnus-dekstop-notify-mode t)
+      (gnus-demon-add-scanmail)
+      (apply 'gnus-demon-add-handler '+mail/sync +mail-sync-idle)))
   :general
   (+mmap-at-def
     "@" 'gnus))
