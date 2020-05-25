@@ -6,6 +6,6 @@
   :custom
   (doom-modeline-icon (display-graphic-p))
   (doom-modeline-lsp t)
-  (doom-modeline-mu4e t)
+  ; TODO fix (doom-modeline-gnus t)
   (doom-modeline-buffer-file-name-style 'file-name)
   (doom-modeline-irc t))

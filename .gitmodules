@@ -1,0 +1,3 @@
+[submodule "config/emacs.d/modules/misc/gnus/gnus-desktop-notify.el"]
+	path = config/emacs.d/modules/misc/gnus/gnus-desktop-notify.el
+	url = https://gitlab.com/wavexx/gnus-desktop-notify.el.git

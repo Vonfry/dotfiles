@@ -47,7 +47,17 @@
                                                  vonfry-local-dir))
   (mm-text-html-render 'html2text)
   (nndraft-directory (expand-file-name "gnus/draft" vonfry-local-dir))
-  (mail-user-agent 'gnus-user-'agent)
+  (mail-user-agent 'gnus-user-agent)
+  (gnus-desktop-notify-function 'gnus-desktop-notify-exec)
+  :config
+  (load
+    (expand-file-name
+      "gnus-desktop-notify.el/gnus-desktop-notify.el"
+      (file-name-directory load-file-name))
+    t t)
+  (gnus-dekstop-notify-mode t)
+  (gnus-demon-add-scanmail)
+  (apply 'gnus-demon-add-handler '+mail/sync +mail-sync-idle)
   :general
   (+mmap-at-def
     "@" 'gnus))
@@ -57,6 +67,9 @@
 
 (package! smtpmail
   :ensure nil
+  :config
+  (+smtp--set (car +smtp-accounts))
+  (advice-add 'compose-mail :before '+smtp*compose)
   :custom
   (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
                                      ; work on other client.
