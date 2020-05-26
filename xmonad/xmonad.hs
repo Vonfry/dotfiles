@@ -248,8 +248,8 @@ myDef = def
     , keys               = myKeys
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
-    , focusedBorderColor = solarizedCyan
-    , normalBorderColor  = solarizedViolet
+    , focusedBorderColor = solarizedViolet
+    , normalBorderColor  = solarizedCyan
     , borderWidth        = 1
     , workspaces         = myWorkspaces
     }

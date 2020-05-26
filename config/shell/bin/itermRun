@@ -1,0 +1,14 @@
+#!/usr/bin/env osascript
+on run argv
+  set AppleScript's text item delimiters to " "
+  set cmd to argv as string
+  set AppleScript's text item delimiters to ""
+  tell application "iTerm"
+    tell current window
+      create tab with default profile
+      tell current session
+        write text (cmd) newline yes
+      end tell
+    end tell
+  end tell
+end run
