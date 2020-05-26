@@ -24,8 +24,6 @@ function _remove_from_variable()
     export $var_name=$(eval "echo \$$var_name" | sed -E -e "s|$var_str||g" -e "s|$var_sp+|$var_sp|g" -e "s|^$var_sp||" -e "s|$var_sp$||")
 }
 
-export PATH=$SHELL_CUSTOM_DIR/bin:$PATH
-
 if [ -n "${BASH}" ]; then
     SHELL_NAME="bash"
 elif [ -n "${ZSH_NAME}" ]; then

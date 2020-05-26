@@ -1,9 +1,11 @@
 if [[ "$OSTYPE" == darwin* ]]; then
-  export BROWSER='open'
+    export BROWSER='open'
 elif command -v firefox &> /dev/null; then
     export BROWSER=firefox
 elif command -v chromium &> /dev/null; then
     export BROWSER=chromium
+elif command -v qutebrowser &> /dev/null; then
+    export BROWSER=qutebrowser
 fi
 
 export EDITOR='nvim'
@@ -19,6 +21,7 @@ typeset -gU cdpath fpath mailpath path
 if [[ ! $PATH =~ "/usr/local/bin" && -d /usr/local/bin ]]; then
     export PATH=/usr/local/bin:$PATH
 fi
+
 
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
@@ -42,3 +45,5 @@ done
 for f in $SHELL_CUSTOM_DIR/env.local/*.zsh; do
     source $f
 done
+
+export PATH=$SHELL_CUSTOM_DIR/bin:$PATH
