@@ -118,15 +118,6 @@
  :config
  (add-to-list 'company-backends 'company-math-symbols-unicode))
 
-(package! ivy-bibtex
-  :after ivy
-  :custom
-  (bibtex-completion-bibliography '("./refs/refs.bib"))
-  (bibtex-completion-library-path '("./refs"))
-  :general
-  (+mmap-mode-tex-def
-    "[" 'ivy-bibtex))
-
 (package! company-auctex
   :after (company latex yasnippet)
   :hook
