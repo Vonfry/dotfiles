@@ -33,7 +33,7 @@
         (ibuffer-do-sort-by-alphabetic))
       (setq ibuffer-filter-groups (append ibuffer-filter-groups
                                           +ibuffer-filter-groups))
-      (ibuffer-update t)))
+      (ibuffer-update nil t)))
   :config
   (define-ibuffer-column size-h
       (:name "Size" :inline t)
