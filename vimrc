@@ -27,7 +27,7 @@ endif
 
 set to
 set tm=400
-set relativenumber
+set number relativenumber
 set autoindent
 set smartindent
 set nocompatible
