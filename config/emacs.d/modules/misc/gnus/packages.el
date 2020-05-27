@@ -75,7 +75,6 @@
 (package! smtpmail
   :ensure nil
   :config
-  (+smtp--set (car +smtp-accounts))
   (advice-add 'compose-mail :before '+smtp*compose)
   :custom
   (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
