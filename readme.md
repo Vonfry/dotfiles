@@ -8,11 +8,18 @@ It contains developing environment and some test environment. So the setup file
 also can be used for server (without
 services' configure), but there are a lot of things that the server doesn't need.
 
-## DEPRECATED Tag
+## Tags
+
+Besides release tags, here are some tags are used with perfix for other proposes.
+
+### deprecated 
 
 Some feature are not used with time going. I add a tag in the last commit
 supposed them. All of them are started with `deprecated`
 
+### mark
+
+The topic is not deprecated, but it is not the default one in config.
 
 ## System
 
