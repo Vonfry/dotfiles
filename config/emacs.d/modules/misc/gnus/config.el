@@ -13,7 +13,7 @@
   :type '(repeat string)
   :custom-set 'auth-sources)
 
-(custom! +smtp-accounts ()
+(custom! +smtp-accounts '()
   "smtp accounts. A list contains lists, which should be (`user-mail-address'
 `user-full-name' `smtpmail-smtp-server' `smtpmail-smtp-service'
 `smtpmail-smtp-user')"
