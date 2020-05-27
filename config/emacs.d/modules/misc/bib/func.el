@@ -14,3 +14,8 @@
                :require-match t
                :action (lambda (path) (eval `(custom-set! +bib-dir ,path))))
      (message "not support")))
+
+(fun! +bib/switch-ref (path)
+  "switch refs bib file. This is used for ivy-bibtex"
+  (interactive "fbib file: ")
+  (eval `(custom-set! bibtex-completion-bibliography ,path)))
