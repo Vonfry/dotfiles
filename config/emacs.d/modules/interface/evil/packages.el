@@ -35,7 +35,6 @@
     "O"   'calendar
     "_"   '+evil/switch-scratch
     "'"   '(nil :which-key "repl action")
-    "RET" 'append-to-buffer
     "e"   '(nil :which-key "emacs")
     "e s" 'server-start
     "e #" 'server-edit
