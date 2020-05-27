@@ -29,7 +29,7 @@
   :set (lambda (name val)
          (set-default name val)
          (when val
-           (+smtp--set (car x)))))
+           (+smtp--set (car val)))))
 
 (custom! +gnus-desktop-notify-command
   (vonfry-system-sets

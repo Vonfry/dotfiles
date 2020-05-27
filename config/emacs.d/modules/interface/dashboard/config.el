@@ -18,13 +18,9 @@
        "Files Manager"
        (lambda (&rest _) (ranger))))
    ((,(all-the-icons-octicon "mail" :height 1.1 :v-adjust 0.0)
-     "Mail"
-     "Check Mail"
-     (lambda (&rest _) (mu4e)))
-    (,(all-the-icons-material "rss_feed" :height 1.0 :v-adjust 0.0)
-     "Feed"
-     "Feed"
-     (lambda (&rest _) (elfeed)))
+     "Gnus"
+     "Guns"
+     (lambda (&rest _) (gnus)))
     (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
      "IRC"
      "IRC"
