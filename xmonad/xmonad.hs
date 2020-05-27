@@ -41,11 +41,11 @@ myXPConf = def
     { font            = myFont
     , searchPredicate = fuzzyMatch
     , sorter          = fuzzySort
-    , bgColor         = solarizedbase02
-    , fgColor         = solarizedBase01
-    , bgHLight        = solarizedYellow
-    , fgHLight        = solarizedBase03
-    , borderColor     = solarizedBase01
+    , bgColor         = draculaBackground
+    , fgColor         = draculaForeground
+    , bgHLight        = draculaSelection
+    , fgHLight        = draculaForeground
+    , borderColor     = draculaPuple
     , autoComplete    = Just $ 5 * 10 ^ 5 -- 0.5s
     }
 
@@ -114,8 +114,8 @@ myKeys conf@(XConfig {modMask = modm}) = M.fromList
     , ((modm .|. shiftMask, xK_t), withFocused float)
 
     -- increase or decrease number of windows in the master area
-    , ((modm, xK_parenleft ), sendMessage (IncMasterN 1))
-    , ((modm, xK_parenright), sendMessage (IncMasterN (
+    , ((modm, xK_parenleft ), sendMessage (IncMasterN (-1)))
+    , ((modm, xK_parenright), sendMessage (IncMasterN 1))
 
     -- quit, or restart
     , ((modm .|. shiftMask, xK_q), io (exitWith ExitSuccess))
@@ -209,12 +209,12 @@ myLayout = beforeLayouts layouts
   where
     layouts =
             renamed [ Replace "Tab" ] (noBorders $ tabbed shrinkText def
-                { inactiveBorderColor = solarizedBase01
-                , activeBorderColor   = solarizedBase01
-                , inactiveTextColor   = solarizedBase01
-                , activeTextColor     = solarizedBase03
-                , inactiveColor       = solarizedBase02
-                , activeColor         = solarizedYellow
+                { inactiveBorderColor = draculaComment
+                , activeBorderColor   = draculaPurple
+                , inactiveTextColor   = draculaForeground
+                , activeTextColor     = draculaForeground
+                , inactiveColor       = draculaBackground
+                , activeColor         = draculaSelection
                 , fontName            = myFontCJKSmall
                 , decoHeight          = 20
                 })
@@ -248,8 +248,8 @@ myDef = def
     , keys               = myKeys
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
-    , focusedBorderColor = solarizedViolet
-    , normalBorderColor  = solarizedCyan
+    , focusedBorderColor = draculaPurple
+    , normalBorderColor  = draculaComment
     , borderWidth        = 1
     , workspaces         = myWorkspaces
     }
@@ -274,3 +274,16 @@ solarizedViolet  = "#6c71c4"
 solarizedBlue    = "#268bd2"
 solarizedCyan    = "#2aa198"
 solarizedGreen   = "#859900"
+
+draculaBackground = "#282a36"
+draculaForeground = "#f8f8f2"
+draculaComment    = "#6272a4"
+draculaSelection  = "#44475a"
+draculaCurrent    = "#44475a"
+draculaYellow     = "#f1fabc"
+draculaOrange     = "#ffb86c"
+draculaRed        = "#ff5555"
+draculaPink       = "#ff79c6"
+draculaPurple     = "#bd93f9"
+draculaCyan       = "#8be9fd"
+draculaGreen      = "#50fa7b"

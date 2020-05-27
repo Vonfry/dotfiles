@@ -10,5 +10,6 @@ function! vonfry#ui#init()
         let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
     endif
 
-    colorscheme NeoSolarized
+    " colorscheme NeoSolarized
+    colorscheme dracula
 endfunction

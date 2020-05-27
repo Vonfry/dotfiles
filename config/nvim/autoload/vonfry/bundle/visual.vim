@@ -6,6 +6,7 @@ endfunction
 
 function vonfry#bundle#visual#plug()
     call vonfry#bundle#add('icymind/NeoSolarized')
+    call vonfry#bundle#add('dracula/vim')
     call vonfry#bundle#add('vim-airline/vim-airline',)
     call vonfry#bundle#add('vim-airline/vim-airline-themes',)
     call vonfry#bundle#add('enricobacis/vim-airline-clock')
