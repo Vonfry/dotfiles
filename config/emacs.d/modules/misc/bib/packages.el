@@ -25,16 +25,3 @@
     "[ =" '+bib/switch-dir
     "[ )" '+bib/switch-dir-from-search-dir
     "[ [" 'ebib-insert-citation))
-
-(package! ivy-bibtex
-  :after ivy
-  :custom
-  (bibtex-completion-bibliography '("./refs/refs.bib"))
-  (bibtex-completion-library-path '("./refs"))
-  :general
-  (+mmap-mode-tex-def
-    "[ *" '+bib/switch-ref
-    "[ &" 'ivy-bibtex)
-  (+mmap-mode-org-def
-    "[ *" '+bib/switch-ref
-    "[ &" 'ivy-bibtex))
