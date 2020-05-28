@@ -16,9 +16,11 @@
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
+  (TeX-auto-global (expand-file-name "latex" vonfry-cache-dir))
   (TeX-auto-local "latex.out")
+  (TeX-style-local TeX-auto-local)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
-  (TeX-region (expand-file-name "_region_" TeX-auto-private))
+  (TeX-region (expand-file-name "_region_" TeX-auto-local))
   (TeX-view-program-selection (vonfry-system-sets
                                (gnu/linux '((output-pdf "zathura")
                                             (output-dvi "xdvi")
@@ -65,6 +67,8 @@
     "l"   'TeX-recenter-output-buffer
     "m"   'TeX-insert-macro
     "v"   'TeX-view
+    "C"   'TeX-clean
+    "n"   'TeX-narrow-to-group
     "t"   '(nil :which-key "font")
     "b"   'latex/font-bold
     "t c" 'latex/font-code
