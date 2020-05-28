@@ -15,15 +15,16 @@
     (evil-set-initial-state 'ebib-string-mode 'emacs)))
   :general
   (+mmap-mode-org-def
-    "(" 'ebib
-    "*" '+bib/switch-dir
-    ")" '+bib/switch-dir-from-search-dir
-    "[" 'ebib-insert-citation)
+    "["   '(nil :which-key "bib")
+    "[ (" 'ebib
+    "[ =" '+bib/switch-dir
+    "[ )" '+bib/switch-dir-from-search-dir
+    "[ [" 'ebib-insert-citation)
   (+mmap-mode-tex-def
-    "(" 'ebib
-    "*" '+bib/switch-dir
-    ")" '+bib/switch-dir-from-search-dir
-    "[" 'ebib-insert-citation))
+    "[ (" 'ebib
+    "[ =" '+bib/switch-dir
+    "[ )" '+bib/switch-dir-from-search-dir
+    "[ [" 'ebib-insert-citation))
 
 (package! ivy-bibtex
   :after ivy
@@ -32,8 +33,8 @@
   (bibtex-completion-library-path '("./refs"))
   :general
   (+mmap-mode-tex-def
-    "%" '+bib/switch-ref
-    "&" 'ivy-bibtex)
+    "[ *" '+bib/switch-ref
+    "[ &" 'ivy-bibtex)
   (+mmap-mode-org-def
-    "%" '+bib/switch-ref
-    "&" 'ivy-bibtex))
+    "[ *" '+bib/switch-ref
+    "[ &" 'ivy-bibtex))
