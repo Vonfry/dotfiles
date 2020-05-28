@@ -7,11 +7,11 @@
   (when val
     (eval `(custom-set!
             ebib-notes-directory ,val
-              ebib-reading-list-file (expand-file-name "reading.org" ,val)
-              +bib-search-dir (add-to-ordered-list
-                                '+bib-search-dir ,val 0)
-              ebib-file-search-dirs (add-to-ordered-list
-                                      'ebib-file-search-dirs ,val 0)))))
+            ebib-reading-list-file (expand-file-name "reading.org" ,val)
+            +bib-search-dir (add-to-ordered-list
+                              '+bib-search-dir ,val 0)
+            ebib-file-search-dirs (add-to-ordered-list
+                                    'ebib-file-search-dirs ,val 0)))))
 
 (custom! +bib-dir nil
   "bib directory. the bibs in this dir and notes under the same one."
