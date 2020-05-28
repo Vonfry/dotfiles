@@ -19,6 +19,7 @@
 
 (package! dracula-theme
   :custom
+  (dracula-alternate-mode-line-and-minibuffer t)
   (dracula-enlarge-headings nil)
   (dracula-height-title-1 1)
   (dracula-height-title-2 1)
