@@ -14,6 +14,8 @@
     (evil-set-initial-state 'ebib-log-mode    'emacs)
     (evil-set-initial-state 'ebib-string-mode 'emacs)))
   :general
+  (:keymaps '(LaTeX-mode-map org-mode-map)
+    "C-&" 'ebib-insert-citation)
   (+mmap-mode-org-def
     "["   '(nil :which-key "bib")
     "[ (" 'ebib
