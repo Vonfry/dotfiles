@@ -13,6 +13,6 @@
     "E &" 'ebdb-complete-mail
     "E E" 'ebdb))
 
-;(package! ebdb-gnus    :ensure nil :after (gnus ebdb))
-;
-;(package! ebdb-message :ensure nil :after (gnus ebdb))
+(package! ebdb-gnus    :ensure nil :after (gnus ebdb))
+
+(package! ebdb-message :ensure nil :after (gnus ebdb))
