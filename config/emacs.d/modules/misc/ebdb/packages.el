@@ -10,6 +10,7 @@
     "e"   'ebdb-counsel
     "E"   '(nil :which-key "edbd")
     "E e" 'ebdb-open
+    "E &" 'ebdb-complete-mail
     "E E" 'ebdb))
 
-(package! ebdb-mu4e :ensure nil)
+(package! ebdb-mu4e :after mu4e :ensure nil)
