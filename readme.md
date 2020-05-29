@@ -8,11 +8,18 @@ It contains developing environment and some test environment. So the setup file
 also can be used for server (without
 services' configure), but there are a lot of things that the server doesn't need.
 
-## DEPRECATED Tag
+## Tags
+
+Besides release tags, here are some tags are used with perfix for other proposes.
+
+### deprecated 
 
 Some feature are not used with time going. I add a tag in the last commit
 supposed them. All of them are started with `deprecated`
 
+### mark
+
+The topic is not deprecated, but it is not the default one in config.
 
 ## System
 
@@ -38,6 +45,12 @@ supposed them. All of them are started with `deprecated`
 - [X] ~~xterm~~
 - [ ] ~~termonad~~ - Its most feature can be done in xmonad.
 - [X] alacritty - A good term with gpu, but having some problem on my machine.
+
+## Colorscheme
+
+Both solarized and dracula are terrific, so I install both and switch theme by
+mood. But I use dracula as the default one, becasue it use the color which I
+love.
 
 ## Editor
 

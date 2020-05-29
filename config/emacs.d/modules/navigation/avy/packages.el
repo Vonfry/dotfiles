@@ -25,4 +25,7 @@
   (aw-minibuffer-flag t)
   (aw-dispatch-always t)
   :general
-  (+mmap-leader-def "w" 'ace-window))
+  (+mmap-leader-def
+    "w"   'ace-window
+    "RET" '+ace/append
+    "S-<return>" '+ace/append-point))

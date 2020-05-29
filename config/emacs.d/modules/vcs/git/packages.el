@@ -26,3 +26,8 @@
 (package! evil-magit :after (magit evil))
 
 (package! gitlab-ci-mode)
+
+(package! forge
+  :after magit
+  :custom
+  (forge-database-file (expand-file-name "forge" vonfry-local-dir)))

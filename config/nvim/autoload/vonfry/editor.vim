@@ -17,7 +17,7 @@ function! vonfry#editor#init()
 
     set to
     set tm=1000
-    set number
+    set number relativenumber
     set autoindent
     set smartindent
     set nocompatible

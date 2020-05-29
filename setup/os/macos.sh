@@ -8,11 +8,11 @@ brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 
 # shell
-brew reinstall gnu-sed gnu-tar unzip unrar
+brew install gnu-sed gnu-tar unzip unrar
 brew cask install the-unarchiver
 brew cask install gpg-suite
-brew reinstall git
-brew reinstall zsh wget git-flow tig
+brew install git
+brew install zsh wget git-flow tig
 brew cask install alacritty
 brew reinstall fzf && /usr/local/opt/fzf/install
 brew reinstall dbus
@@ -32,45 +32,45 @@ brew reinstall isync
 brew reinstall procs
 
 # C & Cpp libs
-brew reinstall gcc
-brew reinstall llvm
-brew reinstall gdb
-brew reinstall binutils
-brew reinstall cmake
-brew reinstall ninja
-brew reinstall zlib libffi
+brew install gcc
+brew install llvm
+brew install gdb
+brew install binutils
+brew install cmake
+brew install ninja
+brew install zlib libffi
 
 # C & Cpp developing tools
 brew cask install doxygen
 
 # code search
-brew reinstall ripgrep gawk fd exa bat
-brew reinstall cloc                          # code statistics
+brew install ripgrep gawk fd exa bat
+brew install cloc                          # code statistics
 
 # lang
-brew reinstall ruby
-brew reinstall rbenv
-brew reinstall python
-brew reinstall node
-brew reinstall sqlite mysql postgresql redis # database
-brew reinstall pgcli mycli
-brew reinstall poppler                       # pdf generator
-brew reinstall pandoc                        # markdown
+brew install ruby
+brew install rbenv
+brew install python
+brew install node
+brew install sqlite mysql postgresql redis # database
+brew install pgcli mycli
+brew install poppler                       # pdf generator
+brew install pandoc                        # markdown
 brew cask install java
 
 # system tool
 brew cask install wireshark
 brew cask install docker
-brew reinstall graphviz
-brew reinstall gnuplot
-brew reinstall asciinema httpstat
-brew reinstall terminal-notifier
+brew install graphviz
+brew install gnuplot
+brew install asciinema httpstat
+brew install terminal-notifier
 
 # editor
-brew reinstall editorconfig
-brew reinstall neovim
+brew install editorconfig
+brew install neovim
 brew tap d12frosted/emacs-plus
-brew reinstall emacs-plus --with-dbus
+brew install emacs-plus --with-dbus
 sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life

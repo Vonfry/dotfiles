@@ -9,7 +9,7 @@
   (+mmap-python-def
     "R"   'realgud:pdb)
   (+mmap-python-def
-    "\""  'python
+    "\""  'ipython3
     "; ." 'py-find-definition
     "RET" 'py-execute-line
     "' r" 'py-execute-region

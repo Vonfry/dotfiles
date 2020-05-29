@@ -4,7 +4,6 @@
 (package! ibuffer
   :ensure nil
   :init
-  (setq-default ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-formats
         '((mark modified read-only vc-status-mini " "
                 (name 18 18 :left :elide)
@@ -28,12 +27,13 @@
   :hook
   (ibuffer .
     (lambda ()
-      (ibuffer-projectile-set-filter-groups)
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic))
-      (setq ibuffer-filter-groups (append ibuffer-filter-groups
-                                          +ibuffer-filter-groups))
-      (ibuffer-update t)))
+      (setq ibuffer-filter-groups (append
+                                    (ibuffer-projectile-generate-filter-groups)
+                                    +org-ibuffer-group
+                                    +ibuffer-filter-groups))
+      (ibuffer-update nil t)))
+  :custom
+  (ibuffer-show-empty-filter-groups nil)
   :config
   (define-ibuffer-column size-h
       (:name "Size" :inline t)

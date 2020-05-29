@@ -58,4 +58,6 @@
 (defmacro map-which-key! (definer desc)
   `(,definer "" '(nil :which-key ,desc)))
 
+(+mmap-leader-def "Z" 'vonfry/next-theme)
+
 (provide 'vonfry-keybinding)

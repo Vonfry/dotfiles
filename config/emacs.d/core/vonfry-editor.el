@@ -44,7 +44,7 @@
   blink-cursor-interval 0.4
   buffers-menu-max-size 32
   column-number-mode t
-  display-line-numbers t
+  display-line-numbers 'relative
   whitespace-style '(face
                      trailing
                      lines-tail)

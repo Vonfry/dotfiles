@@ -5,5 +5,5 @@
 
 (+mmap-winner-def
   ""  '(nil :which-key "winner")
-  "r" 'winner-mode-redo
-  "u" 'winner-mode-undo)
+  "r" 'winner-redo
+  "u" 'winner-undo)

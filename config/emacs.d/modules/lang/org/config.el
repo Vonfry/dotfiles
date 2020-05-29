@@ -145,3 +145,26 @@
     :custom-set 'org-agenda-custom-commands)
 
 (const! +org-roam-local-dir (expand-file-name "org/roam" vonfry-local-dir))
+
+(custom! +org-agenda-ibuffer-group
+  `(("Agenda" (or (name .
+                        ,(regexp-quote +org-agenda-dir))
+                  (name . ,(regexp-quote +org-capture-file)))))
+  ""
+  :group 'vonfry-modules)
+
+(custom! +org-note-ibuffer-group
+  `(("Note" (name . ,(regexp-quote +org-note-dir))))
+  ""
+  :group 'vonfry-modules)
+
+(custom! +org-journal-ibuffer-group
+  `(("Note" (name . ,(regexp-quote +org-journal-dir))))
+  ""
+  :group 'vonfry-modules)
+
+(custom! +org-ibuffer-group (append +org-agenda-ibuffer-group
+                                    +org-note-ibuffer-group
+                                    +org-journal-ibuffer-group)
+  ""
+  :group 'vonfry-modules)

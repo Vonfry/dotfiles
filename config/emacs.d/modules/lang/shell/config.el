@@ -3,7 +3,8 @@
 
 (custom! +shell-terminal-command
   (vonfry-system-sets (gnu/linux "alacritty")
-                      (darwin "open"))
+                      (darwin "itermRun"))
+
   "The terminal command is used to open a new window in current directory for linux."
   :type 'string
   :group 'vonfry-modules)
@@ -18,8 +19,10 @@
                               (cond ((string= +shell-terminal-command
                                               "alacritty")
                                      "--working-directory")
-                              (t nil))))
+                                    (t nil))
+                              (darwin "cd")))
 
   "The argument add before pwd which lets the terminal set pwd for linux."
   :type 'string
   :group 'vonfry-modules)
+

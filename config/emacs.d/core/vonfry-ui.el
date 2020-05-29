@@ -15,9 +15,37 @@
   (solarized-height-plus-1 1.0)
   (solarized-height-plus-2 1.0)
   (solarized-height-plus-3 1.0)
-  (solarized-height-plus-4 1.0)
-  :config
-  (load-theme 'solarized-dark t))
+  (solarized-height-plus-4 1.0))
+
+(package! dracula-theme
+  :custom
+  (dracula-alternate-mode-line-and-minibuffer t)
+  (dracula-enlarge-headings nil)
+  (dracula-height-title-1 1)
+  (dracula-height-title-2 1)
+  (dracula-height-title-3 1)
+  (dracula-height-doc-title 1))
+
+(custom! vonfry-themes '(dracula solarized-light)
+  "A list of theme which are used to switch by `vonfry/next-theme'"
+  :type '(list symbol)
+  :group 'vonfry-ui)
+
+(fun! vonfry--change-theme (theme)
+  "change theme with disable current one.
+THEME is a symbol passed to `load-theme'"
+  (--map (disable-theme it) custom-enabled-themes)
+  (load-theme theme t))
+
+(vonfry--change-theme (car vonfry-themes))
+
+(fun! vonfry/next-theme ()
+  (interactive)
+  (let ((nextid (1+ (-min (-non-nil
+          (--map (-elem-index it vonfry-themes) custom-enabled-themes))))))
+    (if (> (length vonfry-themes) nextid)
+      (vonfry--change-theme (nth nextid vonfry-themes))
+      (vonfry--change-theme (car vonfry-themes)))))
 
 ;; customize the tabbar and other UI elements for GUI.
 

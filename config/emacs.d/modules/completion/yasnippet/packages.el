@@ -10,3 +10,4 @@
   :config
   (yas-global-mode 1)
   (package! yasnippet-snippets))
+
