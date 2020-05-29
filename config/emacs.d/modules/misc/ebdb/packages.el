@@ -5,9 +5,6 @@
   :custom
   (ebdb-sources (directory-files (expand-file-name "db" +ebdb-base-dir) t "^[A-z0-9_\\-]+$"))
   (ebdb-image-path (expand-file-name "imgs" +ebdb-base-dir))
-  :config
-  (require 'ebdb-gnus)
-  (require 'ebdb-message)
   :general
   (+mmap-at-def
     "e"   'ebdb-counsel
@@ -15,3 +12,7 @@
     "E e" 'ebdb-open
     "E &" 'ebdb-complete-mail
     "E E" 'ebdb))
+
+;(package! ebdb-gnus    :ensure nil :after (gnus ebdb))
+;
+;(package! ebdb-message :ensure nil :after (gnus ebdb))
