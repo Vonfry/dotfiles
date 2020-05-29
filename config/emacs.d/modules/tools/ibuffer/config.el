@@ -20,8 +20,7 @@
     ("LSP"       (name . "\\*lsp-.*\\*"))
     ("Message"   (or (name . "\\*.**\\*")
                      (mode . help-mode)))
-    ("Org Tool"  (or (name . "\\*Deft*\\")
-                     (name . "\\*org-roam\\*"))))
+    ("Org Tool" (name . "\\*org-roam\\*")))
   "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'"
   :type 'sexp
   :group 'vonfry-modules)

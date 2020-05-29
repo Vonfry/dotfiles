@@ -29,12 +29,11 @@
     (lambda ()
       (setq ibuffer-filter-groups (append
                                     (ibuffer-projectile-generate-filter-groups)
+                                    +org-ibuffer-group
                                     +ibuffer-filter-groups))
-      (unless (eq ibuffer-sorting-mode 'alphabetic)
-        (ibuffer-do-sort-by-alphabetic))))
+      (ibuffer-update nil t)))
   :custom
   (ibuffer-show-empty-filter-groups nil)
-  (ibuffer-auto-mode t)
   :config
   (define-ibuffer-column size-h
       (:name "Size" :inline t)
