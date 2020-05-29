@@ -17,7 +17,7 @@
        "Files"
        "Files Manager"
        (lambda (&rest _) (ranger))))
-   ((,(all-the-icons-octicon "mail" :height 1.1 :v-adjust 0.0)
+   ((,(all-the-icons-octicon "mention" :height 1.1 :v-adjust 0.0)
      "Gnus"
      "Guns"
      (lambda (&rest _) (gnus)))
