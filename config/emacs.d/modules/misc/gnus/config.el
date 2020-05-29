@@ -60,6 +60,3 @@
   "sync command"
   :type 'string
   :group 'vonfry-modules)
-
-(fun! +smtp*compose (&rest args)
-  (call-interactively '+smtp/switch))

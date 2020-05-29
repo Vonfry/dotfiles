@@ -17,3 +17,6 @@
         :action
         (lambda (alist) (+smtp--set (cdr alist))))
       (message "not support"))))
+
+(fun! +smtp--compose* (&rest args)
+  (call-interactively '+smtp/switch))

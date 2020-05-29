@@ -58,11 +58,11 @@
     (expand-file-name
       "gnus-desktop-notify.el/gnus-desktop-notify.el"
       (file-name-directory load-file-name))
-    t t)
+    nil t)
   :hook
   (after-init .
     (lambda ()
-      (gnus-dekstop-notify-mode t)
+      (gnus-desktop-notify-mode t)
       (gnus-demon-add-scanmail)
       (apply 'gnus-demon-add-handler '+mail/sync +mail-sync-idle)))
   :general
@@ -75,7 +75,7 @@
 (package! smtpmail
   :ensure nil
   :config
-  (advice-add 'compose-mail :before '+smtp*compose)
+  (advice-add 'compose-mail :before '+smtp--compose*)
   :custom
   (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
                                      ; work on other client.
