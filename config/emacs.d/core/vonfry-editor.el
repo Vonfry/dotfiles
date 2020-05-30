@@ -104,13 +104,19 @@
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)
 
+(custom! vonfry-exec-path-variables '("BROWSER" "NIX_PATH")
+  "variables should be loaded into emacs. Set this before modules load instead
+of in a module defination, because some modules need these variables.")
+
 (package! exec-path-from-shell
   :when (and (memq window-system '(mac ns x))
              (not (string-match "fish" (getenv "SHELL")))
              (not (getenv "VONFRY_SHELL")))
-  :hook (after-init . exec-path-from-shell-initialize)
   :config
   ; call for PATH variable first, because some package will check it.
+  (setq exec-path-from-shell-variables
+        (append exec-path-from-shell-variables
+                vonfry-exec-path-variables))
   (exec-path-from-shell-initialize))
 
 (fun! vonfry/toggle-trailing-whitespace ()
