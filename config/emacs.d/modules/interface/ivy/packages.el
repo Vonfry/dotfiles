@@ -15,18 +15,10 @@
   (ivy-mode 1)
   :custom
   (ivy-use-virtual-buffers t)
+  (ivy-initial-inputs-alist nil)
   :general
   (+mmap-leader-def
     "b" 'ivy-switch-buffer))
-
-(package! swiper
-  :custom
-  (swiper-action-recenter t)
-  :general
-  (+mmap-leader-def
-    ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
-    ;the buffer is large
-    "\\" 'swiper))
 
 (package! counsel
   :custom
@@ -38,6 +30,8 @@
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
   ("C-&" 'counsel-company)
+  (+mmap-prog-def
+    "r" 'counsel-compile)
   (+mmap-leader-def
     "x" 'counsel-M-x
     "f" 'counsel-find-file
@@ -48,8 +42,21 @@
     "?" 'counsel-info-lookup-symbol
     "y" 'counsel-yank-pop
     "m" 'counsel-bookmark)
+  (+mmap-ivy-def
+    "/" 'counsel-search
+    ";" 'counsel-outline
+    "p" 'counsel-cd)
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
+
+(package! swiper
+  :custom
+  (swiper-action-recenter t)
+  :general
+  (+mmap-ivy-def
+    ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
+    ;the buffer is large
+    "i \\" 'swiper))
 
 (package! ivy-rich
   :after ivy

@@ -11,10 +11,7 @@
   :ensure nil
   :custom
   (compilation-scroll-output t)
-  (compilation-always-kill t)
-  :general
-  (+mmap-prog-def
-    "r" 'compile))
+  (compilation-always-kill t))
 
 (package! function-args
   :custom (moo-select-method 'ivy)
