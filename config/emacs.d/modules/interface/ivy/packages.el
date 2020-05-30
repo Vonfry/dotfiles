@@ -43,6 +43,7 @@
     "y" 'counsel-yank-pop
     "m" 'counsel-bookmark)
   (+mmap-ivy-def
+    "a" 'counsel-rg
     "/" 'counsel-search
     ";" 'counsel-outline
     "p" 'counsel-cd)
