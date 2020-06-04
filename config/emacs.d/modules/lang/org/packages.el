@@ -23,6 +23,7 @@
     "l"  'counsel-org-link
     "e"  'counsel-org-entity
     "@"  'counsel-org-tag
+    "^"  'counsel-org-tag-agenda
     "#"  'counsel-org-file
     "t"  'org-tags-view
     ","  'org-set-property
