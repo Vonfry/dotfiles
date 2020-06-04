@@ -24,3 +24,7 @@
   :group 'vonfry-modules
   :type '(repeat 'directory)
   :custom-set 'ebib-bib-search-dirs)
+
+;; +mmap-mode-bib-def
+(mmap-mode-prefix! bib nil
+  :keymaps 'bibtex-mode-map)

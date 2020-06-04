@@ -8,22 +8,29 @@
                            (darwin '(("pdf" . "open")))
                            (gnu/linux '(("pdf" . "zathura")))))
   :hook
-  (evil-mode . (lambda ()
+  ((evil-mode . (lambda ()
     (evil-set-initial-state 'ebib-index-mode  'emacs)
     (evil-set-initial-state 'ebib-entry-mode  'emacs)
     (evil-set-initial-state 'ebib-log-mode    'emacs)
     (evil-set-initial-state 'ebib-string-mode 'emacs)))
+   ((bibtex-mode LaTeX-mode) . +bib/swtich-dir-current))
+
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)
+  (+mmap-mode-bib-def
+    "e" 'ebib
+    "d" '+bib/switch-dir-current)
   (+mmap-mode-org-def
     "["   '(nil :which-key "bib")
-    "[ (" 'ebib
-    "[ =" '+bib/switch-dir
-    "[ )" '+bib/switch-dir-from-search-dir
-    "[ [" 'ebib-insert-citation)
+    "[ [" 'ebib
+    "[ {" '+bib/switch-dir-current
+    "[ }" '+bib/switch-dir
+    "[ (" '+bib/switch-dir-from-search-dir
+    "[ &" 'ebib-insert-citation)
   (+mmap-mode-tex-def
-    "[ (" 'ebib
-    "[ =" '+bib/switch-dir
-    "[ )" '+bib/switch-dir-from-search-dir
-    "[ [" 'ebib-insert-citation))
+    "[ [" 'ebib
+    "[ {" '+bib/switch-dir-current
+    "[ }" '+bib/switch-dir
+    "[ (" '+bib/switch-dir-from-search-dir
+    "[ &" 'ebib-insert-citation))

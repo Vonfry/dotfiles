@@ -14,3 +14,8 @@
                :require-match t
                :action (lambda (path) (eval `(custom-set! +bib-dir ,path))))
      (message "not support")))
+
+(fun! +bib/switch-dir-current ()
+  "switch bib for notes and others"
+  (interactive)
+  (+bib/switch-dir default-directory))
