@@ -14,7 +14,6 @@
     (evil-set-initial-state 'ebib-log-mode    'emacs)
     (evil-set-initial-state 'ebib-string-mode 'emacs)))
    ((bibtex-mode LaTeX-mode) . +bib/swtich-dir-current))
-
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)
