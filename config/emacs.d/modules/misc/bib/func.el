@@ -19,3 +19,11 @@
   "switch bib for notes and others"
   (interactive)
   (+bib/switch-dir default-directory))
+
+(fun! +bib/switch-note-files ()
+  "switch bib notes between single file or multiple files."
+  (interactive)
+  (if +bib-note-is-single
+    (custom-set! ebib-notes-directory ebib-notes-file)
+    (custom-set! ebib-notes-file ebib-notes-directory))
+  (custom-set! +bib-note-is-single (not +bib-note-is-single)))
