@@ -3,8 +3,6 @@
 
 (package! evil-nerd-commenter
   :after evil
-  :config
-  (evilnc-default-hotkeys nil t)
   :general
   (+mmap-nc-def
     ""  '(nil :which-key "nerd-commenter")
