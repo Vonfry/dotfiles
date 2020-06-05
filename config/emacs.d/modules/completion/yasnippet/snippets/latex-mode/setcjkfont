@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: setcjkfont
+# key: setcjkfont
+# --
+
+\setCJKmainfont{${1:Source Han Serif CN}}
+\setCJKsansfont{${2:Source Han Sans CN}}
+\setCJKmonofont{${3:Source Han Sans CN}}
