@@ -26,10 +26,12 @@
     "[ {" '+bib/switch-dir-current
     "[ }" '+bib/switch-dir
     "[ (" '+bib/switch-dir-from-search-dir
-    "[ &" 'ebib-insert-citation)
+    "[ &" 'ebib-insert-citation
+    "[ -" '+bib/switch-insert-single-or-multiple)
   (+mmap-mode-tex-def
     "[ [" 'ebib
     "[ {" '+bib/switch-dir-current
     "[ }" '+bib/switch-dir
     "[ (" '+bib/switch-dir-from-search-dir
-    "[ &" 'ebib-insert-citation))
+    "[ &" 'ebib-insert-citation
+    "[ -" '+bib/switch-insert-single-or-multiple))

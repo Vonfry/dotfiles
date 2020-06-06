@@ -27,3 +27,8 @@
     (custom-set! ebib-notes-directory ebib-notes-file)
     (custom-set! ebib-notes-file ebib-notes-directory))
   (custom-set! +bib-note-is-single (not +bib-note-is-single)))
+
+(fun! +bib/switch-insert-single-or-multiple ()
+  (interactive)
+  (custom-set! ebib-citation-insert-multiple
+               (not ebib-citation-insert-multiple)))
