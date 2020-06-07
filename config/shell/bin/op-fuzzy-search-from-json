@@ -20,8 +20,12 @@ searched = op.select do |obj|
         ARGV.any? tag
     end
 
-    url? = obj["URLs"].any? do |obj|
-      iregex.match? obj["overview"]["url"]
+    if obj["URLs"]
+        url? = obj["URLs"].any? do |obj|
+          iregex.match? obj["overview"]["url"]
+        end
+    else
+        url? = false
     end
     title? || tags? || url?
 end
@@ -45,9 +49,11 @@ searched.map do |obj|
     end
     puts "title: #{overview["title"]}"
     puts "tags:  #{overview["tags"]}"
-    puts "urls:"
-    obj["URLs"].map do |obj|
-        puts "    #{obj["overview"]["label"]} #{obj["overview"]["url"]}"
+    if obj["URLs"]
+        puts "urls:"
+        obj["URLs"].map do |obj|
+            puts "    #{obj["overview"]["label"]} #{obj["overview"]["url"]}"
+        end
     end
 
     if clip
