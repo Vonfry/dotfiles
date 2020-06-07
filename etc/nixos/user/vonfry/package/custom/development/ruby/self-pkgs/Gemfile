@@ -7,6 +7,4 @@ gem "pry-doc"
 gem "pry-rails"
 
 # tools
-gem "org-ruby"
-gem "rouge"
 gem "nokogiri"

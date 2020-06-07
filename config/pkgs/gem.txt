@@ -9,7 +9,5 @@ gem "solargraph"
 
 # tools
 gem "nokogiri"
-gem "org-ruby"
-gem "rouge"
 gem "neovim"
 gem "jekyll"
