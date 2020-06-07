@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
 require 'json'
+# TODO test the op new searching feature, and if it can work expected, remove
+# this file
 
 begin
     items = `op list items`
