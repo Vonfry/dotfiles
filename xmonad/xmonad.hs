@@ -34,8 +34,6 @@ myFontCJKSmall = "xft:Source Han Sans CN:size=9"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
-myCLI args = myTerm ++ " -e " ++ args
-
 myXPConf = def
     { font            = myFont
     , searchPredicate = fuzzyMatch
@@ -65,19 +63,19 @@ myKeys conf = mkKeymap conf
     , ("M-S-x", xmonadPrompt myXPConf)
     , ("M-/"  , promptSearch myXPConf multi)
 
-    , ("M-, d" , "zeal"                  )
-    , ("M-, b" , "firefox"               )
-    , ("M-, B" , myCLI "w3m"             )
-    , ("M-, a" , myCLI "alsamixer"       )
-    , ("M-, D" , "libreoffice"           )
-    , ("M-, V" , "VirtualBox"            )
-    , ("M-, v" , "zathura"               )
-    , ("M-, t" , "telegram-desktop"      )
-    , ("M-, m" , "vlc"                   )
+    , ("M-, d" , spawn "zeal"            )
+    , ("M-, b" , spawn "firefox"         )
+    , ("M-, B" , runInTerm "" "w3m"      )
+    , ("M-, a" , runInTerm "" "alsamixer")
+    , ("M-, D" , spawn "libreoffice"     )
+    , ("M-, V" , spawn "VirtualBox"      )
+    , ("M-, v" , spawn "zathura"         )
+    , ("M-, t" , spawn "telegram-desktop")
+    , ("M-, m" , spawn "vlc"             )
     , ("M-, '" , spawn "emacs"           )
 
     -- basic window
-    , ("M-'"         , spawn $ myCLI "ranger"            )
+    , ("M-'"         , spawn $ runInTerm "" "ranger"     )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
