@@ -58,18 +58,6 @@ myGSConfS = def
     { gs_font = myFont
     }
 
-myApps =
-    [ ("doc"       , "zeal"                  )
-    , ("gbrowser"  , "firefox"               )
-    , ("tbrowser"  , myCLI "w3m"             )
-    , ("voice"     , myCLI "alsamixer"       )
-    , ("office"    , "libreoffice"           )
-    , ("vm"        , "VirtualBox"            )
-    , ("viewer"    , "zathura"               )
-    , ("telegram"  , "telegram-desktop"      )
-    , ("video"     , "vlc"                   )
-    ]
-
 -- my configurations
 
 myKeys conf = mkKeymap conf
