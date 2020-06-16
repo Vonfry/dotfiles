@@ -51,7 +51,6 @@ brew install cloc                          # code statistics
 brew install ruby
 brew install rbenv
 brew install python
-brew install node
 brew install sqlite mysql postgresql redis # database
 brew install pgcli mycli
 brew install poppler                       # pdf generator
