@@ -46,21 +46,11 @@ myXPConf = def
     , autoComplete    = Just $ 2 * 10 ^ 5 -- 0.2s
     }
 
-myGSConf = def
-    { gs_font = myFont
-    }
-myGSConfWs = def
-    { gs_font = myFont
-    }
-myGSConfS = def
-    { gs_font = myFont
-    }
-
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"  , shellPrompt myXPConf)
-    , ("M-S-x", xmonadPrompt myXPConf)
+    [ ("M-x"  , shellPrompt myXPConf       )
+    , ("M-S-x", xmonadPrompt myXPConf      )
     , ("M-/"  , promptSearch myXPConf multi)
 
     , ("M-, d" , spawn "zeal"            )
