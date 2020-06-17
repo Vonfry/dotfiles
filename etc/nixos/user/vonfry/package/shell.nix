@@ -2,7 +2,6 @@
 
 with pkgs; [
   gitAndTools.gitflow tig gitAndTools.git-extras
-  gitAndTools.diff-so-fancy
   zsh fzf
   direnv thefuck
   lorri

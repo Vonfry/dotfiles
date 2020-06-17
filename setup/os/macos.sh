@@ -12,7 +12,7 @@ brew install gnu-sed gnu-tar unzip unrar
 brew cask install the-unarchiver
 brew cask install gpg-suite
 brew install git
-brew install zsh wget git-flow tig diff-so-fancy
+brew install zsh wget git-flow tig
 brew cask install alacritty
 brew install fzf && /usr/local/opt/fzf/install
 brew install dbus
