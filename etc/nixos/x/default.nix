@@ -23,5 +23,5 @@
       };
     };
   };
-  imports = [ ./notify.nix ];
+  imports = [ ./notify.nix ./theme.nix ];
 }
