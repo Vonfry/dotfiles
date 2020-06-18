@@ -50,6 +50,8 @@
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
 
+(package! ivy-avy :after (ivy avy))
+
 (package! swiper
   :custom
   (swiper-action-recenter t)
