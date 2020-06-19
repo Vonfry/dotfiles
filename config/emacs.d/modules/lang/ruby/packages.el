@@ -1,14 +1,10 @@
 ;;; ruby packages -*- lexical-binding: t -*-
 ;;
 
-(package! enh-ruby-mode
-  :mode ("\\.\\(?:pry\\|irb\\)rc\\'" . enh-ruby-mode)
-  :mode ("\\.\\(?:rb\\|rake\\|rabl\\|ru\\|builder\\|gemspec\\|jbuilder\\|thor\\)\\'" . enh-ruby-mode)
-  :mode ("/\\(?:Berks\\|Cap\\|Gem\\|Guard\\|Pod\\|Puppet\\|Rake\\|Thor\\|Vagrant\\)file\\'" . enh-ruby-mode)
-  :interpreter "pry")
-
 (package! ruby-mode
-  :interpreter "pry")
+  :interpreter "pry"
+  :mode "\\.\\(?:a?rb\\|aslsx\\)\\'"
+  :mode "/\\(?:Brew\\|Fast\\)file\\'")
 
 (package! inf-ruby
   :custom

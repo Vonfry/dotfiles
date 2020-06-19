@@ -3,4 +3,4 @@
 
 ;; +mmap-ruby-def
 (mmap-leader-prefix! ruby nil
-  :keymaps 'enh-ruby-mode-map)
+  :keymaps 'ruby-mode-map)
