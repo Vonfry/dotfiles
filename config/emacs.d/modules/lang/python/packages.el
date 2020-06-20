@@ -10,6 +10,7 @@
     "\""  'ipython3
     "; ." 'py-find-definition
     "RET" 'py-execute-line
+    "R"   'realgud:pdb
     "' r" 'py-execute-region
     "' R" 'py-execute-region-pdb
     "' s" 'py-execute-statement
@@ -24,8 +25,3 @@
     "?"   'pydoc)
   (+mmap-mode-python-def
     "b" 'pydoc-browse))
-
-(package! realgud-ipdb :after realgud
-  :general
-  (+mmap-python-def
-    "R" 'realgud:ipdb))
