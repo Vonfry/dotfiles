@@ -37,4 +37,4 @@
   :after realgud
   :general
   (+mmap-cc-def
-    "R" '+cc/lldb))
+    "R" 'realgud--lldb))
