@@ -7,7 +7,7 @@
   :type 'directory
   :custom-set 'easy-jekyll-basedir)
 
-(custom! +jekyll-static-dir (expand-file-name "static" +jekyll-root)
+(custom! +jekyll-static-dir (expand-file-name "static" +jekyll-dir)
   "A dir saves static files"
   :group 'vonfry-modules
   :type 'directory)
