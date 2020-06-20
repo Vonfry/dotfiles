@@ -1,14 +1,8 @@
 ;;; config func -*- lexical-binding: t -*-
 ;;
 
-(custom! +jekyll-root nil
-  "A root for jekyll project. This variable should be set before this file, such
-as `vonfry-custom-file-before'."
-  :group 'vonfry-modules
-  :type 'directory)
-
-(custom! +jekyll-html-dir (expand-file-name "myblog" temporary-file-directory)
-  "A dir to generate jekyll."
+(custom! +jekyll-dir nil
+  "A dir of the jekyll files."
   :group 'vonfry-modules
   :type 'directory
   :custom-set 'easy-jekyll-basedir)

@@ -88,6 +88,7 @@
   :custom
   (org-journal-file-format "%Y-%m-%d.org")
   (org-journal-enable-agenda-integration t)
+  (org-journal-find-file 'find-file)
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
