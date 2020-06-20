@@ -7,12 +7,10 @@
   (python-shell-exec-path   "ipython3")
   :general
   (+mmap-python-def
-    "R"   'realgud:pdb)
-  (+mmap-python-def
     "\""  'ipython3
     "; ." 'py-find-definition
     "RET" 'py-execute-line
-    "R"   'realgud:pdb
+    "R"   'realgud:ipdb
     "' r" 'py-execute-region
     "' R" 'py-execute-region-pdb
     "' s" 'py-execute-statement

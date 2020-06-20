@@ -3,6 +3,7 @@ setuptools
 wheel
 
 ipython
+ipdb
 
 # tools
 neovim
