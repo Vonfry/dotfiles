@@ -17,8 +17,3 @@
     "' >" 'ruby-send-definition
     "' ," 'ruby-send-region
     "' <" 'ruby-send-region-and-go))
-
-(package! realgud-pry
-  :general
-  (+mmap-ruby-def
-    "R" 'realgud:pry))
