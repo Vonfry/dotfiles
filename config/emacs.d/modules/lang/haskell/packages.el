@@ -12,7 +12,6 @@
   (+mmap-haskell-def
     "="   'haskell-mode-stylish-buffer
     "r"   'haskell-compile
-    "R"   'haskell-debug
     "#"   'haskell-navigate-imports)
   (+mmap-mode-haskell-def
     ""    '(nil :which-key "mode special")
@@ -53,6 +52,8 @@
     "p b" 'haskell-process-cabal-build
     "p c" 'haskell-process-cabal
     "p r" 'haskell-process-restart)
+  (+mmap-mode-inf-haskell-def
+    "R"   'haskell-debug)
   :custom
   (haskell-process-suggest-remove-import-lines t)
   (haskell-process-auto-import-loaded-modules t)

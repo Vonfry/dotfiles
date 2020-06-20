@@ -25,3 +25,5 @@
     "?"   'pydoc)
   (+mmap-mode-python-def
     "b" 'pydoc-browse))
+
+(package! realgud-ipdb :after realgud)

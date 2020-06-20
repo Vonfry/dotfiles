@@ -8,3 +8,7 @@
 ;; +mmap-haskell-def
 (mmap-leader-prefix! haskell nil
   :keymaps 'haskell-mode-map)
+
+;; +mmap-inf-haskell-def
+(mmap-leader-prefix! haskell nil
+  :keymaps 'interactive-haskell-mode-map)
