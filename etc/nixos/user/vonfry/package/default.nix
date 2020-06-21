@@ -2,10 +2,10 @@
 
 {
   users.users.vonfry.packages =
-    let args =
-        { pkgs = pkgs;
-          customPkgs = pkgs.callPackage ./custom {};
-          lib = lib; };
+    let args = { pkgs = pkgs
+               ; customPkgs = pkgs.callPackage ./custom {}
+               ; lib = lib;
+               };
         importList = [ ./misc.nix
                        ./shell.nix
                        ./development
