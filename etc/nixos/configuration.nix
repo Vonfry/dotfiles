@@ -3,6 +3,7 @@
 {
   imports =
     [ ./hardware-configuration.nix # use `nixos-generate-config`
+      ./lib
       ./base
       ./network
       ./shell
