@@ -46,11 +46,11 @@
     - [X] combine nixos module and home-manager
     - [X] manage python & ruby packages by nix
     - [X] packages on nixos and other system
-    - [X] nixpkgs overlay redefine, use files instead of nix_path
+    - [ ] home-manager: nix & nixpkgs config
     - [ ] home-manager: email
     - [ ] home-manager: xmonad, gtk, qt
     - [ ] zsh script and home-manager zsh config
-    - [ ] link home-manager from nixos-config
+    - [X] link home-manager from nixos-config
     - [ ] remove update scripts
     - [ ] recode setup scripts
 *** TODO niv?

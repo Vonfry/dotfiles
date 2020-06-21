@@ -1,5 +1,11 @@
-args@{ pkgs, ... }:
+args@{ pkgs, lib, isNixOS ? false, ... }:
 
 {
-  home.packages = (import ./package args);
+  lib = if !isNixOS then import ../../lib else { };
+
+  programs.home-manager.enable = true;
+
+  home.packages = lib.optional (!isNixOS) (import ./package args);
+
+  imports = [ ./home ];
 }

@@ -1,0 +1,1 @@
+../../etc/nixos/user/vonfry/home.nix

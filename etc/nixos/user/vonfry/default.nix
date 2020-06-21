@@ -10,5 +10,5 @@ args@{ config, pkgs, ... }:
     packages = import ./package args;
   };
   imports = [ ./local ];
-  home-manager.users.vonfry = import ./home.nix;
+  home-manager.users.vonfry = import ./home.nix (args // { isNixOS = true; });
 }
