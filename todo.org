@@ -1,14 +1,14 @@
 * System
 ** TODO NixOS
-** TODO X [4/9]
- - [X] XMonad
- - [X] XMonad layout prompt with newlayout
- - [X] alacritty
- - [X] alacritty color scheme fix
- - [ ] use wayland instead
- - [ ] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
- - [ ] xmonad launcher & keybind
- - [ ] sddm theme by environments.extraSetup
+*** TODO X [4/9]
+- [X] XMonad
+- [X] XMonad layout prompt with newlayout
+- [X] alacritty
+- [X] alacritty color scheme fix
+- [ ] use wayland instead
+- [ ] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
+- [ ] xmonad launcher & keybind
+- [ ] sddm theme by environments.extraSetup
 ** macOS
 
 * Editor
@@ -39,7 +39,17 @@ rev: 8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script
+*** TODO home-manager instead setup script[2/10]
 - Note taken on [2020-04-01 Wed 08:04] \\
   nix only tools? nixos only?
+- [X] add home-manager
+- [X] combine nixos module and home-manager
+- [ ] manage python & ruby packages by nix
+- [ ] packages on nixos and other system
+- [ ] home-manager: email
+- [ ] home-manager: xmonad, gtk, qt
+- [ ] zsh script and home-manager zsh config
+- [ ] link home-manager from nixos-config
+- [ ] remove update scripts
+- [ ] recode setup scripts
 *** TODO niv?
