@@ -5,5 +5,6 @@
   imports = [
     ./vonfry
     ./local
+    <home-manager/nixos>
   ];
 }

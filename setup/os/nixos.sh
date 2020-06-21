@@ -21,6 +21,8 @@ bundix -l
 nix-env -e bundle bundix
 nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 sudo nixos-rebuild switch
 mkdir -p ~/.config/nix
 mkdir -p ~/.config/nixpkgs
