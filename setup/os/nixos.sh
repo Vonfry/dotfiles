@@ -21,7 +21,6 @@ bundix -l
 nix-env -e bundle bundix
 nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
-export NIX_PATH=$NIX_PATH:nixos-vonfry-lib=/etc/nixos/lib
 sudo nixos-rebuild switch
 mkdir -p ~/.config/nix
 mkdir -p ~/.config/nixpkgs

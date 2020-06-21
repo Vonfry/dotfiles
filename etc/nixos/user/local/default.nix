@@ -1,6 +1,5 @@
-{ ... }:
+{ lib, ... }:
 
 {
-  imports = with import <nixos-vonfry-lib>;
-    matchFiles ./. "^.*\\.nix" [ ./default.nix ];
+  imports = lib.nixFiles ./.;
 }

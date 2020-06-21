@@ -1,9 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  nix.nixPath = lib.mkOptionDefault [
-    "nixos-vonfry-lib=/etc/nixos/lib"
-  ];
   i18n = {
     consoleFont = "Hack-11";
     consoleKeyMap = "dvorak-programmer";
@@ -14,11 +11,6 @@
   time.timeZone = "Asia/Shanghai";
 
   environment.systemPackages = with pkgs; [ sudo gnutls cacert pciutils ];
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   nix.optimise.automatic = true;
 

@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  imports = with import <nixos-vonfry-lib>;
-    matchFiles ./. "[A-z0-9\\-]*\\.local\\.nix$" [ ./default.nix ];
+  imports = lib.nixFiles ./.;
   environment.systemPackages = with pkgs;
     [ nmap
       vnstat
