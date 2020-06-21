@@ -2,9 +2,6 @@
 
 {
   # home.user
-  home.username = builtins.getEnv "USER";
-  home.homeDirectory = builtins.getEnv "HOME";
 
   # home.stateVersion
-  home.stateVersion = "20.03";
 }

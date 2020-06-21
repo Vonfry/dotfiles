@@ -6,16 +6,27 @@ find /etc/nixos -name "*.local.nix.example" |
     xargs -n1 -I "{}" sudo cp {}.example {}
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo cp $script_dir/etc/nixos/configuration.nix /etc/nixos/configuration.nix
-sudo grep -e "^ *system\.stateVersion" /etc/nixos/configuration.nix.bak |
+sudo grep -E "^ *system\.stateVersion" /etc/nixos/configuration.nix.bak |
     sed "s/#.*$//"           |
     sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I{} sed -i "/^ *# *system\.stateVersion$/a {}" /etc/nixos/vonfry/base/default.local.nix
-sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
+    xargs -n1 -I{} sed -i "/^ *# *system\.stateVersion$/a {}" /etc/nixos/base/default.local.nix
+sudo grep -E "^ *system\.stateVersion" /etc/nixos/configuration.nix.bak |
+    sed "s/system/home/"     |
+    sed "s/#.*$//"           |
+    sed "s/^ */\\\\ \\\\ /g" |
+    xargs -n1 -I{} sed -i "/^ *# *home\.stateVersion$/a {}" /etc/nixos/user/vonfry/home/base.local.nix
+sudo grep -E "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     sed "s/#.*$//" |
     sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base/default.local.nix
+    xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/base/default.local.nix
+sed -i "/^ *# *home\.user$/a home.username = \"vonfry\"" /etc/nixos/user/vonfry/home/base.local.nix
+sed -i "/^ *# *home\.user$/a home.homeDirectory = \"/home/vonfry\"" /etc/nixos/user/vonfry/home/base.local.nix
+rm /etc/nixos/configuration.nix.bak
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-$runscript $script_dir/setup/pkgs/home-manager.sh
+
+nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+
 sudo nixos-rebuild switch
 echo_info "-- Run fcitx-configtool to config."
