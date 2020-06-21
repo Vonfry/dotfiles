@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 {
-  imports = lib.nixFiles ./.;
+  imports = nixlFiles ./.;
   environment.systemPackages = with pkgs;
     [ nmap
       vnstat

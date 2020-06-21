@@ -12,16 +12,18 @@ rec {
             (builtins.match
         ".*/${builtins.replaceStrings ["."] ["\\."] fileName}$"
         (toString epath))
-    != null)
+            != null)
         exclude;
     is = fileName: isMatch fileName && ! isExclude fileName;
     matchedFiles = builtins.filter is (builtins.attrNames dirFiles);
     in map (f: path + "/${f}") matchedFiles;
 
-  nixFiles = path: matchFiles path "^.*\\.nix" [ ./default.nix ];
+  nixFiles = path: excludes: matchFiles path "^.*\\.nix$" excludes;
+
+  nixFiles' = path: nixFiles path [ "^default\\.nix$" ];
 
   filesIfExist = files:
-    builtins.foldl' (l: f: if builtin.spathExists f then l ++ [f] else l)
+    builtins.foldl' (l: f: if builtins.pathExists f then l ++ [f] else l)
                     [] files;
 
 }

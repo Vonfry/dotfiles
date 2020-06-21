@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+args@{ config, pkgs, ... }:
 
 {
   users.users.vonfry = {
@@ -7,6 +7,8 @@
     description = "Vonfry";
     extraGroups = [ "wheel" "docker" "vboxusers" ];
     shell = pkgs.zsh;
+    packages = import ./package args;
   };
-  imports = [ ./package ./local ];
+  imports = [ ./local ];
+  home-manager.users.vonfry = import ./home.nix;
 }
