@@ -1,11 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
-with pkgs; [
+with pkgs;
+[ nmap
+  vnstat
+  iftop
+
   mu isync
   rclone
   clash
-  firefox
-  chromium
   qbittorrent
   jekyll
+] ++ lib.optional (!stdenv.isDarwin)
+[ wireshark
+  firefox
+  chromium
 ]

@@ -5,5 +5,4 @@ with pkgs;
   mysql
   postgresql
   redis
-  mycli
-  pgcli ]
+]

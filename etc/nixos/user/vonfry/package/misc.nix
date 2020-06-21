@@ -1,8 +1,9 @@
-{ pkgs, customPkgs, ... }:
+{ pkgs, lib, customPkgs, ... }:
 
-with pkgs; [
-  tdesktop
-  _1password
+with pkgs;
+[ _1password
+] ++ lib.optional (!stdenv.isDarwin)
+[ tdesktop
   filezilla
   fontforge-gtk
 ]

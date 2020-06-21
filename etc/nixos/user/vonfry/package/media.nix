@@ -1,15 +1,17 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
-with pkgs; [
-  handbrake
+with pkgs;
+[ handbrake
   graphviz
   gnuplot
+] ++ lib.optional (!stdenv.isDarwin)
+[ nomachine-client
   feh
   libsForQt5.vlc
   inkscape
   gimp
-  zathura
   unstable.tor-browser-bundle-bin
   zerotierone
-  nomachine-client
+  zathura
 ]
+

@@ -14,18 +14,12 @@ sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     sed "s/#.*$//" |
     sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base/default.local.nix
-nix-env -iA nixos.bundix nixos.bundler
-cd /etc/nixos/user/vonfry/package/custom/development/ruby/self-pkgs
-bundle lock
-bundix -l
-nix-env -e bundle bundix
-nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
-nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
-sudo nixos-rebuild switch
+# TODO ln home-manager config files?
 mkdir -p ~/.config/nix
 mkdir -p ~/.config/nixpkgs
 ln -s -f $script_dir/config/nix/* ~/.config/nix
 ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
+sudo nixos-rebuild switch
 echo_info "-- Run fcitx-configtool to config."

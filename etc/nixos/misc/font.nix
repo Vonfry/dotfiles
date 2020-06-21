@@ -1,8 +1,8 @@
 { config, pkgs, ...}:
 
 
-let vonfryCustom = pkgs.callPackages (import ../user/vonfry/package/custom) {};
-    fira-code-symbols = vonfryCustom.fira-code-symbols;
+let
+    fira-code-symbols = pkgs.vonfryPackages.fira-code-symbols;
 in {
   fonts = {
     fonts = [

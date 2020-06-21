@@ -1,12 +1,17 @@
-{ pkgs, customPkgs, ... }:
+{ lib, pkgs, customPkgs, ... }:
 
 let
     hie = customPkgs.hie;
     rubyPkgs = customPkgs.rubyPkgs;
     pythonPkgs = customPkgs.python;
-in
-with pkgs; [
-  zeal
+in with pkgs;
+[ cloc
+  patchelf
+  binutils-unwrapped
+  llvmPackages.clang llvm lldb
+  cmake gnumake
+
+  ninja bear
 
   glibcInfo
   clang-tools
@@ -24,19 +29,18 @@ with pkgs; [
 
   pythonPkgs
 
-  ruby bundix ## rbenv; not! use nix instead.
   rubyPkgs
+  solargraph
 
   doxygen
 
   coq
 
-  nodejs
-
-  texlive.combined.scheme-full
   poppler
   pandoc
 
-  solargraph
   ctags
+] ++ lib.optional (!stdenv.isDarwin)
+[ texlive.combined.scheme-full
+  zeal
 ]

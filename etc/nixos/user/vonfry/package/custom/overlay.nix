@@ -13,7 +13,7 @@ in rec {
     fira-code-symbols = callPackage ./data/fonts/fira-code-symbols
                                     { fira-code = unstable.fira-code; };
     python = callPackage ./development/python/python { python = super.python3; };
-    rubyPkgs = callPackage ./development/ruby/self-pkgs { };
+    ruby = callPackage ./development/ruby/ruby { };
     xmonad = callPackage ./applications/window-managers/xmonad { };
   };
 }
