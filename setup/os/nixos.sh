@@ -19,8 +19,8 @@ sudo grep -E "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
     sed "s/#.*$//" |
     sed "s/^ */\\\\ \\\\ /g" |
     xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/base/default.local.nix
-sed -i "/^ *# *home\.user$/a \\ \\ home.username = \"vonfry\";" /etc/nixos/user/vonfry/home/base.local.nix
-sed -i "/^ *# *home\.user$/a \\ \\ home.homeDirectory = \"/home/vonfry\";" /etc/nixos/user/vonfry/home/base.local.nix
+sed -i "/^ *# *home\.user$/a \\ \\ home.username = \"$USER\";" /etc/nixos/user/vonfry/home/base.local.nix
+sed -i "/^ *# *home\.user$/a \\ \\ home.homeDirectory = \"$HOME\";" /etc/nixos/user/vonfry/home/base.local.nix
 rm /etc/nixos/configuration.nix.bak
 sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
