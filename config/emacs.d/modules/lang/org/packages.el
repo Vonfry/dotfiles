@@ -7,8 +7,8 @@
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))
   (org-log-done 'time)
-  (org-startup-indented t)
-  (org-indent-mode-turns-off-org-adapt-indentation nil)
+  (org-adapt-indentation t)
+  (org-hide-leading-stars t)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
   (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
