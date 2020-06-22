@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-with pkgs;
-[ wget curl
+with pkgs; [
+  wget curl
   git git-lfs
   zsh gnupg
   atop htop
@@ -30,9 +30,9 @@ with pkgs;
   fortune cmatrix figlet
   asciinema
   neofetch
-] ++ lib.optional (!stdenv.isDarwin)
-[ flameshot
+] ++ lib.optional (!stdenv.isDarwin) [
+  flameshot
   alacritty
-] ++ lib.optional stdenv.isDarwin
-[ terminal-notify
+] ++ lib.optional stdenv.isDarwin [
+  terminal-notify
 ]

@@ -1,4 +1,4 @@
-{ lib, pkgs, customPkgs, ... }:
+{ pkgs, customPkgs, ... }:
 
 let
     hie = customPkgs.hie;
@@ -40,6 +40,13 @@ in with pkgs;
   pandoc
 
   ctags
+
+  sqlite
+  mysql
+  postgresql
+  redis
+
+  httpstat
 ] ++ lib.optional (!stdenv.isDarwin)
 [ texlive.combined.scheme-full
   zeal

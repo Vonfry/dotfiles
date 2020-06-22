@@ -1,8 +1,7 @@
 { lib, pkgs, ... }:
 
-with pkgs;
-[
-] ++ lib.optional (!stdenv.isDarwin)
-[ lnav
+with pkgs; [
+] ++ lib.optional (!stdenv.isDarwin) [
+  lnav
   exfat
 ]

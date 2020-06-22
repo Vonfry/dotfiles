@@ -25,5 +25,4 @@ rec {
   filesIfExist = files:
     builtins.foldl' (l: f: if builtins.pathExists f then l ++ [f] else l)
                     [] files;
-
 }

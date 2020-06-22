@@ -8,7 +8,7 @@ let args = { pkgs = pkgs
                    ./misc.nix
                    ./editor.nix
                    ./shell.nix
-                   ./development
+                   ./development.nix
                    ./media.nix
                    ./font.nix
                    ./local

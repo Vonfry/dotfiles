@@ -1,6 +1,5 @@
 { config, pkgs, ...}:
 
-
 let
     fira-code-symbols = pkgs.vonfryPackages.fira-code-symbols;
 in {
@@ -22,4 +21,7 @@ in {
       };
     };
   };
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
 }

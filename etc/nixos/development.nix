@@ -2,8 +2,17 @@
 
 {
   environment.systemPackages = with pkgs; [
+    cloc
+    binutils-unwrapped
+    # c family
+    llvmPackages.clang llvm lldb
+    ninja cmake gnumake
+
+    patchelf
+
     docker
     docker_compose
+    patchelf
   ];
 
   virtualisation = {
@@ -13,5 +22,4 @@
       autoPrune.enable = true;
     };
   };
-
 }

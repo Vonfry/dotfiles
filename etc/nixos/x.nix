@@ -5,6 +5,7 @@
     xclip
     alacritty
     firefox
+    dunst libnotify
   ];
   services.xbanish.enable = true;
   services.xserver = {
@@ -23,5 +24,4 @@
       };
     };
   };
-  imports = [ ./notify.nix ./theme.nix ];
 }

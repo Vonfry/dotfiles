@@ -1,11 +1,11 @@
 { python }:
 
-python.withPackages (pythonPackages: with pythonPackages;
-  [ scipy
-    numpy
-    pandas
-    matplotlib
-    sympy
-    ipython
-    pdb
-  ])
+python.withPackages (pythonPackages: with pythonPackages; [
+  scipy
+  numpy
+  pandas
+  matplotlib
+  sympy
+  ipython
+  pdb
+])

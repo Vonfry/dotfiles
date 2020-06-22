@@ -1,5 +1,7 @@
 { ... }:
 
 {
-  imports = [ ./mail.nix ./base.nix ];
+  imports = [ ./base.nix
+              ./mail.nix
+            ];
 }

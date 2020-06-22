@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
-with pkgs;
-[ nmap
+with pkgs; [
+  nmap
   vnstat
   iftop
 
@@ -10,8 +10,8 @@ with pkgs;
   clash
   qbittorrent
   jekyll
-] ++ lib.optional (!stdenv.isDarwin)
-[ wireshark
+] ++ lib.optional (!stdenv.isDarwin) [
+  wireshark
   firefox
   chromium
 ]
