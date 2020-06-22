@@ -24,7 +24,6 @@ if ! [ -f /etc/NIXOS ]; then
             sed "s/^ */\\\\ \\\\ /g" |
             xargs -n1 -I "{}" sed -i "/^ *# home\.user$/a {}" $script_dir/etc/nixos/user/vonfry/home/base.local.nix
         rm ~/.config/nixpkgs/home.nix.bak
-        ln -s -f $script_dir/config/nix/* ~/.config/nix
         ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
         home-manager switch
     else
