@@ -39,7 +39,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[6/11]
+*** TODO home-manager instead setup script[7/13]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -47,9 +47,10 @@
     - [X] manage python & ruby packages by nix
     - [X] packages on nixos and other system
     - [X] home-manager: nix & nixpkgs config
-    - [ ] home-manager: email
+    - [X] home-manager: email
     - [ ] home-manager: xmonad, gtk, qt
     - [ ] zsh script and home-manager zsh config
+    - [ ] gpg & passward init
     - [X] link home-manager from nixos-config
     - [ ] remove update scripts
     - [ ] recode setup scripts
