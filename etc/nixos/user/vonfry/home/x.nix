@@ -30,6 +30,7 @@ let
         settings = import ./files/alacritty.nix;
 	enable = true;
       };
+      firefox.enable = true;
     };
     xsession = {
       enable = true;
