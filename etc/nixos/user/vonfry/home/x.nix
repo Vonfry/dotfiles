@@ -23,10 +23,20 @@ let
       enable = true;
       platformTheme = "gtk";
     };
-    xsession.windowManager.xmonad = {
+    programs = {
+      feh.enable = true;
+    };
+    xsession = {
       enable = true;
-      enableContribAndExtras = true;
-      config = ./files/xmonad.hs;
+      initExtra = ''
+        source ~/.zprofile
+        feh --bg-center ~/.config/bg.png
+      '';
+      windowManager.xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+        config = ./files/xmonad.hs;
+      };
     };
     services.dunst = {
       enable = true;
