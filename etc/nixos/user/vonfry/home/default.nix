@@ -3,7 +3,8 @@
 {
   imports = [ ./base.nix
               ./mail.nix
-              ./editor.nix
+              ./development.nix
+	      ./shell.nix
               ./x.nix
               ./misc.nix
             ];

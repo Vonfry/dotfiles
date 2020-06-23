@@ -25,6 +25,11 @@ let
     };
     programs = {
       feh.enable = true;
+      zathura.enable = true;
+      alacritty = {
+        settings = import ./files/alacritty.nix;
+	enable = true;
+      };
     };
     xsession = {
       enable = true;
@@ -50,7 +55,6 @@ let
         };
       };
     };
-    programs.alacritty = import ./files/alacritty.nix;
   };
 in
 if (!pkgs.stdenv.isDarwin) then conf else {}
