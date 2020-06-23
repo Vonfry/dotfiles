@@ -4,6 +4,13 @@
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
   home.file = {
+    ".latexmkrc" = {
+      executable = false;
+      text = ''
+        $out_dir = "latex.out";
+        $pdf_mode = 5;
+      '';
+    };
     ".config/emacs.d" = {
       source = ./files/emacs.d;
       recursive = true;
