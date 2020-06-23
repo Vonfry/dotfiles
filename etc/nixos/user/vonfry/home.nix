@@ -5,7 +5,7 @@ args@{ pkgs, lib, isNixOS ? false, ... }:
 
   programs.home-manager.enable = true;
 
-  home.packages = lib.optional (!isNixOS) (import ./package args);
+  home.packages = import ./package args;
 
   imports = [ ./home ];
 }
