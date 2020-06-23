@@ -11,18 +11,18 @@ if ! [ -f /etc/NIXOS ]; then
         mkdir -p ~/.config/nix
         mkdir -p ~/.config/nixpkgs
 
-        find $script_dir/config/nixpkgs/home -name "*.local.nix.example" |
+        find $script_dir/config/nixpkgs/home -name "*.nix.example" |
             sed s/\.example$// |
             xargs -n1 -I "{}" cp {}.example {}
         cp ~/.config/nixpkgs/home.nix ~/.config/nixpkgs/home.nix.bak
         grep -E "^ *home\.stateVersion" ~/.config/nixpkgs/home.nix.bak |
             sed "s/#.*$//"           |
             sed "s/^ */\\\\ \\\\ /g" |
-            xargs -n1 -I{} sed -i "/^ *# *home\.stateVersion$/a {}" $script_dir/etc/nixos/user/vonfry/home/base.local.nix
+            xargs -n1 -I{} sed -i "/^ *# *home\.stateVersion$/a {}" $script_dir/etc/nixos/user/vonfry/home/local/base.nix
         grep -E "^ *home\.(username|homeDirectory)" ~/.config/nixpkgs/home.nix.bak |
             sed "s/#.*$//" |
             sed "s/^ */\\\\ \\\\ /g" |
-            xargs -n1 -I "{}" sed -i "/^ *# home\.user$/a {}" $script_dir/etc/nixos/user/vonfry/home/base.local.nix
+            xargs -n1 -I "{}" sed -i "/^ *# home\.user$/a {}" $script_dir/etc/nixos/user/vonfry/home/local/base.nix
         rm ~/.config/nixpkgs/home.nix.bak
         ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
         home-manager switch
