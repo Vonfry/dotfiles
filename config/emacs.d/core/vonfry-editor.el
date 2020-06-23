@@ -71,7 +71,6 @@
   set-mark-command-repeat-pop t
   tooltip-delay 0.7
 
-  word-wrap nil
   truncate-lines nil
   truncate-partial-width-windows vonfry-text-width
   fill-column vonfry-text-width
