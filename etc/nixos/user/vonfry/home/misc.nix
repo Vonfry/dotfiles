@@ -28,15 +28,12 @@ let
       "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
       "Library/Rime/installation.custom.yaml".source = ./files/rime/installation.custom.yaml;
       "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
-      ".gnupg/gpg-agent.conf" = {
-        executable = false;
-        text = ''
-          default-cache-ttl 14400
-          allow-emacs-pinentry
-          enable-ssh-support
-          allow-preset-passphrase
-        '';
-      };
+      ".gnupg/gpg-agent.conf".text = ''
+        default-cache-ttl 14400
+        allow-emacs-pinentry
+        enable-ssh-support
+        allow-preset-passphrase
+      '';
     };
   };
   conf = {
