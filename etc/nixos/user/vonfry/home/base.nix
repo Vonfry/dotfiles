@@ -18,10 +18,5 @@
   };
   # home.activation can not help me to boot the ln process for home.nix becasue
   # if the script can be done, the home.nix has been linked.
-  home.activation = {
-    shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      if [ -f ${toString config.programs.zsh.dotDir} ]; then
-      fi
-    '';
-  };
+  # home.activation = {};
 }
