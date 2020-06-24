@@ -67,6 +67,10 @@ let
       git = {
         enable = true;
         lfs.enable = true;
+        ignores = [
+          (builtins.readFile (builtins.fetchurl
+            "https://gitignore.io/api/vim,linux,macos,emacs,direnv,windows"))
+        ];
       };
       direnv = {
         enable = true;
