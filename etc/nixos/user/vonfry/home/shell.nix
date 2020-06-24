@@ -71,6 +71,8 @@ let
 	sessionVariables = ''
 	'';
 	shellAliases = {
+	  ps = "procs";
+	  lla = "ls -lAh";
 	};
       };
     };
