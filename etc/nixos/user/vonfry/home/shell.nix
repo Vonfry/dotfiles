@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let 
   conf = {
@@ -49,32 +49,78 @@ let
 	  } { 
 	    name = "MichaelAquilina/zsh-you-should-use";
           } {
-	    # export GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git hg kube)
 	    name = "geometry-zsh/geometry";
 	  }];
 	};
-	# TODO
 	envExtra = ''
+	  if [ -f ${config.programs.zsh.dotDir + /defvar.sh} ]; then
+	    . {config.programs.zsh.dotDir + /defvar.sh}
+	  fi
+	  export PATH=${./files/bin}:~/.local/bin:$PATH
 	'';
 	initExtra = ''
-	'';
+	  setopt nonmatch
+	  setopt extendedglob
+	  setopt rm_star_silent
+	  setopt clobber
+	'' + builtins.concatStringsSep "\n"
+	  (map (f: if builtins.match "^.*\\.z?sh$" f 
+	           then "source ${./.}/${f}" 
+	           else "" ) 
+	       (builtins.attrNames 
+	         (lib.filterAttrs (n: v: v == "regular") 
+	                          (builtins.readDir ./files/zsh/functions))));
 	initExtraBeforeCompInit  = ''
 	'';
 	localVariables = ''
 	'';
 	loginExtra = ''
+	  # Execute code that does not affect the current session in the background.
+          {
+            # Compile the completion dump to increase startup speed.
+            zcompdump="''${ZDOTDIR:-$HOME}/.zcompdump"
+            if [[ -s "$zcompdump" && (! -s "''${zcompdump}.zwc" || "$zcompdump" -nt "''${zcompdump}.zwc") ]]; then
+              zcompile "$zcompdump"
+            fi
+          } &!
+          
+          # Execute code only if STDERR is bound to a TTY.
+          [[ -o INTERACTIVE && -t 2 ]] && {
+          
+            # Print a random, hopefully interesting, adage.
+            if (( $+commands[fortune] )); then
+              fortune -s ~/.local/src/fortunes/data all
+              print
+            fi
+          
+          } >&2
 	'';
 	logoutExtra = ''
 	'';
 	profileExtra = ''
+	  export GEOMETRY_PROMPT_PLUGINS=(exec_time jobs git hg kube)
 	'';
 	sessionVariables = ''
 	'';
 	shellAliases = {
 	  ps = "procs";
 	  lla = "ls -lAh";
+          ecd = "emacs --daemon";
+          ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
+          ecc = "emacsclient -n -c";
+          ect = "emacsclient -t";
+
+          opF = op-format;
+          opgi = "op get item";
+          opp = "op-get-password-from-json";
+          opf = "op-fuzzy-search-from-json";
+          opr = "op-refresh-sign";
+	  op-init = "op-sign-my";
 	};
       };
+    };
+    home.file = {
+      ".zpreztorc".source = ./files/zsh/zpreztorc;
     };
   };
   confLinux = {

@@ -49,8 +49,9 @@
     - [X] home-manager: nix & nixpkgs config
     - [X] home-manager: email
     - [X] home-manager: xmonad, gtk, qt
-    - [ ] zsh script and home-manager zsh config
+    - [X] zsh script and home-manager zsh config
     - [ ] home session and variables
+    - [ ] shell and files activation script
     - [X] emacs & vim config
     - [ ] gpg & passward init
     - [X] link home-manager from nixos-config
