@@ -11,7 +11,7 @@ in with pkgs;
   llvmPackages.clang llvm lldb
   cmake gnumake
 
-  ninja bear
+  bear
 
   glibcInfo
   clang-tools
