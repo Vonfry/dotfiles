@@ -71,9 +71,7 @@ let
              else "" )
             (builtins.attrNames
               (lib.filterAttrs (n: v: v == "regular")
-                (builtins.readDir ./files/zsh/rc.d)))) + "\n" +
-        lib.optionalString stdenv.pkgs.isDarwin
-          "source ${toString ./files/zsh/rc.d.1/macos.sh}";
+                (builtins.readDir ./files/zsh/rc.d))));
         initExtraBeforeCompInit  = ''
         '';
         localVariables = ''
@@ -81,8 +79,6 @@ let
           export ENHANCD_DIR=~/.cache/enchancd
           export ENHANCD_FILTER=fzf
           export ENHANCD_USE_FUZZY_MATCH=0
-          ${lib.optionalString pkgs.stdenv.isDarwin
-            "export HOMEBREW_OPT_INIT_FUNCTION=(ruby emacsplus)"}
           [ -f ${localvarFile} ] && . ${localvarFile}
         '';
         loginExtra = ''
@@ -129,22 +125,39 @@ let
         };
       };
     };
-    home.file = {
-      ".zpreztorc".source = ./files/zsh/zpreztorc;
+    home = {
+      file = {
+        ".zpreztorc".source = ./files/zsh/zpreztorc;
+      };
+      activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        mkdir -p ~/.cache ~/.local
+        if ! [ -f ${defvarFile} ]; then
+          $DRY_RUN_CMD cp $VERBOSE_ARG ${toString ./files/zsh/defvar.sh.example} ${defvarFile}
+          $DRY_RUN_CMD echo "defvar file is copied, please edit it."
+          $DRY_RUN_CMD read
+        fi
+        $DRY_RUN_CMD . ${defvarFile}
+        $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/org $ORG_DIR
+        $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/emacs.d/local/* ~/.config/emacs.d/local
+        $DRY_RUN_CMD mkdir -p $CLONE_LIB $PASSWD_DIR
+        if ! [ -f $PASSWD_DIR/authinfo.gpg ]; then
+          $DRY_RUN_CMD echo "please create authinfo.gpg file under $PASSWD_DIR"
+          $DRY_RUN_CMD read
+        fi
+        ! [ -f ~/.config/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -O ~/.config/bg.png
+        if ! [ -f $CLONE_LIB/fortunes ]; then
+          $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git ~/.local/src/fortunes
+          $DRY_RUN_CMD strfile ~/.local/src/fortunes/data/fortunes
+          $DRY_RUN_CMD strfile ~/.local/src/fortunes/data/chinese
+          $DRY_RUN_CMD strfile ~/.local/src/fortunes/data/tang300
+          $DRY_RUN_CMD strfile ~/.local/src/fortunes/data/song100
+          $DRY_RUN_CMD strfile ~/.local/src/fortunes/data/diet
+        fi
+      '';
     };
-    home.activation.zshActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p ~/.cache ~/.local
-      if ! [ -f ${defvarFile} ]; then
-        $DRY_RUN_CMD cp $VERBOSE_ARG ${toString ./files/zsh/defvar.sh.example} ${defvarFile}
-        $DRY_RUN_CMD echo "defvar file is copied, please edit it."
-        $DRY_RUN_CMD read
-      fi
-      $DRY_RUN_CMD . ${defvarFile}
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUDDISK_DIR/dotfiles/org $ORG_DIR
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUDDISK_DIR/dotfiles/emacs.d/local/* ~/.config/emacs.d/local
-      $DRY_RUN_CMD mkdir -p $CLONE_LIB
-      ! [ -f ~/.config/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -O ~/.config/bg.png
-    '';
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
   confLinux = {
     programs = {
@@ -153,6 +166,13 @@ let
 	      treeview = true;
       };
     };
+    home.sessionVariables = {
+      BROWSER = "firefox";
+    };
   };
-  confDarwin = {};
+  confDarwin = {
+    home.sessionVariables = {
+      BROWSER = "open";
+    };
+  };
 in conf // (if (!pkgs.stdenv.isDarwin) then confLinux else confDarwin)

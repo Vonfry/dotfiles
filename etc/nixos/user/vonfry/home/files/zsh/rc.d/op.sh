@@ -3,7 +3,7 @@
 if command -v op > /dev/null 2>&1; then
     function op-sign-my()
     {
-        op signin my >! $SHELL_CUSTOM_DIR_LOCAL/op.sh
+        op signin my >! $PASSWD_DIR/op.sh
         op-refresh-sign
     }
     function op-format()
@@ -13,6 +13,6 @@ if command -v op > /dev/null 2>&1; then
     }
     function op-refresh-sign()
     {
-        source $SHELL_CUSTOM_DIR_LOCAL/op.sh
+        source $PASSWD_DIR/op.sh
     }
 fi

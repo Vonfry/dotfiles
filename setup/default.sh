@@ -14,14 +14,12 @@ mkdir -p ~/.local/bin
 
 runscript="$SHELL"
 $runscript $script_dir/setup/os/default.sh
-$runscript $script_dir/setup/pkgs/default.sh
+$runscript $script_dir/setup/nix.sh
 
 # alert
 echo "
 ========
 This setup has been done. But there are something not installed.
-\`Docker\` on mac show be installed with docker-tool-box.
-Any applications were not been initialized., such as \`mysql\`, \`postgresql\` and so on.
 ========\n
 "
 
@@ -31,5 +29,3 @@ unset -f echo_info
 unset -f echo_note
 unset script_dir
 unset runscript
-
-source $HOME/.zshrc

@@ -39,7 +39,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[8/13]
+*** TODO home-manager instead setup script[15/16]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -50,11 +50,12 @@
     - [X] home-manager: email
     - [X] home-manager: xmonad, gtk, qt
     - [X] zsh script and home-manager zsh config
-    - [ ] home session and variables
-    - [ ] shell and files activation script
+    - [X] home session and variables
+    - [X] shell and files activation script
     - [X] emacs & vim config
-    - [ ] gpg & passward init
+    - [X] gpg & passward init
     - [X] link home-manager from nixos-config
-    - [ ] remove update scripts
-    - [ ] recode setup scripts
+    - [X] remove update scripts
+    - [X] recode setup scripts
+    - [ ] sed command on linux and macos is different
 *** TODO niv?

@@ -5,10 +5,6 @@ let
     # Use home.file instead of programs.<editor> due to I want to have a structure
     # config file for them.
     home.file = {
-      ".latexmkrc".text = ''
-        $out_dir = "latex.out";
-        $pdf_mode = 5;
-      '';
       ".config/emacs.d" = {
         source = ./files/emacs.d;
         recursive = true;
@@ -83,6 +79,25 @@ let
       enable = true;
       extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
+    home.file = {
+      ".latexmkrc".text = ''
+        $out_dir = "latex.out";
+        $pdf_mode = 5;
+        $dvi_previewer = 'xdvi -watchfile 1.5';
+        $ps_previewer  = 'feh';
+        $pdf_previewer = 'zathura';
+      '';
+    };
   };
-  confDarwin = {};
+  confDarwin = {
+    home.file = {
+      ".latexmkrc".text = ''
+        $out_dir = "latex.out";
+        $pdf_mode = 5;
+        $pdf_previewer = 'open -a Skim';
+        $pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
+        @generated_exts = (@generated_exts, 'synctex.gz');
+      '';
+    };
+  };
 in conf // (if (!pkgs.stdenv.isDarwin) then confLinux else confDarwin)
