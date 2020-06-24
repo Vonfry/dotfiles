@@ -21,31 +21,31 @@ let
       ".ghc/ghci.conf".text = ''
         :set -fbreak-on-exception
         :set +m
-  
+
         -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
         :set -XLambdaCase
         :set -XMultiWayIf
         :set -XBinaryLiterals
         :set -XBangPatterns
-  
+
         :set -XTemplateHaskell
         :set -XNamedFieldPuns
         :set -XFlexibleContexts
         :set -XFlexibleInstances
         :set -XMultiParamTypeClasses
-  
+
         :set -XUnicodeSyntax
-  
+
         :set -XDeriveGeneric
         :set -XDeriveFunctor
         :set -XDeriveFoldable
-  
+
         :set -XImplicitParams
-  
+
         -- preference
         :set prompt "λ "
         :set prompt-cont "> "
-  
+
         -- allow C-c
         :set -fomit-yields%
       '';
