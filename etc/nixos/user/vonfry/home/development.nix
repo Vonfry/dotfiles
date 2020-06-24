@@ -61,6 +61,9 @@ let
     };
     programs = {
       git = {
+        userName = "Vonfry";
+        userEmail = "mail@vonfry.name";
+        signing.signByDefault = true;
         enable = true;
         lfs.enable = true;
         ignores = [
