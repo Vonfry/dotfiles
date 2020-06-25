@@ -1,6 +1,10 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/git,vim,macos,linux,emacs,windows
-# Edit at https://www.toptal.com/developers/gitignore?templates=git,vim,macos,linux,emacs,windows
+# Created by https://www.toptal.com/developers/gitignore/api/vim,linux,macos,emacs,direnv,windows
+# Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,macos,emacs,direnv,windows
+
+### direnv ###
+.direnv
+.envrc
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
@@ -52,21 +56,6 @@ flycheck_*.el
 # network security
 /network-security.data
 
-
-### Git ###
-# Created by git for backups. To disable backups in Git:
-# $ git config --global mergetool.keepBackup false
-*.orig
-
-# Created by git when using merge tools for conflicts
-*.BACKUP.*
-*.BASE.*
-*.LOCAL.*
-*.REMOTE.*
-*_BACKUP_*.txt
-*_BASE_*.txt
-*_LOCAL_*.txt
-*_REMOTE_*.txt
 
 ### Linux ###
 
@@ -156,4 +145,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/git,vim,macos,linux,emacs,windows
+# End of https://www.toptal.com/developers/gitignore/api/vim,linux,macos,emacs,direnv,windows

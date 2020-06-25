@@ -1,5 +1,0 @@
-{ lib, ... }:
-
-{
-  imports = lib.nixFiles ./.;
-}

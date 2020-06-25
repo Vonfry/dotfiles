@@ -1,0 +1,5 @@
+export DOTFILES_DIR=~/dotfiles
+export CLOUD_DIR=~/cloud
+export ORG_DIR=~/orgmode
+export CLONE_LIB=~/.local/src
+export PASSWD_DIR=~/.local/passwd

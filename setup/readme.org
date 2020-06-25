@@ -1,0 +1,21 @@
+* Setup
+These scripts are used to setup system, but please do not run it directly,
+because these scripts are not tested well, which are just as references.
+
+** Step
+1. prepare cloud files and dotfiles
+
+*** OS
+**** macOS
+1. install homebrew.
+2. install some [[file:os/macos.sh][special packages]] by homebrew
+**** NixOS
+1. copy nixos-config
+2. copy example files in nixos-config
+3. set some necussary local files.
+4. nixos-rebuild
+
+*** User files
+1. install nix
+2. install home-manager
+3. use home-manager to manage them

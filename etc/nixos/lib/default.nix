@@ -1,7 +1,7 @@
-args@{ pkgs, lib, ... }:
+args@{ lib, ... }:
 
 let
-  libFiles = [ ./match-files.nix ];
+  libFiles = [ ];
   callImport = path: (import path) args;
   libImports = map callImport libFiles;
   mkLib = imports: builtins.foldl' (x: y: x // y) {} imports;

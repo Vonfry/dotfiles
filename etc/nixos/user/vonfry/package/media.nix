@@ -1,15 +1,16 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 with pkgs; [
-  handbrake
-  graphviz
   gnuplot
+] ++ lib.optionals (!stdenv.isDarwin) [
+  nomachine-client
   feh
   libsForQt5.vlc
   inkscape
   gimp
-  zathura
   unstable.tor-browser-bundle-bin
   zerotierone
-  nomachine-client
+  zathura
+] ++ lib.optionals stdenv.isLinux [
+  handbrake # numactl works on linux # wait for pr https://github.com/NixOS/nixpkgs/pull/89674
 ]
