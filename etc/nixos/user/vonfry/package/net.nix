@@ -2,16 +2,16 @@
 
 with pkgs; [
   nmap
-  vnstat
-  iftop
-
   mu isync
-  rclone
-  clash
-  qbittorrent
   jekyll
-] ++ lib.optional (!stdenv.isDarwin) [
+] ++ lib.optionals (!stdenv.isDarwin) [
   wireshark
   firefox
   chromium
+
+  vnstat
+  iftop
+  clash
+  qbittorrent
+  rclone
 ]

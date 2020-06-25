@@ -1,61 +1,58 @@
 { pkgs, ... }:
 
-let
-  conf = {
-    gtk = {
-      enable = true;
-      gtk = {
-        font = {
-          name = "Source Han Sans CN";
-          package = source-han-sans-simplified-chinese
-        };
-        theme = {
-          name = "Ant-Dracula";
-          package = pkgs.ant-dracula-theme;
-        };
-        iconTheme = {
-          name = "breeze-dark";
-          package = pkgs.breeze-icons;
-        };
-      };
+let isDarwin = pkgs.stdenv.isDarwin;
+in
+{
+  gtk = {
+    enable = !isDarwin;
+    font = {
+      name = "Source Han Sans CN";
+      package = pkgs.source-han-sans-simplified-chinese;
     };
-    qt = {
-      enable = true;
-      platformTheme = "gtk";
+    theme = {
+      name = "Ant-Dracula";
+      package = pkgs.ant-dracula-theme;
     };
-    programs = {
-      feh.enable = true;
-      zathura.enable = true;
-      alacritty = {
-        settings = import ./files/alacritty.nix;
-	enable = true;
-      };
-      firefox.enable = true;
+    iconTheme = {
+      name = "breeze-dark";
+      package = pkgs.breeze-icons;
     };
-    xsession = {
-      enable = true;
-      initExtra = ''
-        source ~/.zprofile
-        feh --bg-center ~/.config/bg.png
-      '';
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        config = ./files/xmonad.hs;
-      };
+  };
+  qt = {
+    enable = !isDarwin;
+    platformTheme = "gtk";
+  };
+  programs = {
+    feh.enable = !isDarwin;
+    zathura.enable = !isDarwin;
+    alacritty = {
+      settings = import ./files/alacritty.nix;
+      enable = !isDarwin;
     };
-    services.dunst = {
-      enable = true;
-      iconTheme = {
-        name = "breeze-dark";
-        package = pkgs.breeze-icons;
-      };
-      settings = {
-        global = {
-          font = "Source Han Sans CN";
-        };
+    firefox.enable = !isDarwin;
+  };
+  xsession = {
+    enable = !isDarwin;
+    initExtra = ''
+      source ~/.zprofile
+      feh --bg-center ~/.config/bg.png
+    '';
+    windowManager.xmonad = {
+      enable = !isDarwin;
+      enableContribAndExtras = true;
+      config = ./files/xmonad.hs;
+    };
+  };
+  services.dunst = {
+    enable = !isDarwin;
+    iconTheme = {
+      name = "breeze-dark";
+      package = pkgs.breeze-icons;
+    };
+    settings = {
+      global = {
+        font = "Source Han Sans CN";
       };
     };
   };
-in
-if (!pkgs.stdenv.isDarwin) then conf else {}
+}

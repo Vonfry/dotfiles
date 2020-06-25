@@ -8,20 +8,13 @@ brew update && brew upgrade
 brew install caskroom/cask/brew-cask
 
 # shell
-brew install gnu-sed gnu-tar unzip unrar
 brew cask install the-unarchiver
 brew cask install gpg-suite
-brew install dbus
-brew install thefuck
 
 brew cask install java
 
 # system tool
 brew cask install docker
-
-brew tap d12frosted/emacs-plus
-brew install emacs-plus --with-dbus
-sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 # life
 brew cask install squirrel
@@ -36,11 +29,8 @@ brew cask install firefox
 brew cask install font-hack
 brew cask install font-symbola
 
-echo_info "*** install nix for macos"
-sh <(curl https://nixos.org/nix/install)
-
 # config
-ln -sf $script_dir/config/rime/* ~/Library/Rime
+sudo ln -f -s $script_dir/etc/motd /etc/motd
 
 echo_info "*** Here are some useful tools for mac.
 See:

@@ -2,18 +2,17 @@
 
 let
     hie = customPkgs.hie;
-    rubyPkgs = customPkgs.rubyPkgs;
+    rubyPkgs = customPkgs.ruby;
     pythonPkgs = customPkgs.python;
 in with pkgs;
 [ cloc
   patchelf
   binutils-unwrapped
-  llvmPackages.clang llvm lldb
+  # llvmPackages.clang llvm lldb
   cmake gnumake
 
   bear
 
-  glibcInfo
   clang-tools
 
   ghc
@@ -47,7 +46,8 @@ in with pkgs;
   redis
 
   httpstat
-] ++ lib.optional (!stdenv.isDarwin)
+] ++ lib.optionals (!stdenv.isDarwin)
 [ texlive.combined.scheme-full
   zeal
+  glibcInfo
 ]

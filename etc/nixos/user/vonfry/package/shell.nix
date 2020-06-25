@@ -4,7 +4,6 @@ with pkgs; [
   wget curl
   git git-lfs
   zsh gnupg
-  atop htop
   file
   fzf
   colordiff
@@ -12,7 +11,6 @@ with pkgs; [
   w3m
   patch
   zip unzip
-  lm_sensors lsof
   ripgrep
   gawk
   fd
@@ -31,9 +29,11 @@ with pkgs; [
   fortune cmatrix figlet
   asciinema
   neofetch
-] ++ lib.optional (!stdenv.isDarwin) [
+] ++ lib.optionals (!stdenv.isDarwin) [
   flameshot
+  atop htop
   alacritty
-] ++ lib.optional stdenv.isDarwin [
-  terminal-notify
+  lm_sensors lsof
+] ++ lib.optionals stdenv.isDarwin [
+  terminal-notifier
 ]

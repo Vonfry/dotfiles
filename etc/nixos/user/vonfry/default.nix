@@ -1,6 +1,12 @@
-args@{ config, pkgs, ... }:
+{ config, pkgs, ... }:
 
-{
+let
+  localFiles = with builtins; with lib;
+    map (n: ./local + "/${n}")
+        (attrNames (filterAttrs
+                   (n: v: v != "directory" && isList (match "^.*\\.nix$" n))
+                   (readDir ./local)));
+in {
   users.users.vonfry = {
     isNormalUser = true;
     home = "/home/vonfry";
@@ -8,6 +14,6 @@ args@{ config, pkgs, ... }:
     extraGroups = [ "wheel" "docker" "vboxusers" ];
     shell = pkgs.zsh;
   };
-  imports = [ ./local ];
-  home-manager.users.vonfry = import ./home.nix args;
+  imports = [ ] ++ localFiles;
+  home-manager.users.vonfry = import ./home.nix;
 }

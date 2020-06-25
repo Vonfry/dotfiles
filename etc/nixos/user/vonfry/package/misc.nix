@@ -4,7 +4,7 @@ with pkgs; [
   _1password
 
   customPkgs.fira-code-symbols
-] ++ lib.optional (!stdenv.isDarwin) [
+] ++ lib.optionals (!stdenv.isDarwin) [
   tdesktop
   filezilla
   fontforge-gtk

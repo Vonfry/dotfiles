@@ -6,8 +6,8 @@
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
-    - [ ] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
-    - [ ] xmonad launcher & keybind
+    - [X] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
+    - [X] xmonad launcher & keybind
     - [ ] sddm theme by environments.extraSetup
 ** macOS
 
@@ -58,4 +58,6 @@
     - [X] remove update scripts
     - [X] recode setup scripts
     - [ ] sed command on linux and macos is different
+    - [X] remove zplug overlay when 20.09 nixpkgs
+    - [X] lorri services
 *** TODO niv?

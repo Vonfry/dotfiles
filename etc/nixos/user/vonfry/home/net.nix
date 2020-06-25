@@ -1,26 +1,27 @@
-{ lib, ... }:
+{ config, lib, ... }:
 
 {
   accounts.email = {
-    maildirBasePath = "\$HOME/.mail";
+    maildirBasePath = "${config.home.homeDirectory}/.mail";
     accounts = {
       vonfry = {
         realName = "Vonfry";
         primary = true;
         # other configurations are save in local
-        maildir = {
-          path = "mail";
-          mbsync = {
-            enable = true;
-            create = "both";
-            expunge = true;
-            remove = "both";
-            patterns = [ "*" ];
-            extraConfig.channel.Sync = "All";
-          };
+        maildir.path = "mail";
+        mbsync = {
+          enable = true;
+          create = "both";
+          expunge = "imap";
+          remove = "both";
+          patterns = [ "*" ];
+          extraConfig.channel.Sync = "All";
         };
       };
       local.maildir.path = "local";
     };
+  };
+  programs = {
+    mbsync.enable = true;
   };
 }

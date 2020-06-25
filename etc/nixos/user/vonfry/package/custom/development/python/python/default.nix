@@ -7,5 +7,4 @@ python.withPackages (pythonPackages: with pythonPackages; [
   matplotlib
   sympy
   ipython
-  pdb
 ])

@@ -3,9 +3,6 @@
 
 (package! mu4e
   :ensure nil
-  :load-path
-  (lambda ()
-    (vonfry-system-sets (darwin "/usr/local/share/emacs/site-lisp/mu/mu4e")))
   :config
   (load +mail-local-file t t)
   :custom
