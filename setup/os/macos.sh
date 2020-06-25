@@ -1,6 +1,7 @@
 echo_info "* system packages: brew and others"
 echo_info "-- Please make sure you have installed xcode and run xcode-select --install; open open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_<version>.pkg"
 # cmd line tools
+
 sudo chown $(whoami) -R /usr/local/share/man
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
@@ -11,9 +12,8 @@ brew install caskroom/cask/brew-cask
 brew cask install the-unarchiver
 brew cask install gpg-suite
 
+# dev
 brew cask install java
-
-# system tool
 brew cask install docker
 
 # life
@@ -24,6 +24,10 @@ brew cask install sigil # epub editor
 brew cask install amethyst
 brew cask install mactex
 brew cask install firefox
+brew cask install teleggram-desktop
+brew cask install wireshark
+brew cask install skim
+brew cask install torbrowser
 
 # font
 brew cask install font-hack
