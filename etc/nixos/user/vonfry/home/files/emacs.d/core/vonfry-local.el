@@ -16,7 +16,7 @@
   :type 'directory
   :group 'vonfry-dir)
 
-(defcustom vonfry-custom-dir (expand-file-name "custom/" vonfry-config-dir)
+(defcustom vonfry-custom-dir vonfry-local-dir
   "The custom dir saves the local setting such as custom-file or some configures only can be used on this computer (jekyll, python path, etc.).
 If you want to change some action in the default modules, you can use hook, custom-variables or other functions.
 IMPORTANT!!! You must load the other files by youself. The only files under the dir named custom.el can be autoloaded."
