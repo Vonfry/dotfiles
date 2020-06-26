@@ -78,7 +78,6 @@ function! vonfry#editor#init()
 
     set encoding=utf-8
     set termencoding=utf-8
-    set fenc=utf-8
     set fileencodings=utf-8,ucs-bom,cp936
     set fileencoding=utf-8
 

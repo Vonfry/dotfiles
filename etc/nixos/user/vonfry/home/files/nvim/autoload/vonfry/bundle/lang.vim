@@ -18,8 +18,6 @@ function! vonfry#bundle#lang#config()
     let g:vim_markdown_conceal = 0
     let g:vim_markdown_math = 1
 
-    let g:fencview_autodetect = 0 " Do not auto detect
-
     call vonfry#mapping#leader("$", ':terminal<CR>')
 
     let g:DoxygenToolkit_authorName = "论极语易-Vonfry"

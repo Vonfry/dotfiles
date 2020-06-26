@@ -96,7 +96,7 @@ in {
     neovim = {
       enable = true;
       package = pkgs.unstable.neovim;
-      plugins = pkgs.unstable.vimPackages; [
+      plugins = with pkgs.unstable.vimPackages; [
         vim-test
         SQHell-vim
         vim-logreview
@@ -119,7 +119,6 @@ in {
         LeaderF
         editorconfig-vim
         vim-better-whitespace
-        fencview
         vim-signature
         incsearch.vim
         vim-over
