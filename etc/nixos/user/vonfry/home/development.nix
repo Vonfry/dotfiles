@@ -144,7 +144,6 @@ in {
     };
     emacs =  {
       enable = true;
-      package = pkgs.emacsUnstable;
       extraPackages = epkgs: with epkgs; [
         all-the-icons
         solarized-theme
