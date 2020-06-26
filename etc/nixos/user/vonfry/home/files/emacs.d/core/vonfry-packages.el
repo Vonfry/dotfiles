@@ -59,7 +59,7 @@
   (let ((qpkg `(quote ,pkg)))
     (eval `(require ,qpkg))))
 
-(defalias #'package! use-package)
+(defalias #'package! #'use-package)
 
 (package! diminish)
 (package! dash)
