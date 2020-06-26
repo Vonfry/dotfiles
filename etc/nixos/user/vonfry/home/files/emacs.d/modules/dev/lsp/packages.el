@@ -40,7 +40,7 @@
   :ensure nil)
 
 (package! company-lsp
-  :after lsp-mode company yasnippet
+  :after (lsp-mode company yasnippet)
   :custom
   (company-lsp-async t)
   (company-lsp-cache-candidates t)

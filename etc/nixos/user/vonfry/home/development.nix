@@ -3,6 +3,13 @@
 let isDarwin = pkgs.stdenv.isDarwin;
 in {
   home.file = {
+    ".tigrc".text = ''
+      set log-options = --show-signature
+      set diff-options = --show-signature
+    '';
+    ".gnupg/gpg.conf".text = ''
+      keyserver hkps://keys.openpgp.org
+    '';
     ".config/emacs.d" = {
       source = ./files/emacs.d;
       recursive = true;
