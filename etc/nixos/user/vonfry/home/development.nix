@@ -2,8 +2,6 @@
 
 let isDarwin = pkgs.stdenv.isDarwin;
 in {
-  # Use home.file instead of programs.<editor> due to I want to have a structure
-  # config file for them.
   home.file = {
     ".config/emacs.d" = {
       source = ./files/emacs.d;
@@ -13,7 +11,6 @@ in {
       source = ./files/nvim;
       recursive = true;
     };
-    ".vimrc".source = ./files/vimrc;
     ".ghc/ghci.conf".text = ''
       :set -fbreak-on-exception
       :set +m
@@ -77,6 +74,25 @@ in {
   #   lorri.enable = !pkgs.stdenv.isLinux;
   # };
   programs = {
+    vim = {
+      enable = true;
+      settings = {
+        background = "dark";
+        backupdir = "~/.cache/vim/backup/";
+        expandtab = true;
+        mousemodel = "popup";
+        number = true;
+        relativenumber = true;
+        shiftwidth = 4;
+        ignorecase = true;
+        smartcase = true;
+        tabstop = 4;
+        undofile = true;
+        undordir = "~/.cache/vim/undo"
+        history = 1024;
+      };
+      extraConfig = builtins.readFile ./files/vimrc;
+    };
     emacs =  {
       enable = true;
       extraPackages = epkgs: with epkgs; [
