@@ -78,7 +78,7 @@ in {
       enable = true;
       settings = {
         background = "dark";
-        backupdir = "~/.cache/vim/backup/";
+        backupdir = [ "~/.cache/vim/backup/" ];
         expandtab = true;
         mousemodel = "popup";
         number = true;
@@ -88,13 +88,14 @@ in {
         smartcase = true;
         tabstop = 4;
         undofile = true;
-        undordir = "~/.cache/vim/undo";
+        undodir = [ "~/.cache/vim/undo" ];
         history = 1024;
       };
       extraConfig = builtins.readFile ./files/vimrc;
     };
     emacs =  {
       enable = true;
+      package = pkgs.emacsUnstable;
       extraPackages = epkgs: with epkgs; [
         all-the-icons
         solarized-theme
@@ -102,7 +103,6 @@ in {
         general
         exec-path-from-shell
         whitespace-cleanup-mode
-        hl-line
         use-package
         diminish
         dash
@@ -121,11 +121,10 @@ in {
         ivy-rich
         counsel-tramp
         flycheck
-        latex
+        auctex
         auctex-latexmk
         company-math
         company-auctex
-        auctex-latexmk
         dashboard
         proof-general
         company-coq
@@ -151,9 +150,7 @@ in {
         hasky-extensions
         haskell-snippets
         easy-jekyll
-        gnus
         json-mode
-        erc
         yaml-mode
         magit
         git-commit

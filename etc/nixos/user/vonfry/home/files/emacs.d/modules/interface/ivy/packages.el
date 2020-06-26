@@ -50,7 +50,7 @@
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
 
-(package! ivy-avy :disabled :after (ivy avy))
+(package! ivy-avy :after (ivy avy))
 
 (package! swiper
   :custom
