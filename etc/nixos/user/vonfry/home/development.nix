@@ -212,7 +212,6 @@ in {
         evil-magit
         gitlab-ci-mode
         forge
-        enh-ruby-mode
         inf-ruby
         diff-hl
         disaster
