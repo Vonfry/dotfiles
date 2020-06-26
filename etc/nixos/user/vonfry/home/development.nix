@@ -88,7 +88,7 @@ in {
         smartcase = true;
         tabstop = 4;
         undofile = true;
-        undordir = "~/.cache/vim/undo"
+        undordir = "~/.cache/vim/undo";
         history = 1024;
       };
       extraConfig = builtins.readFile ./files/vimrc;
