@@ -5,6 +5,10 @@ in {
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
   home.file = {
+    ".tigrc".text = ''
+      set log-options = --show-signature
+      set diff-options = --show-signature
+    '';
     ".gnupg/gpg.conf".text = ''
       keyserver hkps://keys.openpgp.org
     '';
