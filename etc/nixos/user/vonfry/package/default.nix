@@ -12,7 +12,6 @@ let args = { pkgs = pkgs
                      (readDir ./local)));
     importList = [ ./base.nix
                    ./misc.nix
-                   ./editor.nix
                    ./shell.nix
                    ./net.nix
                    ./development.nix

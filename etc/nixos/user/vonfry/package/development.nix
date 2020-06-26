@@ -9,6 +9,10 @@ in with pkgs;
   # direnv
   lorri
 
+  # neovim vim
+  editorconfig-core-c
+  # emacs
+
   cloc
   patchelf
   binutils-unwrapped
