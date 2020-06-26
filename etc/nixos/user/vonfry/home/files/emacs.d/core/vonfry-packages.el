@@ -34,45 +34,11 @@
   :type '(repeat string)
   :group 'vonfry)
 
-(defcustom vonfry-packages-dir (expand-file-name "packages/" vonfry-cache-dir)
-  "The dir is where the elpa and packages manager download files."
-  :type 'directory
-  :group 'vonfry-dir)
-
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
-(defcustom vonfry-private-modules-dir (expand-file-name "private/" vonfry-modules-dir)
-  "Put your own modules here. Please don't set other modules without hook in this dir, becase the module loading order
-is undefined(It always is loaded by alpha order)."
-  :type 'directory
-  :group 'vonfry-dir)
-
-;;
-;; setup package manager
-;;
-
-;; use setq because of straight bootstrap needed
-(setq straight-base-dir vonfry-packages-dir)
-
 (custom-set-variables
-  '(straight-use-package-by-default t)
-  '(straight-base-dir vonfry-packages-dir)
   '(use-package-always-demand t)
   '(use-package-always-ensure nil))
-
-;; A copy from https://github.com/raxod502/straight.el/#bootstrapping-straightel
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" vonfry-packages-dir))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
 
 ;;
 ;; define some basic packages
@@ -88,42 +54,16 @@ is undefined(It always is loaded by alpha order)."
   :type '(repeat symbol)
   :group 'vonfry)
 
-;;
-;; define function for packages
-;;
-(defalias #'vonfry/install-packages     #'straight-use-package)
-(defalias #'vonfry/update-packages      #'straight-pull-package-and-deps)
-(defalias #'vonfry/update-all-packages  #'straight-pull-all)
-(defalias #'vonfry/prune-packages       #'straight-prune-build)
-
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (let ((qpkg `(quote ,pkg)))
-    (eval `(straight-use-package ,qpkg))))
+    (eval `(require ,qpkg))))
 
-(defmacro package! (pkg &rest args)
-  "config package, the arguments is the same as `use-package', but redefine :ensure to :straight"
-  ;; Because of dash not loading, code replace method by myself.
-  `(use-package ,pkg
-      ,@(mapcar
-          (lambda (elem)
-            (if (eq elem :ensure)
-              :straight
-              elem))
-          args)))
+(defalias #'package! use-package)
 
 (package! diminish)
 (package! dash)
 (package! s)
-(package! auto-compile
-  :custom
-  (load-prefer-newer t)
-  (auto-compile-display-buffer nil)
-  (auto-compile-mode-line-counter t)
-  (auto-compile-source-recreate-deletes-dest t)
-  :config
-  (auto-compile-on-load-mode 1)
-  (auto-compile-on-save-mode 1))
 
 (defun autoload! (func file &optional interactive docstring type)
   "autoload file with current load file dir which is called in submodules.
@@ -158,16 +98,16 @@ This function finds module with the file, and loads it."
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
 All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `package!`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
-  (let* ((module-alist '())
+  (let* ((module-list '())
          (regexp-match "^[^\\.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
         (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-match))
           (let ((module-name (concat module "/" submodule)))
             (unless (member module-name exclude))
-              (push module-name module-alist))))
-      (-map 'vonfry-load-module-config   module-alist)
-      (-map 'vonfry-load-module-packages module-alist)
-      (-map 'vonfry-load-autoload        module-alist)))
+              (push module-name module-list))))
+    (-map 'vonfry-load-module-config   module-list)
+    (-map 'vonfry-load-module-packages module-list)
+    (-map 'vonfry-load-autoload        module-list)))
 
 (defmacro custom! (varname form docstring &rest args)
   "This macro is used for `defcustom' :set param. Make it easy to config other variable by using keyword :custom-set."

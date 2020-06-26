@@ -4,4 +4,4 @@ with pkgs; [
   neovim vim
   editorconfig-core-c
   emacs
-] 
+]
