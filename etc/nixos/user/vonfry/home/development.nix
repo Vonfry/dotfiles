@@ -75,7 +75,7 @@ in {
   # };
   programs = {
     vim = {
-      enable = true;
+      enable = false;
       settings = {
         background = "dark";
         backupdir = [ "~/.cache/vim/backup/" ];
@@ -94,7 +94,7 @@ in {
       extraConfig = builtins.readFile ./files/vimrc;
     };
     neovim = {
-      enable = true;
+      enable = false;
       package = pkgs.unstable.neovim;
       plugins = with pkgs.unstable.vimPackages; [
         vim-test
