@@ -5,6 +5,9 @@ in {
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
   home.file = {
+    ".gnupg/gpg.conf".text = ''
+      keyserver hkps://keys.openpgp.org
+    '';
     ".config/emacs.d" = {
       source = ./files/emacs.d;
       recursive = true;
