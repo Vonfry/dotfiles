@@ -36,7 +36,7 @@
     "n"      'proof-assert-next-command-interactive))
 
 (package! company-coq
-  :after proof-general company
+  :after (proof-general company)
   :hook
   ((coq-mode . company-coq-mode)
    (company-coq-mode .

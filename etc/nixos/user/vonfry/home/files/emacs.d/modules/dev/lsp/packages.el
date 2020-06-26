@@ -40,7 +40,7 @@
   :ensure nil)
 
 (package! company-lsp
-  :after lsp-mode company yasnippet
+  :after (lsp-mode company yasnippet)
   :custom
   (company-lsp-async t)
   (company-lsp-cache-candidates t)
@@ -50,7 +50,7 @@
   (push 'company-lsp company-backends))
 
 (package! lsp-treemacs
-  :after treemacs lsp-mode
+  :after (treemacs lsp-mode)
   :general
   (+mmap-lsp-def
     "{" 'lsp-treemacs-references
@@ -61,7 +61,6 @@
     "[" 'lsp-treemacs-call-hierarchy
     "#" 'lsp-treemacs-deps-list)
   :config
-  (lsp-metals-treeview-enable t)
   (lsp-treemacs-sync-mode t))
 
 
