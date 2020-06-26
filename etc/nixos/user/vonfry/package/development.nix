@@ -5,7 +5,11 @@ let
     rubyPkgs = customPkgs.ruby;
     pythonPkgs = customPkgs.python;
 in with pkgs;
-[ cloc
+[ # git
+  # direnv
+  lorri
+
+  cloc
   patchelf
   binutils-unwrapped
   # llvmPackages.clang llvm lldb
@@ -47,7 +51,7 @@ in with pkgs;
 
   httpstat
 ] ++ lib.optionals (!stdenv.isDarwin)
-[ texlive.combined.scheme-full
+[ # texlive.combined.scheme-full
   zeal
   glibcInfo
 ]

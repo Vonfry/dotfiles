@@ -14,4 +14,6 @@ with pkgs; [
   source-han-serif-simplified-chinese
   symbola
   liberation_ttf
+
+  # dunst
 ]

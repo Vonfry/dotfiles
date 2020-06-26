@@ -3,11 +3,11 @@
 with pkgs; [
   wget curl
   git git-lfs
-  zsh gnupg
+  # zsh gnupg
   file
   fzf
   colordiff
-  tmux
+  # tmux
   w3m
   patch
   zip unzip
@@ -15,14 +15,12 @@ with pkgs; [
   gawk
   fd
   exa
-  bat
+  # bat
   procs
 
   gitAndTools.gitflow tig gitAndTools.git-extras
-  zsh fzf
-  direnv
+  # fzf
   thefuck
-  lorri
   ranger
   parallel
   lolcat
@@ -31,8 +29,8 @@ with pkgs; [
   neofetch
 ] ++ lib.optionals (!stdenv.isDarwin) [
   flameshot
-  atop htop
-  alacritty
+  atop # htop
+  # alacritty
   lm_sensors lsof
 ] ++ lib.optionals stdenv.isDarwin [
   terminal-notifier

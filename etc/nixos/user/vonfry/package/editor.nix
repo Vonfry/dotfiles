@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 with pkgs; [
-  neovim vim
+  # neovim vim
   editorconfig-core-c
-  emacs
+  # emacs
 ]

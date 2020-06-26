@@ -2,11 +2,12 @@
 
 with pkgs; [
   nmap
-  mu isync
+  mu
+  # isync
   jekyll
 ] ++ lib.optionals (!stdenv.isDarwin) [
   wireshark
-  firefox
+  # firefox
   chromium
 
   vnstat
