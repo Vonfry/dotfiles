@@ -70,7 +70,7 @@ THEME is a symbol passed to `load-theme'"
                         (font-spec :family font :size (+ 2 vonfry-fontsize))
                         nil 'append))))
 
-(package! info)
+(package! info :ensure nil)
 
 (custom-set!
   tool-bar-mode nil
