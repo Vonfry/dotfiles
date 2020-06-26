@@ -1,19 +1,5 @@
 "" lang.vim
 "
-
-function! vonfry#bundle#lang#pre()
-endfunction
-
-function! vonfry#bundle#lang#plug()
-    call vonfry#bundle#add('sheerun/vim-polyglot')
-    call vonfry#bundle#add('tpope/vim-ragtag')
-    call vonfry#bundle#add('Valloric/MatchTagAlways')
-    call vonfry#bundle#add('tpope/vim-rails')
-    call vonfry#bundle#add('vim-scripts/DoxygenToolkit.vim')
-    call vonfry#bundle#add('scrooloose/nerdcommenter')
-    call vonfry#bundle#add('jceb/vim-orgmode')
-endfunction
-
 function! vonfry#bundle#lang#config()
     let g:mta_filetypes = {
                 \ 'html' : 1,

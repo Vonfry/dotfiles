@@ -93,6 +93,56 @@ in {
       };
       extraConfig = builtins.readFile ./files/vimrc;
     };
+    neovim = {
+      enable = true;
+      package = pkgs.unstable.neovim;
+      plugins = pkgs.unstable.vimPackages; [
+        vim-test
+        SQHell-vim
+        vim-logreview
+        vim-surround
+        auto-pairs
+        direnv-vim
+        nerdtree
+        nerdtree-git-plugin
+        vim-rooter
+        vim-projectionist
+        vim-polyglot
+        vim-ragtag
+        MatchTagAlways
+        vim-rails
+        DoxygenToolkit-vim
+        nerdcommenter
+        vim-orgmode
+        vim-easymotion
+        tagbar
+        LeaderF
+        editorconfig-vim
+        vim-better-whitespace
+        fencview
+        vim-signature
+        incsearch.vim
+        vim-over
+        vimproc.vim
+        tabular
+        vim-which-key
+        deoplete.nvim
+        ultisnips
+        vim-snippets
+        nvim-lsp
+        vim-fugitive
+        vim-signify
+        NeoSolarized
+        vim
+        vim-airline
+        vim-airline-clock
+        indentline
+        vim-mundo
+      ];
+      extraConfig = ''
+        call vonfry#init()
+      '';
+    };
     emacs =  {
       enable = true;
       package = pkgs.emacsUnstable;

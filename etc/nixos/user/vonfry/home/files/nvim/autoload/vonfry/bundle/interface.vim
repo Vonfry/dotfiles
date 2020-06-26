@@ -1,22 +1,6 @@
 "" interface.vim
 "
 
-function! vonfry#bundle#interface#pre()
-endfunction
-
-function! vonfry#bundle#interface#plug()
-    call vonfry#bundle#add(['Yggdroot/LeaderF', {"build": "./install.sh"}])
-    call vonfry#bundle#add('editorconfig/editorconfig-vim')
-    call vonfry#bundle#add('ntpeters/vim-better-whitespace')
-    call vonfry#bundle#add('mbbill/fencview')
-    call vonfry#bundle#add('kshenoy/vim-signature')
-    call vonfry#bundle#add('haya14busa/incsearch.vim')
-    call vonfry#bundle#add('osyo-manga/vim-over')
-    call vonfry#bundle#add(['Shougo/vimproc.vim', {'build' : 'make'}])
-    call vonfry#bundle#add('godlygeek/tabular')
-    call vonfry#bundle#add('liuchengxu/vim-which-key')
-endfunction
-
 function! vonfry#bundle#interface#config()
     call vonfry#mapping#leader("x" , ':LeaderfSelf<CR>'          )
     call vonfry#mapping#leader("p" , ':LeaderfFile<CR>'          )

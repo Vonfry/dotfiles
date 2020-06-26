@@ -1,18 +1,6 @@
 "" visual.vim
 "
 
-function! vonfry#bundle#visual#pre()
-endfunction
-
-function vonfry#bundle#visual#plug()
-    call vonfry#bundle#add('icymind/NeoSolarized')
-    call vonfry#bundle#add('dracula/vim')
-    call vonfry#bundle#add('vim-airline/vim-airline',)
-    call vonfry#bundle#add('enricobacis/vim-airline-clock')
-    call vonfry#bundle#add('yggdroot/indentline')
-    call vonfry#bundle#add('simnalamburt/vim-mundo')
-endfunction
-
 function vonfry#bundle#visual#config()
     let g:neosolarized_bold = 1
     let g:neosolarized_underline = 1
