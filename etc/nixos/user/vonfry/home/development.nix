@@ -163,7 +163,7 @@ in {
         evil-magit
         gitlab-ci-mode
         forge
-        ruby-mode
+        enh-ruby-mode
         inf-ruby
         diff-hl
         disaster
@@ -181,7 +181,7 @@ in {
         company-quickhelp
         company-prescient
         w3m
-        yasnippe
+        yasnippet
         yasnippet-snippets
         info-colors
         dumb-jump
@@ -196,7 +196,6 @@ in {
         treemacs-icons-dired
         ebdb
         which-key
-        imenu
         docker
         logview
         pdf-tools
