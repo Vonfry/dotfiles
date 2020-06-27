@@ -6,6 +6,7 @@
     alacritty
     firefox
     dunst libnotify
+    ant-dracula
   ];
   services.xbanish.enable = true;
   services.xserver = {
@@ -15,7 +16,7 @@
     autorun = true;
     displayManager.sddm = {
       enable = true;
-      theme = "elarun";
+      theme = "Dracula";
     };
     windowManager = {
       xmonad = {
