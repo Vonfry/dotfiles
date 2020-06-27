@@ -123,6 +123,7 @@ in {
         ENHANCD_DIR = "$HOME/.cache/enchancd";
         ENHANCD_FILTER = "fzf";
         ENHANCD_USE_FUZZY_MATCH = 0;
+        ENHANCD_COMPLETION_BEHAVIOR = "list";
       };
       loginExtra = ''
         # Execute code that does not affect the current session in the background.
@@ -147,7 +148,8 @@ in {
       '';
       logoutExtra = ''
       '';
-      profileExtra = ''
+      profileExtra = lib.optionalString isDarwin ''
+        . ~/.nix-profile/etc/profile.d/nix.sh
       '';
       sessionVariables = {
       };
