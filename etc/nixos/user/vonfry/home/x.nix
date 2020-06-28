@@ -43,10 +43,6 @@ in
       config = ./files/xmonad.hs;
     };
   };
-  home.file = lib.optionalAttrs (!isDarwin) {
-    ".face.icon".source = builtins.fetchurl
-      https://vonfry.name/static/images/default/logo.png;
-  };
   services.dunst = {
     enable = !isDarwin;
     iconTheme = {
