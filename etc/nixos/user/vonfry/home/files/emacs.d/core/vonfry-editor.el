@@ -38,7 +38,6 @@
     (make-directory tmp-dir)))
 
 (custom-set!
-  exec-path-from-shell-check-startup-files nil
   initial-frame-alist vonfry-frame
   default-frame-alist vonfry-frame
   blink-cursor-interval 0.4
@@ -102,21 +101,6 @@
 
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)
-
-(custom! vonfry-exec-path-variables '("BROWSER" "NIX_PATH")
-  "variables should be loaded into emacs. Set this before modules load instead
-of in a module defination, because some modules need these variables.")
-
-(package! exec-path-from-shell
-  :when (and (memq window-system '(mac ns x))
-             (not (string-match "fish" (getenv "SHELL")))
-             (not (getenv "VONFRY_SHELL")))
-  :config
-  ; call for PATH variable first, because some package will check it.
-  (setq exec-path-from-shell-variables
-        (append exec-path-from-shell-variables
-                vonfry-exec-path-variables))
-  (exec-path-from-shell-initialize))
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
