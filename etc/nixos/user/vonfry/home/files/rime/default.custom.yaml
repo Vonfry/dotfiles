@@ -1,4 +1,4 @@
 patch:
   schema_list:
-    - schema: cangjie
+    - schema: cangjie5_express
     - schema: wubi86

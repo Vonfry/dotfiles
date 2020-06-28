@@ -23,13 +23,21 @@ in {
         ".config/fctix/rime/default.custom.yaml" = {
           source = ./files/rime/default.custom.yaml;
           onChange = ''
-          rm ~/.config/fcitx/rime/default.yaml
-          fcitx-remote -r
-        '';
+            rm ~/.config/fcitx/rime/default.yaml
+            fcitx-remote -r
+          '';
+        };
+        ".config/fctix/rime/wubi86.custom.yaml" = {
+          source = ./files/rime/wubi86.custom.yaml;
+          onChange = ''
+            rm ~/.config/fcitx/rime/default.yaml
+            fcitx-remote -r
+          '';
         };
         ".config/fctix/rime/installation.custom.yaml".source = ./files/rime/installation.custom.yaml;
       } else {
         "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
+        "Library/Rime/wubi86.custom.yaml".source = ./files/rime/wubi86.custom.yaml;
         "Library/Rime/installation.custom.yaml".source = ./files/rime/installation.custom.yaml;
         "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
         ".gnupg/gpg-agent.conf".text = ''
