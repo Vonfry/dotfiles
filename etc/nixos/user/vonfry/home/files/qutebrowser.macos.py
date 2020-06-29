@@ -8,7 +8,7 @@ c.editor.command = [ "open", "{file}" ]
 c.fonts.default_size = '11pt'
 c.bindings.commands = {
   'normal': {
-     'gv': 'open -a /Applications/Firefox.app {url}'
+     'gv': 'open -a /Applications/Google\\ Chrome.app {url}'
    }
 }
 

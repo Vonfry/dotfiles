@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     xclip
     alacritty
-    firefox
     dunst libnotify
     ant-dracula
   ];

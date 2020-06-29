@@ -34,7 +34,6 @@ in {
   programs = {
     mbsync.enable = true;
   } // lib.optionalAttrs isLinux {
-    firefox.enable = true;
     chromium.enable = true;
     qutebrowser = {
       enable = true;
@@ -68,7 +67,7 @@ in {
         };
         bindings.commands = {
           normal = {
-            "gv" = "spawn firefox {url}";
+            "gv" = "spawn chromium {url}";
           };
         };
         colors = {

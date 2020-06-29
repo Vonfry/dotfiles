@@ -6,7 +6,6 @@ with pkgs; [
   jekyll
   # qutebrowser
 ] ++ lib.optionals stdenv.isLinux [
-  firefox
   chromium
   wireshark
 

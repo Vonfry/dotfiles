@@ -31,7 +31,6 @@ in
       settings = import ./files/alacritty.nix;
       enable = isLinux;
     };
-    firefox.enable = isLinux;
   };
   xsession = {
     enable = isLinux;

@@ -206,7 +206,7 @@ in {
     '';
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = if isDarwin then "open" else "firefox";
+      BROWSER = if isDarwin then "open" else "qutebrowser";
     };
   };
 }
