@@ -66,6 +66,11 @@ in {
           default_page = "about:blank";
           start_pages = [ "about:blank" ];
         };
+        bindings.commands = {
+          normal = {
+            "gv" = "spawn firefox {url}";
+          };
+        };
         colors = {
           completion.category.bg = draculaBackground;
           completion.category.border.bottom = draculaBackground;

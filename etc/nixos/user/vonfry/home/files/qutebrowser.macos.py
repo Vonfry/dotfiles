@@ -4,8 +4,13 @@ c.tabs.show = "multiple"
 c.url.default_page = "about:blank"
 c.url.start_pages = [ "about:blank" ]
 c.downloads.location.directory = "~/Downloads"
-c.editor.command = [ "iTermRun nvim", "{file}" ]
+c.editor.command = [ "open", "{file}" ]
 c.fonts.default_size = '11pt'
+c.bindings.commands = {
+  'normal': {
+     'gv': 'open -a /Applications/Firefox.app {url}'
+   }
+}
 
 def blood(c, options = {}):
     palette = {
