@@ -307,6 +307,6 @@ blood(c, {
 })
 
 import os
-
-if os.path.exists("./local.py"):
-  import local
+localPy = str(config.configdir / 'local.py')
+if os.path.exists(localPy):
+    config.source(localPy)
