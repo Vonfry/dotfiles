@@ -148,7 +148,7 @@ in {
           padding = padding;
           indicator.width = 1;
           favicons.scale = 1;
-          show = "switching";
+          show = "multiple";
         };
         editor.command = [ "alacritty -e nvim" "{file}" ];
         downloads = {

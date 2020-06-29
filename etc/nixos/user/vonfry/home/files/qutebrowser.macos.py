@@ -1,6 +1,6 @@
 c.downloads.location.prompt = False
 c.downloads.remove_finished = 7
-c.tabs.show = "switching"
+c.tabs.show = "multiple"
 c.url.default_page = "about:blank"
 c.url.start_pages = [ "about:blank" ]
 c.downloads.location.directory = "~/Downloads"
