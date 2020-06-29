@@ -4,10 +4,11 @@ with pkgs; [
   nmap
   mu isync
   jekyll
-] ++ lib.optionals (!stdenv.isDarwin) [
-  wireshark
+  # qutebrowser
+] ++ lib.optionals stdenv.isLinux [
   firefox
   chromium
+  wireshark
 
   vnstat
   iftop

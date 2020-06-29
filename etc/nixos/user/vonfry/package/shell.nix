@@ -29,7 +29,7 @@ with pkgs; [
   fortune cmatrix figlet
   asciinema
   neofetch
-] ++ lib.optionals (!stdenv.isDarwin) [
+] ++ lib.optionals stdenv.isLinux [
   flameshot
   atop htop
   alacritty

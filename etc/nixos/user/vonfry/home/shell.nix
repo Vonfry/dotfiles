@@ -10,6 +10,7 @@ let
                                                  "localvar.sh"
                                                ];
   isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
   zshrcDir = ./files/zsh/rc.d;
 in {
   programs = {
@@ -169,7 +170,7 @@ in {
       };
     };
     htop = {
-      enable = !isDarwin;
+      enable = isLinux;
       treeView = true;
     };
   };

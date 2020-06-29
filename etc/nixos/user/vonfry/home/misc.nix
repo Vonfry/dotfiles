@@ -1,8 +1,10 @@
 { lib, pkgs, ... }:
 
-let isDarwin = pkgs.stdenv.isDarwin;
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
 in {
-  fonts.fontconfig.enable = !isDarwin;
+  fonts.fontconfig.enable = isLinux;
   home = {
     activation.rimeActivation = lib.hm.dag.entryAfter [ "shellActivation" ] ''
       _rime_user_dir=${if isDarwin then "~/Library/Rime" else "~/.config/fctix/rime"}
@@ -19,7 +21,7 @@ in {
       unset _rime_user_dir
     '';
     file =
-      if !isDarwin then {
+      lib.optionalAttrs isLinux {
         ".config/fctix/rime/default.custom.yaml" = {
           source = ./files/rime/default.custom.yaml;
           onChange = ''
@@ -34,18 +36,16 @@ in {
             fcitx-remote -r
           '';
         };
-        ".config/fctix/rime/installation.custom.yaml".source = ./files/rime/installation.custom.yaml;
-      } else {
+      } // lib.optionalAttrs isDarwin {
         "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
         "Library/Rime/wubi86.custom.yaml".source = ./files/rime/wubi86.custom.yaml;
-        "Library/Rime/installation.custom.yaml".source = ./files/rime/installation.custom.yaml;
         "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
         ".gnupg/gpg-agent.conf".text = ''
-        default-cache-ttl 14400
-        allow-emacs-pinentry
-        enable-ssh-support
-        allow-preset-passphrase
-      '';
+          default-cache-ttl 14400
+          allow-emacs-pinentry
+          enable-ssh-support
+          allow-preset-passphrase
+        '';
       };
   };
   services.gpg-agent = {

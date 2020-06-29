@@ -46,7 +46,7 @@ in with pkgs;
   redis
 
   httpstat
-] ++ lib.optionals (!stdenv.isDarwin)
+] ++ lib.optionals stdenv.isLinux
 [ texlive.combined.scheme-full
   zeal
   glibcInfo

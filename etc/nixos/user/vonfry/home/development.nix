@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
-let isDarwin = pkgs.stdenv.isDarwin;
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
 in {
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
@@ -66,13 +68,13 @@ in {
       Pry.config.editor = "nvim"
     '';
     ".latexmkrc".text =
-      if isDarwin then ''
+      lib.optionalString isDarwin ''
         $out_dir = "latex.out";
         $pdf_mode = 5;
         $pdf_previewer = 'open -a Skim';
         $pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
         @generated_exts = (@generated_exts, 'synctex.gz');
-      '' else ''
+      '' + lib.optionalString isLinux ''
         $out_dir = "latex.out";
         $pdf_mode = 5;
         $dvi_previewer = 'xdvi -watchfile 1.5';
@@ -80,9 +82,9 @@ in {
         $pdf_previewer = 'zathura';
       '';
   };
-  # services = {
-  #   lorri.enable = !pkgs.stdenv.isLinux;
-  # };
+  services = lib.optionalAttrs isLinux {
+    lorri.enable = true;
+  };
   programs = {
     git = {
       userName = "Vonfry";
@@ -97,7 +99,7 @@ in {
       enableZshIntegration = true;
     };
     texlive = {
-      enable = !isDarwin;
+      enable = isLinux;
       extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
   };

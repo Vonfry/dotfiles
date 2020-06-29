@@ -54,7 +54,7 @@ myKeys conf = mkKeymap conf
     , ("M-/"  , promptSearch myXPConf multi)
 
     , ("M-, d" , spawn "zeal"            )
-    , ("M-, b" , spawn "firefox"         )
+    , ("M-, b" , spawn "qutebrowser"     )
     , ("M-, B" , runInTerm "" "w3m"      )
     , ("M-, a" , runInTerm "" "alsamixer")
     , ("M-, D" , spawn "libreoffice"     )

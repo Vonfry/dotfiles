@@ -1,4 +1,5 @@
 patch:
+  translator/enable_user_dict: false
   speller:
     max_code_length: 4
     auto_select: true

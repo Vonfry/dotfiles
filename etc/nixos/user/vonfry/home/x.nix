@@ -1,10 +1,12 @@
 { lib, pkgs, ... }:
 
-let isDarwin = pkgs.stdenv.isDarwin;
+let
+  isDarwin = pkgs.stdenv.isDarwin;
+  isLinux = pkgs.stdenv.isLinux;
 in
 {
   gtk = {
-    enable = !isDarwin;
+    enable = isLinux;
     font = {
       name = "Source Han Sans CN";
       package = pkgs.source-han-sans-simplified-chinese;
@@ -19,32 +21,32 @@ in
     };
   };
   qt = {
-    enable = !isDarwin;
+    enable = isLinux;
     platformTheme = "gtk";
   };
   programs = {
-    feh.enable = !isDarwin;
-    zathura.enable = !isDarwin;
+    feh.enable = isLinux;
+    zathura.enable = isLinux;
     alacritty = {
       settings = import ./files/alacritty.nix;
-      enable = !isDarwin;
+      enable = isLinux;
     };
-    firefox.enable = !isDarwin;
+    firefox.enable = isLinux;
   };
   xsession = {
-    enable = !isDarwin;
+    enable = isLinux;
     initExtra = ''
       source ~/.zprofile
       feh --bg-center ~/.config/bg.png
     '';
     windowManager.xmonad = {
-      enable = !isDarwin;
+      enable = isLinux;
       enableContribAndExtras = true;
       config = ./files/xmonad.hs;
     };
   };
   services.dunst = {
-    enable = !isDarwin;
+    enable = isLinux;
     iconTheme = {
       name = "breeze-dark";
       package = pkgs.breeze-icons;

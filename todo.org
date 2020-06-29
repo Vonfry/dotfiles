@@ -62,4 +62,6 @@
     - [X] remove zplug overlay when 20.09 nixpkgs
     - [X] lorri services
     - [ ] neovim & emacs packages management
+    - [X] qutebrowser setting, color, bookmark and search
+    - [ ] remove darwin support
 *** TODO niv?
