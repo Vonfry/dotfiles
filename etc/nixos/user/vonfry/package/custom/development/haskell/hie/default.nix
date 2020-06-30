@@ -1,12 +1,12 @@
-{ lib, ghc, useSystem ? true, useLatest ? false, versions ? [] }:
+{ callPackage, lib, ghc, useSystem ? true, useLatest ? false, versions ? [] }:
 
 let
-  all-hies = import <all-hies> {};
+  all-hies = callPackage <all-hies> {};
   ghcVersionList = builtins.splitVersion ghc.version;
   ghcVersionToString = builtins.foldl' (x: y: x + y) "" ghcVersionList;
   ghcVersionKey = "ghc${ghcVersionToString}";
   versionList = versions
-    ++ (if useSystem then [ ghcVersionKey ] else [])
-    ++ (if useLatest then [ lib.last (lib.attrValues versions) ] else []);
+    ++ lib.optional useSystem ghcVersionKey
+    ++ lib.optionals useLatest [ lib.last (lib.attrValues versions) ];
   selector = p: builtins.foldl' (a: b: a // b) {} (map (v: { ${v} = p.${v}; }) versionList);
 in all-hies.selection { selector = selector; }
