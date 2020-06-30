@@ -1,7 +1,9 @@
 { pkgs, lib, ... }:
 
 {
-  imports = [ ./home ../../lib ./package ];
+  imports = [ ./home ./package ];
+
+  lib = pkgs.callPackage ./lib { };
 
   programs.home-manager.enable = true;
 }

@@ -67,7 +67,7 @@ in {
         src = fetchFromGitHub {
           owner = "mafredri";
           repo = "zsh-async";
-          rev = "v1.8.3";
+          ref = "v1.8.3";
           sha256 = "1vlr8fkk3k4cz3sxz3qmlkfsqxw251igbn9raz3lga4p213m98jb";
         };
         file = "async.zsh";
@@ -76,7 +76,7 @@ in {
         src = fetchFromGitHub {
           owner = "b4b4r07";
           repo = "enhancd";
-          rev = "v2.2.4";
+          ref = "v2.2.4";
           sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
         };
         file = "init.sh";
@@ -85,7 +85,7 @@ in {
         src = fetchFromGitHub {
           owner = "MichaelAquilina";
           repo = "zsh-you-should-use";
-          rev = "1.7.3";
+          ref = "1.7.3";
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
       } {
@@ -94,7 +94,7 @@ in {
         src = fetchFromGitHub {
           owner = "geometry-zsh";
           repo = "geometry";
-          rev = "v2.2.0";
+          ref = "v2.2.0";
           sha256 = "0sy5v3id31k4njr5pamh4hx238x0pcpgi0yh90jpbci690i8vdab";
         };
       }];

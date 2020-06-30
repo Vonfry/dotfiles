@@ -9,7 +9,6 @@ let
 in {
   imports = [
     ./hardware-configuration.nix # use `nixos-generate-config`
-    ./lib
     ./base.nix
     ./network.nix
     ./shell.nix
@@ -19,4 +18,5 @@ in {
     ./misc.nix
     ./user
   ] ++ localFiles;
+  lib = pkgs.callPackage ./lib { };
 }
