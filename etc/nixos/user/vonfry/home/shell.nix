@@ -50,7 +50,6 @@ in {
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
-          ref = "revision/vonfry";
           rev = "6c5dd207bbda0f264f0136a31af36636b508f242";
           sha256 = "0adwv9qq3pq7wkwincqd2j38w4jqa3z01h8yqgq518hb30iaq6yj";
           fetchSubmodules = true;
@@ -60,7 +59,6 @@ in {
         src = fetchFromGitHub {
           owner = "paulirish";
           repo = "git-open";
-          ref = "master";
           rev = "d9a0d19ce291ab09d182e389edaa278bb2febb11";
           sha256 = "1a1w8jya851mq692dahdhy9kgkn0z1801cfzdcw6ra78pily22i6";
         };
@@ -69,7 +67,7 @@ in {
         src = fetchFromGitHub {
           owner = "mafredri";
           repo = "zsh-async";
-          ref = "v1.8.3";
+          rev = "v1.8.3";
           sha256 = "1vlr8fkk3k4cz3sxz3qmlkfsqxw251igbn9raz3lga4p213m98jb";
         };
         file = "async.zsh";
@@ -78,7 +76,7 @@ in {
         src = fetchFromGitHub {
           owner = "b4b4r07";
           repo = "enhancd";
-          ref = "v2.2.4";
+          rev = "v2.2.4";
           sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
         };
         file = "init.sh";
@@ -87,7 +85,7 @@ in {
         src = fetchFromGitHub {
           owner = "MichaelAquilina";
           repo = "zsh-you-should-use";
-          ref = "1.7.3";
+          rev = "1.7.3";
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
       } {
@@ -96,7 +94,7 @@ in {
         src = fetchFromGitHub {
           owner = "geometry-zsh";
           repo = "geometry";
-          ref = "v2.2.0";
+          rev = "v2.2.0";
           sha256 = "0sy5v3id31k4njr5pamh4hx238x0pcpgi0yh90jpbci690i8vdab";
         };
       }];
