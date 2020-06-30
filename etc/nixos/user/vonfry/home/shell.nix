@@ -50,6 +50,7 @@ in {
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
+          ref = "revision/vonfry";
           rev = "6c5dd207bbda0f264f0136a31af36636b508f242";
           sha256 = "0adwv9qq3pq7wkwincqd2j38w4jqa3z01h8yqgq518hb30iaq6yj";
           fetchSubmodules = true;
@@ -59,6 +60,7 @@ in {
         src = fetchFromGitHub {
           owner = "paulirish";
           repo = "git-open";
+          ref = "master";
           rev = "d9a0d19ce291ab09d182e389edaa278bb2febb11";
           sha256 = "1a1w8jya851mq692dahdhy9kgkn0z1801cfzdcw6ra78pily22i6";
         };
