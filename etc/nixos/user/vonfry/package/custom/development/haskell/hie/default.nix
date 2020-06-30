@@ -1,7 +1,7 @@
 { lib, ghc, useSystem ? true, useLatest ? false, versions ? [] }:
 
 let
-  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  all-hies = import <all-hies> {};
   ghcVersionList = builtins.splitVersion ghc.version;
   ghcVersionToString = builtins.foldl' (x: y: x + y) "" ghcVersionList;
   ghcVersionKey = "ghc${ghcVersionToString}";

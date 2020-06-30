@@ -6,6 +6,7 @@ if ! [ -f /etc/NIXOS ]; then
         echo_info "*** setup nix"
         nix-shell '<home-manager>' -A install
         nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+        nix-channel --add https://github.com/infinisil/all-hies/archive/master.tar.gz all-hies
         nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
 
         mkdir -p ~/.config/nix
