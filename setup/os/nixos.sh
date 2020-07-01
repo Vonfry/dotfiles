@@ -25,9 +25,7 @@ sed -i "/^ *# *home\.user$/a \\ \\ home.homeDirectory = \"$HOME\";" /etc/nixos/u
 rm -rf /etc/nixos.bak
 echo_info
 "--- please set some local files for home-manager or configuration under $script_dir/etc/nixos/local and $script_dir/etc/nixos/user/vonfry/home/local"
-sudo nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
-sudo nix-channel --add https://github.com/infinisil/all-hies/archive/master.tar.gz all-hies
-sudo nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+cat $script_dir/config/nix/channels | xargs -n1 sudo nix-channel --add
 
 nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
 nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
