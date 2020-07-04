@@ -13,10 +13,11 @@ in {
         ln -s -f $CLONE_LIB/rime-cangjie/*.yaml $_rime_user_dir
       fi
       if ! [ -d $CLONE_LIB/rime-wubi ]; then
-        $DRY_RUN_CMD git $VERBOSE_ARG clone https://github.com/rime/rime-pinyin-simp $CLONE_LIB/rime-pinyin-simp
-        $DRY_RUN_CMD git $VERBOSE_ARG clone https://github.com/rime/rime-wubi.git $CLONE_LIB/rime-wubi
-        ln -s -f $CLONE_LIB/rime-pinyin/*.yaml $_rime_user_dir
-        ln -s -f $CLONE_LIB/rime-wubi/*.yaml $_rime_user_dir
+        $DRY_RUN_CMD git $VERBOSE_ARG clone https://github.com/KyleBing/rime-wubi86-jidian.git $CLONE_LIB/rime-wubi
+        ln -s -f $CLONE_LIB/rime-wubi/wubi86.*.yaml $_rime_user_dir
+        ln -s -f $CLONE_LIB/rime-wubi/pinyin_simp.*.yaml $_rime_user_dir
+        ln -s -f $CLONE_LIB/rime-wubi/numbers.*.yaml $_rime_user_dir
+        ln -s -f $CLONE_LIB/rime-wubi/symbol.*.yaml $_rime_user_dir
       fi
       unset _rime_user_dir
     '';
@@ -29,16 +30,8 @@ in {
             fcitx-remote -r
           '';
         };
-        ".config/fctix/rime/wubi86.custom.yaml" = {
-          source = ./files/rime/wubi86.custom.yaml;
-          onChange = ''
-            rm ~/.config/fcitx/rime/default.yaml
-            fcitx-remote -r
-          '';
-        };
       } // lib.optionalAttrs isDarwin {
         "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
-        "Library/Rime/wubi86.custom.yaml".source = ./files/rime/wubi86.custom.yaml;
         "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
         ".gnupg/gpg-agent.conf".text = ''
           default-cache-ttl 14400
