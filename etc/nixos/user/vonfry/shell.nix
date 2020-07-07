@@ -16,6 +16,7 @@ in {
   programs = {
     man.enable = true;
     bat.enable = true;
+
     tmux = {
       enable = true;
       clock24 = true;
@@ -27,6 +28,7 @@ in {
         unbind C-b
       '';
     };
+
     fzf = {
       enable = true;
       enableZshIntegration = true;
@@ -34,12 +36,14 @@ in {
       defaultCommand = "fd --type f";
       fileWidgetCommand = "fd --type f";
     };
+
     ssh = {
       enable = true;
       compression = true;
       forwardAgent = true;
       serverAliveInterval = 60;
     };
+
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -169,15 +173,18 @@ in {
         op-init = "op-sign-my";
       };
     };
+
     htop = {
       enable = isLinux;
       treeView = true;
     };
   };
+
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
     };
+
     activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
       mkdir -p ~/.cache ~/.local
       if ! [ -f ${defvarFile} ]; then
@@ -204,9 +211,48 @@ in {
       fi
      ! [ -f ~/.face.icon ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
     '';
+
     sessionVariables = {
       EDITOR = "nvim";
       BROWSER = if isDarwin then "open" else "qutebrowser";
     };
+
+    packages = with pkgs; [
+      wget curl
+      git git-lfs
+      zsh gnupg
+      file
+      fzf
+      colordiff
+      tmux
+      w3m
+      patch
+      zip unzip
+      ripgrep
+      gawk
+      fd
+      exa
+      bat
+      procs
+
+      gitAndTools.gitflow tig gitAndTools.git-extras
+      zsh fzf
+      direnv
+      thefuck
+      lorri
+      ranger
+      parallel
+      lolcat
+      fortune cmatrix figlet
+      asciinema
+      neofetch
+    ] ++ lib.optionals stdenv.isLinux [
+      flameshot
+      atop htop
+      alacritty
+      lm_sensors lsof
+    ] ++ lib.optionals stdenv.isDarwin [
+      terminal-notifier
+    ];
   };
 }

@@ -24,13 +24,34 @@ in {
       local.maildir.path = "local";
     };
   };
-  home = lib.optionalAttrs isDarwin {
-    file.".config/qutebrowser/config.py".source = ./files/qutebrowser.macos.py;
-  } // {
-    activation.qutebrowserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
-      $DRY_RUN_CMD ln $VERBOSE_ARG -s -f $CLOUD_DIR/dotfiles/config/qutebrowser/* ~/.config/qutebrowser
-    '';
+
+  home = {
+    file = lib.optionalAttrs isDarwin {
+      ".config/qutebrowser/config.py".source = ./files/qutebrowser.macos.py;
+    };
+
+    activation = {
+      qutebrowserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
+        $DRY_RUN_CMD ln $VERBOSE_ARG -s -f $CLOUD_DIR/dotfiles/config/qutebrowser/* ~/.config/qutebrowser
+      '';
+    };
+
+    packages = with pkgs; [
+      nmap
+      mu isync
+      jekyll
+    ] ++ lib.optionals stdenv.isLinux [
+      chromium
+      wireshark
+
+      vnstat
+      iftop
+      clash
+      qbittorrent
+      rclone
+    ];
   };
+
   programs = {
     mbsync.enable = true;
   } // lib.optionalAttrs isLinux {

@@ -82,9 +82,11 @@ in {
         $pdf_previewer = 'zathura';
       '';
   };
+
   services = lib.optionalAttrs isLinux {
     lorri.enable = true;
   };
+
   programs = {
     git = {
       userName = "Vonfry";
@@ -94,13 +96,72 @@ in {
       lfs.enable = true;
       ignores = [ (builtins.readFile ./files/gitignore) ];
     };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
     };
+
     texlive = {
       enable = isLinux;
       extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
   };
+
+  home.packages = with pkgs; let
+    hie = vonfryPackages.hie;
+    rubyPkgs = vonfryPackages.ruby;
+    pythonPkgs = vonfryPackages.python;
+  in [
+    neovim
+    vim
+    emacs
+    editorconfig-core-c
+  ] ++ [
+    cloc
+    patchelf
+    binutils-unwrapped
+    # llvmPackages.clang llvm lldb
+    cmake gnumake
+
+    bear
+
+    clang-tools
+
+    ghc
+    cabal-install
+    haskellPackages.dhall
+    haskellPackages.hoogle
+    haskellPackages.stylish-haskell
+    cabal2nix
+    hie
+
+    rustup
+    carnix
+
+    pythonPkgs
+
+    rubyPkgs
+    solargraph
+
+    doxygen
+
+    coq
+
+    poppler
+    pandoc
+
+    ctags
+
+    sqlite
+    mysql
+    postgresql
+    redis
+
+    httpstat
+  ] ++ lib.optionals stdenv.isLinux [
+    texlive.combined.scheme-full
+    zeal
+    glibcInfo
+  ];
 }

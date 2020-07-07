@@ -5,6 +5,7 @@ let
   isLinux = pkgs.stdenv.isLinux;
 in {
   fonts.fontconfig.enable = isLinux;
+
   home = {
     activation.rimeActivation = lib.hm.dag.entryAfter [ "shellActivation" ] ''
       _rime_user_dir=${if isDarwin then "~/Library/Rime" else "~/.config/fctix/rime"}
@@ -21,26 +22,43 @@ in {
       fi
       unset _rime_user_dir
     '';
-    file =
-      lib.optionalAttrs isLinux {
-        ".config/fctix/rime/default.custom.yaml" = {
-          source = ./files/rime/default.custom.yaml;
-          onChange = ''
-            rm ~/.config/fcitx/rime/default.yaml
-            fcitx-remote -r
-          '';
-        };
-      } // lib.optionalAttrs isDarwin {
-        "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
-        "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
-        ".gnupg/gpg-agent.conf".text = ''
-          default-cache-ttl 14400
-          allow-emacs-pinentry
-          enable-ssh-support
-          allow-preset-passphrase
+
+    file = lib.optionalAttrs isLinux {
+      ".config/fctix/rime/default.custom.yaml" = {
+        source = ./files/rime/default.custom.yaml;
+        onChange = ''
+          rm ~/.config/fcitx/rime/default.yaml
+          fcitx-remote -r
         '';
       };
+    } // lib.optionalAttrs isDarwin {
+      "Library/Rime/default.custom.yaml".source = ./files/rime/default.custom.yaml;
+      "Library/Rime/squirrel.custom.yaml".source = ./files/rime/squirrel.custom.yaml;
+      ".gnupg/gpg-agent.conf".text = ''
+        default-cache-ttl 14400
+        allow-emacs-pinentry
+        enable-ssh-support
+        allow-preset-passphrase
+      '';
+    };
+
+    packages = with pkgs; [
+      _1password
+
+      vonfryPackages.fira-code-symbols
+    ] ++ lib.optionals stdenv.isLinux [
+      tdesktop
+      filezilla
+      fontforge-gtk
+
+      hack-font
+      source-han-sans-simplified-chinese
+      source-han-serif-simplified-chinese
+      symbola
+      liberation_ttf
+    ];
   };
+
   services.gpg-agent = {
     enable = pkgs.stdenv.isLinux;
     defaultCacheTtl = 14400;

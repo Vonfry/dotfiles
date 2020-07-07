@@ -27,10 +27,12 @@ in
   nix.optimise.automatic = true;
   nix.trustedUsers = [ "root" "@wheel" ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    overlays = import ./user/vonfry/package/custom/overlays.nix;
   };
-  nixpkgs.overlays = import ./user/vonfry/package/custom/overlays.nix;
 
   services = {
     syslog-ng.enable = true;

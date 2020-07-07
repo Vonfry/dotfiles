@@ -18,5 +18,6 @@ in {
     ./misc.nix
     ./user
   ] ++ localFiles;
+
   lib = pkgs.callPackage ./lib { };
 }

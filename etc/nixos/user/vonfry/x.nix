@@ -3,8 +3,7 @@
 let
   isDarwin = pkgs.stdenv.isDarwin;
   isLinux = pkgs.stdenv.isLinux;
-in
-{
+in {
   gtk = {
     enable = isLinux;
     font = {
@@ -20,10 +19,12 @@ in
       package = pkgs.breeze-icons;
     };
   };
+
   qt = {
     enable = isLinux;
     platformTheme = "gtk";
   };
+
   programs = {
     feh.enable = isLinux;
     zathura.enable = isLinux;
@@ -32,6 +33,7 @@ in
       enable = isLinux;
     };
   };
+
   xsession = {
     enable = isLinux;
     initExtra = ''
@@ -44,6 +46,7 @@ in
       config = ./files/xmonad.hs;
     };
   };
+
   services.dunst = {
     enable = isLinux;
     iconTheme = {
@@ -56,4 +59,18 @@ in
       };
     };
   };
+
+  home.packages = with pkgs; [
+    gnuplot
+  ] ++ lib.optionals stdenv.isLinux [
+    nomachine-client
+    feh
+    libsForQt5.vlc
+    inkscape
+    gimp
+    unstable.tor-browser-bundle-bin
+    zerotierone
+    handbrake # numactl works on linux # wait for pr https://github.com/NixOS/nixpkgs/pull/89674
+    zathura
+  ];
 }
