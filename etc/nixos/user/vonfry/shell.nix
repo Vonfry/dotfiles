@@ -220,7 +220,7 @@ in {
     packages = with pkgs; [
       wget curl
       git git-lfs
-      zsh gnupg
+      zsh gnupg sshfs
       file
       fzf
       colordiff
