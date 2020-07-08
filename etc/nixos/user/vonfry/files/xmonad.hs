@@ -65,7 +65,7 @@ myKeys conf = mkKeymap conf
     , ("M-, '" , spawn "emacs"           )
 
     -- basic window
-    , ("M-'"         , spawn $ runInTerm "" "ranger"     )
+    , ("M-'"         , runInTerm "" "ranger"             )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
