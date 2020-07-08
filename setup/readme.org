@@ -25,6 +25,4 @@
 
 
 ** nix-channel
-   - nixpkgs-unstable
-   - home-manager
-   - all-iehs
+   see [[file:~/Vonfry-论极语易/self/program/dotfiles/config/nix/channels][channels]]
