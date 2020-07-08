@@ -32,6 +32,6 @@ different from `<name>.local.nix`, these files are optional.
 Most packages are installed for user, only some really useful packages are
 installed in system, to keep minimal. 
 
-### Custom
+### overlay
 
-See [user/vonfry/pkgs/custom](./user/vonfry/pkgs/custom/readme.md)
+See [user/vonfry/overlay](./user/vonfry/overlay/readme.md)
