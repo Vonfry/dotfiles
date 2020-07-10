@@ -220,7 +220,7 @@ in {
     packages = with pkgs; [
       wget curl
       git git-lfs
-      zsh gnupg sshfs
+      zsh gnupg
       file
       fzf
       colordiff
@@ -251,6 +251,7 @@ in {
       atop htop
       alacritty
       lm_sensors lsof
+      sshfs
     ] ++ lib.optionals stdenv.isDarwin [
       terminal-notifier
     ];

@@ -38,18 +38,7 @@
 (package! company-coq
   :after (proof-general company)
   :hook
-  ((coq-mode . company-coq-mode)
-   (company-coq-mode .
-    (lambda ()
-      (if +proof-use-special-font
-          (call-interactively '+proof/buffer-use-spceial-font)))))
-  :custom
-  (company-coq-disabled-features '(prettify-symbols))
-  :config
-  (+pretty-code-mode-with-ligatures
-    'coq-mode
-    +proof-prettify-symbol-alist)
+  (coq-mode . company-coq-mode)
   :general
   (+mmap-mode-proof-def
-    "B" 'company-coq-cite
-    "F" '+proof/buffer-use-spceial-font))
+    "B" 'company-coq-cite))

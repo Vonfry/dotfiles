@@ -44,8 +44,6 @@ in {
 
     packages = with pkgs; [
       _1password
-
-      vonfryPackages.fira-code-symbols
     ] ++ lib.optionals stdenv.isLinux [
       tdesktop
       filezilla
