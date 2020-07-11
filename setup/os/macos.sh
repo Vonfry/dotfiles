@@ -23,7 +23,7 @@ brew cask install intel-power-gadget # cpu monitor
 brew cask install sigil # epub editor
 brew cask install amethyst
 brew cask install mactex
-brew cask install firefox
+brew cask install qutebrowser
 brew cask install teleggram-desktop
 brew cask install wireshark
 brew cask install skim

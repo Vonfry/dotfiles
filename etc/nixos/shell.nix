@@ -13,7 +13,7 @@
   environment.systemPackages = with pkgs; [
     wget curl
     git git-lfs
-    zsh gnupg
+    zsh gnupg sshfs
     atop htop
     file
     fzf

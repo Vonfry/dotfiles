@@ -14,6 +14,8 @@ in {
     extraGroups = [ "wheel" "docker" "vboxusers" ];
     shell = pkgs.zsh;
   };
+
   imports = [ ] ++ localFiles;
+
   home-manager.users.vonfry = import ./home.nix;
 }

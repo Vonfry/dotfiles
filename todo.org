@@ -8,7 +8,8 @@
     - [ ] use wayland instead
     - [X] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
     - [X] xmonad launcher & keybind
-    - [ ] sddm theme by environments.extraSetup
+    - [ ] sddm theme by environments.extraSetup or recode ant-dracula theme and
+      wait for a release
 ** macOS
 
 * Editor
@@ -17,10 +18,7 @@
 **** TODO ?use internal lsp
 ** TODO Emacs[1/4]
    - [X] CHOOSE gnus mu4e elfeed newst-ticker
-   - [ ] Fira code v4
    - [ ] use envrc.el instead direnv.el
-*** TODO Fira code ligatures without patch method
-    rev: 8607b9956bb5f9d01263af8a7e1423079e394ec9|tags/wip/emacs/ligatures
 *** DONE use raxod502/straight.el instead of package.el
 ** TODO LSP[0/1]
    - [ ] hls instead of hie?
@@ -39,7 +37,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[15/16]
+*** TODO home-manager instead setup script[17/19]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -60,4 +58,7 @@
     - [ ] sed command on linux and macos is different
     - [X] remove zplug overlay when 20.09 nixpkgs
     - [X] lorri services
+    - [ ] neovim & emacs packages management
+    - [X] qutebrowser setting, color, bookmark and search
+    - [ ] remove darwin support
 *** TODO niv?
