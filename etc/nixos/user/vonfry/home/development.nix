@@ -117,19 +117,18 @@ in {
         vim-polyglot
         vim-ragtag
         MatchTagAlways
-        vim-rails
         DoxygenToolkit-vim
         nerdcommenter
         vim-orgmode
         vim-easymotion
         tagbar
-        LeaderF
+        fzf-vim
         editorconfig-vim
         vim-better-whitespace
         vim-signature
         incsearch.vim
         vim-over
-        vimproc.vim
+        vimproc-vim
         tabular
         vim-which-key
         deoplete.nvim

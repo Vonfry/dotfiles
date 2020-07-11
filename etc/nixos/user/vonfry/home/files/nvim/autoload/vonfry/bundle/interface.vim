@@ -2,17 +2,21 @@
 "
 
 function! vonfry#bundle#interface#config()
-    call vonfry#mapping#leader("x" , ':LeaderfSelf<CR>'          )
-    call vonfry#mapping#leader("p" , ':LeaderfFile<CR>'          )
-    call vonfry#mapping#leader("f" , ':LeaderfFile<CR>'          )
-    call vonfry#mapping#leader("a" , ':LeaderfRgInteractive<CR>' )
-    call vonfry#mapping#leader("b" , ':LeaderfBufferAll<CR>'     )
-    call vonfry#mapping#leader("/" , ':LeaderfLineAll<CR>'       )
-    call vonfry#mapping#leader("[" , ':LeaderfFunctionAll<CR>'   )
-
-    let g:Lf_CacheDirectory = g:vonfry#local#cache
-    let g:Lf_StlColorscheme = "one"
-    let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+    nmap <leader>x :Commands<CR>    
+    nmap <leader>p :Files<CR>       
+    nmap <leader>f :History:<CR>    
+    nmap <leader>a :Rg<CR>          
+    nmap <leader>b :Buffers<CR>     
+    nmap <leader>/ :Lines<CR>       
+    nmap <leader>m :Marks<CR>       
+    nmap <leader>w :Windows<CR>     
+    nmap <leader>; :Snippets<CR>    
+    nmap <leader>P <plug>(fzf-maps-n)
+    xmap <leader>P <plug>(fzf-maps-x)
+    omap <leader>P <plug>(fzf-maps-o)
+    imap <c-x><c-k> <plug>(fzf-complete-word)
+    imap <c-x><c-f> <plug>(fzf-complete-path)
+    imap <c-x><c-l> <plug>(fzf-complete-line)
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"
@@ -22,7 +26,7 @@ function! vonfry#bundle#interface#config()
     let g:strip_whitespace_on_save = 1
     let g:better_whitespace_operator='<leader>ws'
 
-    call vonfry#mapping#leader("=", ':Tabularize /')
+    nmap <leader>= :Tabularize /
 
     " whitespace
     let g:better_whitespace_operator = ''
