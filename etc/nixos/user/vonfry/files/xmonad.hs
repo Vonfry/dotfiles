@@ -61,7 +61,8 @@ myKeys conf = mkKeymap conf
     , ("M-, V" , spawn "VirtualBox"      )
     , ("M-, v" , spawn "zathura"         )
     , ("M-, t" , spawn "telegram-desktop")
-    , ("M-, m" , spawn "vlc"             )
+    , ("M-, m" , spawn "mpv"             )
+    , ("M-, M" , runInTerm "" "cmus"     )
     , ("M-, '" , spawn "emacs"           )
 
     -- basic window

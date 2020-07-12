@@ -65,7 +65,8 @@ in {
   ] ++ lib.optionals stdenv.isLinux [
     nomachine-client
     feh
-    libsForQt5.vlc
+    cmus
+    mpv
     inkscape
     gimp
     unstable.tor-browser-bundle-bin
