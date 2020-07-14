@@ -9,6 +9,8 @@
   };
 
   home = {
+    stateVersion = "20.09";
+
     file = {
       ".config/nix/nix.conf".text = ''
         auto-optimise-store = true

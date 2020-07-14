@@ -3,8 +3,6 @@
 {
   # boot.loader
 
-  # system.stateVersion
-
   nix.gc = {
     automatic = false;
     options = "+5";

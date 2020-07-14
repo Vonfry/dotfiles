@@ -4,11 +4,11 @@ let
   localFiles = [ ./base.local.nix ];
 in
 {
-  i18n = {
-    consoleFont = "Hack-11";
-    consoleKeyMap = "dvorak-programmer";
-    defaultLocale = "en_US.UTF-8";
-    consolePackages = with pkgs; [ hack-font ];
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Hack-11";
+    keyMap = "dvorak-programmer";
+    packages = with pkgs; [ hack-font kbdKeymaps.dvp ];
   };
 
   time.timeZone = "Asia/Shanghai";
@@ -38,6 +38,8 @@ in
     syslog-ng.enable = true;
     logrotate.enable = true;
   };
+
+  stateVersion = "20.03";
 
   imports = localFiles;
 }
