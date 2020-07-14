@@ -7,15 +7,6 @@ find /etc/nixos -name "*.nix.example" |
     xargs -n1 -I "{}" sudo cp {}.example {}
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo cp $script_dir/etc/nixos/configuration.nix /etc/nixos/configuration.nix
-sudo grep -E "^ *system\.stateVersion" /etc/nixos.bak/configuration.nix |
-    sed "s/#.*$//"           |
-    sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I{} sed -i "/^ *# *system\.stateVersion$/a {}" /etc/nixos/local/base.nix
-sudo grep -E "^ *system\.stateVersion" /etc/nixos.bak/configuration.nix |
-    sed "s/system/home/"     |
-    sed "s/#.*$//"           |
-    sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I{} sed -i "/^ *# *home\.stateVersion$/a {}" /etc/nixos/user/vonfry/home/base.local.nix
 sudo grep -E "^ *boot\.loader" /etc/nixos.bak/configuration.nix |
     sed "s/#.*$//" |
     sed "s/^ */\\\\ \\\\ /g" |
