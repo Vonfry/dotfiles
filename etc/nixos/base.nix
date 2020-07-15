@@ -24,6 +24,8 @@ in
     exfat
   ];
 
+  security.sudo.enable = true;
+
   nix.optimise.automatic = true;
   nix.trustedUsers = [ "root" "@wheel" ];
 
