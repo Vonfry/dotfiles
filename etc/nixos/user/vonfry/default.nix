@@ -1,12 +1,13 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   users.users.vonfry = {
     isNormalUser = true;
     home = "/home/vonfry";
     description = "Vonfry";
-    extraGroups = [ "wheel" "docker" "vboxusers" ];
+    extraGroups = [ "wheel" "docker" "vboxusers" "network" ];
     shell = pkgs.zsh;
   };
-  imports = [ ./package ./local ];
+
+  home-manager.users.vonfry = import ./home.nix;
 }

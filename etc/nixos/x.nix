@@ -1,0 +1,34 @@
+{ config, pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    xclip
+    alacritty
+    dunst libnotify
+    vonfryPackages.unstable.ant-dracula-theme
+    breeze-icons
+  ];
+
+  services.xbanish.enable = true;
+
+  services.dbus.packages = with pkgs; [ gnome3.dconf ];
+
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    xkbVariant = "dvp";
+    autorun = true;
+
+    displayManager.sddm = {
+      enable = true;
+      theme = "Ant-Dracula";
+    };
+
+    windowManager = {
+      xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+      };
+    };
+  };
+}

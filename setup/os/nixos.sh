@@ -1,30 +1,21 @@
 echo_info "* system packages: Nix"
 sudo nixos-generate-config
-sudo cp -r $script_dir/etc/nixos/vonfry /etc/nixos/
-find . -name "*.local.nix.example" |
+sudo cp -r /etc/nixos /etc/nixos.bak
+sudo ln -sf $script_dir/etc/nixos /etc/nixos
+find /etc/nixos -name "*.nix.example" |
     sed s/\.example$// |
     xargs -n1 -I "{}" sudo cp {}.example {}
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 sudo cp $script_dir/etc/nixos/configuration.nix /etc/nixos/configuration.nix
-sudo grep -e "^ *system\.stateVersion" /etc/nixos/configuration.nix.bak |
-    sed "s/#.*$//"           |
-    sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I{} sed -i "/^ *# *system\.stateVersion$/a {}" /etc/nixos/vonfry/base/default.local.nix
-sudo grep -e "^ *boot\.loader" /etc/nixos/configuration.nix.bak |
-    sed "s/#.*$//" |
-    sed "s/^ */\\\\ \\\\ /g" |
-    xargs -n1 -I "{}" sed -i "/^ *# boot\.loader$/a {}" /etc/nixos/vonfry/base/default.local.nix
-nix-env -iA nixos.bundix nixos.bundler
-cd /etc/nixos/user/vonfry/package/custom/development/ruby/self-pkgs
-bundle lock
-bundix -l
-nix-env -e bundle bundix
-nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
-sudo nix-channel --add http://nixos.org/channels/nixos-unstable nixos-unstable
-export NIX_PATH=$NIX_PATH:nixos-vonfry-lib=/etc/nixos/lib
+echo_info "--- set some local configuration"
+read
+rm -rf /etc/nixos.bak
+echo_info
+"--- please set some local files for home-manager or configuration under $script_dir/etc/nixos/local and $script_dir/etc/nixos/user/vonfry/home/local"
+cat $script_dir/config/nix/channels | xargs -n1 sudo nix-channel --add
+
+nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs-unstable
+nix-channel --add https://github.com/rycee/home-manager/archive/master.tar.gz home-manager
+
 sudo nixos-rebuild switch
-mkdir -p ~/.config/nix
-mkdir -p ~/.config/nixpkgs
-ln -s -f $script_dir/config/nix/* ~/.config/nix
-ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
 echo_info "-- Run fcitx-configtool to config."

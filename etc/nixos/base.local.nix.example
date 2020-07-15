@@ -1,0 +1,34 @@
+{ config, pkgs, ... }:
+
+{
+  # boot.loader
+  # network
+
+  nix.gc = {
+    automatic = false;
+    options = "+5";
+    dates = "Sun 19:00";
+  };
+
+  services.openssh =  {
+    enable = false;
+    allowSFTP = false;
+    passwordAuthentication = false;
+    permitRootLogin = "prohibit-password";
+    extraConfig =
+      ''
+      ClientAliveInterval 60
+      ClientAliveCountMax 4
+      '';
+  };
+
+  security = {
+    sudo.extraConfig = "Defaults timestamp_timeout=30 ";
+    pam.enableSSHAgentAuth = true;
+  };
+
+  # networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+}

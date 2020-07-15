@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'json'
+# TODO test the op new searching feature, and if it can work expected, remove
+# this file
+
+begin
+    items = `op list items`
+    op = JSON.parse items
+rescue
+    abort "JSON parse failed. The reason may be caused without signing."
+end
+
+input = ARGV * ".*"
+
+iregex = /.*#{input}.*/
+
+searched = op.select do |obj|
+    overview = obj["overview"]
+    title? = iregex.match? overview["title"]
+    tags? = overview["tags"].any? do |tag|
+        ARGV.any? tag
+    end
+
+    if obj["URLs"]
+        url? = obj["URLs"].any? do |obj|
+          iregex.match? obj["overview"]["url"]
+        end
+    else
+        url? = false
+    end
+    title? || tags? || url?
+end
+
+def check_command?(command)
+  system "which #{command} > /dev/null 2>&1"
+end
+

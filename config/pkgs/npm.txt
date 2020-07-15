@@ -1,7 +1,0 @@
-bash-language-server
-
-diff-so-fancy
-mathjax-node-cli
-
-npm-check
-font-spider

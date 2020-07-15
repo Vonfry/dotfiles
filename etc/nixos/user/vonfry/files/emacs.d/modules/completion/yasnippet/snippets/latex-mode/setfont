@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: setfont
+# key: setfont
+# --
+
+\setmainfont{${1:Liberation Serif}}
+\setsansfont{${2:Liberation Sans}}
+\setmonofont{${3:Liberation Mono}}

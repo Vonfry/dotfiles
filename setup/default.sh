@@ -6,15 +6,6 @@ function echo_note() { echo -e "\n\033[0m $@\n";    echo -e "\033[0m" }
 
 export current_dir=$(pwd)
 export script_dir=$( cd "$( dirname "$0" )/.." && pwd )
-echo_note "Input a path which dir is local saved."
-read clouddisk_dir
-export clouddisk_dir
-echo_note "Input a path which dir is the remote cloud download."
-read cloudremote_dir
-export cloudremote_dir
-echo_note "Input a path where to save the third lib or tools needing to be built by youself."
-read source_dir
-export source_dir
 echo_info "dir: $script_dir"
 echo_info "System: $(uname)"
 
@@ -23,17 +14,12 @@ mkdir -p ~/.local/bin
 
 runscript="$SHELL"
 $runscript $script_dir/setup/os/default.sh
-$runscript $script_dir/setup/pkgs/default.sh
-$runscript $script_dir/setup/editor/default.sh
-$runscript $script_dir/setup/shell/default.sh
-$runscript $script_dir/setup/x/default.sh
+$runscript $script_dir/setup/nix.sh
 
 # alert
 echo "
 ========
 This setup has been done. But there are something not installed.
-\`Docker\` on mac show be installed with docker-tool-box.
-Any applications were not been initialized., such as \`mysql\`, \`postgresql\` and so on.
 ========\n
 "
 
@@ -42,8 +28,4 @@ unset -f echo_warn
 unset -f echo_info
 unset -f echo_note
 unset script_dir
-unset clouddisk_dir
-unset source_dir
 unset runscript
-
-source $HOME/.zshrc

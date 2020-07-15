@@ -1,7 +1,0 @@
-ghc
-cabal-install
-haskellPackages.hoogle
-haskellPackages.stylish-haskell
-nox
-cabal2nix
-carnix
