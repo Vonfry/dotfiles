@@ -1,14 +1,14 @@
 {
-  window.dimensions= {
-    columns = 80;
-    lines = 24;
-  };
   padding = {
-    x = 2;
-    y = 2;
+    x = 4;
+    y = 4;
+  };
+  env = {
+    WINIT_HIDPI_FACTOR = "1";
+    WINIT_X11_SCALE_FACTOR = "1";
   };
   font = {
-    size = 8.0;
+    size = 8.25;
   };
   colors = {
     primary = {

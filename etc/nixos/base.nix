@@ -31,7 +31,7 @@ in
     config = {
       allowUnfree = true;
     };
-    overlays = import ./user/vonfry/package/custom/overlays.nix;
+    overlays = import ./user/vonfry/overlay/overlays.nix;
   };
 
   services = {
@@ -39,7 +39,7 @@ in
     logrotate.enable = true;
   };
 
-  stateVersion = "20.03";
+  system.stateVersion = "20.03";
 
   imports = localFiles;
 }

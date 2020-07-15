@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ./base.local.nix ];
@@ -28,6 +28,6 @@
       '';
     };
 
-    packages = with pkgs; lib.optionals stdenv.isLinux [ lnav exfat ];
+    packages = with pkgs; [ lnav exfat ];
   };
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   defvarFile = builtins.concatStringsSep "/" [ "$HOME"
@@ -9,8 +9,6 @@ let
                                                  config.programs.zsh.dotDir
                                                  "localvar.sh"
                                                ];
-  isDarwin = pkgs.stdenv.isDarwin;
-  isLinux = pkgs.stdenv.isLinux;
   zshrcDir = ./files/zsh/rc.d;
 in {
   programs = {
@@ -153,8 +151,7 @@ in {
       '';
       logoutExtra = ''
       '';
-      profileExtra = lib.optionalString isDarwin ''
-        . ~/.nix-profile/etc/profile.d/nix.sh
+      profileExtra = ''
       '';
       sessionVariables = {
       };
@@ -169,13 +166,13 @@ in {
         opgi = "op get item";
         opp = "op-get-password-from-json";
         opf = "op-fuzzy-search-from-json";
-        opr = "op-refresh-sign";
-        op-init = "op-sign-my";
+        opr = "op-refresh-my";
+        op-init = "op signin my.1password.com";
       };
     };
 
     htop = {
-      enable = isLinux;
+      enable = true;
       treeView = true;
     };
   };
@@ -193,7 +190,7 @@ in {
         $DRY_RUN_CMD read
       fi
       $DRY_RUN_CMD . ${defvarFile}
-      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/org $ORG_DIR
+      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/orgmode $ORG_DIR
       $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/config/emacs.d/local/* ~/.config/emacs.d/local
       $DRY_RUN_CMD mkdir -p $CLONE_LIB $PASSWD_DIR
       if ! [ -f $PASSWD_DIR/authinfo.gpg ]; then
@@ -214,7 +211,7 @@ in {
 
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = if isDarwin then "open" else "qutebrowser";
+      BROWSER = "qutebrowser";
     };
 
     packages = with pkgs; [
@@ -246,14 +243,12 @@ in {
       fortune cmatrix figlet
       asciinema
       neofetch
-    ] ++ lib.optionals stdenv.isLinux [
+
       flameshot
       atop htop
       alacritty
       lm_sensors lsof
       sshfs
-    ] ++ lib.optionals stdenv.isDarwin [
-      terminal-notifier
     ];
   };
 }

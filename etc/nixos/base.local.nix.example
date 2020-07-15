@@ -2,6 +2,7 @@
 
 {
   # boot.loader
+  # network
 
   nix.gc = {
     automatic = false;

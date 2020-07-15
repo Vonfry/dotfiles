@@ -3,9 +3,7 @@
 
 (package! magit
   :general
-  (+mmap-magit-def "-" 'magit-status)
-  :config
-  (vonfry-system-sets (darwin (add-hook 'magit-mode-hook (lambda () (local-unset-key [(meta h)]))))))
+  (+mmap-magit-def "-" 'magit-status))
 
 (package! git-commit :after magit)
 (package! transient :after magit

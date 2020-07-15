@@ -1,9 +1,6 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  isDarwin = pkgs.stdenv.isDarwin;
-  isLinux = pkgs.stdenv.isLinux;
-in {
+{
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
   home.file = {
@@ -67,23 +64,16 @@ in {
     ".pryrc".text = ''
       Pry.config.editor = "nvim"
     '';
-    ".latexmkrc".text =
-      lib.optionalString isDarwin ''
-        $out_dir = "latex.out";
-        $pdf_mode = 5;
-        $pdf_previewer = 'open -a Skim';
-        $pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode';
-        @generated_exts = (@generated_exts, 'synctex.gz');
-      '' + lib.optionalString isLinux ''
-        $out_dir = "latex.out";
-        $pdf_mode = 5;
-        $dvi_previewer = 'xdvi -watchfile 1.5';
-        $ps_previewer  = 'feh';
-        $pdf_previewer = 'zathura';
-      '';
+    ".latexmkrc".text = ''
+      $out_dir = "latex.out";
+      $pdf_mode = 5;
+      $dvi_previewer = 'xdvi -watchfile 1.5';
+      $ps_previewer  = 'feh';
+      $pdf_previewer = 'zathura';
+    '';
   };
 
-  services = lib.optionalAttrs isLinux {
+  services = {
     lorri.enable = true;
   };
 
@@ -103,8 +93,8 @@ in {
     };
 
     texlive = {
-      enable = isLinux;
-      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
+      enable = true;
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-small; };
     };
   };
 
@@ -117,7 +107,7 @@ in {
     vim
     emacs
     editorconfig-core-c
-  ] ++ [
+
     cloc
     patchelf
     binutils-unwrapped
@@ -159,8 +149,8 @@ in {
     redis
 
     httpstat
-  ] ++ lib.optionals stdenv.isLinux [
-    texlive.combined.scheme-full
+
+    # texlive.combined.scheme-full
     zeal
     glibcInfo
   ];

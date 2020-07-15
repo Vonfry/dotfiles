@@ -23,7 +23,7 @@ The topic is not deprecated, but it is not the default one in config.
 
 ## System
 
-- [x] macOS
+- [x] ~~macOS~~
 
 - [x] NixOS - See [nixos readme](./etc/nixos/readme.md).
 

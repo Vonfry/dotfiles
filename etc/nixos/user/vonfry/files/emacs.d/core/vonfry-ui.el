@@ -53,8 +53,7 @@ THEME is a symbol passed to `load-theme'"
 ;; customize the fonts
 ;;
 
-(custom! vonfry-fontsize (vonfry-system-sets (darwin 11)
-                                             (gnu/linux 9))
+(custom! vonfry-fontsize 11
   "vonfry fontsize in window system"
   :type 'integer
   :group 'vonfry-modules)

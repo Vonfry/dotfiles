@@ -1,9 +1,6 @@
 { pkgs, config, lib, ... }:
 
-let
-  isLinux = pkgs.stdenv.isLinux;
-  isDarwin = pkgs.stdenv.isDarwin;
-in {
+{
   accounts.email = {
     maildirBasePath = "${config.home.homeDirectory}/.mail";
     accounts = {
@@ -26,10 +23,6 @@ in {
   };
 
   home = {
-    file = lib.optionalAttrs isDarwin {
-      ".config/qutebrowser/config.py".source = ./files/qutebrowser.macos.py;
-    };
-
     activation = {
       qutebrowserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
         $DRY_RUN_CMD ln $VERBOSE_ARG -s -f $CLOUD_DIR/dotfiles/config/qutebrowser/* ~/.config/qutebrowser
@@ -40,7 +33,7 @@ in {
       nmap
       mu isync
       jekyll
-    ] ++ lib.optionals stdenv.isLinux [
+
       chromium
       wireshark
 
@@ -54,18 +47,17 @@ in {
 
   programs = {
     mbsync.enable = true;
-  } // lib.optionalAttrs isLinux {
+
     chromium.enable = true;
     qutebrowser = {
       enable = true;
+      keyBindings = {
+        normal = {
+          "gv" = "spawn chromium {url}";
+        };
+      };
       settings =
         let
-          padding = {
-             top = 6;
-             right = 8;
-             bottom = 6;
-             left = 8;
-          };
           draculaBackground          = "#282a36";
           draculaBackgroundAttention = "#181920";
           draculaForeground          = "#f8f8f2";
@@ -85,11 +77,6 @@ in {
         url = {
           default_page = "about:blank";
           start_pages = [ "about:blank" ];
-        };
-        bindings.commands = {
-          normal = {
-            "gv" = "spawn chromium {url}";
-          };
         };
         colors = {
           completion.category.bg = draculaBackground;
@@ -168,20 +155,22 @@ in {
           tabs.selected.odd.fg = draculaForeground;
         };
         hints.border = "1px solid " + draculaBackground;
-        statusbar.padding = padding;
         tabs = {
-          padding = padding;
           indicator.width = 1;
           favicons.scale = 1;
           show = "multiple";
         };
         editor.command = [ "alacritty -e nvim" "{file}" ];
         downloads = {
-          location.directory = "~/downloads";
-          location.prompt = false;
+          location.directory = "~/Downloads";
           remove_finished = 7;
         };
       };
+      extraConfig = ''
+        padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
+        c.tabs.padding = padding
+        c.statusbar.padding = padding
+      '';
     };
   };
 }

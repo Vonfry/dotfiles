@@ -54,8 +54,7 @@
   (after-init .
     (lambda ()
       (mu4e-alert-enable-mode-line-display)
-      (vonfry-system-sets (gnu/linux (mu4e-alert-set-default-style 'libnotify))
-                          (darwin    (mu4e-alert-set-default-style 'notifier)))
+      (mu4e-alert-set-default-style 'libnotify)
       (mu4e-alert-enable-notifications))))
 
 (package! mu4e-maildirs-extension

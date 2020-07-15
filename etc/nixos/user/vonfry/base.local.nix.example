@@ -2,6 +2,6 @@
 
 {
   # home.user
-
-  # home.stateVersion
+  home.username = ""; 
+  home.homeDirectory = "";
 }
