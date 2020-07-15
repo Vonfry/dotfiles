@@ -154,12 +154,13 @@ myKeys conf = mkKeymap conf
     , ("M-C-<Down>" , windowToScreen D False)
 
     -- cycle workspace
-    , ("M-}"  , nextWS                               )
-    , ("M-{"  , prevWS                               )
-    , ("M-S-}", shiftToNext                          )
-    , ("M-S-{", shiftToPrev                          )
-    , ("M-S-.", toggleWS                             )
-    , ("M-g"  , workspacePrompt def (windows . shift))
+    , ("M-}"   , nextWS      )
+    , ("M-{"   , prevWS      )
+    , ("M-S-}" , shiftToNext )
+    , ("M-S-{" , shiftToPrev )
+    , ("M-S-." , toggleWS    )
+    , ("M-g"   , workspacePrompt myXPConf (windows . view ))
+    , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
 
     -- change pwd for current workspace
     , ("M-p", changeDir myXPConf)
