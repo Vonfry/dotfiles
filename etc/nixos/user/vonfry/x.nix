@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   gtk = {
@@ -34,8 +34,7 @@
   xsession = {
     enable = true;
     initExtra = ''
-      source ~/.zprofile
-      feh --bg-center ~/.config/bg.png
+      feh --bg-center ${toString config.xdg.configHome}/bg.png
     '';
     windowManager.xmonad = {
       enable = true;
@@ -129,4 +128,25 @@
     zathura
     libreoffice
   ];
+
+  xdg = {
+    enable = true;
+    userDirs.enable = true;
+    mimeApps = {
+       enable = true;
+       defaultApplications = {
+         "x-scheme-handler/http"         = "org.qutebrowser.qutebrowser.desktop";
+         "x-scheme-handler/https"        = "org.qutebrowser.qutebrowser.desktop";
+         "x-scheme-handler/ftp"          = "org.qutebrowser.qutebrowser.desktop";
+         "x-scheme-handler/chrome"       = "org.qutebrowser.qutebrowser.desktop";
+         "text/html"                     = "org.qutebrowser.qutebrowser.desktop";
+         "application/x-extension-htm"   = "org.qutebrowser.qutebrowser.desktop";
+         "application/x-extension-html"  = "org.qutebrowser.qutebrowser.desktop";
+         "application/x-extension-shtml" = "org.qutebrowser.qutebrowser.desktop";
+         "application/xhtml+xml"         = "org.qutebrowser.qutebrowser.desktop";
+         "application/x-extension-xhtml" = "org.qutebrowser.qutebrowser.desktop";
+         "application/x-extension-xht"   = "org.qutebrowser.qutebrowser.desktop";
+       };
+    };
+  };
 }
