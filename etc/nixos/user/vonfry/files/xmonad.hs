@@ -47,6 +47,7 @@ myXPConf = def
     , fgHLight        = draculaForeground
     , borderColor     = draculaPurple
     , autoComplete    = Just $ 2 * 10 ^ 5 -- 0.2s
+    , height          = 30
     }
 
 -- my configurations
@@ -186,7 +187,7 @@ myLayout = beforeLayouts layouts
                 , inactiveColor       = draculaBackground
                 , activeColor         = draculaSelection
                 , fontName            = myFontCJK
-                , decoHeight          = 20
+                , decoHeight          = 30
                 })
         ||| renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "GridL"     ] (SplitGrid GridVariants.L 2 3 (2/3) (16/10) (1/100))

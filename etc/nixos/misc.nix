@@ -11,6 +11,9 @@
     ];
     fontconfig = {
       enable = true;
+      # config this by your self, it is depended on which screen you
+      # are using. It is suggested as a multiple of 6 or 12.
+      # dpi = 96;
       defaultFonts = {
         monospace = [ "Hack" "Source Han Sans CN" ];
         sansSerif = [ "Source Han Sans CN" ];
