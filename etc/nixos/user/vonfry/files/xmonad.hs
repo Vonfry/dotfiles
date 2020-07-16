@@ -179,7 +179,7 @@ myKeys conf = mkKeymap conf
 myLayout = beforeLayouts layouts
   where
     layouts =
-            renamed [ Replace "Tab" ] (noBorders $ tabbed shrinkText def
+            renamed [ Replace "Tab" ] (noBorders $ tabbedBottom shrinkText def
                 { inactiveBorderColor = draculaComment
                 , activeBorderColor   = draculaPurple
                 , inactiveTextColor   = draculaForeground
