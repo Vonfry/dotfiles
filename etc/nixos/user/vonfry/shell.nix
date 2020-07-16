@@ -206,7 +206,7 @@ in {
         $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/song100
         $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/diet
       fi
-     ! [ -f ~/.face.icon ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon && chmod 666 ~/.face.icon
+     ! [ -f ~/.face.icon ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
     '';
 
     sessionVariables = {
@@ -249,6 +249,8 @@ in {
       alacritty
       lm_sensors lsof
       sshfs
+
+      proxychains
     ];
   };
 }
