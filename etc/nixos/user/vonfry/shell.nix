@@ -249,6 +249,8 @@ in {
       alacritty
       lm_sensors lsof
       sshfs
+
+      proxychains
     ];
   };
 }
