@@ -5,34 +5,52 @@ require 'json'
 # this file
 
 begin
-    items = `op list items`
-    op = JSON.parse items
+  items = `op list items`
+  op = JSON.parse items
 rescue
-    abort "JSON parse failed. The reason may be caused without signing."
+  abort 'JSON parse failed. The reason may be caused without signing.'
 end
 
-input = ARGV * ".*"
+input = ARGV * '.*'
 
 iregex = /.*#{input}.*/
 
 searched = op.select do |obj|
-    overview = obj["overview"]
-    title? = iregex.match? overview["title"]
-    tags? = overview["tags"].any? do |tag|
-        ARGV.any? tag
-    end
+  overview = obj['overview']
 
-    if obj["URLs"]
-        url? = obj["URLs"].any? do |obj|
-          iregex.match? obj["overview"]["url"]
+  title = iregex.match? overview['title']
+
+  tags = overview.fetch('tags', []).any? do |tag|
+    ARGV.any? tag
+  end
+
+  url = iregex.match? overview['url']
+
+  if obj['URLs']
+    url = obj.fetch('URLs', []).any? do |obj|
+      iregex.match? obj['overview']['url']
+    end
+  else
+    urls = false
+  end
+
+  title || tags || url || urls
+end
+
+searched.map do |obj|
+    overview = obj['overview']
+    puts "uuid:  #{obj['uuid']}"
+    puts "title: #{overview['title']}"
+    puts "tags:  #{overview['tags'].join ' '}"
+    puts "ainfo: #{overview['ainfo']}"
+    puts "url:   #{overview['url']}"
+    if obj['URLs']
+      puts 'urls:'
+      obj['URLs'].map do |url|
+        url.values.map do |u|
+          puts "       #{u}"
         end
-    else
-        url? = false
+      end
     end
-    title? || tags? || url?
+    puts ''
 end
-
-def check_command?(command)
-  system "which #{command} > /dev/null 2>&1"
-end
-

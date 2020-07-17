@@ -18,8 +18,7 @@ if ! [ -f /etc/NIXOS ]; then
         read
         rm ~/.config/nixpkgs/home.nix.bak
         ln -s -f $script_dir/config/nixpkgs/* ~/.config/nixpkgs
-        echo_info
-        "--- Please set some local files for home-manager under $script_dir/etc/nixos/user/vonfry/local"
+        echo_info "--- Please set some local files for home-manager under $script_dir/etc/nixos/user/vonfry/local"
         read
         home-manager switch
     else
