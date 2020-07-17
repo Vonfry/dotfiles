@@ -3,6 +3,7 @@
 
 (package! rust-mode
   :mode "\\.rs\\'"
+  :hook lsp
   :general
   (+mmap-mode-rust-def
     "=" 'rust-mode-indent-line

@@ -1,6 +1,9 @@
 ;;; cc packages -*- lexical-binding: t -*-
 ;;
 
+(hook! c-mode lsp)
+(hook! c++-mode lsp)
+
 (package! disaster
   :general
   (+mmap-mode-cc-def
