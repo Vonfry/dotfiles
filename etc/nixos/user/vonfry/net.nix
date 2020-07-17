@@ -57,6 +57,18 @@
           "t'" = "config-cycle -p content.proxy http://127.0.0.1:7890 system";
         };
       };
+      searchEngines = {
+        DEFAULT = "https://duckduckgo.com/?q={}";
+        w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
+        nw = "https://nixos.wiki/index.php?search={}";
+        g = "https://www.google.com/search?hl=en&q={}";
+        gh = "https://github.com/search?type=&q={}";
+        su = "https://superuser.com/search?q={}";
+        so = "https://stackoverflow.com/search?q={}";
+        gl = "https://gitlab.com/search?search={}";
+        hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
+        yt = "https://www.youtube.com/results?search_query={}";
+      };
       settings =
         let
           draculaBackground          = "#282a36";
@@ -78,18 +90,6 @@
         url = {
           default_page = "about:blank";
           start_pages = [ "about:blank" ];
-        };
-        searchEngines = {
-          DEFAULT = "https://duckduckgo.com/?q={}";
-          w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
-          nw = "https://nixos.wiki/index.php?search={}";
-          g = "https://www.google.com/search?hl=en&q={}";
-          gh = "https://github.com/search?type=&q={}";
-          su = "https://superuser.com/search?q={}";
-          so = "https://stackoverflow.com/search?q={}";
-          gl = "https://gitlab.com/search?search={}";
-          hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
-          yt = "https://www.youtube.com/results?search_query={}";
         };
         colors = {
           completion.category.bg = draculaBackground;

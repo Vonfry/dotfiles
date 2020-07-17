@@ -6,12 +6,14 @@
 ;; Set some variables
 ;;
 
+(require 'xdg)
+
 (defcustom vonfry-local-dir (expand-file-name "local/" vonfry-config-dir)
   "The local dir saves the local files, which is different from cache file. These files is permanent."
   :type 'directory
   :group 'vonfry-dir)
 
-(defcustom vonfry-cache-dir (xdg-cache-home)
+(defcustom vonfry-cache-dir (expand-file-name "emacs" (xdg-cache-home))
   "The local dir saves the caches files such as elpa or some plugins'. You can clean it and it will be reset by itself."
   :type 'directory
   :group 'vonfry-dir)
