@@ -116,7 +116,7 @@
   home.packages = with pkgs; [
     gnuplot
 
-    nomachine-client
+    tigervnc
     feh
     cmus
     mpv
