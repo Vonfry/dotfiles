@@ -1,6 +1,16 @@
 { pkgs, ... }:
 
 {
+  xdg.configFile = {
+    "emacs.d" = {
+      source = ./files/emacs.d;
+      recursive = true;
+    };
+    "nvim" = {
+      source = ./files/nvim;
+      recursive = true;
+    };
+  };
   # Use home.file instead of programs.<editor> due to I want to have a structure
   # config file for them.
   home.file = {
@@ -11,14 +21,6 @@
     ".gnupg/gpg.conf".text = ''
       keyserver hkps://keys.openpgp.org
     '';
-    ".config/emacs.d" = {
-      source = ./files/emacs.d;
-      recursive = true;
-    };
-    ".config/nvim" = {
-      source = ./files/nvim;
-      recursive = true;
-    };
     ".vimrc".source = ./files/vimrc;
     ".ghc/ghci.conf".text = ''
       :set -fbreak-on-exception

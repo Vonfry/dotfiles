@@ -1,7 +1,11 @@
 ;;; dashboard config -*- lexical-binding: t -*-
 ;;
 
-(custom! +dashboard-banner (if (file-exists-p "~/.config/bg.png") "~/.config/bg.png" 'logo)
+(custom! +dashboard-banner
+  (let ((bg-file-default (expand-file-name "bg.png" (xdg-config-home))))
+    (if (file-exists-p bg-file-default)
+        bg-file-default
+      'logo))
   ""
   :type 'sexp
   :group 'vonfry-modules

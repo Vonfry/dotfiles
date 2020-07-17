@@ -5,7 +5,7 @@
     isNormalUser = true;
     home = "/home/vonfry";
     description = "Vonfry";
-    extraGroups = [ "wheel" "docker" "vboxusers" "network" ];
+    extraGroups = [ "wheel" "docker" "vboxusers" "networkmanager" ];
     shell = pkgs.zsh;
   };
 

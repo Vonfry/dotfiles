@@ -20,6 +20,7 @@ in
     gnutls
     cacert
     pciutils
+    usbutils
 
     exfat
   ];
