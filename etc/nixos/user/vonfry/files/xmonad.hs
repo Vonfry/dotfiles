@@ -197,7 +197,7 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
-        ||| renamed [ Replace "Full"      ] Full
+        ||| renamed [ Replace "Full"      ] (noBorders Full)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
     beforeLayouts = showWName . hiddenWindows
