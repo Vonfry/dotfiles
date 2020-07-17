@@ -3,6 +3,7 @@
 
 (package! ruby-mode
   :interpreter "pry"
+  :hook lsp
   :mode "\\.\\(?:a?rb\\|aslsx\\)\\'"
   :mode "/\\(?:Brew\\|Fast\\)file\\'")
 

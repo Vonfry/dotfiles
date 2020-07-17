@@ -4,9 +4,7 @@
 (package! ebib
   :custom
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
-  (ebib-file-associations (vonfry-system-sets
-                           (darwin '(("pdf" . "open")))
-                           (gnu/linux '(("pdf" . "zathura")))))
+  (ebib-file-associations '(("pdf" . "zathura")))
   :hook
   ((evil-mode . (lambda ()
     (evil-set-initial-state 'ebib-index-mode  'emacs)

@@ -5,10 +5,13 @@
     xclip
     alacritty
     dunst libnotify
-    ant-dracula
+    vonfryPackages.unstable.ant-dracula-theme
+    breeze-icons
   ];
 
   services.xbanish.enable = true;
+
+  services.dbus.packages = with pkgs; [ gnome3.dconf ];
 
   services.xserver = {
     enable = true;
@@ -18,7 +21,7 @@
 
     displayManager.sddm = {
       enable = true;
-      theme = "Dracula";
+      theme = "Ant-Dracula";
     };
 
     windowManager = {

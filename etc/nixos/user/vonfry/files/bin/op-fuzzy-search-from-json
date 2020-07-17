@@ -34,39 +34,5 @@ end
 
 def check_command?(command)
   system "which #{command} > /dev/null 2>&1"
-
-if check_command? "xclip"
-    clip = "xclip -sel clip -i"
-elsif check_command? "pbcopy"
-    clip = "pbcopy"
-else
-    clip = nil
 end
 
-searched.map do |obj|
-    overview = obj["overview"]
-    puts "uuid:  #{obj["uuid"]}"
-    if clip
-        `echo "#{obj["uuid"]}" | #{clip}`
-    end
-    puts "title: #{overview["title"]}"
-    puts "tags:  #{overview["tags"]}"
-    if obj["URLs"]
-        puts "urls:"
-        obj["URLs"].map do |obj|
-            puts "    #{obj["overview"]["label"]} #{obj["overview"]["url"]}"
-        end
-    end
-
-    if clip
-        puts "uuid is copy to clipboard. next? "
-    else
-        puts "next?"
-    end
-    gets
-end
-
-if clip
-    `echo "" | #{clip}`
-    print "clean clipboard.."
-end

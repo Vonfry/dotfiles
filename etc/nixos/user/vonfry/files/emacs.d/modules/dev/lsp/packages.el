@@ -2,9 +2,9 @@
 
 (package! lsp-mode
   :after (yasnippet projectile)
-  :hook ((prog-mode . lsp)
-         (lsp-mode  . lsp-enable-which-key-integration))
+  :hook lsp-enable-which-key-integration
   :custom
+  (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
   (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
   (lsp-diagnostic-package :flycheck)
   (lsp-keymap-prefix "M-*")

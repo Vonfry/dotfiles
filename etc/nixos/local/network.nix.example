@@ -3,9 +3,9 @@
 {
   networking.firewall = {
       enable = true;
-      allowedTCPPorts = [ 22000 22 5938 ];
+      allowedTCPPorts = [ 22 4000 ];
       allowedTCPPortRanges = [];
-      allowedUDPPorts = [ 21027 ];
+      allowedUDPPorts = [ ];
       allowPing = false;
   };
 

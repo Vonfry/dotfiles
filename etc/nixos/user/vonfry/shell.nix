@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   defvarFile = builtins.concatStringsSep "/" [ "$HOME"
@@ -9,8 +9,6 @@ let
                                                  config.programs.zsh.dotDir
                                                  "localvar.sh"
                                                ];
-  isDarwin = pkgs.stdenv.isDarwin;
-  isLinux = pkgs.stdenv.isLinux;
   zshrcDir = ./files/zsh/rc.d;
 in {
   programs = {
@@ -125,7 +123,7 @@ in {
       '';
       localVariables = {
         GEOMETRY_PROMPT_PLUGINS = [ "exec_time" "jobs" "git" "hg" "kube"];
-        ENHANCD_DIR = "$HOME/.cache/enchancd";
+        ENHANCD_DIR = "${config.xdg.cacheHome}/enchancd";
         ENHANCD_FILTER = "fzf";
         ENHANCD_USE_FUZZY_MATCH = 0;
         ENHANCD_COMPLETION_BEHAVIOR = "list";
@@ -153,8 +151,7 @@ in {
       '';
       logoutExtra = ''
       '';
-      profileExtra = lib.optionalString isDarwin ''
-        . ~/.nix-profile/etc/profile.d/nix.sh
+      profileExtra = ''
       '';
       sessionVariables = {
       };
@@ -169,13 +166,13 @@ in {
         opgi = "op get item";
         opp = "op-get-password-from-json";
         opf = "op-fuzzy-search-from-json";
-        opr = "op-refresh-sign";
-        op-init = "op-sign-my";
+        opr = "op-refresh-my";
+        op-init = "op signin my.1password.com";
       };
     };
 
     htop = {
-      enable = isLinux;
+      enable = true;
       treeView = true;
     };
   };
@@ -186,21 +183,21 @@ in {
     };
 
     activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p ~/.cache ~/.local
+      mkdir -p ${config.xdg.cacheHome} ~/.local
       if ! [ -f ${defvarFile} ]; then
         $DRY_RUN_CMD cp $VERBOSE_ARG ${toString ./files/zsh/defvar.sh.example} ${defvarFile}
         $DRY_RUN_CMD echo "defvar file is copied, please edit it(${defvarFile}). Then prepare for cloud files"
         $DRY_RUN_CMD read
       fi
       $DRY_RUN_CMD . ${defvarFile}
-      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/org $ORG_DIR
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/config/emacs.d/local/* ~/.config/emacs.d/local
+      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/orgmode $ORG_DIR
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
       $DRY_RUN_CMD mkdir -p $CLONE_LIB $PASSWD_DIR
       if ! [ -f $PASSWD_DIR/authinfo.gpg ]; then
         $DRY_RUN_CMD echo "please create authinfo.gpg file under $PASSWD_DIR"
         $DRY_RUN_CMD read
       fi
-      ! [ -f ~/.config/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ~/.config/bg.png
+      ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
       if ! [ -d $CLONE_LIB/fortunes ]; then
         $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git $CLONE_LIB/fortunes
         $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/fortunes
@@ -209,12 +206,16 @@ in {
         $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/song100
         $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/diet
       fi
-     ! [ -f ~/.face.icon ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
+      if ! [ -f ~/.face.icon ]; then
+        $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
+        setfacl -m u:sddm:x ~/
+        setfacl -m u:sddm:r ~/.face.icon
+      fi
     '';
 
     sessionVariables = {
       EDITOR = "nvim";
-      BROWSER = if isDarwin then "open" else "qutebrowser";
+      BROWSER = "qutebrowser";
     };
 
     packages = with pkgs; [
@@ -246,14 +247,12 @@ in {
       fortune cmatrix figlet
       asciinema
       neofetch
-    ] ++ lib.optionals stdenv.isLinux [
+
       flameshot
       atop htop
       alacritty
       lm_sensors lsof
       sshfs
-    ] ++ lib.optionals stdenv.isDarwin [
-      terminal-notifier
     ];
   };
 }

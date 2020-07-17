@@ -7,4 +7,6 @@
     iftop
     wireshark
   ];
+  
+  networking.networkmanager.enable = true;
 }

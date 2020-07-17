@@ -1,12 +1,12 @@
 * System
 ** TODO NixOS
+    - [ ] clean setup script about sed and some local configuration.
 *** TODO X [4/9]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
-    - [X] qt5ct(qt5.style) and gtkrc [[https://wiki.archlinux.org/index.php/Uniform_look_for_Qt_and_GTK_applications][arch wiki]]
     - [X] xmonad launcher & keybind
     - [ ] sddm theme by environments.extraSetup or recode ant-dracula theme and
       wait for a release
@@ -55,10 +55,9 @@
     - [X] link home-manager from nixos-config
     - [X] remove update scripts
     - [X] recode setup scripts
-    - [ ] sed command on linux and macos is different
     - [X] remove zplug overlay when 20.09 nixpkgs
     - [X] lorri services
     - [ ] neovim & emacs packages management
     - [X] qutebrowser setting, color, bookmark and search
-    - [ ] remove darwin support
+    - [X] remove darwin support
 *** TODO niv?
