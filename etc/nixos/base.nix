@@ -21,6 +21,7 @@ in
     cacert
     pciutils
     usbutils
+    inxi
 
     exfat
   ];
