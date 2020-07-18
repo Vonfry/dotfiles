@@ -66,6 +66,7 @@ myKeys conf = mkKeymap conf
     , ("M-, t" , spawn "telegram-desktop")
     , ("M-, m" , runInTerm "" "cmus"     )
     , ("M-, '" , spawn "emacs"           )
+    , ("M-, #" , runInTerm "" "cmatrix"  )
 
     -- basic window
     , ("M-'"         , runInTerm "" "ranger"             )
