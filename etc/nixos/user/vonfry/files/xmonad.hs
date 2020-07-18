@@ -97,9 +97,9 @@ myKeys conf = mkKeymap conf
     , ("M-q"  , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
     -- screenshot
-    , ("M-<Print>"  , spawn "flameshot gui    -p ~/screenshot/" )
-    , ("M-S-<Print>", spawn "flameshot screen -p ~/screenshot/" )
-    , ("M-C-<Print>", spawn "flameshot full   -p ~/screenshot"  )
+    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
+    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
     , ("M-<Space>", sendMessage NextLayout)
