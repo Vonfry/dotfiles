@@ -46,26 +46,29 @@ myXPConf = def
     , bgHLight        = draculaSelection
     , fgHLight        = draculaForeground
     , borderColor     = draculaPurple
-    , autoComplete    = Just $ 2 * 10 ^ 5 -- 0.2s
+    , autoComplete    = Just 0
     , height          = 30
     }
+
+myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"  , shellPrompt myXPConf       )
-    , ("M-S-x", xmonadPrompt myXPConf      )
-    , ("M-/"  , promptSearch myXPConf multi)
+    [ ("M-x"  , shellPrompt myXPConf           )
+    , ("M-S-x", xmonadPrompt myXPConf          )
+    , ("M-/"  , promptSearch myXPConfNoAc multi)
 
-    , ("M-, d" , spawn "zeal"            )
-    , ("M-, b" , spawn "qutebrowser"     )
-    , ("M-, l" , runInTerm "" "alsamixer")
-    , ("M-, o" , spawn "libreoffice"     )
-    , ("M-, v" , spawn "VirtualBox"      )
-    , ("M-, f" , spawn "zathura"         )
-    , ("M-, t" , spawn "telegram-desktop")
-    , ("M-, m" , runInTerm "" "cmus"     )
-    , ("M-, '" , spawn "emacs"           )
+    , ("M-, d", spawn "zeal"            )
+    , ("M-, b", spawn "qutebrowser"     )
+    , ("M-, l", runInTerm "" "alsamixer")
+    , ("M-, o", spawn "libreoffice"     )
+    , ("M-, v", spawn "VirtualBox"      )
+    , ("M-, f", spawn "zathura"         )
+    , ("M-, t", spawn "telegram-desktop")
+    , ("M-, m", runInTerm "" "cmus"     )
+    , ("M-, '", spawn "emacs"           )
+    , ("M-, #", runInTerm "" "cmatrix"  )
 
     -- basic window
     , ("M-'"         , runInTerm "" "ranger"             )
@@ -97,9 +100,9 @@ myKeys conf = mkKeymap conf
     , ("M-q"  , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
     -- screenshot
-    , ("M-<Print>"  , spawn "flameshot gui    -p ~/screenshot/" )
-    , ("M-S-<Print>", spawn "flameshot screen -p ~/screenshot/" )
-    , ("M-C-<Print>", spawn "flameshot full   -p ~/screenshot"  )
+    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
+    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
     , ("M-<Space>", sendMessage NextLayout)

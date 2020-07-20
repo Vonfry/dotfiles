@@ -175,7 +175,10 @@
         };
         editor.command = [ "alacritty -e nvim" "{file}" ];
         downloads = {
-          location.directory = "~/Downloads";
+          location = {
+            directory = "~/Downloads";
+            prompt = false;
+          };
           remove_finished = 7;
         };
       };

@@ -1,12 +1,12 @@
 ;;; cloud config -*- lexical-binding: t -*-
 ;;
 
-(custom! +cloud-diskdir (getenv "CLOUDDISK_DIR")
+(custom! +cloud-diskdir nil
   "where is your cloud dir syncing by commands"
   :type 'directory
   :group 'vonfry-modules)
 
-(custom! +cloud-remotedir (getenv "CLOUDREMOTE_DIR")
+(custom! +cloud-remotedir nil
   "where is your cloud dir syncing by commands"
   :type 'directory
   :group 'vonfry-modules)
