@@ -52,8 +52,8 @@ in {
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
-          rev = "6c5dd207bbda0f264f0136a31af36636b508f242";
-          sha256 = "0adwv9qq3pq7wkwincqd2j38w4jqa3z01h8yqgq518hb30iaq6yj";
+          rev = "5dd580b4d550f0e0108066520eb22e927fc4178c";
+          sha256 = "1ghb55fm7yliihpb3x1fwqdkibxfmq5zlfv9rwc5y6fllbwz6w00";
           fetchSubmodules = true;
         };
       } {

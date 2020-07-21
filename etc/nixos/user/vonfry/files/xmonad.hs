@@ -32,8 +32,7 @@ import System.IO
 import System.Exit
 
 -- auxiliary configuration
-myFont = "xft:Hack:size=11"
-myFontCJK = "xft:Source Han Sans CN:size=11"
+myFont = "xft:monospace:size=11"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -189,7 +188,7 @@ myLayout = beforeLayouts layouts
                 , activeTextColor     = draculaForeground
                 , inactiveColor       = draculaBackground
                 , activeColor         = draculaSelection
-                , fontName            = myFontCJK
+                , fontName            = myFont
                 , decoHeight          = 30
                 })
         ||| renamed [ Replace "Tiled"     ] tiled

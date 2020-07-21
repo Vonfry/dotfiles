@@ -37,10 +37,11 @@
       fontforge-gtk
 
       hack-font
-      source-han-sans-simplified-chinese
-      source-han-serif-simplified-chinese
+      sarasa-gothic
       symbola
       liberation_ttf
+      source-han-sans-simplified-chinese
+      source-han-serif-simplified-chinese
     ];
   };
 

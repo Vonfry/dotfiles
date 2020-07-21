@@ -53,23 +53,14 @@ THEME is a symbol passed to `load-theme'"
 ;; customize the fonts
 ;;
 
-(custom! vonfry-fontsize 11
-  "vonfry fontsize in window system"
-  :type 'integer
-  :group 'vonfry-modules)
 (progn
-  (set-face-attribute 'default nil :family "Hack" :height (* 10 vonfry-fontsize))
-  (dolist (font '("Hei" "Source Han Sans CN"))
-    (dolist (charset '(kana han symbol cjk-misc bopomofo))
-      (set-fontset-font nil charset
-                        (font-spec :family font :size (+ 2 vonfry-fontsize))
-                        nil 'append)))
+  (set-face-font 'default "monospace-11")
   (set-fontset-font nil 'unicode
-                    (font-spec :name "Symbola" :height (* 10 vonfry-fontsize))
+                    "Symbola-11"
                     nil 'append)
   (dolist (charset '(greek symbol))
     (set-fontset-font nil charset
-                      (font-spec :name "Symbola" :height (* 10 vonfry-fontsize))
+                      "Symbola-11"
                       nil 'prepend)))
 
 (package! info)

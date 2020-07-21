@@ -3,6 +3,6 @@
 # key: setcjkfont
 # --
 
-\setCJKmainfont{${1:Source Han Serif CN}}
-\setCJKsansfont{${2:Source Han Sans CN}}
-\setCJKmonofont{${3:Source Han Sans CN}}
+\setCJKmainfont{${1:Sarasa Mono SC}
+\setCJKsansfont{${2:Sarasa Gothic SC}
+\setCJKmonofont{${3:Sarasa Gothic SC}
