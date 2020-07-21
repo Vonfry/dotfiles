@@ -4,8 +4,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Source Han Sans CN";
-      package = pkgs.source-han-sans-simplified-chinese;
+      name = "monospace";
     };
     theme = {
       name = "Ant-Dracula";
@@ -52,7 +51,7 @@
 
     settings = {
       global = {
-        font = "Source Han Sans CN";
+        font = "monospace";
         markup = true;
         plain_text = false;
         format = "<b>%s</b>\n%b";
