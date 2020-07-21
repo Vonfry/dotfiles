@@ -60,17 +60,17 @@ myKeys conf = mkKeymap conf
 
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
-    , ("M-, l", runInTerm "" "alsamixer")
     , ("M-, o", spawn "libreoffice"     )
     , ("M-, v", spawn "VirtualBox"      )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, m", runInTerm "" "cmus"     )
     , ("M-, '", spawn "emacs"           )
-    , ("M-, #", runInTerm "" "cmatrix"  )
+    , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
+    , ("M-, m", runInTerm "-t cmus"      "cmus"     )
+    , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
 
     -- basic window
-    , ("M-'"         , runInTerm "" "ranger"             )
+    , ("M-'"         , runInTerm "-t ranger" "ranger"    )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
