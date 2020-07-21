@@ -54,7 +54,6 @@
       keyBindings = {
         normal = {
           "gv" = "spawn chromium {url}";
-          "t'" = "config-cycle -p content.proxy http://127.0.0.1:7890 system";
         };
       };
       searchEngines = {
