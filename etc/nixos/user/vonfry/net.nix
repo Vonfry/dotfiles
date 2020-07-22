@@ -39,7 +39,6 @@
 
       vnstat
       iftop
-      clash
       qbittorrent
       rclone
     ];
