@@ -10,6 +10,13 @@
     dates = "Sun 19:00";
   };
 
+  # systemd.services.nix-daemon.environment = {
+  #   http_proxy  = "prot://user:password@proxy:port";
+  #   https_proxy = "prot://user:password@proxy:port";
+  #   ftp_proxy   = "prot://user:password@proxy:port";
+  # };
+
+
   services.openssh =  {
     enable = false;
     allowSFTP = false;
@@ -35,4 +42,6 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # nesting.clone = [];
 }
