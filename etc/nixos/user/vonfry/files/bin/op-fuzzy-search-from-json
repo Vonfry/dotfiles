@@ -37,20 +37,33 @@ searched = op.select do |obj|
   title || tags || url || urls
 end
 
-searched.map do |obj|
-    overview = obj['overview']
-    puts "uuid:  #{obj['uuid']}"
-    puts "title: #{overview['title']}"
-    puts "tags:  #{overview['tags'].join ' '}"
-    puts "ainfo: #{overview['ainfo']}"
-    puts "url:   #{overview['url']}"
-    if obj['URLs']
-      puts 'urls:'
-      obj['URLs'].map do |url|
-        url.values.map do |u|
-          puts "       #{u}"
-        end
+searched.each_index do |idx|
+  puts "index: #{idx}"
+  obj = searched[idx]
+  overview = obj['overview']
+  puts "uuid:  #{obj['uuid']}"
+  puts "title: #{overview['title']}"
+  puts "tags:  #{overview.fetch('tags', []).join ' '}"
+  puts "ainfo: #{overview['ainfo']}"
+  puts "url:   #{overview['url']}"
+  if obj['URLs']
+    puts 'urls:'
+    obj['URLs'].map do |url|
+      url.values.map do |u|
+        puts "       #{u}"
       end
     end
-    puts ''
+  end
+  puts ''
+end
+
+if searched.length == 1
+  idx = 0
+else
+  printf "input an index or nothing: "
+  idx = STDIN.gets.to_i
+end
+
+if searched[idx]
+  puts `op-get-password-from-json #{searched[idx]['uuid']}`
 end
