@@ -101,9 +101,7 @@ in {
         };
       }];
       envExtra = ''
-        if [ -f ${defvarFile} ]; then
-          . ${defvarFile}
-        fi
+        [ -f ${defvarFile} ] && . ${defvarFile}
         export PATH=${toString ./files/bin}:~/.local/bin:$PATH
       '';
       initExtra = ''
