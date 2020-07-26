@@ -1,0 +1,10 @@
+{ ... }:
+{
+  home.sessionVariables = {
+    DOTFILES_DIR = "";
+    CLOUD_DIR    = "";
+    ORG_DIR      = "";
+    CLONE_LIB    = "";
+    PASSWD_DIR   = "";
+  };
+}
