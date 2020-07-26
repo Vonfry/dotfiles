@@ -1,14 +1,6 @@
 { config, lib, pkgs, ... }:
 
 let
-  defvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                               config.programs.zsh.dotDir
-                                               "defvar.sh"
-                                             ];
-  localvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                                 config.programs.zsh.dotDir
-                                                 "localvar.sh"
-                                               ];
   zshrcDir = ./files/zsh/rc.d;
 in {
   programs = {
@@ -100,25 +92,17 @@ in {
           sha256 = "0sy5v3id31k4njr5pamh4hx238x0pcpgi0yh90jpbci690i8vdab";
         };
       }];
-      envExtra = ''
-        [ -f ${defvarFile} ] && . ${defvarFile}
-        export PATH=${toString ./files/bin}:~/.local/bin:$PATH
-      '';
       initExtra = ''
         setopt nomatch
         setopt extendedglob
         setopt rm_star_silent
         setopt clobber
-
-        [ -f ${localvarFile} ] && . ${localvarFile}
       '' + builtins.concatStringsSep "\n"
         (map (f: lib.optionalString (builtins.isList (builtins.match "^.*\\.z?sh$" f))
                                     "source ${toString zshrcDir}/${f}")
           (builtins.attrNames
             (lib.filterAttrs (n: v: v == "regular")
               (builtins.readDir zshrcDir))));
-      initExtraBeforeCompInit  = ''
-      '';
       localVariables = {
         GEOMETRY_PROMPT_PLUGINS = [ "exec_time" "jobs" "git" "hg" "kube"];
         ENHANCD_DIR = "${config.xdg.cacheHome}/enchancd";
@@ -180,36 +164,38 @@ in {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
     };
 
-    activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p ${config.xdg.cacheHome} ~/.local
-      if ! [ -f ${defvarFile} ]; then
-        $DRY_RUN_CMD cp $VERBOSE_ARG ${toString ./files/zsh/defvar.sh.example} ${defvarFile}
-        $DRY_RUN_CMD echo "defvar file is copied, please edit it(${defvarFile}). Then prepare for cloud files"
-        $DRY_RUN_CMD read
-      fi
-      $DRY_RUN_CMD . ${defvarFile}
-      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/orgmode $ORG_DIR
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
-      $DRY_RUN_CMD mkdir -p $CLONE_LIB $PASSWD_DIR
-      if ! [ -f $PASSWD_DIR/authinfo.gpg ]; then
-        $DRY_RUN_CMD echo "please create authinfo.gpg file under $PASSWD_DIR"
-        $DRY_RUN_CMD read
-      fi
-      ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
-      if ! [ -d $CLONE_LIB/fortunes ]; then
-        $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git $CLONE_LIB/fortunes
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/fortunes
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/chinese
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/tang300
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/song100
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/diet
-      fi
-      if ! [ -f ~/.face.icon ]; then
-        $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
-        setfacl -m u:sddm:x ~/
-        setfacl -m u:sddm:r ~/.face.icon
-      fi
-    '';
+    activation.shellActivation =
+      let
+        inherit (config.home.sessionVariables) DOTFILES_DIR ORG_DIR PASSWD_DIR
+          CLOUD_DIR CLONE_LIB;
+      in lib.hm.dag.entryAfter ["writeBoundary"] ''
+        mkdir -p ${config.xdg.cacheHome} ~/.local
+        if [ -z "${DOTFILES_DIR}"  ]; then
+          $DRY_RUN_CMD echo "file is copied, please edit it(${toString ./local/session.nix}). Then prepare for cloud files. "
+          exit -1
+        fi
+        ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+        $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
+        $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
+        if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
+          $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
+          $DRY_RUN_CMD read
+        fi
+        ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
+        if ! [ -d ${CLONE_LIB}/fortunes ]; then
+          $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git ${CLONE_LIB}/fortunes
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/fortunes
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/chinese
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/tang300
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/song100
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/diet
+        fi
+        if ! [ -f ~/.face.icon ]; then
+          $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
+          setfacl -m u:sddm:x ~/
+          setfacl -m u:sddm:r ~/.face.icon
+        fi
+      '';
 
     sessionVariables = {
       EDITOR = "nvim";

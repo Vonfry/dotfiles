@@ -9,7 +9,7 @@
 (mmap-mode-prefix! org nil
   :keymaps 'org-mode-map)
 
-(custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_NOTE_DIR")))
+(custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_DIR")))
                     (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
   "org dir"
   :type 'directory

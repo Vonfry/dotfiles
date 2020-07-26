@@ -1,15 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  defvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                               config.programs.zsh.dotDir
-                                               "defvar.sh"
-                                             ];
-  localvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                                 config.programs.zsh.dotDir
-                                                 "localvar.sh"
-                                               ];
-in {
+{
   gtk = {
     enable = true;
     font = {
@@ -41,10 +32,6 @@ in {
 
   xsession = {
     enable = true;
-    profileExtra = ''
-      [ -f ${defvarFile} ] && . ${defvarFile}
-      [ -f ${localvarFile} ] && . ${localvarFile}
-    '';
     initExtra = ''
       feh --bg-center ${toString config.xdg.configHome}/bg.png
     '';
