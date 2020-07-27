@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  zshrcDir = ./files/zsh/rc.d;
-in {
+{
   programs = {
     man.enable = true;
     bat.enable = true;
@@ -76,19 +74,22 @@ in {
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
       }];
-      initExtra = ''
+      envExtra= ''
+        PATH=~/.local/bin:$PATH
+      '';
+      initExtra = with lib; with builtins; ''
         setopt nomatch
         setopt extendedglob
         setopt rm_star_silent
         setopt clobber
 
         eval "$(jump shell)"
-      '' + builtins.concatStringsSep "\n"
-        (map (f: lib.optionalString (builtins.isList (builtins.match "^.*\\.z?sh$" f))
-                                    "source ${toString zshrcDir}/${f}")
-          (builtins.attrNames
-            (lib.filterAttrs (n: v: v == "regular")
-              (builtins.readDir zshrcDir))));
+      '' + concatStringsSep "\n"
+        (map (f: readFile (./files/zsh/rc.d + ("/" + f)))
+          (attrNames
+            (filterAttrs (n: v: v == "regular"
+                            && (hasSuffix ".sh" n || hasSuffix ".zsh" n))
+              (readDir ./files/zsh/rc.d))));
       loginExtra = ''
         # Execute code that does not affect the current session in the background.
         {
@@ -110,12 +111,6 @@ in {
 
         } >&2
       '';
-      logoutExtra = ''
-      '';
-      profileExtra = ''
-      '';
-      sessionVariables = {
-      };
       shellAliases = {
         lla = "ls -lAh";
         ecd = "emacs --daemon";
@@ -141,6 +136,14 @@ in {
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
+      ".local/bin/op-fuzzy-search-from-json" = {
+        source = ./files/bin/op-fuzzy-search-from-json;
+        executable = true;
+      };
+      ".local/bin/op-get-password-from-json" = {
+        source = ./files/bin/op-get-password-from-json;
+        executable = true;
+      };
     };
 
     activation.shellActivation =
