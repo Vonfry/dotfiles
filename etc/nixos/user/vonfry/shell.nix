@@ -1,8 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  zshrcDir = ./files/zsh/rc.d;
-in {
+{
   programs = {
     man.enable = true;
     bat.enable = true;
@@ -27,6 +25,8 @@ in {
       fileWidgetCommand = "fd --type f";
     };
 
+    starship.enable = true;
+
     ssh = {
       enable = true;
       compression = true;
@@ -44,8 +44,8 @@ in {
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
-          rev = "5dd580b4d550f0e0108066520eb22e927fc4178c";
-          sha256 = "1ghb55fm7yliihpb3x1fwqdkibxfmq5zlfv9rwc5y6fllbwz6w00";
+          rev = "aed8c0ed0adc5a4b8858656cdc1028300a52c104";
+          sha256 = "14lg3k6nxm66pg0c5j71wp8b4n18qnnr5lkc0szdw9vn3drrcfnm";
           fetchSubmodules = true;
         };
       } {
@@ -66,15 +66,6 @@ in {
         };
         file = "async.zsh";
       } {
-        name = "enhancd";
-        src = fetchFromGitHub {
-          owner = "b4b4r07";
-          repo = "enhancd";
-          rev = "v2.2.4";
-          sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
-        };
-        file = "init.sh";
-      } {
         name = "you-should-use";
         src = fetchFromGitHub {
           owner = "MichaelAquilina";
@@ -82,34 +73,23 @@ in {
           rev = "1.7.3";
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
-      } {
-        name = "geometry";
-        file = "geometry.zsh";
-        src = fetchFromGitHub {
-          owner = "geometry-zsh";
-          repo = "geometry";
-          rev = "v2.2.0";
-          sha256 = "0sy5v3id31k4njr5pamh4hx238x0pcpgi0yh90jpbci690i8vdab";
-        };
       }];
-      initExtra = ''
+      envExtra= ''
+        PATH=~/.local/bin:$PATH
+      '';
+      initExtra = with lib; with builtins; ''
         setopt nomatch
         setopt extendedglob
         setopt rm_star_silent
         setopt clobber
-      '' + builtins.concatStringsSep "\n"
-        (map (f: lib.optionalString (builtins.isList (builtins.match "^.*\\.z?sh$" f))
-                                    "source ${toString zshrcDir}/${f}")
-          (builtins.attrNames
-            (lib.filterAttrs (n: v: v == "regular")
-              (builtins.readDir zshrcDir))));
-      localVariables = {
-        GEOMETRY_PROMPT_PLUGINS = [ "exec_time" "jobs" "git" "hg" "kube"];
-        ENHANCD_DIR = "${config.xdg.cacheHome}/enchancd";
-        ENHANCD_FILTER = "fzf";
-        ENHANCD_USE_FUZZY_MATCH = 0;
-        ENHANCD_COMPLETION_BEHAVIOR = "list";
-      };
+
+        eval "$(jump shell)"
+      '' + concatStringsSep "\n"
+        (map (f: readFile (./files/zsh/rc.d + ("/" + f)))
+          (attrNames
+            (filterAttrs (n: v: v == "regular"
+                            && (hasSuffix ".sh" n || hasSuffix ".zsh" n))
+              (readDir ./files/zsh/rc.d))));
       loginExtra = ''
         # Execute code that does not affect the current session in the background.
         {
@@ -125,18 +105,12 @@ in {
 
           # Print a random, hopefully interesting, adage.
           if (( $+commands[fortune] )); then
-            fortune -s ~/.local/src/fortunes/data all
+            fortune -s ${config.sessionVariables.CLONE_LIB}/fortunes/data all
             print
           fi
 
         } >&2
       '';
-      logoutExtra = ''
-      '';
-      profileExtra = ''
-      '';
-      sessionVariables = {
-      };
       shellAliases = {
         lla = "ls -lAh";
         ecd = "emacs --daemon";
@@ -162,6 +136,14 @@ in {
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
+      ".local/bin/op-fuzzy-search-from-json" = {
+        source = ./files/bin/op-fuzzy-search-from-json;
+        executable = true;
+      };
+      ".local/bin/op-get-password-from-json" = {
+        source = ./files/bin/op-get-password-from-json;
+        executable = true;
+      };
     };
 
     activation.shellActivation =
@@ -207,7 +189,7 @@ in {
       git git-lfs
       zsh gnupg
       file
-      fzf
+      fzf jump
       colordiff
       tmux
       w3m
