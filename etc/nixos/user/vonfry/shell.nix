@@ -105,7 +105,7 @@
 
           # Print a random, hopefully interesting, adage.
           if (( $+commands[fortune] )); then
-            fortune -s ~/.local/src/fortunes/data all
+            fortune -s ${config.sessionVariables.CLONE_LIB}/fortunes/data all
             print
           fi
 
