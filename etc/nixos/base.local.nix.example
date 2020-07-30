@@ -6,7 +6,7 @@
 
   nix.gc = {
     automatic = false;
-    options = "+5";
+    options = "--delete-older-than 14d";
     dates = "Sun 19:00";
   };
 
