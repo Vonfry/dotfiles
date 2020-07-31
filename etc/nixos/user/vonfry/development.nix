@@ -53,19 +53,6 @@
       -- allow C-c
       :set -fomit-yields%
     '';
-    ".gemrc".text = ''
-      ---
-      :backtrace: false
-      :bulk_threshold: 1000
-      :sources:
-      - https://rubygems.org
-      :update_sources: true
-      :verbose: true
-      gem: --user-install --bindir ~/.gem/bin
-    '';
-    ".pryrc".text = ''
-      Pry.config.editor = "nvim"
-    '';
     ".latexmkrc".text = ''
       $out_dir = "latex.out";
       $pdf_mode = 5;
@@ -102,8 +89,9 @@
 
   home.packages = with pkgs; let
     hie = vonfryPackages.hie;
-    rubyPkgs = vonfryPackages.ruby;
-    pythonPkgs = vonfryPackages.python;
+    perl = vonfryPackages.perl;
+    ghc = vonfryPackages.ghc;
+    python = vonfryPackages.python;
   in [
     neovim
     vim
@@ -115,10 +103,9 @@
     binutils-unwrapped
     # llvmPackages.clang llvm lldb
     cmake gnumake
+    doxygen
 
-    bear
-
-    clang-tools
+    bear clang-tools
 
     ghc
     cabal-install
@@ -128,15 +115,10 @@
     cabal2nix
     hie
 
-    rustup
-    carnix
+    rustup carnix
 
-    pythonPkgs
-
-    rubyPkgs
-    solargraph
-
-    doxygen
+    perl
+    python
 
     coq
 
