@@ -123,7 +123,7 @@
     gimp
     unstable.tor-browser-bundle-bin
     zerotierone
-    handbrake # numactl works on linux # wait for pr https://github.com/NixOS/nixpkgs/pull/89674
+    ffmpeg
     zathura
     libreoffice
   ];
