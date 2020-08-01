@@ -51,7 +51,7 @@
       :set prompt-cont "> "
 
       -- allow C-c
-      :set -fomit-yields%
+      :set -fomit-yields
     '';
     ".latexmkrc".text = ''
       $out_dir = "latex.out";
