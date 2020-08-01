@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i runhaskell -p 'ghc.withPackages (p: with p; [ aeson process text ])'
+#!/usr/bin/env runhaskell
 
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -96,7 +95,9 @@ askSearch searched = do
     printSearch searched
     if length searched == 1
        then return 0 
-       else putStr "index: " >>= getLine >>= return . read
+       else do putStr "index: "
+               idx <- getLine
+               return $ read idx
 
 printSearch :: [Searched] -> IO ()
 printSearch [] = putStrLn "No Result."
