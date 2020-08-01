@@ -1,12 +1,12 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i runhaskell -p 'ghc.withPackages (p: with p; [ aeson process ])'
+#!nix-shell -i runhaskell -p 'ghc.withPackages (p: with p; [ aeson process text ])'
 
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 
 import System.Process (readProcess)
 import Data.Aeson 
-import Data.Aeson.Types (parse, Parser) 
+import Data.Aeson.Types (parseMaybe) 
 import System.Environment (getArgs)
 import Data.String (fromString)
 import Data.List (intercalate)
@@ -15,26 +15,27 @@ import Data.List
 import Data.Foldable
 import Control.Monad
 import Data.Maybe
+import Data.Text.Lazy (pack)
+import Data.Text.Lazy.Encoding (encodeUtf8)
 
 main :: IO ()
 main = do
     itemsRaw <- readProcess "op" [ "list", "items" ] ""
-    let items = fromJust $ decode $ fromString itemsRaw
+    let items = fromJust $ decode $ encodeUtf8 $ pack itemsRaw
     args <- getArgs
     let searched = search items args
-    if length searched == 1
-       then printPasswd $ head searched
-       else askSearch searched
+    idx <- askSearch $ searched
+    printPasswd $ searched !! idx
 
 data Searched = Searched { uuid     :: String
                          , overview :: Overview
-                         , urls     :: [String]
                          }
 
 data Overview = Overview { title :: String
                          , ainfo :: String
                          , tags  :: [String]
                          , url   :: String
+                         , urls  :: [String]
                          }
 
 data Passwd = Passwd { username :: String
@@ -45,21 +46,16 @@ instance FromJSON Searched where
     parseJSON = withObject "Searched" $ \v -> Searched
         <$> v .: "uuid"
         <*> v .: "overview"
-        <*> do urls <- v .:? "URLs" .!= ([] :: [Object])
-               return $ fmap (fromResult . fromJSON) $ concat $ toList <$> urls
-      where
-        fromResult (Success s) = s
 
 instance FromJSON Overview where
     parseJSON = withObject "Overview" $ \v -> Overview
         <$> v .: "title"
         <*> do infoM <- v .:? "ainfo"
                return $ maybe "" id infoM
-        <*> do tags <- v .:? "tags" .!= ([] :: [Object])
-               return $ fmap (fromResult . fromJSON) $ concat $ fmap toList tags
+        <*> v .:? "tags" .!= ([] :: [String])
         <*> v .:? "url" .!= ""
-      where
-        fromResult (Success s) = s
+        <*> do urls <- v .:? "URLs" .!= ([] :: [Object]) 
+               return $ fmap (fromJust . parseMaybe ((.!= "") . (.:? "u"))) urls
                
 instance FromJSON Passwd where
     parseJSON = withObject "Passwd" $ \v -> Passwd
@@ -71,14 +67,13 @@ instance FromJSON Passwd where
             fields <- details .: "fields"
             maybe (return "") (.:"value") $ find (findField k) (fields :: [Object])
         findField :: String -> Object -> Bool
-        findField k f = (fromResult $ parse (.:"designation") f) == k
-        fromResult (Success s) = s
+        findField k f = (fromJust $ parseMaybe (.:"designation") f) == k
 
 search :: [Searched] -> [String] -> [Searched]
 search s args = filter f s
   where
-    f s = and $ fmap ($s) [ matchTitle, matchTags, matchUrl, matchUrls ]
-    match s = and $ flip isInfixOf s <$> args
+    f s = or $ fmap ($ s) [ matchTitle, matchTags, matchUrl, matchUrls ]
+    match s = or $ flip isInfixOf s <$> args
     matchTitle s =
         let o = overview s 
             t = title o
@@ -92,36 +87,38 @@ search s args = filter f s
             u = url o
         in match u
     matchUrls s =
-        let u = intercalate "\n" $ urls s 
+        let o = overview s
+            u = intercalate "\n" $ urls o 
         in match u
 
-askSearch :: [Searched] -> IO ()
+askSearch :: [Searched] -> IO Int
 askSearch searched = do
     printSearch searched
-    idxRaw <-  getLine
-    let idx = read idxRaw
-    printPasswd $ searched !! idx
+    if length searched == 1
+       then return 0 
+       else putStr "index: " >>= getLine >>= return . read
 
 printSearch :: [Searched] -> IO ()
-printSearch s = mapM_ print1 [0..(length s)]
+printSearch [] = putStrLn "No Result."
+printSearch s = mapM_ print1 [0..(length s - 1)]
   where
     print1 :: Int -> IO ()
     print1 idx = do
-        printf "index: %d" idx
+        printf "index: %d\n" idx
         let obj = s !! idx
         let o = overview obj
         printf "UUID:  %s\n" $ uuid  obj
         printf "Title: %s\n" $ title o
         printf "Tags:  %s\n" $ intercalate ", " $ tags o 
         printf "Ainfo: %s\n" $ ainfo o
-        printf "url:   %s\n" $ url   o
+        printf "Url:   %s\n" $ url   o
         printf "URLs:\n"
-        mapM_ (printf "       %s\n") $ urls obj
+        mapM_ (printf "       %s\n") $ urls o
         printf "\n"
 
 printPasswd :: Searched -> IO ()
 printPasswd s = do
     passwdRaw <- readProcess "op" [ "get", "item", uuid s ] ""
-    let passwd = fromJust $ decode $ fromString passwdRaw
-    printf "username: %s" $ username passwd
-    printf "password: %s" $ password passwd
+    let passwd = fromJust $ decode $ encodeUtf8 $ pack passwdRaw
+    printf "username: %s\n" $ username passwd
+    printf "password: %s\n" $ password passwd

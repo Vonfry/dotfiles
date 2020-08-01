@@ -23,7 +23,6 @@
     '';
     ".vimrc".source = ./files/vimrc;
     ".ghc/ghci.conf".text = ''
-      :set -fbreak-on-exception
       :set +m
 
       -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
