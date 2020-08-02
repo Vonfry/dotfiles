@@ -65,10 +65,11 @@ love.
 - Haskell - ghc & cabal ( without stack ) & nix
 - Coq
 - Rust
+- Perl
 - ~~Lisp~~
-- Ruby
+- ~~Ruby~~
 - ~~R~~
-- Python3
+- Python3(only interperter)
 - ~~Web - js, html, css/sass, ts~~
 
 The other languages are also supposed in system and editor, but they aren't used
@@ -89,16 +90,19 @@ see: [todo.org](todo.org)
 I use iTerm on mac and do anything on program with command line. ~~And using
 ConEmu as terminal on windows.~~
 
-NixOS and Gentoo are good linux distributions, we can control a lot of things in
-our system. I'm mainly using NixOS now, which isn't only a system but also a
-kind of thinking. Further more, Nix is a awesome build tools.
+NixOS ~~and Gentoo~~ are good linux distributions, we can control a lot of
+things in our system. I'm mainly using NixOS now, which isn't only a system but
+also a kind of thinking. Further more, Nix is a awesome build tools.
 
-Zoho is a interesting mail suppiler. On macOS, Fantastical is a beautiful 
-calander. On Linux, I use emacs for mail(mu4e), newsreader(gnus), rss(elfeed)
+Zoho is a interesting mail suppiler. ~~On macOS, Fantastical is a beautiful 
+calander.~~ On Linux, I use emacs for mail(mu4e), newsreader(gnus), rss(elfeed)
 and other things. Using gnus for mail is different from other tools schu as 
-mu4e, you can check a description [here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader). It is not fit for me, and the reason for rss.
-I may switch to it someday if gnus is supported with async. 
-EBDB is a good contacts in emacs. Calender? Just org agenda.
+mu4e, you can check a description
+[here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader). It
+is not fit for me, and the reason for rss. I may switch to it someday if gnus is
+supported with async. EBDB is a good contacts in emacs. Calender? Just org
+agenda. 
 
-I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is not 
-easy like evernote, but I like it. Some website use w3m with org for capturing.
+I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is
+not easy like evernote, but I like it. Some website use w3m with org for
+capturing. 

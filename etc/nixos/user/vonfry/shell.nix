@@ -120,7 +120,6 @@
 
         opF = "op-format";
         opgi = "op get item";
-        opp = "op-get-password-from-json";
         opf = "op-fuzzy-search-from-json";
         opr = "op-refresh-my";
         op-init = "op signin my.1password.com";
@@ -138,10 +137,6 @@
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
       ".local/bin/op-fuzzy-search-from-json" = {
         source = ./files/bin/op-fuzzy-search-from-json;
-        executable = true;
-      };
-      ".local/bin/op-get-password-from-json" = {
-        source = ./files/bin/op-get-password-from-json;
         executable = true;
       };
     };
