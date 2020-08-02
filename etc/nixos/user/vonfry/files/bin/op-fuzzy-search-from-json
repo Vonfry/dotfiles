@@ -54,19 +54,26 @@ instance FromJSON Overview where
         <*> v .:? "tags" .!= ([] :: [String])
         <*> v .:? "url" .!= ""
         <*> do urls <- v .:? "URLs" .!= ([] :: [Object]) 
-               return $ fmap (fromJust . parseMaybe ((.!= "") . (.:? "u"))) urls
+               traverse ((.!= "") . (.:? "u")) urls
                
 instance FromJSON Passwd where
     parseJSON = withObject "Passwd" $ \v -> Passwd
-        <$> getDetails v "username"
-        <*> getDetails v "password"
+        <$> getDetails v ("username" :: String)
+        <*> getDetails v ("password" :: String)
       where
         getDetails v k = do
             details <- v .: "details"
             fields <- details .: "fields"
-            maybe (return "") (.:"value") $ find (findField k) (fields :: [Object])
-        findField :: String -> Object -> Bool
-        findField k f = (fromJust $ parseMaybe (.:"designation") f) == k
+            res <- traverse (getValue k) (fields :: [Object])
+            return $ getRes $ filter (/="") res
+        getValue k obj = do
+           designation <- obj .:? "designation" .!= ""
+           if designation == k
+              then obj .: "value"
+              else return ""
+
+        getRes [] = ""
+        getRes (x:_) = x
 
 search :: [Searched] -> [String] -> [Searched]
 search s args = filter f s
@@ -101,7 +108,7 @@ askSearch searched = do
 
 printSearch :: [Searched] -> IO ()
 printSearch [] = putStrLn "No Result."
-printSearch s = mapM_ print1 [0..(length s - 1)]
+printSearch s = traverse_ print1 [0..(length s - 1)]
   where
     print1 :: Int -> IO ()
     print1 idx = do

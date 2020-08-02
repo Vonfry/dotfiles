@@ -1,4 +1,5 @@
 { ghc }:
 
 ghc.withPackages (p: with p; [ aeson mtl HTTP containers dhall vector text
-                               bytestring ])
+                               bytestring lens transformers optparse-applicative
+                             ])
