@@ -70,8 +70,10 @@ myKeys conf = mkKeymap conf
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
 
+    , ("M-$", runInTerm "" "watch date"     )
+    , ("M-'", runInTerm "-t ranger" "ranger")
+
     -- basic window
-    , ("M-'"         , runInTerm "-t ranger" "ranger"    )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
@@ -167,7 +169,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
 
     -- change pwd for current workspace
-    , ("M-p", changeDir myXPConf)
+    , ("M-p", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
