@@ -113,7 +113,4 @@ function! vonfry#editor#nvim()
     if !exists("g:python3_host_prog")
         let g:python3_host_prog='python3'
     endif
-    if !exists("g:ruby_host_prog")
-        let g:ruby_host_prog='neovim-ruby-host'
-    endif
 endfunction

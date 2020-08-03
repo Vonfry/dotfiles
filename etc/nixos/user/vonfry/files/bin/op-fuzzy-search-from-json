@@ -1,69 +1,132 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env runhaskell
 
-require 'json'
-# TODO test the op new searching feature, and if it can work expected, remove
-# this file
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
-begin
-  items = `op list items`
-  op = JSON.parse items
-rescue
-  abort 'JSON parse failed. The reason may be caused without signing.'
-end
+import System.Process (readProcess)
+import Data.Aeson 
+import Data.Aeson.Types (parseMaybe) 
+import System.Environment (getArgs)
+import Data.String (fromString)
+import Data.List (intercalate)
+import Text.Printf (printf)
+import Data.List
+import Data.Foldable
+import Control.Monad
+import Data.Maybe
+import Data.Text.Lazy (pack)
+import Data.Text.Lazy.Encoding (encodeUtf8)
 
-input = ARGV * '.*'
+main :: IO ()
+main = do
+    itemsRaw <- readProcess "op" [ "list", "items" ] ""
+    let items = fromJust $ decode $ encodeUtf8 $ pack itemsRaw
+    args <- getArgs
+    let searched = search items args
+    idx <- askSearch $ searched
+    printPasswd $ searched !! idx
 
-iregex = /.*#{input}.*/
+data Searched = Searched { uuid     :: String
+                         , overview :: Overview
+                         }
 
-searched = op.select do |obj|
-  overview = obj['overview']
+data Overview = Overview { title :: String
+                         , ainfo :: String
+                         , tags  :: [String]
+                         , url   :: String
+                         , urls  :: [String]
+                         }
 
-  title = iregex.match? overview['title']
+data Passwd = Passwd { username :: String
+                     , password :: String
+                     }
 
-  tags = overview.fetch('tags', []).any? do |tag|
-    ARGV.any? tag
-  end
+instance FromJSON Searched where
+    parseJSON = withObject "Searched" $ \v -> Searched
+        <$> v .: "uuid"
+        <*> v .: "overview"
 
-  url = iregex.match? overview['url']
+instance FromJSON Overview where
+    parseJSON = withObject "Overview" $ \v -> Overview
+        <$> v .: "title"
+        <*> do infoM <- v .:? "ainfo"
+               return $ maybe "" id infoM
+        <*> v .:? "tags" .!= ([] :: [String])
+        <*> v .:? "url" .!= ""
+        <*> do urls <- v .:? "URLs" .!= ([] :: [Object]) 
+               traverse ((.!= "") . (.:? "u")) urls
+               
+instance FromJSON Passwd where
+    parseJSON = withObject "Passwd" $ \v -> Passwd
+        <$> getDetails v ("username" :: String)
+        <*> getDetails v ("password" :: String)
+      where
+        getDetails v k = do
+            details <- v .: "details"
+            fields <- details .: "fields"
+            res <- traverse (getValue k) (fields :: [Object])
+            return $ getRes $ filter (/="") res
+        getValue k obj = do
+           designation <- obj .:? "designation" .!= ""
+           if designation == k
+              then obj .: "value"
+              else return ""
 
-  if obj['URLs']
-    url = obj.fetch('URLs', []).any? do |obj|
-      iregex.match? obj['overview']['url']
-    end
-  else
-    urls = false
-  end
+        getRes [] = ""
+        getRes (x:_) = x
 
-  title || tags || url || urls
-end
+search :: [Searched] -> [String] -> [Searched]
+search s args = filter f s
+  where
+    f s = or $ fmap ($ s) [ matchTitle, matchTags, matchUrl, matchUrls ]
+    match s = or $ flip isInfixOf s <$> args
+    matchTitle s =
+        let o = overview s 
+            t = title o
+        in match t
+    matchTags s =
+        let o = overview s 
+            t = intercalate " " $ tags o
+        in match t
+    matchUrl s =
+        let o = overview s 
+            u = url o
+        in match u
+    matchUrls s =
+        let o = overview s
+            u = intercalate "\n" $ urls o 
+        in match u
 
-searched.each_index do |idx|
-  puts "index: #{idx}"
-  obj = searched[idx]
-  overview = obj['overview']
-  puts "uuid:  #{obj['uuid']}"
-  puts "title: #{overview['title']}"
-  puts "tags:  #{overview.fetch('tags', []).join ' '}"
-  puts "ainfo: #{overview['ainfo']}"
-  puts "url:   #{overview['url']}"
-  if obj['URLs']
-    puts 'urls:'
-    obj['URLs'].map do |url|
-      url.values.map do |u|
-        puts "       #{u}"
-      end
-    end
-  end
-  puts ''
-end
+askSearch :: [Searched] -> IO Int
+askSearch searched = do
+    printSearch searched
+    if length searched == 1
+       then return 0 
+       else do putStr "index: "
+               idx <- getLine
+               return $ read idx
 
-if searched.length == 1
-  idx = 0
-else
-  printf "input an index or nothing: "
-  idx = STDIN.gets.to_i
-end
+printSearch :: [Searched] -> IO ()
+printSearch [] = putStrLn "No Result."
+printSearch s = traverse_ print1 [0..(length s - 1)]
+  where
+    print1 :: Int -> IO ()
+    print1 idx = do
+        printf "index: %d\n" idx
+        let obj = s !! idx
+        let o = overview obj
+        printf "UUID:  %s\n" $ uuid  obj
+        printf "Title: %s\n" $ title o
+        printf "Tags:  %s\n" $ intercalate ", " $ tags o 
+        printf "Ainfo: %s\n" $ ainfo o
+        printf "Url:   %s\n" $ url   o
+        printf "URLs:\n"
+        mapM_ (printf "       %s\n") $ urls o
+        printf "\n"
 
-if searched[idx]
-  puts `op-get-password-from-json #{searched[idx]['uuid']}`
-end
+printPasswd :: Searched -> IO ()
+printPasswd s = do
+    passwdRaw <- readProcess "op" [ "get", "item", uuid s ] ""
+    let passwd = fromJust $ decode $ encodeUtf8 $ pack passwdRaw
+    printf "username: %s\n" $ username passwd
+    printf "password: %s\n" $ password passwd

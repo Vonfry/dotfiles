@@ -12,12 +12,6 @@ Reference nixpkgs' directories.
 
 [overlay.nix](./overlay.nix): Return a overlay function, but I don't use it.
 
-## Package dir
-
-build.nix: A drv without any arguments. This file will import nixpkgs by manual instead of passing in nixos configuration or others.
-
-default.nix: A function with arguments from nixpkgs which return a drv. This is the main file to be called in build.nix and
-
 ## Update
 
 You know nix-env don't automaticlly update packages in a custom package without version, version must be configured used to update packages.
