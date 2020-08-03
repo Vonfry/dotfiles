@@ -195,7 +195,6 @@
       fd
       exa
       bat
-      procs
 
       gitAndTools.gitflow tig gitAndTools.git-extras
       zsh fzf
