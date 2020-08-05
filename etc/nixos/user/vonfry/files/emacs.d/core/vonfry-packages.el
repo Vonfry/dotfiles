@@ -10,8 +10,6 @@
 ;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
-;;
-;; auto-package-update is used by default, but `auto-package-update-maybe` is not called in the config.
 
 ;; define some variables for packages
 ;;
