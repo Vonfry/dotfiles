@@ -69,6 +69,7 @@ myKeys conf = mkKeymap conf
     , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
+    , ("M-, p", runInTerm "-t htop"      "htop"     )
 
     , ("M-$", runInTerm "" "watch date"     )
     , ("M-'", runInTerm "-t ranger" "ranger")
