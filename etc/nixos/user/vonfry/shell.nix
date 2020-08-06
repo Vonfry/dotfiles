@@ -129,6 +129,21 @@
     htop = {
       enable = true;
       treeView = true;
+      meters = {
+        left = [
+           { kind = "AllCPUs"; mode = 2; }
+           { kind = "Memory" ; mode = 2; }
+           { kind = "Swap"   ; mode = 2; }
+        ];
+        right = [
+          { kind = "Clock"   ; mode = 2; }
+          { kind = "Battery" ; mode = 2; }
+          "Blank"
+          { kind = "Tasks"   ; mode = 2; }
+          { kind = "Uptime"  ; mode = 2; }
+          "LoadAverage"
+        ];
+      };
     };
   };
 
