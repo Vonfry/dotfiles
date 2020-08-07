@@ -32,7 +32,7 @@ import System.IO
 import System.Exit
 
 -- auxiliary configuration
-myFont = "xft:monospace:size=11,Sarasa Mono SC:size=11"
+myFont = "xft:monospace:size=11"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
