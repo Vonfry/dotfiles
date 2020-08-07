@@ -206,7 +206,6 @@
       patch
       zip unzip
       ripgrep
-      gawk
       fd
       exa
       bat
