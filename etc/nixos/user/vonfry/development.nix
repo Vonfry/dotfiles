@@ -97,6 +97,8 @@
     emacs
     editorconfig-core-c
 
+    # nixfmt nix-doc
+
     cloc
     patchelf
     binutils-unwrapped
