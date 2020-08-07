@@ -56,7 +56,8 @@ myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
 myKeys conf = mkKeymap conf
     [ ("M-x"  , shellPrompt myXPConf           )
-    , ("M-S-x", xmonadPrompt myXPConf          )
+      ("M-S-x", shellPrompt myXPConfNoAc       )
+    , ("M-C-x", xmonadPrompt myXPConf          )
     , ("M-/"  , promptSearch myXPConfNoAc multi)
 
     , ("M-, d", spawn "zeal"            )
