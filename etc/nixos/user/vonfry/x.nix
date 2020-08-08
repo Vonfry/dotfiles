@@ -25,7 +25,11 @@
     feh.enable = true;
     zathura = {
       enable = true;
-      settings = {
+      extraConfig = ''
+        map t recolor
+      '';
+      options = {
+        font                    = "monospace normal 11";
         notification-error-bg   = "#ff5555"; # Red
         notification-error-fg   = "#f8f8f2"; # Foreground
         notification-warning-bg = "#ffb86c"; # Orange
