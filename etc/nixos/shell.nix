@@ -24,10 +24,8 @@
     zip unzip
     lm_sensors lsof
     ripgrep
-    gawk
     fd
     exa
     bat
-    procs
   ];
 }

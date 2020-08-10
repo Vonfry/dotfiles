@@ -28,8 +28,13 @@ in
 
   security.sudo.enable = true;
 
-  nix.optimise.automatic = true;
-  nix.trustedUsers = [ "root" "@wheel" ];
+  nix = {
+    optimise.automatic = true;
+    trustedUsers = [ "root" "@wheel" ];
+    maxJobs = "auto";
+    buildCores = 0;
+  };
+
 
   nixpkgs = {
     config = {

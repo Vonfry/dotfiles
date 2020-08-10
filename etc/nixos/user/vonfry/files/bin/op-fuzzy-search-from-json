@@ -23,8 +23,10 @@ main = do
     let items = fromJust $ decode $ encodeUtf8 $ pack itemsRaw
     args <- getArgs
     let searched = search items args
-    idx <- askSearch $ searched
-    printPasswd $ searched !! idx
+    if length searched == 0
+       then putStrLn "No result."
+       else do idx <- askSearch $ searched
+               printPasswd $ searched !! idx
 
 data Searched = Searched { uuid     :: String
                          , overview :: Overview
@@ -107,7 +109,6 @@ askSearch searched = do
                return $ read idx
 
 printSearch :: [Searched] -> IO ()
-printSearch [] = putStrLn "No Result."
 printSearch s = traverse_ print1 [0..(length s - 1)]
   where
     print1 :: Int -> IO ()

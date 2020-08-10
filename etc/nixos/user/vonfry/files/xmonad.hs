@@ -32,7 +32,7 @@ import System.IO
 import System.Exit
 
 -- auxiliary configuration
-myFont = "xft:monospace:size=11"
+myFont = "xft:Sarasa Mono SC:size=11"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -56,7 +56,8 @@ myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
 myKeys conf = mkKeymap conf
     [ ("M-x"  , shellPrompt myXPConf           )
-    , ("M-S-x", xmonadPrompt myXPConf          )
+    , ("M-S-x", shellPrompt myXPConfNoAc       )
+    , ("M-C-x", xmonadPrompt myXPConf          )
     , ("M-/"  , promptSearch myXPConfNoAc multi)
 
     , ("M-, d", spawn "zeal"            )
@@ -69,9 +70,12 @@ myKeys conf = mkKeymap conf
     , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
+    , ("M-, p", runInTerm "-t htop"      "htop"     )
+
+    , ("M-$", runInTerm "" "watch date"     )
+    , ("M-'", runInTerm "-t ranger" "ranger")
 
     -- basic window
-    , ("M-'"         , runInTerm "-t ranger" "ranger"    )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
@@ -167,7 +171,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
 
     -- change pwd for current workspace
-    , ("M-p", changeDir myXPConf)
+    , ("M-p", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)

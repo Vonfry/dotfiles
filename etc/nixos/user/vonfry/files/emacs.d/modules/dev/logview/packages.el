@@ -1,4 +1,6 @@
 ;;; logview packages -*- lexical-binding: t -*-
 ;;
 
-(package! logview)
+(package! logview
+  :custom
+  (logview-cache-filename (expand-file-name "logview.ext" vonfry-cache-dir)))

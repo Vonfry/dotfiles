@@ -6,10 +6,6 @@
    1. prepare cloud files and dotfiles
 
 *** OS
-**** macOS
-     1. install homebrew.
-     2. install some [[file:os/macos.sh][special packages]] by homebrew
-
 **** NixOS
      1. copy nixos-config
      2. add & update nix-channel

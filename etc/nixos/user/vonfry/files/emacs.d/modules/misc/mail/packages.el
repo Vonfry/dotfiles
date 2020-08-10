@@ -10,7 +10,7 @@
   (mu4e-view-show-addresses t)
   (mu4e-view-prefer-html nil)
   (mu4e-change-filenames-when-moving t)
-  (mu4e-update-interval 300)
+  (mu4e-update-interval 600)
   (mu4e-sent-folder   "/local/sent")
   (mu4e-trash-folder  "/local/trash")
   (mu4e-refire-folder "/local/archive")

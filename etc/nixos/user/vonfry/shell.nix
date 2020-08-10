@@ -74,6 +74,10 @@
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
       }];
+      history = {
+        extended = true;
+        save = 100000;
+      };
       envExtra= ''
         PATH=~/.local/bin:$PATH
       '';
@@ -129,6 +133,21 @@
     htop = {
       enable = true;
       treeView = true;
+      meters = {
+        left = [
+           { kind = "AllCPUs"; mode = 2; }
+           { kind = "Memory" ; mode = 2; }
+           { kind = "Swap"   ; mode = 2; }
+        ];
+        right = [
+          { kind = "Clock"   ; mode = 2; }
+          { kind = "Battery" ; mode = 2; }
+          "Blank"
+          { kind = "Tasks"   ; mode = 2; }
+          { kind = "Uptime"  ; mode = 2; }
+          "LoadAverage"
+        ];
+      };
     };
   };
 
@@ -191,11 +210,9 @@
       patch
       zip unzip
       ripgrep
-      gawk
       fd
       exa
       bat
-      procs
 
       gitAndTools.gitflow tig gitAndTools.git-extras
       zsh fzf
