@@ -74,6 +74,10 @@
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
       }];
+      history = {
+        extended = true;
+        save = 100000;
+      };
       envExtra= ''
         PATH=~/.local/bin:$PATH
       '';
