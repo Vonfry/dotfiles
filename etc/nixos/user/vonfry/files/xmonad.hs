@@ -45,7 +45,7 @@ myXPConf = def
     , bgHLight        = draculaSelection
     , fgHLight        = draculaForeground
     , borderColor     = draculaPurple
-    , autoComplete    = Just $ 1 * 10 ^ 5 -- use this to avoid pass unwill
+    , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
                                           -- key to applications
     , height          = 30
     }
