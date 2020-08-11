@@ -210,8 +210,8 @@ myLayout = beforeLayouts layouts
     beforeLayouts = showWName . hiddenWindows
 
 myWorkspaces = [ "home"
-               , "web"
                , "doc"
+               , "web"
                , "taichi"
                , "misc"
                , "bg"
