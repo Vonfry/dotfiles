@@ -82,7 +82,7 @@
 
     texlive = {
       enable = true;
-      extraPackages = tpkgs: { inherit (tpkgs) scheme-small; };
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
   };
 
