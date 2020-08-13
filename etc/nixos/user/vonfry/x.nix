@@ -29,6 +29,7 @@
         map t recolor
       '';
       options = {
+        incremental-search      = true;
         font                    = "monospace normal 11";
         notification-error-bg   = "#ff5555"; # Red
         notification-error-fg   = "#f8f8f2"; # Foreground
