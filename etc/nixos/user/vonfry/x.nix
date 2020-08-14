@@ -123,12 +123,6 @@
         frame_width = 3;
         frame_color = "#8EC07C";
       };
-      shortcuts = {
-        close = "ctrl+space";
-        close_all = "ctrl+shift+space";
-        history = "ctrl+grave";
-        context = "ctrl+shift+period";
-      };
       urgency_low = {
         frame_color = "#3B7C87";
         foreground = "#3B7C87";
