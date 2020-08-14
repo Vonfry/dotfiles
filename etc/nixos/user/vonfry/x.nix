@@ -92,7 +92,7 @@
         font = "monospace";
         markup = true;
         plain_text = false;
-        format = "<b>%s</b>\n%b";
+        format = "<b>%s</b>\\n%b";
         sort = false;
         indicate_hidden = true;
         alignment = "center";
@@ -107,7 +107,7 @@
         transparency = 5;
         idle_threshold = 0;
         monitor = 0;
-        follow = false;
+        follow = "none";
         sticky_history = true;
         history_length = 15;
         show_indicators = false;
