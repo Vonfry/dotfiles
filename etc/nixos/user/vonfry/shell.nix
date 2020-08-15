@@ -233,6 +233,8 @@
       alacritty
       lm_sensors lsof
       sshfs
+
+      trash-cli
     ];
   };
 }
