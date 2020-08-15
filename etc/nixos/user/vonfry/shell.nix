@@ -77,6 +77,8 @@
       history = {
         extended = true;
         save = 100000;
+        size = 100000;
+        path = "${config.programs.zsh.dotDir}/zsh_history";
       };
       envExtra= ''
         PATH=~/.local/bin:$PATH
