@@ -7,6 +7,8 @@
     cloc
 
     docker_compose # docker
+
+    git git-lfs
   ];
 
   virtualisation = {

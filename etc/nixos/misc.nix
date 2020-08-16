@@ -6,6 +6,11 @@
     fcitx.engines = with pkgs.fcitx-engines; [ rime ]; # wubi
   };
 
+  console = {
+    font = "Hack-11";
+    packages = with pkgs; [ hack-font kbdKeymaps.dvp ];
+  };
+
   programs = {
     gnupg.agent = {
       enable = true;

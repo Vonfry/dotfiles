@@ -18,6 +18,38 @@ necessary.
 Note: Local files don't load by default except some special ones, so you should
 import them by yourselves. It can make file content more clearful. 
 
+## File Content
+
+### base
+- nix and system configuration: nixpkgs, log, exfat, etc.
+- basic tools: zip, interpreter, htop, etc.
+
+### development
+- editor, lib, compiler, vcs, etc.
+
+### net
+- basic network tools: mail, browser, curl, wget, etc.
+- tools relative to net self: iftop, wireshark, etc.
+
+### shell
+- shell own configuration
+- tools to enhance the original feature: fzf, thefuck, tmux, etc.
+- only play in terminal or with terminal self: neofetch, asciinema, etc.
+
+### x
+- window c/s
+- windows manager 
+- tools effect on it: notify, tray, etc.
+
+### application
+NB: none of above.
+
+- applications on a topic: music, file manager, video, etc.
+
+### misc
+- trival subjects
+- none of above
+
 ## Dir Structure
 
 All dirs is named as singular word, which represents a category.

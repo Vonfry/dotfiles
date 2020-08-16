@@ -38,7 +38,7 @@
       mu # isync
       rclone
 
-      chromium
+      chromium # qutebrowser
       qbittorrent
 
       wireshark nmap

@@ -1,18 +1,14 @@
 { config, pkgs, lib, ... }:
 
 let
-  localFiles = with builtins; with lib;
-    map (n: ./local + "/${n}")
-        (attrNames (filterAttrs
-                   (n: v: v != "directory" && isList (match "^.*\\.nix$" n))
-                   (readDir ./local)));
+  inherit (import ../lib/prelude.nix { inherit lib; }) mkImportWith;
 in {
   users.motd = builtins.readFile ./motd;
 
   home-manager.useUserPackages = true;
 
-  imports = [
+  imports = mkImportWith ./local [
     ./vonfry
     <home-manager/nixos>
-  ] ++ localFiles;
+  ];
 }
