@@ -118,7 +118,7 @@
         } >&2
       '';
       shellAliases = {
-        rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash"; false";
+        rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
 
         lla = "ls -lAh";
         ecd = "emacs --daemon";
