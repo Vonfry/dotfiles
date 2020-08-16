@@ -27,13 +27,6 @@
 
     starship.enable = true;
 
-    ssh = {
-      enable = true;
-      compression = true;
-      forwardAgent = true;
-      serverAliveInterval = 60;
-    };
-
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -123,28 +116,9 @@
         lla = "ls -lAh";
         ecd = "emacs --daemon";
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
+        ec  = "emacsclient -n";
         ecc = "emacsclient -n -c";
         ect = "emacsclient -t";
-      };
-    };
-
-    htop = {
-      enable = true;
-      treeView = true;
-      meters = {
-        left = [
-           { kind = "AllCPUs"; mode = 2; }
-           { kind = "Memory" ; mode = 2; }
-           { kind = "Swap"   ; mode = 2; }
-        ];
-        right = [
-          { kind = "Clock"   ; mode = 2; }
-          { kind = "Battery" ; mode = 2; }
-          "Blank"
-          { kind = "Tasks"   ; mode = 2; }
-          { kind = "Uptime"  ; mode = 2; }
-          "LoadAverage"
-        ];
       };
     };
   };
@@ -187,46 +161,15 @@
         fi
       '';
 
-    sessionVariables = {
-      EDITOR = "nvim";
-      BROWSER = "qutebrowser";
-    };
-
     packages = with pkgs; [
-      wget curl
-      git git-lfs
-      zsh gnupg
-      file
-      fzf jump
-      colordiff
-      tmux
-      w3m
-      patch
+      zsh fzf jump
+      file colordiff  patch parallel trash-cli thefuck # tmux
       zip unzip
-      ripgrep
-      fd
-      exa
-      bat
-
-      gitAndTools.gitflow tig gitAndTools.git-extras
-      zsh fzf
-      direnv
-      thefuck
-      lorri
-      ranger
-      parallel
-      lolcat
+      ripgrep fd exa bat
+      neofetch
+      # lolcat
       fortune cmatrix figlet
       asciinema
-      neofetch
-
-      flameshot
-      atop htop
-      alacritty
-      lm_sensors lsof
-      sshfs
-
-      trash-cli
     ];
   };
 }

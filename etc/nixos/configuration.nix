@@ -12,7 +12,6 @@ in {
     ./base.nix
     ./network.nix
     ./shell.nix
-    ./editor.nix
     ./development.nix
     ./x.nix
     ./misc.nix

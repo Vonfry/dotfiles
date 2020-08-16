@@ -8,5 +8,4 @@
       eshell-mode
       geiser-mode
       slime-mode))
-  :config
-  (direnv-mode))
+  (direnv-mode t))

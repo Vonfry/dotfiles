@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
+    vim neovim emacs
+
     cloc
 
     docker_compose # docker
@@ -14,4 +16,6 @@
       autoPrune.enable = true;
     };
   };
+
+  services.emacs.install = true;
 }

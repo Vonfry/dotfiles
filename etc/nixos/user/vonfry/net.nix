@@ -29,25 +29,26 @@
       '';
     };
 
+    sessionVariables = {
+      BROWSER = "qutebrowser";
+    };
+
     packages = with pkgs; [
-      nmap
-      mu isync
-      jekyll
+      wget curl w3m
+      mu # isync
+      rclone
 
       chromium
-      wireshark
-
-      vnstat
-      iftop
       qbittorrent
-      rclone
+
+      wireshark nmap
+      vnstat iftop httpstat
     ];
   };
 
   programs = {
     mbsync.enable = true;
 
-    chromium.enable = true;
     qutebrowser = {
       enable = true;
       keyBindings = {
