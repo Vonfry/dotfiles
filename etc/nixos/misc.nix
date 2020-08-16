@@ -1,6 +1,18 @@
 { config, pkgs, ...}:
 
 {
+  i18n.inputMethod = {
+    enabled = "fcitx";
+    fcitx.engines = with pkgs.fcitx-engines; [ rime ]; # wubi
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+
   fonts = {
     fonts = with pkgs; [
       hack-font

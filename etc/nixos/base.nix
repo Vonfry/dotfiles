@@ -14,16 +14,14 @@ in
   time.timeZone = "Asia/Shanghai";
 
   environment.systemPackages = with pkgs; [
-    lnav
-
     sudo
-    gnutls
-    cacert
-    pciutils
-    usbutils
-    inxi
-
+    gnutls cacert
+    pciutils usbutils inxi
     exfat
+
+    lnav
+    atop htop
+    lm_sensors lsof
   ];
 
   security.sudo.enable = true;
