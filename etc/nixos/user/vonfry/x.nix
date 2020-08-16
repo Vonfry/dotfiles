@@ -161,6 +161,8 @@
     ffmpeg
     zathura
     libreoffice
+
+    # alacritty
   ];
 
   xdg = {

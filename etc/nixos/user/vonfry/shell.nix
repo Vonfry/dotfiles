@@ -222,7 +222,6 @@
 
       flameshot
       atop htop
-      alacritty
       lm_sensors lsof
       sshfs
 
