@@ -88,7 +88,6 @@
 
   home.packages = with pkgs; [
     neovim vim emacs
-    editorconfig-core-c
 
     # nixfmt nix-doc
 
