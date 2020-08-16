@@ -10,6 +10,8 @@
     dates = "Sun 19:00";
   };
 
+  # boot.tmpOnTmpfs = true;
+
   # systemd.services.nix-daemon.environment = {
   #   http_proxy  = "prot://user:password@proxy:port";
   #   https_proxy = "prot://user:password@proxy:port";

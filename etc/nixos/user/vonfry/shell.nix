@@ -77,6 +77,8 @@
       history = {
         extended = true;
         save = 100000;
+        size = 100000;
+        path = "${config.xdg.configHome}/zsh/zsh_history";
       };
       envExtra= ''
         PATH=~/.local/bin:$PATH
@@ -116,17 +118,13 @@
         } >&2
       '';
       shellAliases = {
+        rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
+
         lla = "ls -lAh";
         ecd = "emacs --daemon";
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
         ecc = "emacsclient -n -c";
         ect = "emacsclient -t";
-
-        opF = "op-format";
-        opgi = "op get item";
-        opf = "op-fuzzy-search-from-json";
-        opr = "op-refresh-my";
-        op-init = "op signin my.1password.com";
       };
     };
 
@@ -154,10 +152,6 @@
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
-      ".local/bin/op-fuzzy-search-from-json" = {
-        source = ./files/bin/op-fuzzy-search-from-json;
-        executable = true;
-      };
     };
 
     activation.shellActivation =
@@ -228,9 +222,10 @@
 
       flameshot
       atop htop
-      alacritty
       lm_sensors lsof
       sshfs
+
+      trash-cli
     ];
   };
 }

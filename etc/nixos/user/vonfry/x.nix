@@ -29,6 +29,7 @@
         map t recolor
       '';
       options = {
+        incremental-search      = true;
         font                    = "monospace normal 11";
         notification-error-bg   = "#ff5555"; # Red
         notification-error-fg   = "#f8f8f2"; # Foreground
@@ -91,7 +92,7 @@
         font = "monospace";
         markup = true;
         plain_text = false;
-        format = "<b>%s</b>\n%b";
+        format = "<b>%s</b>\\n%b";
         sort = false;
         indicate_hidden = true;
         alignment = "center";
@@ -106,7 +107,7 @@
         transparency = 5;
         idle_threshold = 0;
         monitor = 0;
-        follow = false;
+        follow = "none";
         sticky_history = true;
         history_length = 15;
         show_indicators = false;
@@ -121,12 +122,6 @@
         max_icon_size = 80;
         frame_width = 3;
         frame_color = "#8EC07C";
-      };
-      shortcuts = {
-        close = "ctrl+space";
-        close_all = "ctrl+shift+space";
-        history = "ctrl+grave";
-        context = "ctrl+shift+period";
       };
       urgency_low = {
         frame_color = "#3B7C87";
@@ -150,11 +145,14 @@
   };
 
   home.packages = with pkgs; [
-    gnuplot
+    unstable._1password-gui
+
+    tdesktop
+    filezilla
 
     tigervnc
     feh
-    cmus
+    cmus kid3
     mpv
     inkscape
     gimp
@@ -163,6 +161,8 @@
     ffmpeg
     zathura
     libreoffice
+
+    # alacritty
   ];
 
   xdg = {

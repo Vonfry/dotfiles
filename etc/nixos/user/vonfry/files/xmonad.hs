@@ -45,7 +45,7 @@ myXPConf = def
     , bgHLight        = draculaSelection
     , fgHLight        = draculaForeground
     , borderColor     = draculaPurple
-    , autoComplete    = Just $ 1 * 10 ^ 5 -- use this to avoid pass unwill
+    , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
                                           -- key to applications
     , height          = 30
     }
@@ -67,6 +67,7 @@ myKeys conf = mkKeymap conf
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
     , ("M-, '", spawn "emacs"           )
+    , ("M-, &", spawn "1password"       )
     , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
@@ -210,8 +211,8 @@ myLayout = beforeLayouts layouts
     beforeLayouts = showWName . hiddenWindows
 
 myWorkspaces = [ "home"
-               , "web"
                , "doc"
+               , "web"
                , "taichi"
                , "misc"
                , "bg"

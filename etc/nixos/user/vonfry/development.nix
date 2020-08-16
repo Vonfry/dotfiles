@@ -82,61 +82,22 @@
 
     texlive = {
       enable = true;
-      extraPackages = tpkgs: { inherit (tpkgs) scheme-small; };
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
   };
 
-  home.packages = with pkgs; let
-    hie = vonfryPackages.hie;
-    perl = vonfryPackages.perl;
-    ghc = vonfryPackages.ghc;
-    python = vonfryPackages.python;
-  in [
-    neovim
-    vim
-    emacs
-    editorconfig-core-c
+  home.packages = with pkgs; [
+    neovim vim emacs
 
     # nixfmt nix-doc
 
     cloc
-    patchelf
-    binutils-unwrapped
-    # llvmPackages.clang llvm lldb
-    cmake gnumake
-    doxygen
 
-    bear clang-tools
-
-    ghc
-    cabal-install
-    haskellPackages.dhall
-    haskellPackages.hoogle
-    haskellPackages.stylish-haskell
-    cabal2nix
-    hie
-
-    rustup carnix
-
-    perl
-    python
-
-    coq
-
-    poppler
     pandoc
-
-    ctags
-
-    sqlite
-    mysql
-    postgresql
-    redis
+    zeal
 
     httpstat
 
     # texlive.combined.scheme-full
-    zeal
-    glibcInfo
   ];
 }
