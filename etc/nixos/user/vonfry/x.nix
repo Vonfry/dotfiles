@@ -149,7 +149,7 @@
 
     tigervnc
     feh
-    cmus
+    cmus kid3
     mpv
     inkscape
     gimp
