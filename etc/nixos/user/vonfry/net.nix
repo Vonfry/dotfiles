@@ -32,7 +32,6 @@
     packages = with pkgs; [
       nmap
       mu isync
-      jekyll
 
       chromium
       wireshark
