@@ -123,6 +123,7 @@
         lla = "ls -lAh";
         ecd = "emacs --daemon";
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
+        ec  = "emacsclient -n";
         ecc = "emacsclient -n -c";
         ect = "emacsclient -t";
       };
