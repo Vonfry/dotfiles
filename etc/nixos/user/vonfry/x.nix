@@ -145,7 +145,10 @@
   };
 
   home.packages = with pkgs; [
-    gnuplot
+    unstable._1password-gui
+
+    tdesktop
+    filezilla
 
     tigervnc
     feh

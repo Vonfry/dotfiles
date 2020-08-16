@@ -3,16 +3,8 @@
 {
   environment.systemPackages = with pkgs; [
     cloc
-    binutils-unwrapped
-    # c family
-    llvmPackages.clang llvm lldb
-    cmake gnumake
 
-    patchelf
-
-    docker
-    docker_compose
-    patchelf
+    docker_compose # docker
   ];
 
   virtualisation = {
