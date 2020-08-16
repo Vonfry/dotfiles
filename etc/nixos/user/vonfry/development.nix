@@ -281,9 +281,9 @@
   };
 
   home.packages = with pkgs; [
-    neovim vim emacs
+    # neovim vim emacs
 
-    # nixfmt nix-doc
+    nixfmt nix-doc
 
     cloc
 
