@@ -7,12 +7,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    wget curl
     git git-lfs
     zsh fzf
-    sshfs file patch
-    colordiff tmux
-    w3m
+    file patch colordiff tmux
     zip unzip
     ripgrep fd exa bat
   ];

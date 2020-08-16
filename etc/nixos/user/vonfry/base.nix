@@ -27,6 +27,39 @@
       $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString ./overlay/overlays.nix} ${toString config.xdg.configHome}/nixpkgs/overlays.nix
     '';
 
-    packages = with pkgs; [ lnav exfat ];
+    packages = with pkgs; [
+      atop # htop
+      sshfs exfat
+      lnav lm_sensors lsof
+    ];
+  };
+
+  programs = {
+    ssh = {
+      enable = true;
+      compression = true;
+      forwardAgent = true;
+      serverAliveInterval = 60;
+    };
+
+    htop = {
+      enable = true;
+      treeView = true;
+      meters = {
+        left = [
+           { kind = "AllCPUs"; mode = 2; }
+           { kind = "Memory" ; mode = 2; }
+           { kind = "Swap"   ; mode = 2; }
+        ];
+        right = [
+          { kind = "Clock"   ; mode = 2; }
+          { kind = "Battery" ; mode = 2; }
+          "Blank"
+          { kind = "Tasks"   ; mode = 2; }
+          { kind = "Uptime"  ; mode = 2; }
+          "LoadAverage"
+        ];
+      };
+    };
   };
 }
