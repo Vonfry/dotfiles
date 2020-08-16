@@ -1,13 +1,9 @@
 { config, pkgs, lib, ... }:
 
 let
-  localFiles =  with builtins; with lib;
-    map (n: ./local + "/${n}")
-        (attrNames (filterAttrs
-                   (n: v: v != "directory" && isList (match "^.*\\.nix$" n))
-                   (readDir ./local)));
+  inherit (import ./lib/prelude.nix { inherit lib; }) mkImportWith;
 in {
-  imports = [
+  imports = mkImportWith ./local  [
     ./hardware-configuration.nix # use `nixos-generate-config`
     ./base.nix
     ./network.nix
@@ -16,7 +12,7 @@ in {
     ./x.nix
     ./misc.nix
     ./user
-  ] ++ localFiles;
+  ];
 
   lib = pkgs.callPackage ./lib { };
 }
