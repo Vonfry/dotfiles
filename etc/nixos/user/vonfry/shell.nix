@@ -125,12 +125,6 @@
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
         ecc = "emacsclient -n -c";
         ect = "emacsclient -t";
-
-        opF = "op-format";
-        opgi = "op get item";
-        opf = "op-fuzzy-search-from-json";
-        opr = "op-refresh-my";
-        op-init = "op signin my.1password.com";
       };
     };
 
@@ -158,10 +152,6 @@
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
-      ".local/bin/op-fuzzy-search-from-json" = {
-        source = ./files/bin/op-fuzzy-search-from-json;
-        executable = true;
-      };
     };
 
     activation.shellActivation =

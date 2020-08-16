@@ -67,6 +67,7 @@ myKeys conf = mkKeymap conf
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
     , ("M-, '", spawn "emacs"           )
+    , ("M-, &", spawn "1password"       )
     , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )

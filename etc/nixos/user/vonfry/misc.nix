@@ -33,12 +33,6 @@
       '';
 
     packages = with pkgs; [
-      _1password
-
-      tdesktop
-      filezilla
-      fontforge-gtk
-
       hack-font
       sarasa-gothic
       symbola
