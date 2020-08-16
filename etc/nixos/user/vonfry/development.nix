@@ -11,55 +11,6 @@
       recursive = true;
     };
   };
-  # Use home.file instead of programs.<editor> due to I want to have a structure
-  # config file for them.
-  home.file = {
-    ".tigrc".text = ''
-      set log-options = --show-signature
-      set diff-options = --show-signature
-    '';
-    ".gnupg/gpg.conf".text = ''
-      keyserver hkps://keys.openpgp.org
-    '';
-    ".vimrc".source = ./files/vimrc;
-    ".ghc/ghci.conf".text = ''
-      :set +m
-
-      -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
-      :set -XLambdaCase
-      :set -XMultiWayIf
-      :set -XBinaryLiterals
-      :set -XBangPatterns
-
-      :set -XTemplateHaskell
-      :set -XNamedFieldPuns
-      :set -XFlexibleContexts
-      :set -XFlexibleInstances
-      :set -XMultiParamTypeClasses
-
-      :set -XUnicodeSyntax
-
-      :set -XDeriveGeneric
-      :set -XDeriveFunctor
-      :set -XDeriveFoldable
-
-      :set -XImplicitParams
-
-      -- preference
-      :set prompt "λ "
-      :set prompt-cont "> "
-
-      -- allow C-c
-      :set -fomit-yields
-    '';
-    ".latexmkrc".text = ''
-      $out_dir = "latex.out";
-      $pdf_mode = 5;
-      $dvi_previewer = 'xdvi -watchfile 1.5';
-      $ps_previewer  = 'feh';
-      $pdf_previewer = 'zathura';
-    '';
-  };
 
   services = {
     lorri.enable = true;
@@ -86,18 +37,76 @@
     };
   };
 
-  home.packages = with pkgs; [
-    neovim vim emacs
+  home = {
+    sessionVariables = {
+        EDITOR = "nvim";
+    };
 
-    # nixfmt nix-doc
+    packages = with pkgs; [
+      neovim vim emacs
 
-    cloc
+      # git git-lfs
+      gitAndTools.gitflow tig gitAndTools.git-extras
 
-    pandoc
-    zeal
+      # nixfmt nix-doc
+      niv
 
-    httpstat
+      cloc
 
-    # texlive.combined.scheme-full
-  ];
+      pandoc
+      zeal
+
+      # texlive.combined.scheme-full
+    ];
+
+    # Use home.file instead of programs.<editor> due to I want to have a structure
+    # config file for them.
+    file = {
+      ".tigrc".text = ''
+        set log-options = --show-signature
+        set diff-options = --show-signature
+      '';
+      ".gnupg/gpg.conf".text = ''
+        keyserver hkps://keys.openpgp.org
+      '';
+      ".vimrc".source = ./files/vimrc;
+      ".ghc/ghci.conf".text = ''
+        :set +m
+
+        -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
+        :set -XLambdaCase
+        :set -XMultiWayIf
+        :set -XBinaryLiterals
+        :set -XBangPatterns
+
+        :set -XTemplateHaskell
+        :set -XNamedFieldPuns
+        :set -XFlexibleContexts
+        :set -XFlexibleInstances
+        :set -XMultiParamTypeClasses
+
+        :set -XUnicodeSyntax
+
+        :set -XDeriveGeneric
+        :set -XDeriveFunctor
+        :set -XDeriveFoldable
+
+        :set -XImplicitParams
+
+        -- preference
+        :set prompt "λ "
+        :set prompt-cont "> "
+
+        -- allow C-c
+        :set -fomit-yields
+      '';
+      ".latexmkrc".text = ''
+        $out_dir = "latex.out";
+        $pdf_mode = 5;
+        $dvi_previewer = 'xdvi -watchfile 1.5';
+        $ps_previewer  = 'feh';
+        $pdf_previewer = 'zathura';
+      '';
+    };
+  };
 }

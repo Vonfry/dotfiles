@@ -2,11 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    nmap
-    vnstat
-    iftop
-    wireshark
+    wget curl w3m
+
+    vnstat iftop
+    wireshark nmap
   ];
-  
+
   networking.networkmanager.enable = true;
 }

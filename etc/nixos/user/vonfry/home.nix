@@ -17,6 +17,7 @@ in {
               ./net.nix
               ./shell.nix
               ./x.nix
+              ./application.nix
               ./misc.nix
             ] ++ localFiles;
 }

@@ -1,6 +1,18 @@
 { config, pkgs, ...}:
 
 {
+  i18n.inputMethod = {
+    enabled = "fcitx";
+    fcitx.engines = with pkgs.fcitx-engines; [ rime ]; # wubi
+  };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
+
   fonts = {
     fonts = with pkgs; [
       hack-font
@@ -24,5 +36,13 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    extraConfig = ''
+      load-module module-dbus-protocol
+      load-module module-equalizer-sink
+    '';
+  };
+
+  environment.systemPackages = with pkgs; [ pavucontrol qpaeq ];
 }
