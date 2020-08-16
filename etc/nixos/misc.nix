@@ -44,5 +44,5 @@
     '';
   };
 
-  environment.systemPackages = with pkgs; [ pavucontrol qpaeq ]
+  environment.systemPackages = with pkgs; [ pavucontrol qpaeq ];
 }
