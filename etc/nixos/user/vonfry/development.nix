@@ -115,7 +115,7 @@
         vim-projectionist
         vim-polyglot
         vim-ragtag
-        MatchTagAlways
+        # MatchTagAlways
         DoxygenToolkit-vim
         nerdcommenter
         vim-orgmode
@@ -137,9 +137,9 @@
         vim-fugitive
         vim-signify
         NeoSolarized
-        vim
+        vim # dracula
         vim-airline
-        vim-airline-clock
+        # vim-airline-clock
         indentline
         vim-mundo
       ];
