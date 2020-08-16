@@ -90,6 +90,7 @@
     neovim vim emacs
 
     # nixfmt nix-doc
+    niv
 
     cloc
 
