@@ -32,8 +32,7 @@ import System.IO
 import System.Exit
 
 -- auxiliary configuration
-myFont = "xft:Hack:size=11"
-myFontCJK = "xft:Source Han Sans CN:size=11"
+myFont = "xft:Sarasa Mono SC:size=11"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -46,29 +45,37 @@ myXPConf = def
     , bgHLight        = draculaSelection
     , fgHLight        = draculaForeground
     , borderColor     = draculaPurple
-    , autoComplete    = Just $ 2 * 10 ^ 5 -- 0.2s
+    , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
+                                          -- key to applications
     , height          = 30
     }
+
+myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"  , shellPrompt myXPConf       )
-    , ("M-S-x", xmonadPrompt myXPConf      )
-    , ("M-/"  , promptSearch myXPConf multi)
+    [ ("M-x"  , shellPrompt myXPConf           )
+    , ("M-S-x", shellPrompt myXPConfNoAc       )
+    , ("M-C-x", xmonadPrompt myXPConf          )
+    , ("M-/"  , promptSearch myXPConfNoAc multi)
 
-    , ("M-, d" , spawn "zeal"            )
-    , ("M-, b" , spawn "qutebrowser"     )
-    , ("M-, l" , runInTerm "" "alsamixer")
-    , ("M-, o" , spawn "libreoffice"     )
-    , ("M-, v" , spawn "VirtualBox"      )
-    , ("M-, f" , spawn "zathura"         )
-    , ("M-, t" , spawn "telegram-desktop")
-    , ("M-, m" , runInTerm "" "cmus"     )
-    , ("M-, '" , spawn "emacs"           )
+    , ("M-, d", spawn "zeal"            )
+    , ("M-, b", spawn "qutebrowser"     )
+    , ("M-, o", spawn "libreoffice"     )
+    , ("M-, v", spawn "VirtualBox"      )
+    , ("M-, f", spawn "zathura"         )
+    , ("M-, t", spawn "telegram-desktop")
+    , ("M-, '", spawn "emacs"           )
+    , ("M-, l", runInTerm "-t alsamixer" "alsamixer")
+    , ("M-, m", runInTerm "-t cmus"      "cmus"     )
+    , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
+    , ("M-, p", runInTerm "-t htop"      "htop"     )
+
+    , ("M-$", runInTerm "" "watch date"     )
+    , ("M-'", runInTerm "-t ranger" "ranger")
 
     -- basic window
-    , ("M-'"         , runInTerm "" "ranger"             )
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
@@ -97,9 +104,9 @@ myKeys conf = mkKeymap conf
     , ("M-q"  , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
 
     -- screenshot
-    , ("M-<Print>"  , spawn "flameshot gui    -p ~/screenshot/" )
-    , ("M-S-<Print>", spawn "flameshot screen -p ~/screenshot/" )
-    , ("M-C-<Print>", spawn "flameshot full   -p ~/screenshot"  )
+    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
+    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
     , ("M-<Space>", sendMessage NextLayout)
@@ -164,7 +171,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
 
     -- change pwd for current workspace
-    , ("M-p", changeDir myXPConf)
+    , ("M-p", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
@@ -186,7 +193,7 @@ myLayout = beforeLayouts layouts
                 , activeTextColor     = draculaForeground
                 , inactiveColor       = draculaBackground
                 , activeColor         = draculaSelection
-                , fontName            = myFontCJK
+                , fontName            = myFont
                 , decoHeight          = 30
                 })
         ||| renamed [ Replace "Tiled"     ] tiled
@@ -203,8 +210,8 @@ myLayout = beforeLayouts layouts
     beforeLayouts = showWName . hiddenWindows
 
 myWorkspaces = [ "home"
-               , "web"
                , "doc"
+               , "web"
                , "taichi"
                , "misc"
                , "bg"

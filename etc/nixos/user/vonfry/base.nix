@@ -14,6 +14,8 @@
         auto-optimise-store = true
         keep-outputs = true
         sandbox = false
+        max-jobs = auto
+        cores = 0
       '';
     "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
   };

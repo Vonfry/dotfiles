@@ -5,7 +5,8 @@
 }:
 {
   python = callPackage ./development/python/python { python = python3; };
-  ruby = callPackage ./development/ruby/ruby { };
+  ghc = callPackage ./development/haskell/ghc { };
+  perl = callPackage ./development/perl/perl { };
   hie = callPackage ./development/haskell/hie { };
   xmonad = callPackage ./applications/window-managers/xmonad { };
 }

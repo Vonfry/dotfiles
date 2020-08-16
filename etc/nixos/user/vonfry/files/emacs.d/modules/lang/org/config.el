@@ -9,7 +9,7 @@
 (mmap-mode-prefix! org nil
   :keymaps 'org-mode-map)
 
-(custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_NOTE_DIR")))
+(custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_DIR")))
                     (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
   "org dir"
   :type 'directory
@@ -123,7 +123,7 @@
                      (keys (concat "a" (string (+ ?A index)))))
                 `(,keys ,(concat "capture to " file-name ", refile later")
                   entry (file ,file-path)
-                  "* TODO %?\t\n:PROPERTIES:\n:CREATED: %U\n:END:"
+                  "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:"
                   :empty-lines 1)))
             +org-agenda-files)))
     (append default-templates agenda-templates))

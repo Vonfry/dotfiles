@@ -3,6 +3,6 @@
 # key: setfont
 # --
 
-\setmainfont{${1:Liberation Serif}}
-\setsansfont{${2:Liberation Sans}}
-\setmonofont{${3:Liberation Mono}}
+\setmainfont{${1:Source Han Serif SC}}
+\setsansfont{${2:Source Han Sans SC}}
+\setmonofont{${3:Sarasa Mono SC}}

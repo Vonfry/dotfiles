@@ -8,8 +8,8 @@ if has('gui_running')
         set macligatures
     endif
     set guioptions=egmti
-    set guifont=Hack:h11
-    "    set mousemodel=popup
+    set guifont=monospace:h11
+    set mousemodel=popup
     set cursorline
     " set cursorcolumn
 else

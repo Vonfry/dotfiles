@@ -23,7 +23,6 @@
     '';
     ".vimrc".source = ./files/vimrc;
     ".ghc/ghci.conf".text = ''
-      :set -fbreak-on-exception
       :set +m
 
       -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
@@ -51,20 +50,7 @@
       :set prompt-cont "> "
 
       -- allow C-c
-      :set -fomit-yields%
-    '';
-    ".gemrc".text = ''
-      ---
-      :backtrace: false
-      :bulk_threshold: 1000
-      :sources:
-      - https://rubygems.org
-      :update_sources: true
-      :verbose: true
-      gem: --user-install --bindir ~/.gem/bin
-    '';
-    ".pryrc".text = ''
-      Pry.config.editor = "nvim"
+      :set -fomit-yields
     '';
     ".latexmkrc".text = ''
       $out_dir = "latex.out";
@@ -290,29 +276,31 @@
 
     texlive = {
       enable = true;
-      extraPackages = tpkgs: { inherit (tpkgs) scheme-small; };
+      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
     };
   };
 
   home.packages = with pkgs; let
     hie = vonfryPackages.hie;
-    rubyPkgs = vonfryPackages.ruby;
-    pythonPkgs = vonfryPackages.python;
+    perl = vonfryPackages.perl;
+    ghc = vonfryPackages.ghc;
+    python = vonfryPackages.python;
   in [
     neovim
     vim
     emacs
     editorconfig-core-c
 
+    # nixfmt nix-doc
+
     cloc
     patchelf
     binutils-unwrapped
     # llvmPackages.clang llvm lldb
     cmake gnumake
+    doxygen
 
-    bear
-
-    clang-tools
+    bear clang-tools
 
     ghc
     cabal-install
@@ -322,15 +310,10 @@
     cabal2nix
     hie
 
-    rustup
-    carnix
+    rustup carnix
 
-    pythonPkgs
-
-    rubyPkgs
-    solargraph
-
-    doxygen
+    perl
+    python
 
     coq
 

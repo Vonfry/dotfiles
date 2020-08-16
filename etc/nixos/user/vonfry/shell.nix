@@ -1,16 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let
-  defvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                               config.programs.zsh.dotDir
-                                               "defvar.sh"
-                                             ];
-  localvarFile = builtins.concatStringsSep "/" [ "$HOME"
-                                                 config.programs.zsh.dotDir
-                                                 "localvar.sh"
-                                               ];
-  zshrcDir = ./files/zsh/rc.d;
-in {
+{
   programs = {
     man.enable = true;
     bat.enable = true;
@@ -35,6 +25,8 @@ in {
       fileWidgetCommand = "fd --type f";
     };
 
+    starship.enable = true;
+
     ssh = {
       enable = true;
       compression = true;
@@ -52,8 +44,8 @@ in {
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
-          rev = "6c5dd207bbda0f264f0136a31af36636b508f242";
-          sha256 = "0adwv9qq3pq7wkwincqd2j38w4jqa3z01h8yqgq518hb30iaq6yj";
+          rev = "aed8c0ed0adc5a4b8858656cdc1028300a52c104";
+          sha256 = "14lg3k6nxm66pg0c5j71wp8b4n18qnnr5lkc0szdw9vn3drrcfnm";
           fetchSubmodules = true;
         };
       } {
@@ -74,15 +66,6 @@ in {
         };
         file = "async.zsh";
       } {
-        name = "enhancd";
-        src = fetchFromGitHub {
-          owner = "b4b4r07";
-          repo = "enhancd";
-          rev = "v2.2.4";
-          sha256 = "1smskx9vkx78yhwspjq2c5r5swh9fc5xxa40ib4753f00wk4dwpp";
-        };
-        file = "init.sh";
-      } {
         name = "you-should-use";
         src = fetchFromGitHub {
           owner = "MichaelAquilina";
@@ -90,44 +73,29 @@ in {
           rev = "1.7.3";
           sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
         };
-      } {
-        name = "geometry";
-        file = "geometry.zsh";
-        src = fetchFromGitHub {
-          owner = "geometry-zsh";
-          repo = "geometry";
-          rev = "v2.2.0";
-          sha256 = "0sy5v3id31k4njr5pamh4hx238x0pcpgi0yh90jpbci690i8vdab";
-        };
       }];
-      envExtra = ''
-        if [ -f ${defvarFile} ]; then
-          . ${defvarFile}
-        fi
-        export PATH=${toString ./files/bin}:~/.local/bin:$PATH
+      history = {
+        extended = true;
+        save = 100000;
+        size = 100000;
+        path = "${config.xdg.configHome}/zsh/zsh_history";
+      };
+      envExtra= ''
+        PATH=~/.local/bin:$PATH
       '';
-      initExtra = ''
+      initExtra = with lib; with builtins; ''
         setopt nomatch
         setopt extendedglob
         setopt rm_star_silent
         setopt clobber
 
-        [ -f ${localvarFile} ] && . ${localvarFile}
-      '' + builtins.concatStringsSep "\n"
-        (map (f: lib.optionalString (builtins.isList (builtins.match "^.*\\.z?sh$" f))
-                                    "source ${toString zshrcDir}/${f}")
-          (builtins.attrNames
-            (lib.filterAttrs (n: v: v == "regular")
-              (builtins.readDir zshrcDir))));
-      initExtraBeforeCompInit  = ''
-      '';
-      localVariables = {
-        GEOMETRY_PROMPT_PLUGINS = [ "exec_time" "jobs" "git" "hg" "kube"];
-        ENHANCD_DIR = "${config.xdg.cacheHome}/enchancd";
-        ENHANCD_FILTER = "fzf";
-        ENHANCD_USE_FUZZY_MATCH = 0;
-        ENHANCD_COMPLETION_BEHAVIOR = "list";
-      };
+        eval "$(jump shell)"
+      '' + concatStringsSep "\n"
+        (map (f: readFile (./files/zsh/rc.d + ("/" + f)))
+          (attrNames
+            (filterAttrs (n: v: v == "regular"
+                            && (hasSuffix ".sh" n || hasSuffix ".zsh" n))
+              (readDir ./files/zsh/rc.d))));
       loginExtra = ''
         # Execute code that does not affect the current session in the background.
         {
@@ -143,19 +111,15 @@ in {
 
           # Print a random, hopefully interesting, adage.
           if (( $+commands[fortune] )); then
-            fortune -s ~/.local/src/fortunes/data all
+            fortune -s ${config.home.sessionVariables.CLONE_LIB}/fortunes/data all
             print
           fi
 
         } >&2
       '';
-      logoutExtra = ''
-      '';
-      profileExtra = ''
-      '';
-      sessionVariables = {
-      };
       shellAliases = {
+        rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
+
         lla = "ls -lAh";
         ecd = "emacs --daemon";
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
@@ -164,7 +128,6 @@ in {
 
         opF = "op-format";
         opgi = "op get item";
-        opp = "op-get-password-from-json";
         opf = "op-fuzzy-search-from-json";
         opr = "op-refresh-my";
         op-init = "op signin my.1password.com";
@@ -174,44 +137,65 @@ in {
     htop = {
       enable = true;
       treeView = true;
+      meters = {
+        left = [
+           { kind = "AllCPUs"; mode = 2; }
+           { kind = "Memory" ; mode = 2; }
+           { kind = "Swap"   ; mode = 2; }
+        ];
+        right = [
+          { kind = "Clock"   ; mode = 2; }
+          { kind = "Battery" ; mode = 2; }
+          "Blank"
+          { kind = "Tasks"   ; mode = 2; }
+          { kind = "Uptime"  ; mode = 2; }
+          "LoadAverage"
+        ];
+      };
     };
   };
 
   home = {
     file = {
       "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
+      ".local/bin/op-fuzzy-search-from-json" = {
+        source = ./files/bin/op-fuzzy-search-from-json;
+        executable = true;
+      };
     };
 
-    activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-      mkdir -p ${config.xdg.cacheHome} ~/.local
-      if ! [ -f ${defvarFile} ]; then
-        $DRY_RUN_CMD cp $VERBOSE_ARG ${toString ./files/zsh/defvar.sh.example} ${defvarFile}
-        $DRY_RUN_CMD echo "defvar file is copied, please edit it(${defvarFile}). Then prepare for cloud files"
-        $DRY_RUN_CMD read
-      fi
-      $DRY_RUN_CMD . ${defvarFile}
-      ! [ -h $ORG_DIR ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/orgmode $ORG_DIR
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf $CLOUD_DIR/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
-      $DRY_RUN_CMD mkdir -p $CLONE_LIB $PASSWD_DIR
-      if ! [ -f $PASSWD_DIR/authinfo.gpg ]; then
-        $DRY_RUN_CMD echo "please create authinfo.gpg file under $PASSWD_DIR"
-        $DRY_RUN_CMD read
-      fi
-      ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
-      if ! [ -d $CLONE_LIB/fortunes ]; then
-        $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git $CLONE_LIB/fortunes
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/fortunes
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/chinese
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/tang300
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/song100
-        $DRY_RUN_CMD strfile $CLONE_LIB/fortunes/data/diet
-      fi
-      if ! [ -f ~/.face.icon ]; then
-        $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
-        setfacl -m u:sddm:x ~/
-        setfacl -m u:sddm:r ~/.face.icon
-      fi
-    '';
+    activation.shellActivation =
+      let
+        inherit (config.home.sessionVariables) DOTFILES_DIR ORG_DIR PASSWD_DIR
+          CLOUD_DIR CLONE_LIB;
+      in lib.hm.dag.entryAfter ["writeBoundary"] ''
+        mkdir -p ${config.xdg.cacheHome} ~/.local
+        if [ -z "${DOTFILES_DIR}"  ]; then
+          $DRY_RUN_CMD echo "file is copied, please edit it(${toString ./local/session.nix}). Then prepare for cloud files. "
+          exit -1
+        fi
+        ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+        $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
+        $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
+        if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
+          $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
+          $DRY_RUN_CMD read
+        fi
+        ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
+        if ! [ -d ${CLONE_LIB}/fortunes ]; then
+          $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git ${CLONE_LIB}/fortunes
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/fortunes
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/chinese
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/tang300
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/song100
+          $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/diet
+        fi
+        if ! [ -f ~/.face.icon ]; then
+          $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
+          setfacl -m u:sddm:x ~/
+          setfacl -m u:sddm:r ~/.face.icon
+        fi
+      '';
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -223,18 +207,16 @@ in {
       git git-lfs
       zsh gnupg
       file
-      fzf
+      fzf jump
       colordiff
       tmux
       w3m
       patch
       zip unzip
       ripgrep
-      gawk
       fd
       exa
       bat
-      procs
 
       gitAndTools.gitflow tig gitAndTools.git-extras
       zsh fzf
@@ -253,6 +235,8 @@ in {
       alacritty
       lm_sensors lsof
       sshfs
+
+      trash-cli
     ];
   };
 }

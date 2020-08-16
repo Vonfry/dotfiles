@@ -4,8 +4,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Source Han Sans CN";
-      package = pkgs.source-han-sans-simplified-chinese;
+      name = "monospace";
     };
     theme = {
       name = "Ant-Dracula";
@@ -24,7 +23,45 @@
 
   programs = {
     feh.enable = true;
-    zathura.enable = true;
+    zathura = {
+      enable = true;
+      extraConfig = ''
+        map t recolor
+      '';
+      options = {
+        incremental-search      = true;
+        font                    = "monospace normal 11";
+        notification-error-bg   = "#ff5555"; # Red
+        notification-error-fg   = "#f8f8f2"; # Foreground
+        notification-warning-bg = "#ffb86c"; # Orange
+        notification-warning-fg = "#44475a"; # Selection
+        notification-bg         = "#282a36"; # Background
+        notification-fg         = "#f8f8f2"; # Foreground
+        completion-bg           = "#282a36"; # Background
+        completion-fg           = "#6272a4"; # Comment
+        completion-group-bg     = "#282a36"; # Background
+        completion-group-fg     = "#6272a4"; # Comment
+        completion-highlight-bg = "#44475a"; # Selection
+        completion-highlight-fg = "#f8f8f2"; # Foreground
+        index-bg                = "#282a36"; # Background
+        index-fg                = "#f8f8f2"; # Foreground
+        index-active-bg         = "#44475a"; # Current Line
+        index-active-fg         = "#f8f8f2"; # Foreground
+        inputbar-bg             = "#282a36"; # Background
+        inputbar-fg             = "#f8f8f2"; # Foreground
+        statusbar-bg            = "#282a36"; # Background
+        statusbar-fg            = "#f8f8f2"; # Foreground
+        highlight-color         = "#ffb86c"; # Orange
+        highlight-active-color  = "#ff79c6"; # Pink
+        default-bg              = "#282a36"; # Background
+        default-fg              = "#f8f8f2"; # Foreground
+        render-loading          = true     ;
+        render-loading-fg       = "#282a36"; # Background
+        render-loading-bg       = "#f8f8f2"; # Foreground
+        recolor-lightcolor      = "#282a36"; # Background
+        recolor-darkcolor       = "#f8f8f2"; # Foreground
+      };
+    };
     alacritty = {
       settings = import ./files/alacritty.nix;
       enable = true;
@@ -52,10 +89,10 @@
 
     settings = {
       global = {
-        font = "Source Han Sans CN";
+        font = "monospace";
         markup = true;
         plain_text = false;
-        format = "<b>%s</b>\n%b";
+        format = "<b>%s</b>\\n%b";
         sort = false;
         indicate_hidden = true;
         alignment = "center";
@@ -70,7 +107,7 @@
         transparency = 5;
         idle_threshold = 0;
         monitor = 0;
-        follow = false;
+        follow = "none";
         sticky_history = true;
         history_length = 15;
         show_indicators = false;
@@ -85,12 +122,6 @@
         max_icon_size = 80;
         frame_width = 3;
         frame_color = "#8EC07C";
-      };
-      shortcuts = {
-        close = "ctrl+space";
-        close_all = "ctrl+shift+space";
-        history = "ctrl+grave";
-        context = "ctrl+shift+period";
       };
       urgency_low = {
         frame_color = "#3B7C87";
@@ -118,13 +149,13 @@
 
     tigervnc
     feh
-    cmus
+    cmus kid3
     mpv
     inkscape
     gimp
     unstable.tor-browser-bundle-bin
     zerotierone
-    handbrake # numactl works on linux # wait for pr https://github.com/NixOS/nixpkgs/pull/89674
+    ffmpeg
     zathura
     libreoffice
   ];

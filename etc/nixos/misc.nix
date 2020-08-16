@@ -2,12 +2,13 @@
 
 {
   fonts = {
-    fonts = [
-      pkgs.hack-font
-      pkgs.source-han-sans-simplified-chinese
-      pkgs.source-han-serif-simplified-chinese
-      pkgs.symbola
-      pkgs.liberation_ttf
+    fonts = with pkgs; [
+      hack-font
+      sarasa-gothic
+      symbola
+      liberation_ttf
+      source-han-sans-simplified-chinese
+      source-han-serif-simplified-chinese
     ];
     fontconfig = {
       enable = true;
@@ -15,9 +16,9 @@
       # are using. It is suggested as a multiple of 6 or 12.
       # dpi = 96;
       defaultFonts = {
-        monospace = [ "Hack" "Source Han Sans CN" ];
-        sansSerif = [ "Source Han Sans CN" ];
-        serif = [ "Liberation Serif" "Source Han Serif CN" "Symbola" ];
+        monospace = [ "Hack" "Sarasa Mono SC" ];
+        sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" ];
+        serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" ];
       };
     };
   };

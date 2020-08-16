@@ -8,7 +8,7 @@
     WINIT_X11_SCALE_FACTOR = "1";
   };
   font = {
-    size = 11;
+    size = 10.0;
   };
   colors = {
     primary = {

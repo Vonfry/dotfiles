@@ -19,6 +19,11 @@
     xkbVariant = "dvp";
     autorun = true;
 
+    libinput = {
+      enable = true;
+      accelProfile = "flat";
+    };
+
     displayManager.sddm = {
       enable = true;
       theme = "Ant-Dracula";

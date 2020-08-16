@@ -29,6 +29,8 @@
 ** DONE Rust
 ** DONE Ruby
 ** DONE Python
+** DONE Perl
+** DONE Coq
 
 * Shell
 ** DONE ZSH
@@ -37,7 +39,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[17/19]
+*** TODO home-manager instead setup script[19/20]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -60,4 +62,5 @@
     - [ ] neovim & emacs packages management
     - [X] qutebrowser setting, color, bookmark and search
     - [X] remove darwin support
-*** TODO niv?
+*** DONE niv?
+    CLOSED: [2020-07-31 Fri 21:45]

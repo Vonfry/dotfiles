@@ -7,7 +7,7 @@ function! vonfry#editor#init()
             set macligatures
         endif
         set guioptions=egmti
-        set guifont=Hack:h11
+        set guifont=monospace:h11
         set mousemodel=popup
         set cursorline
         " set cursorcolumn
@@ -111,8 +111,5 @@ function! vonfry#editor#nvim()
     endif
     if !exists("g:python3_host_prog")
         let g:python3_host_prog='python3'
-    endif
-    if !exists("g:ruby_host_prog")
-        let g:ruby_host_prog='neovim-ruby-host'
     endif
 endfunction

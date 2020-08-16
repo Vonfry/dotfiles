@@ -25,7 +25,7 @@
   home = {
     activation = {
       qutebrowserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
-        $DRY_RUN_CMD ln $VERBOSE_ARG -s -f $CLOUD_DIR/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
+        $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
       '';
     };
 
@@ -39,7 +39,6 @@
 
       vnstat
       iftop
-      clash
       qbittorrent
       rclone
     ];
@@ -54,7 +53,6 @@
       keyBindings = {
         normal = {
           "gv" = "spawn chromium {url}";
-          "t'" = "config-cycle -p content.proxy http://127.0.0.1:7890 system";
         };
       };
       searchEngines = {
@@ -175,7 +173,10 @@
         };
         editor.command = [ "alacritty -e nvim" "{file}" ];
         downloads = {
-          location.directory = "~/Downloads";
+          location = {
+            directory = "~/Downloads";
+            prompt = false;
+          };
           remove_finished = 7;
         };
       };

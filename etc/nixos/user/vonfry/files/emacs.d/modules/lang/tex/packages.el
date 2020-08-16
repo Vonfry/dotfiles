@@ -40,7 +40,8 @@
        ;; have the buffer refresh after compilation
        (reftex-mode)
        (rainbow-delimiters-mode)
-       (LaTeX-math-mode)))
+       (LaTeX-math-mode)
+       (lsp)))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
