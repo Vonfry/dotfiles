@@ -54,7 +54,7 @@
       filezilla
 
       flameshot feh # inkscape gimp
-      cmus # kid3
+      cmus # kid3 audacity
       mpv # ffmpeg
       unstable.tor-browser-bundle-bin
       zathura

@@ -36,5 +36,13 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    extraConfig = ''
+      load-module module-dbus-protocol
+      load-module module-equalizer-sink
+    '';
+  };
+
+  environment.systemPackages = with pkgs; [ pavucontrol qpaeq ]
 }
