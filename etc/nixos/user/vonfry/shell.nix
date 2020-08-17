@@ -116,7 +116,9 @@
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
         ec  = "emacsclient -n";
         ecc = "emacsclient -n -c";
-        ect = "emacsclient -t";
+        eCt = "emacsclient -t";
+        eC  = "emacsclient";
+        eCc = "emacsclient -c";
       };
     };
   };
