@@ -35,7 +35,7 @@
       enable = true;
       extraPackages = tpkgs: {
         inherit (tpkgs) scheme-medium collection-latexextra
-          collection-bibtexextra;
+          collection-bibtexextra collection-publishers;
       };
     };
   };
