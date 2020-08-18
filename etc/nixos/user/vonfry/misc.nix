@@ -41,14 +41,4 @@
       source-han-serif-simplified-chinese
     ];
   };
-
-  services.gpg-agent = {
-    enable = true;
-    defaultCacheTtl = 14400;
-    enableSshSupport = true;
-    extraConfig = ''
-      allow-emacs-pinentry
-      allow-preset-passphrase
-    '';
-  };
 }

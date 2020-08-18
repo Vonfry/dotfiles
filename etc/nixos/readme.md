@@ -42,7 +42,7 @@ import them by yourselves. It can make file content more clearful.
 - tools effect on it: notify, tray, etc.
 
 ### application
-NB: none of above.
+NB: none of above and it is only for each user.
 
 - applications on a topic: music, file manager, video, etc.
 

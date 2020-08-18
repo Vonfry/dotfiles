@@ -8,7 +8,6 @@
     overlays = import ./overlay/overlays.nix;
   };
 
-
   xdg.configFile = {
     "nix/nix.conf".text = ''
         auto-optimise-store = true
@@ -32,10 +31,9 @@
       sshfs exfat
       lnav lm_sensors lsof
 
-      zip unzip
       patch parallel file
 
-      fortune cmatrix figlet
+      zip unzip
       colordiff
       ripgrep fd exa # bat
 
