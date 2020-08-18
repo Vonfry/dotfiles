@@ -32,10 +32,8 @@
       sshfs exfat
       lnav lm_sensors lsof
 
-      zip unzip
       patch parallel file
 
-      fortune cmatrix figlet
       colordiff
       ripgrep fd exa # bat
 

@@ -68,7 +68,7 @@ myKeys conf = mkKeymap conf
     , ("M-, t", spawn "telegram-desktop")
     , ("M-, '", spawn "emacs"           )
     , ("M-, p", spawn "1password"       )
-    , ("M-, j", spawn "qpaeq"           )
+    , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
     , ("M-, m", runInTerm "-t cmus"      "cmus"     )
     , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )

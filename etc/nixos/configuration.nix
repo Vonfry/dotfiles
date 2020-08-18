@@ -10,6 +10,7 @@ in {
     ./shell.nix
     ./development.nix
     ./x.nix
+    ./application.nix
     ./misc.nix
     ./user
   ];

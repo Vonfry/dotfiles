@@ -20,7 +20,6 @@ in
     lm_sensors lsof
 
     file patch colordiff parallel
-    zip unzip
     ripgrep fd exa bat
   ];
 

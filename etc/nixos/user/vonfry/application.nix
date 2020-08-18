@@ -46,6 +46,9 @@
 
   home = {
     packages = with pkgs; [
+      fortune cmatrix figlet
+      zip unzip
+
       unstable._1password-gui
 
       tdesktop
@@ -54,7 +57,7 @@
       filezilla
 
       flameshot feh # inkscape gimp
-      cmus # kid3 audacity
+      pavucontrol cmus # kid3 audacity
       mpv # ffmpeg
       unstable.tor-browser-bundle-bin
       zathura
@@ -75,6 +78,20 @@
       "application/xhtml+xml"         = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xhtml" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xht"   = "org.qutebrowser.qutebrowser.desktop";
+    };
+  };
+
+  services = {
+    pulseeffects.enable = true;
+
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 14400;
+      enableSshSupport = true;
+      extraConfig = ''
+        allow-emacs-pinentry
+        allow-preset-passphrase
+      '';
     };
   };
 }
