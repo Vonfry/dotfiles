@@ -8,7 +8,6 @@
     overlays = import ./overlay/overlays.nix;
   };
 
-
   xdg.configFile = {
     "nix/nix.conf".text = ''
         auto-optimise-store = true
