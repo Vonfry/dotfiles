@@ -33,6 +33,7 @@
 
       patch parallel file
 
+      zip unzip
       colordiff
       ripgrep fd exa # bat
 

@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 
-let
-  localFiles = [ ./base.local.nix ];
-in
 {
   i18n.defaultLocale = "en_US.UTF-8";
   console.keyMap = "dvorak-programmer";
@@ -19,6 +16,7 @@ in
     atop htop
     lm_sensors lsof
 
+    zip unzip
     file patch colordiff parallel
     ripgrep fd exa bat
   ];
@@ -32,7 +30,6 @@ in
     buildCores = 0;
   };
 
-
   nixpkgs = {
     config = import ./user/vonfry/files/nixpkgs.nix;
     overlays = import ./user/vonfry/overlay/overlays.nix;
@@ -45,5 +42,5 @@ in
 
   system.stateVersion = "20.03";
 
-  imports = localFiles;
+  imports = [ ./base.local.nix ];
 }

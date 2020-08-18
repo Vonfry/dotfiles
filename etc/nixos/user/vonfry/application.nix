@@ -47,7 +47,6 @@
   home = {
     packages = with pkgs; [
       fortune cmatrix figlet
-      zip unzip
 
       unstable._1password-gui
 
