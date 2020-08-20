@@ -4,7 +4,6 @@ import XMonad hiding ((|||))
 import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
-import XMonad.Actions.WindowMenu
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
@@ -181,9 +180,6 @@ myKeys conf = mkKeymap conf
     , ("M-S-d", popOldestHiddenWindow)
 
     -- fcitx clipboard history to paste
-
-    -- window menu
-    , ("M-w", windowMenu)
 
     -- midia keys
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
