@@ -4,6 +4,7 @@ import XMonad hiding ((|||))
 import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
+import XMonad.Actions.DynamicWorkspaces
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
@@ -169,8 +170,13 @@ myKeys conf = mkKeymap conf
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
     , ("M-S-." , toggleWS    )
-    , ("M-g"   , workspacePrompt myXPConf (windows . view ))
-    , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
+
+    -- dynamic workspace
+    , ("M-g"  , workspacePrompt myXPConf (windows . view ))
+    , ("M-S-g", workspacePrompt myXPConf (windows . shift))
+    , ("M-w d", removeWorkspace)
+    , ("M-w n", addWorkspacePrompt myXPConf)
+    , ("M-w r", renameWorkspace myXPConf)
 
     -- change pwd for current workspace
     , ("M-p", changeDir myXPConfNoAc)
