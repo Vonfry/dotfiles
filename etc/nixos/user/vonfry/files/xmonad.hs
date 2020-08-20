@@ -24,7 +24,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
-import XMonad.Util.Paste
 import XMonad.Util.Run
 import XMonad.StackSet hiding (float, workspaces, allWindows)
 
@@ -180,16 +179,16 @@ myKeys conf = mkKeymap conf
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
     , ("M-S-d", popOldestHiddenWindow)
-    -- paste
-    , ("M-y", pasteSelection)
+
+    -- fcitx clipboard history to paste
 
     -- window menu
     , ("M-w", windowMenu)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 1%-")
-    , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 1%+")
-    , ("<XF86AudioMute>"       , spawn "amixer set Master toggle")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
+    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
     ]
 
 myLayout = beforeLayouts layouts
