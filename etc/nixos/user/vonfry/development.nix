@@ -209,6 +209,7 @@
         hlinum
         rainbow-mode
         undo-tree
+        hledger-mode
       ];
     };
     git = {
