@@ -185,6 +185,11 @@ myKeys conf = mkKeymap conf
 
     -- window menu
     , ("M-w", windowMenu)
+
+    -- midia keys
+    , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 1%-")
+    , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 1%+")
+    , ("<XF86AudioMute>"       , spawn "amixer set Master toggle")
     ]
 
 myLayout = beforeLayouts layouts
