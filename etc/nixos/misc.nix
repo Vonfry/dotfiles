@@ -40,10 +40,6 @@
     };
   };
 
-  sound = {
-    enable = true;
-    mediaKeys.enable = true;
-  };
-
+  sound.enable = true;
   hardware.pulseaudio.enable = true;
 }

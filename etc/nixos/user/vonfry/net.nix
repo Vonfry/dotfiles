@@ -24,7 +24,7 @@
 
   home = {
     activation = {
-      qutebrowserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
+      browserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
         $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
       '';
     };

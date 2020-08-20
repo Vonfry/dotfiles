@@ -13,6 +13,7 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Window
 import XMonad.Prompt.Workspace
 import XMonad.Prompt.FuzzyMatch
+import XMonad.Prompt.Man
 import XMonad.Layout.ShowWName
 import XMonad.Layout.GridVariants hiding (Orientation(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
@@ -55,10 +56,11 @@ myXPConfNoAc = myXPConf { autoComplete = Nothing }
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"  , shellPrompt myXPConf           )
-    , ("M-S-x", shellPrompt myXPConfNoAc       )
-    , ("M-C-x", xmonadPrompt myXPConf          )
-    , ("M-/"  , promptSearch myXPConfNoAc multi)
+    [ ("M-x"   , shellPrompt myXPConf           )
+    , ("M-S-x" , shellPrompt myXPConfNoAc       )
+    , ("M-C-x" , xmonadPrompt myXPConf          )
+    , ("M-/"   , promptSearch myXPConfNoAc multi)
+    , ("M-<F1>", manPrompt myXPConf             )
 
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
@@ -183,6 +185,11 @@ myKeys conf = mkKeymap conf
 
     -- window menu
     , ("M-w", windowMenu)
+
+    -- midia keys
+    , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 1%-")
+    , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 1%+")
+    , ("<XF86AudioMute>"       , spawn "amixer set Master toggle")
     ]
 
 myLayout = beforeLayouts layouts
