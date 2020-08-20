@@ -7,6 +7,7 @@
   (company-tooltip-limit 16)
   (company-minimum-prefix-length 4)
   (company-tooltip-flip-when-above t)
+  (company-dabbrev-ignore-case nil)
   (company-tooltip-offset-display 'lines)
   :general
   (:keymaps 'company-active-map
