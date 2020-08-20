@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   programs = {
@@ -45,7 +45,25 @@
   };
 
   home = {
+    activation = {
+      financialActivation =
+        let
+          FILE = config.home.sessionVariables.LEDGER_FILE;
+        in lib.hm.dag.entryAfter ["shellActivation"] ''
+          [ ! -h $(dirname ${FILE}) ] && ln -s ${config.home.sessionVariables.CLOUD_DIR}/financial $(dirname ${FILE})
+          if [ ! -f ${FILE} ]; then
+            touch ${FILE}
+            echo "include header.journal\nY$(date +%Y)\n"
+            echo "New year financial file is created. Please check it(${FILE})."
+            exit -1
+          fi
+        '';
+    };
+
     packages = with pkgs; [
+      fortune cmatrix figlet
+
+      hledger
       unstable._1password-gui
 
       tdesktop
@@ -54,7 +72,7 @@
       filezilla
 
       flameshot feh # inkscape gimp
-      cmus # kid3 audacity
+      pavucontrol cmus # kid3 audacity
       mpv # ffmpeg
       unstable.tor-browser-bundle-bin
       zathura
@@ -75,6 +93,20 @@
       "application/xhtml+xml"         = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xhtml" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xht"   = "org.qutebrowser.qutebrowser.desktop";
+    };
+  };
+
+  services = {
+    pulseeffects.enable = true;
+
+    gpg-agent = {
+      enable = true;
+      defaultCacheTtl = 14400;
+      enableSshSupport = true;
+      extraConfig = ''
+        allow-emacs-pinentry
+        allow-preset-passphrase
+      '';
     };
   };
 }

@@ -8,7 +8,6 @@
     overlays = import ./overlay/overlays.nix;
   };
 
-
   xdg.configFile = {
     "nix/nix.conf".text = ''
         auto-optimise-store = true
@@ -23,7 +22,7 @@
   home = {
     stateVersion = "20.09";
 
-    activation.ixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
       $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString ./overlay/overlays.nix} ${toString config.xdg.configHome}/nixpkgs/overlays.nix
     '';
 
@@ -31,10 +30,21 @@
       atop # htop
       sshfs exfat
       lnav lm_sensors lsof
+
+      patch parallel file
+
+      zip unzip
+      colordiff
+      ripgrep fd exa # bat
+
+      # many tools need this at runtime.
+      python3
     ];
   };
 
   programs = {
+    man.enable = true;
+    bat.enable = true;
     ssh = {
       enable = true;
       compression = true;

@@ -227,7 +227,10 @@
 
     texlive = {
       enable = true;
-      extraPackages = tpkgs: { inherit (tpkgs) scheme-full; };
+      extraPackages = tpkgs: {
+        inherit (tpkgs) scheme-medium collection-latexextra
+          collection-bibtexextra collection-publishers;
+      };
     };
   };
 

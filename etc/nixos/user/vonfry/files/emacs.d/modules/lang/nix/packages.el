@@ -2,6 +2,7 @@
 ;;
 
 (package! nix-mode
+  :interpreter ("nix-shell" . nix-shebang-mode)
   :general
   (+mmap-nix-def
     "\"" 'nix-repl

@@ -47,7 +47,7 @@
   whitespace-style '(face
                      trailing
                      lines-tail)
-  case-fold-search nil
+  case-fold-search t
   line-spacing 0
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
@@ -93,6 +93,7 @@
 
   custom-file vonfry-custom-file
   abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)
+  dabbrev-case-fold-search t
   save-abbrevs 'silently
 
   semanticdb-default-save-directory (expand-file-name "semanticdb"

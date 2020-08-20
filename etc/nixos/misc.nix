@@ -6,6 +6,11 @@
     fcitx.engines = with pkgs.fcitx-engines; [ rime ]; # wubi
   };
 
+  console = {
+    font = "Hack-11";
+    packages = with pkgs; [ hack-font kbdKeymaps.dvp ];
+  };
+
   programs = {
     gnupg.agent = {
       enable = true;
@@ -36,13 +41,5 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio = {
-    enable = true;
-    extraConfig = ''
-      load-module module-dbus-protocol
-      load-module module-equalizer-sink
-    '';
-  };
-
-  environment.systemPackages = with pkgs; [ pavucontrol qpaeq ];
+  hardware.pulseaudio.enable = true;
 }

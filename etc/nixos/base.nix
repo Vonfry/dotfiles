@@ -1,20 +1,13 @@
 { config, pkgs, lib, ... }:
 
-let
-  localFiles = [ ./base.local.nix ];
-in
 {
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Hack-11";
-    keyMap = "dvorak-programmer";
-    packages = with pkgs; [ hack-font kbdKeymaps.dvp ];
-  };
+  console.keyMap = "dvorak-programmer";
 
   time.timeZone = "Asia/Shanghai";
 
   environment.systemPackages = with pkgs; [
-    sudo
+    # sudo
     gnutls cacert
     pciutils usbutils inxi
     exfat
@@ -22,6 +15,10 @@ in
     lnav
     atop htop
     lm_sensors lsof
+
+    zip unzip
+    file patch colordiff parallel
+    ripgrep fd exa bat
   ];
 
   security.sudo.enable = true;
@@ -33,11 +30,8 @@ in
     buildCores = 0;
   };
 
-
   nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
+    config = import ./user/vonfry/files/nixpkgs.nix;
     overlays = import ./user/vonfry/overlay/overlays.nix;
   };
 
@@ -48,5 +42,5 @@ in
 
   system.stateVersion = "20.03";
 
-  imports = localFiles;
+  imports = [ ./base.local.nix ];
 }

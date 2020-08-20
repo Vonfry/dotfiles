@@ -2,8 +2,6 @@
 
 {
   programs = {
-    man.enable = true;
-    bat.enable = true;
 
     tmux = {
       enable = true;
@@ -118,7 +116,9 @@
         ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
         ec  = "emacsclient -n";
         ecc = "emacsclient -n -c";
-        ect = "emacsclient -t";
+        eCt = "emacsclient -t";
+        eC  = "emacsclient";
+        eCc = "emacsclient -c";
       };
     };
   };
@@ -163,12 +163,9 @@
 
     packages = with pkgs; [
       zsh fzf jump
-      file colordiff  patch parallel trash-cli thefuck # tmux
-      zip unzip
-      ripgrep fd exa bat
+      trash-cli thefuck # tmux
       neofetch
       # lolcat
-      fortune cmatrix figlet
       asciinema
     ];
   };

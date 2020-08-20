@@ -18,7 +18,6 @@
   #   ftp_proxy   = "prot://user:password@proxy:port";
   # };
 
-
   services.openssh =  {
     enable = false;
     allowSFTP = false;
