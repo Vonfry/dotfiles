@@ -3,7 +3,7 @@
 
 (package! w3m
   :custom
-  (browse-url-browser-function 'w3m-browse-url)
+  (browse-url-browser-function 'browse-url-generic)
   (browse-url-generic-program (getenv "BROWSER"))
   (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
   :general
