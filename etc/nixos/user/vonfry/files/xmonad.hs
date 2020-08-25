@@ -55,11 +55,13 @@ myXPConfNoAc = myXPConf { autoComplete = Nothing }
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"   , shellPrompt myXPConf           )
-    , ("M-S-x" , shellPrompt myXPConfNoAc       )
-    , ("M-C-x" , xmonadPrompt myXPConf          )
-    , ("M-/"   , promptSearch myXPConfNoAc multi)
-    , ("M-<F1>", manPrompt myXPConf             )
+    [ ("M-x"  , shellPrompt myXPConf           )
+    , ("M-S-x", shellPrompt myXPConfNoAc       )
+    , ("M-C-x", xmonadPrompt myXPConf          )
+    , ("M-/"  , promptSearch myXPConfNoAc multi)
+
+    , ("M-<F1>"  , manPrompt myXPConf             )
+    , ("M-S-<F1>", runInTerm "-t w3mman" "w3mman" )
 
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
