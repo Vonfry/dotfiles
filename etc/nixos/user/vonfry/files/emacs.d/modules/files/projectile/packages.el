@@ -46,7 +46,6 @@
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
   (+mmap-note-def
-    "o"   '(nil :which-key "org projectile todo")
     "o ," 'org-projectile-project-todo-completing-read
     "o c" 'org-projectile-capture-for-current-project
     "o ." 'org-projectile-goto-location-for-project)

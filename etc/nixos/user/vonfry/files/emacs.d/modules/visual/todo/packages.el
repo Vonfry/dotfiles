@@ -5,6 +5,7 @@
   :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
   (+mmap-note-def
-    "{" 'hl-todo-previous
-    "}" 'hl-todo-next
-    "o" 'hl-todo-occur))
+    "o"   '(nil :which-key "todo")
+    "o {" 'hl-todo-previous
+    "o }" 'hl-todo-next
+    "o o" 'hl-todo-occur))
