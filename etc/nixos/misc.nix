@@ -7,8 +7,8 @@
   };
 
   console = {
-    font = "Hack-11";
-    packages = with pkgs; [ hack-font kbdKeymaps.dvp ];
+    font = "terminus-11";
+    packages = with pkgs; [ terminus_font kbdKeymaps.dvp ];
   };
 
   programs = {
