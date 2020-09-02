@@ -52,6 +52,12 @@ myXPConf = def
 
 myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
+mySWNConf = def { swn_font    = myFont
+                , swn_bgcolor = draculaBackground
+                , swn_color   = draculaForeground
+                , swn_fade    = 1 % 1
+                }
+
 -- my configurations
 
 myKeys conf = mkKeymap conf
@@ -219,7 +225,7 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "Full"      ] (noBorders Full)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
-    beforeLayouts = showWName . hiddenWindows
+    beforeLayouts = showWName' mySWNConf . hiddenWindows
 
 myWorkspaces = [ "home"
                , "doc"
