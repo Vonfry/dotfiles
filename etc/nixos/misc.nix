@@ -7,7 +7,7 @@
   };
 
   console = {
-    font = "terminus-11";
+    font = "ter-v12n";
     packages = with pkgs; [ terminus_font kbdKeymaps.dvp ];
   };
 
