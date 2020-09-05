@@ -60,16 +60,20 @@ love.
 
 ## Lang
 
+All languages tools use nix-shell to install and export into environment 
+per-project. Here list languages support in editor.
+
 - orgmode & latex
-- C/C++ - clang/llvm
-- Haskell - ghc & cabal ( without stack ) & nix
+- C/C++ 
+- Haskell - main lang
 - Coq
 - Rust
-- Perl
+- elixir
+- ~~Perl~~
 - ~~Lisp~~
 - ~~Ruby~~
 - ~~R~~
-- Python3(only interperter)
+- Python3 - only interperter
 - ~~Web - js, html, css/sass, ts~~
 
 The other languages are also supposed in system and editor, but they aren't used
