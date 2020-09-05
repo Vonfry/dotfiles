@@ -68,8 +68,7 @@ per-project. Here list languages support in editor.
 - Haskell - main lang
 - Coq
 - Rust
-- elixir
-- ~~Perl~~
+- Perl
 - ~~Lisp~~
 - ~~Ruby~~
 - ~~R~~
