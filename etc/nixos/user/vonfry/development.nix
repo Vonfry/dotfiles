@@ -210,8 +210,6 @@
         rainbow-mode
         undo-tree
         hledger-mode
-        elixir-mode
-        elixir-yasnippets
       ];
     };
     git = {
