@@ -1,6 +1,7 @@
 * System
-** TODO NixOS
-    - [ ] clean setup script about sed and some local configuration.
+** DONE NixOS
+   CLOSED: [2020-09-05 Sat 10:16]
+    - [X] clean setup script about sed and some local configuration.
 *** TODO X [4/9]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
@@ -20,7 +21,8 @@
    - [X] CHOOSE gnus mu4e elfeed newst-ticker
    - [ ] use envrc.el instead direnv.el
 *** DONE use raxod502/straight.el instead of package.el
-** TODO LSP[0/1]
+** CANCELLED LSP[0/1]
+   CLOSED: [2020-09-05 Sat 10:17]
    - [ ] hls instead of hie?
 
 * Language
