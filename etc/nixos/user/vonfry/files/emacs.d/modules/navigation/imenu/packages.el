@@ -4,5 +4,5 @@
 (package! imenu
   :ensure nil
   :general
-  (+mmap-prog-def
+  (+mmap-leader-def
     ";" 'imenu))
