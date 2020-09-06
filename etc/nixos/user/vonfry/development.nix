@@ -86,14 +86,13 @@
     };
     emacs =  {
       enable = true;
-      extraPackages = epkgs: with pkgs; with epkgs; [
-        python3 sqlite
+      extraPackages = epkgs: with epkgs; [
+        pkgs.python3 pkgs.sqlite pkgs.perl
 
         all-the-icons
         solarized-theme
         dracula-theme
         general
-        exec-path-from-shell
         whitespace-cleanup-mode
         use-package
         diminish
