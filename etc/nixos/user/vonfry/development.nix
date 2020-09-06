@@ -14,10 +14,6 @@
 
   services = {
     lorri.enable = true;
-    emacs = {
-      enable = true;
-      client.enable = true;
-    };
   };
 
   programs = {
