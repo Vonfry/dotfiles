@@ -114,7 +114,7 @@
     enable = true;
     userDirs.enable = true;
     mimeApps.enable = true;
-    dataFiles = {
+    dataFile = {
       "applications/org-protocol.desktop".text = ''
         [Desktop Entry]
         Name=org-protocol
