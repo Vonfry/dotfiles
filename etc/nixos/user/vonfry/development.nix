@@ -46,6 +46,9 @@
     };
 
     packages = with pkgs; [
+      # required by other tools
+      sqlite python3
+
       neovim vim emacs
 
       # git git-lfs
