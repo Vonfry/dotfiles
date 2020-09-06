@@ -36,9 +36,6 @@
       zip unzip
       colordiff
       ripgrep fd exa # bat
-
-      # many tools need this at runtime.
-      python3
     ];
   };
 
