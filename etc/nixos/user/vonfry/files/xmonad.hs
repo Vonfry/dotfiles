@@ -76,7 +76,6 @@ myKeys conf = mkKeymap conf
     , ("M-, v", spawn "VirtualBox"      )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, '", spawn "emacsclient -c"  )
     , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
@@ -84,8 +83,9 @@ myKeys conf = mkKeymap conf
     , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
-    , ("M-$", runInTerm "" "watch date"     )
-    , ("M-'", runInTerm "-t ranger" "ranger")
+    , ("M-$"  , runInTerm "" "watch date"     )
+    , ("M-'"  , runInTerm "-t ranger" "ranger")
+    , ("M-S-'", spawn "emacsclient -c"  )
 
     -- basic window
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
