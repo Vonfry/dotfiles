@@ -214,6 +214,7 @@
         rainbow-mode
         undo-tree
         hledger-mode
+        cperl-mode
       ];
     };
     git = {
