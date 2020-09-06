@@ -25,6 +25,7 @@ import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 import XMonad.StackSet hiding (float, workspaces, allWindows)
 
 import Data.Ratio
@@ -75,13 +76,13 @@ myKeys conf = mkKeymap conf
     , ("M-, v", spawn "VirtualBox"      )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, '", spawn "emacs"           )
+    , ("M-, '", spawn "emacsclient -c"  )
     , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
-    , ("M-, m", runInTerm "-t cmus"      "cmus"     )
-    , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
-    , ("M-, a", runInTerm "-t htop"      "htop"     )
+    , ("M-, m", runInTerm "-t cmus"    "cmus"   )
+    , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
+    , ("M-, a", runInTerm "-t htop"    "htop"   )
 
     , ("M-$", runInTerm "" "watch date"     )
     , ("M-'", runInTerm "-t ranger" "ranger")
@@ -238,10 +239,13 @@ myWorkspaces = [ "home"
                , "play"
                ]
 
+myStartup = spawnOnOnce "home" "emacs"
+
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
     , keys               = myKeys
+    , startupHook        = myStartup
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
     , focusedBorderColor = draculaPurple

@@ -20,6 +20,4 @@
   };
 
   documentation.dev.enable = true;
-
-  services.emacs.install = true;
 }
