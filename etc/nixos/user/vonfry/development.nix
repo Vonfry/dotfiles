@@ -212,6 +212,7 @@
         undo-tree
         hledger-mode
         cperl-mode
+        ess
       ];
     };
     git = {
