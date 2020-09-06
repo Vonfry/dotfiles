@@ -151,11 +151,4 @@ All modules should use function and macro in this file. By default, every module
 (defmacro after! (feature &rest body)
   `(with-eval-after-load ',feature ,@body))
 
-(defun exec-var! (&rest vars)
-  "add varible from user shell."
-  (when (boundp 'exec-path-from-shell-variables)
-    (setq exec-path-from-shell-variables
-      (append exec-path-from-shell-variables vars))))
-
 (provide 'vonfry-packages)
-
