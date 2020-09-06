@@ -86,7 +86,9 @@
     };
     emacs =  {
       enable = true;
-      extraPackages = epkgs: with epkgs; [
+      extraPackages = epkgs: with pkgs; with epkgs; [
+        python3 sqlite
+
         all-the-icons
         solarized-theme
         dracula-theme

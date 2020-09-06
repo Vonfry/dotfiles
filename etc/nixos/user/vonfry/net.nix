@@ -54,6 +54,7 @@
       keyBindings = {
         normal = {
           "gv" = "spawn chromium {url}";
+          "pa" = "open -t https://web.archive.org/save/{url}";
         };
       };
       searchEngines = {

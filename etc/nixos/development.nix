@@ -19,5 +19,5 @@
     };
   };
 
-  services.emacs.install = true;
+  documentation.dev.enable = true;
 }

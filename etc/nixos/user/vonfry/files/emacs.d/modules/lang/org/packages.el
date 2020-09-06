@@ -86,9 +86,10 @@
 (package! org-journal
   :after org
   :custom
-  (org-journal-file-format "%Y-%m-%d.org")
+  (org-journal-file-format "%Y-%m.org")
   (org-journal-enable-agenda-integration t)
   (org-journal-find-file 'find-file)
+  (org-journal-file-type 'monthly)
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
@@ -130,3 +131,5 @@
   :general
   (+mmap-note-def
     "{ s" 'org-roam-server-mode))
+
+(package! org-protocol :ensure nil)

@@ -38,6 +38,7 @@
   services = {
     syslog-ng.enable = true;
     logrotate.enable = true;
+    dbus.enable = true;
   };
 
   system.stateVersion = "20.03";

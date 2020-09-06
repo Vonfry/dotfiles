@@ -4,7 +4,7 @@ import XMonad hiding ((|||))
 import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
-import XMonad.Actions.WindowMenu
+import XMonad.Actions.DynamicWorkspaces
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Prompt
@@ -24,8 +24,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
-import XMonad.Util.Paste
 import XMonad.Util.Run
+import XMonad.Util.SpawnOnce
 import XMonad.StackSet hiding (float, workspaces, allWindows)
 
 import Data.Ratio
@@ -53,14 +53,22 @@ myXPConf = def
 
 myXPConfNoAc = myXPConf { autoComplete = Nothing }
 
+mySWNConf = def { swn_font    = myFont
+                , swn_bgcolor = draculaBackground
+                , swn_color   = draculaForeground
+                , swn_fade    = 1 % 1
+                }
+
 -- my configurations
 
 myKeys conf = mkKeymap conf
-    [ ("M-x"   , shellPrompt myXPConf           )
-    , ("M-S-x" , shellPrompt myXPConfNoAc       )
-    , ("M-C-x" , xmonadPrompt myXPConf          )
-    , ("M-/"   , promptSearch myXPConfNoAc multi)
-    , ("M-<F1>", manPrompt myXPConf             )
+    [ ("M-x"  , shellPrompt myXPConf           )
+    , ("M-S-x", shellPrompt myXPConfNoAc       )
+    , ("M-C-x", xmonadPrompt myXPConf          )
+    , ("M-/"  , promptSearch myXPConfNoAc multi)
+
+    , ("M-<F1>"  , manPrompt myXPConf             )
+    , ("M-S-<F1>", runInTerm "-t w3mman" "w3mman" )
 
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
@@ -68,13 +76,13 @@ myKeys conf = mkKeymap conf
     , ("M-, v", spawn "VirtualBox"      )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, '", spawn "emacs"           )
+    , ("M-, '", spawn "emacsclient -c"  )
     , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
-    , ("M-, m", runInTerm "-t cmus"      "cmus"     )
-    , ("M-, #", runInTerm "-t cmatrix"   "cmatrix"  )
-    , ("M-, a", runInTerm "-t htop"      "htop"     )
+    , ("M-, m", runInTerm "-t cmus"    "cmus"   )
+    , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
+    , ("M-, a", runInTerm "-t htop"    "htop"   )
 
     , ("M-$", runInTerm "" "watch date"     )
     , ("M-'", runInTerm "-t ranger" "ranger")
@@ -171,8 +179,13 @@ myKeys conf = mkKeymap conf
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
     , ("M-S-." , toggleWS    )
-    , ("M-g"   , workspacePrompt myXPConf (windows . view ))
-    , ("M-S-g" , workspacePrompt myXPConf (windows . shift))
+
+    -- dynamic workspace
+    , ("M-g"  , workspacePrompt myXPConf (windows . view ))
+    , ("M-S-g", workspacePrompt myXPConf (windows . shift))
+    , ("M-w d", removeWorkspace)
+    , ("M-w n", addWorkspacePrompt myXPConf)
+    , ("M-w r", renameWorkspace myXPConf)
 
     -- change pwd for current workspace
     , ("M-p", changeDir myXPConfNoAc)
@@ -180,16 +193,13 @@ myKeys conf = mkKeymap conf
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
     , ("M-S-d", popOldestHiddenWindow)
-    -- paste
-    , ("M-y", pasteSelection)
 
-    -- window menu
-    , ("M-w", windowMenu)
+    -- fcitx clipboard history to paste
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "amixer -q sset Master 1%-")
-    , ("<XF86AudioRaiseVolume>", spawn "amixer -q sset Master 1%+")
-    , ("<XF86AudioMute>"       , spawn "amixer set Master toggle")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
+    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
     ]
 
 myLayout = beforeLayouts layouts
@@ -216,7 +226,7 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "Full"      ] (noBorders Full)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
-    beforeLayouts = showWName . hiddenWindows
+    beforeLayouts = showWName' mySWNConf . hiddenWindows
 
 myWorkspaces = [ "home"
                , "doc"
@@ -229,10 +239,13 @@ myWorkspaces = [ "home"
                , "play"
                ]
 
+myStartup = spawnOnOnce "home" "emacs"
+
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
     , keys               = myKeys
+    , startupHook        = myStartup
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
     , focusedBorderColor = draculaPurple

@@ -41,7 +41,8 @@
     "<" 'counsel-mark-ring
     "?" 'counsel-info-lookup-symbol
     "y" 'counsel-yank-pop
-    "m" 'counsel-bookmark)
+    "m" 'counsel-bookmark
+    ";" 'counsel-imenu)
   (+mmap-ivy-def
     "a" 'counsel-rg
     "/" 'counsel-search
