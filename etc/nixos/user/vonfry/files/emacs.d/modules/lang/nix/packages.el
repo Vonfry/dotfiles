@@ -5,7 +5,10 @@
   :interpreter ("nix-shell" . nix-shebang-mode)
   :general
   (+mmap-nix-def
+    "="  'nix-format-buffer
     "\"" 'nix-repl
     "r"  'nix-build)
   (+mmap-mode-nix-def
-    "u"  'nix-unpack))
+    "u"  'nix-unpack
+    "/"  'nix-search
+    "="  'nix-indent-line))
