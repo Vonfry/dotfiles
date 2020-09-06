@@ -14,6 +14,10 @@
 
   services = {
     lorri.enable = true;
+    emacs = {
+      enable = true;
+      client.enable = true;
+    };
   };
 
   programs = {
@@ -241,7 +245,7 @@
     };
 
     packages = with pkgs; [
-      neovim vim emacs
+      # neovim vim emacs
 
       # git git-lfs
       gitAndTools.gitflow tig gitAndTools.git-extras
