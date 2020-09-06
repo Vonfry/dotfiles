@@ -11,4 +11,5 @@
   (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir)))
 
 (package! ess-r-mode
+  :hook lsp
   :ensure nil)
