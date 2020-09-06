@@ -113,6 +113,8 @@
 (hook! prog-mode whitespace-mode)
 (hook! text-mode whitespace-mode)
 
+(hook! after-init server-start)
+
 (package! whitespace-cleanup-mode
   :hook
   ((prog-mode . whitespace-cleanup-mode)
@@ -122,7 +124,7 @@
   :hook
   (after-init . global-hl-line-mode))
 
-(use-package saveplace
+(package! saveplace
   :ensure nil
   :custom
   (save-place-file (expand-file-name "saveplace" vonfry-cache-dir))

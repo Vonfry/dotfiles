@@ -70,5 +70,4 @@
 (when (file-exists-p vonfry-custom-file-after)
   (load vonfry-custom-file-after))
 
-
 (provide 'vonfry)

@@ -131,3 +131,5 @@
   :general
   (+mmap-note-def
     "{ s" 'org-roam-server-mode))
+
+(package! org-protocol :ensure nil)

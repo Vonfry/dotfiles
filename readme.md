@@ -65,13 +65,13 @@ per-project. Here list languages support in editor.
 
 - orgmode & latex
 - C/C++ 
-- Haskell - main lang
+- Haskell - main prog lang
 - Coq
 - Rust
-- Perl
+- Perl - main script lang
 - ~~Lisp~~
 - ~~Ruby~~
-- ~~R~~
+- R
 - Python3 - only interperter
 - ~~Web - js, html, css/sass, ts~~
 
