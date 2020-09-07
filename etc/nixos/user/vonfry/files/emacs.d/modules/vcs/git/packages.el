@@ -18,6 +18,8 @@
 
 (package! magit-gitflow
   :after magit
+  :custom
+  (magit-gitflow-popup-key "I")
   :hook
   (magit-mode . turn-on-magit-gitflow))
 
