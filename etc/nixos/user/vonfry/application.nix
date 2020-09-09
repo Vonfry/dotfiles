@@ -72,7 +72,7 @@
       filezilla
 
       flameshot feh # inkscape gimp
-      pavucontrol cmus # kid3 audacity
+      pavucontrol audacious # kid3 audacity
       mpv # ffmpeg
       unstable.tor-browser-bundle-bin
       zathura

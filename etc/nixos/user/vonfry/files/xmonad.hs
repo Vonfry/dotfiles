@@ -79,7 +79,7 @@ myKeys conf = mkKeymap conf
     , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
-    , ("M-, m", runInTerm "-t cmus"    "cmus"   )
+    , ("M-, m", spawn "audacious"       )
     , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
