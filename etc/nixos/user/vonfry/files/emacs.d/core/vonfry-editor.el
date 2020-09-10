@@ -52,7 +52,6 @@
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
 
-  recentf-mode 1
   recentf-max-menu-items 10
   recentf-max-saved-items 1000
 
@@ -83,7 +82,6 @@
   auto-save-list-file-prefix vonfry-auto-save-list-prefix
 
   visual-line-mode t
-  show-paren-mode t
 
   tramp-default-method "ssh"
   tramp-auto-save-directory vonfry-tramp-cache
@@ -102,6 +100,9 @@
 
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)
+
+(recentf-mode t)
+(show-paren-mode t)
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
