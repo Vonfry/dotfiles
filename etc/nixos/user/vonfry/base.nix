@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./base.local.nix ];
+  imports = [ ];
 
   nixpkgs = {
     config = import ./files/nixpkgs.nix;
