@@ -50,7 +50,7 @@
         let
           FILE = config.home.sessionVariables.LEDGER_FILE;
         in lib.hm.dag.entryAfter ["shellActivation"] ''
-          [ ! -h $(dirname ${FILE}) ] && ln -s ${config.home.sessionVariables.CLOUD_DIR}/financial $(dirname ${FILE})
+          [ ! -h $(dirname ${FILE}) ] && ln -s ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
           if [ ! -f ${FILE} ]; then
             touch ${FILE}
             echo "include header.journal\nY$(date +%Y)\n"
