@@ -2,6 +2,6 @@
 
 {
   # home.user
-  home.username = ""; 
-  home.homeDirectory = "";
+  home.username = "vonfry";
+  home.homeDirectory = "/home/vonfry";
 }
