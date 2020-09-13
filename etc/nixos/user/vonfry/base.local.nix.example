@@ -1,7 +1,0 @@
-{ ... }:
-
-{
-  # home.user
-  home.username = "vonfry";
-  home.homeDirectory = "/home/vonfry";
-}
