@@ -55,6 +55,7 @@
       keyBindings = {
         normal = {
           "gv" = "spawn chromium {url}";
+          "pm" = "spawn mpv {url}";
           "pa" = "open -t https://web.archive.org/save/{url}";
         };
       };
