@@ -32,7 +32,10 @@
     "t"  'org-todo
     "$"  'org-archive-subtree-default
     "c"  'org-ctrl-c-ctrl-c
-    "h"  'avy-org-goto-heading-timer))
+    "h"  'avy-org-goto-heading-timer
+    "D i" 'org-display-inline-images
+    "D t" 'org-latex-preview
+    "D k" 'org-toggle-link-display))
 
 (package! org-bullets
   :after org

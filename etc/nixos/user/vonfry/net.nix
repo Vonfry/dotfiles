@@ -25,6 +25,7 @@
   home = {
     activation = {
       browserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
+        $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
         $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
       '';
     };
@@ -54,6 +55,7 @@
       keyBindings = {
         normal = {
           "gv" = "spawn chromium {url}";
+          "pm" = "spawn mpv {url}";
           "pa" = "open -t https://web.archive.org/save/{url}";
         };
       };

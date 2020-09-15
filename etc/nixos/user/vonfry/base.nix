@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [ ./base.local.nix ];
+  imports = [ ];
 
   nixpkgs = {
     config = import ./files/nixpkgs.nix;
@@ -20,6 +20,8 @@
   };
 
   home = {
+    username = "vonfry";
+    homeDirectory = "/home/vonfry";
     stateVersion = "20.09";
 
     activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''

@@ -7,7 +7,7 @@
   :type 'directory
   :custom-set 'mu4e-maildir)
 
-(custom! +mail-attachment-dir (expand-file-name "attach" vonfry-local-dir)
+(custom! +mail-attachment-dir (xdg-user-dir "DOWNLOAD")
   ""
   :group 'vonfry-modules
   :type 'directory

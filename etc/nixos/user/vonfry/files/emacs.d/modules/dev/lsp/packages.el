@@ -35,10 +35,6 @@
     "L h" 'lsp-lens-hide
     "l"   'lsp-avy-lens))
 
-(package! lsp-clients
-  :after lsp-mode
-  :ensure nil)
-
 (package! company-lsp
   :after (lsp-mode company yasnippet)
   :custom
