@@ -42,6 +42,7 @@
         recolor-darkcolor       = "#f8f8f2"; # Foreground
       };
     };
+    mpv.enable = true;
   };
 
   home = {
@@ -73,7 +74,7 @@
 
       flameshot feh # inkscape gimp
       pavucontrol audacious # kid3 audacity
-      mpv # ffmpeg
+      # mpv ffmpeg
       unstable.tor-browser-bundle-bin
       zathura
       libreoffice
