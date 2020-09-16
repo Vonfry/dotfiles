@@ -19,7 +19,7 @@
 (package! magit-gitflow
   :after magit
   :custom
-  (magit-gitflow-popup-key "I")
+  (magit-gitflow-popup-key "[")
   :hook
   (magit-mode . turn-on-magit-gitflow))
 
