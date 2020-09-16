@@ -10,7 +10,7 @@
     - [ ] use wayland instead
     - [X] xmonad launcher & keybind
     - [ ] sddm theme by environments.extraSetup or recode ant-dracula theme and
-      wait for a release
+      wait for a release with sddm support
 ** macOS
 
 * Editor
