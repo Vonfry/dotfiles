@@ -35,7 +35,7 @@
 
       patch parallel file
 
-      zip unzip
+      zip unzip convmv
       colordiff
       ripgrep fd exa # bat
     ];
