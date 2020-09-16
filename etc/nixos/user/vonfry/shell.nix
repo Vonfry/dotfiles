@@ -36,7 +36,7 @@
           owner = "Vonfry";
           repo = "prezto";
           rev = "fa7acd43d9f94d69af24ea36097a7dd32db90f2a";
-          sha256 = "0wfadn6zjpnm2prs71nwa09jpmbaw1phfq4vapcy5463j80h6x33";
+          sha256 = "12ps37z7kzihas0dr39fwmxx94nfm7f2bvlsn22ysjh8migpgjjs";
           fetchSubmodules = true;
         };
       } {
