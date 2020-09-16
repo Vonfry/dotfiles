@@ -21,6 +21,7 @@ zstyle ':prezto:load' pmodule  \
     'ssh'                      \
     'gpg'                      \
     'haskell'                  \
+    'perl'                     \
     'helper'                   \
     'history-substring-search' \
     'history'                  \
