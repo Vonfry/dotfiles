@@ -35,8 +35,8 @@
         src = fetchFromGitHub {
           owner = "Vonfry";
           repo = "prezto";
-          rev = "aed8c0ed0adc5a4b8858656cdc1028300a52c104";
-          sha256 = "14lg3k6nxm66pg0c5j71wp8b4n18qnnr5lkc0szdw9vn3drrcfnm";
+          rev = "fa7acd43d9f94d69af24ea36097a7dd32db90f2a";
+          sha256 = "0wfadn6zjpnm2prs71nwa09jpmbaw1phfq4vapcy5463j80h6x33";
           fetchSubmodules = true;
         };
       } {
@@ -44,18 +44,9 @@
         src = fetchFromGitHub {
           owner = "paulirish";
           repo = "git-open";
-          rev = "d9a0d19ce291ab09d182e389edaa278bb2febb11";
-          sha256 = "1a1w8jya851mq692dahdhy9kgkn0z1801cfzdcw6ra78pily22i6";
+          rev = "14fdf5c96e30e89b84504d513a0311b3f712cee0";
+          sha256 = "073wpm4gbgsa110js487zcwgsclczimplrcsl7fxqrrbcyf26wq5";
         };
-      } {
-        name = "zsh-async";
-        src = fetchFromGitHub {
-          owner = "mafredri";
-          repo = "zsh-async";
-          rev = "v1.8.3";
-          sha256 = "1vlr8fkk3k4cz3sxz3qmlkfsqxw251igbn9raz3lga4p213m98jb";
-        };
-        file = "async.zsh";
       } {
         name = "you-should-use";
         src = fetchFromGitHub {
