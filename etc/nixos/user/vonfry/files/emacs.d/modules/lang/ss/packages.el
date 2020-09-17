@@ -8,7 +8,10 @@
   (ess-use-ido nil)
   (ess-ido-flex-matching nil)
   (ess-use-auto-complete nil)
-  (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir)))
+  (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
+  :general
+  (+mmap-ss-def
+   "'" 'ess-interrupt))
 
 (package! ess-r-mode
   :hook lsp
