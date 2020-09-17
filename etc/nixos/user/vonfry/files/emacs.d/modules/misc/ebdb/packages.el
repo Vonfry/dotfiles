@@ -7,10 +7,10 @@
   (ebdb-image-path (expand-file-name "imgs" +ebdb-base-dir))
   :general
   (+mmap-at-def
-    "e"   'ebdb-counsel
-    "E"   '(nil :which-key "edbd")
-    "E e" 'ebdb-open
-    "E &" 'ebdb-complete-mail
-    "E E" 'ebdb))
+    "c"   'ebdb-counsel
+    "C"   '(nil :which-key "edbd")
+    "C c" 'ebdb-open
+    "C &" 'ebdb-complete-mail
+    "C C" 'ebdb))
 
 (package! ebdb-mu4e :after mu4e :ensure nil)

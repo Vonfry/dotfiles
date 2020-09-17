@@ -11,7 +11,8 @@
   (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
   :general
   (+mmap-ss-def
-   "\"" 'ess-interrupt)
+   "\"" 'ess-interrupt
+   "?"  'ess-help)
   (+mmap-ss-def
    "' b"   'ess-eval-buffer
    "' f"   'ess-eval-function
