@@ -192,7 +192,8 @@ myKeys conf = mkKeymap conf
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
-    , ("M-S-d", popOldestHiddenWindow)
+    , ("M-S-d", popNewestHiddenWindow)
+    , ("M-C-d", popOldestHiddenWindow)
 
     -- fcitx clipboard history to paste
 
