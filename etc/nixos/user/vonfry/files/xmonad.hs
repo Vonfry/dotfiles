@@ -226,7 +226,7 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "Full"      ] (noBorders Full)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
-    beforeLayouts = showWName' mySWNConf . hiddenWindows
+    beforeLayouts = showWName' mySWNConf . hiddenWindows . workspaceDir "~"
 
 myWorkspaces = [ "home"
                , "doc"
