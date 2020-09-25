@@ -72,9 +72,6 @@
         set log-options = --show-signature
         set diff-options = --show-signature
       '';
-      ".gnupg/gpg.conf".text = ''
-        keyserver hkps://keys.openpgp.org
-      '';
       ".vimrc".source = ./files/vimrc;
       ".ghc/ghci.conf".text = ''
         :set +m
