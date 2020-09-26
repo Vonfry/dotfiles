@@ -36,6 +36,11 @@
       extraPackages = tpkgs: {
         inherit (tpkgs) scheme-medium collection-latexextra
           collection-bibtexextra collection-publishers;
+        pkgFilter = (pkg:
+          pkg.tlType == "run" ||
+          pkg.tlType == "bin" ||
+          pkg.tlType == "doc" ||
+          pkg.pname == "core");
       };
     };
   };
