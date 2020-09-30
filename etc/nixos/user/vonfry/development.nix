@@ -87,7 +87,7 @@
     emacs =  {
       enable = true;
       extraPackages = epkgs: with epkgs; [
-        pkgs.python3 pkgs.sqlite pkgs.perl
+        pkgs.python3 pkgs.sqlite pkgs.perl pkgs.rubyPackages.jekyll
 
         all-the-icons
         solarized-theme
