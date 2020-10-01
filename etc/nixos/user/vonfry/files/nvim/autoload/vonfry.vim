@@ -10,7 +10,6 @@ function! vonfry#init()
     call vonfry#mapping#init()
     call vonfry#editor#init()
     call vonfry#bundle#init()
-    call vonfry#bundle#use()
     call vonfry#os#init()
     call vonfry#ui#init()
 endfunction

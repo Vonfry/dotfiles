@@ -2,7 +2,7 @@
 " preinstall package manager and define the bundle which are needed by default.
 "
 
-let g:vonfry#bundle#dir = g:vonfry#local#cache . '/bundle/'
+let g:vonfry#bundle#default = [ "completion", "dev", "file", "interface", "lang", "navigation", "vcs", "visual" ]
 
 function! vonfry#bundle#init()
     for bundle in g:vonfry#bundle#default

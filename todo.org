@@ -61,8 +61,9 @@
     - [X] recode setup scripts
     - [X] remove zplug overlay when 20.09 nixpkgs
     - [X] lorri services
-    - [ ] neovim & emacs packages management
+    - [X] neovim & emacs packages management
     - [X] qutebrowser setting, color, bookmark and search
     - [X] remove darwin support
+    - [ ] nvim: some plugins problem 
 *** DONE niv?
     CLOSED: [2020-07-31 Fri 21:45]

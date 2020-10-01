@@ -35,7 +35,7 @@
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
 (custom-set-variables
-  '(use-package-always-demand nil)
+  '(use-package-always-demand t)
   '(use-package-always-ensure nil))
 
 ;;

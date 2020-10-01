@@ -18,7 +18,7 @@
 
   programs = {
     vim = {
-      enable = false;
+      enable = true;
       settings = {
         background = "dark";
         backupdir = [ "~/.cache/vim/backup/" ];
@@ -37,11 +37,10 @@
       extraConfig = builtins.readFile ./files/vimrc;
     };
     neovim = {
-      enable = false;
-      package = pkgs.unstable.neovim;
-      plugins = with pkgs.unstable.vimPackages; [
+      enable = true;
+      plugins = with pkgs.vimPlugins; [
         vim-test
-        SQHell-vim
+        # SQHell-vim
         vim-logreview
         vim-surround
         auto-pairs
@@ -62,22 +61,22 @@
         editorconfig-vim
         vim-better-whitespace
         vim-signature
-        incsearch.vim
+        incsearch-vim
         vim-over
         vimproc-vim
         tabular
         vim-which-key
-        deoplete.nvim
+        deoplete-nvim
         ultisnips
         vim-snippets
-        nvim-lsp
+        # nvim-lspconfig # neovim > 0.5
         vim-fugitive
         vim-signify
         NeoSolarized
-        vim # dracula
+        dracula-vim
         vim-airline
         # vim-airline-clock
-        indentline
+        indentLine
         vim-mundo
       ];
       extraConfig = ''
@@ -211,8 +210,8 @@
         rainbow-mode
         undo-tree
         hledger-mode
-        cperl-mode
         ess
+	direnv
       ];
     };
     git = {
@@ -220,6 +219,9 @@
       userEmail = "mail@vonfry.name";
       signing.signByDefault = true;
       enable = true;
+      extraConfig = {
+        pull.rebase = false;
+      };
       lfs.enable = true;
       ignores = [ (builtins.readFile ./files/gitignore) ];
     };

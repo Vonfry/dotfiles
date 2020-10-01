@@ -112,11 +112,3 @@ set tags+=./tags
 set tags+=./.git/tags
 runtime macros/matchit.vim " include matchit for `%`
 
-
-" set plugin fzf
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-set rtp+=/usr/local/opt/fzf,~/.fzf
-
-" set plugin editorconfig {{{
-let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
-let g:EditorConfig_exec_path="editorconfig"
