@@ -67,7 +67,7 @@ THEME is a symbol passed to `load-theme'"
                       "Symbola"
                       nil 'prepend)))
 
-(package! info)
+(package! info :ensure nil)
 
 (custom-set!
   tool-bar-mode nil
