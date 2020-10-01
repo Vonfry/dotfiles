@@ -36,9 +36,9 @@
       extraPackages = tpkgs: {
         inherit (tpkgs) scheme-medium collection-latexextra
           collection-bibtexextra collection-publishers collection-langchinese;
-        # pkgFilter = (pkg: with lib; with pkg;
-        #   elem tlType [ "run" "bin" "doc" ] ||
-        #   elem pname  [ "core" ]);
+        pkgFilter = (pkg: with lib; with pkg;
+          elem tlType [ "run" "bin" "doc" ] ||
+          elem pname  [ "core" ]);
       };
     };
   };
