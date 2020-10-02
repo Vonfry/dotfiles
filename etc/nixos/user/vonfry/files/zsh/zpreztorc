@@ -17,8 +17,6 @@ zstyle ':prezto:load' pmodule  \
     'directory'                \
     'docker'                   \
     'git'                      \
-    'ssh'                      \
-    'gpg'                      \
     'haskell'                  \
     'perl'                     \
     'helper'                   \

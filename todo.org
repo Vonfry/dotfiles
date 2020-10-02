@@ -9,15 +9,14 @@
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
     - [X] xmonad launcher & keybind
-    - [ ] sddm theme by environments.extraSetup or recode ant-dracula theme and
-      wait for a release with sddm support
-** macOS
+** CANCELLED macOS
+   CLOSED: [2020-10-01 Thu 19:26]
 
 * Editor
 ** DONE Vim
 *** TODO NeoVim
 **** TODO ?use internal lsp
-** TODO Emacs[1/4]
+** TODO Emacs[1/2]
    - [X] CHOOSE gnus mu4e elfeed newst-ticker
    - [ ] use envrc.el instead direnv.el
 *** DONE use raxod502/straight.el instead of package.el
@@ -41,7 +40,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[19/20]
+*** TODO home-manager instead setup script[20/21]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -61,8 +60,9 @@
     - [X] recode setup scripts
     - [X] remove zplug overlay when 20.09 nixpkgs
     - [X] lorri services
-    - [ ] neovim & emacs packages management
+    - [X] neovim & emacs packages management
     - [X] qutebrowser setting, color, bookmark and search
     - [X] remove darwin support
+    - [ ] nvim: some plugins problem and wait for update
 *** DONE niv?
     CLOSED: [2020-07-31 Fri 21:45]

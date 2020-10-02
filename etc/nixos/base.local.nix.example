@@ -4,10 +4,15 @@
   # boot.loader
   # network
 
-  nix.gc = {
-    automatic = false;
-    options = "--delete-older-than 14d";
-    dates = "Sun 19:00";
+  nix= {
+    # default nrBuildUsers is same as maxJobs or 32. You may set this variables
+    # if your number of cpu threads is larger than 32.
+    maxJobs = "auto"; 
+    gc = {
+      automatic = false;
+      options = "--delete-older-than 14d";
+      dates = "Sun 19:00";
+    };
   };
 
   boot.tmpOnTmpfs = true;

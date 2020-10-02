@@ -26,7 +26,6 @@
   nix = {
     optimise.automatic = true;
     trustedUsers = [ "root" "@wheel" ];
-    maxJobs = "auto";
     buildCores = 0;
   };
 
@@ -41,7 +40,7 @@
     dbus.enable = true;
   };
 
-  system.stateVersion = "20.03";
+  system.stateVersion = "20.09";
 
   imports = [ ./base.local.nix ];
 }

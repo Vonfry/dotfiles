@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   xdg.configFile = {
@@ -17,11 +17,211 @@
   };
 
   programs = {
+    vim = {
+      enable = true;
+      settings = {
+        background = "dark";
+        backupdir = [ "~/.cache/vim/backup/" ];
+        expandtab = true;
+        mousemodel = "popup";
+        number = true;
+        relativenumber = true;
+        shiftwidth = 4;
+        ignorecase = true;
+        smartcase = true;
+        tabstop = 4;
+        undofile = true;
+        undodir = [ "~/.cache/vim/undo" ];
+        history = 1024;
+      };
+      extraConfig = builtins.readFile ./files/vimrc;
+    };
+    neovim = {
+      enable = true;
+      plugins = with pkgs.vimPlugins; [
+        vim-test
+        # SQHell-vim
+        vim-logreview
+        vim-surround
+        auto-pairs
+        direnv-vim
+        nerdtree
+        nerdtree-git-plugin
+        vim-rooter
+        vim-projectionist
+        vim-polyglot
+        vim-ragtag
+        # MatchTagAlways
+        DoxygenToolkit-vim
+        nerdcommenter
+        vim-orgmode
+        vim-easymotion
+        tagbar
+        fzf-vim
+        editorconfig-vim
+        vim-better-whitespace
+        vim-signature
+        incsearch-vim
+        vim-over
+        vimproc-vim
+        tabular
+        vim-which-key
+        deoplete-nvim
+        ultisnips
+        vim-snippets
+        # nvim-lspconfig # neovim > 0.5
+        vim-fugitive
+        vim-signify
+        NeoSolarized
+        dracula-vim
+        vim-airline
+        # vim-airline-clock
+        indentLine
+        vim-mundo
+      ];
+      extraConfig = ''
+        call vonfry#init()
+      '';
+    };
+    emacs =  {
+      enable = true;
+      extraPackages = epkgs: with epkgs; [
+        pkgs.python3 pkgs.sqlite pkgs.perl pkgs.rubyPackages.jekyll
+
+        all-the-icons
+        solarized-theme
+        dracula-theme
+        general
+        whitespace-cleanup-mode
+        use-package
+        diminish
+        dash
+        s
+        auto-compile
+        evil
+        evil-numbers
+        evil-surround
+        evil-matchit
+        amx
+        flx
+        ivy
+        counsel
+        ivy-avy
+        swiper
+        ivy-rich
+        counsel-tramp
+        flycheck
+        auctex
+        auctex-latexmk
+        company-math
+        company-auctex
+        dashboard
+        proof-general
+        company-coq
+        python-mode
+        pydoc
+        nix-mode
+        gnuplot
+        org
+        org-bullets
+        evil-org
+        org-web-tools
+        org-journal
+        org-ql
+        org-roam
+        org-roam-server
+        rust-mode
+        cargo
+        company-shell
+        markdown-mode
+        epkgs."markdown-mode+"
+        haskell-mode
+        lsp-haskell
+        hasky-extensions
+        haskell-snippets
+        easy-jekyll
+        json-mode
+        yaml-mode
+        magit
+        git-commit
+        transient
+        with-editor
+        gitconfig-mode
+        gitignore-mode
+        gitattributes-mode
+        magit-gitflow
+        evil-magit
+        gitlab-ci-mode
+        forge
+        inf-ruby
+        diff-hl
+        disaster
+        function-args
+        cmake-mode
+        cmake-font-lock
+        realgud-lldb
+        mu4e-alert
+        mu4e-maildirs-extension
+        elfeed
+        emacsql
+        sql-indent
+        ebib
+        company
+        company-quickhelp
+        company-prescient
+        w3m
+        yasnippet
+        yasnippet-snippets
+        info-colors
+        dumb-jump
+        ranger
+        avy
+        ace-window
+        google-translate
+        treemacs
+        treemacs-evil
+        treemacs-projectile
+        treemacs-magit
+        treemacs-icons-dired
+        ebdb
+        which-key
+        docker
+        logview
+        pdf-tools
+        projectile
+        counsel-projectile
+        org-projectile
+        ibuffer-vc
+        ibuffer-projectile
+        lsp-mode
+        company-lsp
+        lsp-treemacs
+        lsp-ivy
+        editorconfig
+        realgud
+        engine-mode
+        evil-nerd-commenter
+        rainbow-delimiters
+        highlight-indent-guides
+        origami
+        doom-modeline
+        hl-todo
+        hlinum
+        rainbow-mode
+        undo-tree
+        hledger-mode
+        ess
+	direnv
+      ];
+    };
     git = {
       userName = "Vonfry";
       userEmail = "mail@vonfry.name";
       signing.signByDefault = true;
       enable = true;
+      extraConfig = {
+        pull.rebase = false;
+      };
       lfs.enable = true;
       ignores = [ (builtins.readFile ./files/gitignore) ];
     };
@@ -35,7 +235,10 @@
       enable = true;
       extraPackages = tpkgs: {
         inherit (tpkgs) scheme-medium collection-latexextra
-          collection-bibtexextra collection-publishers;
+          collection-bibtexextra collection-publishers collection-langchinese;
+        pkgFilter = (pkg: with lib; with pkg;
+          elem tlType [ "run" "bin" "doc" ] ||
+          elem pname  [ "core" ]);
       };
     };
   };
@@ -46,10 +249,7 @@
     };
 
     packages = with pkgs; [
-      # required by other tools
-      sqlite python3
-
-      neovim vim emacs
+      # neovim vim emacs
 
       # git git-lfs
       gitAndTools.gitflow tig gitAndTools.git-extras
@@ -71,9 +271,6 @@
       ".tigrc".text = ''
         set log-options = --show-signature
         set diff-options = --show-signature
-      '';
-      ".gnupg/gpg.conf".text = ''
-        keyserver hkps://keys.openpgp.org
       '';
       ".vimrc".source = ./files/vimrc;
       ".ghc/ghci.conf".text = ''
