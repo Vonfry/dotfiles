@@ -26,7 +26,6 @@
   nix = {
     optimise.automatic = true;
     trustedUsers = [ "root" "@wheel" ];
-    maxJobs = "auto";
     buildCores = 0;
   };
 
