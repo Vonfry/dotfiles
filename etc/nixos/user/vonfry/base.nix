@@ -37,7 +37,7 @@
 
       zip unzip convmv unrar
       colordiff
-      ripgrep fd exa # bat
+      ripgrep fd lsd # bat
     ];
   };
 
