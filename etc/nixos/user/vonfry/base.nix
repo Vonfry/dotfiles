@@ -37,7 +37,7 @@
 
       zip unzip convmv unrar
       colordiff
-      ripgrep fd lsd # bat
+      ripgrep fd # lsd bat
     ];
   };
 
@@ -50,7 +50,10 @@
       forwardAgent = true;
       serverAliveInterval = 60;
     };
-
+    lsd = {
+      enable = true;
+      enableAliases = true;
+    };
     htop = {
       enable = true;
       treeView = true;
