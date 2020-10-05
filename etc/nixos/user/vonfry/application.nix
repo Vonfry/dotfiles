@@ -66,6 +66,10 @@
         '';
     };
 
+    sessionVariables = {
+      PDFVIEWER = "zathura";
+    };
+
     packages = with pkgs; [
       fortune cmatrix figlet
 
