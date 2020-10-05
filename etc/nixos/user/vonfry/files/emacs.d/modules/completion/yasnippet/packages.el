@@ -8,6 +8,7 @@
   :general
   ("C-;" 'yas-insert-snippet)
   :config
-  (yas-global-mode 1)
-  (package! yasnippet-snippets))
+  (yas-global-mode 1))
 
+(package! yasnippet-snippets
+  :after yasnippet)
