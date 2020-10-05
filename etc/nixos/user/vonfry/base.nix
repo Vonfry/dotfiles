@@ -50,10 +50,6 @@
       forwardAgent = true;
       serverAliveInterval = 60;
     };
-    lsd = {
-      enable = true;
-      enableAliases = true;
-    };
     htop = {
       enable = true;
       treeView = true;
