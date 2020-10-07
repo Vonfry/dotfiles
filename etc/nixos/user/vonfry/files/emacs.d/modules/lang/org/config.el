@@ -9,6 +9,16 @@
 (mmap-mode-prefix! org nil
   :keymaps 'org-mode-map)
 
+(custom! +org-file-apps
+         '((auto-mode . emacs)
+           ("\\.mm\\'" . default)
+           ("\\.x?html?\\'" . default)
+           ("\\.pdf\\'" . "zathura"))
+  "org dir"
+  :type 'directory
+  :group 'vonfry-modules
+  :custom-set 'org-file-apps)
+
 (custom! +org-dir (let ((env-orgmode-dir (getenv "ORG_DIR")))
                     (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
   "org dir"
