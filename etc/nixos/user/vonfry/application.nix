@@ -104,6 +104,7 @@
       "application/xhtml+xml"         = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xhtml" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-extension-xht"   = "org.qutebrowser.qutebrowser.desktop";
+      "application/pdf"               = "org.pwmt.zathura.desktop";
     };
   };
 
