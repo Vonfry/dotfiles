@@ -1,8 +1,6 @@
 ;;; yasnippet packages -*- lexical-binding: t -*-
 ;;
 
-(package! yasnippet-snippets)
-
 (package! yasnippet
   :after company
   :custom
@@ -13,4 +11,5 @@
   :general
   ("C-;" 'yas-insert-snippet)
   :config
+  (package! yasnippet-snippets)
   (yas-global-mode 1))
