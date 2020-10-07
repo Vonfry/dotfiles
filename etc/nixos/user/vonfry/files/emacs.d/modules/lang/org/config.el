@@ -14,8 +14,7 @@
            ("\\.mm\\'" . default)
            ("\\.x?html?\\'" . default)
            ("\\.pdf\\'" . "zathura"))
-  "org dir"
-  :type 'directory
+  "org file apps"
   :group 'vonfry-modules
   :custom-set 'org-file-apps)
 
