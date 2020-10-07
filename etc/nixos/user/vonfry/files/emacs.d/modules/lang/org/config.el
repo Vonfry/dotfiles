@@ -13,7 +13,7 @@
          '((auto-mode . emacs)
            ("\\.mm\\'" . default)
            ("\\.x?html?\\'" . default)
-           ("\\.pdf\\'" . "zathura"))
+           ("\\.pdf\\'" . system))
   "org file apps"
   :group 'vonfry-modules
   :custom-set 'org-file-apps)
