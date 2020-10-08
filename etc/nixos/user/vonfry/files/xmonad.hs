@@ -40,7 +40,7 @@ myTerm = "alacritty"
 myXPConf = def
     { font            = myFont
     , searchPredicate = fuzzyMatch
- -- , sorter          = fuzzySort -- need xmonad-contrib 0.16
+    , sorter          = fuzzySort
     , bgColor         = draculaBackground
     , fgColor         = draculaForeground
     , bgHLight        = draculaSelection
@@ -82,6 +82,10 @@ myKeys conf = mkKeymap conf
     , ("M-, m", spawn "audacious"       )
     , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
+
+    , ("M-c c", spawn "dunstctl close"      )
+    , ("M-c a", spawn "dunstctl close-all"  )
+    , ("M-c p", spawn "dunstctl history-pop")
 
     , ("M-$"  , runInTerm "" "watch date"     )
     , ("M-'"  , runInTerm "-t ranger" "ranger")

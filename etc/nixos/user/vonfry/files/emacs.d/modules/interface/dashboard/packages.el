@@ -15,7 +15,7 @@
                      (bookmarks . 5)
                      (projects  . 5)
                      (recents   . 10)))
-  (dashboard-footer
+  (dashboard-footer-messages (list
    (replace-regexp-in-string
      " +"
      " "
@@ -25,7 +25,7 @@
        (replace-regexp-in-string
          (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
          ""
-         (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all")))))
+         (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))))))
   :config
   (dashboard-setup-startup-hook)
   :general

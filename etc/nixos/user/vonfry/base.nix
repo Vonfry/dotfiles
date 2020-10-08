@@ -50,13 +50,23 @@
       forwardAgent = true;
       serverAliveInterval = 60;
     };
-
     htop = {
       enable = true;
       treeView = true;
+      highlightBaseName = true;
+      showProgramPath = false;
+      vimMode = true;
+      shadowOtherUsers = true;
+      hideUserlandThreads = true;
+      hideThreads = true;
+      fields = [ "PID" "USER" "PRIORITY" "NICE" "M_SIZE" "M_RESIDENT" "M_SHARE"
+                 "STATE" "PERCENT_CPU" "PERCENT_MEM" "IO_READ_RATE"
+                 "IO_WRITE_RATE" "TIME" "COMM"
+               ];
       meters = {
         left = [
            { kind = "AllCPUs"; mode = 2; }
+          "Blank"
            { kind = "Memory" ; mode = 2; }
            { kind = "Swap"   ; mode = 2; }
         ];
@@ -67,6 +77,10 @@
           { kind = "Tasks"   ; mode = 2; }
           { kind = "Uptime"  ; mode = 2; }
           "LoadAverage"
+          "Blank"
+          { kind = "PressureStallCPUSome";    mode = 2; }
+          { kind = "PressureStallIOSome";     mode = 2; }
+          { kind = "PressureStallMemorySome"; mode = 2; }
         ];
       };
     };
