@@ -53,9 +53,14 @@
     htop = {
       enable = true;
       treeView = true;
+      fields = [ "PID" "USER" "PRIORITY" "NICE" "M_SIZE" "M_RESIDENT" "M_SHARE"
+                 "STATE" "IO_RATE" "IO_READ_RATE" "IO_WRITE_RATE" "PERCENT_CPU"
+                 "PERCENT_MEM" "TIME" "COMM"
+               ];
       meters = {
         left = [
            { kind = "AllCPUs"; mode = 2; }
+          "Blank"
            { kind = "Memory" ; mode = 2; }
            { kind = "Swap"   ; mode = 2; }
         ];
@@ -66,6 +71,10 @@
           { kind = "Tasks"   ; mode = 2; }
           { kind = "Uptime"  ; mode = 2; }
           "LoadAverage"
+          "Blank"
+          { kind = "PressureStallCPUSome";    mode = 2; }
+          { kind = "PressureStallIOSome";     mode = 2; }
+          { kind = "PressureStallMemorySome"; mode = 2; }
         ];
       };
     };
