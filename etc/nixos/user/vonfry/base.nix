@@ -53,9 +53,13 @@
     htop = {
       enable = true;
       treeView = true;
+      highlightBaseName = true;
+      showProgramPath = false;
+      vimMode = true;
+      shadowOtherUsers = true;
       fields = [ "PID" "USER" "PRIORITY" "NICE" "M_SIZE" "M_RESIDENT" "M_SHARE"
-                 "STATE" "IO_RATE" "IO_READ_RATE" "IO_WRITE_RATE" "PERCENT_CPU"
-                 "PERCENT_MEM" "TIME" "COMM"
+                 "STATE" "PERCENT_CPU" "PERCENT_MEM" "IO_RATE" "IO_READ_RATE"
+                 "IO_WRITE_RATE" "TIME" "COMM"
                ];
       meters = {
         left = [
