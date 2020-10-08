@@ -60,7 +60,7 @@
       hideUserlandThreads = true;
       hideThreads = true;
       fields = [ "PID" "USER" "PRIORITY" "NICE" "M_SIZE" "M_RESIDENT" "M_SHARE"
-                 "STATE" "PERCENT_CPU" "PERCENT_MEM" "IO_RATE" "IO_READ_RATE"
+                 "STATE" "PERCENT_CPU" "PERCENT_MEM" "IO_READ_RATE"
                  "IO_WRITE_RATE" "TIME" "COMM"
                ];
       meters = {
