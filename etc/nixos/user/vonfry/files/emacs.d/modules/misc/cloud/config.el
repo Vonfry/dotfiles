@@ -41,7 +41,7 @@
   :type 'string
   :group 'vonfry-modules)
 
-(custom! +cloud-command-extra-argument ""
+(custom! +cloud-command-extra-argument "--update"
   "extra argument to pass."
   :type 'string
   :group 'vonfry-modules)
