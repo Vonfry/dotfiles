@@ -254,7 +254,7 @@
       # git git-lfs
       gitAndTools.gitflow tig gitAndTools.git-extras
 
-      # nixfmt nix-doc
+      nixfmt nix-doc
       niv
 
       cloc
