@@ -6,7 +6,7 @@
   :custom
   (yas-snippet-dirs
    (list (expand-file-name "snippets/" vonfry-local-dir)
-         (expand-file-name "../snippets" load-file-name)
+         (expand-file-name "completion/yasnippet/snippets" vonfry-modules-dir)
          'yasnippet-snippets-dir))
   :general
   ("C-;" 'yas-insert-snippet)
