@@ -4,7 +4,6 @@
 (package! ebib
   :custom
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
-  (ebib-citation-insert-multiple t)
   (ebib-file-associations '(("pdf" . "zathura")))
   :hook
   ((evil-mode . (lambda ()
