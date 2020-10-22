@@ -14,10 +14,7 @@
   :config
   (ivy-mode 1)
   :custom
-  (ivy-use-virtual-buffers nil)
-  :general
-  (+mmap-leader-def
-    "b" 'ivy-switch-buffer))
+  (ivy-use-virtual-buffers nil))
 
 (package! counsel
   :custom
@@ -38,6 +35,7 @@
     "F" '(nil :which-key "counsel misc")
     "F f" 'counsel-fzf
     "F r" 'counsel-recentf
+    "b" 'counsel-switch-buffer
     "<" 'counsel-mark-ring
     "?" 'counsel-info-lookup-symbol
     "y" 'counsel-yank-pop
