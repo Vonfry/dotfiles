@@ -14,7 +14,7 @@
   :config
   (ivy-mode 1)
   :custom
-  (ivy-use-virtual-buffers t)
+  (ivy-use-virtual-buffers nil)
   :general
   (+mmap-leader-def
     "b" 'ivy-switch-buffer))
