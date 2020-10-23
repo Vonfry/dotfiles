@@ -3,20 +3,14 @@
 {
   imports =  [
     ./hardware-configuration.nix # use `nixos-generate-config`
+    ./modules
   ];
 
-  nix= {
-    # default nrBuildUsers is same as maxJobs or 32. You may set this variables
-    # if your number of cpu threads is larger than 32.
-    maxJobs = "auto"; 
-    gc = {
-      automatic = true;
-      options = "--delete-older-than 14d";
-      dates = "Sun 19:00";
-    };
-  };
+  vonfry.enable = true;
 
-  boot.tmpOnTmpfs = true;
+  # default nrBuildUsers is same as maxJobs or 32. You may set this variables
+  # if your number of cpu threads is larger than 32.
+  # nix.maxJobs = "auto"; 
 
   # systemd.services.nix-daemon.environment = {
   #   http_proxy  = "prot://user:password@proxy:port";
@@ -24,26 +18,7 @@
   #   ftp_proxy   = "prot://user:password@proxy:port";
   # };
 
-  services.openssh =  {
-    enable = false;
-    allowSFTP = true;
-    passwordAuthentication = false;
-    permitRootLogin = "prohibit-password";
-    extraConfig =
-      ''
-      ClientAliveInterval 60
-      ClientAliveCountMax 4
-      '';
-  };
-
-  security = {
-    sudo.extraConfig = ''
-      Defaults timestamp_timeout=30
-      Defaults env_keep += "*_proxy *_PROXY"
-    '';
-    sudo.wheelNeedsPassword = true;
-    pam.enableSSHAgentAuth = true;
-  };
+  # services.openssh.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -52,14 +27,11 @@
 
   # nesting.clone = [];
 
-  networking.firewall = {
-      enable = true;
-      allowedTCPPorts = [ 22 ];
-      allowedTCPPortRanges = [];
-      allowedUDPPorts = [ ];
-      allowPing = false;
-      extraPackages = with pkgs; [ ipset ];
-  };
+  # networking.firewall = {
+  #     allowedTCPPorts = [ ];
+  #     allowedTCPPortRanges = [];
+  #     allowedUDPPorts = [ ];
+  # };
 
   # networking.hosts = {
   # };
@@ -94,5 +66,5 @@
   #     '';
   # };
 
-  services.fprintd.enable = true;
+  # services.fprintd.enable = false;
 }
