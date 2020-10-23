@@ -2,7 +2,10 @@
 
 with lib;
 {
-  options.vonfry.enable = mkEnableOption "Vonfry configuration";
+  options.vonfry = {
+    enable = mkEnableOption "Vonfry configuration";
+    publicPC = mkEnableOption "private pc";
+  };
 
   imports = [
     ./base.nix
