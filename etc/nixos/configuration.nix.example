@@ -7,21 +7,32 @@
     # ./private
   ];
 
-  # vonfry.enable = true;
-  # vonfry.hmConfig =
-  #   { config, pkgs, lib, ... }:
-  #
-  #   {
-  #     # sessionVariables must be set after creating these directories.
-  #     home.sessionVariables = {
-  #       DOTFILES_DIR = "$HOME/dotfiles";
-  #       CLOUD_DIR    = "$HOME/cloud";
-  #       ORG_DIR      = "$HOME/orgmode";
-  #       CLONE_LIB    = "$HOME/repos";
-  #       PASSWD_DIR   = "$HOME/.local/passwd";
-  #       LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
+  # vonfry = {
+  #   enable = true;
+  #   hmConfig =
+  #     { config, pkgs, lib, ... }:
+  #     
+  #     {
+  #       # sessionVariables must be set after creating these directories.
+  #       home.sessionVariables = {
+  #         DOTFILES_DIR = "$HOME/dotfiles";
+  #         CLOUD_DIR    = "$HOME/cloud";
+  #         ORG_DIR      = "$HOME/orgmode";
+  #         CLONE_LIB    = "$HOME/repos";
+  #         PASSWD_DIR   = "$HOME/.local/passwd";
+  #         LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
+  #       };
+  #       
+  #       development = {
+  #         git.signKey = "";
+  #       };
+
+  #       net = {
+  #         qutebrowser = import ./private/qutebrowser.nix; 
+  #         email = import ./private/mail.nix;
+  #       };
   #     };
-  #   };
+  # };
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.

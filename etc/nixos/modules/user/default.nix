@@ -7,7 +7,7 @@ in {
   imports = [ <home-manager/nixos> ];
 
   options.vonfry = {
-    extraConfig = {
+    user.extraConfig = {
       default = { };
       example = { openssh.authorizedKeys.keys = [ ]; };
       description = "User extra config.";
