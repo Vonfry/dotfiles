@@ -59,16 +59,16 @@ in {
           ClientAliveInterval 60
           ClientAliveCountMax 4
         '';
-  };
+      };
 
-  security = {
-    sudo.extraConfig = ''
-      Defaults timestamp_timeout=30
-      Defaults env_keep += "*_proxy *_PROXY"
-    '';
-    sudo.wheelNeedsPassword = mkDefault true;
-    pam.enableSSHAgentAuth = mkDefault true;
-  };
+      security = {
+        sudo.extraConfig = mkDefault ''
+          Defaults timestamp_timeout=30
+          Defaults env_keep += "*_proxy *_PROXY"
+        '';
+        sudo.wheelNeedsPassword = mkDefault true;
+        pam.enableSSHAgentAuth = mkDefault true;
+      };
 
     };
 

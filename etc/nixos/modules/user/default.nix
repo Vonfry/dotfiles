@@ -1,14 +1,25 @@
 { config, pkgs, lib, ... }:
 
+with lib;
 let
-  inherit (import ../lib/prelude.nix { inherit lib; }) mkImportWith;
+  cfg = config.vonfry;
 in {
-  users.motd = builtins.readFile ./motd;
+  imports = [ <home-manager/nixos> ];
 
-  home-manager.useUserPackages = true;
+  config = mkIf cfg.enable {
+    users.motd = builtins.readFile ./motd;
 
-  imports = mkImportWith ./local [
-    ./vonfry
-    <home-manager/nixos>
-  ];
+    users.users.vonfry = {
+      isNormalUser = true;
+      home = "/home/vonfry";
+      description = "Vonfry";
+      extraGroups = [ "wheel" "docker" "vboxusers" "networkmanager" ];
+      shell = pkgs.zsh;
+    };
+
+    home-manager = {
+      users.vonfry = import ./home.nix;
+      useUserPackages = true;
+    };
+  };
 }

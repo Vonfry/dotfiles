@@ -5,7 +5,6 @@ let
   cfg = config.vonfry;
   cfgSsh = config.services.openssh;
 
-  enableTCP22 = cfgSsh.enable && cfgSsh.listenAddresses == [ ];
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
@@ -18,7 +17,7 @@ in {
     networking = {
       firewall = {
         enable = mkDefault true;
-        allowedTCPPorts = optional enableTCP22 22;
+        allowedTCPPorts = [ ];
         allowedTCPPortRanges = [ ];
         allowedUDPPorts = [ ];
         allowPing = mkDefault false;
