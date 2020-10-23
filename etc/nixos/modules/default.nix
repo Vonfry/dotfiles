@@ -2,15 +2,7 @@
 
 with lib;
 {
-  options.vonfry = {
-    enable = mkOption {
-      default = false;
-      type = types.bool;
-      description = ''
-        Whether to configure system with Vonfry configuration.
-      '';
-    };
-  };
+  options.vonfry.enable = mkEnableOption "Vonfry configuration";
 
   imports = [
     ./base.nix
