@@ -4,9 +4,24 @@
   imports =  [
     ./hardware-configuration.nix # use `nixos-generate-config`
     ./modules
+    # ./private
   ];
 
-  vonfry.enable = true;
+  # vonfry.enable = true;
+  # vonfry.hmConfig =
+  #   { config, pkgs, lib, ... }:
+  #
+  #   {
+  #     # sessionVariables must be set after creating these directories.
+  #     home.sessionVariables = {
+  #       DOTFILES_DIR = "$HOME/dotfiles";
+  #       CLOUD_DIR    = "$HOME/cloud";
+  #       ORG_DIR      = "$HOME/orgmode";
+  #       CLONE_LIB    = "$HOME/repos";
+  #       PASSWD_DIR   = "$HOME/.local/passwd";
+  #       LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
+  #     };
+  #   };
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.

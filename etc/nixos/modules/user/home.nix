@@ -1,6 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
+with lib;
 {
+  options.vonfry.enable = mkEnableOption "Vonfry configuration";
 
   lib = pkgs.callPackage ./lib { };
 

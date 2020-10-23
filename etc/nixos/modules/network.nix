@@ -3,8 +3,6 @@
 with lib;
 let
   cfg = config.vonfry;
-  cfgSsh = config.services.openssh;
-
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
