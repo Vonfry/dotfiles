@@ -8,7 +8,7 @@ in {
     boot.tmpOnTmpfs = mkDefault true;
 
     i18n.defaultLocale = "en_US.UTF-8";
-    console.keyMap = "dvorak-programmer";
+    console.keyMap = mkDefault "dvorak-programmer";
 
     time.timeZone = mkDefault "Asia/Shanghai";
 

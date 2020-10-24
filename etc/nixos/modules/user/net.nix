@@ -2,7 +2,8 @@
 
 with lib;
 let
-  cfg = config.vonfry;
+  cfg = config.vonfry.net;
+  cfgEnable = config.vonfry.enable;
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -19,11 +20,11 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfgEnable {
     accounts.email = mkIf (cfg.email != null) {
       maildirBasePath = "${config.home.homeDirectory}/.mail";
       accounts = {
-        vonfry = {
+        vonfry = mkMerge [{
           realName = "Vonfry";
           primary = true;
           # other configurations are save in local
@@ -36,7 +37,7 @@ in {
             patterns = [ "*" ];
             extraConfig.channel.Sync = "All";
           };
-        } // cfg.email;
+        } cfg.email];
         local.maildir.path = "local";
       };
     };
@@ -78,7 +79,7 @@ in {
             "pa" = "open -t https://web.archive.org/save/{url}";
           };
         };
-        searchEngines = {
+        searchEngines = mkMerge [{
           DEFAULT = "https://duckduckgo.com/?q={}";
           w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
           nw = "https://nixos.wiki/index.php?search={}";
@@ -89,7 +90,7 @@ in {
           gl = "https://gitlab.com/search?search={}";
           hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
           yt = "https://www.youtube.com/results?search_query={}";
-        } // cfg.qutebrowser.searchEngines;
+        }  cfg.qutebrowser.searchEngines];
         settings =
           let
             draculaBackground          = "#282a36";

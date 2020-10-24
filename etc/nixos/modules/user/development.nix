@@ -2,7 +2,8 @@
 
 with lib;
 let
-  cfg = config.vonfry;
+  cfg = config.vonfry.development;
+  cfgEnable = config.vonfry.enable;
 in {
   options.vonfry.development = {
     emacs = {
@@ -25,7 +26,7 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfgEnable {
     vonfry.development = {
       texlive.withDoc = mkDefault true;
     };

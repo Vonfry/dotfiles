@@ -21,7 +21,7 @@ in {
     services.xserver = {
       enable = true;
       layout = "us";
-      xkbVariant = "dvp";
+      xkbVariant = mkDefault "dvp";
       autorun = true;
 
       libinput = {

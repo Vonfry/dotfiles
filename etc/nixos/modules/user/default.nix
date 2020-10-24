@@ -21,22 +21,26 @@ in {
   };
 
   config = mkIf cfg.enable {
-    users.motd = builtins.readFile ./motd;
+    users.motd = builtins.readFile ./files/motd;
 
-    users.users.vonfry = {
+    users.users.vonfry = mkMerge [{
       isNormalUser = true;
       home = "/home/vonfry";
       description = "Vonfry";
-      extraGroups = [ "wheel" "docker" "vboxusers" "networkmanager" ]
-                    ++ optionals (hasAttr "extraGroups" cfg.extraConfig)
-                                 cfg.extraConfig.extraGroups;
+      extraGroups = [ "wheel" "docker" "vboxusers" "networkmanager" ];
       shell = pkgs.zsh;
-    } // removeAttrs [ "extraGroups" ] cfg.extraConfig;
+    } cfg.extraConfig];
 
     home-manager = {
-      users.vonfry = args: (import ./home.nix args) // {
-        vonfry.enable = cfg.enable;
-      } // (cfg.hmConfig args);
+      users.vonfry = args: mkMerge [
+        (import ./home.nix args)
+        {
+          vonfry = mkDefault {
+            inherit (cfg) enable;
+          };
+        }
+        (cfg.hmConfig args)
+      ];
 
       useUserPackages = true;
     };
