@@ -5,6 +5,13 @@ let
   cfg = config.vonfry;
 in {
   options.vonfry.development = {
+    emacs = {
+      preCustom = mkOption {
+        default = "";
+        type = types.lines;
+      };
+    };
+
     git = {
       signKey = {
         default = null;
@@ -14,11 +21,15 @@ in {
     };
 
     texlive = {
-      pkgsWithDoc = mkEnableOption "texlive packages with doc.";
+      withDoc = mkEnableOption "texlive packages with doc.";
     };
   };
 
   config = mkIf cfg.enable {
+    vonfry.development = {
+      texlive.withDoc = mkDefault true;
+    };
+
     xdg.configFile = {
       "emacs.d" = {
         source = ./files/emacs.d;
@@ -28,6 +39,10 @@ in {
         source = ./files/nvim;
         recursive = true;
       };
+
+      "emacs.d/local/pre-custom.el" = optionalString (isNull cfg.net.email) ''
+        (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
+      '' ++ cfg.emacs.preCustom;
     };
 
     services = {
@@ -258,7 +273,8 @@ in {
           inherit (tpkgs) scheme-medium collection-latexextra
             collection-bibtexextra collection-publishers collection-langchinese;
           pkgFilter = (pkg: with lib; with pkg;
-            elem tlType [ "run" "bin" "doc" ] ||
+            elem tlType ([ "run" "bin" ] ++
+                         optional cfg.texlive.withDoc ["doc" ]) ||
             elem pname  [ "core" ]);
         };
       };

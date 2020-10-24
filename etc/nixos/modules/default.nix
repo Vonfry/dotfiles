@@ -4,7 +4,6 @@ with lib;
 {
   options.vonfry = {
     enable = mkEnableOption "Vonfry configuration";
-    publicPC = mkEnableOption "private pc";
   };
 
   imports = [

@@ -1,10 +1,11 @@
 { pkgs, lib, config, ... }:
 
 with lib;
-{
+let
+  cfg = config.vonfry;
+in {
   options.vonfry = {
     enable = mkEnableOption "Vonfry configuration";
-    publicPC = mkEnableOption "public pc";
   };
 
   lib = pkgs.callPackage ./lib { };
