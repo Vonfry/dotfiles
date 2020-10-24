@@ -58,16 +58,22 @@ in {
       activation = {
         financialActivation =
           let
-            FILE = config.home.sessionVariables.LEDGER_FILE;
-          in lib.hm.dag.entryAfter ["shellActivation"] ''
-            [ ! -h $(dirname ${FILE}) ] && ln -s ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
-            if [ ! -f ${FILE} ]; then
-              touch ${FILE}
-              echo "include header.journal\nY$(date +%Y)\n"
-              echo "New year financial file is created. Please check it(${FILE})."
-              exit -1
-            fi
-          '';
+            sessions = config.home.sessionVariables;
+          in mkIf (sessions ? "LEDGER_FILE" && sessions ? "CLOUD_DIR") (
+            let
+              FILE = sessions.LEDGER_FILE;
+              inherit (sessions) CLOUD_DIR;
+            in
+            lib.hm.dag.entryAfter ["shellActivation"] ''
+              [ ! -h $(dirname ${FILE}) ] && ln -s ${CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
+              if [ ! -f ${FILE} ]; then
+                touch ${FILE}
+                echo "include header.journal\nY$(date +%Y)\n"
+                echo "New year financial file is created. Please check it(${FILE})."
+                exit -1
+              fi
+            ''
+          );
       };
 
       sessionVariables = {

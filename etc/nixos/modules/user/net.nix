@@ -44,10 +44,15 @@ in {
 
     home = {
       activation = {
-        browserActivation = lib.hm.dag.entryAfter ["shellActivation"] ''
-          $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-          $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${config.home.sessionVariables.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
-        '';
+        browserActivation =
+          let
+            sessions = config.home.sessionVariables;
+          in mkIf (sessions ? "CLOUD_DIR") (
+            lib.hm.dag.entryAfter ["shellActivation"] ''
+              $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
+              $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
+            ''
+          );
       };
 
       sessionVariables = {

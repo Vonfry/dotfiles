@@ -124,20 +124,12 @@ in {
 
       activation.shellActivation =
         let
-          inherit (config.home.sessionVariables) DOTFILES_DIR ORG_DIR PASSWD_DIR
-            CLOUD_DIR CLONE_LIB;
-        in lib.hm.dag.entryAfter ["writeBoundary"] ''
+          sessions = config.home.sessionVariables;
+        in with sessions; lib.hm.dag.entryAfter ["writeBoundary"] ''
           mkdir -p ${config.xdg.cacheHome} ~/.local
           if [ -z "${DOTFILES_DIR}"  ]; then
             $DRY_RUN_CMD echo "file is copied, please edit it(${toString ./local/session.nix}). Then prepare for cloud files. "
             exit -1
-          fi
-          ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
-          $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
-          $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
-          if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
-            $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
-            $DRY_RUN_CMD read
           fi
           ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
           if ! [ -d ${CLONE_LIB}/fortunes ]; then
@@ -152,6 +144,16 @@ in {
             $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
             setfacl -m u:sddm:x ~/
             setfacl -m u:sddm:r ~/.face.icon
+          fi
+        '' ++ optionalString (sessions ? "ORG_DIR" && sessions ? "CLOUD_DIR") ''
+          ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+        '' ++ optionalString (sessions ? "CLOUD_DIR") ''
+          $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
+        '' ++ optionalString (sessions ? "CLOUD_DIR" && sessions ? "PASSWD_DIR") ''
+          $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
+          if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
+            $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
+            exit
           fi
         '';
 
