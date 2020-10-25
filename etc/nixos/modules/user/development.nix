@@ -40,11 +40,11 @@ in {
         recursive = true;
       };
 
-      "emacs.d/local/pre-custom.el".text = optionalString (isNull cfg'.net.email)
+      "emacs.d/local/pre-custom.el".text =
         (concatStringsSep "\n" [
-          ''
+          (optionalString (isNull cfg'.net.email) ''
             (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
-          ''
+          '')
           cfg.emacs.preCustom
         ]);
     };
