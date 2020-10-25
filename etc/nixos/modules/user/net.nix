@@ -64,7 +64,7 @@ in {
     };
 
     programs = {
-      # mbsync.enable = true;
+      mbsync.enable = true;
 
       qutebrowser = {
         enable = true;
