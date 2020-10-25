@@ -4,7 +4,7 @@ let
   vPkgs = self.callPackage ./. {  };
   unstable = import <nixpkgs-unstable> {
     overlays = [];
-    config = import ../files/nixpkgs.nix;
+    config = import ../user/files/nixpkgs.nix;
   };
 in {
   inherit unstable;
