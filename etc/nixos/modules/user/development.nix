@@ -3,7 +3,7 @@
 with lib;
 let
   cfg = config.vonfry.development;
-  cfgEnable = config.vonfry.enable;
+  cfg' = config.vonfry;
 in {
   options.vonfry.development = {
     emacs = {
@@ -14,11 +14,10 @@ in {
     };
 
     git = {
-      signKey = {
+      signKey = mkOption {
         default = null;
         type = with types; nullOr str;
       };
-
     };
 
     texlive = {
@@ -26,7 +25,7 @@ in {
     };
   };
 
-  config = mkIf cfgEnable {
+  config = mkIf cfg'.enable {
     vonfry.development = {
       texlive.withDoc = mkDefault true;
     };
@@ -41,9 +40,13 @@ in {
         recursive = true;
       };
 
-      "emacs.d/local/pre-custom.el" = optionalString (isNull cfg.net.email) ''
-        (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
-      '' ++ cfg.emacs.preCustom;
+      "emacs.d/local/pre-custom.el".text = optionalString (isNull cfg'.net.email)
+        (concatStringsSep "\n" [
+          ''
+            (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
+          ''
+          cfg.emacs.preCustom
+        ]);
     };
 
     services = {
@@ -275,7 +278,7 @@ in {
             collection-bibtexextra collection-publishers collection-langchinese;
           pkgFilter = (pkg: with lib; with pkg;
             elem tlType ([ "run" "bin" ] ++
-                         optional cfg.texlive.withDoc ["doc" ]) ||
+                         optional cfg.texlive.withDoc "doc") ||
             elem pname  [ "core" ]);
         };
       };

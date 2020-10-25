@@ -1,3 +1,4 @@
-*.local.nix
 /hardware-configuration.nix
-!*.local.*.example
+/configuration.nix
+*.local.nix
+local/

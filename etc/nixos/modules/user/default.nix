@@ -7,7 +7,7 @@ in {
   imports = [ <home-manager/nixos> ];
 
   options.vonfry = {
-    user.extraConfig = {
+    user.extraConfig = mkOption {
       default = { };
       example = { openssh.authorizedKeys.keys = [ ]; };
       description = "User extra config.";
@@ -29,20 +29,21 @@ in {
       description = "Vonfry";
       extraGroups = [ "wheel" "docker" "vboxusers" "networkmanager" ];
       shell = pkgs.zsh;
-    } cfg.extraConfig];
+    } cfg.user.extraConfig];
 
     home-manager = {
-      users.vonfry = args: mkMerge [
-        (import ./home.nix args)
+      useUserPackages = true;
+      users.vonfry = mkMerge [
+        (args:
         {
+          imports = [ ./home.nix ];
+
           vonfry = mkDefault {
             inherit (cfg) enable;
           };
-        }
-        (cfg.hmConfig args)
+        })
+        cfg.hmConfig
       ];
-
-      useUserPackages = true;
     };
   };
 }

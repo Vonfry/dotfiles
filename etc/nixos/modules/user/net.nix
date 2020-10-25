@@ -3,7 +3,7 @@
 with lib;
 let
   cfg = config.vonfry.net;
-  cfgEnable = config.vonfry.enable;
+  cfg' = config.vonfry;
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -11,16 +11,9 @@ in {
       description = "Private email config.";
       default = null;
     };
-
-    qutebrowser = {
-      searchEngines = mkOption {
-        default = { };
-        type = types.attrs;
-      };
-    };
   };
 
-  config = mkIf cfgEnable {
+  config = mkIf cfg'.enable {
     accounts.email = mkIf (cfg.email != null) {
       maildirBasePath = "${config.home.homeDirectory}/.mail";
       accounts = {
@@ -47,12 +40,10 @@ in {
         browserActivation =
           let
             sessions = config.home.sessionVariables;
-          in mkIf (sessions ? "CLOUD_DIR") (
-            lib.hm.dag.entryAfter ["shellActivation"] ''
-              $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-              $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
-            ''
-          );
+          in lib.hm.dag.entryAfter ["shellActivation"] (optionalString (sessions ? "CLOUD_DIR") ''
+            $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
+            $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
+          '');
       };
 
       sessionVariables = {
@@ -84,7 +75,7 @@ in {
             "pa" = "open -t https://web.archive.org/save/{url}";
           };
         };
-        searchEngines = mkMerge [{
+        searchEngines = {
           DEFAULT = "https://duckduckgo.com/?q={}";
           w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
           nw = "https://nixos.wiki/index.php?search={}";
@@ -95,7 +86,7 @@ in {
           gl = "https://gitlab.com/search?search={}";
           hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
           yt = "https://www.youtube.com/results?search_query={}";
-        }  cfg.qutebrowser.searchEngines];
+        };
         settings =
           let
             draculaBackground          = "#282a36";

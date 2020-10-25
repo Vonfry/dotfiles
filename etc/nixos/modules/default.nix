@@ -13,5 +13,6 @@ with lib;
     ./shell.nix
     ./x.nix
     ./misc.nix
+    ./user
   ];
 }

@@ -27,8 +27,6 @@ in {
       ripgrep fd exa bat
     ];
 
-    security.sudo.enable = true;
-
     nix = {
       optimise.automatic = true;
       trustedUsers = [ "root" "@wheel" ];
@@ -60,16 +58,18 @@ in {
           ClientAliveCountMax 4
         '';
       };
+    };
 
-      security = {
-        sudo.extraConfig = mkDefault ''
+    security = {
+      sudo = {
+        enable = true;
+        extraConfig = mkDefault ''
           Defaults timestamp_timeout=30
           Defaults env_keep += "*_proxy *_PROXY"
         '';
-        sudo.wheelNeedsPassword = mkDefault true;
-        pam.enableSSHAgentAuth = mkDefault true;
+        wheelNeedsPassword = mkDefault true;
       };
-
+      pam.enableSSHAgentAuth = mkDefault true;
     };
 
     system.stateVersion = "20.09";

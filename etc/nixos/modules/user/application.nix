@@ -59,12 +59,11 @@ in {
         financialActivation =
           let
             sessions = config.home.sessionVariables;
-          in mkIf (sessions ? "LEDGER_FILE" && sessions ? "CLOUD_DIR") (
+          in lib.hm.dag.entryAfter ["shellActivation"] (optionalString (sessions ? "LEDGER_FILE" && sessions ? "CLOUD_DIR") (
             let
               FILE = sessions.LEDGER_FILE;
               inherit (sessions) CLOUD_DIR;
-            in
-            lib.hm.dag.entryAfter ["shellActivation"] ''
+            in ''
               [ ! -h $(dirname ${FILE}) ] && ln -s ${CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
               if [ ! -f ${FILE} ]; then
                 touch ${FILE}
@@ -73,7 +72,7 @@ in {
                 exit -1
               fi
             ''
-          );
+          ));
       };
 
       sessionVariables = {

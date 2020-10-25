@@ -8,9 +8,11 @@ in {
     enable = mkEnableOption "Vonfry configuration";
   };
 
-  lib = pkgs.callPackage ./lib { };
+  config = mkIf cfg.enable {
+    lib = pkgs.callPackage ./lib { };
 
-  programs.home-manager.enable = true;
+    programs.home-manager.enable = true;
+  };
 
   imports = [
     ./base.nix

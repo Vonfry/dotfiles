@@ -4,11 +4,13 @@
   imports =  [
     ./hardware-configuration.nix # use `nixos-generate-config`
     ./modules
-    # ./private
   ];
 
   # vonfry = {
   #   enable = true;
+  #   user.extraConfig = {
+  #     openssh.authorizedKeys.keys = [];
+  #   };
   #   hmConfig =
   #     { config, pkgs, lib, ... }:
   #     
@@ -23,16 +25,19 @@
   #         LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
   #       };
   #       
-  #       development = {
-  #         git.signKey = "";
-  #       };
-
-  #       net = {
-  #         qutebrowser = import ./private/qutebrowser.nix; 
-  #         email = import ./private/mail.nix;
+  #       vonfry = {
+  #         development = {
+  #           git.signKey = "";
+  #         };
+  #  
+  #         net = {
+  #           email = import ./local/mail.nix;
+  #         };
   #       };
   #     };
   # };
+
+  # fonts.fontconfig.dpi = 96;
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
@@ -93,4 +98,8 @@
   # };
 
   # services.fprintd.enable = false;
+
+  # N.B. boot loader
+
+  # N.B. network
 }
