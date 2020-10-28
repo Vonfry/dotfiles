@@ -21,7 +21,7 @@ in {
     };
 
     qt = {
-      enable = true;
+      enable = mkDefault false;
       platformTheme = "gtk";
     };
 
