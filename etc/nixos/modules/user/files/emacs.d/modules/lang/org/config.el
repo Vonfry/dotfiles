@@ -10,10 +10,10 @@
   :keymaps 'org-mode-map)
 
 (custom! +org-file-apps
-         '((auto-mode . emacs)
-           ("\\.mm\\'" . default)
+         '(("\\.mm\\'" . default)
            ("\\.x?html?\\'" . default)
-           ("\\.pdf\\'" . system))
+           ("\\.pdf\\'" . system)
+           (auto-mode . emacs))
   "org file apps"
   :group 'vonfry-modules
   :custom-set 'org-file-apps)
