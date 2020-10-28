@@ -83,6 +83,11 @@ myKeys conf = mkKeymap conf
     , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
+    , ("M-# r", spawn "reboot"             )
+    , ("M-# s", spawn "suspend"            )
+    , ("M-# h", spawn "systemctl hibernate")
+    , ("M-# o", spawn "poweroff"           )
+
     , ("M-c c", spawn "dunstctl close"      )
     , ("M-c a", spawn "dunstctl close-all"  )
     , ("M-c p", spawn "dunstctl history-pop")
