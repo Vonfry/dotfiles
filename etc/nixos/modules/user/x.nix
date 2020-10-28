@@ -11,8 +11,8 @@ in {
         name = "monospace";
       };
       theme = {
-        name = "Ant-Dracula";
-        package = pkgs.vonfryPackages.unstable.ant-dracula-theme;
+        name = "Dracula";
+        package = pkgs.unstable.dracula-theme;
       };
       iconTheme = {
         name = "breeze-dark";
