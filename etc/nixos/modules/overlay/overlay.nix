@@ -8,6 +8,5 @@ let
   };
 in {
   inherit unstable;
-  inherit (vPkgs) hie;
   vonfryPackages = vPkgs;
 }

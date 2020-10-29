@@ -4,7 +4,7 @@
 (package! dashboard
   :custom
   (dashboard-center-content t)
-  (initial-buffer-choice '+dashboard-goto)
+  (initial-buffer-choice '+dashboard/goto)
   (dashboard-set-init-info nil)
   (dashboard-banner-logo-title "Happy Hacking!")
   (dashboard-show-shortcuts    t)
@@ -15,19 +15,8 @@
                      (bookmarks . 5)
                      (projects  . 5)
                      (recents   . 10)))
-  (dashboard-footer-messages (list
-   (replace-regexp-in-string
-     " +"
-     " "
-     (replace-regexp-in-string
-       "\n"
-       " "
-       (replace-regexp-in-string
-         (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
-         ""
-         (shell-command-to-string "fortune -s ~/.local/src/fortunes/data all"))))))
   :config
   (dashboard-setup-startup-hook)
   :general
   (+mmap-leader-def
-    "z" '+dashboard-goto))
+    "z" '+dashboard/goto))

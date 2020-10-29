@@ -10,7 +10,7 @@ in {
       xclip
       alacritty
       dunst libnotify
-      vonfryPackages.unstable.ant-dracula-theme
+      unstable.dracula-theme
       breeze-icons
     ];
 
@@ -31,7 +31,7 @@ in {
 
       displayManager.sddm = {
         enable = true;
-        theme = "Ant-Dracula";
+        theme = "Dracula";
       };
 
       windowManager = {
