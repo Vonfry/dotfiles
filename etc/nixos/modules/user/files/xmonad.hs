@@ -7,6 +7,7 @@ import XMonad.Actions.Search
 import XMonad.Actions.DynamicWorkspaces
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GroupNavigation
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -133,12 +134,21 @@ myKeys conf = mkKeymap conf
     , ("M-<Space>", sendMessage NextLayout)
 
     -- switch window
-    , ("M-.", windowMultiPrompt myXPConf
-                                [ (Goto, allWindows)
-                                , (Bring, allWindows)
-                                , (BringToMaster, allWindows)
-                                , (BringCopy, allWindows)
-                                ])
+    , ("M-.", windowMultiPrompt myXPConf $
+        (\d -> (d, allWindows)) <$> [ Goto
+                                    , Bring
+                                    , BringToMaster
+                                    , BringCopy
+                                    ])
+    , ("M-S-.", windowMultiPrompt myXPConf $
+        (\d -> (d, wsWindows)) <$> [ Goto
+                                   , Bring
+                                   , BringToMaster
+                                   , BringCopy
+                                   ])
+
+    -- window navigation
+    , ("M-C-.", nextMatch History (return True))
 
     -- layout select
     , ("M-; d" , sendMessage $ JumpToLayout "DragV"   )
@@ -187,7 +197,7 @@ myKeys conf = mkKeymap conf
     , ("M-{"   , prevWS      )
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
-    , ("M-S-." , toggleWS    )
+    , ("M-C-g" , toggleWS    )
 
     -- dynamic workspace
     , ("M-g"  , workspacePrompt myXPConf (windows . view ))
@@ -251,6 +261,8 @@ myWorkspaces = [ "home"
 
 myStartup = spawnOnOnce "home" "emacs"
 
+myLoghook = historyHook
+
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
@@ -262,6 +274,7 @@ myDef = def
     , normalBorderColor  = draculaComment
     , borderWidth        = 1
     , workspaces         = myWorkspaces
+    , logHook            = myLoghook
     }
 
 -- main
