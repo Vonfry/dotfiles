@@ -10,7 +10,8 @@
   :keymaps 'org-mode-map)
 
 (custom! +org-file-apps
-         '(("\\.mm\\'" . default)
+         '((system . "xdg-open %s")
+           ("\\.mm\\'" . default)
            ("\\.x?html?\\'" . default)
            ("\\.pdf\\'" . system)
            (auto-mode . emacs))
