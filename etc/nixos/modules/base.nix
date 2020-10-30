@@ -45,7 +45,6 @@ in {
     };
 
     services = {
-      syslog-ng.enable = true;
       logrotate.enable = true;
       dbus.enable = true;
       openssh =  {
