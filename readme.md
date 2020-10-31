@@ -24,11 +24,11 @@ The topic is not deprecated, but it is not the default one in config.
 
 - [x] ~~macOS~~
 
-- [x] NixOS - See [nixos readme](./etc/nixos/readme.md).
+- [x] NixOS :: See [nixos readme](./etc/nixos/readme.md).
 
-- [ ] ~~Gentoo - It is also testing, and without X11. See [todo](#todo)~~
+- [ ] ~~Gentoo :: It is also testing, and without X11. See [todo](#todo)~~
 
-- [ ] ~~Fedora - stop maintaining, old files by checking tag but I forget which one is.~~
+- [ ] ~~Fedora :: stop maintaining, old files by checking tag but I forget which one is.~~
 
 ## command-line
 
@@ -42,8 +42,8 @@ The topic is not deprecated, but it is not the default one in config.
 ### Term
 
 - [X] ~~xterm~~
-- [ ] ~~termonad - Its most feature can be done in xmonad.~~
-- [X] alacritty - A good term with gpu. ~~but having some problem on my machine.~~
+- [ ] ~~termonad :: Its most feature can be done in xmonad.~~
+- [X] alacritty :: A good term with gpu. ~~but having some problem on my machine.~~
 
 ## Colorscheme
 
@@ -62,17 +62,17 @@ love.
 All languages' developing tools use nix-shell to install and export into
 environment per-project. Here list languages supporting in editor.
 
-- **Haskell** - main prog lang
-- **Rust** - main sys-prog lang
-- **Perl** - main script lang
-- **R** - main data-analysis lang
+- **Haskell** :: main prog lang
+- **Rust** :: main sys-prog lang
+- **Perl** :: main script lang
+- **R** :: main data-analysis lang
 - orgmode & latex - main doc lang
-- Coq - proof only
+- Coq :: proof only
 - C/C++ 
 - ~~Lisp~~
 - ~~Ruby~~
-- Python3 - only interperter by some utils
-- ~~Web - js, html, css/sass, ts~~
+- Python3 :: only interperter by some utils
+- ~~Web :: js, html, css/sass, ts~~
 
 The other languages are also supposed in system and editor, but they aren't used
 usally so they haven't a complete developing environment.
