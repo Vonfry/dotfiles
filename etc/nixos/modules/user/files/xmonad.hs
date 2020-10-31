@@ -84,6 +84,7 @@ myKeys conf = mkKeymap conf
     , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
+    , ("M-# l", spawn "dm-tool lock"       )
     , ("M-# r", spawn "systemctl reboot"   )
     , ("M-# s", spawn "systemctl suspend"  )
     , ("M-# h", spawn "systemctl hibernate")
