@@ -249,7 +249,6 @@ in {
           hledger-mode
           ess
           direnv
-          aggressive-indent
         ];
       };
       git = {
