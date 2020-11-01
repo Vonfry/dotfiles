@@ -97,26 +97,25 @@ in {
         QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs."qt${cfg.sddmQtVersion}".qtbase.qtQmlPrefix}";
       };
 
-    # Make screen locker in system due to security consider.
-    systemd.user.services = {
-      screen-locker = {
-        enable = mkDefault true;
-        before = [ "sleep.target" ];
-        description = "screen locker before sleep.";
-        script = cfg.lockScript;
-        wantedBy = [ "sleep.target" ];
-      };
+    programs.xss-lock = {
+      enable = true;
+      lockerCommand = cfg.lockScript;
+    };
 
-      xidlehook = {
-        enable = mkDefault true;
-        description = "auto lock screen.";
-        partOf = [ "graphical-session.target" ];
-        script = ''
+    systemd = {
+      # Make screen locker in system due to security consider.
+      user.services = {
+        xidlehook = {
+          enable = mkDefault true;
+          description = "auto lock screen.";
+          partOf = [ "graphical-session.target" ];
+          script = ''
           ${pkgs.xidlehook}/bin/xidlehook \
             --timer ${toString cfg.durationLock}  "${cfg.lockScript}" ""\
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
-        wantedBy = [ "graphical-session.target" ];
+          wantedBy = [ "graphical-session.target" ];
+        };
       };
     };
   };
