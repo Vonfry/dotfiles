@@ -45,7 +45,6 @@ in {
     };
 
     services = {
-      logrotate.enable = mkDefault true;
       dbus.enable = true;
       openssh =  {
         enable = mkDefault false;
