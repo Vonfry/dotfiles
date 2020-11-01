@@ -29,15 +29,9 @@ in {
         accelProfile = "flat";
       };
 
-      displayManager.lightdm = {
+      displayManager.sddm = {
         enable = true;
-        greeters.gtk = {
-          enable = true;
-          theme = {
-            name = "Dracula";
-            package = pkgs.unstable.dracula-theme;
-          };
-        };
+        theme = "Dracula";
       };
 
       windowManager = {

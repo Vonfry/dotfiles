@@ -108,20 +108,11 @@ in {
       };
     };
 
-    home = {
-      activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        if ! [ -f ~/.face ]; then
-          $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.jpg -o ~/.face
-          setfacl -m u:lightdm:x ~/
-          setfacl -m u:lightdm:r ~/.face
-        fi
-      '';
-      packages = with pkgs; [
-        tigervnc
+    home.packages = with pkgs; [
+      tigervnc
 
-        # alacritty
-      ];
-    };
+      # alacritty
+    ];
 
     xdg = {
       enable = true;

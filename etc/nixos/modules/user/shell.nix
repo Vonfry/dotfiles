@@ -141,6 +141,11 @@ in {
                $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/song100
                $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/diet
              fi
+             if ! [ -f ~/.face.icon ]; then
+               $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
+               setfacl -m u:sddm:x ~/
+               setfacl -m u:sddm:r ~/.face.icon
+             fi
           '')
           (optionalString (sessions ? "ORG_DIR" && sessions ? "CLOUD_DIR") ''
             ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
