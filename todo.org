@@ -3,13 +3,16 @@
    CLOSED: [2020-09-05 Sat 10:16]
     - [X] clean setup script about sed and some local configuration.
     - [X] code nixos module instead of configuration directly
-*** TODO X [4/9]
+*** TODO X [5/9]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
     - [X] xmonad launcher & keybind
+    - [ ] screen locker with i3lock
+    - [ ] sddm with chili instead of lightdm
+    - [ ] qgtk3 or qgnomeplatform support (wait for fix)
 ** CANCELLED macOS
    CLOSED: [2020-10-01 Thu 19:26]
 
@@ -21,9 +24,9 @@
    - [X] CHOOSE gnus mu4e elfeed newst-ticker
    - [ ] use envrc.el instead direnv.el
 *** DONE use raxod502/straight.el instead of package.el
-** CANCELLED LSP[0/1]
+** DONE LSP[1/1]
    CLOSED: [2020-09-05 Sat 10:17]
-   - [ ] hls instead of hie?
+   - [X] hls instead of hie?
 
 * Language
 ** DONE Haskell
