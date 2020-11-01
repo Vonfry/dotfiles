@@ -131,10 +131,6 @@
   (save-place-file (expand-file-name "saveplace" vonfry-cache-dir))
   :hook (after-init . save-place-mode))
 
-(package! aggressive-indent
-  :config
-  (global-aggressive-indent-mode 1))
-
 (fun! vonfry/local-indent (int)
   (interactive "Ntab-indent: ")
   (setq-local tab-width int))
