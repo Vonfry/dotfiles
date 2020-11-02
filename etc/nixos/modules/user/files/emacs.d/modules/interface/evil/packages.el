@@ -11,7 +11,7 @@
               :after (lambda (int) (setq-local evil-shift-width int)))
   :custom
   (evil-shift-width 4)
-  (evil-search-module 'evil-search)
+  (evil-search-module 'isearch)
   :general
   (mmap :prefix "g"
         "B" 'previous-buffer
@@ -28,7 +28,6 @@
     "="   'align-regexp
     "~"   'eshell
     "!"   'calc
-    "h"   'evil-ex-nohighlight
     "\""  'comint-run
     "l"   'list-processes
     "L"   'proced
