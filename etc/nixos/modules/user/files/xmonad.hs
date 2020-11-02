@@ -91,9 +91,9 @@ myKeys conf = mkKeymap conf
     , ("M-# h", spawn "systemctl hibernate")
     , ("M-# o", spawn "systemctl poweroff" )
 
-    , ("M-c c", spawn "dunstctl close"      )
-    , ("M-c a", spawn "dunstctl close-all"  )
-    , ("M-c p", spawn "dunstctl history-pop")
+    , ("M-n c", spawn "dunstctl close"      )
+    , ("M-n a", spawn "dunstctl close-all"  )
+    , ("M-n p", spawn "dunstctl history-pop")
 
     , ("M-$"  , runInTerm "" "watch date"     )
     , ("M-'"  , runInTerm "-t ranger" "ranger")
@@ -104,7 +104,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
     , ("M-C-<Space>" , sendMessage NextLayout            )
-    , ("M-n"         , refresh                           )
+    , ("M-r"         , refresh                           )
 
     -- move focus up or down the window stack
     , ("M-<Tab>"   , windows focusDown  )
