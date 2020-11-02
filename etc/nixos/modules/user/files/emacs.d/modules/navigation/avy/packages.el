@@ -2,7 +2,12 @@
 ;;
 
 (package! avy
+  :config
+  (avy-setup-default)
   :general
+  ("C-'"  'avy-goto-char-2)
+  ("C-\"" 'avy-goto-line)
+  ("C-:"  'avy-goto-char)
   (+mmap-leader-def "g" 'avy-goto-char-2)
   (+mmap-leader-def "/" 'avy-goto-char-timer)
   (+mmap-avy-def
@@ -25,6 +30,7 @@
   (aw-minibuffer-flag t)
   (aw-dispatch-always t)
   :general
+  ("C-x o" 'ace-window)
   (+mmap-leader-def
     "w"   'ace-window
     "RET" '+ace/append
