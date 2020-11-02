@@ -133,7 +133,7 @@ myKeys conf = mkKeymap conf
     -- screenshot
     , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
     , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
-    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/" )
 
     -- Switch between layers
     , ("M-<Space>", cycleThroughLayouts [ "Full", "Preview" ])
@@ -156,14 +156,14 @@ myKeys conf = mkKeymap conf
     , ("M-C-.", nextMatch History (return True))
 
     -- layout select
-    , ("M-; d" , sendMessage $ JumpToLayout "DragV"   )
-    , ("M-; g" , sendMessage $ JumpToLayout "Grid"    )
-    , ("M-; v" , sendMessage $ JumpToLayout "GridL"   )
-    , ("M-; c" , sendMessage $ JumpToLayout "Column"  )
-    , ("M-; t" , sendMessage $ JumpToLayout "Tiled"   )
-    , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled"  )
-    , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn" )
-    , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"   )
+    , ("M-; d" , sendMessage $ JumpToLayout "DragV" )
+    , ("M-; g" , sendMessage $ JumpToLayout "Grid"  )
+    , ("M-; v" , sendMessage $ JumpToLayout "GridL" )
+    , ("M-; c" , sendMessage $ JumpToLayout "Column")
+    , ("M-; t" , sendMessage $ JumpToLayout "Tiled" )
+    , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled" )
+    , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn")
+    , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"  )
 
     -- Directional navigation of windows
     , ("M-l", windowGo R False)
@@ -205,17 +205,17 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-g"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-g", workspacePrompt myXPConf (windows . shift))
-    , ("M-w d", removeWorkspace)
+    , ("M-w d", removeWorkspace            )
     , ("M-w n", addWorkspacePrompt myXPConf)
-    , ("M-w r", renameWorkspace myXPConf)
+    , ("M-w r", renameWorkspace myXPConf   )
 
     -- change pwd for current workspace
     , ("M-p", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
-    , ("M-S-d", popNewestHiddenWindow)
-    , ("M-C-d", popOldestHiddenWindow)
+    , ("M-S-d", popNewestHiddenWindow )
+    , ("M-C-d", popOldestHiddenWindow )
 
     -- fcitx clipboard history to paste
 
@@ -231,12 +231,12 @@ myLayout = beforeLayouts layouts
 
     layouts = renamed [ Replace "Tiled"     ] tiled
           ||| renamed [ Replace "GridL"     ] splitGrid
-          ||| renamed [ Replace "DragV"     ] (drag Vertical)
+          ||| renamed [ Replace "DragV"     ] (drag Vertical  )
           ||| renamed [ Replace "Grid"      ] grid
           ||| renamed [ Replace "DragH"     ] (drag Horizontal)
-          ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
+          ||| renamed [ Replace "MTiled"    ] (Mirror tiled   )
           ||| renamed [ Replace "Column"    ] column
-          ||| renamed [ Replace "MColumn"   ] (Mirror column)
+          ||| renamed [ Replace "MColumn"   ] (Mirror column  )
           ||| renamed [ Replace "Full"      ] Full
           ||| renamed [ Replace "Preview"   ] preview
     splitGrid = SplitGrid GridVariants.L 2 3 (2/3) gridRatio (1/100)
