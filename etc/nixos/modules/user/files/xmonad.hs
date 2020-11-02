@@ -24,15 +24,10 @@ import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
-import XMonad.Layout.CenteredMaster
 import XMonad.Layout.Renamed
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import XMonad.StackSet hiding (float, workspaces, allWindows)
-
-import Data.Ratio
-import System.IO
-import System.Exit
 
 -- auxiliary configuration
 myFont = "xft:Sarasa Mono SC:size=11"
@@ -133,7 +128,7 @@ myKeys conf = mkKeymap conf
     , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
-    , ("M-<Space>", cycleThroughLayouts [ "Full", "Centered" ])
+    , ("M-<Space>", cycleThroughLayouts [ "Full", "Grid" ])
 
     -- switch window
     , ("M-.", windowMultiPrompt myXPConf $
@@ -234,10 +229,10 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
         ||| renamed [ Replace "Full"      ] (noBorders Full)
-        ||| renamed [ Replace "Centered"  ] (centerMaster $ Grid $ 16 / 10)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
-    beforeLayouts = showWName' mySWNConf . hiddenWindows . workspaceDir "~"
+    cleanupNames = renamed [ CutWordsLeft 1 ]
+    beforeLayouts = cleanupNames . showWName' mySWNConf . hiddenWindows . workspaceDir "~"
 
 myWorkspaces = [ "home"
                , "doc"
