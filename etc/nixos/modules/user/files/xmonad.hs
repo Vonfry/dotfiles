@@ -7,6 +7,7 @@ import XMonad.Actions.Search
 import XMonad.Actions.DynamicWorkspaces
 import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
+import XMonad.Actions.CycleSelectedLayouts
 import XMonad.Actions.GroupNavigation
 import XMonad.Prompt
 import XMonad.Prompt.Shell
@@ -19,11 +20,11 @@ import XMonad.Layout.ShowWName
 import XMonad.Layout.GridVariants hiding (Orientation(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column
-import XMonad.Layout.Tabbed hiding (Direction2D(..))
 import XMonad.Layout.Hidden
 import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.CenteredMaster
 import XMonad.Layout.Renamed
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -101,6 +102,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
     , ("M-S-c"       , kill                              )
     , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
+    , ("M-C-<Space>" , sendMessage NextLayout            )
     , ("M-n"         , refresh                           )
 
     -- move focus up or down the window stack
@@ -131,7 +133,7 @@ myKeys conf = mkKeymap conf
     , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
-    , ("M-<Space>", sendMessage NextLayout)
+    , ("M-<Space>", cycleThroughLayouts [ "Full", "Centered" ])
 
     -- switch window
     , ("M-.", windowMultiPrompt myXPConf $
@@ -155,9 +157,7 @@ myKeys conf = mkKeymap conf
     , ("M-; g" , sendMessage $ JumpToLayout "Grid"    )
     , ("M-; v" , sendMessage $ JumpToLayout "GridL"   )
     , ("M-; c" , sendMessage $ JumpToLayout "Column"  )
-    , ("M-; b" , sendMessage $ JumpToLayout "Tab"     )
     , ("M-; t" , sendMessage $ JumpToLayout "Tiled"   )
-    , ("M-; f" , sendMessage $ JumpToLayout "Full"    )
     , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled"  )
     , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn" )
     , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"   )
@@ -225,25 +225,16 @@ myKeys conf = mkKeymap conf
 myLayout = beforeLayouts layouts
   where
     layouts =
-            renamed [ Replace "Tab" ] (noBorders $ tabbedBottom shrinkText def
-                { inactiveBorderColor = draculaComment
-                , activeBorderColor   = draculaPurple
-                , inactiveTextColor   = draculaForeground
-                , activeTextColor     = draculaForeground
-                , inactiveColor       = draculaBackground
-                , activeColor         = draculaSelection
-                , fontName            = myFont
-                , decoHeight          = 30
-                })
-        ||| renamed [ Replace "Tiled"     ] tiled
+            renamed [ Replace "Tiled"     ] tiled
         ||| renamed [ Replace "GridL"     ] (SplitGrid GridVariants.L 2 3 (2/3) (16/10) (1/100))
         ||| renamed [ Replace "DragV"     ] (dragPane Vertical 0.1 0.5 )
-        ||| renamed [ Replace "Grid"      ] (Grid (16/10))
+        ||| renamed [ Replace "Grid"      ] (Grid $ 16 / 10)
         ||| renamed [ Replace "DragH"     ] (dragPane Horizontal 0.1 0.5 )
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
         ||| renamed [ Replace "Full"      ] (noBorders Full)
+        ||| renamed [ Replace "Centered"  ] (centerMaster $ Grid $ 16 / 10)
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
     beforeLayouts = showWName' mySWNConf . hiddenWindows . workspaceDir "~"
