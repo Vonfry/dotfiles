@@ -97,20 +97,22 @@ myKeys conf = mkKeymap conf
 
     , ("M-$"  , runInTerm "" "watch date"     )
     , ("M-'"  , runInTerm "-t ranger" "ranger")
-    , ("M-S-'", spawn "emacsclient -c"  )
+    , ("M-S-'", spawn "emacsclient -c"        )
 
     -- basic window
-    , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
+    , ("M-<Return>"  , spawn $ terminal conf             )
     , ("M-S-c"       , kill                              )
-    , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
-    , ("M-C-<Space>" , sendMessage NextLayout            )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf       )
+    , ("M-S-<Space>" , sendMessage NextLayout            )
     , ("M-r"         , refresh                           )
 
     -- move focus up or down the window stack
-    , ("M-<Tab>"   , windows focusDown  )
-    , ("M-S-<Tab>" , windows focusUp    )
-    , ("M-m"       , windows focusMaster)
-    , ("M-<Return>", windows swapMaster )
+    , ("M-<Tab>"     , windows focusDown  )
+    , ("M-S-<Tab>"   , windows focusUp    )
+    , ("M-C-<Tab>"   , windows focusMaster)
+    , ("M-m"         , windows swapDown   )
+    , ("M-S-m"       , windows swapUp     )
+    , ("M-C-m"       , windows swapMaster )
 
     -- resizing the master/slave ratio
     , ("M-(", sendMessage Shrink)
