@@ -25,6 +25,8 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
+import XMonad.Layout.MagicFocus
+import XMonad.Layout.CenteredMaster
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import XMonad.StackSet hiding (float, workspaces, allWindows)
@@ -132,7 +134,7 @@ myKeys conf = mkKeymap conf
     , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
 
     -- Switch between layers
-    , ("M-<Space>", cycleThroughLayouts [ "Full", "Grid" ])
+    , ("M-<Space>", cycleThroughLayouts [ "Full", "Preview" ])
 
     -- switch window
     , ("M-.", windowMultiPrompt myXPConf $
@@ -223,20 +225,31 @@ myKeys conf = mkKeymap conf
 
 myLayout = beforeLayouts layouts
   where
-    layouts =
-            renamed [ Replace "Tiled"     ] tiled
-        ||| renamed [ Replace "GridL"     ] (SplitGrid GridVariants.L 2 3 (2/3) (16/10) (1/100))
-        ||| renamed [ Replace "DragV"     ] (dragPane Vertical 0.1 0.5 )
-        ||| renamed [ Replace "Grid"      ] (Grid $ 16 / 10)
-        ||| renamed [ Replace "DragH"     ] (dragPane Horizontal 0.1 0.5 )
-        ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
-        ||| renamed [ Replace "Column"    ] column
-        ||| renamed [ Replace "MColumn"   ] (Mirror column)
-        ||| renamed [ Replace "Full"      ] Full
-    tiled = Tall 1 (3/100) (1/2)
-    column = Column 1
-    cleanupNames = renamed [ CutWordsLeft 1 ]
-    beforeLayouts = cleanupNames . showWName' mySWNConf . hiddenWindows . workspaceDir "~" . smartBorders
+    gridRatio = 16 / 10
+
+    layouts = renamed [ Replace "Tiled"     ] tiled
+          ||| renamed [ Replace "GridL"     ] splitGrid
+          ||| renamed [ Replace "DragV"     ] (drag Vertical)
+          ||| renamed [ Replace "Grid"      ] grid
+          ||| renamed [ Replace "DragH"     ] (drag Horizontal)
+          ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
+          ||| renamed [ Replace "Column"    ] column
+          ||| renamed [ Replace "MColumn"   ] (Mirror column)
+          ||| renamed [ Replace "Full"      ] Full
+          ||| renamed [ Replace "Preview"   ] preview
+    splitGrid = SplitGrid GridVariants.L 2 3 (2/3) gridRatio (1/100)
+    grid      = Grid gridRatio
+    tiled     = Tall 1 (3/100) (1/2)
+    drag d    = dragPane d 0.1 0.5
+    column    = Column 1
+    preview   = magicFocus $ centerMaster grid
+
+    cleanupNames  = renamed [ CutWordsLeft 1 ]
+    beforeLayouts = cleanupNames
+                  . showWName' mySWNConf
+                  . hiddenWindows
+                  . workspaceDir "~"
+                  . smartBorders
 
 myWorkspaces = [ "home"
                , "doc"
