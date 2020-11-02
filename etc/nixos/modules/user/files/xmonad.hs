@@ -29,6 +29,10 @@ import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import XMonad.StackSet hiding (float, workspaces, allWindows)
 
+import Data.Ratio
+import System.IO
+import System.Exit
+
 -- auxiliary configuration
 myFont = "xft:Sarasa Mono SC:size=11"
 myModMask = mod4Mask
@@ -228,11 +232,11 @@ myLayout = beforeLayouts layouts
         ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
         ||| renamed [ Replace "Column"    ] column
         ||| renamed [ Replace "MColumn"   ] (Mirror column)
-        ||| renamed [ Replace "Full"      ] (noBorders Full)
+        ||| renamed [ Replace "Full"      ] Full
     tiled = Tall 1 (3/100) (1/2)
     column = Column 1
     cleanupNames = renamed [ CutWordsLeft 1 ]
-    beforeLayouts = cleanupNames . showWName' mySWNConf . hiddenWindows . workspaceDir "~"
+    beforeLayouts = cleanupNames . showWName' mySWNConf . hiddenWindows . workspaceDir "~" . smartBorders
 
 myWorkspaces = [ "home"
                , "doc"
