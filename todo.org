@@ -3,15 +3,15 @@
    CLOSED: [2020-09-05 Sat 10:16]
     - [X] clean setup script about sed and some local configuration.
     - [X] code nixos module instead of configuration directly
-*** TODO X [5/9]
+*** TODO X [7/9]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
     - [X] xmonad launcher & keybind
-    - [ ] screen locker with i3lock
-    - [ ] sddm with chili instead of lightdm
+    - [X] screen locker with i3lock
+    - [X] sddm with chili instead of lightdm
     - [ ] qgtk3 or qgnomeplatform support (wait for fix)
 ** CANCELLED macOS
    CLOSED: [2020-10-01 Thu 19:26]
