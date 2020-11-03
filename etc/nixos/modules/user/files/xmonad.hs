@@ -109,10 +109,10 @@ myKeys conf = mkKeymap conf
     -- move focus up or down the window stack
     , ("M-<Tab>"     , windows focusDown  )
     , ("M-S-<Tab>"   , windows focusUp    )
-    , ("M-C-<Tab>"   , windows focusMaster)
-    , ("M-m"         , windows swapDown   )
-    , ("M-S-m"       , windows swapUp     )
-    , ("M-C-m"       , windows swapMaster )
+    , ("M-C-<Tab>"   , windows swapDown   )
+    , ("M-C-S-<Tab>" , windows swapUp     )
+    , ("M-C-<Return>", windows focusMaster)
+    , ("M-S-<Return>", windows swapMaster )
 
     -- resizing the master/slave ratio
     , ("M-("  , sendMessage Expand)
@@ -166,34 +166,36 @@ myKeys conf = mkKeymap conf
     , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"  )
 
     -- Directional navigation of windows
-    , ("M-l", windowGo R False)
-    , ("M-h", windowGo L False)
-    , ("M-k", windowGo U False)
-    , ("M-j", windowGo D False)
+    -- keybind for dvorak like vim but different
+    , ("M-e", windowGo L True)
+    , ("M-j", windowGo D True)
+    , ("M-k", windowGo U True)
+    , ("M-u", windowGo R True)
 
     -- Swap adjacent windows
-    , ("M-S-l", windowSwap R False)
-    , ("M-S-h", windowSwap L False)
-    , ("M-S-k", windowSwap U False)
-    , ("M-S-j", windowSwap D False)
+    -- keybind for dvorak like vim but different
+    , ("M-S-e", windowSwap L True)
+    , ("M-S-j", windowSwap D True)
+    , ("M-S-k", windowSwap U True)
+    , ("M-S-u", windowSwap R True)
 
     -- Directional navigation of screens
-    , ("M-<Right>", screenGo R False)
-    , ("M-<Left>" , screenGo L False)
-    , ("M-<Up>"   , screenGo U False)
-    , ("M-<Down>" , screenGo D False)
+    , ("M-<Left>" , screenGo L True)
+    , ("M-<Up>"   , screenGo U True)
+    , ("M-<Down>" , screenGo D True)
+    , ("M-<Right>", screenGo R True)
 
     -- Swap workspaces on adjacent screens
-    , ("M-S-<Right>", screenSwap R False)
-    , ("M-S-<Left>" , screenSwap L False)
-    , ("M-S-<Up>"   , screenSwap U False)
-    , ("M-S-<Down>" , screenSwap D False)
+    , ("M-S-<Left>" , screenSwap L True)
+    , ("M-S-<Down>" , screenSwap D True)
+    , ("M-S-<Up>"   , screenSwap U True)
+    , ("M-S-<Right>", screenSwap R True)
 
     -- Send window to adjacent screen
-    , ("M-C-<Right>", windowToScreen R False)
-    , ("M-C-<Left>" , windowToScreen L False)
-    , ("M-C-<Up>"   , windowToScreen U False)
-    , ("M-C-<Down>" , windowToScreen D False)
+    , ("M-C-<Left>" , windowToScreen L True)
+    , ("M-C-<Down>" , windowToScreen D True)
+    , ("M-C-<Up>"   , windowToScreen U True)
+    , ("M-C-<Right>", windowToScreen R True)
 
     -- cycle workspace
     , ("M-}"   , nextWS      )
@@ -210,7 +212,7 @@ myKeys conf = mkKeymap conf
     , ("M-w r", renameWorkspace myXPConf   )
 
     -- change pwd for current workspace
-    , ("M-p", changeDir myXPConfNoAc)
+    , ("M-c", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
