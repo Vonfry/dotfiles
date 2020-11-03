@@ -37,6 +37,10 @@ in {
         options = "--delete-older-than 14d";
         dates = "Sun 19:00";
       };
+      extraOptions = ''
+        keep-outputs = true
+        keep-derivations = true
+      '';
     };
 
     nixpkgs = {
