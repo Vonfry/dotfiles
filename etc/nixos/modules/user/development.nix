@@ -303,7 +303,7 @@ in {
         pandoc
         zeal
 
-        # texlive.combined.scheme-full
+        # texlive.combined.scheme-full git-latexdiff
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure
