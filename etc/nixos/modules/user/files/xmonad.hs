@@ -128,7 +128,7 @@ myKeys conf = mkKeymap conf
 
     -- quit, or restart
     , ("M-S-q", io (exitWith ExitSuccess))
-    , ("M-q"  , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
+    , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
     , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
