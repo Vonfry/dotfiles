@@ -160,7 +160,7 @@ in {
           nix-mode
           gnuplot
           org
-          org-bullets
+          org-superstar
           evil-org
           org-web-tools
           org-journal
