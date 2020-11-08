@@ -40,9 +40,12 @@ in {
         browserActivation =
           let
             sessions = config.home.sessionVariables;
+            qutebrowserLocal = "${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser";
           in lib.hm.dag.entryAfter ["shellActivation"] (optionalString (sessions ? "CLOUD_DIR") ''
-            $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-            $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
+            if [ -d "${qutebrowserLocal}" ]; then
+              $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
+              $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${qutebrowserLocal}/* ${toString config.xdg.configHome}/qutebrowser
+            fi
           '');
       };
 

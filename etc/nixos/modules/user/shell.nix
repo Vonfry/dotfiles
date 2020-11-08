@@ -148,8 +148,11 @@ in {
           (optionalString (sessions ? "ORG_DIR" && sessions ? "CLOUD_DIR") ''
             ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
           '')
-          (optionalString (sessions ? "CLOUD_DIR") ''
-            $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/config/emacs.d/local/* ${toString config.xdg.configHome}/emacs.d/local
+          (let emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
+           in optionalString (sessions ? "CLOUD_DIR") ''
+            if [ -d "${emacsLocal}" ]; then
+              $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString config.xdg.configHome}/emacs.d/local
+            fi
           '' )
           (optionalString (sessions ? "CLOUD_DIR" && sessions ? "PASSWD_DIR") ''
             $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
