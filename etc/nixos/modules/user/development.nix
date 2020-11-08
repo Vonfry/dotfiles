@@ -41,10 +41,16 @@ in {
       };
 
       "emacs.d/local/pre-custom.el".text =
-        (concatStringsSep "\n" [
-          (optionalString (isNull cfg'.net.email) ''
-            (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
-          '')
+        let sessions = config.home.sessionVariables;
+        in (concatStringsSep "\n" [
+          ''
+            (custom-set-variables
+             '(vonfry-exclude-modules
+               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""  }
+                 ${optionalString (sessions ? LEDGER_FILE) "\"misc/ledgel\""}
+                 ${optionalString (sessions ? PASSWD_DIR ) "\"misc/irc\""   }
+                 )))
+          ''
           cfg.emacs.preCustom
         ]);
     };
