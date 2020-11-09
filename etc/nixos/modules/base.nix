@@ -71,7 +71,10 @@ in {
         '';
         wheelNeedsPassword = mkDefault true;
       };
-      pam.enableSSHAgentAuth = mkDefault true;
+      pam = rec {
+       enableSSHAgentAuth = mkDefault true;
+       services.sudo.sshAgentAuth = mkDefault enableSSHAgentAuth;
+      };
     };
 
     system.stateVersion = "20.09";
