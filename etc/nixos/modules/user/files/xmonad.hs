@@ -83,36 +83,36 @@ myKeys conf = mkKeymap conf
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
     , ("M-, m", spawn "audacious"       )
-    , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
+    , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
-    , ("M-# r", spawn "systemctl reboot"   )
-    , ("M-# s", spawn "systemctl suspend"  )
-    , ("M-# h", spawn "systemctl hibernate")
-    , ("M-# o", spawn "systemctl poweroff" )
+    , ("M-' r", spawn "systemctl reboot"   )
+    , ("M-' s", spawn "systemctl suspend"  )
+    , ("M-' h", spawn "systemctl hibernate")
+    , ("M-' o", spawn "systemctl poweroff" )
 
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
     , ("M-n p", spawn "dunstctl history-pop")
 
     , ("M-$"  , runInTerm "" "watch date"     )
-    , ("M-'"  , runInTerm "-t ranger" "ranger")
-    , ("M-S-'", spawn "emacsclient -c"        )
 
     -- basic window
     , ("M-<Return>"  , spawn $ terminal conf             )
+    , ("M-S-<Return>", runInTerm "-t ranger" "ranger"    )
+    , ("M-C-<Return>", spawn "emacsclient -c"            )
     , ("M-S-c"       , kill                              )
     , ("M-C-<Space>" , setLayout $ layoutHook conf       )
     , ("M-S-<Space>" , sendMessage NextLayout            )
     , ("M-r"         , refresh                           )
 
     -- move focus up or down the window stack
-    , ("M-<Tab>"     , windows focusDown  )
-    , ("M-S-<Tab>"   , windows focusUp    )
-    , ("M-C-<Tab>"   , windows swapDown   )
-    , ("M-C-S-<Tab>" , windows swapUp     )
-    , ("M-C-<Return>", windows focusMaster)
-    , ("M-S-<Return>", windows swapMaster )
+    , ("M-<Tab>"    , windows focusDown  )
+    , ("M-S-<Tab>"  , windows focusUp    )
+    , ("M-C-<Tab>"  , windows swapDown   )
+    , ("M-C-S-<Tab>", windows swapUp     )
+    , ("M-S-m"      , windows focusMaster)
+    , ("M-m"        , windows swapMaster )
 
     -- resizing the master/slave ratio
     , ("M-("  , sendMessage Expand)
