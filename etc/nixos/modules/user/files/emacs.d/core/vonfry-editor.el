@@ -52,6 +52,9 @@
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
 
+  recentf-mode t
+  show-paren-mode t
+
   recentf-max-menu-items 10
   recentf-max-saved-items 1000
 
@@ -100,9 +103,6 @@
 
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)
-
-(recentf-mode t)
-(show-paren-mode t)
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
