@@ -25,6 +25,7 @@ in {
       zip unzip
       file patch colordiff parallel
       ripgrep fd exa bat
+      ranger
     ];
 
     nix = {
