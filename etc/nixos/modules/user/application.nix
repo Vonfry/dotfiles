@@ -10,7 +10,7 @@ in {
       zathura = {
         enable = true;
         extraConfig = ''
-          map t recolor
+          map T recolor
         '';
         options = {
           font                    = "monospace normal 11";
