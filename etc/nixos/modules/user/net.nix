@@ -90,7 +90,7 @@ in {
           so = "https://stackoverflow.com/search?q={}";
           hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
           yt = "https://www.youtube.com/results?search_query={}";
-          i3e = "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={}";
+          ie3 = "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={}";
           se  = "https://www.sciencedirect.com/search?qs={}";
           acm = "https://dl.acm.org/action/doSearch?AllField={}";
           gs  = "https://scholar.google.com/scholar?q={}";
