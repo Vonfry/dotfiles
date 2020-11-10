@@ -46,6 +46,8 @@
     "/" 'counsel-search
     ";" 'counsel-outline
     "p" 'counsel-cd)
+  (+mmap-mode-outline-def
+    "/" 'counsel-outline)
   (+mmap-mode-org-def
     "f" 'counsel-org-file))
 
