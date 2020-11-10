@@ -77,6 +77,9 @@ in {
 
       sessionVariables = {
         PDFVIEWER = "zathura";
+
+        # Use this to fix remote computer pam and other problems.
+        SSH_AUTH_SOCK = mkOverride (modules.defaultPriority - 1) "\${SSH_AUTH_SOCK:-$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)}";
       };
 
       packages = with pkgs; [
@@ -124,6 +127,9 @@ in {
         enable = true;
         defaultCacheTtl = 14400;
         enableSshSupport = true;
+        enableExtraSocket = true;
+        enableScDaemon = true;
+        pinentryFlavor = "curses";
         extraConfig = ''
           allow-emacs-pinentry
           allow-preset-passphrase
