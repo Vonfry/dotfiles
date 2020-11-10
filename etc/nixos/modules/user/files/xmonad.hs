@@ -76,7 +76,7 @@ myKeys conf = mkKeymap conf
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
     , ("M-, o", spawn "libreoffice"     )
-    , ("M-, v", spawn "VirtualBox"      )
+    , ("M-, v", spawn "virt-manager"    )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
     , ("M-, p", spawn "1password"       )

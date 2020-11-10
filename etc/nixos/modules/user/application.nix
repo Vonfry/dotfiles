@@ -91,7 +91,6 @@ in {
         tdesktop
 
         # remmina
-        ranger
         filezilla
 
         flameshot feh # inkscape gimp
@@ -100,6 +99,8 @@ in {
         unstable.tor-browser-bundle-bin
         # zathura
         libreoffice
+
+        virt-manager
       ];
     };
 
