@@ -125,6 +125,11 @@
             ("j" "Journal entry"
              entry (function +org--journal-find-location)
              "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+            ("o" "roam" plain (function org-roam--capture-get-point)
+             "%?"
+             :file-name "%<%Y%m%d%H%M%S>-${slug}"
+             :head "#+title: ${title}\n"
+             :unnarrowed t)
             ("a" "capture to agenda")))
         (agenda-templates
           (-map-indexed
