@@ -75,12 +75,18 @@ in {
           ));
       };
 
-      sessionVariables = {
-        PDFVIEWER = "zathura";
+      sessionVariables =  mkMerge [
+        {
+          PDFVIEWER = "zathura";
+        }
+        (mkOrder 2000 {
+          # Use mkOrder to make sure this is override the default one by
+          # home-manager, because sessionVariables' type is `types.attrs`.`
+          # Use this to fix remote computer pam and other problems.
+          SSH_AUTH_SOCK = "\${SSH_AUTH_SOCK:-$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)}";
+        })
+      ];
 
-        # Use this to fix remote computer pam and other problems.
-        SSH_AUTH_SOCK = mkOverride (modules.defaultPriority - 1) "\${SSH_AUTH_SOCK:-$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)}";
-      };
 
       packages = with pkgs; [
         fortune cmatrix figlet
