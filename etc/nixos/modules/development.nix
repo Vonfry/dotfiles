@@ -23,7 +23,7 @@ in {
 
       docker = {
         enable = true;
-        autoPrune.enable = true;
+        autoPrune.enable = mkDefault true;
       };
     };
 
