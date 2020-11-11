@@ -129,8 +129,6 @@ in {
       emacs =  {
         enable = true;
         extraPackages = epkgs: with epkgs; [
-          pkgs.python3 pkgs.sqlite pkgs.perl pkgs.rubyPackages.jekyll
-
           all-the-icons
           solarized-theme
           dracula-theme
@@ -296,6 +294,10 @@ in {
       };
 
       packages = with pkgs; [
+
+        # These are used in emacs
+        python3 sqlite perl jekyll
+
         # neovim vim emacs
 
         # git git-lfs
