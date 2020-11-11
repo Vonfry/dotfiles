@@ -16,10 +16,14 @@ in {
     ];
 
     virtualisation = {
-      virtualbox.host.enable = true;
+      libvirtd = {
+        enable = true;
+        qemuRunAsRoot = mkDefault false;
+      };
+
       docker = {
         enable = true;
-        autoPrune.enable = true;
+        autoPrune.enable = mkDefault true;
       };
     };
 

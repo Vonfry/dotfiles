@@ -41,10 +41,16 @@ in {
       };
 
       "emacs.d/local/pre-custom.el".text =
-        (concatStringsSep "\n" [
-          (optionalString (isNull cfg'.net.email) ''
-            (custom-set-variables '(vonfry-exclude-modules '("misc/mail")))
-          '')
+        let sessions = config.home.sessionVariables;
+        in (concatStringsSep "\n" [
+          ''
+            (custom-set-variables
+             '(vonfry-exclude-modules
+               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""  }
+                 ${optionalString (sessions ? LEDGER_FILE) "\"misc/ledgel\""}
+                 ${optionalString (sessions ? PASSWD_DIR ) "\"misc/irc\""   }
+                 )))
+          ''
           cfg.emacs.preCustom
         ]);
     };
@@ -123,8 +129,6 @@ in {
       emacs =  {
         enable = true;
         extraPackages = epkgs: with epkgs; [
-          pkgs.python3 pkgs.sqlite pkgs.perl pkgs.rubyPackages.jekyll
-
           all-the-icons
           solarized-theme
           dracula-theme
@@ -160,7 +164,7 @@ in {
           nix-mode
           gnuplot
           org
-          org-bullets
+          org-superstar
           evil-org
           org-web-tools
           org-journal
@@ -290,6 +294,10 @@ in {
       };
 
       packages = with pkgs; [
+
+        # These are used in emacs
+        python3 sqlite perl jekyll
+
         # neovim vim emacs
 
         # git git-lfs
@@ -303,7 +311,7 @@ in {
         pandoc
         zeal
 
-        # texlive.combined.scheme-full
+        # texlive.combined.scheme-full git-latexdiff
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure

@@ -14,6 +14,7 @@ in {
       "nix/nix.conf".text = ''
         auto-optimise-store = true
         keep-outputs = true
+        keep-derivations = true
         sandbox = false
         max-jobs = auto
         cores = 0
@@ -35,6 +36,7 @@ in {
         sshfs exfat
         lnav lm_sensors lsof
 
+        ranger
         patch parallel file
 
         zip unzip convmv unrar

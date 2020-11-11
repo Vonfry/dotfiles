@@ -25,6 +25,7 @@ in {
       zip unzip
       file patch colordiff parallel
       ripgrep fd exa bat
+      ranger
     ];
 
     nix = {
@@ -37,6 +38,10 @@ in {
         options = "--delete-older-than 14d";
         dates = "Sun 19:00";
       };
+      extraOptions = ''
+        keep-outputs = true
+        keep-derivations = true
+      '';
     };
 
     nixpkgs = {
@@ -67,7 +72,10 @@ in {
         '';
         wheelNeedsPassword = mkDefault true;
       };
-      pam.enableSSHAgentAuth = mkDefault true;
+      pam = rec {
+       enableSSHAgentAuth = mkDefault true;
+       services.sudo.sshAgentAuth = mkDefault enableSSHAgentAuth;
+      };
     };
 
     system.stateVersion = "20.09";

@@ -40,9 +40,12 @@ in {
         browserActivation =
           let
             sessions = config.home.sessionVariables;
+            qutebrowserLocal = "${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser";
           in lib.hm.dag.entryAfter ["shellActivation"] (optionalString (sessions ? "CLOUD_DIR") ''
-            $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-            $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser/* ${toString config.xdg.configHome}/qutebrowser
+            if [ -d "${qutebrowserLocal}" ]; then
+              $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
+              $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${qutebrowserLocal}/* ${toString config.xdg.configHome}/qutebrowser
+            fi
           '');
       };
 
@@ -87,7 +90,7 @@ in {
           so = "https://stackoverflow.com/search?q={}";
           hg = "https://hoogle.haskell.org/?scope=set%3Astackage&hoogle={}";
           yt = "https://www.youtube.com/results?search_query={}";
-          i3e = "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={}";
+          ie3 = "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={}";
           se  = "https://www.sciencedirect.com/search?qs={}";
           acm = "https://dl.acm.org/action/doSearch?AllField={}";
           gs  = "https://scholar.google.com/scholar?q={}";

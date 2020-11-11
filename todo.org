@@ -20,9 +20,9 @@
 ** DONE Vim
 *** TODO NeoVim
 **** TODO ?use internal lsp
-** TODO Emacs[1/2]
+** DONE Emacs[1/2]
+   CLOSED: [2020-11-11 Wed 18:18]
    - [X] CHOOSE gnus mu4e elfeed newst-ticker
-   - [ ] use envrc.el instead direnv.el
 *** DONE use raxod502/straight.el instead of package.el
 ** DONE LSP[1/1]
    CLOSED: [2020-09-05 Sat 10:17]
@@ -40,11 +40,11 @@
 * Shell
 ** DONE ZSH
 
-* Tools
+* Utils
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** TODO home-manager instead setup script[20/21]
+*** TODO home-manager instead setup script[20/22]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
     - [X] add home-manager
@@ -68,5 +68,6 @@
     - [X] qutebrowser setting, color, bookmark and search
     - [X] remove darwin support
     - [ ] nvim: some plugins problem and wait for update
+    - [ ] emacs wraping other tools instead of install into user env
 *** DONE niv?
     CLOSED: [2020-07-31 Fri 21:45]

@@ -37,10 +37,12 @@
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
 
-(package! org-bullets
+(package! org-superstar
   :after org
+  :custom
+  (org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
   :hook
-  (org-mode . org-bullets-mode))
+  (org-mode . org-superstar-mode))
 
 (package! evil-org
   :after (evil org)

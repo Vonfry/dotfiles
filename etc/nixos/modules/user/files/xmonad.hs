@@ -76,62 +76,64 @@ myKeys conf = mkKeymap conf
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )
     , ("M-, o", spawn "libreoffice"     )
-    , ("M-, v", spawn "VirtualBox"      )
+    , ("M-, v", spawn "virt-manager"    )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
     , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
     , ("M-, m", spawn "audacious"       )
-    , ("M-, #", runInTerm "-t cmatrix" "cmatrix")
+    , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
-    , ("M-# r", spawn "systemctl reboot"   )
-    , ("M-# s", spawn "systemctl suspend"  )
-    , ("M-# h", spawn "systemctl hibernate")
-    , ("M-# o", spawn "systemctl poweroff" )
+    , ("M-' r", spawn "systemctl reboot"   )
+    , ("M-' s", spawn "systemctl suspend"  )
+    , ("M-' h", spawn "systemctl hibernate")
+    , ("M-' o", spawn "systemctl poweroff" )
 
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
     , ("M-n p", spawn "dunstctl history-pop")
 
     , ("M-$"  , runInTerm "" "watch date"     )
-    , ("M-'"  , runInTerm "-t ranger" "ranger")
-    , ("M-S-'", spawn "emacsclient -c"  )
 
     -- basic window
-    , ("M-S-<Return>", spawn $ XMonad.terminal conf      )
+    , ("M-<Return>"  , spawn $ terminal conf             )
+    , ("M-S-<Return>", runInTerm "-t ranger" "ranger"    )
+    , ("M-C-<Return>", spawn "emacsclient -c"            )
     , ("M-S-c"       , kill                              )
-    , ("M-S-<Space>" , setLayout $ XMonad.layoutHook conf)
-    , ("M-C-<Space>" , sendMessage NextLayout            )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf       )
+    , ("M-S-<Space>" , sendMessage NextLayout            )
     , ("M-r"         , refresh                           )
 
     -- move focus up or down the window stack
-    , ("M-<Tab>"   , windows focusDown  )
-    , ("M-S-<Tab>" , windows focusUp    )
-    , ("M-m"       , windows focusMaster)
-    , ("M-<Return>", windows swapMaster )
+    , ("M-<Tab>"    , windows focusDown  )
+    , ("M-S-<Tab>"  , windows focusUp    )
+    , ("M-C-<Tab>"  , windows swapDown   )
+    , ("M-C-S-<Tab>", windows swapUp     )
+    , ("M-S-m"      , windows focusMaster)
+    , ("M-m"        , windows swapMaster )
 
     -- resizing the master/slave ratio
-    , ("M-(", sendMessage Shrink)
-    , ("M-)", sendMessage Expand)
+    , ("M-("  , sendMessage Expand)
+    , ("M-S-(", sendMessage Shrink)
 
     -- floating layer support
     , ("M-t"  , withFocused $ windows . sink)
     , ("M-S-t", withFocused float           )
 
     -- increase or decrease number of windows in the master area
-    , ("M-[", sendMessage (IncMasterN (-1)))
-    , ("M-]", sendMessage (IncMasterN 1   ))
+    , ("M-)"  , sendMessage (IncMasterN 1   ))
+    , ("M-S-)", sendMessage (IncMasterN (-1)))
 
     -- quit, or restart
     , ("M-S-q", io (exitWith ExitSuccess))
-    , ("M-q"  , spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
+    , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
     , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
     , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
-    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/"  )
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/" )
 
     -- Switch between layers
     , ("M-<Space>", cycleThroughLayouts [ "Full", "Preview" ])
@@ -154,44 +156,46 @@ myKeys conf = mkKeymap conf
     , ("M-C-.", nextMatch History (return True))
 
     -- layout select
-    , ("M-; d" , sendMessage $ JumpToLayout "DragV"   )
-    , ("M-; g" , sendMessage $ JumpToLayout "Grid"    )
-    , ("M-; v" , sendMessage $ JumpToLayout "GridL"   )
-    , ("M-; c" , sendMessage $ JumpToLayout "Column"  )
-    , ("M-; t" , sendMessage $ JumpToLayout "Tiled"   )
-    , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled"  )
-    , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn" )
-    , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"   )
+    , ("M-; d" , sendMessage $ JumpToLayout "DragV" )
+    , ("M-; g" , sendMessage $ JumpToLayout "Grid"  )
+    , ("M-; v" , sendMessage $ JumpToLayout "GridL" )
+    , ("M-; c" , sendMessage $ JumpToLayout "Column")
+    , ("M-; t" , sendMessage $ JumpToLayout "Tiled" )
+    , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled" )
+    , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn")
+    , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"  )
 
     -- Directional navigation of windows
-    , ("M-l", windowGo R False)
-    , ("M-h", windowGo L False)
-    , ("M-k", windowGo U False)
-    , ("M-j", windowGo D False)
+    -- keybind for dvorak like vim but different
+    , ("M-e", windowGo L True)
+    , ("M-j", windowGo D True)
+    , ("M-k", windowGo U True)
+    , ("M-u", windowGo R True)
 
     -- Swap adjacent windows
-    , ("M-S-l", windowSwap R False)
-    , ("M-S-h", windowSwap L False)
-    , ("M-S-k", windowSwap U False)
-    , ("M-S-j", windowSwap D False)
+    -- keybind for dvorak like vim but different
+    , ("M-S-e", windowSwap L True)
+    , ("M-S-j", windowSwap D True)
+    , ("M-S-k", windowSwap U True)
+    , ("M-S-u", windowSwap R True)
 
     -- Directional navigation of screens
-    , ("M-<Right>", screenGo R False)
-    , ("M-<Left>" , screenGo L False)
-    , ("M-<Up>"   , screenGo U False)
-    , ("M-<Down>" , screenGo D False)
+    , ("M-<Left>" , screenGo L True)
+    , ("M-<Up>"   , screenGo U True)
+    , ("M-<Down>" , screenGo D True)
+    , ("M-<Right>", screenGo R True)
 
     -- Swap workspaces on adjacent screens
-    , ("M-S-<Right>", screenSwap R False)
-    , ("M-S-<Left>" , screenSwap L False)
-    , ("M-S-<Up>"   , screenSwap U False)
-    , ("M-S-<Down>" , screenSwap D False)
+    , ("M-S-<Left>" , screenSwap L True)
+    , ("M-S-<Down>" , screenSwap D True)
+    , ("M-S-<Up>"   , screenSwap U True)
+    , ("M-S-<Right>", screenSwap R True)
 
     -- Send window to adjacent screen
-    , ("M-C-<Right>", windowToScreen R False)
-    , ("M-C-<Left>" , windowToScreen L False)
-    , ("M-C-<Up>"   , windowToScreen U False)
-    , ("M-C-<Down>" , windowToScreen D False)
+    , ("M-C-<Left>" , windowToScreen L True)
+    , ("M-C-<Down>" , windowToScreen D True)
+    , ("M-C-<Up>"   , windowToScreen U True)
+    , ("M-C-<Right>", windowToScreen R True)
 
     -- cycle workspace
     , ("M-}"   , nextWS      )
@@ -203,17 +207,17 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-g"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-g", workspacePrompt myXPConf (windows . shift))
-    , ("M-w d", removeWorkspace)
+    , ("M-w d", removeWorkspace            )
     , ("M-w n", addWorkspacePrompt myXPConf)
-    , ("M-w r", renameWorkspace myXPConf)
+    , ("M-w r", renameWorkspace myXPConf   )
 
     -- change pwd for current workspace
-    , ("M-p", changeDir myXPConfNoAc)
+    , ("M-c", changeDir myXPConfNoAc)
 
     -- hide windows
     , ("M-d"  , withFocused hideWindow)
-    , ("M-S-d", popNewestHiddenWindow)
-    , ("M-C-d", popOldestHiddenWindow)
+    , ("M-S-d", popNewestHiddenWindow )
+    , ("M-C-d", popOldestHiddenWindow )
 
     -- fcitx clipboard history to paste
 
@@ -229,12 +233,12 @@ myLayout = beforeLayouts layouts
 
     layouts = renamed [ Replace "Tiled"     ] tiled
           ||| renamed [ Replace "GridL"     ] splitGrid
-          ||| renamed [ Replace "DragV"     ] (drag Vertical)
+          ||| renamed [ Replace "DragV"     ] (drag Vertical  )
           ||| renamed [ Replace "Grid"      ] grid
           ||| renamed [ Replace "DragH"     ] (drag Horizontal)
-          ||| renamed [ Replace "MTiled"    ] (Mirror tiled)
+          ||| renamed [ Replace "MTiled"    ] (Mirror tiled   )
           ||| renamed [ Replace "Column"    ] column
-          ||| renamed [ Replace "MColumn"   ] (Mirror column)
+          ||| renamed [ Replace "MColumn"   ] (Mirror column  )
           ||| renamed [ Replace "Full"      ] Full
           ||| renamed [ Replace "Preview"   ] preview
     splitGrid = SplitGrid GridVariants.L 2 3 (2/3) gridRatio (1/100)

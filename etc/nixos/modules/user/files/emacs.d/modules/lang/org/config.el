@@ -90,8 +90,12 @@
   :group 'vonfry-modules)
 
 (fun! +org--note-templates-get-location (&rest args)
-  (funcall +org-diary-templates-get-location-function args)
-  "call `+org-note-templates-get-location-function'")
+  (interactive)
+  (let* ((path (read-file-name "note file: " +org-note-dir)))
+    (set-buffer (org-capture-target-buffer path))
+    (widen)
+    (org-capture-put-target-region-and-position)
+    (goto-char (point-max))))
 
 (custom! +org-todo-keywords-sequence
   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
@@ -125,6 +129,11 @@
             ("j" "Journal entry"
              entry (function +org--journal-find-location)
              "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+            ("o" "roam" plain (function org-roam--capture-get-point)
+             "%?"
+             :file-name "${slug}-%<%Y%m%d>"
+             :head "#+title: ${title}\n"
+             :unnarrowed t)
             ("a" "capture to agenda")))
         (agenda-templates
           (-map-indexed
