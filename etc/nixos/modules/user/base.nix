@@ -36,6 +36,7 @@ in {
         sshfs exfat
         lnav lm_sensors lsof
 
+        ranger
         patch parallel file
 
         zip unzip convmv unrar
