@@ -4,6 +4,13 @@ with lib;
 let
   cfg = config.vonfry.development;
   cfg' = config.vonfry;
+
+  emacsExtraBin = with pkgs; buildEnv {
+    name = "emacsExtraBin";
+    paths = [ python3 sqlite perl bundler jekyll ];
+    pathsToLink = [ "/bin" "/share" "/lib" ];
+  };
+
 in {
   options.vonfry.development = {
     emacs = {
@@ -50,6 +57,7 @@ in {
                  ${optionalString (sessions ? LEDGER_FILE) "\"misc/ledgel\""}
                  ${optionalString (sessions ? PASSWD_DIR ) "\"misc/irc\""   }
                  )))
+            (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
           cfg.emacs.preCustom
         ]);
@@ -296,10 +304,6 @@ in {
       };
 
       packages = with pkgs; [
-
-        # These are used in emacs
-        python3 sqlite perl jekyll
-
         # neovim vim emacs
 
         # git git-lfs
