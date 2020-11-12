@@ -265,6 +265,8 @@ in {
         enable = true;
         extraConfig = {
           pull.rebase = mkDefault true;
+          github.user = "Vonfry";
+          gitlab.user = "Vonfry";
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
