@@ -264,7 +264,7 @@ in {
         };
         enable = true;
         extraConfig = {
-          pull.rebase = false;
+          pull.rebase = mkDefault true;
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
