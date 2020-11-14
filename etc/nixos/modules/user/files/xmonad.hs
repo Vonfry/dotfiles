@@ -261,7 +261,7 @@ myWorkspaces = [ "home"
                , "taichi"
                , "misc"
                , "bg"
-               , "vbox"
+               , "vm"
                , "magic"
                , "play"
                ]
