@@ -46,6 +46,7 @@ in {
       pointerCursor = {
         package = pkgs.capitaine-cursors;
         name = "capitaine-cursors";
+        size = mkDefault 16;
       };
     };
 
