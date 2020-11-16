@@ -62,7 +62,7 @@ in {
       enable = true;
       layout = "us";
       xkbVariant = mkDefault "dvp";
-      autorun = true;
+      autorun = mkDefault true;
 
       libinput = {
         enable = true;
