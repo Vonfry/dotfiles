@@ -81,7 +81,7 @@ in {
       };
       windowManager = {
         xmonad = {
-          enable = true;
+          enable = mkDefault true;
           enableContribAndExtras = true;
         };
       };
