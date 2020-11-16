@@ -42,6 +42,11 @@ in {
         enableContribAndExtras = true;
         config = ./files/xmonad.hs;
       };
+
+      pointerCursor = {
+        package = pkgs.capitaine-cursors;
+        name = "capitaine-cursors";
+      };
     };
 
     services.dunst = {
