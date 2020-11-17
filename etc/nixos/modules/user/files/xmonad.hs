@@ -5,10 +5,10 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
 import XMonad.Actions.DynamicWorkspaces
-import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Actions.CycleSelectedLayouts
 import XMonad.Actions.GroupNavigation
+import XMonad.Actions.UpdatePointer
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -23,6 +23,7 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Hidden
 import XMonad.Layout.MagicFocus
+import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.GridVariants hiding (Orientation(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column
@@ -276,6 +277,7 @@ myWorkspaces = [ "home"
 myStartup = spawnOnOnce "home" "emacs"
 
 myLoghook = historyHook
+         <> updatePointer (0.5, 0.5) (0, 0)
 
 myDef = def
     { modMask            = myModMask
@@ -286,7 +288,7 @@ myDef = def
     , focusFollowsMouse  = True
     , focusedBorderColor = draculaPurple
     , normalBorderColor  = draculaComment
-    , borderWidth        = 1
+    , borderWidth        = 2
     , workspaces         = myWorkspaces
     , logHook            = myLoghook
     }
