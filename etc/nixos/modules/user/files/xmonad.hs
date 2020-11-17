@@ -281,7 +281,7 @@ myDef = def
     , focusFollowsMouse  = True
     , focusedBorderColor = draculaPurple
     , normalBorderColor  = draculaComment
-    , borderWidth        = 2
+    , borderWidth        = 1
     , workspaces         = myWorkspaces
     , logHook            = myLoghook
     }
