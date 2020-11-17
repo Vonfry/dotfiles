@@ -16,16 +16,17 @@ import XMonad.Prompt.Window
 import XMonad.Prompt.Workspace
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Man
+import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
+import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Hidden
+import XMonad.Layout.MagicFocus
 import XMonad.Layout.GridVariants hiding (Orientation(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column
-import XMonad.Layout.Hidden
-import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
-import XMonad.Layout.LayoutCombinators
-import XMonad.Layout.Renamed
-import XMonad.Layout.MagicFocus
 import XMonad.Layout.CenteredMaster
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -248,12 +249,18 @@ myLayout = beforeLayouts layouts
     column    = Column 1
     preview   = magicFocus $ centerMaster grid
 
-    cleanupNames  = renamed [ CutWordsLeft 1 ]
+    cleanupNames  = renamed [ CutWordsLeft 2 ]
+    spacingWm = spacingRaw True
+                           (Border 0 0 0 0)
+                           False
+                           (Border 1 1 1 1)
+                           True
     beforeLayouts = cleanupNames
                   . showWName' mySWNConf
+                  . smartBorders
                   . hiddenWindows
                   . workspaceDir "~"
-                  . smartBorders
+                  . spacingWm
 
 myWorkspaces = [ "home"
                , "doc"
