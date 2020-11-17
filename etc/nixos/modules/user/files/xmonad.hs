@@ -19,7 +19,6 @@ import XMonad.Prompt.Man
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
-import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Hidden
 import XMonad.Layout.MagicFocus
@@ -250,18 +249,12 @@ myLayout = beforeLayouts layouts
     column    = Column 1
     preview   = magicFocus $ centerMaster grid
 
-    cleanupNames  = renamed [ CutWordsLeft 2 ]
-    spacingWm = spacingRaw True
-                           (Border 0 0 0 0)
-                           False
-                           (Border 1 1 1 1)
-                           True
+    cleanupNames  = renamed [ CutWordsLeft 1 ]
     beforeLayouts = cleanupNames
                   . showWName' mySWNConf
                   . smartBorders
                   . hiddenWindows
                   . workspaceDir "~"
-                  . spacingWm
 
 myWorkspaces = [ "home"
                , "doc"
