@@ -48,8 +48,8 @@ myXPConf = def
     , sorter          = fuzzySort
     , bgColor         = draculaBackground
     , fgColor         = draculaForeground
-    , bgHLight        = draculaSelection
-    , fgHLight        = draculaForeground
+    , bgHLight        = draculaYellow
+    , fgHLight        = draculaSelection
     , borderColor     = draculaPurple
     , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
                                           -- key to applications
