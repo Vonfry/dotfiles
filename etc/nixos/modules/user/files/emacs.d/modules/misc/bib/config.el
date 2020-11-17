@@ -24,7 +24,7 @@
                                    ,val
                                    +bib--set-counter)))))
 
-(custom! +bib-note-is-single t
+(custom! +bib-note-is-single nil
   "bib notes use a single file or not. see `ebib-notes-directory' and
 `ebib-notes-file'"
   :type 'boolean
