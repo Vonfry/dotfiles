@@ -306,6 +306,7 @@ in {
 
       packages = with pkgs; [
         # neovim vim emacs
+        emacs-all-the-icons-fonts
 
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
