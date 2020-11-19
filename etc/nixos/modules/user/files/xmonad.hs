@@ -15,6 +15,7 @@ import XMonad.Prompt.XMonad
 import XMonad.Prompt.Window
 import XMonad.Prompt.Workspace
 import XMonad.Prompt.FuzzyMatch
+import XMonad.Prompt.Pass
 import XMonad.Prompt.Man
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
@@ -87,10 +88,10 @@ myKeys conf = mkKeymap conf
     , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
-    , ("M-' r", spawn "systemctl reboot"   )
-    , ("M-' s", spawn "systemctl suspend"  )
-    , ("M-' h", spawn "systemctl hibernate")
-    , ("M-' o", spawn "systemctl poweroff" )
+    , ("M-s r", spawn "systemctl reboot"   )
+    , ("M-s s", spawn "systemctl suspend"  )
+    , ("M-s h", spawn "systemctl hibernate")
+    , ("M-s o", spawn "systemctl poweroff" )
 
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
@@ -221,6 +222,11 @@ myKeys conf = mkKeymap conf
     , ("M-C-d", popOldestHiddenWindow )
 
     -- fcitx clipboard history to paste
+
+    -- password-store
+    , ("M-'"  , passPrompt         myXPConf    )
+    , ("M-S-'", passGeneratePrompt myXPConfNoAc)
+    , ("M-C-'", passRemovePrompt   myXPConf    )
 
     -- midia keys
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
