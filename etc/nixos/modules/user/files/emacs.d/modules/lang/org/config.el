@@ -187,3 +187,18 @@
                                     +org-journal-ibuffer-group)
   ""
   :group 'vonfry-modules)
+
+(custom! +org-babel-lang '((emacs-lisp . t)
+                           (org        . t)
+                           (http       . t)
+                           (haskell    . t)
+                           (latex      . t)
+                           (coq        . t)
+                           (R          . t)
+                           (sql        . t)
+                           (sqlite     . t)
+                           (perl       . t)
+                           (gnuplot    . t))
+  ""
+  :group 'vonfry-modules
+  :custom-set 'org-babel-load-languages)

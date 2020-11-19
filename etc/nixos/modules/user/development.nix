@@ -261,6 +261,7 @@ in {
           hledger-mode
           ess
           direnv
+          ob-http
         ];
       };
       git = {
@@ -318,6 +319,8 @@ in {
 
         pandoc
         zeal
+
+        graphviz
 
         # texlive.combined.scheme-full git-latexdiff
       ];

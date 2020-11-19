@@ -138,3 +138,18 @@
     "{ s" 'org-roam-server-mode))
 
 (package! org-protocol :ensure nil)
+
+(package! ob
+  :init
+  (package! ob-emacs-lisp)
+  (package! ob-org)
+  (package! ob-http)
+  (package! ob-haskell)
+  (package! ob-R)
+  (package! ob-latex)
+  (package! ob-coq)
+  (package! ob-sql)
+  (package! ob-sqlite)
+  (package! ob-perl)
+  (package! ob-gnuplot)
+  :after org)
