@@ -31,9 +31,11 @@ in {
       networkmanager.enable = true;
     };
 
-    services.zerotierone = {
-      enable = length cfg.zerotierNets != 0;
-      joinNetworks = cfg.zerotierNets;
+    services = {
+      zerotierone = {
+        enable = length cfg.zerotierNets != 0;
+        joinNetworks = cfg.zerotierNets;
+      };
     };
   };
 }
