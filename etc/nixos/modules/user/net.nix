@@ -56,7 +56,6 @@ in {
       packages = with pkgs; [
         wget curl w3m
         mu # isync
-        rclone
 
         chromium # qutebrowser
         qbittorrent
