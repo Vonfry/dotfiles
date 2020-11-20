@@ -83,7 +83,7 @@
 
   make-backup-files t
   backup-directory-alist `((".*" . ,vonfry-backup-file-dir))
-  auto-save-default nil
+  auto-save-default t
   auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t))
   auto-save-list-file-prefix vonfry-auto-save-list-prefix
 
