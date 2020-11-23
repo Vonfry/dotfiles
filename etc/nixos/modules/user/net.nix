@@ -94,6 +94,7 @@ in {
           se  = "https://www.sciencedirect.com/search?qs={}";
           acm = "https://dl.acm.org/action/doSearch?AllField={}";
           gs  = "https://scholar.google.com/scholar?q={}";
+          doi = "https://www.doi.org/{}";
         };
         settings =
           let
