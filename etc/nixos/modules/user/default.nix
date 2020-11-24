@@ -45,5 +45,16 @@ in {
         cfg.hmConfig
       ];
     };
+
+    vonfry.syncthing.folders = {
+      "${config.users.users.vonfry.home}/cloud" = {
+        versioning = {
+          versioning = {
+            params = { keep = "5"; };
+            type = "simple";
+          };
+        };
+      };
+    };
   };
 }

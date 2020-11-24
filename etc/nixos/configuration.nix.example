@@ -11,6 +11,14 @@
   #   user.extraConfig = {
   #     openssh.authorizedKeys.keys = [];
   #   };
+  #
+  #   syncthing.devices = {
+  #     laptop = {
+  #       id = "";
+  #       introducer = true;
+  #     };
+  #   };
+  #
   #   hmConfig =
   #     { config, pkgs, lib, ... }:
   #     
