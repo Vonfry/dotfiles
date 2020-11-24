@@ -28,7 +28,10 @@ in {
         allowPing = mkDefault false;
         extraPackages = with pkgs; [ ipset ];
       };
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = mkDefault true;
+        dhcp = "dhclient";
+      };
     };
 
     services.zerotierone = {
