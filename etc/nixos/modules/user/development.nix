@@ -262,6 +262,7 @@ in {
           ess
           direnv
           ob-http
+          mpdel
         ];
       };
       git = {
