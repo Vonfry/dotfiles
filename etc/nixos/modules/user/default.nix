@@ -27,7 +27,8 @@ in {
       isNormalUser = true;
       home = "/home/vonfry";
       description = "Vonfry";
-      extraGroups = [ "wheel" "docker" "libvirtd" "networkmanager" ];
+      extraGroups = [ "wheel" "docker" "libvirtd" "networkmanager" "syncthing"
+                    ];
       shell = pkgs.zsh;
     } cfg.user.extraConfig];
 
@@ -44,6 +45,17 @@ in {
         })
         cfg.hmConfig
       ];
+    };
+
+    vonfry.syncthing.folders = {
+      "${config.users.users.vonfry.home}/cloud" = {
+        versioning = {
+          versioning = {
+            params = { keep = "5"; };
+            type = "simple";
+          };
+        };
+      };
     };
   };
 }

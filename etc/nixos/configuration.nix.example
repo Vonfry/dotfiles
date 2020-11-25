@@ -6,67 +6,70 @@
     ./modules
   ];
 
-  # vonfry = {
-  #   enable = true;
-  #   user.extraConfig = {
-  #     openssh.authorizedKeys.keys = [];
-  #   };
-  #   hmConfig =
-  #     { config, pkgs, lib, ... }:
-  #     
-  #     {
-  #       # sessionVariables must be set after creating these directories.
-  #       home.sessionVariables = {
-  #         DOTFILES_DIR = "$HOME/dotfiles";
-  #         CLOUD_DIR    = "$HOME/cloud";
-  #         ORG_DIR      = "$HOME/orgmode";
-  #         CLONE_LIB    = "$HOME/repos";
-  #         PASSWD_DIR   = "$HOME/.local/passwd";
-  #         LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
-  #       };
-  #       
-  #       vonfry = {
-  #         development = {
-  #           git.signKey = "";
-  #         };
-  #  
-  #         net = {
-  #           email = import ./local/mail.nix;
-  #         };
-  #       };
-  #     };
-  # };
+  vonfry = {
+    enable = true;
+    user.extraConfig = {
+      openssh.authorizedKeys.keys = [];
+    };
+  
+    network = {
+      zerotierNets = [];
 
-  # fonts.fontconfig.dpi = 96;
+      syncthing.devices = {
+        laptop = {
+          id = "";
+          introducer = true;
+        };
+      };
+    };
+  
+    hmConfig =
+      { config, pkgs, lib, ... }:
+      
+      {
+        # sessionVariables must be set after creating these directories.
+        home.sessionVariables = {
+          DOTFILES_DIR = "$HOME/dotfiles";
+          CLOUD_DIR    = "$HOME/cloud";
+          ORG_DIR      = "$HOME/orgmode";
+          CLONE_LIB    = "$HOME/repos";
+          PASSWD_DIR   = "$HOME/.local/passwd";
+          LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
+        };
+        
+        vonfry = {
+          development = {
+            git.signKey = "";
+          };
+   
+          net = {
+            email = import ./local/mail.nix;
+          };
+        };
+      };
+  };
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
-  # nix.maxJobs = "auto"; 
+  nix.maxJobs = "auto"; 
 
-  # systemd.services.nix-daemon.environment = {
-  #   http_proxy  = "prot://user:password@proxy:port";
-  #   https_proxy = "prot://user:password@proxy:port";
-  #   ftp_proxy   = "prot://user:password@proxy:port";
-  # };
+  fonts.fontconfig.dpi = 96;
 
   # services.openssh.enable = true;
 
-  # boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  # services.fprintd.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.networkmanager.enable = false;
 
-  # nesting.clone = [];
-
+  # networking.hosts = {
+  # };
   # networking.firewall = {
   #     allowedTCPPorts = [ ];
   #     allowedTCPPortRanges = [];
   #     allowedUDPPorts = [ ];
-  # };
-
-  # networking.hosts = {
   # };
 
   # environment.systemPackages = with pkgs; [ krb5 heimdal ];
@@ -99,9 +102,18 @@
   #     '';
   # };
 
-  # services.fprintd.enable = false;
+  # nesting.clone = [];
 
   # N.B. boot loader
 
   # N.B. network
+
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # systemd.services.nix-daemon.environment = {
+  #   http_proxy  = "prot://user:password@proxy:port";
+  #   https_proxy = "prot://user:password@proxy:port";
+  #   ftp_proxy   = "prot://user:password@proxy:port";
+  # };
+
 }

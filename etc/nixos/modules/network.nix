@@ -9,6 +9,17 @@ in {
       default = [];
       type = with types; listOf str;
     };
+
+    syncthing = {
+      folders = mkOption {
+        default = {};
+        type = with types; attrs;
+      };
+      devices = mkOption {
+        default = {};
+        type = with types; attrs;
+      };
+    };
   };
 
   config = mkIf config.vonfry.enable {
@@ -34,9 +45,19 @@ in {
       };
     };
 
-    services.zerotierone = {
-      enable = length cfg.zerotierNets != 0;
-      joinNetworks = cfg.zerotierNets;
+    services = {
+      zerotierone = {
+        enable = length cfg.zerotierNets != 0;
+        joinNetworks = cfg.zerotierNets;
+      };
+
+      syncthing = {
+        enable = mkDefault (length (attrNames cfg.syncthing.folders) != 0);
+        declarative = {
+          inherit (cfg.syncthing) devices folders;
+        };
+        openDefaultPorts = mkDefault true;
+      };
     };
   };
 }
