@@ -75,9 +75,16 @@
   # networking.hosts = {
   # };
   # networking.firewall = {
-  #     allowedTCPPorts = [ ];
-  #     allowedTCPPortRanges = [];
-  #     allowedUDPPorts = [ ];
+  #   enable = true;
+  #   allowedTCPPorts = [ 22000 # syncthing tcp forwarding
+  #                     ];   
+  #   allowedTCPPortRanges = [
+  #     { from = 5900; to = 5902; } # vnc
+  #   ];
+  #   allowedUDPPorts = [ 21027 # syncthing udp discovery
+  #                     ];
+  #   allowedTCPPortRanges = [];
+  #   allowedUDPPorts = [ ];
   # };
 
   # environment.systemPackages = with pkgs; [ krb5 heimdal ];

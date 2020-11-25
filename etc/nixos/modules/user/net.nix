@@ -216,5 +216,9 @@ in {
         '';
       };
     };
+
+    services = {
+      syncthing.enable = mkDefault (config.home.sessionVariables ? "CLOUD_DIR");
+    };
   };
 }

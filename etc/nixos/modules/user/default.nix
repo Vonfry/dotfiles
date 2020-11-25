@@ -20,15 +20,12 @@ in {
     };
   };
 
-  config =
-    let
-      vonfryHome = "/home/vonfry";
-    in  mkIf cfg.enable {
+  config = mkIf cfg.enable {
     users.motd = builtins.readFile ./files/motd;
 
     users.users.vonfry = mkMerge [{
       isNormalUser = true;
-      home = vonfryHome;
+      home = "/home/vonfry";
       description = "Vonfry";
       extraGroups = [ "wheel" "docker" "libvirtd" "networkmanager" "syncthing"
                     ];
@@ -50,14 +47,5 @@ in {
       ];
     };
 
-    vonfry.network.syncthing.folders = {
-      "${vonfryHome}/cloud" = {
-        versioning = {
-          params = { keep = "5"; };
-          type = "simple";
-          ignorePerms = false;
-        };
-      };
-    };
   };
 }
