@@ -132,7 +132,7 @@ in {
 
       mpd = {
         enable = mkDefault true;
-        musicDirectory = mkDefault "\$HOME/Music";
+        musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
       };
 
       gpg-agent = {
