@@ -100,7 +100,7 @@ in {
         filezilla
 
         flameshot feh # inkscape gimp
-        pavucontrol audacious # kid3 audacity
+        pavucontrol # kid3 audacity
         # mpv ffmpeg
         unstable.tor-browser-bundle-bin
         # zathura
@@ -129,6 +129,11 @@ in {
 
     services = {
       pulseeffects.enable = true;
+
+      mpd = {
+        enable = mkDefault true;
+        musicDirectory = mkDefault "\$HOME/Music";
+      };
 
       gpg-agent = {
         enable = true;
