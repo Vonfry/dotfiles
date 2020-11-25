@@ -129,6 +129,15 @@ in {
           before = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
           script = "rtcwake -m no --date ${cfg.autoWakeTime}";
+          description = "auto wake from suspend.";
+        };
+
+        autowakeAfter = {
+          enable = mkDefault (config.systemd.services.autowake.enable);
+          after = [ "sleep.target" ];
+          wantedBy = [ "sleep.target" ];
+          script = "rtcwake -m disable";
+          description = "clean previous wake process.";
         };
       };
     };
