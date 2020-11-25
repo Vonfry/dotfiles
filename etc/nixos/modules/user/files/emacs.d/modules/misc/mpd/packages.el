@@ -1,4 +1,4 @@
-;;; packages config -*- lexical-binding: t -*-
+;;; mpdel packages -*- lexical-binding: t -*-
 ;;
 
 (package! mpdel
