@@ -81,7 +81,6 @@ myKeys conf = mkKeymap conf
     , ("M-, v", spawn "virt-manager"    )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
     , ("M-, m", spawn "audacious"       )
