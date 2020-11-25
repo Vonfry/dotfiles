@@ -49,36 +49,27 @@
       };
   };
 
-  fonts.fontconfig.dpi = 96;
-
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
   nix.maxJobs = "auto"; 
 
-  # systemd.services.nix-daemon.environment = {
-  #   http_proxy  = "prot://user:password@proxy:port";
-  #   https_proxy = "prot://user:password@proxy:port";
-  #   ftp_proxy   = "prot://user:password@proxy:port";
-  # };
+  fonts.fontconfig.dpi = 96;
 
   # services.openssh.enable = true;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  # services.fprintd.enable = true;
+
   # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # networking.networkmanager.enable = false;
 
-  # nesting.clone = [];
-
+  # networking.hosts = {
+  # };
   # networking.firewall = {
   #     allowedTCPPorts = [ ];
   #     allowedTCPPortRanges = [];
   #     allowedUDPPorts = [ ];
-  # };
-
-  # networking.hosts = {
   # };
 
   # environment.systemPackages = with pkgs; [ krb5 heimdal ];
@@ -111,9 +102,18 @@
   #     '';
   # };
 
-  # services.fprintd.enable = false;
+  # nesting.clone = [];
 
   # N.B. boot loader
 
   # N.B. network
+
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # systemd.services.nix-daemon.environment = {
+  #   http_proxy  = "prot://user:password@proxy:port";
+  #   https_proxy = "prot://user:password@proxy:port";
+  #   ftp_proxy   = "prot://user:password@proxy:port";
+  # };
+
 }
