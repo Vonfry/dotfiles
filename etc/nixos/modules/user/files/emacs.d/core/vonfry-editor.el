@@ -89,7 +89,7 @@
 
   visual-line-mode t
 
-  tramp-default-method "ssh"
+  tramp-default-method "sshx"
   tramp-auto-save-directory vonfry-tramp-cache
   tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))
 
