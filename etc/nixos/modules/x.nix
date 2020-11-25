@@ -42,6 +42,11 @@ in {
       description = "The no activation duration before system suspending. unit: second.";
     };
 
+    autoWakeTime = mkOption {
+      default = null;
+      type = with types; nullOr str;
+      description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
+    };
   };
 
   config = mkIf config.vonfry.enable {
@@ -115,6 +120,15 @@ in {
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
+        };
+      };
+
+      services = {
+        autowake = {
+          enable = mkDefault (cfg.autoWakeTime != null);
+          before = [ "sleep.target" ];
+          wantedBy = [ "sleep.target" ];
+          script = "rtcwake -m no --date ${cfg.autoWakeTime}";
         };
       };
     };
