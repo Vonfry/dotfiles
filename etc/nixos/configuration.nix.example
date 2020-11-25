@@ -23,7 +23,7 @@
       };
     };
 
-    # x.autoWakeTime = "21:00";
+    # x.autoWake.enable = true;
   
     hmConfig =
       { config, pkgs, lib, ... }:

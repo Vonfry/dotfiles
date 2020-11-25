@@ -42,10 +42,13 @@ in {
       description = "The no activation duration before system suspending. unit: second.";
     };
 
-    autoWakeTime = mkOption {
-      default = null;
-      type = with types; nullOr str;
-      description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
+    autoWake = {
+      time = mkOption {
+        default = "21:00";
+        type = with types; str;
+        description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
+      };
+      enable = mkEnableOption "enable auto wake";
     };
   };
 
@@ -125,10 +128,10 @@ in {
 
       services = {
         autowake = {
-          enable = mkDefault (cfg.autoWakeTime != null);
+          enable = mkDefault cfg.autoWake.enable;
           before = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
-          script = "rtcwake -m no --date ${cfg.autoWakeTime}";
+          script = "rtcwake -m no --date ${cfg.autoWake.time}";
           description = "auto wake from suspend.";
         };
 
