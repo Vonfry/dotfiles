@@ -40,6 +40,12 @@
         vonfry = {
           development = {
             git.signKey = "";
+            emacs.preCustom = ''
+              (custom-set-variables '(+jekyll-dir (expand-file-name (getenv "CLONE_LIB") "website"))
+                                    '(enable-local-variables :all)
+                                    '(enable-local-eval t)
+              )
+            '';
           };
    
           net = {
