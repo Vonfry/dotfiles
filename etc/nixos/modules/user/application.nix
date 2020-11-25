@@ -7,6 +7,7 @@ in {
   config = mkIf cfg.enable {
     programs = {
       feh.enable = true;
+
       zathura = {
         enable = true;
         extraConfig = ''
@@ -45,12 +46,18 @@ in {
           recolor-darkcolor       = "#f8f8f2"; # Foreground
         };
       };
+
       mpv.enable = true;
+
       gpg = {
         enable = true;
         settings = {
           keyserver = "hkps://keys.openpgp.org";
         };
+      };
+
+      password-store = {
+        enable = true;
       };
     };
 
@@ -87,12 +94,10 @@ in {
         })
       ];
 
-
       packages = with pkgs; [
         fortune cmatrix figlet
 
         hledger
-        unstable._1password-gui
 
         tdesktop
 
