@@ -5,8 +5,8 @@
   :after evil
   :config
   (dolist (mode '(mpdel-playlist-mode mpdel-tablist-mode mpdel-song-mode
-                  mpdel-playlist-stored-playlist-mode
-                  mpdel-browser-mode mpdel-playlist-current-playlist-mode))
+                  mpdel-playlist-stored-playlist-mode mpdel-browser-mode
+                  mpdel-playlist-current-playlist-mode))
     (evil-set-initial-state mode 'emacs))
   :general
   (+mmap-at-def
