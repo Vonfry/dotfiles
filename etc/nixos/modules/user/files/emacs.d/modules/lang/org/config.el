@@ -128,7 +128,7 @@
              "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
             ("o" "roam" plain (function org-roam--capture-get-point)
              "%?"
-             :file-name "${slug}-%<%Y%m%d>"
+             :file-name "${slug}"
              :head "#+title: ${title}\n"
              :unnarrowed t)
             ("a" "capture to agenda")))
