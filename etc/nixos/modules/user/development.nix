@@ -53,9 +53,9 @@ in {
           ''
             (custom-set-variables
              '(vonfry-exclude-modules
-               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""  }
-                 ${optionalString (sessions ? LEDGER_FILE) "\"misc/ledgel\""}
-                 ${optionalString (sessions ? PASSWD_DIR ) "\"misc/irc\""   }
+               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""    }
+                 ${optionalString (! sessions ? LEDGER_FILE) "\"misc/ledger\""}
+                 ${optionalString (! sessions ? PASSWD_DIR ) "\"misc/irc\""   }
                  )))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
