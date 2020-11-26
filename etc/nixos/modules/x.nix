@@ -131,7 +131,7 @@ in {
           enable = mkDefault cfg.autoWake.enable;
           before = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
-          script = "rtcwake -m no --date ${cfg.autoWake.time}";
+          script = "${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}";
           description = "auto wake from suspend.";
         };
 
@@ -139,7 +139,7 @@ in {
           enable = mkDefault (config.systemd.services.autowake.enable);
           after = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
-          script = "rtcwake -m disable";
+          script = "${pkgs.utillinux}/bin/rtcwake -m disable";
           description = "clean previous wake process.";
         };
       };
