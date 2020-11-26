@@ -103,7 +103,9 @@
 
   semanticdb-default-save-directory (expand-file-name "semanticdb"
                                                       vonfry-cache-dir)
-  nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir))
+  nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir)
+
+  epg-pinentry-mode 'loopback)
 
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)

@@ -71,8 +71,6 @@ in {
           setopt extendedglob
           setopt rm_star_silent
           setopt clobber
-
-          eval "$(jump shell)"
         '' + concatStringsSep "\n"
           (map (f: readFile (./files/zsh/rc.d + ("/" + f)))
             (attrNames

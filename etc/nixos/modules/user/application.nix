@@ -146,9 +146,9 @@ in {
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;
-        pinentryFlavor = "curses";
+        pinentryFlavor = "qt";
         extraConfig = ''
-          allow-emacs-pinentry
+          allow-loopback-pinentry
           allow-preset-passphrase
         '';
       };
