@@ -9,6 +9,11 @@ let
     sha256 = "0ib56hy9qqp187hyhgp361yvxqlffpplvw2w73j7mjzqdp49ms6k";
   };
   qtVersion = pkgs."qt${cfg.sddmQtVersion}".qtbase.version;
+
+  screenlocker = pkgs.writeScriptBin "screenlocker" ''
+    #!/usr/bin/env bash
+    ${pkgs.i3lock-color}/bin/i3lock-color -n -c 282a36 --indicator -k -B 1 --insidecolor=282a36 --insidewrongcolor=282a36 --insidevercolor=282a36 --ringvercolor=bd93f9 --ringwrongcolor=ff79c6 --ringcolor=44475a --linecolor=6272a4 --keyhlcolor=f1fa8c --bshlcolor=ff5555 --verifcolor=bd93f9 --wrongcolor=ff79c6 --timecolor=f8f8f2 --datecolor=6272a4
+  '';
 in {
   options.vonfry.x = {
     sddmQtVersion = mkOption {
@@ -25,7 +30,7 @@ in {
     };
 
     lockScript = mkOption {
-      default = "${pkgs.i3lock-color}/bin/i3lock-color -n -c 282a36 --indicator -k -B 1 --insidecolor=282a36 --insidewrongcolor=282a36 --insidevercolor=282a36 --ringvercolor=bd93f9 --ringwrongcolor=ff79c6 --ringcolor=44475a --linecolor=6272a4 --keyhlcolor=f1fa8c --bshlcolor=ff5555 --verifcolor=bd93f9 --wrongcolor=ff79c6 --timecolor=f8f8f2 --datecolor=6272a4";
+      default = "${screenlocker}/bin/screenlocker";
       type = types.str;
       description = "lock screen command.";
     };
@@ -60,6 +65,7 @@ in {
       unstable.dracula-theme
       cfg.chiliPackage
       breeze-icons
+      screenlocker
     ];
 
     services.xbanish.enable = true;

@@ -90,6 +90,7 @@ myKeys conf = mkKeymap conf
     , ("M-s s", spawn "systemctl suspend"  )
     , ("M-s h", spawn "systemctl hibernate")
     , ("M-s o", spawn "systemctl poweroff" )
+    , ("M-s l", spawn "screenlocker"       ) -- a wrapped script
 
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
