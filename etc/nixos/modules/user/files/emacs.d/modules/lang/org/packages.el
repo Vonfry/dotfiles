@@ -138,6 +138,7 @@
     "{ s" 'org-roam-server-mode))
 
 (package! org-protocol :ensure nil)
+(package! org-roam-protocol :ensure nil)
 
 (package! ob
   :init

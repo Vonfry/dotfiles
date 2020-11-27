@@ -131,9 +131,9 @@ in {
           [Desktop Entry]
           Name=org-protocol
           Exec=emacsclient %u
+          Icon=emacs-icon
           Type=Application
           Terminal=false
-          Categories=System;
           MimeType=x-scheme-handler/org-protocol;
         '';
       };
