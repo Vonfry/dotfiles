@@ -2,9 +2,16 @@
 
 with lib;
 let
-  cfg = config.vonfry;
+  cfg = config.vonfry.network;
 in {
-  config = mkIf cfg.enable {
+  options.vonfry.network = {
+    zerotierNets = mkOption {
+      default = [];
+      type = with types; listOf str;
+    };
+  };
+
+  config = mkIf config.vonfry.enable {
     environment.systemPackages = with pkgs; [
       wget curl w3m
 
@@ -21,7 +28,17 @@ in {
         allowPing = mkDefault false;
         extraPackages = with pkgs; [ ipset ];
       };
-      networkmanager.enable = true;
+      networkmanager = {
+        enable = mkDefault true;
+        dhcp = "dhclient";
+      };
+    };
+
+    services = {
+      zerotierone = {
+        enable = length cfg.zerotierNets != 0;
+        joinNetworks = cfg.zerotierNets;
+      };
     };
   };
 }

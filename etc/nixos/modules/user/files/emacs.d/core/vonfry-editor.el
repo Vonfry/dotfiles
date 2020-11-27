@@ -8,7 +8,10 @@
 (defgroup vonfry-editor nil
   "Vonfry's group about editor")
 
-(defcustom vonfry-frame '((width . 160) (height . 72))
+(defcustom vonfry-frame '((width . 160)
+                          (height . 72)
+                          (vertical-scroll-bars . nil)
+                          (horizontal-scroll-bars . nil))
   "The default frame width and height, see `initial-frame-alist'"
   :type 'sexp
   :group 'vonfry-editor)
@@ -80,13 +83,14 @@
 
   make-backup-files t
   backup-directory-alist `((".*" . ,vonfry-backup-file-dir))
-  auto-save-default nil
+  auto-save-default t
   auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t))
   auto-save-list-file-prefix vonfry-auto-save-list-prefix
 
   visual-line-mode t
 
-  tramp-default-method "ssh"
+  tramp-default-method "sshx"
+  tramp-save-ad-hoc-proxies t
   tramp-auto-save-directory vonfry-tramp-cache
   tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))
 
@@ -99,7 +103,9 @@
 
   semanticdb-default-save-directory (expand-file-name "semanticdb"
                                                       vonfry-cache-dir)
-  nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir))
+  nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir)
+
+  epg-pinentry-mode 'loopback)
 
 (hook! text-mode turn-on-auto-fill)
 (hook! prog-mode turn-on-auto-fill)

@@ -4,6 +4,13 @@ with lib;
 let
   cfg = config.vonfry.development;
   cfg' = config.vonfry;
+
+  emacsExtraBin = with pkgs; buildEnv {
+    name = "emacsExtraBin";
+    paths = [ python3 sqlite perl bundler jekyll ];
+    pathsToLink = [ "/bin" "/share" "/lib" ];
+  };
+
 in {
   options.vonfry.development = {
     emacs = {
@@ -46,10 +53,11 @@ in {
           ''
             (custom-set-variables
              '(vonfry-exclude-modules
-               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""  }
-                 ${optionalString (sessions ? LEDGER_FILE) "\"misc/ledgel\""}
-                 ${optionalString (sessions ? PASSWD_DIR ) "\"misc/irc\""   }
+               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""    }
+                 ${optionalString (! sessions ? LEDGER_FILE) "\"misc/ledger\""}
+                 ${optionalString (! sessions ? PASSWD_DIR ) "\"misc/irc\""   }
                  )))
+            (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
           cfg.emacs.preCustom
         ]);
@@ -253,6 +261,8 @@ in {
           hledger-mode
           ess
           direnv
+          ob-http
+          mpdel
         ];
       };
       git = {
@@ -264,7 +274,10 @@ in {
         };
         enable = true;
         extraConfig = {
-          pull.rebase = false;
+          pull.rebase = mkDefault true;
+          rebase.autoSquash = mkDefault true;
+          github.user = "Vonfry";
+          gitlab.user = "Vonfry";
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
@@ -294,11 +307,8 @@ in {
       };
 
       packages = with pkgs; [
-
-        # These are used in emacs
-        python3 sqlite perl jekyll
-
         # neovim vim emacs
+        emacs-all-the-icons-fonts
 
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
@@ -310,6 +320,8 @@ in {
 
         pandoc
         zeal
+
+        graphviz
 
         # texlive.combined.scheme-full git-latexdiff
       ];

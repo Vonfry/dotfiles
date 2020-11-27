@@ -2,6 +2,8 @@
 ;;
 
 (package! avy
+  :custom
+  (avy-keys (list ?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
   :config
   (avy-setup-default)
   :general
@@ -12,9 +14,8 @@
   (+mmap-leader-def "/" 'avy-goto-char-timer)
   (+mmap-avy-def
     "" '(nil :which-key "avy")
-    "." 'avy-goto-char
-    "f" 'avy-goto-char-2
-    "g" 'avy-goto-char-timer
+    "g" 'avy-goto-char
+    "f" 'avy-goto-char-in-line
     "b" 'avy-goto-word-0
     "w" 'avy-goto-word-1
     "W" 'avy-goto-subword-1

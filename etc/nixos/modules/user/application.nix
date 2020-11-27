@@ -7,6 +7,7 @@ in {
   config = mkIf cfg.enable {
     programs = {
       feh.enable = true;
+
       zathura = {
         enable = true;
         extraConfig = ''
@@ -45,12 +46,18 @@ in {
           recolor-darkcolor       = "#f8f8f2"; # Foreground
         };
       };
+
       mpv.enable = true;
+
       gpg = {
         enable = true;
         settings = {
           keyserver = "hkps://keys.openpgp.org";
         };
+      };
+
+      password-store = {
+        enable = true;
       };
     };
 
@@ -87,12 +94,10 @@ in {
         })
       ];
 
-
       packages = with pkgs; [
         fortune cmatrix figlet
 
         hledger
-        unstable._1password-gui
 
         tdesktop
 
@@ -100,7 +105,7 @@ in {
         filezilla
 
         flameshot feh # inkscape gimp
-        pavucontrol audacious # kid3 audacity
+        pavucontrol # kid3 audacity
         # mpv ffmpeg
         unstable.tor-browser-bundle-bin
         # zathura
@@ -130,15 +135,20 @@ in {
     services = {
       pulseeffects.enable = true;
 
+      mpd = {
+        enable = mkDefault true;
+        musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
+      };
+
       gpg-agent = {
         enable = true;
         defaultCacheTtl = 14400;
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;
-        pinentryFlavor = "curses";
+        pinentryFlavor = "qt";
         extraConfig = ''
-          allow-emacs-pinentry
+          allow-loopback-pinentry
           allow-preset-passphrase
         '';
       };

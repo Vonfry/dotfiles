@@ -116,22 +116,19 @@
   (let ((default-templates
           '(("c" "capture to inbox(Tasks), refile later"
              entry (file+headline +org-capture-file "Tasks")
-             "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:n"
-             :empty-lines 1)
+             "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:n")
             ("i" "capture to inbox(Idea), refile later"
              entry (file+headline +org-capture-file "Idea")
-             "* %?\n:PROPERTIES:\n:CREATED: %Un"
-             :empty-lines 1)
+             "* %?\n:PROPERTIES:\n:CREATED: %Un")
             ("n" "capture to note"
              plain (function +org--note-templates-get-location)
-             "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?"
-             :empty-lines 1)
+             "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?")
             ("j" "Journal entry"
              entry (function +org--journal-find-location)
              "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
             ("o" "roam" plain (function org-roam--capture-get-point)
              "%?"
-             :file-name "${slug}-%<%Y%m%d>"
+             :file-name "${slug}"
              :head "#+title: ${title}\n"
              :unnarrowed t)
             ("a" "capture to agenda")))
@@ -142,8 +139,7 @@
                      (keys (concat "a" (string (+ ?A index)))))
                 `(,keys ,(concat "capture to " file-name ", refile later")
                   entry (file ,file-path)
-                  "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:"
-                  :empty-lines 1)))
+                  "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:")))
             +org-agenda-files)))
     (append default-templates agenda-templates))
   ""
@@ -187,3 +183,18 @@
                                     +org-journal-ibuffer-group)
   ""
   :group 'vonfry-modules)
+
+(custom! +org-babel-lang '((emacs-lisp . t)
+                           (org        . t)
+                           (http       . t)
+                           (haskell    . t)
+                           (latex      . t)
+                           (coq        . t)
+                           (R          . t)
+                           (sql        . t)
+                           (sqlite     . t)
+                           (perl       . t)
+                           (gnuplot    . t))
+  ""
+  :group 'vonfry-modules
+  :custom-set 'org-babel-load-languages)

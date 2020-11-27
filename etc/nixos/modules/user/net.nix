@@ -56,7 +56,6 @@ in {
       packages = with pkgs; [
         wget curl w3m
         mu # isync
-        rclone
 
         chromium # qutebrowser
         qbittorrent
@@ -94,6 +93,7 @@ in {
           se  = "https://www.sciencedirect.com/search?qs={}";
           acm = "https://dl.acm.org/action/doSearch?AllField={}";
           gs  = "https://scholar.google.com/scholar?q={}";
+          doi = "https://www.doi.org/{}";
         };
         settings =
           let
@@ -113,6 +113,7 @@ in {
             draculaCyan                = "#8be9fd";
             draculaGreen               = "#50fa7b";
           in {
+            hints.chars = "aoeuidhts";
             url = {
               default_page = "about:blank";
               start_pages = [ "about:blank" ];
@@ -214,6 +215,10 @@ in {
           c.statusbar.padding = padding
         '';
       };
+    };
+
+    services = {
+      syncthing.enable = mkDefault (config.home.sessionVariables ? "CLOUD_DIR");
     };
   };
 }

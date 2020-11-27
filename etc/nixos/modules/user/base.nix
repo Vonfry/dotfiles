@@ -15,7 +15,6 @@ in {
         auto-optimise-store = true
         keep-outputs = true
         keep-derivations = true
-        sandbox = false
         max-jobs = auto
         cores = 0
       '';
@@ -34,7 +33,7 @@ in {
       packages = with pkgs; [
         atop # htop
         sshfs exfat
-        lnav lm_sensors lsof
+        lnav visidata lm_sensors lsof
 
         ranger
         patch parallel file

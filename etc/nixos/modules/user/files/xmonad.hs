@@ -5,27 +5,29 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
 import XMonad.Actions.DynamicWorkspaces
-import XMonad.Layout.WorkspaceDir
 import XMonad.Actions.CycleWS
 import XMonad.Actions.CycleSelectedLayouts
 import XMonad.Actions.GroupNavigation
+import XMonad.Actions.UpdatePointer
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.Window
 import XMonad.Prompt.Workspace
 import XMonad.Prompt.FuzzyMatch
+import XMonad.Prompt.Pass
 import XMonad.Prompt.Man
+import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Hidden
+import XMonad.Layout.MagicFocus
+import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.GridVariants hiding (Orientation(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column
-import XMonad.Layout.Hidden
-import XMonad.Layout.NoBorders
 import XMonad.Layout.DragPane
-import XMonad.Layout.LayoutCombinators
-import XMonad.Layout.Renamed
-import XMonad.Layout.MagicFocus
 import XMonad.Layout.CenteredMaster
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
@@ -46,8 +48,8 @@ myXPConf = def
     , sorter          = fuzzySort
     , bgColor         = draculaBackground
     , fgColor         = draculaForeground
-    , bgHLight        = draculaSelection
-    , fgHLight        = draculaForeground
+    , bgHLight        = draculaYellow
+    , fgHLight        = draculaSelection
     , borderColor     = draculaPurple
     , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
                                           -- key to applications
@@ -79,17 +81,15 @@ myKeys conf = mkKeymap conf
     , ("M-, v", spawn "virt-manager"    )
     , ("M-, f", spawn "zathura"         )
     , ("M-, t", spawn "telegram-desktop")
-    , ("M-, p", spawn "1password"       )
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
-    , ("M-, m", spawn "audacious"       )
     , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
     , ("M-, a", runInTerm "-t htop"    "htop"   )
 
-    , ("M-' r", spawn "systemctl reboot"   )
-    , ("M-' s", spawn "systemctl suspend"  )
-    , ("M-' h", spawn "systemctl hibernate")
-    , ("M-' o", spawn "systemctl poweroff" )
+    , ("M-s r", spawn "systemctl reboot"   )
+    , ("M-s s", spawn "systemctl suspend"  )
+    , ("M-s h", spawn "systemctl hibernate")
+    , ("M-s o", spawn "systemctl poweroff" )
 
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
@@ -221,6 +221,11 @@ myKeys conf = mkKeymap conf
 
     -- fcitx clipboard history to paste
 
+    -- password-store
+    , ("M-'"  , passPrompt         myXPConf    )
+    , ("M-S-'", passGeneratePrompt myXPConfNoAc)
+    , ("M-C-'", passRemovePrompt   myXPConf    )
+
     -- midia keys
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
     , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
@@ -251,9 +256,9 @@ myLayout = beforeLayouts layouts
     cleanupNames  = renamed [ CutWordsLeft 1 ]
     beforeLayouts = cleanupNames
                   . showWName' mySWNConf
+                  . smartBorders
                   . hiddenWindows
                   . workspaceDir "~"
-                  . smartBorders
 
 myWorkspaces = [ "home"
                , "doc"
@@ -261,7 +266,7 @@ myWorkspaces = [ "home"
                , "taichi"
                , "misc"
                , "bg"
-               , "vbox"
+               , "vm"
                , "magic"
                , "play"
                ]
@@ -269,6 +274,7 @@ myWorkspaces = [ "home"
 myStartup = spawnOnOnce "home" "emacs"
 
 myLoghook = historyHook
+         <> updatePointer (0.5, 0.5) (0, 0)
 
 myDef = def
     { modMask            = myModMask

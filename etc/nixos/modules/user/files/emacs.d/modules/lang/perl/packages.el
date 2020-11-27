@@ -3,7 +3,6 @@
 
 (package! cperl-mode
   :ensure nil
-  :hook lsp
   :general
   (+mmap-mode-perl-def
     "l" 'cperl-lineup

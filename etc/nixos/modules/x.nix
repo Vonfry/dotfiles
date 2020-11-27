@@ -42,6 +42,14 @@ in {
       description = "The no activation duration before system suspending. unit: second.";
     };
 
+    autoWake = {
+      time = mkOption {
+        default = "21:00";
+        type = with types; str;
+        description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
+      };
+      enable = mkEnableOption "enable auto wake";
+    };
   };
 
   config = mkIf config.vonfry.enable {
@@ -62,7 +70,7 @@ in {
       enable = true;
       layout = "us";
       xkbVariant = mkDefault "dvp";
-      autorun = true;
+      autorun = mkDefault true;
 
       libinput = {
         enable = true;
@@ -81,7 +89,7 @@ in {
       };
       windowManager = {
         xmonad = {
-          enable = true;
+          enable = mkDefault true;
           enableContribAndExtras = true;
         };
       };
@@ -115,6 +123,24 @@ in {
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
+        };
+      };
+
+      services = {
+        autowake = {
+          enable = mkDefault cfg.autoWake.enable;
+          before = [ "sleep.target" ];
+          wantedBy = [ "sleep.target" ];
+          script = "${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}";
+          description = "auto wake from suspend.";
+        };
+
+        autowakeAfter = {
+          enable = mkDefault (config.systemd.services.autowake.enable);
+          after = [ "sleep.target" ];
+          wantedBy = [ "sleep.target" ];
+          script = "${pkgs.utillinux}/bin/rtcwake -m disable";
+          description = "clean previous wake process.";
         };
       };
     };
