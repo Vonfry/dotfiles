@@ -137,7 +137,14 @@ in {
           enable = mkDefault cfg.autoWake.enable;
           before = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
-          script = "${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}";
+          script = ''
+            current_time=$(${pkgs.coreutils}/bin/date +%R)
+            if [[ "$current_time" < "${cfg.autoWake.time}" ]]; then
+              ${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}
+            else
+              ${pkgs.utillinux}/bin/rtcwake -m no --date "$(date -d 'next day ${cfg.autoWake.time}' '+%F %R')"
+            fi
+          '';
           description = "auto wake from suspend.";
         };
 
