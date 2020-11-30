@@ -200,7 +200,7 @@ in {
               favicons.scale = 1;
               show = "multiple";
             };
-            editor.command = [ "alacritty -e nvim" "{file}" ];
+            editor.command = [ "alacritty" "-e" "nvim" "{file}" ];
             downloads = {
               location = {
                 directory = "~/Downloads";
