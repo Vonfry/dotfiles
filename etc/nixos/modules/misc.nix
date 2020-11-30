@@ -15,13 +15,6 @@ in {
       packages = with pkgs; [ terminus_font kbdKeymaps.dvp ];
     };
 
-    programs = {
-      gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-      };
-    };
-
     fonts = {
       fonts = with pkgs; [
         hack-font
