@@ -107,25 +107,21 @@
 
   epg-pinentry-mode 'loopback)
 
-(hook! text-mode turn-on-auto-fill)
-(hook! prog-mode turn-on-auto-fill)
+(hook! (prog-mode text-mode) turn-on-auto-fill)
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace (not show-trailing-whitespace)))
 
-(hook! text-mode vonfry/toggle-trailing-whitespace)
-(hook! prog-mode vonfry/toggle-trailing-whitespace)
+(hook! (prog-mode text-mode) vonfry/toggle-trailing-whitespace)
 
-(hook! prog-mode whitespace-mode)
-(hook! text-mode whitespace-mode)
+(hook! (text-mode prog-mode) whitespace-mode)
 
 (hook! after-init server-start)
 
 (package! whitespace-cleanup-mode
   :hook
-  ((prog-mode . whitespace-cleanup-mode)
-   (text-mode . whitespace-cleanup-mode)))
+  ((text-mode prog-mode) . whitespace-cleanup-mode))
 
 (package! hl-line
   :hook
