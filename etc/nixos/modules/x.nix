@@ -153,6 +153,7 @@ in {
           after = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
           script = "${pkgs.utillinux}/bin/rtcwake -m disable";
+          preStart = "sleep 10";
           description = "clean previous wake process.";
         };
       };
