@@ -12,7 +12,6 @@
                           (height . 72)
                           (horizontal-scroll-bars . nil)
                           (vertical-scroll-bars . nil))
-
   "The default frame width and height, see `initial-frame-alist'"
   :type 'sexp
   :group 'vonfry-editor)
