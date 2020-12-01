@@ -72,3 +72,4 @@
     - [X] emacs wraping other tools instead of install into user env
 *** DONE niv?
     CLOSED: [2020-07-31 Fri 21:45]
+*** TODO flakes
