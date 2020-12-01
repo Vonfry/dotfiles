@@ -10,8 +10,9 @@
 
 (defcustom vonfry-frame '((width . 160)
                           (height . 72)
-                          (vertical-scroll-bars . nil)
-                          (horizontal-scroll-bars . nil))
+                          (horizontal-scroll-bars . nil)
+                          (vertical-scroll-bars . nil))
+
   "The default frame width and height, see `initial-frame-alist'"
   :type 'sexp
   :group 'vonfry-editor)
