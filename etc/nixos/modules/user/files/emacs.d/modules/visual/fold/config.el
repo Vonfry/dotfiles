@@ -2,5 +2,7 @@
 ;;
 
 ;; +mmap-zZ-def
-(mmap-leader-prefix! zZ "zZ"
-  :keymaps '(text-mode prog-mode))
+(mmap-prefix! zZ "z Z"
+  :keymaps 'origami-mode-map)
+
+(map-which-key! +mmap-zZ-def "fold")

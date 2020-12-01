@@ -5,7 +5,6 @@
   :hook ((text-mode prog-mode) . origami-mode)
   :general
   (+mmap-zZ-def
-    ""  '(nil :which-key "origaml")
     "o" 'origami-open-node
     "O" 'origami-open-node-recursively
     "s" 'origami-show-node
