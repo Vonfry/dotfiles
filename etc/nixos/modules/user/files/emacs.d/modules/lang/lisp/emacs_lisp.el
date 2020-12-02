@@ -11,4 +11,6 @@
     "' b" 'eval-buffer
     "' r" 'eval-region))
 
-(hook! elisp-mode (vonfry/local-indent 2))
+(hook! elisp-mode (progn
+                    (vonfry/local-indent 2)
+                    (+company-set-backends-grouped 'company-elisp)))

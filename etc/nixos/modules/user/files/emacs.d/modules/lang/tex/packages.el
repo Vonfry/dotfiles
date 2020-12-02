@@ -107,15 +107,19 @@
   :config
   (auctex-latexmk-setup))
 
-(package! company-math
- :after company
- :config
- (add-to-list 'company-backends 'company-math-symbols-unicode))
-
 (package! company-auctex
   :after (company latex yasnippet)
+  :config
+  (package! company-math)
   :hook
-  (TeX-mode . company-auctex-init))
+  (TeX-mode . (lambda ()
+   (+company-set-backends-grouped
+    '(company-auctex-labels company-auctex-bibs
+      company-auctex-macros company-auctex-symbols
+      company-auctex-environments
+      company-math-symbols-unicode
+      company-math-symbols-unicode
+      company-latex-commands)))))
 
 (package! auctex-latexmk
   :after latex
