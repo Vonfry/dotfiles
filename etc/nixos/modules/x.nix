@@ -146,6 +146,7 @@ in {
             fi
           '';
           description = "auto wake from suspend.";
+          serviceConfig.Type = "oneshot";
         };
 
         autowakeAfter = {
@@ -153,7 +154,9 @@ in {
           after = [ "sleep.target" ];
           wantedBy = [ "sleep.target" ];
           script = "${pkgs.utillinux}/bin/rtcwake -m disable";
+          preStart = "sleep 30";
           description = "clean previous wake process.";
+          serviceConfig.Type = "oneshot";
         };
       };
     };

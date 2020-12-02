@@ -19,11 +19,11 @@
 * Editor
 ** DONE Vim
 *** TODO NeoVim
-**** TODO ?use internal lsp
-** DONE Emacs[1/2]
-   CLOSED: [2020-11-11 Wed 18:18]
-   - [X] CHOOSE gnus mu4e elfeed newst-ticker
-*** DONE use raxod502/straight.el instead of package.el
+**** TODO use internal lsp
+** TODO Emacs[2/3]
+*** CANCELLED use raxod502/straight.el instead of package.el
+*** DONE manage plugins with nixpkgs
+*** WAITING org-z and org-sidebar instead of org-roam
 ** DONE LSP[1/1]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
@@ -70,5 +70,6 @@
     - [X] remove darwin support
     - [ ] nvim: some plugins problem and wait for update
     - [X] emacs wraping other tools instead of install into user env
-*** DONE niv?
+*** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
+*** TODO flakes

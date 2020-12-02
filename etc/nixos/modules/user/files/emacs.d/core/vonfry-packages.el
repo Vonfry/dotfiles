@@ -138,14 +138,17 @@ All modules should use function and macro in this file. By default, every module
   `(apply 'hook~! '(,hook (,@body) ,@args))))
 
 (defun hook~! (hook &rest args)
-  (apply 'add-hook
-         (intern (concat (symbol-name hook) "-hook"))
-         args))
+  (let ((hook-list (if (listp hook)
+                      hook
+                    (list hook))))
+    (--map (apply 'add-hook
+                (intern (concat (symbol-name it) "-hook"))
+                args)
+         hook-list)))
 
 (defmacro custom-set! (&rest plist)
   `(custom-set-variables
-     ,@(-map (lambda (item)
-              `(quote ,item))
+     ,@(--map `(quote ,it)
              (-partition 2 plist))))
 
 (defmacro after! (feature &rest body)

@@ -10,8 +10,8 @@
 
 (defcustom vonfry-frame '((width . 160)
                           (height . 72)
-                          (vertical-scroll-bars . nil)
-                          (horizontal-scroll-bars . nil))
+                          (horizontal-scroll-bars . nil)
+                          (vertical-scroll-bars . nil))
   "The default frame width and height, see `initial-frame-alist'"
   :type 'sexp
   :group 'vonfry-editor)
@@ -82,7 +82,7 @@
   save-interprogram-paste-before-kill t
 
   make-backup-files t
-  backup-directory-alist `((".*" . ,vonfry-backup-file-dir))
+  backup-directory-alist `(("." . ,vonfry-backup-file-dir))
   auto-save-default t
   auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t))
   auto-save-list-file-prefix vonfry-auto-save-list-prefix
@@ -107,25 +107,21 @@
 
   epg-pinentry-mode 'loopback)
 
-(hook! text-mode turn-on-auto-fill)
-(hook! prog-mode turn-on-auto-fill)
+(hook! (prog-mode text-mode) turn-on-auto-fill)
 
 (fun! vonfry/toggle-trailing-whitespace ()
   (interactive)
   (setq show-trailing-whitespace (not show-trailing-whitespace)))
 
-(hook! text-mode vonfry/toggle-trailing-whitespace)
-(hook! prog-mode vonfry/toggle-trailing-whitespace)
+(hook! (prog-mode text-mode) vonfry/toggle-trailing-whitespace)
 
-(hook! prog-mode whitespace-mode)
-(hook! text-mode whitespace-mode)
+(hook! (text-mode prog-mode) whitespace-mode)
 
 (hook! after-init server-start)
 
 (package! whitespace-cleanup-mode
   :hook
-  ((prog-mode . whitespace-cleanup-mode)
-   (text-mode . whitespace-cleanup-mode)))
+  ((text-mode prog-mode) . whitespace-cleanup-mode))
 
 (package! hl-line
   :hook

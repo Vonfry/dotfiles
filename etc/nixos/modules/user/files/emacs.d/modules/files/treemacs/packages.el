@@ -6,7 +6,7 @@
   (treemacs-follow-mode t)
   (treemacs-tag-follow-mode t)
   (treemacs-filewatch-mode t)
-  (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-cache-dir))
+  (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-local-dir))
   :general
   (+mmap-leader-def
     "d"   'treemacs
