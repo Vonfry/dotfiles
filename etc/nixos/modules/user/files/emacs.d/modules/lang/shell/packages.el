@@ -18,8 +18,7 @@
   :after (company eshell)
   :config
   (add-to-list 'company-backends '(company-shell
-                                   company-shell-env
-                                   company-fish-shell)))
+                                   company-shell-env)))
 
 (+mmap-leader-def
   "$" '+shell-open-term-at-pwd)
