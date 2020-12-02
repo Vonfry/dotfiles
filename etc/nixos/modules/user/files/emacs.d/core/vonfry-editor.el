@@ -91,8 +91,8 @@
 
   tramp-default-method "sshx"
   tramp-save-ad-hoc-proxies t
-  tramp-auto-save-directory vonfry-tramp-cache
-  tramp-backup-directory-alist `((".*" ,vonfry-tramp-cache))
+  tramp-auto-save-directory vonfry-auto-save-dir
+  tramp-backup-directory-alist nil
 
   recentf-save-file (expand-file-name "recentf" vonfry-cache-dir)
 

@@ -30,11 +30,6 @@ IMPORTANT!!! You must load the other files by youself. The only files under the 
   :type 'file
   :group 'vonfry-dir)
 
-(defcustom vonfry-tramp-cache (expand-file-name "tramp/" vonfry-cache-dir)
-  "tramp cache dir"
-  :type 'file
-  :group 'vonfry-dir)
-
 (defcustom vonfry-custom-file-before (expand-file-name "pre-custom.el" vonfry-custom-dir)
   "custom for user's emacs. The file is loaded before core. You can set some variables at here which affect the configure in modules.  You can only custom the var in init file, I think."
   :type 'file
