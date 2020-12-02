@@ -4,21 +4,13 @@
 (package! dumb-jump
   :general
   (+mmap-prog-def
-    "."   'dumb-jump-go
-    ","   'dumb-jump-back
-    ">"   'dumb-jump-quick-look
-    "["   'dumb-jump-go-prompt
-    "{"   'dumb-jump-go-other-window
-    "}"   'dumb-jump-go-prefer-external
-    "("   'dumb-jump-go-prefer-external-other-window)
-  (+mmap-dumb-def
-    "."   'dumb-jump-go
-    ","   'dumb-jump-back
-    ">"   'dumb-jump-quick-look
-    "["   'dumb-jump-go-prompt
-    "{"   'dumb-jump-go-other-window
-    "}"   'dumb-jump-go-prefer-external
-    "("   'dumb-jump-go-prefer-external-other-window)
-  :hook (prog-mode . dumb-jump-mode)
+    "." 'xref-goto-xref
+    "," 'xref-pop-marker-stack
+    ">" 'xref-find-apropos
+    "[" 'xref-find-definitions
+    "{" 'xref-find-references
+    "(" 'info-xref
+    "?" 'info-xref-docstrings)
+  :hook (xref-backend-functions . dumb-jump-xref-activate)
   :custom
   (dumb-jump-selector 'ivy))
