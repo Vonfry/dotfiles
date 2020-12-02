@@ -243,7 +243,6 @@ in {
           ibuffer-vc
           ibuffer-projectile
           lsp-mode
-          company-lsp
           lsp-treemacs
           lsp-ivy
           editorconfig
