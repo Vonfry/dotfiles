@@ -34,13 +34,12 @@
 ** DONE Rust
 ** CANCELLED Ruby
 ** CANCELLED Python
-** TODO Perl[0/1]
-   - [ ] lsp
+** DONE Perl
 ** DONE Coq
 ** TODO Nix[0/1]
    - [ ] lsp
-** TODO R[0/1]
-   - [ ] lsp
+** DONE R
+   CLOSED: [2020-12-03 Thu 22:04]
 
 * Shell
 ** DONE ZSH

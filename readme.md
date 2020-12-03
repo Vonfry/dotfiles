@@ -59,9 +59,11 @@ love.
 
 ## Lang
 
-All languages' developing dependencies are installed by nix-shell and export
-into environment per-project. Here list languages supporting in editor with
-lsp client or something else.
+All languages' developing dependencies and toolchains, such as compilers,
+libraries and lsp, are installed by nix-shell and export into environment
+per-project. Here list languages supporting in editor. The lsp client install
+in user environment only when the language is used directly, i.e., tex and nix.
+
 
 - **Haskell** :: main prog lang
 - **Rust** :: main sys-prog lang
