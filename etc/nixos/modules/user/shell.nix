@@ -28,55 +28,78 @@ in {
 
       zsh = {
         enable = true;
-        enableCompletion = true;
         dotDir = ".config/zsh";
-        plugins = with pkgs; [{
-          name = "prezto";
-          file = "init.zsh";
-          src = fetchFromGitHub {
-            owner = "Vonfry";
-            repo = "prezto";
-            rev = "fa7acd43d9f94d69af24ea36097a7dd32db90f2a";
-            sha256 = "12ps37z7kzihas0dr39fwmxx94nfm7f2bvlsn22ysjh8migpgjjs";
-            fetchSubmodules = true;
-          };
-        } {
-          name = "git-open";
-          src = fetchFromGitHub {
-            owner = "paulirish";
-            repo = "git-open";
-            rev = "14fdf5c96e30e89b84504d513a0311b3f712cee0";
-            sha256 = "073wpm4gbgsa110js487zcwgsclczimplrcsl7fxqrrbcyf26wq5";
-          };
-        } {
-          name = "you-should-use";
-          src = fetchFromGitHub {
-            owner = "MichaelAquilina";
-            repo = "zsh-you-should-use";
-            rev = "1.7.3";
-            sha256 = "1dz48rd66priqhxx7byndqhbmlwxi1nfw8ik25k0z5k7k754brgy";
-          };
-        }];
+
         history = {
           extended = true;
           save = 100000;
           size = 100000;
           path = "${config.xdg.configHome}/zsh/zsh_history";
         };
-        envExtra= ''
-          PATH=~/.local/bin:$PATH
-        '';
-        initExtra = with lib; with builtins; ''
+
+        autocd = true;
+        enableCompletion = true;
+        defaultKeymap = "emacs";
+
+        localVariables = {
+          PATH = "~/.local/bin:$PATH";
+        };
+
+        initExtra = with pkgs; ''
           setopt nomatch
           setopt extendedglob
           setopt rm_star_silent
           setopt clobber
-        '' + concatStringsSep "\n"
-          (map (f: readFile (./files/zsh/rc.d + ("/" + f)))
-            (attrNames
-              (filterAttrs (n: v: v == "regular"
-                                  && (hasSuffix ".sh" n || hasSuffix ".zsh" n))
-                (readDir ./files/zsh/rc.d))));
+          setopt combining_chars
+          setopt interactive_comments
+          setopt rc_quotes
+          unsetopt mail_warning
+          setopt long_list_jobs
+          setopt auto_resume
+          setopt notify
+          unsetopt bg_nice
+          unsetopt hup
+          unsetopt check_jobs
+          setopt auto_pushd
+          setopt pushd_ignore_dups
+          setopt pushd_silent
+          setopt pushd_to_home
+          setopt cdable_vars
+          setopt multios
+          setopt extended_glob
+          unsetopt clobber
+          setopt bang_hist
+
+          source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
+          source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+          source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+          source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+          # ${zsh-completions}
+
+          eval "$(jump shell)"
+          eval $(thefuck --alias)
+          function set_win_title(){
+              echo -ne "\033]0; $TERM - $PWD \007"
+          }
+          precmd_functions+=(set_win_title)
+
+          # Emacs
+          bindkey -M emacs "^P" history-substring-search-up
+          bindkey -M emacs "^N" history-substring-search-down
+
+          # Vi
+          bindkey -M vicmd "k" history-substring-search-up
+          bindkey -M vicmd "j" history-substring-search-down
+
+          # Emacs and Vi
+          for keymap in 'emacs' 'viins'; do
+            bindkey "$terminfo[kcuu1]" history-substring-search-up
+            bindkey "$terminfo[kcud1]" history-substring-search-down
+          done
+
+          unset keymap
+        '';
+
         loginExtra = ''
           # Execute code that does not affect the current session in the background.
           {
@@ -98,6 +121,7 @@ in {
 
           } >&2
         '';
+
         shellAliases = {
           rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
 
@@ -109,15 +133,41 @@ in {
           eCt = "emacsclient -t";
           eC  = "emacsclient";
           eCc = "emacsclient -c";
+
+          _ = "sudo";
+          b = "\${(z)BROWSER}";
+          diffu = "diff --unified";
+          e = "\${(z)VISUAL:-\${(z)EDITOR}}";
+          p = "\${(z)PAGER}";
+          po = "popd";
+          pu = "pushd";
+          sa = "alias | grep -i";
+          d = "dirs -v";
+          o = "xdg-open";
+          l = "ls -1A";
+          ll = "ls -lh";
+          lr = "ll -R";
+          la = "ll -A";
+          lm = "la | \"$PAGER\"";
+          lx = "ll -XB";
+          lk = "ll -Sr";
+          lt = "ll -tr";
+          lc = "lt -c";
+          lu = "lt -u";
+          sl = "ls";
+          rmi = "\${aliases[rm]:-rm} -i";
+          mvi = "\${aliases[mv]:-mv} -i";
+          cpi = "\${aliases[cp]:-cp} -i";
+          lni = "\${aliases[ln]:-ln} -i";
+          pbcopy = "xclip -selection clipboard -in";
+          pbpaste = "xclip -selection clipboard -out";
+          get = "curl --continue-at - --location --progress-bar --remote-name --remote-time";
+          http-serve = "nix run nixpkgs.python3 -c python3 -m http.server";
         };
       };
     };
 
     home = {
-      file = {
-        "${config.programs.zsh.dotDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
-      };
-
       activation.shellActivation =
         let
           sessions = config.home.sessionVariables;
@@ -167,6 +217,8 @@ in {
         neofetch
         # lolcat
         asciinema
+
+        zsh-completions
       ];
     };
   };
