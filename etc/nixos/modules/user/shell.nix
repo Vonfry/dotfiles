@@ -291,12 +291,12 @@ in {
       activation.shellActivation =
         let
           sessions = config.home.sessionVariables;
-          inherit (sessions) DOTFILES_DIR CLOUD_DIR PASSWD_DIR ORG_DIR CLONE_LIB;
+          inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
           inherit (config.xdg) configHome;
 
           hasOrg = sessions ? "ORG_DIR";
           hasCloud = sessions ? "CLOUD_DIR";
-          hasPasswd = sessions ? "PASSWD_DIR";
+          hasLib = sessions ? "CLONE_LIB";
 
           emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
           linkOrg = optionalString (hasOrg && hasCloud) ''
@@ -307,12 +307,8 @@ in {
               $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${configHome}/emacs.d/local
             fi
           '';
-          checkPasswd = optionalString (hasCloud && hasPasswd) ''
-            $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
-            if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
-              $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
-              exit
-            fi
+          makeLib = optionalString hasLib ''
+            $DRY_RUN_CMD mkdir -p ${CLONE_LIB}
           '';
           linkNormal = ''
             mkdir -p ${config.xdg.cacheHome} ~/.local
@@ -331,7 +327,7 @@ in {
             fi
           '';
         in lib.hm.dag.entryAfter ["writeBoundary"]
-          (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs checkPasswd ]);
+          (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs makeLib ]);
 
       packages = with pkgs; [
         zsh fzf jump

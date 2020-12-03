@@ -35,7 +35,6 @@
           CLOUD_DIR    = "$HOME/cloud";
           ORG_DIR      = "$HOME/orgmode";
           CLONE_LIB    = "$HOME/repos";
-          PASSWD_DIR   = "$HOME/.local/passwd";
           LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
         };
         
