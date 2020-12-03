@@ -88,6 +88,7 @@ in {
         };
         extraConfig = builtins.readFile ./files/vimrc;
       };
+
       neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
@@ -135,6 +136,7 @@ in {
         call vonfry#init()
       '';
       };
+
       emacs =  {
         enable = true;
         extraPackages = epkgs: with epkgs; [
@@ -265,6 +267,7 @@ in {
           mpdel
         ];
       };
+
       git = {
         userName = "Vonfry";
         userEmail = "mail@vonfry.name";
@@ -301,6 +304,8 @@ in {
       };
     };
 
+    fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
+
     home = {
       sessionVariables = {
         EDITOR = "nvim";
@@ -308,7 +313,6 @@ in {
 
       packages = with pkgs; [
         # neovim vim emacs
-        emacs-all-the-icons-fonts
 
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
@@ -316,14 +320,16 @@ in {
         nixfmt nix-doc
         niv
 
-        cloc
+        cloc zeal
 
         pandoc
-        zeal
 
         graphviz
 
         # texlive.combined.scheme-full git-latexdiff
+        texlab
+
+        clang-tools unstable.haskell-language-server rls
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure
