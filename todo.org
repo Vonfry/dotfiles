@@ -32,10 +32,15 @@
 ** DONE Haskell
 ** DONE CC
 ** DONE Rust
-** DONE Ruby
-** DONE Python
-** DONE Perl
+** CANCELLED Ruby
+** CANCELLED Python
+** TODO Perl[0/1]
+   - [ ] lsp
 ** DONE Coq
+** TODO Nix[0/1]
+   - [ ] lsp
+** TODO R[0/1]
+   - [ ] lsp
 
 * Shell
 ** DONE ZSH
