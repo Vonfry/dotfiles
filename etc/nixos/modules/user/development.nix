@@ -304,7 +304,6 @@ in {
       };
     };
 
-    fonts.fonts = with pkgs; [ emacs-all-the-icons-fonts ];
 
     home = {
       sessionVariables = {
@@ -313,6 +312,7 @@ in {
 
       packages = with pkgs; [
         # neovim vim emacs
+        emacs-all-the-icons-fonts
 
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
