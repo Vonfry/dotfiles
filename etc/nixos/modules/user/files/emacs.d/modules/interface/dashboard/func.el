@@ -18,4 +18,9 @@
           (replace-regexp-in-string
            (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
            ""
-           (shell-command-to-string "fortune -s $CLONE_LIB/fortunes/data all"))))))
+           (shell-command-to-string
+            (s-join " "
+                    (list "fortune"
+                          "-s"
+                          (expand-file-name "fortunes" (xdg-data-home))
+                          "all"))))))))

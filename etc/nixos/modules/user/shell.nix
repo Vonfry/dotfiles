@@ -43,6 +43,7 @@ in {
 
         localVariables = {
           PATH = "~/.local/bin:$PATH";
+          WORDCHARS = "*?_-.[]~&;!#$%^(){}<>";
         };
 
         initExtra = with pkgs; ''
@@ -115,7 +116,7 @@ in {
 
             # Print a random, hopefully interesting, adage.
             if (( $+commands[fortune] )); then
-              fortune -s ${config.home.sessionVariables.CLONE_LIB}/fortunes/data all
+              fortune -s ${toString config.xdg.dataHome}/fortunes all
               print
             fi
 
@@ -167,49 +168,62 @@ in {
       };
     };
 
+    xdg.dataFile = {
+      "fortunes" = {
+        source = with pkgs; symlinkJoin {
+          name = "fortunes";
+          paths = [ "${vonfryPackages.fortuneChinese}/share/fortunes"
+                  ];
+        };
+        recursive = true;
+      };
+    };
+
     home = {
       activation.shellActivation =
         let
           sessions = config.home.sessionVariables;
-        in with sessions; lib.hm.dag.entryAfter ["writeBoundary"] (concatStringsSep "\n" [
-          (''
-             mkdir -p ${config.xdg.cacheHome} ~/.local
-             if [ -z "${DOTFILES_DIR}"  ]; then
-               $DRY_RUN_CMD echo "file is copied, please edit it(${toString ./local/session.nix}). Then prepare for cloud files. "
-               exit -1
-             fi
-             ! [ -f ${toString config.xdg.configHome}/bg.png ] && $DRY_RUN_CMD curl $VERBOSE_ARG https://wiki.haskell.org/wikistatic/haskellwiki_logo.png -o ${toString config.xdg.configHome}/bg.png
-             if ! [ -d ${CLONE_LIB}/fortunes ]; then
-               $DRY_RUN_CMD git clone https://github.com/ruanyf/fortunes.git ${CLONE_LIB}/fortunes
-               $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/fortunes
-               $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/chinese
-               $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/tang300
-               $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/song100
-               $DRY_RUN_CMD strfile ${CLONE_LIB}/fortunes/data/diet
-             fi
-             if ! [ -f ~/.face.icon ]; then
-               $DRY_RUN_CMD curl $VERBOSE_ARG https://vonfry.name/static/images/default/logo.png -o ~/.face.icon
-               setfacl -m u:sddm:x ~/
-               setfacl -m u:sddm:r ~/.face.icon
-             fi
-          '')
-          (optionalString (sessions ? "ORG_DIR" && sessions ? "CLOUD_DIR") ''
+          inherit (sessions) DOTFILES_DIR CLOUD_DIR PASSWD_DIR ORG_DIR CLONE_LIB;
+          inherit (config.xdg) configHome;
+
+          hasOrg = sessions ? "ORG_DIR";
+          hasCloud = sessions ? "CLOUD_DIR";
+          hasPasswd = sessions ? "PASSWD_DIR";
+
+          emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
+          linkOrg = optionalString (hasOrg && hasCloud) ''
             ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
-          '')
-          (let emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
-           in optionalString (sessions ? "CLOUD_DIR") ''
+          '';
+          linkEmacs = optionalString hasCloud ''
             if [ -d "${emacsLocal}" ]; then
-              $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString config.xdg.configHome}/emacs.d/local
+              $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local
             fi
-          '' )
-          (optionalString (sessions ? "CLOUD_DIR" && sessions ? "PASSWD_DIR") ''
+          '';
+          checkPasswd = optionalString (hasCloud && hasPasswd) ''
             $DRY_RUN_CMD mkdir -p ${CLONE_LIB} ${PASSWD_DIR}
             if ! [ -f ${PASSWD_DIR}/authinfo.gpg ]; then
               $DRY_RUN_CMD echo "please create authinfo.gpg file under ${PASSWD_DIR}"
               exit
             fi
-          '')
-        ]);
+          '';
+          linkNormal = ''
+            mkdir -p ${config.xdg.cacheHome} ~/.local
+
+            if [ -z "${DOTFILES_DIR}"  ]; then
+              $DRY_RUN_CMD echo "Config local file at first."
+              exit -1
+            fi
+
+            ! [ -f ${toString configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/bg.png
+
+            if ! [ -f ~/.face.icon ]; then
+              cp ${pkgs.vonfryPackages.iconFace} .face.icon
+              setfacl -m u:sddm:x ~/
+              setfacl -m u:sddm:r ~/.face.icon
+            fi
+          '';
+        in lib.hm.dag.entryAfter ["writeBoundary"]
+          (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs checkPasswd ]);
 
       packages = with pkgs; [
         zsh fzf jump

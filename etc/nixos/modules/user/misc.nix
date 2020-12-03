@@ -15,27 +15,21 @@ in {
           fcitx-remote -r
         '';
       };
+
+      "fcitx/rime" = {
+        source = with pkgs; with vonfryPackages.rimePlugins;
+          runCommand "fcitx-rime-plugins" {} ''
+            mkdir $out
+            ln -s ${cangjie}/share/rime-plugins/*.yaml $out
+            ln -s ${wubi86-jidian}/share/rime-plugins/wubi86.*.yaml $out
+            ln -s ${wubi86-jidian}/share/rime-plugins/pinyin_simp.*.yaml $out
+            ln -s ${wubi86-jidian}/share/rime-plugins/numbers.*.yaml $out
+          '';
+        recursive = true;
+      };
     };
 
     home = {
-      activation.rimeActivation =
-        let
-          inherit (config.home.sessionVariables) CLONE_LIB;
-        in lib.hm.dag.entryAfter [ "shellActivation" ] ''
-          _rime_user_dir=${toString config.xdg.configHome}/fcitx/rime
-          if ! [ -d ${CLONE_LIB}/rime-cangjie ]; then
-            $DRY_RUN_CMD git $VERBOSE_ARG clone https://github.com/rime/rime-cangjie.git ${CLONE_LIB}/rime-cangjie
-            ln -s -f ${CLONE_LIB}/rime-cangjie/*.yaml $_rime_user_dir
-          fi
-          if ! [ -d ${CLONE_LIB}/rime-wubi ]; then
-            $DRY_RUN_CMD git $VERBOSE_ARG clone https://github.com/KyleBing/rime-wubi86-jidian.git ${CLONE_LIB}/rime-wubi
-            ln -s -f ${CLONE_LIB}/rime-wubi/wubi86.*.yaml $_rime_user_dir
-            ln -s -f ${CLONE_LIB}/rime-wubi/pinyin_simp.*.yaml $_rime_user_dir
-            ln -s -f ${CLONE_LIB}/rime-wubi/numbers.*.yaml $_rime_user_dir
-          fi
-          unset _rime_user_dir
-        '';
-
       packages = with pkgs; [
         hack-font
         sarasa-gothic
