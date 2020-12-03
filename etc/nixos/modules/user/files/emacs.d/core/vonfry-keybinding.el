@@ -50,6 +50,8 @@
   :custom
   (general-default-prefix       nil)
   (general-vim-definer-default 'states)
+  :bind
+  ("C-h B" . 'general-describe-keybindings)
   :config
   (general-evil-setup t t)
   ;; +mmap-leader-def
