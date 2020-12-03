@@ -86,7 +86,7 @@ in {
       displayManager= {
         setupCommands = ''
           # prevent garbage collection
-          # ${toString chili-drv}
+          # ${chili-drv}
         '';
         sddm = {
           enable = true;

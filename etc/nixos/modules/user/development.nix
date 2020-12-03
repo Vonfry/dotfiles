@@ -49,13 +49,14 @@ in {
 
       "emacs.d/local/pre-custom.el".text =
         let sessions = config.home.sessionVariables;
+            noMail = isNull cfg'.net.email;
+            noLedger = ! sessions ? LEDGER_FILE;
         in (concatStringsSep "\n" [
           ''
             (custom-set-variables
              '(vonfry-exclude-modules
-               '(${optionalString (isNull cfg'.net.email ) "\"misc/mail\""    }
-                 ${optionalString (! sessions ? LEDGER_FILE) "\"misc/ledger\""}
-                 ${optionalString (! sessions ? PASSWD_DIR ) "\"misc/irc\""   }
+               '(${optionalString noMail   "\"misc/mail\" \"misc/irc\""}
+                 ${optionalString noLedger "\"misc/ledger\""}
                  )))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
@@ -243,7 +244,6 @@ in {
           ibuffer-vc
           ibuffer-projectile
           lsp-mode
-          company-lsp
           lsp-treemacs
           lsp-ivy
           editorconfig

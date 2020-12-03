@@ -13,13 +13,11 @@
   (eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir))
   :ensure nil)
 
-
 (package! company-shell
   :after (company eshell)
-  :config
-  (add-to-list 'company-backends '(company-shell
-                                   company-shell-env
-                                   company-fish-shell)))
+  :hook
+  ((eshell-mode shell-mode) . (lambda ()
+    (+company-set-backends-grouped '(company-shell company-shell-env)))))
 
 (+mmap-leader-def
   "$" '+shell-open-term-at-pwd)

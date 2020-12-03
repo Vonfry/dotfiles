@@ -29,7 +29,9 @@
 
 (package! cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")
-  :config)
+  :hook
+  (cmake-mode . (lambda ()
+    (+company-set-backends-grouped '(company-cmake)))))
 
 (package! cmake-font-lock
   :after cmake-mode

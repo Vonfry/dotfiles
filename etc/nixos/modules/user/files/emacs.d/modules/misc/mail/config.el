@@ -19,7 +19,9 @@
   :type 'string
   :custom-set 'mu4e-get-mail-command)
 
-(custom! +auth-sources '("~/.local/passwd/authinfo.gpg" "~/.authinfo")
+(custom! +auth-sources '((expand-file-name "authinfo.gpg" (xdg-data-home))
+                         (expand-file-name "authinfo" (xdg-data-home))
+                         "~/.authinfo.gpg" "~/.authinfo")
   ""
   :group 'vonfry-modules
   :type '(repeat string)

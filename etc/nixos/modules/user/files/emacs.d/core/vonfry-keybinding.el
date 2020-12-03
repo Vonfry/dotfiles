@@ -53,7 +53,8 @@
   :config
   (general-evil-setup t t)
   ;; +mmap-leader-def
-  (mmap-prefix! leader +mmap-leader))
+  (mmap-prefix! leader +mmap-leader)
+  (general-define-key "C-h B" 'general-describe-keybindings))
 
 (defmacro map-which-key! (definer desc)
   `(,definer "" '(nil :which-key ,desc)))
