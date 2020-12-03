@@ -34,7 +34,7 @@ in {
           extended = true;
           save = 100000;
           size = 100000;
-          path = "${config.xdg.configHome}/zsh/zsh_history";
+          path = "${toString config.xdg.configHome}/zsh/zsh_history";
         };
 
         autocd = true;
@@ -81,7 +81,7 @@ in {
           unsetopt flow_control
 
           zstyle ':completion::complete:*' use-cache on
-          zstyle ':completion::complete:*' cache-path "${config.xdg.cacheHome}/zcompcache"
+          zstyle ':completion::complete:*' cache-path "${toString config.xdg.cacheHome}/zcompcache"
 
           # Group matches and describe.
           zstyle ':completion:*:*:*:*:*' menu select
@@ -224,7 +224,7 @@ in {
 
             # Print a random, hopefully interesting, adage.
             if (( $+commands[fortune] )); then
-              fortune -s ${config.xdg.dataHome}/fortunes all
+              fortune -s ${toString config.xdg.dataHome}/fortunes all
               print
             fi
 
@@ -292,7 +292,7 @@ in {
         let
           sessions = config.home.sessionVariables;
           inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
-          inherit (config.xdg) configHome;
+          inherit (config.xdg) configHome cacheHome;
 
           hasOrg = sessions ? "ORG_DIR";
           hasCloud = sessions ? "CLOUD_DIR";
@@ -304,21 +304,21 @@ in {
           '';
           linkEmacs = optionalString hasCloud ''
             if [ -d "${emacsLocal}" ]; then
-              $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${configHome}/emacs.d/local
+              $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local
             fi
           '';
           makeLib = optionalString hasLib ''
             $DRY_RUN_CMD mkdir -p ${CLONE_LIB}
           '';
           linkNormal = ''
-            mkdir -p ${config.xdg.cacheHome} ~/.local
+            mkdir -p ${toString cacheHome} ~/.local
 
             if [ -z "${DOTFILES_DIR}"  ]; then
               $DRY_RUN_CMD echo "Config local file at first."
               exit -1
             fi
 
-            ! [ -f ${configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${configHome}/bg.png
+            ! [ -f ${toString configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/bg.png
 
             if ! [ -f ~/.face.icon ]; then
               cp ${pkgs.vonfryPackages.iconFace} .face.icon

@@ -56,9 +56,7 @@ in {
         };
       };
 
-      password-store = {
-        enable = true;
-      };
+      password-store.enable = true;
     };
 
     home = {
