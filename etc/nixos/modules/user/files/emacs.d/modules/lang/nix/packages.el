@@ -3,6 +3,7 @@
 
 (package! nix-mode
   :interpreter ("nix-shell" . nix-shebang-mode)
+  :hook lsp
   :general
   (+mmap-nix-def
     "="  'nix-format-buffer

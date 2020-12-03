@@ -36,8 +36,9 @@
 ** CANCELLED Python
 ** DONE Perl
 ** DONE Coq
-** TODO Nix[0/1]
-   - [ ] lsp
+** DONE Nix[1/1]
+   CLOSED: [2020-12-03 Thu 22:13]
+   - [X] lsp
 ** DONE R
    CLOSED: [2020-12-03 Thu 22:04]
 

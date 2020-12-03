@@ -327,7 +327,7 @@ in {
         graphviz
 
         # texlive.combined.scheme-full git-latexdiff
-        texlab # rnix
+        texlab rnix-lsp
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure
