@@ -179,6 +179,14 @@ in {
           zstyle ':completion:*:(ssh|scp|rsync):*:hosts-domain' ignored-patterns '<->.<->.<->.<->' '^[-[:alnum:]]##(.[-[:alnum:]]##)##' '*@*'
           zstyle ':completion:*:(ssh|scp|rsync):*:hosts-ipaddr' ignored-patterns '^(<->.<->.<->.<->|(|::)([[:xdigit:].]##:(#c,2))##(|%*))' '127.0.0.<->' '255.255.255.255' '::1' 'fe80::*'
 
+          export LESS_TERMCAP_mb=$'\E[01;31m'
+          export LESS_TERMCAP_md=$'\E[01;31m'
+          export LESS_TERMCAP_me=$'\E[0m'
+          export LESS_TERMCAP_se=$'\E[0m'
+          export LESS_TERMCAP_so=$'\E[00;47;30m'
+          export LESS_TERMCAP_ue=$'\E[0m'
+          export LESS_TERMCAP_us=$'\E[01;32m'
+
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
           source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
