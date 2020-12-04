@@ -36,3 +36,5 @@
     "[ (" '+bib/switch-dir-from-search-dir
     "[ &" 'ebib-insert-citation
     "[ -" '+bib/switch-insert-single-or-multiple))
+
+(package! org-ebib :after org)
