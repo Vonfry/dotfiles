@@ -136,6 +136,9 @@ in {
       mpd = {
         enable = mkDefault true;
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
+        extraConfig = ''
+          restore_paused "yes"
+        '';
       };
 
       gpg-agent = {
