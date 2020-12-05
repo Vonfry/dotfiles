@@ -198,3 +198,8 @@
   ""
   :group 'vonfry-modules
   :custom-set 'org-babel-load-languages)
+
+(custom! +org-roam-server-port 8100
+  ""
+  :group 'vonfry-modules
+  :custom-set 'org-roam-server-port)
