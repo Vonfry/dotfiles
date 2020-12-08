@@ -4,7 +4,7 @@
 (package! dashboard
   :custom
   (dashboard-center-content t)
-  (initial-buffer-choice '+dashboard/goto)
+  (initial-buffer-choice '+dashboard--init)
   (dashboard-set-init-info nil)
   (dashboard-banner-logo-title "Happy Hacking!")
   (dashboard-show-shortcuts    t)
