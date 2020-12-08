@@ -235,7 +235,6 @@ in {
           treemacs-projectile
           treemacs-magit
           treemacs-icons-dired
-          ebdb
           which-key
           docker
           logview
@@ -265,6 +264,7 @@ in {
           direnv
           ob-http
           mpdel
+          org-plus-contrib
         ];
       };
 
