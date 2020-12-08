@@ -164,7 +164,11 @@
                      "^[A-z0-9_\\-]+\\.org$")
     nil))
   :general
-  (+mmap-mode-org-def
-    "T" 'org-toc-show)
   (+mmap-at-def
     "c" 'org-contacts))
+
+(package! org-toc
+  :ensure org-plus-contrib
+  :general
+  (+mmap-mode-org-def
+    "T" 'org-toc-show))
