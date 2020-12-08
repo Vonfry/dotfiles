@@ -132,7 +132,7 @@
              :head "#+title: ${title}\n"
              :unnarrowed t)
             ("a" "capture to agenda")
-            ("c" "Contacts" entry (file (expand-file-name "inbox.org" +org-contacts-dir))
+            ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
              "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
         (agenda-templates
           (-map-indexed
@@ -206,14 +206,7 @@
   :group 'vonfry-modules
   :custom-set 'org-roam-server-port)
 
-(custom! +org-contacts-files (directory-files
-                              (expand-file-name "contacts" vonfry-local-dir)
-                              t "^[A-z0-9_\\-]+\\.org$")
-  ""
-  :group 'vonfry-modules
-  :custom-set 'org-contacts-files)
-
-(custom! +org-contacts-dir (expand-file-name "contacts" vonfry-local-dir)
+(custom! +org-contacts-dir (expand-file-name "contacts" +org-dir)
   "dir where to save contacts."
   :group 'vonfry-modules
   :type 'directory)
