@@ -154,3 +154,21 @@
   (package! ob-perl)
   (package! ob-gnuplot)
   :after org)
+
+(package! org-contacts
+  :ensure org-plus-contrib
+  :custom
+  (org-contacts-files
+   (if (file-exists-p +org-contacts-dir)
+    (directory-files +org-contacts-dir t
+                     "^[A-z0-9_\\-]+\\.org$")
+    nil))
+  :general
+  (+mmap-at-def
+    "c" 'org-contacts))
+
+(package! org-toc
+  :ensure org-plus-contrib
+  :general
+  (+mmap-mode-org-def
+    "T" 'org-toc-show))

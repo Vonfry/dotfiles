@@ -114,7 +114,7 @@
 
 (custom! +org-capture-templates
   (let ((default-templates
-          '(("c" "capture to inbox(Tasks), refile later"
+          '(("t" "capture to inbox(Tasks), refile later"
              entry (file+headline +org-capture-file "Tasks")
              "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:n")
             ("i" "capture to inbox(Idea), refile later"
@@ -131,7 +131,9 @@
              :file-name "${slug}"
              :head "#+title: ${title}\n"
              :unnarrowed t)
-            ("a" "capture to agenda")))
+            ("a" "capture to agenda")
+            ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
+             "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
         (agenda-templates
           (-map-indexed
             (lambda (index file-path)
@@ -203,3 +205,8 @@
   ""
   :group 'vonfry-modules
   :custom-set 'org-roam-server-port)
+
+(custom! +org-contacts-dir (expand-file-name "contacts" +org-dir)
+  "dir where to save contacts."
+  :group 'vonfry-modules
+  :type 'directory)
