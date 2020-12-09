@@ -229,7 +229,6 @@ in {
           ranger
           avy
           ace-window
-          google-translate
           treemacs
           treemacs-evil
           treemacs-projectile
