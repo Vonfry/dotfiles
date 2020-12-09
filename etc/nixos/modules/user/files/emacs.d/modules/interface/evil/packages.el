@@ -5,8 +5,6 @@
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
-  (evil-set-initial-state 'process-menu-mode 'emacs)
-  (evil-set-initial-state 'calendar-mode 'emacs)
   (advice-add 'vonfry/local-indent
               :after (lambda (int) (setq-local evil-shift-width int)))
   :custom
@@ -55,3 +53,8 @@
   :after evil
   :config
   (global-evil-matchit-mode 1))
+
+(package! evil-collection
+  :after evil
+  :config
+  (evil-collection-init))

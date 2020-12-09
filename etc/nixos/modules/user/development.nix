@@ -202,7 +202,6 @@ in {
           gitignore-mode
           gitattributes-mode
           magit-gitflow
-          evil-magit
           gitlab-ci-mode
           forge
           inf-ruby
@@ -265,6 +264,7 @@ in {
           ob-http
           mpdel
           org-plus-contrib
+          evil-collection
         ];
       };
 
