@@ -265,6 +265,7 @@ in {
           ob-http
           mpdel
           org-plus-contrib
+          license-snippets
         ];
       };
 
