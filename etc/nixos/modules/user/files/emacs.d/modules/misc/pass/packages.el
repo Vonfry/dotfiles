@@ -9,6 +9,7 @@
     "P c" 'password-store-clear
     "P s" 'password-store-init
     "P i" 'password-store-insert
+    "P e" 'password-store-edit
     "P g" 'password-store-generate
     "P d" 'password-store-remove
     "P r" 'password-store-rename
