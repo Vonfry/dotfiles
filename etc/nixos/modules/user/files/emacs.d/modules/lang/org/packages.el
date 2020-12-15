@@ -16,7 +16,7 @@
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
   (+mmap-mode-org-def
-    "r"  'org-occur
+    "/"  'org-occur
     "n"  'next-error
     "p"  'previous-error
     "g"  'counsel-org-goto
@@ -125,7 +125,7 @@
     "{ "  '(nil :which-key "org roam")
     "{ m" 'org-roam-mode
     "{ {" 'org-roam
-    "{ o" 'org-roam-find-file
+    "{ f" 'org-roam-find-file
     "{ g" 'org-roam-graph
     "{ b" 'org-roam-db-build-cache
     "{ p" '+org/roam-switch
