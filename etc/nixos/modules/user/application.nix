@@ -143,7 +143,7 @@ in {
 
       gpg-agent = {
         enable = true;
-        defaultCacheTtl = 14400;
+        defaultCacheTtl = 1800;
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;
