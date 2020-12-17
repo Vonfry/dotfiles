@@ -167,6 +167,7 @@
     nil))
   :general
   (+mmap-at-def
+    "C" '+org/find-contacts
     "c" 'org-contacts))
 
 (package! org-toc

@@ -23,6 +23,10 @@
   (interactive)
   (+org--find +org-note-dir))
 
+(fun! +org/find-contacts ()
+  (interactive)
+  (+org--find +org-contacts-dir))
+
 (fun! +org/roam-switch (path)
   "A path is a roam."
   (interactive "Droam: ")
