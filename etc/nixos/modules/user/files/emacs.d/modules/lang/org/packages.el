@@ -78,8 +78,8 @@
 (package! org-web-tools
   :after org
   :general
-  (+mmap-at-def
-    "w o" 'org-web-tools-read-url-as-org)
+  (+mmap-note-def
+    "u" 'org-web-tools-read-url-as-org)
   (+mmap-mode-org-def
    "w"   '(nil :which-key "web")
    "w o" 'org-web-tools-read-url-as-org
@@ -122,20 +122,22 @@
                           +org-roam-local-dir))
   :general
   (+mmap-note-def
-    "{ "  '(nil :which-key "org roam")
-    "{ m" 'org-roam-mode
-    "{ {" 'org-roam
-    "{ f" 'org-roam-find-file
-    "{ g" 'org-roam-graph
-    "{ b" 'org-roam-db-build-cache
-    "{ p" '+org/roam-switch
-    "{ i" 'org-roam-insert
-    "{ c" 'org-roam-capture))
+    "N"   'org-roam-find-file
+    "C"   'org-roam-capture
+    "R "  '(nil :which-key "org roam")
+    "R b" 'org-roam-db-build-cache
+    "R p" '+org/roam-switch)
+  (+mmap-mode-org-def
+    "r"   'org-roam
+    "R "  '(nil :which-key "org roam")
+    "R m" 'org-roam-mode
+    "R g" 'org-roam-graph
+    "R i" 'org-roam-insert))
 
 (package! org-roam-server
   :general
   (+mmap-note-def
-    "{ s" 'org-roam-server-mode))
+    "s" 'org-roam-server-mode))
 
 (package! org-protocol :ensure nil)
 (package! org-roam-protocol :ensure nil)
