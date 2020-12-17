@@ -336,7 +336,6 @@ in {
         set log-options = --show-signature
         set diff-options = --show-signature
       '';
-        ".vimrc".source = ./files/vimrc;
         ".ghc/ghci.conf".text = ''
         :set +m
 
