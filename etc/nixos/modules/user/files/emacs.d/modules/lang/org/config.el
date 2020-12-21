@@ -136,7 +136,6 @@
      :file-name "${slug}"
      :head "#+title: ${title}\n"
      :unnarrowed t)
-    ("a" "capture to agenda")
     ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
      "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
   ""

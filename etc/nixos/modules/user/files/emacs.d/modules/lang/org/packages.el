@@ -72,7 +72,7 @@
     "n" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
-    "c" 'counsel-org-capture))
+    "c" 'org-capture))
 
 (package! org-archive
   :ensure nil
