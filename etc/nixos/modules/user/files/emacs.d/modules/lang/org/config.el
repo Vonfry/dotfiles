@@ -169,11 +169,11 @@
     (call-interactively '+org-roam-capture--note-dir-aux)))
 
 (fun! +org-roam-capture--note-dir-aux (path)
-    (interactive "Droam: ")
-    (let ((path-no-prefix (if (s-prefix? +org-note-dir path)
-                              (s-chop-prefixes (list +org-note-dir "/") path)
-                            path)))
-      (s-chop-suffix "/" path-no-prefix)))
+  (interactive "Droam: ")
+  (let ((path-no-prefix (if (s-prefix? +org-note-dir path)
+                            (s-chop-prefixes (list +org-note-dir "/") path)
+                          path)))
+    (s-chop-suffix "/" path-no-prefix)))
 
 (custom! +org-agenda-ibuffer-group
   `(("Agenda" (or (name .
