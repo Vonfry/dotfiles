@@ -36,8 +36,9 @@
   :type 'directory
   :group 'vonfry-modules)
 
-(custom! +org-agenda-files (directory-files +org-agenda-dir t
-                                            "^[A-z0-9\\-_]+\\.org$")
+(custom! +org-agenda-files (append (directory-files +org-agenda-dir t
+                                                    "^[A-z0-9\\-_]+\\.org$")
+                                   (list +org-inbox-file))
   ""
   :type '(repeat file)
   :group 'vonfry-modules
@@ -118,37 +119,26 @@
    :custom-set 'org-capture-file)
 
 (custom! +org-capture-templates
-  (let ((default-templates
-          '(("t" "capture to inbox(Tasks), refile later"
-             entry (file+headline +org-capture-file "Tasks")
-             "** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
-            ("i" "capture to inbox(Idea), refile later"
-             entry (file+headline +org-capture-file "Idea")
-             "* %?\n:PROPERTIES:\n:CREATED: %Un")
-            ("n" "capture to note"
-             plain (function +org--note-templates-get-location)
-             "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?")
-            ("j" "Journal entry"
-             entry (function +org--journal-find-location)
-             "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
-            ("o" "roam" plain (function org-roam--capture-get-point)
-             "%?"
-             :file-name "${slug}"
-             :head "#+title: ${title}\n"
-             :unnarrowed t)
-            ("a" "capture to agenda")
-            ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
-             "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
-        (agenda-templates
-          (-map-indexed
-            (lambda (index file-path)
-              (let* ((file-name (file-name-nondirectory file-path))
-                     (keys (concat "a" (string (+ ?A index)))))
-                `(,keys ,(concat "capture to " file-name ", refile later")
-                  entry (file ,file-path)
-                  "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:")))
-            +org-agenda-files)))
-    (append default-templates agenda-templates))
+  '(("t" "capture to inbox(Tasks), refile later"
+     entry (file+headline +org-capture-file "Tasks")
+     "** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
+    ("i" "capture to inbox(Idea), refile later"
+     entry (file+headline +org-capture-file "Idea")
+     "* %?\n:PROPERTIES:\n:CREATED: %Un")
+    ("n" "capture to note"
+     plain (function +org--note-templates-get-location)
+     "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?")
+    ("j" "Journal entry"
+     entry (function +org--journal-find-location)
+     "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+    ("o" "roam" plain (function org-roam--capture-get-point)
+     "%?"
+     :file-name "${slug}"
+     :head "#+title: ${title}\n"
+     :unnarrowed t)
+    ("a" "capture to agenda")
+    ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
+     "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
   ""
   :type 'sexp
   :group 'vonfry-modules
