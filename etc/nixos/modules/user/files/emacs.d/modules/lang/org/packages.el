@@ -67,6 +67,7 @@
   :after org
   :general
   (+mmap-note-def
+    "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
     "n" '+org/find-notes
