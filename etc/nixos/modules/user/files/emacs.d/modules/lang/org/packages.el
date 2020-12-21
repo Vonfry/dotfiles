@@ -15,7 +15,7 @@
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel 99)
                         (+org-projectile-todo-project-file :maxlevel 99)
-                        (org-agenda-files :maxlevel . 1)))
+                        (org-agenda-files :maxlevel . 99)))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
