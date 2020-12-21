@@ -23,6 +23,7 @@
     "p"  'previous-error
     "g"  'counsel-org-goto
     "l"  'counsel-org-link
+    "L"  'org-store-link
     "e"  'counsel-org-entity
     "@"  'counsel-org-tag
     "^"  'counsel-org-tag-agenda
