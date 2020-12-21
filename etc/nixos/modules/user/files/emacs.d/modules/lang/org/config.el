@@ -135,7 +135,12 @@
   :group 'vonfry-modules
   :custom-set 'org-capture-templates)
 
-(custom! +org-refile-targets nil ""
+(custom! +org-refile-targets
+  '((nil :maxlevel 99)
+    (+org-projectile-todo-project-file :maxlevel 99)
+    (org-contacts-files :maxlevel 99)
+    (org-agenda-files :maxlevel . 99))
+  ""
   :type 'sexp
   :group 'vonfry-modules
   :custom-set 'org-refile-targets)
@@ -148,6 +153,16 @@
     :custom-set 'org-agenda-custom-commands)
 
 (const! +org-roam-local-dir (expand-file-name "org/roam" vonfry-local-dir))
+
+(custom! +org-roam-capture-templates
+  '(("d" "default" plain #'org-roam-capture--get-point "%?"
+     :file-name "${slug}"
+     :head "#+title: ${title}"
+     :unnarrowed t))
+  ""
+  :custom-set 'org-roam-capture-templates
+  :group 'vonfry-modules
+  :type 'sexp)
 
 (custom! +org-agenda-ibuffer-group
   `(("Agenda" (or (name .
