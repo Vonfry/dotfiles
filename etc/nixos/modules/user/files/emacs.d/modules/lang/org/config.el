@@ -123,11 +123,6 @@
     ("n" "capture to note"
      plain (function +org--note-templates-get-location)
      "#+title: %^{title}\n#+date: %U\n\n* %?")
-    ("r" "roam" plain (function org-roam-capture--get-point)
-     "%?"
-     :file-name "${slug}"
-     :head "#+title: ${title}\n"
-     :unnarrowed t)
     ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
      "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
   ""
