@@ -97,14 +97,6 @@
   :type 'function
   :group 'vonfry-modules)
 
-(fun! +org--note-templates-get-location (&rest args)
-  (interactive)
-  (let* ((path (read-file-name "note file: " +org-note-dir)))
-    (set-buffer (org-capture-target-buffer path))
-    (widen)
-    (org-capture-put-target-region-and-position)
-    (goto-char (point-max))))
-
 (custom! +org-todo-keywords-sequence
   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)"))
@@ -120,9 +112,9 @@
     ("i" "capture to inbox(Idea), refile later"
      entry (file+headline +org-capture-file "Idea")
      "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
-    ("n" "capture to note"
-     plain (function +org--note-templates-get-location)
-     "#+title: %^{title}\n#+date: %U\n\n* %?")
+    ("n" "capture to inbox(Note), refile later"
+     entry (file+headline +org-capture-file "Notes")
+     "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
     ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
      "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
   ""
@@ -156,6 +148,13 @@
      :unnarrowed t))
   ""
   :custom-set 'org-roam-capture-templates
+  :group 'vonfry-modules
+  :type 'sexp)
+
+(custom! +org-roam-capture-immediate-templates
+  (append (car +org-roam-capture-templates) '(:immediate-finish t))
+  ""
+  :custom-set 'org-roam-capture-immediate-template
   :group 'vonfry-modules
   :type 'sexp)
 
