@@ -3,6 +3,7 @@
 
 (package! org
   :custom
+  (org-default-notes-file +org-capture-file)
   (org-clock-persist t)
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))
@@ -13,9 +14,6 @@
   (org-list-indent-offset 2)
   (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
   (org-log-refile 'time)
-  (org-refile-targets '((nil :maxlevel 99)
-                        (+org-projectile-todo-project-file :maxlevel 99)
-                        (org-agenda-files :maxlevel . 99)))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
@@ -25,6 +23,7 @@
     "p"  'previous-error
     "g"  'counsel-org-goto
     "l"  'counsel-org-link
+    "L"  'org-store-link
     "e"  'counsel-org-entity
     "@"  'counsel-org-tag
     "^"  'counsel-org-tag-agenda
@@ -73,7 +72,8 @@
     "n" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
-    "c" 'org-capture))
+    "c" 'org-capture
+    "k" '+org/open-capture))
 
 (package! org-archive
   :ensure nil
