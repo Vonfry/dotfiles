@@ -1,12 +1,15 @@
 ;;; dashboard func -*- lexical-binding: t -*-
 ;;
 
-(defun +dashboard/goto (&optional newFortune)
+(defun +dashboard/goto (&optional new)
   (interactive "P")
   (switch-to-buffer "*dashboard*")
-  (when newFortune
+  (when new
     (+dashboard/set-fortune))
   (dashboard-refresh-buffer))
+
+(defun +dashboard--init ()
+  (+dashboard/goto t))
 
 (defun +dashboard/set-fortune ()
   (interactive)

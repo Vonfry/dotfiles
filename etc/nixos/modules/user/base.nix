@@ -38,7 +38,7 @@ in {
         ranger
         patch parallel file
 
-        zip unzip convmv unrar
+        unar convmv
         colordiff
         ripgrep fd exa # bat
       ];

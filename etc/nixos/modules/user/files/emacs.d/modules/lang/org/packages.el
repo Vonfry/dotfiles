@@ -12,11 +12,15 @@
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
   (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
+  (org-log-refile 'time)
+  (org-refile-targets '((nil :maxlevel 99)
+                        (+org-projectile-todo-project-file :maxlevel 99)
+                        (org-agenda-files :maxlevel . 99)))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
   (+mmap-mode-org-def
-    "r"  'org-occur
+    "/"  'org-occur
     "n"  'next-error
     "p"  'previous-error
     "g"  'counsel-org-goto
@@ -30,6 +34,7 @@
     "d"  'org-deadline
     "s"  'org-schedule
     "t"  'org-todo
+    "m"  'org-refile
     "$"  'org-archive-subtree-default
     "c"  'org-ctrl-c-ctrl-c
     "h"  'avy-org-goto-heading-timer
@@ -62,12 +67,13 @@
   :after org
   :general
   (+mmap-note-def
+    "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
     "n" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
-    "c" 'counsel-org-capture))
+    "c" 'org-capture))
 
 (package! org-archive
   :ensure nil
@@ -78,8 +84,8 @@
 (package! org-web-tools
   :after org
   :general
-  (+mmap-at-def
-    "w o" 'org-web-tools-read-url-as-org)
+  (+mmap-note-def
+    "u" 'org-web-tools-read-url-as-org)
   (+mmap-mode-org-def
    "w"   '(nil :which-key "web")
    "w o" 'org-web-tools-read-url-as-org
@@ -122,20 +128,22 @@
                           +org-roam-local-dir))
   :general
   (+mmap-note-def
-    "{ "  '(nil :which-key "org roam")
-    "{ m" 'org-roam-mode
-    "{ {" 'org-roam
-    "{ o" 'org-roam-find-file
-    "{ g" 'org-roam-graph
-    "{ b" 'org-roam-db-build-cache
-    "{ p" '+org/roam-switch
-    "{ i" 'org-roam-insert
-    "{ c" 'org-roam-capture))
+    "N"   'org-roam-find-file
+    "C"   'org-roam-capture
+    "R "  '(nil :which-key "org roam")
+    "R b" 'org-roam-db-build-cache
+    "R p" '+org/roam-switch)
+  (+mmap-mode-org-def
+    "r"   'org-roam
+    "R "  '(nil :which-key "org roam")
+    "R m" 'org-roam-mode
+    "R g" 'org-roam-graph
+    "R i" 'org-roam-insert))
 
 (package! org-roam-server
   :general
   (+mmap-note-def
-    "{ s" 'org-roam-server-mode))
+    "s" 'org-roam-server-mode))
 
 (package! org-protocol :ensure nil)
 (package! org-roam-protocol :ensure nil)
@@ -154,3 +162,22 @@
   (package! ob-perl)
   (package! ob-gnuplot)
   :after org)
+
+(package! org-contacts
+  :ensure org-plus-contrib
+  :custom
+  (org-contacts-files
+   (if (file-exists-p +org-contacts-dir)
+    (directory-files +org-contacts-dir t
+                     "^[A-z0-9_\\-]+\\.org$")
+    nil))
+  :general
+  (+mmap-at-def
+    "C" '+org/find-contacts
+    "c" 'org-contacts))
+
+(package! org-toc
+  :ensure org-plus-contrib
+  :general
+  (+mmap-mode-org-def
+    "T" 'org-toc-show))

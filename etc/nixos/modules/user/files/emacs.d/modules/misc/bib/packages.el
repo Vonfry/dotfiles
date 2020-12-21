@@ -5,6 +5,7 @@
   :custom
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
   (ebib-file-associations '(("pdf" . "zathura")))
+  (ebib-bibtex-dialect 'biblatex)
   :config
   (advice-add #'ebib :before #'+bib/switch-dir-current)
   :hook
@@ -35,3 +36,5 @@
     "[ (" '+bib/switch-dir-from-search-dir
     "[ &" 'ebib-insert-citation
     "[ -" '+bib/switch-insert-single-or-multiple))
+
+(package! org-ebib :after org)

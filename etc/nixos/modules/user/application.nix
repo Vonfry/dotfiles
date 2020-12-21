@@ -136,11 +136,14 @@ in {
       mpd = {
         enable = mkDefault true;
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
+        extraConfig = ''
+          restore_paused "yes"
+        '';
       };
 
       gpg-agent = {
         enable = true;
-        defaultCacheTtl = 14400;
+        defaultCacheTtl = 1800;
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;

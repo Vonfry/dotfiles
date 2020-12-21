@@ -88,6 +88,7 @@ in {
         };
         extraConfig = builtins.readFile ./files/vimrc;
       };
+
       neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
@@ -135,6 +136,7 @@ in {
         call vonfry#init()
       '';
       };
+
       emacs =  {
         enable = true;
         extraPackages = epkgs: with epkgs; [
@@ -227,13 +229,11 @@ in {
           ranger
           avy
           ace-window
-          google-translate
           treemacs
           treemacs-evil
           treemacs-projectile
           treemacs-magit
           treemacs-icons-dired
-          ebdb
           which-key
           docker
           logview
@@ -263,8 +263,10 @@ in {
           direnv
           ob-http
           mpdel
+          org-plus-contrib
         ];
       };
+
       git = {
         userName = "Vonfry";
         userEmail = "mail@vonfry.name";
@@ -301,6 +303,7 @@ in {
       };
     };
 
+
     home = {
       sessionVariables = {
         EDITOR = "nvim";
@@ -316,14 +319,14 @@ in {
         nixfmt nix-doc
         niv
 
-        cloc
+        cloc zeal
 
         pandoc
-        zeal
 
         graphviz
 
         # texlive.combined.scheme-full git-latexdiff
+        texlab rnix-lsp
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure
@@ -333,7 +336,6 @@ in {
         set log-options = --show-signature
         set diff-options = --show-signature
       '';
-        ".vimrc".source = ./files/vimrc;
         ".ghc/ghci.conf".text = ''
         :set +m
 

@@ -2,10 +2,13 @@
 ;;
 
 (fun! +org--find (path)
-  (if (fboundp 'counsel-find-file)
-    (counsel-find-file path)
-    (let ((default-directory path))
-      (call-interactively 'find-file))))
+  (cond ((and (executable-find "fzf")
+              (fboundp 'counsel-fzf))
+         (counsel-fzf nil path))
+        ((fboundp 'counsel-find-file)
+         (counsel-find-file path))
+        (t (let ((default-directory path))
+             (call-interactively 'find-file)))))
 
 (fun! +org/find-agenda ()
   (interactive)
@@ -20,6 +23,10 @@
   (interactive)
   (+org--find +org-note-dir))
 
+(fun! +org/find-contacts ()
+  (interactive)
+  (+org--find +org-contacts-dir))
+
 (fun! +org/roam-switch (path)
   "A path is a roam."
   (interactive "Droam: ")
@@ -30,3 +37,7 @@
                           "/" "!"
                           ,path)
                           +org-roam-local-dir))))
+
+(fun! +org/open-inbox ()
+  (interactive)
+  (find-file +org-inbox-file))

@@ -24,21 +24,35 @@
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
 *** WAITING org-z and org-sidebar instead of org-roam
-** DONE LSP[1/1]
+*** Interesting plugins[0/3]
+**** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
+**** TODO [[https://melpa.org/#/license-snippets][license-snippet]]
+**** TODO magit evil and sth else is included in evil-collection
+** DONE LSP[1/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
+   - [X] install them project with nix-shell instead of global one
 
 * Language
 ** DONE Haskell
 ** DONE CC
 ** DONE Rust
-** DONE Ruby
-** DONE Python
+** CANCELLED Ruby
+** CANCELLED Python
 ** DONE Perl
 ** DONE Coq
+** DONE Nix[1/1]
+   CLOSED: [2020-12-03 Thu 22:13]
+   - [X] lsp
+** DONE R
+   CLOSED: [2020-12-03 Thu 22:04]
 
+** DONE Org
+   CLOSED: [2020-12-09 Wed 08:49]
+** DONE LaTex
 * Shell
-** DONE ZSH
+** DONE ZSH[1/1]
+   - [X] fzf as completion
 
 * Utils
 ** Nix

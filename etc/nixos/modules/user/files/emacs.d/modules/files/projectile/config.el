@@ -1,6 +1,10 @@
 ;;; projectile config -*- lexical-binding: t -*-
 ;;
 
+;; +mmap-proj-def
+(mmap-leader-prefix! proj "P"
+  :keymaps 'projectile-mode-map)
+
 (const! +projectile-cache-dir
   (expand-file-name "projectile/" vonfry-cache-dir)
   "projectile cache dir, see `projectile-cache-dir'")

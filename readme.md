@@ -59,8 +59,11 @@ love.
 
 ## Lang
 
-All languages' developing tools use nix-shell to install and export into
-environment per-project. Here list languages supporting in editor.
+All languages' developing dependencies and toolchains, such as compilers,
+libraries and lsp, are installed by nix-shell and export into environment
+per-project. Here list languages supporting in editor. The lsp client install
+in user environment only when the language is used directly, i.e., tex and nix.
+
 
 - **Haskell** :: main prog lang
 - **Rust** :: main sys-prog lang
@@ -101,10 +104,12 @@ and other things. Gnus for mail is different from other tools such as
 mu4e, you can check a description
 [here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader). It
 is not fit for me, and the same reason for rss. I may switch to it someday if
-gnus is supported with async. EBDB is a good contacts in emacs. Calender? Just
-org agenda. Furthermore, password-store is for password management and syncthing
-is for file syncing. Both of them are free and easy to use, which is better than
-1password and rclone with other servers. P2P for personal using is enough.
+gnus is supported with async. org-contacts can be used as contacts, and ebdb is
+also good, but it saves data into database(elisp) instead of plain
+text. Calender? Just org agenda. Furthermore, password-store is for password
+management and syncthing is for file syncing. Both of them are free and easy to
+use, which is better than 1password and rclone with other servers. P2P for
+personal using is enough.
 
 Emacs and Vim are both magic editor. We can customize them what we
 want. Furthermore using lisp to do that is happy. I really lvoe the editing

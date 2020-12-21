@@ -12,8 +12,10 @@ let
 
   screenlocker = pkgs.writeScriptBin "screenlocker" ''
     #!${pkgs.bash}/bin/bash -e
-    ${pkgs.i3lock-color}/bin/i3lock-color -n -c 282a36 --indicator -k -B 1 --insidecolor=282a36 --insidewrongcolor=282a36 --insidevercolor=282a36 --ringvercolor=bd93f9 --ringwrongcolor=ff79c6 --ringcolor=44475a --linecolor=6272a4 --keyhlcolor=f1fa8c --bshlcolor=ff5555 --verifcolor=bd93f9 --wrongcolor=ff79c6 --timecolor=f8f8f2 --datecolor=6272a4
+    exec ${pkgs.i3lock-color}/bin/i3lock-color -c 282a36 --indicator -k -B 1 --insidecolor=282a36 --insidewrongcolor=282a36 --insidevercolor=282a36 --ringvercolor=bd93f9 --ringwrongcolor=ff79c6 --ringcolor=44475a --linecolor=6272a4 --keyhlcolor=f1fa8c --bshlcolor=ff5555 --verifcolor=bd93f9 --wrongcolor=ff79c6 --timecolor=f8f8f2 --datecolor=6272a4 "$@"
   '';
+
+  lockCommand = "${screenlocker}/bin/screenlocker";
 in {
   options.vonfry.x = {
     sddmQtVersion = mkOption {
@@ -27,12 +29,6 @@ in {
       default = pkgs."libsForQt${cfg.sddmQtVersion}".callPackage chili-drv {};
       description = "sddm theme: chili package";
       type = types.package;
-    };
-
-    lockScript = mkOption {
-      default = "${screenlocker}/bin/screenlocker";
-      type = types.str;
-      description = "lock screen command.";
     };
 
     durationLock = mkOption {
@@ -113,7 +109,7 @@ in {
 
     programs.xss-lock = {
       enable = true;
-      lockerCommand = cfg.lockScript;
+      lockerCommand = "${lockCommand} -n";
     };
 
     systemd = {
@@ -125,7 +121,7 @@ in {
           partOf = [ "graphical-session.target" ];
           script = ''
           ${pkgs.xidlehook}/bin/xidlehook \
-            --timer ${toString cfg.durationLock}  "${cfg.lockScript}" ""\
+            --timer ${toString cfg.durationLock}  "${lockCommand} || true" "" \
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
