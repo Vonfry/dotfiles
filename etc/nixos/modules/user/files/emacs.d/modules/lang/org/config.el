@@ -128,10 +128,7 @@
     ("n" "capture to note"
      plain (function +org--note-templates-get-location)
      "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?")
-    ("j" "Journal entry"
-     entry (function +org--journal-find-location)
-     "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
-    ("o" "roam" plain (function org-roam--capture-get-point)
+    ("r" "roam" plain (function org-roam--capture-get-point)
      "%?"
      :file-name "${slug}"
      :head "#+title: ${title}\n"
