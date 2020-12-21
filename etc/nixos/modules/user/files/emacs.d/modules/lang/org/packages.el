@@ -15,6 +15,7 @@
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel 99)
                         (+org-projectile-todo-project-file :maxlevel 99)
+                        (org-contacts-files :maxlevel 99)
                         (org-agenda-files :maxlevel . 99)))
   :general
   ("C-c C" 'org-capture-goto-target)
@@ -73,7 +74,8 @@
     "n" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
-    "c" 'org-capture))
+    "c" 'org-capture
+    "k" '+org/open-capture))
 
 (package! org-archive
   :ensure nil

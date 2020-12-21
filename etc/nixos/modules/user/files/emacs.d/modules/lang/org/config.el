@@ -26,10 +26,12 @@
   :group 'vonfry-modules
   :custom-set 'org-directory)
 
-(custom! +org-inbox-file (expand-file-name "inbox.org" +org-dir)
-  "org inbox file"
-  :type 'file
-  :group 'vonfry-modules)
+(custom! +org-capture-file
+   (expand-file-name "inbox.org" +org-dir)
+   ""
+   :type 'file
+   :group 'vonfry-modules
+   :custom-set 'org-capture-file)
 
 (custom! +org-agenda-dir (expand-file-name "agenda" +org-dir)
   ""
@@ -38,7 +40,7 @@
 
 (custom! +org-agenda-files (append (directory-files +org-agenda-dir t
                                                     "^[A-z0-9\\-_]+\\.org$")
-                                   (list +org-inbox-file))
+                                   (list +org-capture-file))
   ""
   :type '(repeat file)
   :group 'vonfry-modules
@@ -111,30 +113,23 @@
   :group 'vonfry-modules
   :custom-set 'org-todo-keywords)
 
-(custom! +org-capture-file
-   (expand-file-name "inbox.org" +org-dir)
-   ""
-   :type 'file
-   :group 'vonfry-modules
-   :custom-set 'org-capture-file)
-
 (custom! +org-capture-templates
   '(("t" "capture to inbox(Tasks), refile later"
      entry (file+headline +org-capture-file "Tasks")
-     "** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
+     "** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
     ("i" "capture to inbox(Idea), refile later"
      entry (file+headline +org-capture-file "Idea")
-     "* %?\n:PROPERTIES:\n:CREATED: %Un")
+     "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
     ("n" "capture to note"
      plain (function +org--note-templates-get-location)
-     "#+TITLE: %^{title}\n#+DATE: %U\n* Context %^{tags}\n\n* Main Text\n\n%?")
-    ("r" "roam" plain (function org-roam--capture-get-point)
+     "#+title: %^{title}\n#+date: %U\n\n* %?")
+    ("r" "roam" plain (function org-roam-capture--get-point)
      "%?"
      :file-name "${slug}"
      :head "#+title: ${title}\n"
      :unnarrowed t)
     ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
-     "* %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
+     "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:"))
   ""
   :type 'sexp
   :group 'vonfry-modules

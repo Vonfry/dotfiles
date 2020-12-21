@@ -38,6 +38,6 @@
                           ,path)
                           +org-roam-local-dir))))
 
-(fun! +org/open-inbox ()
+(fun! +org/open-capture ()
   (interactive)
-  (find-file +org-inbox-file))
+  (find-file +org-capture-file))
