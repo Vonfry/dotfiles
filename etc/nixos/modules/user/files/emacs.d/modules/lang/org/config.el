@@ -26,6 +26,11 @@
   :group 'vonfry-modules
   :custom-set 'org-directory)
 
+(custom! +org-inbox-file (expand-file-name "inbox.org" +org-dir)
+  "org inbox file"
+  :type 'file
+  :group 'vonfry-modules)
+
 (custom! +org-agenda-dir (expand-file-name "agenda" +org-dir)
   ""
   :type 'directory
@@ -116,7 +121,7 @@
   (let ((default-templates
           '(("t" "capture to inbox(Tasks), refile later"
              entry (file+headline +org-capture-file "Tasks")
-             "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:n")
+             "* TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:\n")
             ("i" "capture to inbox(Idea), refile later"
              entry (file+headline +org-capture-file "Idea")
              "* %?\n:PROPERTIES:\n:CREATED: %Un")

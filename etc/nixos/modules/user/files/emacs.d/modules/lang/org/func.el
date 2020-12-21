@@ -37,3 +37,7 @@
                           "/" "!"
                           ,path)
                           +org-roam-local-dir))))
+
+(fun! +org/open-inbox ()
+  (interactive)
+  (find-file +org-inbox-file))
