@@ -3,6 +3,7 @@
 
 (package! org
   :custom
+  (org-default-notes-file +org-capture-file)
   (org-clock-persist t)
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))

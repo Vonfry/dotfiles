@@ -156,13 +156,24 @@
 
 (custom! +org-roam-capture-templates
   '(("d" "default" plain #'org-roam-capture--get-point "%?"
-     :file-name "${slug}"
+     :file-name "%(+org-roam-capture--note-dir)/${slug}"
      :head "#+title: ${title}"
      :unnarrowed t))
   ""
   :custom-set 'org-roam-capture-templates
   :group 'vonfry-modules
   :type 'sexp)
+
+(fun! +org-roam-capture--note-dir ()
+  (let ((default-directory +org-note-dir))
+    (call-interactively '+org-roam-capture--note-dir-aux)))
+
+(fun! +org-roam-capture--note-dir-aux (path)
+    (interactive "Droam: ")
+    (let ((path-no-prefix (if (s-prefix? +org-note-dir path)
+                              (s-chop-prefixes (list +org-note-dir "/") path)
+                            path)))
+      (s-chop-suffix "/" path-no-prefix)))
 
 (custom! +org-agenda-ibuffer-group
   `(("Agenda" (or (name .
