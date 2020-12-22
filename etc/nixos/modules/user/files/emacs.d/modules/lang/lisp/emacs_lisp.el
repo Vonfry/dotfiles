@@ -3,7 +3,7 @@
 ;; +mmap-elisp-def
 (package! ielm :ensure nil
   :general
-  (+mmap-elisp-def
+  (nmap-leader :keymps 'emacs-lisp-mode
     "\""  'ielm
     "' b" 'eval-buffer
     "' r" 'eval-region))
