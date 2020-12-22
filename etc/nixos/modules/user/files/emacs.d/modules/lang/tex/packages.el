@@ -44,61 +44,64 @@
        (lsp)))
   :general
   (:keymaps 'TeX-mode-map
-    (kbd "TAB") 'TeX-complete-symbol)
+    (kbd "TAB") 'TeX-complete-symbol
+    [tab]       'TeX-complete-symbol)
   (+mmap-tex-def
-    "?"   'TeX-doc
-    "RET" 'preview-at-point
-    "r"   'compile
-    "R"   'TeX-command-run-all)
+    "?"      'TeX-doc
+    "RET"    'preview-at-point
+    [return] 'preview-at-point
+    "r"      'compile
+    "R"      'TeX-command-run-all)
   (+mmap-mode-tex-def
-    "\\"    'TeX-insert-macro
-    "-"     'TeX-recenter-output-buffer
-    "%"     'TeX-comment-or-uncomment-paragraph
-    ";"     'TeX-comment-or-uncomment-region
-    "k"     'TeX-kill-job
-    "l"     'TeX-recenter-output-buffer
-    "m"     'TeX-insert-macro
-    "v"     'TeX-view
-    "C"     'TeX-clean
-    "n"     'TeX-narrow-to-group
-    "*"     'LaTeX-mark-section
-    "."     'LaTeX-mark-environment
-    "c"     'LaTeX-close-environment
-    "e"     'LaTeX-environment
-    "i"     'LaTeX-insert-item
-    "s"     'LaTeX-section
-    "f"     '(nil :which-key "fill")
-    "f e"   'LaTeX-fill-environment
-    "f p"   'LaTeX-fill-paragraph
-    "f r"   'LaTeX-fill-region
-    "f s"   'LaTeX-fill-section
-    "p"     '(nil :which-key "preview")
-    "p b"   'preview-buffer
-    "p c"   'preview-clearout
-    "p d"   'preview-document
-    "p e"   'preview-environment
-    "p f"   'preview-cache-preamble
-    "p r"   'preview-region
-    "p s"   'preview-section
-    "z"     '(nil :which-key "fold")
-    "z ="   'TeX-fold-math
-    "z b"   'TeX-fold-buffer
-    "z e"   'TeX-fold-env
-    "z m"   'TeX-fold-macro
-    "z r"   'TeX-fold-region
-    "rc"    'reftex-citation
-    "rg"    'reftex-grep-document
-    "ri"    'reftex-index-selection-or-word
-    "rI"    'reftex-display-index
-    "r TAB" 'reftex-index
-    "rl"    'reftex-label
-    "rp"    'reftex-index-phrase-selection-or-word
-    "rP"    'reftex-index-visit-phrases-buffer
-    "rr"    'reftex-reference
-    "rs"    'reftex-search-document
-    "rt"    'reftex-toc
-    "rT"    'reftex-toc-recenter
-    "rv"    'reftex-view-crossref))
+    "\\"      'TeX-insert-macro
+    "-"       'TeX-recenter-output-buffer
+    "%"       'TeX-comment-or-uncomment-paragraph
+    ";"       'TeX-comment-or-uncomment-region
+    "k"       'TeX-kill-job
+    "l"       'TeX-recenter-output-buffer
+    "m"       'TeX-insert-macro
+    "v"       'TeX-view
+    "C"       'TeX-clean
+    "n"       'TeX-narrow-to-group
+    "*"       'LaTeX-mark-section
+    "."       'LaTeX-mark-environment
+    "c"       'LaTeX-close-environment
+    "e"       'LaTeX-environment
+    "i"       'LaTeX-insert-item
+    "s"       'LaTeX-section
+    "f"       '(nil :which-key "fill")
+    "f e"     'LaTeX-fill-environment
+    "f p"     'LaTeX-fill-paragraph
+    "f r"     'LaTeX-fill-region
+    "f s"     'LaTeX-fill-section
+    "p"       '(nil :which-key "preview")
+    "p b"     'preview-buffer
+    "p c"     'preview-clearout
+    "p d"     'preview-document
+    "p e"     'preview-environment
+    "p f"     'preview-cache-preamble
+    "p r"     'preview-region
+    "p s"     'preview-section
+    "z"       '(nil :which-key "fold")
+    "z ="     'TeX-fold-math
+    "z b"     'TeX-fold-buffer
+    "z e"     'TeX-fold-env
+    "z m"     'TeX-fold-macro
+    "z r"     'TeX-fold-region
+    "r c"     'reftex-citation
+    "r g"     'reftex-grep-document
+    "r i"     'reftex-index-selection-or-word
+    "r I"     'reftex-display-index
+    "r TAB"   'reftex-index
+    "r <tab>" 'reftex-index
+    "r l"     'reftex-label
+    "r p"     'reftex-index-phrase-selection-or-word
+    "r P"     'reftex-index-visit-phrases-buffer
+    "r r"     'reftex-reference
+    "r s"     'reftex-search-document
+    "r t"     'reftex-toc
+    "r T"     'reftex-toc-recenter
+    "r v"     'reftex-view-crossref))
 
 (package! auctex-latexmk
   :after latex

@@ -33,6 +33,8 @@
   :general
   ("C-x o" 'ace-window)
   (+mmap-leader-def
-    "w"   'ace-window
-    "RET" '+ace/append
-    "S-RET" '+ace/append-point))
+    "w"        'ace-window
+    "RET"      '+ace/append
+    [return]   '+ace/append
+    "S-RET"    '+ace/append-point
+    [S-return] '+ace/append-point))

@@ -7,14 +7,15 @@
   (python-shell-exec-path   "ipython3")
   :general
   (+mmap-python-def
-    "\""  'ipython3
-    "; ." 'py-find-definition
-    "RET" 'py-execute-line
-    "R"   'realgud:pdb
-    "' r" 'py-execute-region
-    "' R" 'py-execute-region-pdb
-    "' s" 'py-execute-statement
-    "' S" 'py-execute-statement-pdb)
+    "\""     'ipython3
+    "; ."    'py-find-definition
+    "RET"    'py-execute-line
+    [return] 'py-execute-line
+    "R"      'realgud:pdb
+    "' r"    'py-execute-region
+    "' R"    'py-execute-region-pdb
+    "' s"    'py-execute-statement
+    "' S"    'py-execute-statement-pdb)
   (+mmap-mode-python-def
     "#"   'py-update-imports
     "s"   'py-switch-shell))

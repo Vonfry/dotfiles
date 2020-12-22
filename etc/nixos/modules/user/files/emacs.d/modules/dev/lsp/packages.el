@@ -16,6 +16,7 @@
     "="   'lsp-format-buffer
     "#"   'lsp-organize-imports
     "TAB" 'completion-at-point
+    [tab] 'completion-at-point
     "("   'lsp-goto-type-definition
     "?"   'lsp-describe-thing-at-point)
   (+mmap-lsp-ext-def
