@@ -19,6 +19,7 @@
    "' r"      'ess-eval-region
    "RET"      'ess-eval-line
    [return]   'ess-eval-line
+   "S-RET"    'ess-eval-buffer-from-beg-to-here
    [S-return] 'ess-eval-buffer-from-beg-to-here))
 
 (package! ess-r-mode
