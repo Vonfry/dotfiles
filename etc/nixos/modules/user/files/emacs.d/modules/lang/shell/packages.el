@@ -1,4 +1,4 @@
-;;; shell packages -*- lexical-binding: t -*-
+;; shell packages -*- lexical-binding: t -*-
 ;;
 
 (package! eshell
@@ -19,5 +19,5 @@
   ((eshell-mode shell-mode) . (lambda ()
     (+company-set-backends-grouped '(company-shell company-shell-env)))))
 
-(+mmap-leader-def
+(nmap-leader
   "$" '+shell-open-term-at-pwd)

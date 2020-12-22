@@ -3,14 +3,14 @@
 
 (package! proof-general
   :general
-  (+mmap-proof-def
+  (nmap-leader :keymaps 'coq-mode-map
     "\""     'proof-shell-start
     "' x"    'proof-shell-exit
     "' >"    'proof-autosend-toggle
     "' u"    'proof-undo-last-successful-command
     "DEL"    'proof-undo-and-delete-last-successful-command
     "RET"    'proof-goto-point)
-  (+mmap-mode-proof-def
+  (nmap-mode :keymaps 'coq-mode-map
     "b"      'proof-process-buffer
     "r"      'proof-retract-buffer
     "p"      'proof-prf
@@ -33,5 +33,5 @@
   :hook
   (coq-mode . company-coq-mode)
   :general
-  (+mmap-mode-proof-def
+  (nmap-mode :keymaps 'coq-mode-map
     "B" 'company-coq-cite))

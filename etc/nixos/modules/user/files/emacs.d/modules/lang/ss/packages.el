@@ -10,15 +10,14 @@
   (ess-use-auto-complete nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
   :general
-  (+mmap-ss-def
-   "\"" 'ess-interrupt
-   "?"  'ess-help)
-  (+mmap-ss-def
-   "' b"      'ess-eval-buffer
-   "' f"      'ess-eval-function
-   "' r"      'ess-eval-region
-   "' RET"    'ess-eval-buffer-from-beg-to-here
-   "RET"      'ess-eval-line))
+  (nmap-leader :keymaps 'ss-mode-map
+   "\""    'ess-interrupt
+   "?"     'ess-help
+   "RET"   'ess-eval-line
+   "' b"   'ess-eval-buffer
+   "' f"   'ess-eval-function
+   "' r"   'ess-eval-region
+   "' RET" 'ess-eval-buffer-from-beg-to-here))
 
 (package! ess-r-mode
   :hook lsp

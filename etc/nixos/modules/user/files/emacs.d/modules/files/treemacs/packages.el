@@ -8,12 +8,12 @@
   (treemacs-filewatch-mode t)
   (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-local-dir))
   :general
-  (+mmap-leader-def
+  (nmap-leader
     "d"   'treemacs
     "M m" 'treemacs-bookmark)
-  (+mmap-tree-def
-    "d" 'treemacs-find-file
-    "p" 'treemacs-add-and-display-current-project))
+  (nmap-leader
+    "P F" 'treemacs-find-file
+    "P A" 'treemacs-add-and-display-current-project))
 
 (package! treemacs-evil
   :after (treemacs evil))
@@ -21,8 +21,8 @@
 (package! treemacs-projectile
   :after (treemacs projectile)
   :general
-  (+mmap-leader-def
-    "P t" 'treemacs-projectile))
+  (nmap-leader
+    "P T" 'treemacs-projectile))
 
 (package! treemacs-magit
   :after (treemacs magit))

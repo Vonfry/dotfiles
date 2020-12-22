@@ -17,26 +17,27 @@
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
-  (+mmap-mode-org-def
-    "/"  'org-occur
-    "n"  'next-error
-    "p"  'previous-error
-    "g"  'counsel-org-goto
-    "l"  'counsel-org-link
-    "L"  'org-store-link
-    "e"  'counsel-org-entity
-    "@"  'counsel-org-tag
-    "^"  'counsel-org-tag-agenda
-    "#"  'counsel-org-file
-    "t"  'org-tags-view
-    ","  'org-set-property
-    "d"  'org-deadline
-    "s"  'org-schedule
-    "t"  'org-todo
-    "m"  'org-refile
-    "$"  'org-archive-subtree-default
-    "c"  'org-ctrl-c-ctrl-c
-    "h"  'avy-org-goto-heading-timer
+  (nmap-mode :keymaps 'org-mode-map
+    "/"   'org-occur
+    "n"   'next-error
+    "p"   'previous-error
+    "g"   'counsel-org-goto
+    "l"   'counsel-org-link
+    "L"   'org-store-link
+    "e"   'counsel-org-entity
+    "@"   'counsel-org-tag
+    "^"   'counsel-org-tag-agenda
+    "#"   'counsel-org-file
+    "t"   'org-tags-view
+    ","   'org-set-property
+    "d"   'org-deadline
+    "s"   'org-schedule
+    "t"   'org-todo
+    "m"   'org-refile
+    "$"   'org-archive-subtree-default
+    "c"   'org-ctrl-c-ctrl-c
+    "h"   'avy-org-goto-heading-timer
+    "D"   '(:ignore t :which-key "display")
     "D i" 'org-display-inline-images
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
@@ -65,7 +66,8 @@
   :ensure nil
   :after org
   :general
-  (+mmap-note-def
+  (nmap-leader :infix "o"
+    ""  '(:ignore t :which-key "notes")
     "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
@@ -84,10 +86,10 @@
 (package! org-web-tools
   :after org
   :general
-  (+mmap-note-def
+  (nmap-leader :infix "o"
     "u" 'org-web-tools-read-url-as-org)
-  (+mmap-mode-org-def
-   "w"   '(nil :which-key "web")
+  (nmap-mode :keymaps 'org-mode-map
+   "w"   '(:ignore t :which-key "web")
    "w o" 'org-web-tools-read-url-as-org
    "w l" 'org-web-tools-insert-link-for-url
    "w e" 'org-web-tools-insert-web-page-as-entry
@@ -104,16 +106,17 @@
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
-  (+mmap-note-def
-    "j n" 'org-journal-new-entry
-    "j j" 'org-journal-open-next-entry
-    "j k" 'org-journal-open-previous-entry
-    "j /" 'org-journal-search
-    "j s" 'org-journal-schedule-view))
+  (nmap-leader :infix "o j"
+    ""  '(:ignore t :which-key "journal")
+    "n" 'org-journal-new-entry
+    "j" 'org-journal-open-next-entry
+    "k" 'org-journal-open-previous-entry
+    "/" 'org-journal-search
+    "s" 'org-journal-schedule-view))
 
 (package! org-ql
   :general
-  (+mmap-mode-org-def
+  (nmap-mode :keymaps 'org-mode-map
     ";" 'org-ql-search
     "," 'org-ql-view
     "." 'org-ql-sparse-tree))
@@ -127,22 +130,22 @@
                              +org-note-dir)
                           +org-roam-local-dir))
   :general
-  (+mmap-note-def
+  (nmap-leader :infix "o"
     "N"   'org-roam-find-file
     "C"   'org-roam-capture
-    "R "  '(nil :which-key "org roam")
+    "R "  '(:ignore t :which-key "org roam")
     "R b" 'org-roam-db-build-cache
     "R p" '+org/roam-switch)
-  (+mmap-mode-org-def
+  (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam
-    "R "  '(nil :which-key "org roam")
+    "R "  '(:ignore t :which-key "org roam")
     "R m" 'org-roam-mode
     "R g" 'org-roam-graph
     "R i" 'org-roam-insert))
 
 (package! org-roam-server
   :general
-  (+mmap-note-def
+  (nmap-leader :infix "o"
     "s" 'org-roam-server-mode))
 
 (package! org-protocol :ensure nil)
@@ -172,12 +175,12 @@
                      "^[A-z0-9_\\-]+\\.org$")
     nil))
   :general
-  (+mmap-at-def
+  (nmap-at
     "C" '+org/find-contacts
     "c" 'org-contacts))
 
 (package! org-toc
   :ensure org-plus-contrib
   :general
-  (+mmap-mode-org-def
+  (nmap-mode :keymaps 'org-mode-map
     "T" 'org-toc-show))

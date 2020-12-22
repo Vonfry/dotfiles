@@ -6,22 +6,22 @@
   (python-shell-interpreter "ipython3")
   (python-shell-exec-path   "ipython3")
   :general
-  (+mmap-python-def
-    "\""     'ipython3
-    "; ."    'py-find-definition
-    "RET"    'py-execute-line
-    "R"      'realgud:pdb
-    "' r"    'py-execute-region
-    "' R"    'py-execute-region-pdb
-    "' s"    'py-execute-statement
-    "' S"    'py-execute-statement-pdb)
-  (+mmap-mode-python-def
-    "#"   'py-update-imports
-    "s"   'py-switch-shell))
+  (nmap-leader :keymaps 'python-mode-map
+    "\""  'ipython3
+    "; ." 'py-find-definition
+    "RET" 'py-execute-line
+    "R"   'realgud:pdb
+    "' r" 'py-execute-region
+    "' R" 'py-execute-region-pdb
+    "' s" 'py-execute-statement
+    "' S" 'py-execute-statement-pdb)
+  (nmap-mode :keymaps 'python-mode-map
+    "#" 'py-update-imports
+    "s" 'py-switch-shell))
 
 (package! pydoc
   :general
-  (+mmap-python-def
+  (nmap-leader :keymaps 'python-mode-map
     "?"   'pydoc)
-  (+mmap-mode-python-def
+  (nmap-mode :keymaps 'python-mode-map
     "b" 'pydoc-browse))

@@ -5,11 +5,11 @@
   :interpreter ("nix-shell" . nix-shebang-mode)
   :hook lsp
   :general
-  (+mmap-nix-def
+  (nmap-leader :keymaps 'nix-mode-map
     "="  'nix-format-buffer
     "\"" 'nix-repl
     "r"  'nix-build)
-  (+mmap-mode-nix-def
+  (nmap-mode :keymaps 'nix-mode-map
     "u"  'nix-unpack
     "/"  'nix-search
     "="  'nix-indent-line))

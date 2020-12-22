@@ -8,5 +8,8 @@
       eshell-mode
       geiser-mode
       slime-mode))
+  :general
+  (nmap-leader
+   "' e" 'direnv-update-environment)
   :config
   (direnv-mode t))

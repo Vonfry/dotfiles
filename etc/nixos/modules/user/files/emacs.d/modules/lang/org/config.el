@@ -1,14 +1,6 @@
 ;;; org config -*- lexical-binding: t -*-
 ;;
 
-;; +mmap-note-def
-(mmap-leader-prefix! note "o")
-
-(+mmap-note-def "" '(nil :which-key "note"))
-
-(mmap-mode-prefix! org nil
-  :keymaps 'org-mode-map)
-
 (custom! +org-file-apps
          '((system . "xdg-open %s")
            ("\\.mm\\'" . default)

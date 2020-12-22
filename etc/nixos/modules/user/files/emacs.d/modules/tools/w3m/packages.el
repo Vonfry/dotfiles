@@ -7,8 +7,8 @@
   (browse-url-generic-program (getenv "BROWSER"))
   (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
   :general
-  (+mmap-at-def
-    "w"   '(nil :which-key "browse")
+  (nmap-at
+    "w"   '(:ignore t :which-key "browse")
     "."   'browse-url-at-point
     "w w" 'w3m
     "w W" 'browse-url-generic

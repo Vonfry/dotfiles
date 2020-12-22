@@ -10,15 +10,15 @@
   (haskell-decl-scan-mode t)
   (haskell-process-type 'auto)
   :general
-  (+mmap-haskell-def
+  (nmap-leader :keymaps 'haskell-mode-map
     "="   'haskell-mode-stylish-buffer
     "r"   'haskell-compile
     "#"   'haskell-navigate-imports)
-  (+mmap-mode-haskell-def
+  (nmap-mode :keymaps 'haskell-mode-map
     "R"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle
-    "q"   '(nil :which-key "query")
+    "q"   '(:ignore t :which-key "query")
     "q l" 'haskell-hoogle-lookup-from-local
     "q e" 'engine/search-hoogle
     "q s" 'haskell-hoogle-start-server
@@ -35,7 +35,7 @@
 (package! haskell-interactive-mode
   :ensure nil
   :general
-  (+mmap-haskell-def
+  (nmap-leader :keymaps 'haskell-mode-map
     "\"" 'haskell-interactive-bring
     "k"  'haskell-interactive-mode-clear
     "m"  'haskell-menu
@@ -44,15 +44,14 @@
 (package! haskell-process
   :ensure nil
   :general
-  (+mmap-mode-haskell-def
-    "p"   '(nil :which-key "process")
+  (nmap-mode :keymaps 'haskell-mode-map
+    "p"   '(:ignore t :which-key "process")
     "p l" 'haskell-process-load-or-reload
     "p t" 'haskell-process-do-type
     "p i" 'haskell-process-do-info
     "p b" 'haskell-process-cabal-build
     "p c" 'haskell-process-cabal
-    "p r" 'haskell-process-restart)
-  (+mmap-mode-inf-haskell-def
+    "p r" 'haskell-process-restart
     "R"   'haskell-debug)
   :custom
   (haskell-process-suggest-remove-import-lines t)
@@ -64,7 +63,7 @@
 
 (package! hasky-extensions
   :general
-  (+mmap-mode-haskell-def
+  (nmap-mode :keymaps 'haskell-mode-map
     "{"  'hasky-extensions))
 
 (package! haskell-snippets

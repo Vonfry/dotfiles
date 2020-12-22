@@ -13,11 +13,11 @@
   (evil-shift-width 4)
   (evil-search-module 'isearch)
   :general
-  (mmap :prefix "g"
+  (nmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
-  (+mmap-leader-def
-    "M"   '(nil :which-key "bookmarks")
+  (nmap-leader
+    "M"   '(:ignore t :which-key "bookmarks")
     "M m" 'bookmark-set
     "M M" 'bookmark-set-no-overwrite
     "M l" 'bookmark-bmenu-list
@@ -33,7 +33,7 @@
     "L"   'proced
     "O"   'calendar
     "_"   '+evil/switch-scratch
-    "e"   '(nil :which-key "emacs")
+    "e"   '(:ignore t :which-key "emacs")
     "e s" 'server-start
     "e #" 'server-edit
     "e D" 'diff

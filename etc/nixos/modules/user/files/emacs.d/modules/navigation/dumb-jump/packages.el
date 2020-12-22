@@ -3,7 +3,7 @@
 
 (package! dumb-jump
   :general
-  (+mmap-prog-def
+  (nmap-leader :keymaps 'prog-mode-map
     "." 'xref-goto-xref
     "," 'xref-pop-marker-stack
     ">" 'xref-find-apropos

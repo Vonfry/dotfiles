@@ -45,12 +45,12 @@
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
-  (+mmap-tex-def
+  (nmap-leader :keymaps '(TeX-mode-map)
     "?"      'TeX-doc
     "RET"    'preview-at-point
     "r"      'compile
     "R"      'TeX-command-run-all)
-  (+mmap-mode-tex-def
+  (nmap-mode :keymaps '(TeX-mode-map)
     "\\"      'TeX-insert-macro
     "-"       'TeX-recenter-output-buffer
     "%"       'TeX-comment-or-uncomment-paragraph

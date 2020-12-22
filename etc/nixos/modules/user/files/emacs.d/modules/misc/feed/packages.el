@@ -13,5 +13,5 @@
   (load +feed-local-file t t)
   :general
   ("C-x w" 'elfeed)
-  (+mmap-at-def
+  (nmap-at
     "f" 'elfeed))

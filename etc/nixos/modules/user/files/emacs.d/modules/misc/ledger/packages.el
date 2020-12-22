@@ -11,6 +11,6 @@
   (evil-mode . (lambda ()
     (evil-set-initial-state 'hledger-view-mode 'emacs)))
   :general
-  (+mmap-at-def
+  (nmap-at
     "l" 'hledger-jentry
     "L" 'hledger-run-command))

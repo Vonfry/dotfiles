@@ -48,5 +48,5 @@
   (mm-text-html-render 'html2text)
   (nndraft-directory (expand-file-name "gnus/draft" vonfry-local-dir))
   :general
-  (+mmap-at-def
+  (nmap-at
     "n" 'gnus))

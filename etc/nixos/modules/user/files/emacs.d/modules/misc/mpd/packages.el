@@ -9,8 +9,8 @@
                     mpdel-playlist-current-playlist-mode))
     (evil-set-initial-state mode 'emacs))))
   :general
-  (+mmap-at-def
-    "m"         '(nil :which-key "mpd")
+  (nmap-at
+    "m"         '(:ignore t :which-key "mpd")
     "m m"       'mpdel-mode
     "m SPC"     'libmpdel-playback-play-pause
     "m M-n"     'libmpdel-playback-next

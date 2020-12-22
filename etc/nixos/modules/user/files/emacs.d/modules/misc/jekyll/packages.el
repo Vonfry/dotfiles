@@ -3,7 +3,7 @@
 
 (package! easy-jekyll
   :general
-  (+mmap-at-def "b" 'easy-jekyll)
+  (nmap-at "b" 'easy-jekyll)
   :hook
   (evil-mode . (lambda ()
    (evil-set-initial-state 'easy-jekyll-mode 'emacs)))

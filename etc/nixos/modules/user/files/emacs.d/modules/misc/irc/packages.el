@@ -11,10 +11,10 @@
   (erc-lurker-hide-list '("JOIN" "NICK" "PART" "QUIT"))
   (erc-lurker-threshold-time 600)
   :general
-  (+mmap-at-def
-    "i"   '(nil :which-key "irc")
-    "i i" '+irc/connect
-    "i b" 'erc-switch-to-buffer
-    "i I" 'erc-tls
-    "i l" 'erc-log-enable
-    "i e" 'erc))
+  (nmap-at
+    "i"   'erc-switch-to-buffer
+    "I"   '(:ignore t :which-key "irc")
+    "I i" '+irc/connect
+    "I I" 'erc-tls
+    "I l" 'erc-log-enable
+    "I e" 'erc))

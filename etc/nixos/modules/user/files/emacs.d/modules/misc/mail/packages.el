@@ -34,7 +34,7 @@
   (:keymaps 'mu4e-main-mode-map
    "q" 'quit-window
    "Q" 'mu4e-quit)
-  (+mmap-at-def
+  (nmap-at
     "@" 'mu4e))
 
 (package! auth-source

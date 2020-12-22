@@ -3,17 +3,17 @@
 
 (package! docker
   :general
-  (+mmap-docker-def
-    ""   '(nil :which-key "docker")
-    "\"" 'docker
-    "c"  'docker-containers
-    "d"  'docker-rmi
-    "e"  'docker-unpause
-    "F"  'docker-pull
-    "k"  'docker-rm
-    "i"  'docker-images
-    "o"  'docker-stop
-    "P"  'docker-push
-    "p"  'docker-pause
-    "r"  'docker-restart
-    "s"  'docker-start))
+  (nmap-leader
+    "v"   '(nil :which-key "docker")
+    "v \"" 'docker
+    "v c"  'docker-containers
+    "v d"  'docker-rmi
+    "v e"  'docker-unpause
+    "v F"  'docker-pull
+    "v k"  'docker-rm
+    "v i"  'docker-images
+    "v o"  'docker-stop
+    "v P"  'docker-push
+    "v p"  'docker-pause
+    "v r"  'docker-restart
+    "v s"  'docker-start))

@@ -4,7 +4,7 @@
 (package! cperl-mode
   :ensure nil
   :general
-  (+mmap-mode-perl-def
+  (nmap-mode :keymaps 'cperl-mode-map
     "l" 'cperl-lineup
     "d" 'cperl-perldoc
     "?" 'cperl-perldoc-at-point

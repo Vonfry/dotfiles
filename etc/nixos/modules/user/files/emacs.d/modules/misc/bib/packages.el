@@ -18,18 +18,11 @@
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)
-  (+mmap-mode-bib-def
+  (nmap-leader :keymaps 'bibtex-mode-map
     "e" 'ebib
     "d" '+bib/switch-dir-current)
-  (+mmap-mode-org-def
-    "["   '(nil :which-key "bib")
-    "[ [" 'ebib
-    "[ {" '+bib/switch-dir-current
-    "[ }" '+bib/switch-dir
-    "[ (" '+bib/switch-dir-from-search-dir
-    "[ &" 'ebib-insert-citation
-    "[ -" '+bib/switch-insert-single-or-multiple)
-  (+mmap-mode-tex-def
+  (nmap-mode :keymaps '(org-mode-map TeX-mode-map)
+    "["   '(:ignore t :which-key "bib")
     "[ [" 'ebib
     "[ {" '+bib/switch-dir-current
     "[ }" '+bib/switch-dir

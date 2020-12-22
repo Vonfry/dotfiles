@@ -11,5 +11,5 @@
   :config
   (global-undo-tree-mode)
   :general
-  (+mmap-leader-def
+  (nmap-leader
     "u" 'undo-tree-visualize))

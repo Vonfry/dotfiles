@@ -18,9 +18,9 @@
 
 (package! function-args
   :custom (moo-select-method 'ivy)
-  :hook ((c-mode c++-mode objc-mode) . 'fa-config-default)
+  :hook ((c-mode c++-mode) . 'fa-config-default)
   :general
-  (+mmap-mode-cc-def
+  (nmap-mode :keymaps '(c-mode-map c++-mode-map)
     "." 'fa-jump
     "{" 'fa-show
     "v" 'moo-propose-virtual
@@ -41,5 +41,5 @@
 (package! realgud-lldb
   :after realgud
   :general
-  (+mmap-cc-def
+  (nmap-mode :keymaps '(c-mode-map c++-mode-map)
     "R" 'lldb))

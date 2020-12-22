@@ -3,7 +3,7 @@
 
 (package! magit
   :general
-  (+mmap-magit-def "-" 'magit-status))
+  (nmap-leader "-" 'magit-status))
 
 (package! git-commit :after magit)
 (package! transient :after magit

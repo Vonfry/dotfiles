@@ -3,9 +3,9 @@
 
 (package! password-store
   :general
-  (+mmap-at-def
+  (nmap-at
     "p"   'password-store-copy
-    "P"   '(nil :which-key "pass")
+    "P"   '(:ignore t :which-key "pass")
     "P c" 'password-store-clear
     "P s" 'password-store-init
     "P i" 'password-store-insert

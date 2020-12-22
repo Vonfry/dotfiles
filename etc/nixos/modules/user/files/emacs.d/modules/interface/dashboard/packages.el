@@ -18,5 +18,5 @@
   :config
   (dashboard-setup-startup-hook)
   :general
-  (+mmap-leader-def
+  (nmap-leader
     "z" '+dashboard/goto))

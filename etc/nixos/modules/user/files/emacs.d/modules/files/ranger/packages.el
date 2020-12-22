@@ -5,5 +5,5 @@
   (ranger-width-parents 0.2)
   (ranger-width-preview 0.5)
   :general
-  (+mmap-tree-def
+  (nmap-leader
     "D" 'ranger))
