@@ -10,7 +10,6 @@
     "\""     'ipython3
     "; ."    'py-find-definition
     "RET"    'py-execute-line
-    [return] 'py-execute-line
     "R"      'realgud:pdb
     "' r"    'py-execute-region
     "' R"    'py-execute-region-pdb

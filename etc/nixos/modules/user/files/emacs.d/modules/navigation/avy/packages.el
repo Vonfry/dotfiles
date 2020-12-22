@@ -35,6 +35,4 @@
   (+mmap-leader-def
     "w"        'ace-window
     "RET"      '+ace/append
-    [return]   '+ace/append
-    "S-RET"    '+ace/append-point
-    [S-return] '+ace/append-point))
+    "' RET"    '+ace/append-point))

@@ -44,12 +44,10 @@
        (lsp)))
   :general
   (:keymaps 'TeX-mode-map
-    (kbd "TAB") 'TeX-complete-symbol
-    [tab]       'TeX-complete-symbol)
+    (kbd "TAB") 'TeX-complete-symbol)
   (+mmap-tex-def
     "?"      'TeX-doc
     "RET"    'preview-at-point
-    [return] 'preview-at-point
     "r"      'compile
     "R"      'TeX-command-run-all)
   (+mmap-mode-tex-def
@@ -93,7 +91,6 @@
     "r i"     'reftex-index-selection-or-word
     "r I"     'reftex-display-index
     "r TAB"   'reftex-index
-    "r <tab>" 'reftex-index
     "r l"     'reftex-label
     "r p"     'reftex-index-phrase-selection-or-word
     "r P"     'reftex-index-visit-phrases-buffer

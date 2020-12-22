@@ -9,8 +9,7 @@
     "' >"    'proof-autosend-toggle
     "' u"    'proof-undo-last-successful-command
     "DEL"    'proof-undo-and-delete-last-successful-command
-    "RET"    'proof-goto-point
-    [return] 'proof-goto-point)
+    "RET"    'proof-goto-point)
   (+mmap-mode-proof-def
     "b"      'proof-process-buffer
     "r"      'proof-retract-buffer

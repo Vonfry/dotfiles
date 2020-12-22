@@ -28,7 +28,6 @@
     "C-S-s"   'counsel-company
     "C-SPC"   'company-complete-common
     "TAB"     'company-complete-common-or-cycle
-    [tab]     'company-complete-common-or-cycle
     [backtab] 'company-select-previous)
   (:keymaps 'company-search-map
     "C-n"    'company-select-next-or-abort
