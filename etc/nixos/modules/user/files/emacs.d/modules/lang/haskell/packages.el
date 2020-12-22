@@ -15,7 +15,6 @@
     "r"   'haskell-compile
     "#"   'haskell-navigate-imports)
   (+mmap-mode-haskell-def
-    ""    '(nil :which-key "mode special")
     "R"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle

@@ -54,11 +54,11 @@
   (general-evil-setup t t)
   ;; +mmap-leader-def
   (mmap-prefix! leader +mmap-leader)
-  (general-define-key "C-h B" 'general-describe-keybindings))
+  (general-define-key "C-h B" 'general-describe-keybindings)
+  (+mmap-leader-def "Z" 'vonfry/next-theme)
+  (eval `(+mmap-leader-def ,+mmap-mode '(nil :which-key "mode special"))))
 
 (defmacro map-which-key! (definer desc)
   `(,definer "" '(nil :which-key ,desc)))
-
-(+mmap-leader-def "Z" 'vonfry/next-theme)
 
 (provide 'vonfry-keybinding)
