@@ -16,8 +16,9 @@
    "RET"   'ess-eval-line
    "' b"   'ess-eval-buffer
    "' f"   'ess-eval-function
-   "' r"   'ess-eval-region
-   "' RET" 'ess-eval-buffer-from-beg-to-here))
+   "' RET" 'ess-eval-buffer-from-beg-to-here)
+  (vmap-leader :kepmays 'ess-mode-map
+    "' r" 'ess-eval-region))
 
 (use-package ess-r-mode
   :hook lsp
