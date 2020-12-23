@@ -1,11 +1,14 @@
 ;;; mail packages -*- lexical-binding: t -*-
 ;;
 
-(package! mu4e
+(use-package mu4e
   :ensure nil
   :config
   (load +mail-local-file t t)
   :custom
+  (mu4e-maildir "~/.mail")
+  (mu4e-attachment-dir (xdg-user-dir "DOWNLOAD"))
+  (mu4e-get-mail-command "mbsync -a")
   (mail-user-agent 'mu4e-user-agent)
   (mu4e-view-show-addresses t)
   (mu4e-view-prefer-html nil)
@@ -34,15 +37,20 @@
   (:keymaps 'mu4e-main-mode-map
    "q" 'quit-window
    "Q" 'mu4e-quit)
-  (+mmap-at-def
+  (nmap-at
     "@" 'mu4e))
 
-(package! auth-source
+(use-package auth-source
+  :custom
+  (auth-sources `(,(expand-file-name "authinfo.gpg" (xdg-data-home))
+                  ,(expand-file-name "authinfo" (xdg-data-home))
+                  "~/.authinfo.gpg" "~/.authinfo"))
   :ensure nil)
 
-(package! smtpmail
+(use-package smtpmail
   :ensure nil
   :custom
+  (smtpmail-queue-dir "~/.mail/local/queue/cur")
   (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
                                      ; work on other client.
   (smtpmail-stream-type 'starttls)
@@ -50,7 +58,7 @@
   (send-mail-function 'smtpmail-send-it)
   (message-send-mail-function 'smtpmail-send-it))
 
-(package! mu4e-alert
+(use-package mu4e-alert
   :after mu4e
   :hook
   (after-init .
@@ -59,7 +67,7 @@
       (mu4e-alert-set-default-style 'libnotify)
       (mu4e-alert-enable-notifications))))
 
-(package! mu4e-maildirs-extension
+(use-package mu4e-maildirs-extension
   :after mu4e-vars
   :config
   (mu4e-maildirs-extension))

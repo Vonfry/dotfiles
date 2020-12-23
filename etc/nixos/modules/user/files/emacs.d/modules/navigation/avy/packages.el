@@ -1,7 +1,7 @@
 ;;; avy packages -*- lexical-binding: t -*-
 ;;
 
-(package! avy
+(use-package avy
   :custom
   (avy-keys (list ?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
   :config
@@ -10,21 +10,21 @@
   ("C-'"  'avy-goto-char-2)
   ("C-\"" 'avy-goto-line)
   ("C-:"  'avy-goto-char)
-  (+mmap-leader-def "g" 'avy-goto-char-2)
-  (+mmap-leader-def "/" 'avy-goto-char-timer)
-  (+mmap-avy-def
-    "" '(nil :which-key "avy")
-    "g" 'avy-goto-char
-    "f" 'avy-goto-char-in-line
-    "b" 'avy-goto-word-0
-    "w" 'avy-goto-word-1
-    "W" 'avy-goto-subword-1
-    "l" 'avy-goto-line
-    "s" 'avy-goto-symbol-1
-    "," 'avy-pop-mark
-    ";" 'avy-push-mark))
+  (nmap-leader
+    "g"   'avy-goto-char-2
+    "/"   'avy-goto-char-timer
+    "G"   '(:ignore t :which-key "avy")
+    "G g" 'avy-goto-char
+    "G f" 'avy-goto-char-in-line
+    "G b" 'avy-goto-word-0
+    "G w" 'avy-goto-word-1
+    "G W" 'avy-goto-subword-1
+    "G l" 'avy-goto-line
+    "G s" 'avy-goto-symbol-1
+    "G ," 'avy-pop-mark
+    "G ;" 'avy-push-mark))
 
-(package! ace-window
+(use-package ace-window
   :after avy
   :custom
   (aw-keys '(?a ?i ?q ?d ?h ?t ?f ?p ?y))
@@ -32,7 +32,10 @@
   (aw-dispatch-always t)
   :general
   ("C-x o" 'ace-window)
-  (+mmap-leader-def
-    "w"   'ace-window
-    "RET" '+ace/append
-    "S-<return>" '+ace/append-point))
+  (nmap-leader
+    "w"   'ace-window)
+  (vmap-leader
+    "RET" '+ace/append)
+  (nmap-leader
+    "'"     '(:ignore t "eval")
+    "' RET" '+ace/append-point))

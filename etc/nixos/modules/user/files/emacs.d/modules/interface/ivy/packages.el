@@ -1,22 +1,22 @@
 ;;; ivy packages -*- lexical-binding: t -*-
 ;;
 
-(package! amx
+(use-package amx
   :custom
   (amx-save-file (expand-file-name "amx-items" vonfry-cache-dir)))
 
-(package! flx
+(use-package flx
   :defer t
   :custom
   (ivy-flx-limit 10000))
 
-(package! ivy
+(use-package ivy
   :config
   (ivy-mode 1)
   :custom
   (ivy-use-virtual-buffers nil))
 
-(package! counsel
+(use-package counsel
   :custom
   (counsel-find-file-at-point t)
   :config
@@ -27,45 +27,44 @@
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
   ("C-&" 'counsel-company)
-  (+mmap-prog-def
+  (nmap-leader :keymaps 'prog-mode-map
     "r" 'counsel-compile)
-  (+mmap-leader-def
+  (nmap-leader
     "x" 'counsel-M-x
     "f" 'counsel-find-file
-    "F" '(nil :which-key "counsel misc")
+    "F" '(:ignore t :which-key "counsel misc")
     "F f" 'counsel-fzf
     "F r" 'counsel-recentf
+    "F a" 'counsel-rg
+    "F /" 'counsel-search
+    "F ;" 'counsel-outline
+    "p" 'counsel-cd
     "b" 'counsel-switch-buffer
     "<" 'counsel-mark-ring
     "?" 'counsel-info-lookup-symbol
     "y" 'counsel-yank-pop
     "m" 'counsel-bookmark
     ";" 'counsel-imenu)
-  (+mmap-ivy-def
-    "a" 'counsel-rg
-    "/" 'counsel-search
-    ";" 'counsel-outline
-    "p" 'counsel-cd)
-  (+mmap-mode-outline-def
+  (nmap-leader :keymaps 'outline-mode-map
     "/" 'counsel-outline)
-  (+mmap-mode-org-def
+  (nmap-mode :keymaps 'org-mode-map
     "f" 'counsel-org-file))
 
-(package! ivy-avy :after (ivy avy))
+(use-package ivy-avy :after (ivy avy))
 
-(package! swiper
+(use-package swiper
   :custom
   (swiper-action-recenter t)
   :general
-  (+mmap-ivy-def
+  (nmap-leader
     ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
     ;the buffer is large
-    "i \\" 'swiper))
+    "F \\" 'swiper))
 
-(package! ivy-rich
+(use-package ivy-rich
   :after ivy
   :config
   (ivy-rich-mode 1))
 
-(package! counsel-tramp
+(use-package counsel-tramp
   :after counsel)

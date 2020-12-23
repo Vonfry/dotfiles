@@ -3,7 +3,7 @@
 
 (winner-mode t)
 
-(+mmap-winner-def
-  ""  '(nil :which-key "winner")
-  "r" 'winner-redo
-  "u" 'winner-undo)
+(nmap-leader
+  "W"   '(:ignore t :which-key "winner")
+  "W r" 'winner-redo
+  "W u" 'winner-undo)

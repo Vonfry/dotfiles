@@ -10,55 +10,31 @@
 ;; evil minor mode map instead which use a hook to add into local map.
 ;; All keybind use general.el to manage.
 ;;
-;; The only one you can customize is leader key. The others are the public key using whole space.
 ;; All keys combine with leader when setting, this can have a more structed definitation.
 
-(defcustom vonfry-keybind-evil-leader "SPC"
-  "Leader key"
-  :type 'string
-  :set
-  (lambda (sym newvalue)
-    (defconst +mmap-leader newvalue "leader key")
-    (set-default sym newvalue))
-  :group 'vonfry-keybind)
-
-(defconst +mmap-mode "SPC"
-  "mode special configure")
-
-(defmacro map-prefix! (states name keys &rest args)
-  "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (intern (format "%s-def" (symbol-name name)))))
-    `(general-create-definer ,name-with :prefix ,(eval keys) :states ,states ,@args)))
-
-(defmacro mmap-prefix! (name keys &rest args)
-  "Define a key definer with prefix.\nNote: the second argument will be evaled, so expression can be passed here."
-  (let ((name-with (intern (format "+mmap-%s" (symbol-name name)))))
-    `(map-prefix! '(normal visual) ,name-with ,(eval keys) ,@args)))
-
-(defmacro mmap-leader-prefix! (name keys &rest args)
-  "Define a key definer with leader prefix.\nNote: the second argument will be evaled, so expression can be passed here. Pass `nil' to generate for leader prefix."
-  (let ((key-with (concat +mmap-leader " " (eval keys))))
-    `(mmap-prefix! ,name ,key-with ,@args)))
-
-(defmacro mmap-mode-prefix! (name keys &rest args)
-  "Define a key definer with leader mode prefix.\nPass `nil' to second argument to generate for mode prefix."
-  (let ((name-with (intern (format "mode-%s" (symbol-name name))))
-        (key-with (concat +mmap-mode " " keys)))
-    `(mmap-leader-prefix! ,name-with ,key-with ,@args)))
-
-(package! general
+(use-package general
   :custom
-  (general-default-prefix       nil)
-  (general-vim-definer-default 'states)
+  (general-default-prefix nil)
+  (general-default-global-prefix nil)
   :config
   (general-evil-setup t t)
-  ;; +mmap-leader-def
-  (mmap-prefix! leader +mmap-leader)
-  (general-define-key "C-h B" 'general-describe-keybindings))
+  (general-define-key "C-h B" 'general-describe-keybindings)
+  (general-create-definer nmap-leader :wrapping nmap :prefix "SPC")
+  (general-create-definer vmap-leader :wrapping vmap :prefix "SPC")
 
-(defmacro map-which-key! (definer desc)
-  `(,definer "" '(nil :which-key ,desc)))
+  ;; Here defines some generic prefix keybinds, and the others are set in each
+  ;; modules
+  (general-create-definer nmap-mode :wrapping nmap-leader :infix "SPC")
+  (general-create-definer vmap-mode :wrapping vmap-leader :infix "SPC")
+  (general-create-definer nmap-at :wrapping nmap-leader :infix "@")
+  (general-create-definer vmap-at :wrapping vmap-leader :infix "@")
 
-(+mmap-leader-def "Z" 'vonfry/next-theme)
+  (nmap-mode "" '(nil :which-key "mode special"))
+  (vmap-mode "" '(nil :which-key "mode special"))
+  (nmap-at "" '(nil :which-key "web/mail/contacts/.."))
+  (vmap-at "" '(nil :which-key "web/mail/contacts/.."))
+
+  (nmap-leader "Z" 'vonfry/next-theme)
+  (nmap-leader "' d" 'vonfry/insert-current-date))
 
 (provide 'vonfry-keybinding)

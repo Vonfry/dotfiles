@@ -1,22 +1,22 @@
 ;;; rust config -*- lexical-binding: t -*-
 ;;
 
-(package! rust-mode
+(use-package rust-mode
   :mode "\\.rs\\'"
   :hook lsp
   :general
-  (+mmap-mode-rust-def
+  (nmap-mode :keymaps 'rust-mode-map
     "=" 'rust-mode-indent-line
     "t" 'rust-test
     "R" 'rust-run)
-  (+mmap-rust-def
+  (nmap-leader :keymaps 'rust-mode-map
     "r" 'rust-compile
     "R" '+rust/lldb))
 
-(package! cargo
+(use-package cargo
   :hook (rust-mode . cargo-minor-mode)
   :general
-  (+mmap-mode-rust-def
+  (nmap-mode :keymaps 'rust-mode-map
     "r e" 'cargo-process-bench
     "r b" 'cargo-process-build
     "r l" 'cargo-process-clean

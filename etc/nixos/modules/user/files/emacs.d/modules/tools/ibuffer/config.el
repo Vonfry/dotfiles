@@ -1,7 +1,7 @@
 ;;; ibuffer config -*- lexical-binding: t -*-
 ;;
 
-(custom! +ibuffer-filter-groups
+(defconst +ibuffer-filter-groups
   '(("IRC"       (mode . erc-mode))
     ("Mu4e"      (name . "\\*mu4e-.*\\*"))
     ("Gnus"      (or (mode . group-mode)
@@ -28,6 +28,4 @@
     ("Message"   (or (name . "\\*.**\\*")
                      (mode . help-mode)))
     ("Org Tool" (name . "\\*org-roam\\*")))
-  "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'"
-  :type 'sexp
-  :group 'vonfry-modules)
+  "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'")

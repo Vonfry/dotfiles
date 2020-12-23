@@ -1,7 +1,7 @@
 ;;; editorconfig packages -*- lexical-binding: t -*-
 ;;
 
-(package! editorconfig
+(use-package editorconfig
   :custom
   (editorconfig-exec-path "editorconfig")
   :config

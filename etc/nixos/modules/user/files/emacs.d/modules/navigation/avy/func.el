@@ -1,7 +1,7 @@
 ;;; avy func -*- lexical-binding: t -*-
 ;;
 
-(fun! +ace/append (start end)
+(defun +ace/append (start end)
   (interactive
     (list (region-beginning) (region-end)))
   (let ((count (length (window-list))))
@@ -15,7 +15,7 @@
              (buffer (window-buffer window)))
         (append-to-buffer buffer start end)))))
 
-(fun! +ace/append-point ()
+(defun +ace/append-point ()
   "Append from begin to point into buffer"
   (interactive)
   (let ((start (point-min))

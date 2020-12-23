@@ -24,9 +24,6 @@
 (defgroup vonfry nil
   "Vonfry's emacs group")
 
-(defgroup vonfry-dir nil
-  "Vonfry's emacs group about dir.")
-
 (defcustom vonfry-config-dir user-emacs-directory
   "The dir to saves the configures."
   :type 'string
@@ -48,8 +45,9 @@
 
 (require 'vonfry-local)
 
-(when (file-exists-p vonfry-custom-file-before)
-  (load vonfry-custom-file-before))
+(when (file-exists-p custom-file)
+  (custom-save-all)
+  (load custom-file))
 
 (require 'vonfry-packages)
 (require 'vonfry-ui)
@@ -58,14 +56,13 @@
 (require 'vonfry-os)
 (require 'vonfry-func)
 
+(when (file-exists-p vonfry-custom-file-before)
+  (load vonfry-custom-file-before))
+
 (defgroup vonfry-modules nil
   "Vonfry's emacs group about modules")
 
 (vonfry-load-modules vonfry-exclude-modules)
-
-(when (file-exists-p custom-file)
-  (custom-save-all)
-  (load custom-file))
 
 (when (file-exists-p vonfry-custom-file-after)
   (load vonfry-custom-file-after))

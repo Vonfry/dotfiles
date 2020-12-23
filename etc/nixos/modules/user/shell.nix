@@ -5,6 +5,11 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
+    vonfry.development.emacs.excludeModules =
+      let sessions = config.home.sessionVariables;
+          noLedger = ! sessions ? LEDGER_FILE;
+      in optional noLedger "misc/ledger";
+
     programs = {
       tmux = {
         enable = true;

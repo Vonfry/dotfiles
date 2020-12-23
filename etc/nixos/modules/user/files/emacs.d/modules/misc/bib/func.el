@@ -1,34 +1,50 @@
 ;;; bib func -*- lexical-binding: t -*-
 ;;
 
-(fun! +bib/switch-dir (path)
+(defvar +bib--set-counter most-negative-fixnum)
+
+(defun +bib/switch-dir (path)
   "switch bib for notes and others"
   (interactive "Dbib search dir: ")
-  (eval `(custom-set! +bib-dir ,path)))
+  (when (= +bib--set-counter most-negative-fixnum)
+    (custom-set-variables '(ebib-file-search-dirs nil)))
+  (setq +bib--set-counter (1- +bib--set-counter))
+  (if +bib-note-is-single
+      (setq-default
+       ebib-notes-file (expand-file-name "notes.org" path))
+    (setq-default ebib-notes-directory path
+                  ebib-notes-file nil))
+  (setq-default
+   ebib-reading-list-file (expand-file-name "reading.org" path)
+   ebib-file-search-dirs (add-to-ordered-list
+                          'ebib-file-search-dirs
+                          path
+                          +bib--set-counter)))
 
-(fun! +bib/switch-dir-from-search-dir ()
+(defun +bib/switch-dir-from-search-dir ()
   "switch bib from search dir for notes and others"
   (interactive)
   (if (fboundp 'ivy-read)
-     (ivy-read "bib serch dir: " +bib-search-dir
+     (ivy-read "bib serch dir: " ebib-file-search-dirs
                :require-match t
-               :action (lambda (path) (eval `(custom-set! +bib-dir ,path))))
+               :action '+bib/switch-dir)
      (message "not support")))
 
-(fun! +bib/switch-dir-current ()
+(defun +bib/switch-dir-current ()
   "switch bib for notes and others"
   (interactive)
   (+bib/switch-dir default-directory))
 
-(fun! +bib/switch-note-files ()
+(defun +bib/switch-note-files ()
   "switch bib notes between single file or multiple files."
   (interactive)
-  (if +bib-note-is-single
-    (custom-set! ebib-notes-directory ebib-notes-file)
-    (custom-set! ebib-notes-file ebib-notes-directory))
-  (custom-set! +bib-note-is-single (not +bib-note-is-single)))
+  (when +bib-note-is-single
+      (setq-default
+       ebib-notes-directory (file-name-directory ebib-notes-file)
+       ebib-notes-file      nil))
+  (custom-set-variables '(+bib-note-is-single (not +bib-note-is-single) t)))
 
-(fun! +bib/switch-insert-single-or-multiple ()
+(defun +bib/toggle-insert-multiple ()
   (interactive)
-  (custom-set! ebib-citation-insert-multiple
-               (not ebib-citation-insert-multiple)))
+  (custom-set-variables
+   '(ebib-citation-insert-multiple (not ebib-citation-insert-multiple) t)))

@@ -1,10 +1,10 @@
 ;;; docker packages -*- lexical-binding: t -*-
 ;;
 
-(package! docker
+(use-package docker
   :general
-  (+mmap-docker-def
-    ""   '(nil :which-key "docker")
+  (nmap-leader :infix "v"
+    ""   '(:ignore t :which-key "docker")
     "\"" 'docker
     "c"  'docker-containers
     "d"  'docker-rmi
