@@ -54,7 +54,6 @@
     "\\"      'TeX-insert-macro
     "-"       'TeX-recenter-output-buffer
     "%"       'TeX-comment-or-uncomment-paragraph
-    ";"       'TeX-comment-or-uncomment-region
     "k"       'TeX-kill-job
     "l"       'TeX-recenter-output-buffer
     "m"       'TeX-insert-macro
@@ -70,7 +69,6 @@
     "f"       '(nil :which-key "fill")
     "f e"     'LaTeX-fill-environment
     "f p"     'LaTeX-fill-paragraph
-    "f r"     'LaTeX-fill-region
     "f s"     'LaTeX-fill-section
     "p"       '(nil :which-key "preview")
     "p b"     'preview-buffer
@@ -78,14 +76,12 @@
     "p d"     'preview-document
     "p e"     'preview-environment
     "p f"     'preview-cache-preamble
-    "p r"     'preview-region
     "p s"     'preview-section
     "z"       '(nil :which-key "fold")
     "z ="     'TeX-fold-math
     "z b"     'TeX-fold-buffer
     "z e"     'TeX-fold-env
     "z m"     'TeX-fold-macro
-    "z r"     'TeX-fold-region
     "r c"     'reftex-citation
     "r g"     'reftex-grep-document
     "r i"     'reftex-index-selection-or-word
@@ -98,7 +94,12 @@
     "r s"     'reftex-search-document
     "r t"     'reftex-toc
     "r T"     'reftex-toc-recenter
-    "r v"     'reftex-view-crossref))
+    "r v"     'reftex-view-crossref)
+  (vmap-mode :keymaps '(TeX-mode-map)
+    "f r"     'LaTeX-fill-region
+    "p r"     'preview-region
+    "z r"     'TeX-fold-region
+    ";"       'TeX-comment-or-uncomment-region))
 
 (use-package auctex-latexmk
   :after latex

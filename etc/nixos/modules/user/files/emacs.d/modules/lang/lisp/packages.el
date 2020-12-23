@@ -10,7 +10,8 @@
   :general
   (nmap-leader :keymps 'emacs-lisp-mode
     "\""  'ielm
-    "' b" 'eval-buffer
+    "' b" 'eval-buffer)
+  (vmap-leader :keymps 'emacs-lisp-mode
     "' r" 'eval-region))
 
 (add-hook 'elisp-mode-hook

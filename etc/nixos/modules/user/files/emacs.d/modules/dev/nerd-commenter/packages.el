@@ -10,7 +10,8 @@
     "l"  'evilnc-quick-comment-or-uncomment-to-the-line
     "c"  'evilnc-copy-and-comment-lines
     "p"  'evilnc-comment-or-uncomment-paragraphs
-    "r"  'comment-or-uncomment-region
     "v"  'evilnc-toggle-invert-comment-line-by-line
     "."  'evilnc-copy-and-comment-operator
-    "/"  'evilnc-comment-operator))
+    "/"  'evilnc-comment-operator)
+  (vmap-leader :infix "c" :keymaps 'prog-mode-map
+    "r" 'comment-or-uncomment-region))

@@ -24,7 +24,6 @@
     "> ."   'lsp-find-type-definition
     "> *"   'lsp-rename
     "> r"   'lsp-execute-code-action
-    "> ="   'lsp-format-region
     "> R"   'lsp-restart-workspace
     "> D"   'lsp-describe-session
     "> h"   'lsp-symbol-highlight
@@ -33,7 +32,9 @@
     "> L L" 'lsp-lens-mode
     "> L s" 'lsp-lens-show
     "> L h" 'lsp-lens-hide
-    "> l"   'lsp-avy-lens))
+    "> l"   'lsp-avy-lens)
+  (vmap-leader :keymaps 'lsp-mode-map
+    "> ="   'lsp-format-region))
 
 (use-package lsp-treemacs
   :after (treemacs lsp-mode)

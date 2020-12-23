@@ -11,10 +11,11 @@
     "; ." 'py-find-definition
     "RET" 'py-execute-line
     "R"   'realgud:pdb
-    "' r" 'py-execute-region
-    "' R" 'py-execute-region-pdb
     "' s" 'py-execute-statement
     "' S" 'py-execute-statement-pdb)
+  (vmap-leader :keymaps 'python-mode-map
+    "' R" 'py-execute-region-pdb
+    "' r" 'py-execute-region)
   (nmap-mode :keymaps 'python-mode-map
     "#" 'py-update-imports
     "s" 'py-switch-shell))
