@@ -60,8 +60,8 @@ in {
         (concatStringsSep "\n" [
           ''
             (setq-default
-              vonfry-exclude-modules
-              '(${concatMapStringsSep " " (e: "\"${e}\"") cfg.emacs.excludeModules}))
+              vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
+                                         cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
           cfg.emacs.preCustom
