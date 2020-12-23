@@ -1,7 +1,7 @@
 ;;; dumb-jump packages -*- lexical-binding: t -*-
 ;;
 
-(package! dumb-jump
+(use-package dumb-jump
   :general
   (nmap-leader :keymaps 'prog-mode-map
     "." 'xref-goto-xref

@@ -18,6 +18,14 @@ in {
         default = "";
         type = types.lines;
       };
+      postCustom = mkOption {
+        default = "";
+        type = types.lines;
+      };
+      excludeModules = mkOption {
+        default = [ ];
+        type = with types; listOf str;
+      };
     };
 
     git = {
@@ -37,6 +45,7 @@ in {
       texlive.withDoc = mkDefault true;
     };
 
+
     xdg.configFile = {
       "emacs.d" = {
         source = ./files/emacs.d;
@@ -48,20 +57,17 @@ in {
       };
 
       "emacs.d/local/pre-custom.el".text =
-        let sessions = config.home.sessionVariables;
-            noMail = isNull cfg'.net.email;
-            noLedger = ! sessions ? LEDGER_FILE;
-        in (concatStringsSep "\n" [
+        (concatStringsSep "\n" [
           ''
-            (custom-set-variables
-             '(vonfry-exclude-modules
-               '(${optionalString noMail   "\"misc/mail\" \"misc/irc\""}
-                 ${optionalString noLedger "\"misc/ledger\""}
-                 )))
+            (setq-default
+              vonfry-exclude-modules
+              '(${concatMapStringsSep " " (e: "\"${e}\"") cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
           cfg.emacs.preCustom
         ]);
+
+      "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
     };
 
     services = {

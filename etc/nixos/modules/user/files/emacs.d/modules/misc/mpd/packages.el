@@ -1,7 +1,7 @@
 ;;; mpdel packages -*- lexical-binding: t -*-
 ;;
 
-(package! mpdel
+(use-package mpdel
   :hook
   (evil-mode . (lambda ()
     (dolist (mode '(mpdel-playlist-mode mpdel-tablist-mode mpdel-song-mode

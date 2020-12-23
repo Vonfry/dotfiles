@@ -1,12 +1,11 @@
 ;;; ledge packages -*- lexical-binding: t -*-
 ;;
 
-(package! hledger-mode
+(use-package hledger-mode
   :mode "\\.journal$"
   :custom
   (ledger-binary-path "hledger")
-  (hledger-jfile (expand-file-name (format-time-string "%Y.journal")
-                                   +hledger-path))
+  (hledger-jfile (getenv "LEDGER_FILE"))
   :hook
   (evil-mode . (lambda ()
     (evil-set-initial-state 'hledger-view-mode 'emacs)))

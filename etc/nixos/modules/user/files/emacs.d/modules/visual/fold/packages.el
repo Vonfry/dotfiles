@@ -1,7 +1,7 @@
 ;;; fold modules -*- lexical-binding: t; -*-
 ;;
 
-(package! origami
+(use-package origami
   :hook ((text-mode prog-mode) . origami-mode)
   :general
   (nmap-leader :infix "z Z"

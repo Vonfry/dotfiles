@@ -1,7 +1,9 @@
 ;;; packages config -*- lexical-binding: t -*-
 ;;
 
-(package! password-store
+(use-package password-store
+  :custom
+  (password-store-password-length 32)
   :general
   (nmap-at
     "p"   'password-store-copy

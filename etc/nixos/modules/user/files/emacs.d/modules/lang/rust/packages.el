@@ -1,7 +1,7 @@
 ;;; rust config -*- lexical-binding: t -*-
 ;;
 
-(package! rust-mode
+(use-package rust-mode
   :mode "\\.rs\\'"
   :hook lsp
   :general
@@ -13,7 +13,7 @@
     "r" 'rust-compile
     "R" '+rust/lldb))
 
-(package! cargo
+(use-package cargo
   :hook (rust-mode . cargo-minor-mode)
   :general
   (nmap-mode :keymaps 'rust-mode-map

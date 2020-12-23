@@ -1,4 +1,4 @@
 ;;; rainbow-mode packages -*- lexical-binding: t -*-
 ;;
 
-(package! rainbow-mode)
+(use-package rainbow-mode)

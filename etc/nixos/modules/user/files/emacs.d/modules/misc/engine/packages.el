@@ -1,7 +1,7 @@
 ;; package engine -*- lexical-binding: t -*-
 ;;
 
-(package! engine-mode
+(use-package engine-mode
   :config
   (engine-mode 1)
   (defengine github

@@ -6,26 +6,20 @@
 ;; submodule, config.el, packages.el and func.el file can be loaded automatically by the writting order. The other file
 ;; should be loaded in these file or by yourself.
 ;; config.el define custom, const and other varible for configure.
-;; packages.el define the dependence and default configure with `package!'
+;; packages.el define the dependence and default configure with `use-package'
 ;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
 
 ;; define some variables for packages
 ;;
-;; Use `custom-set!` everywhere to config the varibles with defcustom. Only use `setq` somewhere the variables
-;; are temporary such as debug configure.
-;; Because `custom-set!` contains a lot of other behaviors such as set-after.
+;; Use `setq-default' everywhere to config the varibles with defcustom before
+;; package is loaded. This can avoid saving value into `custom-file'.
+;; In other words, you should custom modules in `vonfry-custom-file-before'
+;; which is loaded before all modules.
+;; If you want to custom the variables in core, You should define them into
+;;`custom-file', which is loaded at first.
 ;;
-
-(defun vonfry--plist-delete (plist property)
-  "A copy from `org-plist-delete'."
-  (let (p)
-    (while plist
-      (if (not (eq property (car plist)))
-        (setq p (plist-put p (car plist) (cadr plist))))
-      (setq plist (cddr plist)))
-    p))
 
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
@@ -34,42 +28,30 @@
 
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
-(custom-set-variables
-  '(use-package-always-demand t)
-  '(use-package-always-ensure nil))
+(setq-default
+  use-package-always-demand t
+  use-package-always-ensure nil)
 
 ;;
 ;; define some basic packages
 ;;
 
-(defcustom vonfry-basic-packages '(
+(defconst vonfry-basic-packages '(
     use-package
     ;; many package load org directly without eval-after-load, so add it here
     ;; to make sure the newest is used.
     org
   )
-  "These are the default basic packages, which are used by modules."
-  :type '(repeat symbol)
-  :group 'vonfry)
+  "These are the default basic packages, which are used by modules.")
 
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (let ((qpkg `(quote ,pkg)))
     (eval `(require ,qpkg))))
 
-(defalias #'package! #'use-package)
-
-(package! diminish)
-(package! dash)
-(package! s)
-
-(defun autoload! (func file &optional interactive docstring type)
-  "autoload file with current load file dir which is called in submodules.
-Note: the &optional arguments has some different from `autoload`."
-  (let* ((current-dir (file-name-directory load-file-name))
-         (autoload-dir (expand-file-name "autoload" current-dir))
-         (autoload-file (expand-file-name file autoload-dir)))
-    (autoload func autoload-file docstring interactive type)))
+(use-package diminish)
+(use-package dash)
+(use-package s)
 
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
@@ -106,52 +88,5 @@ All modules should use function and macro in this file. By default, every module
     (-map 'vonfry-load-module-config   module-list)
     (-map 'vonfry-load-module-packages module-list)
     (-map 'vonfry-load-autoload        module-list)))
-
-(defmacro custom! (varname form docstring &rest args)
-  "This macro is used for `defcustom' :set param. Make it easy to config other variable by using keyword :custom-set."
-  (let* ((custom-set (plist-get args :custom-set))
-         (args (vonfry--plist-delete args :custom-set))
-         (custom-form (when custom-set
-                       `(lambda (name value)
-                          (set-default name value)
-                          (let ((varname ,custom-set))
-                            (custom-set-variables `(,varname ',value))))))
-         (docstring (if custom-form
-                      (let ((docsep (if (< 0 (string-width docstring)) "\n" "")))
-                        (concat "See: `"
-                                (symbol-name (cadr custom-set))
-                                "'"
-                                docsep
-                                docstring))
-                      docstring)))
-    `(defcustom ,varname ,form ,docstring :set ,custom-form ,@args)))
-
-(defalias #'fun!   #'defun)
-(defalias #'var!   #'defvar)
-(defalias #'const! #'defconst)
-(defalias #'macro! #'defmarco)
-(defalias #'alias! #'defalias)
-
-(defmacro hook! (hook func &rest args)
-  (let ((body (cond ((listp func) `(lambda () (,@func)))
-                    (t func))))
-  `(apply 'hook~! '(,hook (,@body) ,@args))))
-
-(defun hook~! (hook &rest args)
-  (let ((hook-list (if (listp hook)
-                      hook
-                    (list hook))))
-    (--map (apply 'add-hook
-                (intern (concat (symbol-name it) "-hook"))
-                args)
-         hook-list)))
-
-(defmacro custom-set! (&rest plist)
-  `(custom-set-variables
-     ,@(--map `(quote ,it)
-             (-partition 2 plist))))
-
-(defmacro after! (feature &rest body)
-  `(with-eval-after-load ',feature ,@body))
 
 (provide 'vonfry-packages)

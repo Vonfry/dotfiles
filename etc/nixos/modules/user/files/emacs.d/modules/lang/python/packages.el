@@ -1,7 +1,7 @@
 ;;; python packages -*- lexical-binding: t -*-
 ;;
 
-(package! python-mode
+(use-package python-mode
   :custom
   (python-shell-interpreter "ipython3")
   (python-shell-exec-path   "ipython3")
@@ -19,7 +19,7 @@
     "#" 'py-update-imports
     "s" 'py-switch-shell))
 
-(package! pydoc
+(use-package pydoc
   :general
   (nmap-leader :keymaps 'python-mode-map
     "?"   'pydoc)

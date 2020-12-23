@@ -1,7 +1,7 @@
 ;;; proof config -*- lexical-binding: t -*-
 ;;
 
-(package! proof-general
+(use-package proof-general
   :general
   (nmap-leader :keymaps 'coq-mode-map
     "\""     'proof-shell-start
@@ -28,7 +28,7 @@
     "l"      'proof-layout-windows
     "n"      'proof-assert-next-command-interactive))
 
-(package! company-coq
+(use-package company-coq
   :after (proof-general company)
   :hook
   (coq-mode . company-coq-mode)

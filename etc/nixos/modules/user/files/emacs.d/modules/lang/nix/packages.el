@@ -1,7 +1,7 @@
 ;;; nix config -*- lexical-binding: t -*-
 ;;
 
-(package! nix-mode
+(use-package nix-mode
   :interpreter ("nix-shell" . nix-shebang-mode)
   :hook lsp
   :general

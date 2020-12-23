@@ -1,7 +1,7 @@
 ;;; debugger packages -*- lexical-binding: t -*-
 ;;
 
-(package! realgud
+(use-package realgud
   :hook
   (realgud-short-key-mode .
     (lambda ()

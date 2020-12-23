@@ -1,9 +1,10 @@
 ;;; orgmode packages -*- lexical-binding: t -*-
 ;;
 
-(package! org
+(use-package org
   :custom
   (org-default-notes-file +org-capture-file)
+  (org-directory +org-dir)
   (org-clock-persist t)
   (org-clock-persist-file
     (expand-file-name "org-clock-save.el" vonfry-cache-dir))
@@ -14,6 +15,42 @@
   (org-list-indent-offset 2)
   (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
   (org-log-refile 'time)
+  (org-refile-targets '((nil :maxlevel 99)
+                        (+org-projectile-todo-project-file :maxlevel 99)
+                        (org-contacts-files :maxlevel 99)
+                        (org-agenda-files :maxlevel . 99)))
+  (org-agenda-files
+   (append (directory-files +org-agenda-dir t
+                            "^[A-z0-9\\-_]+\\.org$")
+           (list +org-capture-file)))
+  (org-tag-alist
+   (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
+    (eval (read-from-whole-string
+     (with-temp-buffer
+       (when (file-exists-p file)
+         (insert-file-contents file)
+         (buffer-string)))))))
+  (org-agenda-tags org-tag-alist)
+  (org-file-apps '((system . "xdg-open %s")
+                   ("\\.mm\\'" . default)
+                   ("\\.x?html?\\'" . default)
+                   ("\\.pdf\\'" . system)
+                   (auto-mode . emacs)))
+  (org-todo-keywords-sequence
+   '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
+     (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
+  (org-capture-templates
+   '(("t" "capture to inbox(Tasks), refile later"
+      entry (file+headline +org-capture-file "Tasks")
+      "** TODO %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
+     ("i" "capture to inbox(Idea), refile later"
+      entry (file+headline +org-capture-file "Idea")
+      "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
+     ("n" "capture to inbox(Note), refile later"
+      entry (file+headline +org-capture-file "Notes")
+      "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
+     ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
+      "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
@@ -42,27 +79,27 @@
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
 
-(package! org-superstar
+(use-package org-superstar
   :after org
   :custom
   (org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
   :hook
   (org-mode . org-superstar-mode))
 
-(package! evil-org
+(use-package evil-org
   :after (evil org)
   :hook
   (org-mode . evil-org-mode)
   :config
   (evil-org-set-key-theme))
 
-(package! evil-org-agenda
+(use-package evil-org-agenda
   :after evil-org
   :ensure nil
   :config
   (evil-org-agenda-set-keys))
 
-(package! org-agenda
+(use-package org-agenda
   :ensure nil
   :after org
   :general
@@ -77,13 +114,13 @@
     "c" 'org-capture
     "k" '+org/open-capture))
 
-(package! org-archive
+(use-package org-archive
   :ensure nil
   :general
   (+mmap-mode-org-def
     "a" 'org-archive-subtree-default))
 
-(package! org-web-tools
+(use-package org-web-tools
   :after org
   :general
   (nmap-leader :infix "o"
@@ -96,13 +133,21 @@
    "w A" 'org-web-tools-archive-view
    "w a" 'org-web-tools-archive-attach))
 
-(package! org-journal
+(use-package org-journal
   :after org
   :custom
   (org-journal-file-format "%Y-%m.org")
   (org-journal-enable-agenda-integration t)
   (org-journal-find-file 'find-file)
   (org-journal-file-type 'monthly)
+  (org-journal-dir +org-journal-dir)
+  (org-journal-tags
+   (let ((file (expand-file-name ".tags.el" +org-journal-dir)))
+     (eval (read-from-whole-string
+       (with-temp-buffer
+         (when (file-exists-p file)
+           (insert-file-contents file)
+           (buffer-string)))))))
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
@@ -114,21 +159,22 @@
     "/" 'org-journal-search
     "s" 'org-journal-schedule-view))
 
-(package! org-ql
+(use-package org-ql
   :general
   (nmap-mode :keymaps 'org-mode-map
     ";" 'org-ql-search
     "," 'org-ql-view
     "." 'org-ql-sparse-tree))
 
-(package! org-roam
+(use-package org-roam
+  :init
+  (+org--roam-set-path +org-note-dir)
   :custom
-  (org-roam-directory +org-note-dir)
-  (org-roam-db-location (expand-file-name
-                          (replace-regexp-in-string
-                            "/" "!"
-                             +org-note-dir)
-                          +org-roam-local-dir))
+  (org-roam-capture-templates
+   '(("d" "default" plain #'org-roam-capture--get-point "%?"
+      :file-name "%(+org--roam-capture-note-dir)/${slug}"
+      :head "#+title: ${title}"
+      :unnarrowed t)))
   :general
   (nmap-leader :infix "o"
     "N"   'org-roam-find-file
@@ -143,30 +189,44 @@
     "R g" 'org-roam-graph
     "R i" 'org-roam-insert))
 
-(package! org-roam-server
+(use-package org-roam-server
   :general
   (nmap-leader :infix "o"
-    "s" 'org-roam-server-mode))
+    "s" 'org-roam-server-mode)
+  :custom
+  (org-roam-server-port 8100))
 
-(package! org-protocol :ensure nil)
-(package! org-roam-protocol :ensure nil)
+(use-package org-protocol :ensure nil)
+(use-package org-roam-protocol :ensure nil)
 
-(package! ob
+(use-package ob
   :init
-  (package! ob-emacs-lisp)
-  (package! ob-org)
-  (package! ob-http)
-  (package! ob-haskell)
-  (package! ob-R)
-  (package! ob-latex)
-  (package! ob-coq)
-  (package! ob-sql)
-  (package! ob-sqlite)
-  (package! ob-perl)
-  (package! ob-gnuplot)
+  (use-package ob-emacs-lisp)
+  (use-package ob-org)
+  (use-package ob-http)
+  (use-package ob-haskell)
+  (use-package ob-R)
+  (use-package ob-latex)
+  (use-package ob-coq)
+  (use-package ob-sql)
+  (use-package ob-sqlite)
+  (use-package ob-perl)
+  (use-package ob-gnuplot)
+  :custom
+  (org-babel-load-languages '((emacs-lisp . t)
+                              (org        . t)
+                              (http       . t)
+                              (haskell    . t)
+                              (latex      . t)
+                              (coq        . t)
+                              (R          . t)
+                              (sql        . t)
+                              (sqlite     . t)
+                              (perl       . t)
+                              (gnuplot    . t)))
   :after org)
 
-(package! org-contacts
+(use-package org-contacts
   :ensure org-plus-contrib
   :custom
   (org-contacts-files
@@ -179,7 +239,7 @@
     "C" '+org/find-contacts
     "c" 'org-contacts))
 
-(package! org-toc
+(use-package org-toc
   :ensure org-plus-contrib
   :general
   (nmap-mode :keymaps 'org-mode-map

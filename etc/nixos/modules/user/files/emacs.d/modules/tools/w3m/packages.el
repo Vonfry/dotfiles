@@ -1,7 +1,7 @@
 ;;; w3m packages -*- lexical-binding: t -*-
 ;;
 
-(package! w3m
+(use-package w3m
   :custom
   (browse-url-browser-function 'browse-url-generic)
   (browse-url-generic-program (getenv "BROWSER"))

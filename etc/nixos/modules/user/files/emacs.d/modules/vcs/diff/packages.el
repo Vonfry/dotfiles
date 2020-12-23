@@ -1,6 +1,6 @@
 ;;; diff packages -*- lexical-binding: t -*-
 ;;
 
-(package! diff-hl
+(use-package diff-hl
   :hook
   ((text-mode prog-mode) . diff-hl-flydiff-mode))

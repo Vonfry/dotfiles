@@ -1,7 +1,7 @@
 ;;; ss packages -*- lexical-binding: t -*-
 ;;
 
-(package! ess
+(use-package ess
   :custom
   (ess-use-flymake nil)
   (ess-smart-S-assign-key "$")
@@ -19,6 +19,6 @@
    "' r"   'ess-eval-region
    "' RET" 'ess-eval-buffer-from-beg-to-here))
 
-(package! ess-r-mode
+(use-package ess-r-mode
   :hook lsp
   :ensure nil)

@@ -9,7 +9,7 @@
       geiser-mode
       slime-mode))
   :general
-  (nmap-leader
-   "' e" 'direnv-update-environment)
+  (nmap-leader :infix "'"
+   "e" 'direnv-update-environment)
   :config
   (direnv-mode t))

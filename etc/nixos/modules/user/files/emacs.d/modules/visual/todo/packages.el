@@ -1,7 +1,7 @@
 ;;; hl-todo modules -*- lexical-binding: t; -*-
 ;;
 
-(package! hl-todo
+(use-package hl-todo
   :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
   (nmap-leader :infix "k"

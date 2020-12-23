@@ -4,21 +4,22 @@
 ;; If you want to use a project's emacs configure, please see more about __.dir-locals.el__ and
 ;; (projectile-edit-dir-locals)
 
-(package! projectile
+(use-package projectile
   :init
   (unless (file-exists-p +projectile-cache-dir)
     (make-directory +projectile-cache-dir t))
   :custom
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))
-  (projectile-known-projects-file +projectile-cache-known-project-file)
+  (projectile-known-projects-file
+   (expand-file-name "known" +projectile-cache-dir))
   (projectile-completion-system 'ivy)
-  (projectile-cache-file +projectile-cache-file)
+  (projectile-cache-file
+   (expand-file-name "cache" +projectile-cache-dir))
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
   (nmap-mode :keymaps '(c-mode-map c++-mode-map)
     "h" 'projectile-find-other-file)
-
   (nmap-leader
     "P"   '(:ignore t :which-key "project"))
   (nmap-leader :keymaps 'projectile-mode-map
@@ -36,7 +37,7 @@
   :config
   (projectile-global-mode t))
 
-(package! counsel-projectile
+(use-package counsel-projectile
   :after (projectile counsel)
   :hook (projectile-mode . counsel-projectile-mode)
   :general
@@ -51,7 +52,7 @@
     "P c" 'counsel-projectile-org-capture
     "P g" 'counsel-projectile-org-agenda))
 
-(package! org-projectile
+(use-package org-projectile
   :after (projectile org org-agenda)
   :custom
   (org-projectile-per-project-filepath "todo.org")

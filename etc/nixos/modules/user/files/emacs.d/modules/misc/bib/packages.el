@@ -1,7 +1,7 @@
 ;;; bib packages -*- lexical-binding: t -*-
 ;;
 
-(package! ebib
+(use-package ebib
   :custom
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
   (ebib-file-associations '(("pdf" . "zathura")))
@@ -30,4 +30,4 @@
     "[ &" 'ebib-insert-citation
     "[ -" '+bib/switch-insert-single-or-multiple))
 
-(package! org-ebib :after org)
+(use-package org-ebib :after org)

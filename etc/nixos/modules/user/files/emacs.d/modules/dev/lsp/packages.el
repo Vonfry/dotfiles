@@ -1,6 +1,6 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
-(package! lsp-mode
+(use-package lsp-mode
   :after (yasnippet projectile)
   :hook lsp-enable-which-key-integration
   :custom
@@ -35,7 +35,7 @@
     "> L h" 'lsp-lens-hide
     "> l"   'lsp-avy-lens))
 
-(package! lsp-treemacs
+(use-package lsp-treemacs
   :after (treemacs lsp-mode)
   :general
   (nmap-leader :keymaps 'lsp-mode-map
@@ -48,7 +48,7 @@
   :config
   (lsp-treemacs-sync-mode t))
 
-(package! lsp-ivy
+(use-package lsp-ivy
   :after lsp-mode
   :general
   (nmap-leader :keymaps 'lsp-mode-map

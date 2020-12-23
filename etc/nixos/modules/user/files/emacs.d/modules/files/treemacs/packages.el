@@ -1,7 +1,7 @@
 ;;; treemacs packages -*- lexical-binding: t -*-
 ;;
 
-(package! treemacs
+(use-package treemacs
   :custom
   (treemacs-follow-mode t)
   (treemacs-tag-follow-mode t)
@@ -15,18 +15,18 @@
     "P F" 'treemacs-find-file
     "P A" 'treemacs-add-and-display-current-project))
 
-(package! treemacs-evil
+(use-package treemacs-evil
   :after (treemacs evil))
 
-(package! treemacs-projectile
+(use-package treemacs-projectile
   :after (treemacs projectile)
   :general
   (nmap-leader
     "P T" 'treemacs-projectile))
 
-(package! treemacs-magit
+(use-package treemacs-magit
   :after (treemacs magit))
 
-(package! treemacs-icons-dired
+(use-package treemacs-icons-dired
   :config
   (treemacs-icons-dired-mode))

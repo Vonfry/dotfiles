@@ -1,22 +1,22 @@
 ;;; cc packages -*- lexical-binding: t -*-
 ;;
 
-(hook! c-mode lsp)
-(hook! c++-mode lsp)
+(dolist (mode '(c-mode-hook c++-mode-hook))
+  (add-hook mode 'lsp))
 
-(package! disaster
+(use-package disaster
   :general
-  (+mmap-mode-cc-def
+  (nmap-mode :keymaps '(c-mode-map c++-mode-map)
     "d" 'disaster))
 
 ;; this is used in all program lang
-(package! compile
+(use-package compile
   :ensure nil
   :custom
   (compilation-scroll-output t)
   (compilation-always-kill t))
 
-(package! function-args
+(use-package function-args
   :custom (moo-select-method 'ivy)
   :hook ((c-mode c++-mode) . 'fa-config-default)
   :general
@@ -27,18 +27,18 @@
     "&" 'moo-jump-local
     "o" 'moo-propose-override))
 
-(package! cmake-mode
+(use-package cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")
   :hook
   (cmake-mode . (lambda ()
     (+company-set-backends-grouped '(company-cmake)))))
 
-(package! cmake-font-lock
+(use-package cmake-font-lock
   :after cmake-mode
   :hook
   (cmake-mode . cmake-font-lock-activate))
 
-(package! realgud-lldb
+(use-package realgud-lldb
   :after realgud
   :general
   (nmap-mode :keymaps '(c-mode-map c++-mode-map)

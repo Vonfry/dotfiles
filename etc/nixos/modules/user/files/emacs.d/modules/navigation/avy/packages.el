@@ -1,7 +1,7 @@
 ;;; avy packages -*- lexical-binding: t -*-
 ;;
 
-(package! avy
+(use-package avy
   :custom
   (avy-keys (list ?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
   :config
@@ -24,7 +24,7 @@
     "G ," 'avy-pop-mark
     "G ;" 'avy-push-mark))
 
-(package! ace-window
+(use-package ace-window
   :after avy
   :custom
   (aw-keys '(?a ?i ?q ?d ?h ?t ?f ?p ?y))

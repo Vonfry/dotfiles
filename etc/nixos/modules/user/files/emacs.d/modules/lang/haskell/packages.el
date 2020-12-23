@@ -1,7 +1,7 @@
 ;;; haskell config -*- lexical-binding: t -*-
 ;;
 
-(package! haskell
+(use-package haskell
   :ensure haskell-mode
   :hook (haskell-mode . lsp)
   :custom
@@ -32,7 +32,7 @@
       (haskell-auto-insert-module-template)
       (set (make-local-variable 'compile-command) "cabal build"))))
 
-(package! haskell-interactive-mode
+(use-package haskell-interactive-mode
   :ensure nil
   :general
   (nmap-leader :keymaps 'haskell-mode-map
@@ -41,7 +41,7 @@
     "m"  'haskell-menu
     "C"  'haskell-session-change-target))
 
-(package! haskell-process
+(use-package haskell-process
   :ensure nil
   :general
   (nmap-mode :keymaps 'haskell-mode-map
@@ -58,13 +58,13 @@
   (haskell-process-auto-import-loaded-modules t)
   (haskell-process-log t))
 
-(package! lsp-haskell
+(use-package lsp-haskell
   :after (haskell lsp-mode))
 
-(package! hasky-extensions
+(use-package hasky-extensions
   :general
   (nmap-mode :keymaps 'haskell-mode-map
     "{"  'hasky-extensions))
 
-(package! haskell-snippets
+(use-package haskell-snippets
   :after (haskell yasnippet))

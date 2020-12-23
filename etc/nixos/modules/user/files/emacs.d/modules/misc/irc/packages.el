@@ -1,9 +1,8 @@
 ;;; irc packages -*- lexical-binding: t -*-
 ;;
 
-(package! erc
-  :config
-  ;(add-to-list 'erc-sasl-server-regexp-list "chat\\.freenode\\.net")
+(use-package erc
+  :init
   (load +irc-local-file t t)
   :custom
   (erc-log-channel-directory (expand-file-name "erc/log" vonfry-local-dir))

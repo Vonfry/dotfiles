@@ -3,9 +3,9 @@
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
 
-(package! all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
+(use-package all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
 
-(package! solarized
+(use-package solarized
   :ensure solarized-theme
   :custom
   (solarized-use-variable-pitch nil)
@@ -17,7 +17,7 @@
   (solarized-height-plus-3 1.0)
   (solarized-height-plus-4 1.0))
 
-(package! dracula-theme
+(use-package dracula-theme
   :custom
   (dracula-alternate-mode-line-and-minibuffer t)
   (dracula-enlarge-headings nil)
@@ -26,12 +26,12 @@
   (dracula-height-title-3 1)
   (dracula-height-doc-title 1))
 
-(custom! vonfry-themes '(dracula solarized-light)
+(defcustom vonfry-themes '(dracula solarized-light)
   "A list of theme which are used to switch by `vonfry/next-theme'"
   :type '(list symbol)
   :group 'vonfry-ui)
 
-(fun! vonfry--change-theme (theme)
+(defun vonfry--change-theme (theme)
   "change theme with disable current one.
 THEME is a symbol passed to `load-theme'"
   (--map (disable-theme it) custom-enabled-themes)
@@ -39,7 +39,7 @@ THEME is a symbol passed to `load-theme'"
 
 (vonfry--change-theme (car vonfry-themes))
 
-(fun! vonfry/next-theme ()
+(defun vonfry/next-theme ()
   (interactive)
   (let ((nextid (1+ (-min (-non-nil
           (--map (-elem-index it vonfry-themes) custom-enabled-themes))))))
@@ -67,26 +67,21 @@ THEME is a symbol passed to `load-theme'"
                       "Symbola"
                       nil 'prepend)))
 
-(package! info :ensure nil)
+(use-package info :ensure nil)
 
-(custom-set!
-  tool-bar-mode nil
-  menu-bar-mode nil
-
-  use-file-dialog nil
-  use-dialog-box nil
+(setq-default
   inhibit-startup-screen t
   inhibit-startup-echo-area-message t
 
-  display-time-mode t
   display-time-default-load-average nil
   display-time-24hr-format t)
 
-(let ((no-border '(internal-border-width . 0)))
-  (add-to-list 'default-frame-alist no-border)
-  (add-to-list 'initial-frame-alist no-border))
+(display-time-mode 1)
 
-(hook! term-mode (setq line-spacing 0))
+(dolist (lst '(default-frame-alist initial-frame-alist))
+  (add-to-list lst '(internal-border-width . 0)))
+
+(add-hook 'term-mode-hook (lambda () (setq line-spacing 0)))
 
 (defgroup vonfry-ui nil
   "vonfry's emacs ui custom group")

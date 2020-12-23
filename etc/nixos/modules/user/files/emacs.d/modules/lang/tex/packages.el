@@ -1,7 +1,7 @@
 ;;; latex packages -*- lexical-binding: t -*-
 ;;
 
-(package! latex
+(use-package latex
   :ensure auctex
   :after company
   :custom
@@ -100,17 +100,17 @@
     "r T"     'reftex-toc-recenter
     "r v"     'reftex-view-crossref))
 
-(package! auctex-latexmk
+(use-package auctex-latexmk
   :after latex
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)
   :config
   (auctex-latexmk-setup))
 
-(package! company-auctex
+(use-package company-auctex
   :after (company latex yasnippet)
   :config
-  (package! company-math)
+  (use-package company-math)
   :hook
   (TeX-mode . (lambda ()
    (+company-set-backends-grouped
@@ -121,7 +121,7 @@
       company-math-symbols-unicode
       company-latex-commands)))))
 
-(package! auctex-latexmk
+(use-package auctex-latexmk
   :after latex
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)

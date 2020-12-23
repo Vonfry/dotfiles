@@ -5,7 +5,7 @@
 ;; divide these function to different tools.
 ;; And gnus read mail as news reader which is not fit for me. It misses some
 ;; mail action for me. The big problem is to sync and move mail.
-(package! gnus
+(use-package gnus
   :hook
   (gnus-group-mode . gnus-topic-mode)
   :custom

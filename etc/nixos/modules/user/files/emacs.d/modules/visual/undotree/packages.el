@@ -1,7 +1,7 @@
 ;;; undo tree modules -*- lexical-binding: t; -*-
 ;;
 
-(package! undo-tree
+(use-package undo-tree
   :custom
   (undo-tree-auto-save-history t)
   (undo-tree-visualizer-timestamps t)

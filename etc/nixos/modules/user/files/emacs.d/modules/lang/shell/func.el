@@ -1,7 +1,7 @@
 ;;; shell func -*- lexical-binding: t -*-
 ;;
 
-(fun! +shell-open-term-at-pwd ()
+(defun +shell-open-term-at-pwd ()
   (interactive)
   (let* ((pwd (projectile-project-root))
          (pwd (if pwd pwd default-directory))

@@ -12,7 +12,7 @@
 ;;
 ;; All keys combine with leader when setting, this can have a more structed definitation.
 
-(package! general
+(use-package general
   :custom
   (general-default-prefix nil)
   (general-default-global-prefix nil)
