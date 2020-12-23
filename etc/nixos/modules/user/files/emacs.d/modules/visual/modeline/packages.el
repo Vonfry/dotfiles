@@ -3,7 +3,7 @@
 
 (use-package doom-modeline
   :hook ((after-init . doom-modeline-mode)
-         (doom-modeline . column-number-mode))
+         (doom-modeline-mode . column-number-mode))
   :custom
   (doom-modeline-icon (display-graphic-p))
   (doom-modeline-lsp t)
