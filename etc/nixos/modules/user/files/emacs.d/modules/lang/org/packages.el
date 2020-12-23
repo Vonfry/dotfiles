@@ -36,7 +36,7 @@
                    ("\\.x?html?\\'" . default)
                    ("\\.pdf\\'" . system)
                    (auto-mode . emacs)))
-  (org-todo-keywords-sequence
+  (org-todo-keywords
    '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
      (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
   (org-capture-templates
