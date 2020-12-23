@@ -8,13 +8,13 @@
     "https://github.com/search?ref=simplesearch&q=%s"
 		:keybinding "u")
   (defengine gist
-    "https://gist.github.com/search?utf8=%E2%9C%93&q=%s"
+    "https://gist.github.com/search?q=%s"
 		:keybinding "i")
   (defengine gitlab
-    "https://gitlab.com/search?utf8=%E2%9C%93&search=%s"
+    "https://gitlab.com/search?search=%s"
 		:keybinding "a")
   (defengine google
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    "http://www.google.com/search?q=%s"
     :keybinding "g")
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
@@ -25,6 +25,9 @@
   (defengine wikipedia
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
     :keybinding "w")
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
   (defengine wiktionary
     "https://www.wikipedia.org/search-redirect.php?family=wiktionary&language=en&go=Go&search=%s"
     :keybinding "W")
