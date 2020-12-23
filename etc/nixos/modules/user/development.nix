@@ -316,7 +316,6 @@ in {
       };
     };
 
-
     home = {
       sessionVariables = {
         EDITOR = "nvim";
@@ -346,46 +345,53 @@ in {
       # config file for them.
       file = {
         ".tigrc".text = ''
-        set log-options = --show-signature
-        set diff-options = --show-signature
-      '';
+          set log-options = --show-signature
+          set diff-options = --show-signature
+        '';
+
         ".ghc/ghci.conf".text = ''
-        :set +m
+          :set +m
 
-        -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
-        :set -XLambdaCase
-        :set -XMultiWayIf
-        :set -XBinaryLiterals
-        :set -XBangPatterns
+          -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
+          :set -XLambdaCase
+          :set -XMultiWayIf
+          :set -XBinaryLiterals
+          :set -XBangPatterns
 
-        :set -XTemplateHaskell
-        :set -XNamedFieldPuns
-        :set -XFlexibleContexts
-        :set -XFlexibleInstances
-        :set -XMultiParamTypeClasses
+          :set -XTemplateHaskell
+          :set -XNamedFieldPuns
+          :set -XFlexibleContexts
+          :set -XFlexibleInstances
+          :set -XMultiParamTypeClasses
 
-        :set -XUnicodeSyntax
+          :set -XUnicodeSyntax
 
-        :set -XDeriveGeneric
-        :set -XDeriveFunctor
-        :set -XDeriveFoldable
+          :set -XDeriveGeneric
+          :set -XDeriveFunctor
+          :set -XDeriveFoldable
 
-        :set -XImplicitParams
+          :set -XImplicitParams
 
-        -- preference
-        :set prompt "λ "
-        :set prompt-cont "> "
+          -- preference
+          :set prompt "λ "
+          :set prompt-cont "> "
 
-        -- allow C-c
-        :set -fomit-yields
-      '';
+          -- allow C-c
+          :set -fomit-yields
+        '';
+
         ".latexmkrc".text = ''
-        $out_dir = "latex.out";
-        $pdf_mode = 5;
-        $dvi_previewer = 'xdvi -watchfile 1.5';
-        $ps_previewer  = 'feh';
-        $pdf_previewer = 'zathura';
-      '';
+          $out_dir = "latex.out";
+          $pdf_mode = 5;
+          $dvi_previewer = 'xdvi -watchfile 1.5';
+          $ps_previewer  = 'feh';
+          $pdf_previewer = 'zathura';
+        '';
+
+        ".Rprofile".text = ''
+          options(browser = 'qutebrowser')
+          # options(help_type = 'html')
+        '';
       };
     };
   };
