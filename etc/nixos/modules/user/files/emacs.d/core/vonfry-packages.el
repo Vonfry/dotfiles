@@ -19,7 +19,8 @@
 ;; which is loaded before all modules.
 ;; If you want to custom the variables in core, You should define them into
 ;;`custom-file', which is loaded at first.
-;;
+;; If you want to custom variables setting in modules with use-package, you can
+;; use `use-package-inject-hooks' with post-init.
 
 (defcustom vonfry-exclude-modules '()
   "This variables is used to the arguments for `vonfry-load-modules`"
