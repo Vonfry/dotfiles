@@ -18,7 +18,7 @@
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)
-  (nmap-leader :keymaps 'bibtex-mode-map
+  (nmap-mode :keymaps 'bibtex-mode-map
     "e" 'ebib
     "d" '+bib/switch-dir-current)
   (nmap-mode :keymaps '(org-mode-map TeX-mode-map)
