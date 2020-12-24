@@ -36,7 +36,6 @@
     "F f" 'counsel-fzf
     "F r" 'counsel-recentf
     "F a" 'counsel-rg
-    "F /" 'counsel-search
     "F ;" 'counsel-outline
     "p" 'counsel-cd
     "b" 'counsel-switch-buffer
@@ -46,7 +45,7 @@
     "m" 'counsel-bookmark
     ";" 'counsel-imenu)
   (nmap-leader :keymaps 'outline-mode-map
-    "/" 'counsel-outline)
+    "G" 'counsel-outline)
   (nmap-mode :keymaps 'org-mode-map
     "f" 'counsel-org-file))
 
@@ -59,7 +58,7 @@
   (nmap-leader
     ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
     ;the buffer is large
-    "F \\" 'swiper))
+    "F /" 'swiper))
 
 (use-package ivy-rich
   :after ivy
