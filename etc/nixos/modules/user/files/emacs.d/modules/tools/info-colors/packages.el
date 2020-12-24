@@ -1,6 +1,6 @@
 ;;; info-colors modules -*- lexical-binding: t; -*-
 ;;
 
-(package! info-colors
+(use-package info-colors
   :hook
   (Info-selection . info-colors-fontify-node))

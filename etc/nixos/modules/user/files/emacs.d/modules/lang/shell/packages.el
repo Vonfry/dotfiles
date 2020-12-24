@@ -1,7 +1,7 @@
-;;; shell packages -*- lexical-binding: t -*-
+;; shell packages -*- lexical-binding: t -*-
 ;;
 
-(package! eshell
+(use-package eshell
   :custom
   (eshell-cmpl-cycle-completions nil)
   (eshell-buffer-maximum-lines 20000)
@@ -13,11 +13,11 @@
   (eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir))
   :ensure nil)
 
-(package! company-shell
+(use-package company-shell
   :after (company eshell)
   :hook
   ((eshell-mode shell-mode) . (lambda ()
     (+company-set-backends-grouped '(company-shell company-shell-env)))))
 
-(+mmap-leader-def
+(nmap-leader
   "$" '+shell-open-term-at-pwd)

@@ -42,9 +42,9 @@
           development = {
             git.signKey = "";
             emacs.preCustom = ''
-              (custom-set-variables '(+jekyll-dir (expand-file-name (getenv "CLONE_LIB") "website"))
-                                    '(enable-local-variables :all)
-                                    '(enable-local-eval t)
+              (setq-default easy-jekyll-basedir (expand-file-name (getenv "CLONE_LIB") "website")
+                            enable-local-variables :all
+                            enable-local-eval t
               )
             '';
           };

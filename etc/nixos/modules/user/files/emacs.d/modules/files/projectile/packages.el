@@ -4,58 +4,64 @@
 ;; If you want to use a project's emacs configure, please see more about __.dir-locals.el__ and
 ;; (projectile-edit-dir-locals)
 
-(package! projectile
+(use-package projectile
   :init
   (unless (file-exists-p +projectile-cache-dir)
     (make-directory +projectile-cache-dir t))
   :custom
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))
-  (projectile-known-projects-file +projectile-cache-known-project-file)
+  (projectile-known-projects-file
+   (expand-file-name "known" +projectile-cache-dir))
   (projectile-completion-system 'ivy)
-  (projectile-cache-file +projectile-cache-file)
+  (projectile-cache-file
+   (expand-file-name "cache" +projectile-cache-dir))
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
-  (+mmap-mode-cc-def "h" 'projectile-find-other-file)
-  (+mmap-proj-def
-    "r" 'projectile-run-project
-    "i" 'projectile-invalidate-cache
-    "t" 'projectile-toggle-between-implementation-and-test
-    "h" 'projectile-find-other-file
-    "H" 'projectile-find-other-file-other-window
-    "!" 'projectile-run-shell-command-in-root
-    "q" 'projectile-switch-open-project
-    "A" 'projectile-add-known-project
-    "x" 'projectile-commander)
+  (nmap-mode :keymaps '(c-mode-map c++-mode-map)
+    "h" 'projectile-find-other-file)
+  (nmap-leader
+    "P"   '(:ignore t :which-key "project"))
+  (nmap-leader :keymaps 'projectile-mode-map
+    "P r" 'projectile-run-project
+    "P i" 'projectile-invalidate-cache
+    "P t" 'projectile-toggle-between-implementation-and-test
+    "P h" 'projectile-find-other-file
+    "P H" 'projectile-find-other-file-other-window
+    "P !" 'projectile-run-shell-command-in-root
+    "P q" 'projectile-switch-open-project
+    "P a" 'projectile-add-known-project
+    "P x" 'projectile-commander)
   (:keymaps 'projectile-mode-map
     "C-c p" 'projectile-command-map)
   :config
   (projectile-global-mode t))
 
-(package! counsel-projectile
+(use-package counsel-projectile
   :after (projectile counsel)
   :hook (projectile-mode . counsel-projectile-mode)
   :general
-  (+mmap-leader-def
-    "p"   'counsel-projectile
-    "a"   'counsel-projectile-rg)
-  (+mmap-proj-def
-    "a" 'counsel-projectile-rg
-    "p" 'counsel-projectile-switch-project
-    "f" 'counsel-projectile-find-file-dwim
-    "d" 'counsel-projectile-find-dir
-    "b" 'counsel-projectile-switch-to-buffer
-    "c" 'counsel-projectile-org-capture
-    "g" 'counsel-projectile-org-agenda))
+  (nmap-leader
+    "p" 'counsel-projectile)
+  (nmap-leader :keymaps 'projectile-mode-map
+    "a"   'counsel-projectile-rg
+    "P p" 'counsel-projectile-switch-project
+    "P f" 'counsel-projectile-find-file-dwim
+    "P d" 'counsel-projectile-find-dir
+    "P b" 'counsel-projectile-switch-to-buffer
+    "P c" 'counsel-projectile-org-capture
+    "P g" 'counsel-projectile-org-agenda))
 
-(package! org-projectile
+(use-package org-projectile
   :after (projectile org org-agenda)
+  :custom
+  (org-projectile-per-project-filepath "todo.org")
   :general
   ("C-c n p" 'org-projectile-project-todo-completing-read)
-  (+mmap-todo-def
-    "," 'org-projectile-project-todo-completing-read
-    "c" 'org-projectile-capture-for-current-project
-    "." 'org-projectile-goto-location-for-project)
+  (nmap-leader
+    "k ," 'org-projectile-project-todo-completing-read
+    "k c" 'org-projectile-capture-for-current-project
+    "k ." 'org-projectile-goto-location-for-project)
   :hook
   (projectile-mode . (lambda () (add-to-list 'org-agenda-files (org-projectile-todo-files))))
   :config

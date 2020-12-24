@@ -1,1 +1,0 @@
-;;; autoload - func -*- lexical-binding: -*-

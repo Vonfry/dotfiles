@@ -35,6 +35,11 @@ in {
       };
     };
 
+    vonfry.development.emacs.excludeModules =
+      optionals (cfg.email == null) [ "misc/mail" "misc/feed" "misc/gnus"
+                                      "misc/irc"
+                                    ];
+
     home = {
       activation = {
         browserActivation =

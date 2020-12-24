@@ -8,14 +8,6 @@
 (defgroup vonfry-editor nil
   "Vonfry's group about editor")
 
-(defcustom vonfry-frame '((width . 160)
-                          (height . 72)
-                          (horizontal-scroll-bars . nil)
-                          (vertical-scroll-bars . nil))
-  "The default frame width and height, see `initial-frame-alist'"
-  :type 'sexp
-  :group 'vonfry-editor)
-
 (defcustom vonfry-text-width 80
   "The width for a line"
   :type 'number
@@ -40,37 +32,25 @@
   (unless (file-exists-p tmp-dir)
     (make-directory tmp-dir)))
 
-(custom-set!
-  initial-frame-alist vonfry-frame
-  default-frame-alist vonfry-frame
-  blink-cursor-interval 0.4
-  buffers-menu-max-size 32
-  column-number-mode t
-  display-line-numbers 'relative
-  whitespace-style '(face
-                     trailing
-                     lines-tail)
+(setq-default
+  whitespace-style '(face trailing lines-tail)
   case-fold-search t
   line-spacing 0
+  display-line-numbers 'relative
+
+  blink-cursor-interval 0.4
+  buffers-menu-max-size 32
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
 
-  recentf-mode t
-  show-paren-mode t
-
   recentf-max-menu-items 10
   recentf-max-saved-items 1000
-
   mouse-yank-at-point t
   delete-selection-mode t
 
   tab-always-indent 'always
-  indent-tabs-mode nil
   tab-width 4
   c-default-style "k&r"
-  c-basic-offset 4
-
-  scroll-bar-mode nil
   scroll-preserve-screen-position 'always
   set-mark-command-repeat-pop t
   tooltip-delay 0.7
@@ -78,7 +58,6 @@
   truncate-lines nil
   truncate-partial-width-windows vonfry-text-width
   fill-column vonfry-text-width
-
   save-interprogram-paste-before-kill t
 
   make-backup-files t
@@ -87,8 +66,6 @@
   auto-save-file-name-transforms `((".*" ,vonfry-auto-save-dir t))
   auto-save-list-file-prefix vonfry-auto-save-list-prefix
 
-  visual-line-mode t
-
   tramp-default-method "sshx"
   tramp-save-ad-hoc-proxies t
   tramp-auto-save-directory vonfry-auto-save-dir
@@ -96,7 +73,6 @@
 
   recentf-save-file (expand-file-name "recentf" vonfry-cache-dir)
 
-  custom-file vonfry-custom-file
   abbrev-file-name (expand-file-name "abbrev_defs" vonfry-cache-dir)
   dabbrev-case-fold-search t
   save-abbrevs 'silently
@@ -105,35 +81,37 @@
                                                       vonfry-cache-dir)
   nsm-settings-file (expand-file-name "nsm.data" vonfry-cache-dir)
 
-  epg-pinentry-mode 'loopback)
+  epg-pinentry-mode 'loopback
 
-(hook! (prog-mode text-mode) turn-on-auto-fill)
+  indent-tabs-mode nil)
 
-(fun! vonfry/toggle-trailing-whitespace ()
-  (interactive)
-  (setq show-trailing-whitespace (not show-trailing-whitespace)))
+(defvaralias 'c-basic-offset 'tab-width)
 
-(hook! (prog-mode text-mode) vonfry/toggle-trailing-whitespace)
+(recentf-mode 1)
+(show-paren-mode 1)
+(visual-line-mode 1)
 
-(hook! (text-mode prog-mode) whitespace-mode)
+(dolist (mode '(prog-mode-hook text-mode-hook))
+  (add-hook mode 'turn-on-auto-fill)
+  (add-hook mode 'whitespace-mode))
 
-(hook! after-init server-start)
+(add-hook 'after-init-hook 'server-start)
 
-(package! whitespace-cleanup-mode
+(use-package whitespace-cleanup-mode
   :hook
   ((text-mode prog-mode) . whitespace-cleanup-mode))
 
-(package! hl-line
+(use-package hl-line
   :hook
   (after-init . global-hl-line-mode))
 
-(package! saveplace
+(use-package saveplace
   :ensure nil
   :custom
   (save-place-file (expand-file-name "saveplace" vonfry-cache-dir))
   :hook (after-init . save-place-mode))
 
-(fun! vonfry/local-indent (int)
+(defun vonfry/local-indent (int)
   (interactive "Ntab-indent: ")
   (setq-local tab-width int))
 

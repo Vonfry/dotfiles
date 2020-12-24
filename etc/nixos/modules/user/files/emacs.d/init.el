@@ -2,7 +2,8 @@
 ;;
 ;; This file is only usod to load core file.
 
-;; If you want to custom variables in vonfry, you should add `custom-set-variables` before (require 'core)
+;; If you want to custom variables in vonfry, you should add `setq-default'
+;; before (require 'core)
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,

@@ -1,15 +1,14 @@
 ;;; irc func -*- lexical-binding: t -*-
 ;;
 
-(fun! +irc/connect ()
+(defun +irc/connect ()
   "connect to server"
   (interactive)
   (if (fboundp 'ivy-read)
     (ivy-read "server: "
               (-map (lambda (l)
-                      `(,(concat (plist-get l :nick)
-                                 " >> "
-                                 (plist-get l :server))
+                      `(,(concat (plist-get l :server)
+                                 "(" (plist-get l :nick) ")")
                         ,@l))
                     +irc-connect-list)
               :require-match t

@@ -1,7 +1,7 @@
 ;;; ss packages -*- lexical-binding: t -*-
 ;;
 
-(package! ess
+(use-package ess
   :custom
   (ess-use-flymake nil)
   (ess-smart-S-assign-key "$")
@@ -10,16 +10,16 @@
   (ess-use-auto-complete nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
   :general
-  (+mmap-ss-def
-   "\"" 'ess-interrupt
-   "?"  'ess-help)
-  (+mmap-ss-def
+  (nmap-leader :keymaps 'ess-mode-map
+   "\""    'ess-interrupt
+   "?"     'ess-help
+   "RET"   'ess-eval-line
    "' b"   'ess-eval-buffer
    "' f"   'ess-eval-function
-   "' r"   'ess-eval-region
-   "RET"   'ess-eval-line
-   "S-RET" 'ess-eval-buffer-from-beg-to-here))
+   "' RET" 'ess-eval-buffer-from-beg-to-here)
+  (vmap-leader :kepmays 'ess-mode-map
+    "' r" 'ess-eval-region))
 
-(package! ess-r-mode
+(use-package ess-r-mode
   :hook lsp
   :ensure nil)

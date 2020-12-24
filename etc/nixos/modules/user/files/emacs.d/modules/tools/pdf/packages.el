@@ -1,4 +1,4 @@
 ;;; pdf package -*- lexical-binding: t -*-
 ;;
 
-(package! pdf-tools)
+(use-package pdf-tools)

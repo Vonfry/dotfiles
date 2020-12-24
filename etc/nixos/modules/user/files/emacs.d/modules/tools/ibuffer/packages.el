@@ -1,7 +1,7 @@
 ;;; ibuffer packages -*- lexical-binding: t -*-
 ;;
 
-(package! ibuffer
+(use-package ibuffer
   :ensure nil
   :init
   (setq ibuffer-formats
@@ -29,7 +29,7 @@
     (lambda ()
       (setq ibuffer-filter-groups (append
                                     (ibuffer-projectile-generate-filter-groups)
-                                    +org-ibuffer-group
+                                    +org--ibuffer-group
                                     +ibuffer-filter-groups))
       (ibuffer-update nil t)))
   :custom
@@ -43,9 +43,9 @@
        (t (format "%8d" (buffer-size)))))
   :general
   ("C-x C-b" 'ibuffer)
-  (+mmap-leader-def "B" 'ibuffer))
+  (nmap-leader "B" 'ibuffer))
 
-(package! ibuffer-vc :after ibuffer)
+(use-package ibuffer-vc :after ibuffer)
 
-(package! ibuffer-projectile
+(use-package ibuffer-projectile
   :after (ibuffer projectile))

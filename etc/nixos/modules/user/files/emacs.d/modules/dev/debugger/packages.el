@@ -1,13 +1,13 @@
 ;;; debugger packages -*- lexical-binding: t -*-
 ;;
 
-(package! realgud
+(use-package realgud
   :hook
   (realgud-short-key-mode .
     (lambda ()
       (local-set-key "\C-c" realgud:shortkey-mode-map)))
   :general
-  (+mmap-leader-def
+  (nmap-leader
     :keymaps 'realgud-short-key-mode-map
     "'" 'realgud:shortkey-mode-map))
 

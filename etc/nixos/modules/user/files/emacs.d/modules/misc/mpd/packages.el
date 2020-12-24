@@ -1,7 +1,7 @@
 ;;; mpdel packages -*- lexical-binding: t -*-
 ;;
 
-(package! mpdel
+(use-package mpdel
   :hook
   (evil-mode . (lambda ()
     (dolist (mode '(mpdel-playlist-mode mpdel-tablist-mode mpdel-song-mode
@@ -9,8 +9,8 @@
                     mpdel-playlist-current-playlist-mode))
     (evil-set-initial-state mode 'emacs))))
   :general
-  (+mmap-at-def
-    "m"         '(nil :which-key "mpd")
+  (nmap-at
+    "m"         '(:ignore t :which-key "mpd")
     "m m"       'mpdel-mode
     "m SPC"     'libmpdel-playback-play-pause
     "m M-n"     'libmpdel-playback-next

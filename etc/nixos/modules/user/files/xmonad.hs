@@ -116,15 +116,15 @@ myKeys conf = mkKeymap conf
     , ("M-m"        , windows swapMaster )
 
     -- resizing the master/slave ratio
-    , ("M-("  , sendMessage Expand)
-    , ("M-S-(", sendMessage Shrink)
+    , ("M-(", sendMessage Expand)
+    , ("M-)", sendMessage Shrink)
 
     -- floating layer support
     , ("M-t"  , withFocused $ windows . sink)
     , ("M-S-t", withFocused float           )
 
     -- increase or decrease number of windows in the master area
-    , ("M-)"  , sendMessage (IncMasterN 1   ))
+    , ("M-S-(", sendMessage (IncMasterN 1   ))
     , ("M-S-)", sendMessage (IncMasterN (-1)))
 
     -- quit, or restart

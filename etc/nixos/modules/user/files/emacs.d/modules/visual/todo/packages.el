@@ -1,10 +1,11 @@
 ;;; hl-todo modules -*- lexical-binding: t; -*-
 ;;
 
-(package! hl-todo
+(use-package hl-todo
   :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
-  (+mmap-todo-def
+  (nmap-leader :infix "k"
+    ""  '(:ignore t :which-key "todo")
     "p" 'hl-todo-previous
     "n" 'hl-todo-next
     "o" 'hl-todo-occur))

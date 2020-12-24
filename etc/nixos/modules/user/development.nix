@@ -18,6 +18,14 @@ in {
         default = "";
         type = types.lines;
       };
+      postCustom = mkOption {
+        default = "";
+        type = types.lines;
+      };
+      excludeModules = mkOption {
+        default = [ ];
+        type = with types; listOf str;
+      };
     };
 
     git = {
@@ -37,6 +45,7 @@ in {
       texlive.withDoc = mkDefault true;
     };
 
+
     xdg.configFile = {
       "emacs.d" = {
         source = ./files/emacs.d;
@@ -48,20 +57,17 @@ in {
       };
 
       "emacs.d/local/pre-custom.el".text =
-        let sessions = config.home.sessionVariables;
-            noMail = isNull cfg'.net.email;
-            noLedger = ! sessions ? LEDGER_FILE;
-        in (concatStringsSep "\n" [
+        (concatStringsSep "\n" [
           ''
-            (custom-set-variables
-             '(vonfry-exclude-modules
-               '(${optionalString noMail   "\"misc/mail\" \"misc/irc\""}
-                 ${optionalString noLedger "\"misc/ledger\""}
-                 )))
+            (setq-default
+              vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
+                                         cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
           cfg.emacs.preCustom
         ]);
+
+      "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
     };
 
     services = {
@@ -91,50 +97,57 @@ in {
 
       neovim = {
         enable = true;
-        plugins = with pkgs.vimPlugins; [
-          vim-test
-          # SQHell-vim
-          vim-logreview
-          vim-surround
-          auto-pairs
-          direnv-vim
-          nerdtree
-          nerdtree-git-plugin
-          vim-rooter
-          vim-projectionist
-          vim-polyglot
-          vim-ragtag
-          # MatchTagAlways
-          DoxygenToolkit-vim
-          nerdcommenter
-          vim-orgmode
-          vim-easymotion
-          tagbar
-          fzf-vim
-          editorconfig-vim
-          vim-better-whitespace
-          vim-signature
-          incsearch-vim
-          vim-over
-          vimproc-vim
-          tabular
-          vim-which-key
-          deoplete-nvim
-          ultisnips
-          vim-snippets
-          # nvim-lspconfig # neovim > 0.5
-          vim-fugitive
-          vim-signify
-          NeoSolarized
-          dracula-vim
-          vim-airline
-          # vim-airline-clock
-          indentLine
-          vim-mundo
-        ];
-        extraConfig = ''
-        call vonfry#init()
-      '';
+        configure = {
+          packages.myPackage = with pkgs.vimPlugins; {
+            start = [
+              vim-test
+              # SQHell-vim
+              vim-logreview
+              vim-surround
+              auto-pairs
+              direnv-vim
+              nerdtree
+              nerdtree-git-plugin
+              vim-rooter
+              vim-projectionist
+              vim-polyglot
+              vim-ragtag
+              # MatchTagAlways
+              DoxygenToolkit-vim
+              nerdcommenter
+              vim-orgmode
+              vim-easymotion
+              tagbar
+              fzf-vim
+              editorconfig-vim
+              vim-better-whitespace
+              vim-signature
+              incsearch-vim
+              vim-over
+              vimproc-vim
+              tabular
+              vim-which-key
+              deoplete-nvim
+              ultisnips
+              vim-snippets
+              # nvim-lspconfig # neovim > 0.5
+              vim-fugitive
+              vim-signify
+              NeoSolarized
+              vim-airline
+              # vim-airline-clock
+              indentLine
+              vim-mundo
+            ];
+            opt = [ dracula-vim ];
+          };
+
+          customRC = ''
+            " see github:nixos/nixpkgs#96062
+            packadd! dracula-vim
+            call vonfry#init()
+          '';
+        };
       };
 
       emacs =  {
@@ -303,7 +316,6 @@ in {
       };
     };
 
-
     home = {
       sessionVariables = {
         EDITOR = "nvim";
@@ -333,46 +345,53 @@ in {
       # config file for them.
       file = {
         ".tigrc".text = ''
-        set log-options = --show-signature
-        set diff-options = --show-signature
-      '';
+          set log-options = --show-signature
+          set diff-options = --show-signature
+        '';
+
         ".ghc/ghci.conf".text = ''
-        :set +m
+          :set +m
 
-        -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
-        :set -XLambdaCase
-        :set -XMultiWayIf
-        :set -XBinaryLiterals
-        :set -XBangPatterns
+          -- see more about extension: https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html
+          :set -XLambdaCase
+          :set -XMultiWayIf
+          :set -XBinaryLiterals
+          :set -XBangPatterns
 
-        :set -XTemplateHaskell
-        :set -XNamedFieldPuns
-        :set -XFlexibleContexts
-        :set -XFlexibleInstances
-        :set -XMultiParamTypeClasses
+          :set -XTemplateHaskell
+          :set -XNamedFieldPuns
+          :set -XFlexibleContexts
+          :set -XFlexibleInstances
+          :set -XMultiParamTypeClasses
 
-        :set -XUnicodeSyntax
+          :set -XUnicodeSyntax
 
-        :set -XDeriveGeneric
-        :set -XDeriveFunctor
-        :set -XDeriveFoldable
+          :set -XDeriveGeneric
+          :set -XDeriveFunctor
+          :set -XDeriveFoldable
 
-        :set -XImplicitParams
+          :set -XImplicitParams
 
-        -- preference
-        :set prompt "λ "
-        :set prompt-cont "> "
+          -- preference
+          :set prompt "λ "
+          :set prompt-cont "> "
 
-        -- allow C-c
-        :set -fomit-yields
-      '';
+          -- allow C-c
+          :set -fomit-yields
+        '';
+
         ".latexmkrc".text = ''
-        $out_dir = "latex.out";
-        $pdf_mode = 5;
-        $dvi_previewer = 'xdvi -watchfile 1.5';
-        $ps_previewer  = 'feh';
-        $pdf_previewer = 'zathura';
-      '';
+          $out_dir = "latex.out";
+          $pdf_mode = 5;
+          $dvi_previewer = 'xdvi -watchfile 1.5';
+          $ps_previewer  = 'feh';
+          $pdf_previewer = 'zathura';
+        '';
+
+        ".Rprofile".text = ''
+          options(browser = 'qutebrowser')
+          # options(help_type = 'html')
+        '';
       };
     };
   };

@@ -1,8 +1,8 @@
 ;;; json packages -*- lexical-binding: t -*-
 ;;
 
-(package! json-mode
+(use-package json-mode
   :general
-  (+mmap-mode-json-def
+  (nmap-mode :keymaps 'json-mode-map
    "=" 'json-pretty-print
    "f" 'json-pretty-print-buffer))

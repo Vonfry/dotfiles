@@ -1,7 +1,7 @@
 ;;; company packages -*- lexical-binding: t -*-
 ;;
 
-(package! company
+(use-package company
   :custom
   (company-idle-delay 0.2)
   (company-tooltip-limit 16)
@@ -28,7 +28,6 @@
     "C-S-s"   'counsel-company
     "C-SPC"   'company-complete-common
     "TAB"     'company-complete-common-or-cycle
-    [tab]     'company-complete-common-or-cycle
     [backtab] 'company-select-previous)
   (:keymaps 'company-search-map
     "C-n"    'company-select-next-or-abort
@@ -40,12 +39,12 @@
   :config
   (global-company-mode 1))
 
-(package! company-quickhelp
+(use-package company-quickhelp
   :after company
   :config
   (company-quickhelp-mode 1))
 
-(package! company-prescient
+(use-package company-prescient
   :after company
   :custom
   (prescient-save-file (expand-file-name "prescient" vonfry-cache-dir))

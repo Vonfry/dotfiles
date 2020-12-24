@@ -1,10 +1,11 @@
 ;;; fold modules -*- lexical-binding: t; -*-
 ;;
 
-(package! origami
+(use-package origami
   :hook ((text-mode prog-mode) . origami-mode)
   :general
-  (+mmap-zZ-def
+  (nmap-leader :infix "z Z"
+    ""  '(:ignore t :which-key "fold")
     "o" 'origami-open-node
     "O" 'origami-open-node-recursively
     "s" 'origami-show-node
