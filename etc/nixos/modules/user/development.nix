@@ -143,7 +143,7 @@ in {
           };
 
           customRC = ''
-            # see github:nixos/nixpkgs#96062
+            " see github:nixos/nixpkgs#96062
             packadd! dracula-vim
             call vonfry#init()
           '';
