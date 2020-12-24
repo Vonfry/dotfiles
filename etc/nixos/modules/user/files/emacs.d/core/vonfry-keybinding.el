@@ -19,20 +19,25 @@
   :config
   (general-evil-setup t t)
   (general-define-key "C-h B" 'general-describe-keybindings)
-  (general-create-definer nmap-leader :wrapping nmap :prefix "SPC")
-  (general-create-definer vmap-leader :wrapping vmap :prefix "SPC")
 
   ;; Here defines some generic prefix keybinds, and the others are set in each
   ;; modules
-  (general-create-definer nmap-mode :wrapping nmap-leader :infix "SPC")
-  (general-create-definer vmap-mode :wrapping vmap-leader :infix "SPC")
-  (general-create-definer nmap-at :wrapping nmap-leader :infix "@")
-  (general-create-definer vmap-at :wrapping vmap-leader :infix "@")
+  (defmacro vonfry--keybind-definer(map)
+    (let* ((map-str (symbol-name map))
+           (map-leader (intern (concat map-str "-leader")))
+           (map-mode   (intern (concat map-str "-mode")))
+           (map-at     (intern (concat map-str "-at"))))
+      `(progn
+         (general-create-definer ,map-leader :wrapping ,map        :prefix "SPC")
+         (general-create-definer ,map-mode   :wrapping ,map-leader :infix  "SPC")
+         (general-create-definer ,map-at     :wrapping ,map-leader :infix  "@"))))
+  (vonfry--keybind-definer nmap)
+  (vonfry--keybind-definer vmap)
+  (vonfry--keybind-definer nvmap)
 
-  (nmap-mode "" '(nil :which-key "mode special"))
-  (vmap-mode "" '(nil :which-key "mode special"))
-  (nmap-at "" '(nil :which-key "web/mail/contacts/.."))
-  (vmap-at "" '(nil :which-key "web/mail/contacts/.."))
+  (nmap-leader "" '(:ignore t :which-key "leader"))
+  (nmap-mode   "" '(:ignore t :which-key "mode special"))
+  (nmap-at     "" '(:ignore t :which-key "web/mail/contacts/.."))
 
   (nmap-leader "Z" 'vonfry/next-theme)
   (nmap-leader "' d" 'vonfry/insert-current-date))

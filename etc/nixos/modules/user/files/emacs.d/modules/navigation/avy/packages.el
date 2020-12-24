@@ -10,7 +10,7 @@
   ("C-'"  'avy-goto-char-2)
   ("C-\"" 'avy-goto-line)
   ("C-:"  'avy-goto-char)
-  (nmap-leader
+  (nvmap-leader
     "g"   'avy-goto-char-2
     "/"   'avy-goto-char-timer
     "G"   '(:ignore t :which-key "avy")
