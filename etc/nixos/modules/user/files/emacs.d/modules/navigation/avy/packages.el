@@ -7,22 +7,22 @@
   :config
   (avy-setup-default)
   :general
-  ("C-'"  'avy-goto-char-2)
-  ("C-\"" 'avy-goto-line)
-  ("C-:"  'avy-goto-char)
+  ("C-'"  'avy-goto-word-1)
+  ("C-\"" 'avy-goto-word-0)
+  ("C-:"  'avy-goto-char-2)
   (nvmap-leader
-    "g"   'avy-goto-char-2
-    "/"   'avy-goto-char-timer
-    "G"   '(:ignore t :which-key "avy")
-    "G g" 'avy-goto-char
-    "G f" 'avy-goto-char-in-line
-    "G b" 'avy-goto-word-0
-    "G w" 'avy-goto-word-1
-    "G W" 'avy-goto-subword-1
-    "G l" 'avy-goto-line
-    "G s" 'avy-goto-symbol-1
-    "G ," 'avy-pop-mark
-    "G ;" 'avy-push-mark))
+    "g"   'avy-goto-word-1
+    "/"   'avy-goto-char-2
+    "G"   'avy-goto-word-0
+    "j"   'avy-goto-line
+    "J"   '(:ignore t :which-key "avy")
+    "J /" 'avy-goto-char-timer
+    "J g" 'avy-goto-char
+    "J f" 'avy-goto-char-in-line
+    "J w" 'avy-goto-subword-1
+    "J s" 'avy-goto-symbol-1
+    "J ," 'avy-pop-mark
+    "J ;" 'avy-push-mark))
 
 (use-package ace-window
   :after avy
