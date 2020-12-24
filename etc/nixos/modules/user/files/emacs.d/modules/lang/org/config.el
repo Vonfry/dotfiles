@@ -38,7 +38,7 @@
 
 (defun +org--roam-capture-note-dir ()
   (let ((default-directory +org-note-dir))
-    (call-interactively '+org-roam-capture--note-dir-aux)))
+    (call-interactively '+org--roam-capture-note-dir-aux)))
 
 (defun +org--roam-capture-note-dir-aux (path)
   (interactive "Droam: ")
