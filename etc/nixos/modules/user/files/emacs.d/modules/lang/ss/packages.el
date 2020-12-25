@@ -17,7 +17,7 @@
    "' b"   'ess-eval-buffer
    "' f"   'ess-eval-function
    "' RET" 'ess-eval-buffer-from-beg-to-here)
-  (vmap-leader :kepmays 'ess-mode-map
+  (vmap-leader :keymaps 'ess-mode-map
     "' r" 'ess-eval-region))
 
 (use-package ess-r-mode
