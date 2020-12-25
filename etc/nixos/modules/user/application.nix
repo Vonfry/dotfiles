@@ -59,6 +59,9 @@ in {
       password-store.enable = true;
     };
 
+    vonfry.development.emacs.excludeModules =
+      optional config.services.mpd.enable "misc/mpd";
+
     home = {
       activation = {
         financialActivation =
