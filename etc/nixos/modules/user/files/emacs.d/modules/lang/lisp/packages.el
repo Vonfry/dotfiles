@@ -8,10 +8,10 @@
 
 (use-package ielm :ensure nil
   :general
-  (nmap-leader :keymaps 'emacs-lisp-map
+  (nmap-leader :keymaps 'emacs-lisp-mode-map
     "\""  'ielm
     "' b" 'eval-buffer)
-  (vmap-leader :keymaps 'emacs-lisp-map
+  (vmap-leader :keymaps 'emacs-lisp-mode-map
     "' r" 'eval-region))
 
 (add-hook 'elisp-mode-hook
