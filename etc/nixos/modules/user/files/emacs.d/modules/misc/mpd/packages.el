@@ -13,8 +13,8 @@
     "m"         '(:ignore t :which-key "mpd")
     "m m"       'mpdel-mode
     "m SPC"     'libmpdel-playback-play-pause
-    "m M-n"     'libmpdel-playback-next
-    "m M-p"     'libmpdel-playback-previous
+    "m n"       'libmpdel-playback-next
+    "m p"       'libmpdel-playback-previous
     "m a"       'mpdel-core-add-to-current-playlist
     "m A"       'mpdel-core-add-to-stored-playlist
     "m r"       'mpdel-core-replace-current-playlist
@@ -27,8 +27,6 @@
     "m s l"     'mpdel-core-search-by-album
     "m s r"     'mpdel-core-search-by-artist
     "m ^"       'navigel-open-parent
-    "m n"       'next-line
-    "m p"       'previous-line
     "m +"       'mpdel-core-volume-increase
     "m -"       'mpdel-core-volume-decrease
     "m C"       'libmpdel-connect-profile
