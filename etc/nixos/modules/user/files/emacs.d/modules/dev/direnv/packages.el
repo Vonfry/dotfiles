@@ -3,10 +3,6 @@
 
 (use-package envrc
   :general
-  (nmap-leader :infix "'"
-    "e"   'envrc-reload
-    "E"   '(:ignore t :which-key "envrc")
-    "E a" 'envrc-allow
-    "E d" 'envrc-deny
-    "E A" 'envrc-reload-all)
+  (nmap-leader :infix "'" :keymaps 'envrc-mode-map
+    "e" 'envrc-command-map)
   :hook (after-init . envrc-global-mode))
