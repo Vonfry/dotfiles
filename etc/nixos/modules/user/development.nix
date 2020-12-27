@@ -273,7 +273,7 @@ in {
           undo-tree
           hledger-mode
           ess
-          direnv
+          envrc
           ob-http
           mpdel
           org-plus-contrib
