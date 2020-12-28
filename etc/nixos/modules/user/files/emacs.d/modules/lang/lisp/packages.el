@@ -9,8 +9,12 @@
 (use-package ielm :ensure nil
   :general
   (nmap-leader :keymaps 'emacs-lisp-mode-map
-    "\""  'ielm
-    "' b" 'eval-buffer)
+    "\""    'ielm
+    "RET"   'eval-last-sexp
+    "' b"   'eval-buffer
+    "' f"   'eval-defun)
+  (nmap-leader :infix "e"
+    "a"   'eval-expression)
   (vmap-leader :keymaps 'emacs-lisp-mode-map
     "' r" 'eval-region))
 
