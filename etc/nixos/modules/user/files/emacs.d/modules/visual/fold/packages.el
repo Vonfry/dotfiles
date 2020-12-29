@@ -4,7 +4,7 @@
 (use-package origami
   :hook ((text-mode prog-mode) . origami-mode)
   :general
-  (nmap-leader :infix "z Z"
+  (nmap :prefix "z Z"
     ""  '(:ignore t :which-key "fold")
     "o" 'origami-open-node
     "O" 'origami-open-node-recursively

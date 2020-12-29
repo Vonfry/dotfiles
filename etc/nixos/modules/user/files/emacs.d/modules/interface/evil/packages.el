@@ -25,7 +25,6 @@
     "M d" 'bookmark-delete
     "M r" 'bookmark-rename
     "M w" 'bookmark-write
-    "="   'align-regexp
     "~"   'eshell
     "!"   'calc
     "\""  'comint-run
@@ -37,7 +36,9 @@
     "e s" 'server-start
     "e #" 'server-edit
     "e D" 'diff
-    "e d" 'ediff))
+    "e d" 'ediff)
+  (vmap-leader
+    "="   'align-regexp))
 
 (use-package evil-numbers
   :after evil

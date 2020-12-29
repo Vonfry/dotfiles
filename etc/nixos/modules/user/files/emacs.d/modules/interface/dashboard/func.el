@@ -6,6 +6,7 @@
   (switch-to-buffer "*dashboard*")
   (when new
     (+dashboard/set-fortune))
+  (cd +dashboard-pwd)
   (dashboard-refresh-buffer))
 
 (defun +dashboard--init ()

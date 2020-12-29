@@ -223,9 +223,8 @@ myKeys conf = mkKeymap conf
     -- fcitx clipboard history to paste
 
     -- password-store
-    , ("M-'"  , passPrompt         myXPConf    )
-    , ("M-S-'", passGeneratePrompt myXPConfNoAc)
-    , ("M-C-'", passRemovePrompt   myXPConf    )
+    , ("M-'"  , passPrompt         myXPConf)
+    , ("M-S-'", passOTPPrompt      myXPConf)
 
     -- midia keys
     , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )

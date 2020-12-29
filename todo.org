@@ -23,11 +23,12 @@
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
 *** WAITING org-z and org-sidebar instead of org-roam
-*** TODO Interesting plugins[0/4]
+*** TODO Interesting plugins[0/5]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
 **** TODO [[https://melpa.org/#/license-snippets][license-snippet]]
 **** TODO magit evil and sth else is included in evil-collection
 **** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
+**** TODO envrc instead of direnv.el
 ** DONE LSP[1/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?

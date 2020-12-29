@@ -7,11 +7,10 @@
   "switch bib for notes and others"
   (interactive "Dbib search dir: ")
   (when (= +bib--set-counter most-negative-fixnum)
-    (custom-set-variables '(ebib-file-search-dirs nil)))
+    (setq-default ebib-file-search-dirs nil))
   (setq +bib--set-counter (1- +bib--set-counter))
   (if +bib-note-is-single
-      (setq-default
-       ebib-notes-file (expand-file-name "notes.org" path))
+      (setq-default ebib-notes-file (expand-file-name "notes.org" path))
     (setq-default ebib-notes-directory path
                   ebib-notes-file nil))
   (setq-default
@@ -42,9 +41,9 @@
       (setq-default
        ebib-notes-directory (file-name-directory ebib-notes-file)
        ebib-notes-file      nil))
-  (custom-set-variables '(+bib-note-is-single (not +bib-note-is-single) t)))
+  (setq-default +bib-note-is-single (not +bib-note-is-single)))
 
 (defun +bib/toggle-insert-multiple ()
   (interactive)
-  (custom-set-variables
-   '(ebib-citation-insert-multiple (not ebib-citation-insert-multiple) t)))
+  (setq-default
+   ebib-citation-insert-multiple (not ebib-citation-insert-multiple)))
