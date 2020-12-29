@@ -56,7 +56,10 @@ in {
         };
       };
 
-      password-store.enable = true;
+      password-store = {
+        enable = true;
+        package = pkgs.pass.withExtensions (exts: with exts; [ pass-otp ]);
+      };
     };
 
     vonfry.development.emacs.excludeModules =
