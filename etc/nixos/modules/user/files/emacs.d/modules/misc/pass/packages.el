@@ -6,14 +6,14 @@
   (password-store-password-length 32)
   :general
   (nmap-at
-    "p"   'password-store-copy
-    "P"   '(:ignore t :which-key "pass")
-    "P c" 'password-store-clear
-    "P s" 'password-store-init
-    "P i" 'password-store-insert
-    "P e" 'password-store-edit
-    "P g" 'password-store-generate
-    "P d" 'password-store-remove
-    "P r" 'password-store-rename
-    "P u" 'password-store-url
-    "P v" 'password-store-version))
+    "p"   '(:ignore t :which-key "pass")
+    "p y" 'password-store-copy
+    "p c" 'password-store-clear
+    "p s" 'password-store-init
+    "p i" 'password-store-insert
+    "p e" 'password-store-edit
+    "p g" 'password-store-generate
+    "p d" 'password-store-remove
+    "p r" 'password-store-rename
+    "p u" 'password-store-url
+    "p v" 'password-store-version))
