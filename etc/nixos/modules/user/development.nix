@@ -153,7 +153,7 @@ in {
       emacs =  {
         package = pkgs.unstable.emacs;
         enable = true;
-        extraPackages = epkgs: with epkgs; [
+        extraPackages = epkgs: with pkgs.unstable.emacsPackages; [
           all-the-icons
           solarized-theme
           dracula-theme
@@ -276,11 +276,8 @@ in {
           ob-http
           mpdel
           org-plus-contrib
-<<<<<<< HEAD
           evil-collection
-=======
           license-snippets
->>>>>>> feature/emacs/plugins/license-snippet
         ];
       };
 
