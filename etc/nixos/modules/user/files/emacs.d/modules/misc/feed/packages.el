@@ -7,10 +7,6 @@
   (elfeed-enclosure-directory (expand-file-name "elfeed/enclosure" vonfry-local-dir))
   (easy-jekyll-url "https://vonfry.name")
   (easy-jekyll-image-directory (expand-file-name "static/images" easy-jekyll-basedir))
-  :hook
-  (evil-mode . (lambda ()
-   (evil-set-initial-state 'elfeed-search-mode 'emacs)
-   (evil-set-initial-state 'elfeed-show-mode   'emacs)))
   :init
   (load +feed-local-file t t)
   :general
