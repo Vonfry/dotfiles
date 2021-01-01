@@ -162,7 +162,6 @@ in {
           diminish
           dash
           s
-          auto-compile
           evil
           evil-numbers
           evil-surround
@@ -186,7 +185,6 @@ in {
           python-mode
           pydoc
           nix-mode
-          gnuplot
           org
           org-superstar
           evil-org
@@ -215,7 +213,6 @@ in {
           gitignore-mode
           gitattributes-mode
           magit-gitflow
-          evil-magit
           gitlab-ci-mode
           forge
           inf-ruby
@@ -273,10 +270,12 @@ in {
           undo-tree
           hledger-mode
           ess
-          direnv
+          envrc
           ob-http
           mpdel
           org-plus-contrib
+          evil-collection
+          license-snippets
         ];
       };
 

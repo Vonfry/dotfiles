@@ -210,7 +210,6 @@
   (use-package ob-sql)
   (use-package ob-sqlite)
   (use-package ob-perl)
-  (use-package ob-gnuplot)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -221,8 +220,7 @@
                               (R          . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (perl       . t)
-                              (gnuplot    . t)))
+                              (perl       . t)))
   :after org)
 
 (use-package org-contacts

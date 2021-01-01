@@ -90,7 +90,7 @@ in {
         {
           PDFVIEWER = "zathura";
         }
-        (mkOrder 2000 {
+        (mkAfter {
           # Use mkOrder to make sure this is override the default one by
           # home-manager, because sessionVariables' type is `types.attrs`.`
           # Use this to fix remote computer pam and other problems.
@@ -111,7 +111,7 @@ in {
         flameshot feh # inkscape gimp
         pavucontrol # kid3 audacity
         # mpv ffmpeg
-        unstable.tor-browser-bundle-bin
+        # unstable.tor-browser-bundle-bin
         # zathura
         libreoffice
 

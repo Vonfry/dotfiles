@@ -33,10 +33,6 @@
                '("View in browser" . mu4e-action-view-in-browser))
   (unless (file-exists-p mu4e-attachment-dir)
     (make-directory mu4e-attachment-dir t))
-  :general
-  (:keymaps 'mu4e-main-mode-map
-   "q" 'quit-window
-   "Q" 'mu4e-quit)
   (nmap-at
     "@" 'mu4e))
 

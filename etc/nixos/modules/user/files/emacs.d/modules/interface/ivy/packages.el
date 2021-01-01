@@ -45,7 +45,7 @@
     "m" 'counsel-bookmark
     ";" 'counsel-imenu)
   (nmap-leader :keymaps 'outline-mode-map
-    "G" 'counsel-outline)
+    "/" 'counsel-outline)
   (nmap-mode :keymaps 'org-mode-map
     "f" 'counsel-org-file))
 

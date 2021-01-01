@@ -19,16 +19,17 @@
 * Editor
 ** NeoVim[0/1]
 **** TODO use internal lsp
-** Emacs[2/4]
+** Emacs[2/3]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
-*** WAITING org-z and org-sidebar instead of org-roam
-*** TODO Interesting plugins[0/5]
+*** TODO Interesting plugins[3/5]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
-**** TODO [[https://melpa.org/#/license-snippets][license-snippet]]
-**** TODO magit evil and sth else is included in evil-collection
+**** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
+     CLOSED: [2020-12-09 Wed 09:11]
+**** DONE magit evil and sth else is included in evil-collection
 **** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
-**** TODO envrc instead of direnv.el
+**** DONE envrc instead of direnv.el
+**** TODO ob-gnuplot and gnuplot(build failed now)
 ** DONE LSP[1/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
