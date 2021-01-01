@@ -1,15 +1,8 @@
 ;;; direnv packages -*- lexical-binding: t -*-
 ;;
 
-(use-package direnv
-  :custom
-  (direnv-non-file-modes
-    '(ielm-mode
-      eshell-mode
-      geiser-mode
-      slime-mode))
+(use-package envrc
   :general
-  (nmap-leader :infix "'"
-   "e" 'direnv-update-environment)
-  :config
-  (direnv-mode t))
+  (nmap-leader :infix "'" :keymaps 'envrc-mode-map
+    "e" 'envrc-command-map)
+  :hook (after-init . envrc-global-mode))
