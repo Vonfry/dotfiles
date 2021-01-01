@@ -276,7 +276,11 @@ in {
           ob-http
           mpdel
           org-plus-contrib
+<<<<<<< HEAD
           evil-collection
+=======
+          license-snippets
+>>>>>>> feature/emacs/plugins/license-snippet
         ];
       };
 
