@@ -14,7 +14,7 @@
   (use-package yasnippet-snippets)
   (yas-global-mode 1))
 
-(package! license-snippets
+(use-package license-snippets
   :after yasnippet
   :config
   (license-snippets-init))

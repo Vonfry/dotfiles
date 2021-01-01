@@ -8,6 +8,8 @@
   (advice-add 'vonfry/local-indent
               :after (lambda (int) (setq-local evil-shift-width int)))
   :custom
+  (evil-want-keybinding nil)
+  (evil-want-integration t)
   (evil-shift-width 4)
   (evil-search-module 'isearch)
   :general
@@ -54,7 +56,7 @@
   :config
   (global-evil-matchit-mode 1))
 
-(package! evil-collection
+(use-package evil-collection
   :after evil
   :config
   (evil-collection-init))
