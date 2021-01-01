@@ -151,6 +151,7 @@ in {
       };
 
       emacs =  {
+        package = pkgs.unstable.emacs;
         enable = true;
         extraPackages = epkgs: with epkgs; [
           all-the-icons
@@ -162,7 +163,6 @@ in {
           diminish
           dash
           s
-          auto-compile
           evil
           evil-numbers
           evil-surround
