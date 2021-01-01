@@ -19,10 +19,9 @@
 * Editor
 ** NeoVim[0/1]
 **** TODO use internal lsp
-** Emacs[2/4]
+** Emacs[2/3]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
-*** WAITING org-z and org-sidebar instead of org-roam
 *** TODO Interesting plugins[3/5]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
 **** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
