@@ -1,1 +1,3 @@
-[ (import ./overlay.nix) ]
+[ (import ./overlay.nix)
+  (import <emacs-overlay>)
+]

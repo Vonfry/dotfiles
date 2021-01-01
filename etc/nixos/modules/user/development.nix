@@ -151,9 +151,8 @@ in {
       };
 
       emacs =  {
-        package = pkgs.unstable.emacs;
         enable = true;
-        extraPackages = epkgs: with pkgs.unstable.emacsPackages; [
+        extraPackages = epkgs: with epkgs; [
           all-the-icons
           solarized-theme
           dracula-theme
@@ -186,7 +185,6 @@ in {
           python-mode
           pydoc
           nix-mode
-          gnuplot
           org
           org-superstar
           evil-org
