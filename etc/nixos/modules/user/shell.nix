@@ -172,6 +172,7 @@ in {
             ec  = "emacsclient -n";
             ecc = "emacsclient -n -c";
             eCt = "emacsclient -t";
+            ect = "eCt";
             eC  = "emacsclient";
             eCc = "emacsclient -c";
 
