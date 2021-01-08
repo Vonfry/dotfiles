@@ -53,6 +53,8 @@
             email = import ./local/mail.nix;
           };
         };
+
+        imports = [ ./local/qutebrowser.nix ./local/proxy-config.nix ];
       };
   };
 
