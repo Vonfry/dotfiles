@@ -49,7 +49,7 @@
       entry (file+headline +org-capture-file "Notes")
       "** %?\n:PROPERTIES:\n:CREATED: %U\n:END:")
      ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
-      "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS::NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
+      "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS:\n:NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)

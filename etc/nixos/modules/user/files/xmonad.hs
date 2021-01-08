@@ -17,6 +17,7 @@ import XMonad.Prompt.Workspace
 import XMonad.Prompt.FuzzyMatch
 import XMonad.Prompt.Pass
 import XMonad.Prompt.Man
+import XMonad.Prompt.Ssh
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
@@ -71,6 +72,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-x", shellPrompt myXPConfNoAc       )
     , ("M-C-x", xmonadPrompt myXPConf          )
     , ("M-/"  , promptSearch myXPConfNoAc multi)
+    , ("M-z", sshPrompt myXPConf               )
 
     , ("M-<F1>"  , manPrompt myXPConf             )
     , ("M-S-<F1>", runInTerm "-t w3mman" "w3mman" )

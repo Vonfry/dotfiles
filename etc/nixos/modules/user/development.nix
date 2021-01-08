@@ -151,6 +151,7 @@ in {
       };
 
       emacs =  {
+        package = pkgs.emacsUnstable;
         enable = true;
         extraPackages = epkgs: with epkgs; [
           all-the-icons
