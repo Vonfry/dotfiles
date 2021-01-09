@@ -3,7 +3,11 @@
 
 (use-package magit
   :general
-  (nmap-leader "-" 'magit-status))
+  (nmap-leader "-" 'magit-status)
+  (general-unbind magit-mode-map
+    :with nil
+    ;; These has confliction with evil
+    "SPC" "S-SPC"))
 
 (use-package git-commit :after magit)
 (use-package transient :after magit
