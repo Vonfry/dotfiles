@@ -17,3 +17,10 @@
     "p r" 'password-store-rename
     "p u" 'password-store-url
     "p v" 'password-store-version))
+
+(use-package auth-source
+  :custom
+  (auth-sources `(,(expand-file-name "authinfo.gpg" (xdg-data-home))
+                  ,(expand-file-name "authinfo" (xdg-data-home))
+                  "~/.authinfo.gpg" "~/.authinfo"))
+  :ensure nil)

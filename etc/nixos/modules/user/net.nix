@@ -30,6 +30,12 @@ in {
             patterns = [ "*" ];
             extraConfig.channel.Sync = "All";
           };
+          msmtp = {
+            enable = true;
+            extraConfig = {
+            };
+          };
+          mu.enable = true;
         } cfg.email];
         local.maildir.path = "local";
       };
@@ -60,7 +66,7 @@ in {
 
       packages = with pkgs; [
         wget curl w3m
-        mu # isync
+        # mu isync
 
         chromium # qutebrowser
         qbittorrent
@@ -72,6 +78,8 @@ in {
 
     programs = {
       mbsync.enable = true;
+      mu.enable = true;
+      msmtp.enable = true;
 
       qutebrowser = {
         enable = true;

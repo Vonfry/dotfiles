@@ -48,13 +48,11 @@
               )
             '';
           };
-   
-          net = {
-            email = import ./local/mail.nix;
-          };
         };
 
-        imports = [ ./local/qutebrowser.nix ./local/proxy-config.nix ];
+        imports = [ ./local/mail.nix ./local/qutebrowser.nix
+                    ./local/proxy-config.nix
+                  ];
       };
   };
 
