@@ -69,7 +69,7 @@ in {
     security = {
       sudo = {
         enable = true;
-        extraConfig = mkDefault ''
+        extraConfig = mkBefore ''
           Defaults timestamp_timeout=30
           Defaults env_keep += "*_proxy *_PROXY"
         '';

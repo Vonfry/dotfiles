@@ -22,15 +22,20 @@
 
   ;; Here defines some generic prefix keybinds, and the others are set in each
   ;; modules
+  ;; I don't use `:keymaps 'override' because general.el uses
+  ;; `evil-make-intercept-map' which cannot work with other keymaps. I want to
+  ;; bind some keys only in special modes maps. The better soluation is using
+  ;; `evil-make-overriding-map' which has higher precedence than global one but
+  ;; lower than other maps. and the overriding map is used by `evil-collection'.
   (defmacro vonfry--keybind-definer(map)
     (let* ((map-str (symbol-name map))
            (map-leader (intern (concat map-str "-leader")))
            (map-mode   (intern (concat map-str "-mode")))
            (map-at     (intern (concat map-str "-at"))))
       `(progn
-         (general-create-definer ,map-leader :wrapping ,map        :keymaps 'override :prefix "SPC")
-         (general-create-definer ,map-mode   :wrapping ,map-leader :keymaps 'override :infix  "SPC")
-         (general-create-definer ,map-at     :wrapping ,map-leader :keymaps 'override :infix  "@"))))
+         (general-create-definer ,map-leader :wrapping ,map        :prefix "SPC")
+         (general-create-definer ,map-mode   :wrapping ,map-leader :infix  "SPC")
+         (general-create-definer ,map-at     :wrapping ,map-leader :infix  "@"))))
   (vonfry--keybind-definer nmap)
   (vonfry--keybind-definer vmap)
   (vonfry--keybind-definer nvmap)

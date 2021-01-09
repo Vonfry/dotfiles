@@ -63,7 +63,7 @@ in {
     };
 
     vonfry.development.emacs.excludeModules =
-      optional config.services.mpd.enable "misc/mpd";
+      optional (!config.services.mpd.enable) "misc/mpd";
 
     home = {
       activation = {

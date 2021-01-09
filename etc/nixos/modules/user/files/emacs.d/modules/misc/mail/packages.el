@@ -26,6 +26,9 @@
 			(:from           .  22)
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
+  (sendmail-program "msmtp")
+  (message-send-mail-function 'sendmail-send-it)
+  (message-sendmail-extra-arguments '("--read-envelope-from"))
   :hook
   (emacs-startup . (lambda () (mu4e t)))
   :config
@@ -35,24 +38,6 @@
     (make-directory mu4e-attachment-dir t))
   (nmap-at
     "@" 'mu4e))
-
-(use-package auth-source
-  :custom
-  (auth-sources `(,(expand-file-name "authinfo.gpg" (xdg-data-home))
-                  ,(expand-file-name "authinfo" (xdg-data-home))
-                  "~/.authinfo.gpg" "~/.authinfo"))
-  :ensure nil)
-
-(use-package smtpmail
-  :ensure nil
-  :custom
-  (smtpmail-queue-dir "~/.mail/local/queue/cur")
-  (rfc2047-encode-encoded-words nil) ; make attachment with chinese filename can
-                                     ; work on other client.
-  (smtpmail-stream-type 'starttls)
-  (starttls-use-gnutls  t)
-  (send-mail-function 'smtpmail-send-it)
-  (message-send-mail-function 'smtpmail-send-it))
 
 (use-package mu4e-alert
   :after mu4e
