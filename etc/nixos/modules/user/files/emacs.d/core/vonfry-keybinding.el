@@ -28,9 +28,9 @@
            (map-mode   (intern (concat map-str "-mode")))
            (map-at     (intern (concat map-str "-at"))))
       `(progn
-         (general-create-definer ,map-leader :wrapping ,map        :keymaps 'override :prefix "SPC")
-         (general-create-definer ,map-mode   :wrapping ,map-leader :keymaps 'override :infix  "SPC")
-         (general-create-definer ,map-at     :wrapping ,map-leader :keymaps 'override :infix  "@"))))
+         (general-create-definer ,map-leader :wrapping ,map        :prefix "SPC")
+         (general-create-definer ,map-mode   :wrapping ,map-leader :infix  "SPC")
+         (general-create-definer ,map-at     :wrapping ,map-leader :infix  "@"))))
   (vonfry--keybind-definer nmap)
   (vonfry--keybind-definer vmap)
   (vonfry--keybind-definer nvmap)
