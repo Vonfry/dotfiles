@@ -6,6 +6,7 @@
   (nmap-leader :infix "'" :keymaps 'envrc-mode-map
     "e" 'envrc-command-map)
 
+  :config
   ;; Take from doom-emacs, this can make envrc load earlier than lsp
   (add-hook 'change-major-mode-after-body-hook
     (lambda ()
