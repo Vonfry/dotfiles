@@ -74,6 +74,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   # services.fprintd.enable = true;
+  # services.hardware.bolt.enable = true;
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.networkmanager.enable = false;
