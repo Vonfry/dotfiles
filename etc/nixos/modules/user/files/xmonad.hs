@@ -86,7 +86,8 @@ myKeys conf = mkKeymap conf
     , ("M-, j", spawn "pulseeffects"    )
     , ("M-, k", spawn "pavucontrol"     )
     , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
-    , ("M-, a", runInTerm "-t htop"    "htop"   )
+
+    , ("M-$", runInTerm "-t htop"    "htop")
 
     , ("M-s r", spawn "systemctl reboot"   )
     , ("M-s s", spawn "systemctl suspend"  )
@@ -97,8 +98,6 @@ myKeys conf = mkKeymap conf
     , ("M-n c", spawn "dunstctl close"      )
     , ("M-n a", spawn "dunstctl close-all"  )
     , ("M-n p", spawn "dunstctl history-pop")
-
-    , ("M-$"  , runInTerm "" "watch date"     )
 
     -- basic window
     , ("M-<Return>"  , spawn $ terminal conf             )

@@ -23,6 +23,19 @@
     "[ }" '+bib/switch-dir
     "[ (" '+bib/switch-dir-from-search-dir
     "[ &" 'ebib-insert-citation
-    "[ -" '+bib/switch-insert-single-or-multiple))
+    "[ -" '+bib/switch-insert-single-or-multiple)
+  ;; These has confliction with evil
+  (general-unbind ebib-log-mode-map
+    :with nil
+    "SPC" "S-SPC")
+  (general-unbind ebib-strings-mode-map
+    :with nil
+    "SPC" "S-SPC")
+  (general-unbind ebib-entry-mode-map
+    :with nil
+    "SPC" "S-SPC")
+  (general-unbind ebib-index-mode-map
+    :with nil
+    "SPC" "S-SPC"))
 
 (use-package org-ebib :after org)

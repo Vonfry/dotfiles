@@ -13,6 +13,7 @@
     - [X] screen locker with i3lock
     - [X] sddm with chili instead of lightdm
     - [ ] qgtk3 or qgnomeplatform support (wait for fix)
+    - [ ] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
 ** CANCELLED macOS
    CLOSED: [2020-10-01 Thu 19:26]
 
@@ -54,6 +55,7 @@
 ** DONE LaTex
 * Shell
 ** DONE ZSH[1/1]
+   CLOSED: [2021-01-14 Thu 08:25]
    - [X] fzf as completion
 
 * Utils
