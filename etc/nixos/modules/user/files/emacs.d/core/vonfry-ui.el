@@ -34,8 +34,9 @@
 (defun vonfry--change-theme (theme)
   "change theme with disable current one.
 THEME is a symbol passed to `load-theme'"
-  (--map (disable-theme it) custom-enabled-themes)
-  (load-theme theme t))
+  (--map (unless (equal it 'use-package) (disable-theme it))
+         custom-enabled-themes)
+  (enable-theme theme))
 
 (vonfry--change-theme (car vonfry-themes))
 
