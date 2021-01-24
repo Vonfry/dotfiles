@@ -70,6 +70,7 @@ in {
 
         chromium # qutebrowser
         qbittorrent
+        unstable.tor-browser-bundle-bin
 
         wireshark nmap
         vnstat iftop httpstat
