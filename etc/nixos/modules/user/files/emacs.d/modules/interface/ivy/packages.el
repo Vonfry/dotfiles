@@ -29,8 +29,9 @@
   ("C-&" 'counsel-company)
   (nmap-leader :keymaps 'prog-mode-map
     "r" 'counsel-compile)
+  (nvmap-leader
+    "x" 'counsel-M-x)
   (nmap-leader
-    "x" 'counsel-M-x
     "f" 'counsel-find-file
     "F" '(:ignore t :which-key "counsel misc")
     "F f" 'counsel-fzf
