@@ -3,7 +3,7 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'"
-  :hook lsp
+  :hook (rust-mode . lsp)
   :general
   (nmap-mode :keymaps 'rust-mode-map
     "=" 'rust-mode-indent-line

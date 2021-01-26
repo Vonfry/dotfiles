@@ -14,4 +14,6 @@ with pkgs;
   fortuneChinese = callPackage ./data/fortune-chinese { };
 
   desktopBackground = callPackage ./data/desktop-background { };
+
+  zsh-fzf-tab = callPackage ./shells/zsh-fzf-tab { };
 }

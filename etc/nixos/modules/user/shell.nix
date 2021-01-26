@@ -46,18 +46,6 @@ in {
         enableCompletion = true;
         defaultKeymap = "emacs";
 
-        plugins = with pkgs; [
-          {
-            name = "fzf-tab";
-            src = fetchFromGitHub {
-              owner = "Aloxaf";
-              repo = "fzf-tab";
-              rev = "8584ed59107f37996b977a499ea0d536d851920d";
-              sha256 = "177k0wjc2rzp1kynrrmqi0zn3my198cksc6y190sw1r4ia5bsf4k";
-            };
-          }
-        ];
-
         localVariables = {
           PATH = "~/.local/bin:$PATH";
           WORDCHARS = "*?_-.[]~&;!#$%^(){}<>";
@@ -105,6 +93,7 @@ in {
           export LESS_TERMCAP_ue=$'\E[0m'
           export LESS_TERMCAP_us=$'\E[01;32m'
 
+          source ${vonfryPackages.zsh-fzf-tab}/fzf-tab.plugin.zsh
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
           source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh

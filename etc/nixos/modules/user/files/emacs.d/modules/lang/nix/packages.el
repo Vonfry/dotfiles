@@ -3,7 +3,7 @@
 
 (use-package nix-mode
   :interpreter ("nix-shell" . nix-shebang-mode)
-  :hook lsp
+  :hook (nix-mode . lsp)
   :general
   (nmap-leader :keymaps 'nix-mode-map
     "="  'nix-format-buffer

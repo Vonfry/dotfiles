@@ -13,6 +13,8 @@
     "M m" 'treemacs-bookmark)
   (nmap-leader
     "P F" 'treemacs-find-file
+    "P s" 'treemacs-switch-workspace
+    "P e" 'treemacs-edit-workspaces
     "P A" 'treemacs-add-and-display-current-project))
 
 (use-package treemacs-evil

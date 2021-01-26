@@ -19,9 +19,9 @@
   (dashboard-navigator-buttons
    `(;; (icon title help action face prefix suffix)
      ((,(all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0)
-       "Scrath"
+       "Scratch"
        "Goto scrath buffer"
-       (lambda (&rest _) (switch-to-buffer "*scrath*")))
+       (lambda (&rest _) (+evil/switch-scratch)))
       (,(all-the-icons-material "folder" :height 1.0 :v-adjust 0.0)
        "Files"
        "Files Manager"

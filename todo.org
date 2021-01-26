@@ -54,15 +54,16 @@
    CLOSED: [2020-12-09 Wed 08:49]
 ** DONE LaTex
 * Shell
-** DONE ZSH[1/1]
+** DONE ZSH[1/2]
    CLOSED: [2021-01-14 Thu 08:25]
    - [X] fzf as completion
+   - [ ] fzf-tab use nixpkgs version and remove overlay
 
 * Utils
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** DONE home-manager instead setup script[21/22]
+*** DONE home-manager instead setup script[22/23]
     CLOSED: [2020-11-26 Thu 14:04]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
@@ -86,7 +87,7 @@
     - [X] neovim & emacs packages management
     - [X] qutebrowser setting, color, bookmark and search
     - [X] remove darwin support
-    - [ ] nvim: some plugins problem and wait for update
+    - [X] nvim: some plugins problem and wait for update
     - [X] emacs wraping other tools instead of install into user env
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
