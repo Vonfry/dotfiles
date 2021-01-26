@@ -35,8 +35,7 @@
     "e"   '(:ignore t :which-key "emacs")
     "e s" 'server-start
     "e #" 'server-edit
-    "e D" 'diff
-    "e d" 'ediff)
+    "e D" 'diff)
   (vmap-leader
     "="   'align-regexp))
 
