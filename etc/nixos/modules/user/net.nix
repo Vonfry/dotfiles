@@ -68,7 +68,7 @@ in {
         wget curl w3m
         # mu isync
 
-        chromium # qutebrowser
+        firefox # qutebrowser
         qbittorrent
         unstable.tor-browser-bundle-bin
 
@@ -86,7 +86,7 @@ in {
         enable = true;
         keyBindings = {
           normal = {
-            "gv" = "spawn chromium {url}";
+            "gv" = "spawn firefox {url}";
             "pm" = "spawn mpv {url}";
             "pa" = "open -t https://web.archive.org/save/{url}";
           };
