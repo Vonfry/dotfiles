@@ -22,8 +22,8 @@
 
 (use-package magit-gitflow
   :after magit
-  :custom
-  (magit-gitflow-popup-key "C-c g")
+  :init
+  (setq-default magit-gitflow-popup-key "C-c g")
   :hook
   (magit-mode . turn-on-magit-gitflow))
 
