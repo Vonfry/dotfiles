@@ -19,6 +19,7 @@ in {
       libvirtd = {
         enable = true;
         qemuRunAsRoot = mkDefault false;
+        qemuPackage = mkDefault pkgs.qemu_kvm;
       };
 
       docker = {
