@@ -232,7 +232,6 @@ in {
           company
           company-quickhelp
           company-prescient
-          w3m
           yasnippet
           yasnippet-snippets
           info-colors

@@ -65,7 +65,7 @@ in {
       };
 
       packages = with pkgs; [
-        wget curl w3m
+        wget curl
         # mu isync
 
         firefox # qutebrowser
