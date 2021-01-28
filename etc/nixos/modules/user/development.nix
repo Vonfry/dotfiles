@@ -331,7 +331,7 @@ in {
         nixfmt nix-doc
         niv
 
-        cloc zeal
+        tokei zeal
 
         pandoc
 
