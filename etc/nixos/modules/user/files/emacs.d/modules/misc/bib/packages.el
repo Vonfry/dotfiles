@@ -23,7 +23,7 @@
     "[ }" '+bib/switch-dir
     "[ (" '+bib/switch-dir-from-search-dir
     "[ &" 'ebib-insert-citation
-    "[ -" '+bib/switch-insert-single-or-multiple)
+    "[ -" '+bib/toggle-insert-multiple)
   ;; These has confliction with evil
   (general-unbind ebib-log-mode-map
     :with nil

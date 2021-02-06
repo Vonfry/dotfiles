@@ -1,9 +1,9 @@
-;;; w3m func -*- lexical-binding: t -*-
+;;; browser func -*- lexical-binding: t -*-
 ;;
 
 (defun +browse/switch-emacs ()
   (interactive)
-  (setq browse-url-browser-function 'w3m-browse-url))
+  (setq browse-url-browser-function 'eww))
 
 (defun +browse/switch-generic ()
   (interactive)

@@ -1,16 +1,17 @@
-;;; w3m packages -*- lexical-binding: t -*-
+;;; browser packages -*- lexical-binding: t -*-
 ;;
 
-(use-package w3m
+(use-package eww
   :custom
   (browse-url-browser-function 'browse-url-generic)
   (browse-url-generic-program (getenv "BROWSER"))
   (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
+  (url-cache-directory (expand-file-name "url" vonfry-cache-dir))
   :general
   (nmap-at
     "w"   '(:ignore t :which-key "browse")
     "."   'browse-url-at-point
-    "w w" 'w3m
+    "w w" 'eww
     "w W" 'browse-url-generic
     "w ." 'w3m-browse-url
     "w g" '+browse/switch-emacs

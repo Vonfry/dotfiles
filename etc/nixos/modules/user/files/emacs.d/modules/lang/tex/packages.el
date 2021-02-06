@@ -51,7 +51,6 @@
     "r"      'compile
     "R"      'TeX-command-run-all)
   (nmap-mode :keymaps '(TeX-mode-map)
-    "\\"      'TeX-insert-macro
     "-"       'TeX-recenter-output-buffer
     "%"       'TeX-comment-or-uncomment-paragraph
     "k"       'TeX-kill-job
