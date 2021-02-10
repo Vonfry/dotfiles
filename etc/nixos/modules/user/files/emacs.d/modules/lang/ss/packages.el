@@ -10,6 +10,9 @@
   (ess-use-auto-complete nil)
   (ess-history-directory (expand-file-name "ess/" vonfry-cache-dir))
   :general
+  (nmap-mode :keymaps 'ess-mode-map
+   "\""    'ess-interrupt
+   "?"     'ess-help)
   (nmap-leader :keymaps 'ess-mode-map
    "\""    'ess-interrupt
    "?"     'ess-help
