@@ -75,7 +75,6 @@ myKeys conf = mkKeymap conf
     , ("M-z", sshPrompt myXPConf               )
 
     , ("M-<F1>"  , manPrompt myXPConf             )
-    , ("M-S-<F1>", runInTerm "-t w3mman" "w3mman" )
 
     , ("M-, d", spawn "zeal"            )
     , ("M-, b", spawn "qutebrowser"     )

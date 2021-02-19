@@ -13,6 +13,5 @@
     "."   'browse-url-at-point
     "w w" 'eww
     "w W" 'browse-url-generic
-    "w ." 'w3m-browse-url
     "w g" '+browse/switch-emacs
     "w G" '+browse/switch-generic))
