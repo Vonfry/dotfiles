@@ -33,7 +33,11 @@
   :hook
   (LaTeX-mode .
      (lambda ()
-       (set (make-local-variable 'compile-command) "latexmk")
+       (set (make-local-variable 'compile-command)
+            (s-trim (s-join " "
+                            (list
+                             "latexmk"
+                             (file-relative-name buffer-file-name)))))
        (require 'preview)
        (require 'tex-site)
        ;; use pdfview with auctex
