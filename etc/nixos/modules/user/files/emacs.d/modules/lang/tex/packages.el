@@ -20,7 +20,7 @@
   (TeX-auto-local "latex.out")
   (TeX-style-local TeX-auto-local)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
-  (TeX-region (expand-file-name "_region_" TeX-auto-local))
+  (TeX-region (concat TeX-auto-local "/_region_"))
   (TeX-view-program-selection '((output-pdf "zathura")
                                 (output-dvi "xdvi")
                                 (output-html "xdg-open")))
