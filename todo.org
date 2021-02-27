@@ -57,7 +57,7 @@
 ** DONE ZSH[1/2]
    CLOSED: [2021-01-14 Thu 08:25]
    - [X] fzf as completion
-   - [ ] fzf-tab use nixpkgs version and remove overlay
+   - [ ] fzf-tab use nixpkgs version and remove overlay(note: change load path)
 
 * Utils
 ** Nix
