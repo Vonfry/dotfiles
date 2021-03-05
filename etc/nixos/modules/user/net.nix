@@ -70,7 +70,7 @@ in {
 
         firefox # qutebrowser
         qbittorrent
-        unstable.tor-browser-bundle-bin
+        # unstable.tor-browser-bundle-bin
 
         wireshark nmap
         vnstat iftop httpstat

@@ -100,7 +100,7 @@ in {
           source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
           # ${zsh-completions}
 
-          eval "$(jump shell)"
+          eval "$(zoxide init zsh)"
           eval $(thefuck --alias)
           function set_win_title(){
               echo -ne "\033]0; $TERM - $PWD \007"
@@ -674,7 +674,7 @@ in {
           (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs makeLib ]);
 
       packages = with pkgs; [
-        zsh fzf jump
+        zsh fzf zoxide
         trash-cli thefuck # tmux
         neofetch
         # lolcat

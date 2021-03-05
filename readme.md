@@ -118,5 +118,5 @@ vim. By the way, they are native application without web technology, which I
 never like to.
 
 I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is
-not easy like evernote, but I like it. Some website use w3m with org for
+not easy like evernote, but I like it. Some website use eww with org for
 capturing. 
