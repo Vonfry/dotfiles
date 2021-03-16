@@ -226,6 +226,7 @@
 (use-package org-contacts
   :ensure org-plus-contrib
   :custom
+  (org-contacts-icon-use-gravatar nil)
   (org-contacts-files
    (if (file-exists-p +org-contacts-dir)
     (directory-files +org-contacts-dir t
