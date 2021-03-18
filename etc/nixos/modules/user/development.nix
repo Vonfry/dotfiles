@@ -306,7 +306,8 @@ in {
         enable = true;
         extraPackages = tpkgs: {
           inherit (tpkgs) scheme-medium collection-latexextra
-            collection-bibtexextra collection-publishers collection-langchinese;
+            collection-bibtexextra collection-publishers collection-langchinese
+            collection-fontsextra;
           pkgFilter = (pkg: with lib; with pkg;
             elem tlType ([ "run" "bin" ] ++
                          optional cfg.texlive.withDoc "doc") ||

@@ -128,7 +128,7 @@ in {
             draculaCyan                = "#8be9fd";
             draculaGreen               = "#50fa7b";
           in {
-            hints.chars = "aoeuidhts";
+            hints.chars = "aoeuidhtns";
             url = {
               default_page = "about:blank";
               start_pages = [ "about:blank" ];

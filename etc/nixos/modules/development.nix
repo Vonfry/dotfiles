@@ -8,8 +8,6 @@ in {
     environment.systemPackages = with pkgs; [
       vim neovim emacs
 
-      cloc
-
       docker_compose # docker
 
       git git-lfs
@@ -27,7 +25,5 @@ in {
         autoPrune.enable = mkDefault true;
       };
     };
-
-    documentation.dev.enable = true;
   };
 }
