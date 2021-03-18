@@ -328,8 +328,7 @@ in {
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
 
-        nixfmt nix-doc
-        niv
+        nixfmt niv
 
         tokei zeal
 
