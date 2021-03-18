@@ -25,7 +25,5 @@ in {
         autoPrune.enable = mkDefault true;
       };
     };
-
-    documentation.dev.enable = true;
   };
 }
