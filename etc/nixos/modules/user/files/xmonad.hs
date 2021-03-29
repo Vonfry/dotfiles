@@ -76,15 +76,15 @@ myKeys conf = mkKeymap conf
 
     , ("M-<F1>"  , manPrompt myXPConf             )
 
-    , ("M-, d", spawn "zeal"            )
-    , ("M-, b", spawn "qutebrowser"     )
-    , ("M-, o", spawn "libreoffice"     )
-    , ("M-, v", spawn "virt-manager"    )
-    , ("M-, f", spawn "zathura"         )
-    , ("M-, t", spawn "telegram-desktop")
-    , ("M-, j", spawn "pulseeffects"    )
-    , ("M-, k", spawn "pavucontrol"     )
-    , ("M-, '", runInTerm "-t cmatrix" "cmatrix")
+    , ("M-o d", spawn "zeal"            )
+    , ("M-o b", spawn "qutebrowser"     )
+    , ("M-o o", spawn "libreoffice"     )
+    , ("M-o v", spawn "virt-manager"    )
+    , ("M-o f", spawn "zathura"         )
+    , ("M-o t", spawn "telegram-desktop")
+    , ("M-o j", spawn "pulseeffects"    )
+    , ("M-o k", spawn "pavucontrol"     )
+    , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t htop"    "htop")
 
@@ -203,11 +203,11 @@ myKeys conf = mkKeymap conf
     , ("M-{"   , prevWS      )
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
-    , ("M-C-g" , toggleWS    )
+    , ("M-C-," , toggleWS    )
 
     -- dynamic workspace
-    , ("M-g"  , workspacePrompt myXPConf (windows . view ))
-    , ("M-S-g", workspacePrompt myXPConf (windows . shift))
+    , ("M-,"  , workspacePrompt myXPConf (windows . view ))
+    , ("M-S-,", workspacePrompt myXPConf (windows . shift))
     , ("M-w d", removeWorkspace            )
     , ("M-w n", addWorkspacePrompt myXPConf)
     , ("M-w r", renameWorkspace myXPConf   )
