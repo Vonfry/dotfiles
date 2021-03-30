@@ -34,17 +34,9 @@ in {
         type = with types; nullOr str;
       };
     };
-
-    texlive = {
-      withDoc = mkEnableOption "texlive packages with doc.";
-    };
   };
 
   config = mkIf cfg'.enable {
-    vonfry.development = {
-      texlive.withDoc = mkDefault true;
-    };
-
 
     xdg.configFile = {
       "emacs.d" = {
@@ -302,18 +294,6 @@ in {
         enableZshIntegration = true;
       };
 
-      texlive = {
-        enable = true;
-        extraPackages = tpkgs: {
-          inherit (tpkgs) scheme-medium collection-latexextra
-            collection-bibtexextra collection-publishers collection-langchinese
-            collection-fontsextra;
-          pkgFilter = (pkg: with lib; with pkg;
-            elem tlType ([ "run" "bin" ] ++
-                         optional cfg.texlive.withDoc "doc") ||
-            elem pname  [ "core" ]);
-        };
-      };
     };
 
     home = {
@@ -328,8 +308,7 @@ in {
         # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
 
-        nixfmt nix-doc
-        niv
+        nixfmt niv
 
         tokei zeal
 
@@ -337,8 +316,7 @@ in {
 
         graphviz
 
-        # texlive.combined.scheme-full git-latexdiff
-        texlab rnix-lsp
+        rnix-lsp
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a structure

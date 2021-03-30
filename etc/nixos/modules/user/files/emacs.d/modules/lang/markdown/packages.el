@@ -6,7 +6,14 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :custom
+  (markdown-command "multimarkdown")
+  (markdown-hide-markup t)
+  :general
+  (nmap-mode :keymaps 'markdown-mode-map
+    "m" 'markdown-toggle-markup-hiding
+    "u" 'markdown-toggle-url-hiding
+    "r" 'markdown))
 
 (use-package markdown-mode+
   :after markdown-mode)
