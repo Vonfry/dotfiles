@@ -31,6 +31,7 @@
 **** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
 **** DONE envrc instead of direnv.el
 **** TODO ob-gnuplot and gnuplot(build failed now)
+*** TODO replace undo-tree with emacs 28 builtin's one.
 ** DONE LSP[1/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
@@ -92,3 +93,5 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
+** TODO home-manager[0/1]
+   - [ ] qutebrowser module for autoconfig instead of extraConfig

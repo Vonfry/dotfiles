@@ -59,6 +59,7 @@
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
   nix.maxJobs = "auto"; 
+  # nix.binaryCaches = lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
   fonts.fontconfig.dpi = 96;
   # services.xserver.videoDrivers = [ "nvidia" ];

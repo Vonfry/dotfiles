@@ -9,10 +9,7 @@
   (when (= +bib--set-counter most-negative-fixnum)
     (setq-default ebib-file-search-dirs nil))
   (setq +bib--set-counter (1- +bib--set-counter))
-  (if +bib-note-is-single
-      (setq-default ebib-notes-file (expand-file-name "notes.org" path))
-    (setq-default ebib-notes-directory path
-                  ebib-notes-file nil))
+  (+bib--set-note-dir path)
   (setq-default
    ebib-reading-list-file (expand-file-name "reading.org" path)
    ebib-file-search-dirs (add-to-ordered-list
@@ -37,13 +34,16 @@
 (defun +bib/switch-note-files ()
   "switch bib notes between single file or multiple files."
   (interactive)
-  (when +bib-note-is-single
-      (setq-default
-       ebib-notes-directory (file-name-directory ebib-notes-file)
-       ebib-notes-file      nil))
+  (+bib--set-note-dir default-directory)
   (setq-default +bib-note-is-single (not +bib-note-is-single)))
 
 (defun +bib/toggle-insert-multiple ()
   (interactive)
   (setq-default
    ebib-citation-insert-multiple (not ebib-citation-insert-multiple)))
+
+(defun +bib--set-note-dir (path)
+  (if +bib-note-is-single
+      (setq-default ebib-notes-file (expand-file-name "notes.org" path))
+    (setq-default ebib-notes-directory path
+                  ebib-notes-file nil)))
