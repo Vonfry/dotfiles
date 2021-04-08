@@ -92,3 +92,5 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
+** TODO home-manager[0/1]
+   - [ ] qutebrowser module for autoconfig instead of extraConfig
