@@ -126,7 +126,27 @@ in {
       enable = true;
       userDirs.enable = true;
       mimeApps.enable = true;
+      mimeApps.defaultApplications = {
+        "inode/directory" = [ "xranger.desktop" "ranger.desktop" ];
+      };
       dataFile = {
+        "applications/xranger.desktop".text = ''
+          [Desktop Entry]
+          Version=1.0
+          Name=xranger
+          GenericName=File Manager
+          Comment=Launches the ranger file manager
+          # needs full path to bin
+          Exec=${config.programs.alacritty.package}/bin/alacritty -e ranger %F
+          Icon=utilities-terminal
+          Terminal=false
+          X-MultipleArgs=false
+          Type=Application
+          MimeType=inode/directory;
+          StartupNotify=true
+          Categories=System;FileTools;FileManager
+        '';
+
         "applications/org-protocol.desktop".text = ''
           [Desktop Entry]
           Name=org-protocol
