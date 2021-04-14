@@ -54,7 +54,7 @@
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
-  (nmap-mode :keymaps 'org-mode-map
+  (nvmap-mode :keymaps 'org-mode-map
     "/"   'org-occur
     "n"   'next-error
     "p"   'previous-error
