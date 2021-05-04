@@ -27,7 +27,8 @@
 			(:maildir        .  16)
 			(:thread-subject .  nil)))
   (sendmail-program "msmtp")
-  (message-send-mail-function 'sendmail-send-it)
+  (message-send-mail-function 'message-send-mail-with-sendmail)
+  (message-sendmail-f-is-evil t)
   (message-sendmail-extra-arguments '("--read-envelope-from"))
   :hook
   (emacs-startup . (lambda () (mu4e t)))
