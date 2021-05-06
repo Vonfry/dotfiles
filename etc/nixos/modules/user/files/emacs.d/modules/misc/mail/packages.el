@@ -29,7 +29,7 @@
   (sendmail-program "msmtp")
   (message-send-mail-function 'message-send-mail-with-sendmail)
   (message-sendmail-f-is-evil t)
-  (message-sendmail-extra-arguments '("--read-envelope-from"))
+  (message-sendmail-extra-arguments '("--read-envelope-from" "-t"))
   :hook
   (emacs-startup . (lambda () (mu4e t)))
   :config
