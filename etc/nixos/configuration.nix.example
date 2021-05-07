@@ -11,7 +11,7 @@
     user.extraConfig = {
       openssh.authorizedKeys.keys = [];
     };
-  
+
     network = {
       zerotierNets = [];
 
@@ -24,10 +24,10 @@
     };
 
     # x.autoWake.enable = true;
-  
+
     hmConfig =
       { config, pkgs, lib, ... }:
-      
+
       {
         # sessionVariables must be set after creating these directories.
         home.sessionVariables = {
@@ -37,7 +37,7 @@
           CLONE_LIB    = "$HOME/repos";
           LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
         };
-        
+
         vonfry = {
           development = {
             git.signKey = "";
@@ -58,7 +58,7 @@
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
-  nix.maxJobs = "auto"; 
+  nix.maxJobs = "auto";
   # nix.binaryCaches = lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
   fonts.fontconfig.dpi = 96;
@@ -85,7 +85,7 @@
   # networking.firewall = {
   #   enable = true;
   #   allowedTCPPorts = [ 22000 # syncthing tcp forwarding
-  #                     ];   
+  #                     ];
   #   allowedTCPPortRanges = [
   #     { from = 5900; to = 5902; } # vnc
   #   ];
@@ -126,6 +126,11 @@
   # };
 
   # nesting.clone = [];
+
+  # environment.systemPackages = with pkgs; [
+  #    # cli browser for network auth with login in web page
+  #    browsh elinks w3m lynx
+  # ];
 
   # N.B. boot loader
 
