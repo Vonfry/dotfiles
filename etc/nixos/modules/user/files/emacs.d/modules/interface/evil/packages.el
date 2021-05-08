@@ -13,6 +13,15 @@
   (evil-shift-width 4)
   (evil-search-module 'isearch)
   :general
+  (nmap ; for dvorak programming layout
+    "q" 'evil-backward-char
+    "Q" 'evil-window-up
+    "h" 'evil-delete-char
+    "H" 'evil-delete-backward-char
+    "l" 'evil-record-macro
+    "L" nil
+    "x" 'evil-forward-char
+    "X" 'evil-window-bottom)
   (nmap :prefix "g"
         "B" 'previous-buffer
         "b" 'next-buffer)
