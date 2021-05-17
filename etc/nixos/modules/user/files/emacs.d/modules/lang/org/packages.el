@@ -13,7 +13,7 @@
   (org-hide-leading-stars t)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
-  (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
+  (org-id-locations-file (expand-file-name "org/id" vonfry-local-dir))
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel . 99)
                         (org-contacts-files :maxlevel . 99)
