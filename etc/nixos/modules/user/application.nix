@@ -103,7 +103,7 @@ in {
 
         hledger
 
-        tdesktop
+        tdesktop quaternion
 
         # remmina
         filezilla
