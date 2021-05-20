@@ -208,12 +208,9 @@ in {
           magit-gitflow
           gitlab-ci-mode
           forge
-          inf-ruby
           diff-hl
           disaster
-          function-args
           cmake-mode
-          cmake-font-lock
           realgud-lldb
           mu4e-alert
           mu4e-maildirs-extension

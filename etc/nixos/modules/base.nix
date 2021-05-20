@@ -22,7 +22,6 @@ in {
       atop htop
       lm_sensors lsof
 
-      zip unzip
       file patch colordiff parallel
       ripgrep fd exa bat
       ranger

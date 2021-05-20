@@ -13,9 +13,9 @@ in {
 
   config = mkIf config.vonfry.enable {
     environment.systemPackages = with pkgs; [
-      wget curl
+      curl
 
-      vnstat iftop
+      iftop
       wireshark nmap
     ];
 

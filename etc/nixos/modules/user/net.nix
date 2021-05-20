@@ -65,7 +65,7 @@ in {
       };
 
       packages = with pkgs; [
-        wget curl
+        curl
         # mu isync
 
         firefox # qutebrowser
@@ -73,7 +73,7 @@ in {
         # unstable.tor-browser-bundle-bin
 
         wireshark nmap
-        vnstat iftop httpstat
+        iftop httpstat
       ];
     };
 
