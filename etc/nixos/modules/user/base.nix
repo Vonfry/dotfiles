@@ -33,7 +33,7 @@ in {
       packages = with pkgs; [
         atop # htop
         sshfs exfat
-        lnav visidata lm_sensors lsof
+        lnav lm_sensors lsof
 
         ranger
         patch parallel file
