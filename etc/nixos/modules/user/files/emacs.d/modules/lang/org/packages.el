@@ -175,12 +175,6 @@
 (use-package org-roam
   :init
   (+org--roam-set-path +org-note-dir)
-  :custom
-  (org-roam-capture-templates
-   '(("d" "default" plain #'org-roam-capture--get-point "%?"
-      :file-name "%(+org--roam-capture-note-dir)/${slug}"
-      :head "#+title: ${title}"
-      :unnarrowed t)))
   :general
   (nmap-leader :infix "o"
     "N"   'org-roam-find-file

@@ -36,17 +36,6 @@
                           path)
                          +org-roam-local-dir)))
 
-(defun +org--roam-capture-note-dir ()
-  (let ((default-directory +org-note-dir))
-    (call-interactively '+org--roam-capture-note-dir-aux)))
-
-(defun +org--roam-capture-note-dir-aux (path)
-  (interactive "Droam: ")
-  (let ((path-no-prefix (if (s-prefix? +org-note-dir path)
-                            (s-chop-prefixes (list +org-note-dir "/") path)
-                          path)))
-    (s-chop-suffix "/" path-no-prefix)))
-
 (defconst +org--agenda-ibuffer-group
   `(("Agenda" (or (name . ,(regexp-quote +org-agenda-dir))
                   (name . ,(regexp-quote +org-capture-file))))))
