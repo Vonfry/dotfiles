@@ -25,6 +25,8 @@
     "M d" 'bookmark-delete
     "M r" 'bookmark-rename
     "M w" 'bookmark-write
+    "F B" 'hexl-find-file
+    "F b" 'hexl-mode
     "~"   'eshell
     "!"   'calc
     "\""  'comint-run
