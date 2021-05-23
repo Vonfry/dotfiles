@@ -3,6 +3,7 @@
 
 (use-package org
   :custom
+  (org-startup-folded t)
   (org-default-notes-file +org-capture-file)
   (org-directory +org-dir)
   (org-clock-persist t)
@@ -74,6 +75,11 @@
     "$"   'org-archive-subtree-default
     "c"   'org-ctrl-c-ctrl-c
     "h"   'avy-org-goto-heading-timer
+    "u"   'org-id-get-create
+    "U"   'org-id-update-id-locations
+    "G"   'org-id-goto
+    "o"   'org-store-link
+    "O"   'org-id-store-link
     "D"   '(:ignore t :which-key "display")
     "D i" 'org-display-inline-images
     "D t" 'org-latex-preview
