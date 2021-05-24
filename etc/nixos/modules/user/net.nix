@@ -129,6 +129,7 @@ in {
             draculaGreen               = "#50fa7b";
           in {
             hints.chars = "aoeuidhtns";
+            input.partial_timeout = 30000;
             url = {
               default_page = "about:blank";
               start_pages = [ "about:blank" ];
