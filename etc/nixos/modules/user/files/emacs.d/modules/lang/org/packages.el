@@ -112,7 +112,7 @@
     "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
-    "n" '+org/find-notes
+    "N" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
     "c" 'org-capture
@@ -175,7 +175,7 @@
   (+org--roam-set-path +org-note-dir)
   :general
   (nmap-leader :infix "o"
-    "N"   'org-roam-find-file
+    "n"   'org-roam-find-file
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
     "R b" 'org-roam-db-build-cache
