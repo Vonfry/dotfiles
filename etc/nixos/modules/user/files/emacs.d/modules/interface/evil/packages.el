@@ -36,6 +36,7 @@
     "_"   '+evil/switch-scratch
     "e"   '(:ignore t :which-key "emacs")
     "e s" 'server-start
+    "e c" 'clean-buffer-list
     "e #" 'server-edit
     "e D" 'diff)
   (vmap-leader
