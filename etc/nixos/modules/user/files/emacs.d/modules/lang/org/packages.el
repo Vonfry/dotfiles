@@ -14,15 +14,13 @@
   (org-hide-leading-stars t)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
+  (org-id-link-to-org-use-id 'use-existing)
   (org-id-locations-file (expand-file-name "org/id" vonfry-local-dir))
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel . 99)
                         (org-contacts-files :maxlevel . 99)
                         (org-agenda-files :maxlevel . 99)))
-  (org-agenda-files
-   (append (directory-files +org-agenda-dir t
-                            "^[A-z0-9\\-_]+\\.org$")
-           (list +org-capture-file)))
+  (org-agenda-files (list +org-agenda-dir +org-capture-file))
   (org-tag-alist
    (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
     (eval (read-from-whole-string
