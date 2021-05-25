@@ -677,7 +677,6 @@ in {
         zsh fzf zoxide
         trash-cli thefuck # tmux
         neofetch
-        # lolcat
         asciinema
 
         zsh-completions

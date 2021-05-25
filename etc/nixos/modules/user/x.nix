@@ -117,8 +117,6 @@ in {
     };
 
     home.packages = with pkgs; [
-      # tigervnc
-
       # alacritty
     ];
 
