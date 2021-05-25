@@ -93,7 +93,7 @@ in {
           export LESS_TERMCAP_ue=$'\E[0m'
           export LESS_TERMCAP_us=$'\E[01;32m'
 
-          source ${vonfryPackages.zsh-fzf-tab}/fzf-tab.plugin.zsh
+          source ${zsh-fzf-tab}/fzf-tab.plugin.zsh
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
           source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh

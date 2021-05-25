@@ -33,7 +33,7 @@
 **** TODO ob-gnuplot and gnuplot(build failed now)
 *** TODO replace undo-tree with emacs 28 builtin's one.
 *** TODO merge to new ebib options
-** DONE LSP[1/2]
+** DONE LSP[2/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
    - [X] install them project with nix-shell instead of global one
@@ -56,10 +56,10 @@
    CLOSED: [2020-12-09 Wed 08:49]
 ** DONE LaTex
 * Shell
-** DONE ZSH[1/2]
+** DONE ZSH[2/2]
    CLOSED: [2021-01-14 Thu 08:25]
    - [X] fzf as completion
-   - [ ] fzf-tab use nixpkgs version and remove overlay(note: change load path)
+   - [X] fzf-tab use nixpkgs version and remove overlay(note: change load path)
 
 * Utils
 ** Nix
