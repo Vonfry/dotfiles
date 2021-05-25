@@ -23,14 +23,15 @@
 ** Emacs[2/3]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
-*** TODO Interesting plugins[3/5]
+*** TODO Interesting plugins[4/6]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
 **** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
      CLOSED: [2020-12-09 Wed 09:11]
 **** DONE magit evil and sth else is included in evil-collection
 **** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
 **** DONE envrc instead of direnv.el
-**** TODO ob-gnuplot and gnuplot(build failed now)
+**** CANCELLED ob-gnuplot and gnuplot(build failed now)
+     CLOSED: [2021-05-25 Tue 16:32]
 *** TODO replace undo-tree with emacs 28 builtin's one.
 *** TODO merge to new ebib options
 ** DONE LSP[2/2]
