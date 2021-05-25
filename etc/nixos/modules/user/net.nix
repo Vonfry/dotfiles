@@ -98,7 +98,6 @@ in {
           DEFAULT = "https://duckduckgo.com/?q={}";
           w  = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
           g  = "https://www.google.com/search?hl=en&q={}";
-          d  = "https://www.dogedoge.com/results?q={}";
           nw = "https://nixos.wiki/index.php?search={}";
           gh = "https://github.com/search?type=&q={}";
           gl = "https://gitlab.com/search?search={}";
