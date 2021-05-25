@@ -65,7 +65,7 @@
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** DONE home-manager instead setup script[22/23]
+*** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
@@ -94,5 +94,6 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** TODO home-manager[0/1]
-   - [ ] qutebrowser module for autoconfig instead of extraConfig
+** DONE home-manager[1/1]
+   CLOSED: [2021-05-25 Tue 16:31]
+   - [X] qutebrowser module for autoconfig instead of extraConfig
