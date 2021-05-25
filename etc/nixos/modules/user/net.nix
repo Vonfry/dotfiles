@@ -90,6 +90,8 @@ in {
             "pm" = "spawn mpv {url}";
             "pa" = "open -t https://web.archive.org/save/{url}";
             ";m" = "hint links spawn mpv {hint-url}";
+            "ab" = "spawn --userscript getbib";
+            "ap" = "spawn --userscript password_fill";
           };
         };
         searchEngines = {
