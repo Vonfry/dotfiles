@@ -179,7 +179,8 @@
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
     "R b" 'org-roam-db-build-cache
-    "R p" '+org/roam-switch)
+    "R p" '+org/roam-switch
+    "R a" 'org-roam-jump-to-index)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam
     "R "  '(:ignore t :which-key "org roam")
