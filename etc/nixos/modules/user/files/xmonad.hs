@@ -82,7 +82,6 @@ myKeys conf = mkKeymap conf
     , ("M-o v", spawn "virt-manager"    )
     , ("M-o f", spawn "zathura"         )
     , ("M-o t", spawn "telegram-desktop")
-    , ("M-o m", spawn "quaternion"      )
     , ("M-o j", spawn "pulseeffects"    )
     , ("M-o k", spawn "pavucontrol"     )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")

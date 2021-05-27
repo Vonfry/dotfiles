@@ -103,7 +103,7 @@ in {
 
         hledger
 
-        tdesktop quaternion
+        tdesktop
 
         filezilla
 
