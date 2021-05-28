@@ -103,14 +103,13 @@ in {
 
         hledger
 
-        tdesktop quaternion
+        tdesktop
 
-        # remmina
         filezilla
 
-        flameshot feh # inkscape gimp
-        pavucontrol # kid3 audacity
-        # mpv ffmpeg
+        flameshot feh
+        pavucontrol
+        # mpv
         # zathura
         libreoffice
 

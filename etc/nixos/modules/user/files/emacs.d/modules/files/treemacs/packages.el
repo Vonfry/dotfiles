@@ -15,7 +15,6 @@
     "P A" 'treemacs-add-and-display-current-project)
   :config
   (treemacs-follow-mode 1)
-  (treemacs-tag-follow-mode 1)
   (treemacs-filewatch-mode 1))
 
 (use-package treemacs-evil
@@ -28,7 +27,9 @@
     "P T" 'treemacs-projectile))
 
 (use-package treemacs-magit
-  :after (treemacs magit))
+  :after (treemacs magit)
+  :config
+  (treemacs-git-mode 'deferred))
 
 (use-package treemacs-icons-dired
   :config

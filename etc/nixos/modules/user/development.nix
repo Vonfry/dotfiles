@@ -161,6 +161,7 @@ in {
           evil-matchit
           amx
           flx
+          wgrep
           ivy
           counsel
           ivy-avy
@@ -214,7 +215,7 @@ in {
           realgud-lldb
           mu4e-alert
           mu4e-maildirs-extension
-          elfeed
+          elfeed elfeed-org
           emacsql
           sql-indent
           ebib

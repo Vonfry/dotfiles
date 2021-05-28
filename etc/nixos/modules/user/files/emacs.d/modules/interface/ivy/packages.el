@@ -10,6 +10,8 @@
   :custom
   (ivy-flx-limit 10000))
 
+(use-package wgrep)
+
 (use-package ivy
   :config
   (ivy-mode 1)
