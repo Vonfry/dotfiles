@@ -161,6 +161,7 @@ in {
           evil-matchit
           amx
           flx
+          wgrep
           ivy
           counsel
           ivy-avy
