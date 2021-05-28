@@ -6,8 +6,8 @@ let
 in {
   config = mkIf cfg.enable {
     i18n.inputMethod = {
-      enabled = "fcitx";
-      fcitx.engines = with pkgs.fcitx-engines; [ rime ]; # wubi
+      enabled = "fcitx5";
+      fcitx.engines = with pkgs; [ fcitx5-rime fcitx-mocz ];
     };
 
     console = {
