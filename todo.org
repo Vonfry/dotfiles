@@ -3,6 +3,7 @@
    CLOSED: [2020-09-05 Sat 10:16]
     - [X] clean setup script about sed and some local configuration.
     - [X] code nixos module instead of configuration directly
+*** TODO podman replaces docker
 *** TODO X [7/9]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
