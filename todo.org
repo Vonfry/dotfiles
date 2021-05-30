@@ -33,6 +33,7 @@
 **** TODO ob-gnuplot and gnuplot(build failed now)
 *** TODO replace undo-tree with emacs 28 builtin's one.
 *** TODO merge to new ebib options
+*** TODO [[https://orgmode.org/list/87blb3epey.fsf@gnu.org/][org elpa is shutdown and org-plus-contrib is renamed to org-contrib]]
 ** DONE LSP[1/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
