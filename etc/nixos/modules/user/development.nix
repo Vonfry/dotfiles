@@ -235,7 +235,6 @@ in {
           treemacs-magit
           treemacs-icons-dired
           which-key
-          docker
           logview
           pdf-tools
           projectile

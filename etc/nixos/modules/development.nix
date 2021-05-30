@@ -14,15 +14,16 @@ in {
     ];
 
     virtualisation = {
+      oic-containers.backend = "podman";
+
       libvirtd = {
         enable = true;
         qemuRunAsRoot = mkDefault false;
         qemuPackage = mkDefault pkgs.qemu_kvm;
       };
 
-      docker = {
+      podman = {
         enable = true;
-        autoPrune.enable = mkDefault true;
       };
     };
   };
