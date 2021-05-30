@@ -20,7 +20,7 @@
 * Editor
 ** NeoVim[0/1]
 **** TODO use internal lsp
-** Emacs[2/3]
+** Emacs[3/5]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
 *** TODO Interesting plugins[4/6]
@@ -33,7 +33,8 @@
 **** CANCELLED ob-gnuplot and gnuplot(build failed now)
      CLOSED: [2021-05-25 Tue 16:32]
 *** TODO replace undo-tree with emacs 28 builtin's one.
-*** TODO merge to new ebib options
+*** DONE merge to new ebib options
+    CLOSED: [2021-05-30 Sun 09:35]
 ** DONE LSP[2/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
