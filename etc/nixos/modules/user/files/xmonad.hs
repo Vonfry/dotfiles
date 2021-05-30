@@ -100,7 +100,7 @@ myKeys conf = mkKeymap conf
 
     -- basic window
     , ("M-<Return>"  , spawn $ terminal conf             )
-    , ("M-S-<Return>", runInTerm "-t ranger" "ranger"    )
+    , ("M-S-<Return>", runInTerm "" "zsh -c ranger"      )
     , ("M-C-<Return>", spawn "emacsclient -c"            )
     , ("M-S-c"       , kill                              )
     , ("M-C-<Space>" , setLayout $ layoutHook conf       )
