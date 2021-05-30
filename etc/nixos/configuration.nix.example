@@ -14,13 +14,6 @@
 
     network = {
       zerotierNets = [];
-
-      syncthing.devices = {
-        laptop = {
-          id = "";
-          introducer = true;
-        };
-      };
     };
 
     # x.autoWake.enable = true;
@@ -84,13 +77,11 @@
   # };
   # networking.firewall = {
   #   enable = true;
-  #   allowedTCPPorts = [ 22000 # syncthing tcp forwarding
-  #                     ];
+  #   allowedTCPPorts = [ ];
   #   allowedTCPPortRanges = [
   #     { from = 5900; to = 5902; } # vnc
   #   ];
-  #   allowedUDPPorts = [ 21027 # syncthing udp discovery
-  #                     ];
+  #   allowedUDPPorts = [ ];
   #   allowedTCPPortRanges = [];
   #   allowedUDPPorts = [ ];
   # };

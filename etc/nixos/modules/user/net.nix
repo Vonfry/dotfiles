@@ -65,7 +65,7 @@ in {
       };
 
       packages = with pkgs; [
-        curl
+        curl rsync
         # mu isync
 
         firefox # qutebrowser
@@ -234,10 +234,6 @@ in {
           config.load_autoconfig()
         '';
       };
-    };
-
-    services = {
-      syncthing.enable = mkDefault (config.home.sessionVariables ? "CLOUD_DIR");
     };
   };
 }
