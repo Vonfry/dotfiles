@@ -24,7 +24,7 @@ in {
     home = {
       username = "vonfry";
       homeDirectory = "/home/vonfry";
-      stateVersion = "20.09";
+      stateVersion = "21.05";
 
       activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString ../overlay/overlays.nix} ${toString config.xdg.configHome}/nixpkgs/overlays.nix

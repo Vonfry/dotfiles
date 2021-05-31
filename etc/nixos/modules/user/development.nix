@@ -93,7 +93,6 @@ in {
           packages.myPackage = with pkgs.vimPlugins; {
             start = [
               vim-test
-              # SQHell-vim
               vim-logreview
               vim-surround
               auto-pairs
@@ -104,7 +103,7 @@ in {
               vim-projectionist
               vim-polyglot
               vim-ragtag
-              # MatchTagAlways
+              MatchTagAlways
               DoxygenToolkit-vim
               nerdcommenter
               vim-orgmode
@@ -122,12 +121,12 @@ in {
               deoplete-nvim
               ultisnips
               vim-snippets
-              # nvim-lspconfig # neovim > 0.5
+              nvim-lspconfig
               vim-fugitive
               vim-signify
               NeoSolarized
               vim-airline
-              # vim-airline-clock
+              vim-airline-clock
               indentLine
               vim-mundo
             ];

@@ -21,8 +21,8 @@ in {
     };
 
     qt = {
-      enable = mkDefault false;
-      platformTheme = "gtk";
+      enable = mkDefault true;
+      platformTheme = "gnome";
     };
 
     programs = {
