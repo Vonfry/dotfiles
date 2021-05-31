@@ -262,6 +262,10 @@ in {
           rebase.autoSquash = mkDefault true;
           github.user = "Vonfry";
           gitlab.user = "Vonfry";
+          core = {
+            pager = "nvim -R";
+            color = false;
+          };
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
