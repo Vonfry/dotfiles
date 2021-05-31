@@ -18,8 +18,8 @@
         "b" 'next-buffer)
   (nmap-leader
     "M"   '(:ignore t :which-key "bookmarks")
-    "M m" 'bookmark-set
-    "M M" 'bookmark-set-no-overwrite
+    "M a" 'bookmark-set
+    "M A" 'bookmark-set-no-overwrite
     "M l" 'bookmark-bmenu-list
     "M s" 'bookmark-save
     "M d" 'bookmark-delete
