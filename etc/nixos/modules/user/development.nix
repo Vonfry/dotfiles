@@ -92,7 +92,6 @@ in {
         configure = {
           packages.myPackage = with pkgs.vimPlugins; {
             start = [
-              vim-test
               vim-logreview
               vim-surround
               auto-pairs
@@ -100,25 +99,21 @@ in {
               nerdtree
               nerdtree-git-plugin
               vim-rooter
-              vim-projectionist
               vim-polyglot
               vim-ragtag
               MatchTagAlways
-              DoxygenToolkit-vim
               nerdcommenter
               vim-orgmode
               vim-easymotion
-              tagbar
               fzf-vim
               editorconfig-vim
               vim-better-whitespace
               vim-signature
               incsearch-vim
               vim-over
-              vimproc-vim
               tabular
               vim-which-key
-              deoplete-nvim
+              nvim-compe
               ultisnips
               vim-snippets
               nvim-lspconfig

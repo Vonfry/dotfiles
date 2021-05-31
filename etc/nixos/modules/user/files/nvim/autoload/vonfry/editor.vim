@@ -71,7 +71,7 @@ function! vonfry#editor#init()
 
     set wildmode=full
     set wildmenu
-    set completeopt=longest,menu
+    set completeopt=menuone,noselect
 
     set exrc
     set secure
