@@ -8,8 +8,6 @@ in {
     environment.systemPackages = with pkgs; [
       vim neovim emacs
 
-      docker_compose # docker
-
       git git-lfs
     ];
 
