@@ -65,20 +65,14 @@ in {
             PID USER PRIORITY NICE M_SIZE M_RESIDENT M_SHARE STATE PERCENT_CPU
             PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
           ];
-        } // (leftMeters {
-              AllCPUs = modes.Text;
-              Memory = modes.Text;
-              Swap = modes.Text;
-        }) // (rightMeters {
-              Clock = modes.Text;
-              Battery = modes.Text;
-              Tasks = modes.Text;
-              Uptime = modes.Text;
-              LoadAverage = modes.Text;
-              PressureStallCPUSome = modes.Text;
-              PressureStallIOSome =  modes.Text;
-              PressureStallMemorySome = modes.Text;
-        });
+          left_meters = [ "AllCPU" "Memory" "Swap" ];
+          left_meters_modes = lib.genList (_: modes.Text) 3;
+          right_meters = [ "Clock" "Battery" "Blank" "Tasks" "Uptime"
+                           "LoadAverage" "Blank" "PressureStallCPUSome"
+                           "PressureStallIOSome" "PressureStallMemorySome"
+                         ];
+          right_meters_modes = lib.genList (_: modes.Text) 10;
+        };
       };
     };
   };
