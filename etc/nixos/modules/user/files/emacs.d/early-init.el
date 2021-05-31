@@ -13,4 +13,6 @@
 
   tool-bar-mode nil
   menu-bar-mode nil
-  scroll-bar-mode nil)
+  scroll-bar-mode nil
+
+  frame-title-format '("" invocation-name ": %b"))

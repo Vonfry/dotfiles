@@ -35,18 +35,16 @@ in {
         sshfs exfat
         lnav lm_sensors lsof
 
-        ranger
         patch parallel file
 
         unar convmv
         colordiff
-        ripgrep fd exa # bat
+        ripgrep fd exa
       ];
     };
 
     programs = {
       man.enable = true;
-      bat.enable = true;
       ssh = {
         enable = true;
         compression = true;
