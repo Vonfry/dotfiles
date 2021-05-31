@@ -42,15 +42,6 @@ in {
       type = types.int;
       description = "The no activation duration before system suspending. unit: second.";
     };
-
-    autoWake = {
-      time = mkOption {
-        default = "21:00";
-        type = with types; str;
-        description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
-      };
-      enable = mkEnableOption "enable auto wake";
-    };
   };
 
   config = mkIf config.vonfry.enable {
@@ -125,34 +116,6 @@ in {
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
-        };
-      };
-
-      services = {
-        autowake = {
-          enable = mkDefault cfg.autoWake.enable;
-          before = [ "sleep.target" ];
-          wantedBy = [ "sleep.target" ];
-          script = ''
-            current_time=$(${pkgs.coreutils}/bin/date +%R)
-            if [[ "$current_time" < "${cfg.autoWake.time}" ]]; then
-              ${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}
-            else
-              ${pkgs.utillinux}/bin/rtcwake -m no --date "$(date -d 'next day ${cfg.autoWake.time}' '+%F %R')"
-            fi
-          '';
-          description = "auto wake from suspend.";
-          serviceConfig.Type = "oneshot";
-        };
-
-        autowakeAfter = {
-          enable = mkDefault (config.systemd.services.autowake.enable);
-          after = [ "sleep.target" ];
-          wantedBy = [ "sleep.target" ];
-          script = "${pkgs.utillinux}/bin/rtcwake -m disable";
-          preStart = "sleep 30";
-          description = "clean previous wake process.";
-          serviceConfig.Type = "oneshot";
         };
       };
     };

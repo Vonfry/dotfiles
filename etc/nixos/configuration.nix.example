@@ -16,8 +16,6 @@
       zerotierNets = [];
     };
 
-    # x.autoWake.enable = true;
-
     hmConfig =
       { config, pkgs, lib, ... }:
 
