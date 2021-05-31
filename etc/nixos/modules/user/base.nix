@@ -45,7 +45,6 @@ in {
 
     programs = {
       man.enable = true;
-      bat.enable = true;
       ssh = {
         enable = true;
         compression = true;
