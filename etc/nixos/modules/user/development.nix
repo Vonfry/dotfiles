@@ -67,26 +67,6 @@ in {
     };
 
     programs = {
-      vim = {
-        enable = true;
-        settings = {
-          background = "dark";
-          backupdir = [ "~/.cache/vim/backup/" ];
-          expandtab = true;
-          mousemodel = "popup";
-          number = true;
-          relativenumber = true;
-          shiftwidth = 4;
-          ignorecase = true;
-          smartcase = true;
-          tabstop = 4;
-          undofile = true;
-          undodir = [ "~/.cache/vim/undo" ];
-          history = 1024;
-        };
-        extraConfig = builtins.readFile ./files/vimrc;
-      };
-
       neovim = {
         enable = true;
         configure = {
@@ -282,6 +262,10 @@ in {
           rebase.autoSquash = mkDefault true;
           github.user = "Vonfry";
           gitlab.user = "Vonfry";
+          core = {
+            pager = "nvim -R";
+            color = false;
+          };
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
@@ -297,10 +281,12 @@ in {
     home = {
       sessionVariables = {
         EDITOR = "nvim";
+        MANPAGER = "nvim -c 'set ft=man' -";
+        PAGER = "nvim -R";
       };
 
       packages = with pkgs; [
-        # neovim vim emacs
+        # neovim emacs
         emacs-all-the-icons-fonts
 
         # git git-lfs
