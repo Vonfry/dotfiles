@@ -53,37 +53,32 @@ in {
       };
       htop = {
         enable = true;
-        treeView = true;
-        highlightBaseName = true;
-        showProgramPath = false;
-        vimMode = true;
-        shadowOtherUsers = true;
-        hideUserlandThreads = true;
-        hideThreads = true;
-        fields = [ "PID" "USER" "PRIORITY" "NICE" "M_SIZE" "M_RESIDENT" "M_SHARE"
-                   "STATE" "PERCENT_CPU" "PERCENT_MEM" "IO_READ_RATE"
-                   "IO_WRITE_RATE" "TIME" "COMM"
-                 ];
-        meters = {
-          left = [
-            { kind = "AllCPUs"; mode = 2; }
-            "Blank"
-            { kind = "Memory" ; mode = 2; }
-            { kind = "Swap"   ; mode = 2; }
+        settings = with lib.htop; {
+          tree_view = 1;
+          highlight_base_name = 1;
+          show_program_path = 0;
+          vim_mode = 1;
+          shadow_other_users = 1;
+          hide_userland_threads = 1;
+          hide_threads = 1;
+          fields = with fields; [
+            PID USER PRIORITY NICE M_SIZE M_RESIDENT M_SHARE STATE PERCENT_CPU
+            PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
           ];
-          right = [
-            { kind = "Clock"   ; mode = 2; }
-            { kind = "Battery" ; mode = 2; }
-            "Blank"
-            { kind = "Tasks"   ; mode = 2; }
-            { kind = "Uptime"  ; mode = 2; }
-            "LoadAverage"
-            "Blank"
-            { kind = "PressureStallCPUSome";    mode = 2; }
-            { kind = "PressureStallIOSome";     mode = 2; }
-            { kind = "PressureStallMemorySome"; mode = 2; }
-          ];
-        };
+        } // (leftMeters {
+              AllCPUs = modes.Text;
+              Memory = modes.Text;
+              Swap = modes.Text;
+        }) // (rightMeters {
+              Clock = modes.Text;
+              Battery = modes.Text;
+              Tasks = modes.Text;
+              Uptime = modes.Text;
+              LoadAverage = modes.Text;
+              PressureStallCPUSome = modes.Text;
+              PressureStallIOSome =  modes.Text;
+              PressureStallMemorySome = modes.Text;
+        });
       };
     };
   };
