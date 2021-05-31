@@ -19,14 +19,6 @@ in {
         cores = 0
       '';
       "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
-
-      "ranger/rc.conf".text = ''
-        set update_title True
-      '';
-      "ranger/rifle.conf".text = ''
-        mime ^image, has feh, X, flag f = feh --scale-down -- "$@"
-        label thumb, number 1, mime ^image, has feh, X, flag f= feh --thumbnails -- .
-      '';
     };
 
     home = {
@@ -43,12 +35,11 @@ in {
         sshfs exfat
         lnav lm_sensors lsof
 
-        ranger
         patch parallel file
 
         unar convmv
         colordiff
-        ripgrep fd exa # bat
+        ripgrep fd exa
       ];
     };
 

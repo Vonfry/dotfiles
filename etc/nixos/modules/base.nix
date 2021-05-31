@@ -23,8 +23,7 @@ in {
       lm_sensors lsof
 
       file patch colordiff parallel
-      ripgrep fd exa bat
-      ranger
+      ripgrep fd exa
     ];
 
     nix = {
