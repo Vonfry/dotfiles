@@ -69,7 +69,7 @@ in {
     programs = {
       neovim = {
         enable = true;
-        plugins = with pkgs.vimPlugins; (map (x: { plugin = x; }) [
+        plugins = with pkgs.vimPlugins; [
           vim-logreview
           vim-surround
           auto-pairs
@@ -102,7 +102,6 @@ in {
           vim-airline-clock
           indentLine
           vim-mundo
-        ]) ++ [
           { plugin = dracula-vim;
             optional = true;
             # see github:nixos/nixpkgs#96062
