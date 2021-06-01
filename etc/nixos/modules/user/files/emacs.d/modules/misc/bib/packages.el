@@ -11,8 +11,6 @@
   (ebib-reading-list-file "reading.org")
   (ebib-notes-default-file "notes.org")
   (ebib-file-search-dirs ".")
-  :config
-  (advice-add #'ebib :before #'+bib/switch-dir-current)
   :hook
   ((bibtex-mode LaTeX-mode) . +bib/switch-dir-current)
   :general
