@@ -105,7 +105,7 @@ in {
 
         tdesktop
 
-        filezilla dolphin
+        filezilla pcmanfm
 
         flameshot feh
         pavucontrol
