@@ -69,51 +69,49 @@ in {
     programs = {
       neovim = {
         enable = true;
-        configure = {
-          packages.myPackage = with pkgs.vimPlugins; {
-            start = [
-              vim-logreview
-              vim-surround
-              auto-pairs
-              direnv-vim
-              nerdtree
-              nerdtree-git-plugin
-              vim-rooter
-              vim-polyglot
-              vim-ragtag
-              MatchTagAlways
-              nerdcommenter
-              vim-orgmode
-              vim-easymotion
-              fzf-vim
-              editorconfig-vim
-              vim-better-whitespace
-              vim-signature
-              incsearch-vim
-              vim-over
-              tabular
-              vim-which-key
-              nvim-compe
-              ultisnips
-              vim-snippets
-              nvim-lspconfig
-              vim-fugitive
-              vim-signify
-              NeoSolarized
-              vim-airline
-              vim-airline-clock
-              indentLine
-              vim-mundo
-            ];
-            opt = [ dracula-vim ];
-          };
+        plugins = with pkgs.vimPlugins; [
+          { plugin = vim-logreview; }
+          { plugin = vim-surround; }
+          { plugin = auto-pairs; }
+          { plugin = direnv-vim; }
+          { plugin = nerdtree; }
+          { plugin = nerdtree-git-plugin; }
+          { plugin = vim-rooter; }
+          { plugin = vim-polyglot; }
+          { plugin = vim-ragtag; }
+          { plugin = MatchTagAlways; }
+          { plugin = nerdcommenter; }
+          { plugin = vim-orgmode; }
+          { plugin = vim-easymotion; }
+          { plugin = fzf-vim; }
+          { plugin = editorconfig-vim; }
+          { plugin = vim-better-whitespace; }
+          { plugin = vim-signature; }
+          { plugin = incsearch-vim; }
+          { plugin = vim-over; }
+          { plugin = tabular; }
+          { plugin = vim-which-key; }
+          { plugin = nvim-compe; }
+          { plugin = ultisnips; }
+          { plugin = vim-snippets; }
+          { plugin = nvim-lspconfig; }
+          { plugin = vim-fugitive; }
+          { plugin = vim-signify; }
+          { plugin = NeoSolarized; }
+          { plugin = vim-airline; }
+          { plugin = vim-airline-clock; }
+          { plugin = indentLine; }
+          { plugin = vim-mundo; }
+          { plugin = dracula-vim;
+            optional = true;
+            # see github:nixos/nixpkgs#96062
+            config = "packadd! dracula-vim";
+          }
+        ];
 
-          customRC = ''
-            " see github:nixos/nixpkgs#96062
-            packadd! dracula-vim
-            call vonfry#init()
-          '';
-        };
+        extraConfig = ''
+          call vonfry#init()
+        '';
       };
 
       emacs =  {
