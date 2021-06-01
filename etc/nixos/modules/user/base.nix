@@ -53,7 +53,7 @@ in {
       };
       htop = {
         enable = true;
-        settings = with lib.htop; {
+        settings = with config.lib.htop; {
           tree_view = 1;
           highlight_base_name = 1;
           show_program_path = 0;
