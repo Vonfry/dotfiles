@@ -163,7 +163,6 @@ in {
           cargo
           company-shell
           markdown-mode
-          epkgs."markdown-mode+"
           haskell-mode
           lsp-haskell
           hasky-extensions
