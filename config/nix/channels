@@ -1,3 +1,3 @@
 https://channels.nixos.org/nixpkgs-unstable nixpkgs-unstable
-https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
+https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz home-manager
 https://github.com/nix-community/emacs-overlay/archive/master.tar.gz emacs-overlay

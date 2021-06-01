@@ -19,23 +19,26 @@
    CLOSED: [2020-10-01 Thu 19:26]
 
 * Editor
-** NeoVim[0/1]
-**** TODO use internal lsp
-** Emacs[2/3]
+** NeoVim[1/1]
+**** DONE use internal lsp
+     CLOSED: [2021-05-31 Mon 09:26]
+** Emacs[3/6]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
-*** TODO Interesting plugins[3/5]
+*** TODO Interesting plugins[4/6]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
 **** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
      CLOSED: [2020-12-09 Wed 09:11]
 **** DONE magit evil and sth else is included in evil-collection
 **** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
 **** DONE envrc instead of direnv.el
-**** TODO ob-gnuplot and gnuplot(build failed now)
+**** CANCELLED ob-gnuplot and gnuplot(build failed now)
+     CLOSED: [2021-05-25 Tue 16:32]
 *** TODO replace undo-tree with emacs 28 builtin's one.
-*** TODO merge to new ebib options
+*** DONE merge to new ebib options
+    CLOSED: [2021-05-30 Sun 09:35]
 *** TODO [[https://orgmode.org/list/87blb3epey.fsf@gnu.org/][org elpa is shutdown and org-plus-contrib is renamed to org-contrib]]
-** DONE LSP[1/2]
+** DONE LSP[2/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
    - [X] install them project with nix-shell instead of global one
@@ -58,16 +61,16 @@
    CLOSED: [2020-12-09 Wed 08:49]
 ** DONE LaTex
 * Shell
-** DONE ZSH[1/2]
+** DONE ZSH[2/2]
    CLOSED: [2021-01-14 Thu 08:25]
    - [X] fzf as completion
-   - [ ] fzf-tab use nixpkgs version and remove overlay(note: change load path)
+   - [X] fzf-tab use nixpkgs version and remove overlay(note: change load path)
 
 * Utils
 ** Nix
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
-*** DONE home-manager instead setup script[22/23]
+*** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
     - Note taken on [2020-04-01 Wed 08:04] \\
       nix only tools? nixos only?
@@ -96,5 +99,6 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** TODO home-manager[0/1]
-   - [ ] qutebrowser module for autoconfig instead of extraConfig
+** DONE home-manager[1/1]
+   CLOSED: [2021-05-25 Tue 16:31]
+   - [X] qutebrowser module for autoconfig instead of extraConfig
