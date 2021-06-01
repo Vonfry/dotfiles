@@ -679,7 +679,7 @@ in {
         neofetch
         asciinema
 
-        zsh-completions
+        # zsh-completions
       ];
     };
   };

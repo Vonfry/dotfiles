@@ -61,12 +61,12 @@
 ** DONE LaTex
 * Shell
 ** DONE ZSH[2/2]
-   CLOSED: [2021-01-14 Thu 08:25]
+   CLOSED: [2021-06-01 Tue 15:11]
    - [X] fzf as completion
    - [X] fzf-tab use nixpkgs version and remove overlay(note: change load path)
 
 * Utils
-** Nix
+** Nix[3/4]
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
 *** DONE home-manager instead setup script[22/22]
@@ -98,6 +98,6 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** DONE home-manager[1/1]
-   CLOSED: [2021-05-25 Tue 16:31]
+** home-manager[1/2]
    - [X] qutebrowser module for autoconfig instead of extraConfig
+   - [ ] reuse zsh-completions after the collision is fixed
