@@ -21,8 +21,8 @@ in {
     };
 
     qt = {
-      enable = mkDefault true;
-      platformTheme = "gnome";
+      enable = true;
+      platformTheme = "gtk";
       style = {
         name = "Darcula";
         package = pkgs.dracula-theme;
