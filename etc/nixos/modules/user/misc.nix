@@ -37,6 +37,7 @@ in {
         liberation_ttf
         source-han-sans-simplified-chinese
         source-han-serif-simplified-chinese
+        nerdfonts
       ];
     };
   };
