@@ -12,7 +12,7 @@ in {
 
     console = {
       font = "ter-v12n";
-      packages = with pkgs; [ terminus_font kbdKeymaps.dvp ];
+      packages = with pkgs; [ terminus_font kbd ];
     };
 
     fonts = {
