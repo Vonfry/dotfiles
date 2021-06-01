@@ -12,7 +12,7 @@ in {
       };
       theme = {
         name = "Dracula";
-        package = pkgs.unstable.dracula-theme;
+        package = pkgs.dracula-theme;
       };
       iconTheme = {
         name = "breeze-dark";
@@ -23,6 +23,10 @@ in {
     qt = {
       enable = mkDefault true;
       platformTheme = "gnome";
+      style = {
+        name = "Darcula";
+        package = pkgs.dracula-theme;
+      };
     };
 
     programs = {
