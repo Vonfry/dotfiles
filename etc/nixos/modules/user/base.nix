@@ -65,7 +65,7 @@ in {
             PID USER PRIORITY NICE M_SIZE M_RESIDENT M_SHARE STATE PERCENT_CPU
             PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
           ];
-          left_meters = [ "AllCPU" "Memory" "Swap" ];
+          left_meters = [ "AllCPUs" "Memory" "Swap" ];
           left_meter_modes = lib.genList (_: modes.Text) 3;
           right_meters = [ "Clock" "Battery" "Blank" "Tasks" "Uptime"
                            "LoadAverage" "Blank" "PressureStallCPUSome"
