@@ -679,7 +679,12 @@ in {
         neofetch
         asciinema
 
-        (zsh-completions.overrideAttrs { postInstall = "rm $out/sharezsh/site-functions/_flameshot"; })
+        (zsh-completions.overrideAttrs (old: {
+          installPhase = ''
+            ${old.installPhase}
+            rm $out/share/zsh/site-functions/_flameshot
+          '';
+        }))
       ];
     };
   };
