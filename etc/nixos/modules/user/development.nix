@@ -104,12 +104,14 @@ in {
           vim-mundo
           { plugin = dracula-vim;
             optional = true;
-            # see github:nixos/nixpkgs#96062
-            config = "packadd! dracula-vim";
           }
         ];
 
         extraConfig = ''
+          " see github:nixos/nixpkgs#96062
+          " This have to be done here instead of config option at below because
+          " my configuration will load this.
+          packadd! dracula-vim
           call vonfry#init()
         '';
       };
