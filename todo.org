@@ -19,9 +19,8 @@
    CLOSED: [2020-10-01 Thu 19:26]
 
 * Editor
-** NeoVim[1/1]
-**** DONE use internal lsp
-     CLOSED: [2021-05-31 Mon 09:26]
+** NeoVim[0/1]
+**** TODO use internal lsp
 ** Emacs[3/6]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs

@@ -91,10 +91,10 @@ in {
           vim-over
           tabular
           vim-which-key
-          nvim-compe
+          # nvim-compe
           ultisnips
           vim-snippets
-          nvim-lspconfig
+          # nvim-lspconfig
           vim-fugitive
           vim-signify
           NeoSolarized
