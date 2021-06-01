@@ -66,12 +66,12 @@ in {
             PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
           ];
           left_meters = [ "AllCPU" "Memory" "Swap" ];
-          left_meters_modes = lib.genList (_: modes.Text) 3;
+          left_meter_modes = lib.genList (_: modes.Text) 3;
           right_meters = [ "Clock" "Battery" "Blank" "Tasks" "Uptime"
                            "LoadAverage" "Blank" "PressureStallCPUSome"
                            "PressureStallIOSome" "PressureStallMemorySome"
                          ];
-          right_meters_modes = lib.genList (_: modes.Text) 10;
+          right_meter_modes = lib.genList (_: modes.Text) 10;
         };
       };
     };
