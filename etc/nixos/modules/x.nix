@@ -4,11 +4,6 @@
 with lib;
 let
   cfg = config.vonfry.x;
-  chili-drv = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/feijoas/nixpkgs/chili-sddm-theme/pkgs/data/themes/chili/chili.nix";
-    sha256 = "0ib56hy9qqp187hyhgp361yvxqlffpplvw2w73j7mjzqdp49ms6k";
-  };
-  qtVersion = pkgs."qt${cfg.sddmQtVersion}".qtbase.version;
 
   screenlocker = pkgs.writeScriptBin "screenlocker" ''
     #!${pkgs.bash}/bin/bash -e
@@ -18,19 +13,6 @@ let
   lockCommand = "${screenlocker}/bin/screenlocker";
 in {
   options.vonfry.x = {
-    sddmQtVersion = mkOption {
-      # my sddm use this version
-      default = "512";
-      type = types.str;
-      description = "sddm may use a different qt version from default one. So we set it.";
-    };
-
-    chiliPackage = mkOption {
-      default = pkgs."libsForQt${cfg.sddmQtVersion}".callPackage chili-drv {};
-      description = "sddm theme: chili package";
-      type = types.package;
-    };
-
     durationLock = mkOption {
       default = 600;
       type = types.int;
@@ -50,7 +32,7 @@ in {
       alacritty
       dunst libnotify
       unstable.dracula-theme
-      cfg.chiliPackage
+      vonfryPackages.chili-theme
       breeze-icons
       screenlocker
     ];
@@ -71,10 +53,6 @@ in {
       };
 
       displayManager= {
-        setupCommands = ''
-          # prevent garbage collection
-          # ${chili-drv}
-        '';
         sddm = {
           enable = true;
           theme = "chili";
@@ -90,12 +68,13 @@ in {
 
     services.xserver.displayManager.job.environment =
       let
-        qtPkgs = cfg.chiliPackage.buildInputs;
+        qtPkgs = with pkgs.libsForQt5; [ qtbase qtquickcontrols qtgraphicaleffects ];
+        qtVersion = pkgs.qt5.qtbase.version;
         generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/qml") qtPkgs;
         generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/plugins") qtPkgs;
       in {
-        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs."qt${cfg.sddmQtVersion}".qtbase.qtPluginPrefix}";
-        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs."qt${cfg.sddmQtVersion}".qtbase.qtQmlPrefix}";
+        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}";
+        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
       };
 
     programs.xss-lock = {
