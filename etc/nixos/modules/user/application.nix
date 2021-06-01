@@ -135,7 +135,10 @@ in {
     };
 
     services = {
-      pulseeffects.enable = true;
+      pulseeffects = {
+        enable = true;
+        package = pkgs.pulseeffects-pw;
+      };
 
       mpd = {
         enable = mkDefault true;
