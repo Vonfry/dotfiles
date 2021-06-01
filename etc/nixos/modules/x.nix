@@ -67,7 +67,7 @@ in {
 
       libinput = {
         enable = true;
-        touchpad.accelProfile = "flat";
+        mouse.accelProfile = "flat";
       };
 
       displayManager= {
