@@ -11,7 +11,7 @@ in {
         name = "monospace";
       };
       theme = {
-        name = "Dracula";
+        name = "Dracula-dark";
         package = pkgs.dracula-theme;
       };
       iconTheme = {
@@ -24,7 +24,7 @@ in {
       enable = mkDefault true;
       platformTheme = "gnome";
       style = {
-        name = "Darcula";
+        name = "Darcula-dark";
         package = pkgs.dracula-theme;
       };
     };
