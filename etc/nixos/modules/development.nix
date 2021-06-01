@@ -25,10 +25,9 @@ in {
         autoPrune.enable = mkDefault true;
       };
     };
-  };
-
-  environment.sessionVariables = {
-    MANPAGER = "nvim -c 'set ft=man' -";
-    PAGER = "nvim -R";
+    environment.sessionVariables = {
+      MANPAGER = "nvim -c 'set ft=man' -";
+      PAGER = "nvim -R";
+    };
   };
 }
