@@ -1,4 +1,5 @@
 patch:
   schema_list:
     - schema: wubi86_jidian
-    - schema: cangjie5_express
+    - schema: japanese
+    - schema: cangjie5
