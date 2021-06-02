@@ -65,7 +65,7 @@ in {
       };
 
       packages = with pkgs; [
-        curl
+        curl rsync
         # mu isync
 
         firefox # qutebrowser
@@ -230,14 +230,9 @@ in {
           padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
           c.tabs.padding = padding
           c.statusbar.padding = padding
-
-          config.load_autoconfig()
         '';
+        loadAutoconfig = true;
       };
-    };
-
-    services = {
-      syncthing.enable = mkDefault (config.home.sessionVariables ? "CLOUD_DIR");
     };
   };
 }

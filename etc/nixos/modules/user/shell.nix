@@ -29,8 +29,6 @@ in {
         fileWidgetCommand = "fd --type f";
       };
 
-      starship.enable = true;
-
       zsh = {
         enable = true;
         dotDir = ".config/zsh";
@@ -93,7 +91,11 @@ in {
           export LESS_TERMCAP_ue=$'\E[0m'
           export LESS_TERMCAP_us=$'\E[01;32m'
 
-          source ${vonfryPackages.zsh-fzf-tab}/fzf-tab.plugin.zsh
+          if [ -f "''${ZDOTDIR:-~}/.p10k.zsh" ]; then
+            source ''${ZDOTDIR:-~}/.p10k.zsh
+          fi
+          source ${zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+          source ${zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
           source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -102,10 +104,6 @@ in {
 
           eval "$(zoxide init zsh)"
           eval $(thefuck --alias)
-          function set_win_title(){
-              echo -ne "\033]0; $TERM - $PWD \007"
-          }
-          precmd_functions+=(set_win_title)
 
           # Emacs
           bindkey -M emacs "^P" history-substring-search-up
@@ -513,7 +511,12 @@ in {
         neofetch
         asciinema
 
-        zsh-completions
+        (zsh-completions.overrideAttrs (old: {
+          installPhase = ''
+            ${old.installPhase}
+            rm $out/share/zsh/site-functions/_flameshot
+          '';
+        }))
       ];
     };
   };

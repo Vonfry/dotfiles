@@ -23,8 +23,7 @@ in {
       lm_sensors lsof
 
       file patch colordiff parallel
-      ripgrep fd exa bat
-      ranger
+      ripgrep fd exa
     ];
 
     nix = {
@@ -80,6 +79,6 @@ in {
       };
     };
 
-    system.stateVersion = "20.09";
+    system.stateVersion = "21.05";
   };
 }

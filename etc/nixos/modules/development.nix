@@ -6,7 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      vim neovim emacs
+      neovim emacs
 
       git git-lfs
     ];
@@ -23,6 +23,10 @@ in {
       podman = {
         enable = true;
       };
+    };
+    environment.sessionVariables = {
+      MANPAGER = "nvim -c 'set ft=man' -";
+      PAGER = "nvim -R";
     };
   };
 }

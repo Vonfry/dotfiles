@@ -6,8 +6,11 @@
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
   (ebib-file-associations '(("pdf" . "zathura")))
   (ebib-bibtex-dialect 'biblatex)
-  :config
-  (advice-add #'ebib :before #'+bib/switch-dir-current)
+  (ebib-notes-storage 'multiple-notes-per-file)
+  (ebib-notes-directory nil)
+  (ebib-reading-list-file "reading.org")
+  (ebib-notes-default-file "notes.org")
+  (ebib-file-search-dirs ".")
   :hook
   ((bibtex-mode LaTeX-mode) . +bib/switch-dir-current)
   :general

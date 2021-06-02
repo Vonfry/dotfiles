@@ -15,5 +15,7 @@ with pkgs;
 
   desktopBackground = callPackage ./data/desktop-background { };
 
-  zsh-fzf-tab = callPackage ./shells/zsh-fzf-tab { };
+  chili-theme = callPackage ./data/chili-theme { };
+
+  fcitx5-theme = callPackage ./data/fcitx5-theme { };
 }

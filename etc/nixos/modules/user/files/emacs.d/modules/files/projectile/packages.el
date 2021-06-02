@@ -31,7 +31,8 @@
     "P !" 'projectile-run-shell-command-in-root
     "P q" 'projectile-switch-open-project
     "P a" 'projectile-add-known-project
-    "P x" 'projectile-commander)
+    "P x" 'projectile-commander
+    "P *" 'projectile-replace-regexp)
   (:keymaps 'projectile-mode-map
     "C-c p" 'projectile-command-map)
   :config
