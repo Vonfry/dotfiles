@@ -15,7 +15,7 @@ in {
 
     console = {
       font = "ter-v12n";
-      packages = with pkgs; [ terminus_font kbd ];
+      packages = with pkgs; [ terminus_font ];
     };
 
     fonts = {
