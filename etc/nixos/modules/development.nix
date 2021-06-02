@@ -12,7 +12,7 @@ in {
     ];
 
     virtualisation = {
-      oic-containers.backend = "podman";
+      oci-containers.backend = "podman";
 
       libvirtd = {
         enable = true;
