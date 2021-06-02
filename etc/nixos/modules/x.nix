@@ -31,9 +31,8 @@ in {
       xclip
       alacritty
       dunst libnotify
-      unstable.dracula-theme
       vonfryPackages.chili-theme
-      breeze-icons
+      breeze-icons breeze-gtk breeze-qt5
       screenlocker
     ];
 
@@ -77,9 +76,12 @@ in {
         QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
       };
 
-    programs.xss-lock = {
-      enable = true;
-      lockerCommand = "${lockCommand} -n";
+    programs = {
+      xss-lock = {
+        enable = true;
+        lockerCommand = "${lockCommand} -n";
+      };
+      qt5ct.enable = true;
     };
 
     systemd = {

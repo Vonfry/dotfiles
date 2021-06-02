@@ -5,27 +5,19 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
+    # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
     gtk = {
       enable = true;
       font = {
         name = "monospace";
       };
       theme = {
-        name = "Dracula";
-        package = pkgs.dracula-theme;
+        name = "Breeze-Dark";
+        package = pkgs.dracula-gtk;
       };
       iconTheme = {
         name = "breeze-dark";
         package = pkgs.breeze-icons;
-      };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme = "gtk";
-      style = {
-        name = "Darcula";
-        package = pkgs.dracula-theme;
       };
     };
 
