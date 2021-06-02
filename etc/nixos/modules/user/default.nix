@@ -27,8 +27,7 @@ in {
       isNormalUser = true;
       home = "/home/vonfry";
       description = "Vonfry";
-      extraGroups = [ "wheel" "docker" "libvirtd" "networkmanager"
-                    ];
+      extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
       shell = pkgs.zsh;
     } cfg.user.extraConfig];
 
