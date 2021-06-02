@@ -13,7 +13,7 @@ in {
       };
       theme = {
         name = "Breeze-Dark";
-        package = pkgs.dracula-gtk;
+        package = pkgs.breeze-gtk;
       };
       iconTheme = {
         name = "breeze-dark";
