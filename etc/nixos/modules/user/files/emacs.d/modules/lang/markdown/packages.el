@@ -14,6 +14,3 @@
     "m" 'markdown-toggle-markup-hiding
     "u" 'markdown-toggle-url-hiding
     "r" 'markdown))
-
-(use-package markdown-mode+
-  :after markdown-mode)

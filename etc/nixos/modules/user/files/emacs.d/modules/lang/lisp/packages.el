@@ -8,7 +8,7 @@
 
 (use-package ielm :ensure nil
   :general
-  (nmap-leader :keymaps 'emacs-lisp-mode-map
+  (nmap-leader :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
     "\""    'ielm
     "RET"   'eval-last-sexp
     "' b"   'eval-buffer

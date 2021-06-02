@@ -3,6 +3,7 @@
 
 (use-package org
   :custom
+  (org-startup-folded t)
   (org-default-notes-file +org-capture-file)
   (org-directory +org-dir)
   (org-clock-persist t)
@@ -13,15 +14,13 @@
   (org-hide-leading-stars t)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
-  (org-id-locations-load (expand-file-name "org-id" vonfry-local-dir))
+  (org-id-link-to-org-use-id 'use-existing)
+  (org-id-locations-file (expand-file-name "org/id" vonfry-local-dir))
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel . 99)
                         (org-contacts-files :maxlevel . 99)
                         (org-agenda-files :maxlevel . 99)))
-  (org-agenda-files
-   (append (directory-files +org-agenda-dir t
-                            "^[A-z0-9\\-_]+\\.org$")
-           (list +org-capture-file)))
+  (org-agenda-files (list +org-agenda-dir +org-capture-file))
   (org-tag-alist
    (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
     (eval (read-from-whole-string
@@ -74,6 +73,11 @@
     "$"   'org-archive-subtree-default
     "c"   'org-ctrl-c-ctrl-c
     "h"   'avy-org-goto-heading-timer
+    "u"   'org-id-get-create
+    "U"   'org-id-update-id-locations
+    "G"   'org-id-goto
+    "o"   'org-store-link
+    "O"   'org-id-store-link
     "D"   '(:ignore t :which-key "display")
     "D i" 'org-display-inline-images
     "D t" 'org-latex-preview
@@ -108,7 +112,7 @@
     "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
-    "n" '+org/find-notes
+    "N" '+org/find-notes
     "b" '+org/append-to-agenda-file
     "B" 'append-to-buffer
     "c" 'org-capture
@@ -169,19 +173,14 @@
 (use-package org-roam
   :init
   (+org--roam-set-path +org-note-dir)
-  :custom
-  (org-roam-capture-templates
-   '(("d" "default" plain #'org-roam-capture--get-point "%?"
-      :file-name "%(+org--roam-capture-note-dir)/${slug}"
-      :head "#+title: ${title}"
-      :unnarrowed t)))
   :general
   (nmap-leader :infix "o"
-    "N"   'org-roam-find-file
+    "n"   'org-roam-find-file
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
     "R b" 'org-roam-db-build-cache
-    "R p" '+org/roam-switch)
+    "R p" '+org/roam-switch
+    "R a" 'org-roam-jump-to-index)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam
     "R "  '(:ignore t :which-key "org roam")

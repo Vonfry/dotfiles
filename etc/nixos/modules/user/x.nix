@@ -5,24 +5,20 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
+    # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
     gtk = {
       enable = true;
       font = {
         name = "monospace";
       };
       theme = {
-        name = "Dracula";
-        package = pkgs.unstable.dracula-theme;
+        name = "Breeze-Dark";
+        package = pkgs.breeze-gtk;
       };
       iconTheme = {
         name = "breeze-dark";
         package = pkgs.breeze-icons;
       };
-    };
-
-    qt = {
-      enable = mkDefault false;
-      platformTheme = "gtk";
     };
 
     programs = {
@@ -117,8 +113,6 @@ in {
     };
 
     home.packages = with pkgs; [
-      # tigervnc
-
       # alacritty
     ];
 
@@ -126,27 +120,7 @@ in {
       enable = true;
       userDirs.enable = true;
       mimeApps.enable = true;
-      mimeApps.defaultApplications = {
-        "inode/directory" = [ "xranger.desktop" "ranger.desktop" ];
-      };
       dataFile = {
-        "applications/xranger.desktop".text = ''
-          [Desktop Entry]
-          Version=1.0
-          Name=xranger
-          GenericName=File Manager
-          Comment=Launches the ranger file manager
-          # needs full path to bin
-          Exec=${config.programs.alacritty.package}/bin/alacritty -e ranger %F
-          Icon=utilities-terminal
-          Terminal=false
-          X-MultipleArgs=false
-          Type=Application
-          MimeType=inode/directory;
-          StartupNotify=true
-          Categories=System;FileTools;FileManager
-        '';
-
         "applications/org-protocol.desktop".text = ''
           [Desktop Entry]
           Name=org-protocol

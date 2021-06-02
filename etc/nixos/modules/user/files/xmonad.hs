@@ -74,7 +74,7 @@ myKeys conf = mkKeymap conf
     , ("M-/"  , promptSearch myXPConfNoAc multi)
     , ("M-z", sshPrompt myXPConf               )
 
-    , ("M-<F1>"  , manPrompt myXPConf             )
+    , ("M-<F1>"  , manPrompt myXPConf   )
 
     , ("M-o d", spawn "zeal"            )
     , ("M-o b", spawn "qutebrowser"     )
@@ -100,7 +100,7 @@ myKeys conf = mkKeymap conf
 
     -- basic window
     , ("M-<Return>"  , spawn $ terminal conf             )
-    , ("M-S-<Return>", runInTerm "-t ranger" "ranger"    )
+    , ("M-S-<Return>", spawn "pcmanfm"                   )
     , ("M-C-<Return>", spawn "emacsclient -c"            )
     , ("M-S-c"       , kill                              )
     , ("M-C-<Space>" , setLayout $ layoutHook conf       )
@@ -208,9 +208,9 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-,", workspacePrompt myXPConf (windows . shift))
-    , ("M-w d", removeWorkspace            )
-    , ("M-w n", addWorkspacePrompt myXPConf)
-    , ("M-w r", renameWorkspace myXPConf   )
+    , ("M-w d", removeWorkspace                )
+    , ("M-w n", addWorkspacePrompt myXPConfNoAc)
+    , ("M-w r", renameWorkspace    myXPConfNoAc)
 
     -- change pwd for current workspace
     , ("M-c", changeDir myXPConfNoAc)

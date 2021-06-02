@@ -13,3 +13,9 @@
   ("C-x w" 'elfeed)
   (nmap-at
     "f" 'elfeed))
+
+(use-package elfeed-org
+  :custom
+  (rmh-elfeed-org-files (list (expand-file-name "feeds.org" vonfry-local-dir)))
+  :config
+  (elfeed-org))

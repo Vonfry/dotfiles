@@ -3,9 +3,6 @@
 
 (use-package treemacs
   :custom
-  (treemacs-follow-mode t)
-  (treemacs-tag-follow-mode t)
-  (treemacs-filewatch-mode t)
   (treemacs-persist-file (expand-file-name "treemacs-persist" vonfry-local-dir))
   :general
   (nmap-leader
@@ -15,7 +12,10 @@
     "P F" 'treemacs-find-file
     "P s" 'treemacs-switch-workspace
     "P e" 'treemacs-edit-workspaces
-    "P A" 'treemacs-add-and-display-current-project))
+    "P A" 'treemacs-add-and-display-current-project)
+  :config
+  (treemacs-follow-mode 1)
+  (treemacs-filewatch-mode 1))
 
 (use-package treemacs-evil
   :after (treemacs evil))
@@ -27,7 +27,9 @@
     "P T" 'treemacs-projectile))
 
 (use-package treemacs-magit
-  :after (treemacs magit))
+  :after (treemacs magit)
+  :config
+  (treemacs-git-mode 'deferred))
 
 (use-package treemacs-icons-dired
   :config

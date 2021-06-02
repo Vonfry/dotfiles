@@ -6,7 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      vim neovim emacs
+      neovim emacs
 
       docker_compose # docker
 
@@ -24,6 +24,10 @@ in {
         enable = true;
         autoPrune.enable = mkDefault true;
       };
+    };
+    environment.sessionVariables = {
+      MANPAGER = "nvim -c 'set ft=man' -";
+      PAGER = "nvim -R";
     };
   };
 }

@@ -65,7 +65,7 @@ in {
       };
 
       packages = with pkgs; [
-        wget curl
+        curl rsync
         # mu isync
 
         firefox # qutebrowser
@@ -73,7 +73,7 @@ in {
         # unstable.tor-browser-bundle-bin
 
         wireshark nmap
-        vnstat iftop httpstat
+        iftop httpstat
       ];
     };
 
@@ -90,13 +90,14 @@ in {
             "pm" = "spawn mpv {url}";
             "pa" = "open -t https://web.archive.org/save/{url}";
             ";m" = "hint links spawn mpv {hint-url}";
+            "ab" = "spawn --userscript getbib";
+            "ap" = "spawn --userscript password_fill";
           };
         };
         searchEngines = {
           DEFAULT = "https://duckduckgo.com/?q={}";
           w  = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
           g  = "https://www.google.com/search?hl=en&q={}";
-          d  = "https://www.dogedoge.com/results?q={}";
           nw = "https://nixos.wiki/index.php?search={}";
           gh = "https://github.com/search?type=&q={}";
           gl = "https://gitlab.com/search?search={}";
@@ -129,6 +130,7 @@ in {
             draculaGreen               = "#50fa7b";
           in {
             hints.chars = "aoeuidhtns";
+            input.partial_timeout = 30000;
             url = {
               default_page = "about:blank";
               start_pages = [ "about:blank" ];
@@ -228,14 +230,9 @@ in {
           padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
           c.tabs.padding = padding
           c.statusbar.padding = padding
-
-          config.load_autoconfig()
         '';
+        loadAutoconfig = true;
       };
-    };
-
-    services = {
-      syncthing.enable = mkDefault (config.home.sessionVariables ? "CLOUD_DIR");
     };
   };
 }

@@ -18,13 +18,15 @@
         "b" 'next-buffer)
   (nmap-leader
     "M"   '(:ignore t :which-key "bookmarks")
-    "M m" 'bookmark-set
-    "M M" 'bookmark-set-no-overwrite
+    "M a" 'bookmark-set
+    "M A" 'bookmark-set-no-overwrite
     "M l" 'bookmark-bmenu-list
     "M s" 'bookmark-save
     "M d" 'bookmark-delete
     "M r" 'bookmark-rename
     "M w" 'bookmark-write
+    "F B" 'hexl-find-file
+    "F b" 'hexl-mode
     "~"   'eshell
     "!"   'calc
     "\""  'comint-run
@@ -34,6 +36,7 @@
     "_"   '+evil/switch-scratch
     "e"   '(:ignore t :which-key "emacs")
     "e s" 'server-start
+    "e c" 'clean-buffer-list
     "e #" 'server-edit
     "e D" 'diff)
   (vmap-leader

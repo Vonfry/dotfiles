@@ -2,15 +2,15 @@
 "
 
 function! vonfry#bundle#interface#config()
-    nmap <leader>x :Commands<CR>    
-    nmap <leader>p :Files<CR>       
-    nmap <leader>f :History:<CR>    
-    nmap <leader>a :Rg<CR>          
-    nmap <leader>b :Buffers<CR>     
+    nmap <leader>x :Commands<CR>
+    nmap <leader>p :Files<CR>
+    nmap <leader>f :History:<CR>
+    nmap <leader>a :Rg<CR>
+    nmap <leader>b :Buffers<CR>
     nmap <leader>/ :Lines<CR>       
-    nmap <leader>m :Marks<CR>       
+    nmap <leader>m :Marks<CR>
     nmap <leader>w :Windows<CR>     
-    nmap <leader>; :Snippets<CR>    
+    nmap <leader>; :Snippets<CR>
     nmap <leader>P <plug>(fzf-maps-n)
     xmap <leader>P <plug>(fzf-maps-x)
     omap <leader>P <plug>(fzf-maps-o)

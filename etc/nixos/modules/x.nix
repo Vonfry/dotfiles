@@ -4,11 +4,6 @@
 with lib;
 let
   cfg = config.vonfry.x;
-  chili-drv = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/feijoas/nixpkgs/chili-sddm-theme/pkgs/data/themes/chili/chili.nix";
-    sha256 = "0ib56hy9qqp187hyhgp361yvxqlffpplvw2w73j7mjzqdp49ms6k";
-  };
-  qtVersion = pkgs."qt${cfg.sddmQtVersion}".qtbase.version;
 
   screenlocker = pkgs.writeScriptBin "screenlocker" ''
     #!${pkgs.bash}/bin/bash -e
@@ -18,19 +13,6 @@ let
   lockCommand = "${screenlocker}/bin/screenlocker";
 in {
   options.vonfry.x = {
-    sddmQtVersion = mkOption {
-      # my sddm use this version
-      default = "512";
-      type = types.str;
-      description = "sddm may use a different qt version from default one. So we set it.";
-    };
-
-    chiliPackage = mkOption {
-      default = pkgs."libsForQt${cfg.sddmQtVersion}".callPackage chili-drv {};
-      description = "sddm theme: chili package";
-      type = types.package;
-    };
-
     durationLock = mkOption {
       default = 600;
       type = types.int;
@@ -42,15 +24,6 @@ in {
       type = types.int;
       description = "The no activation duration before system suspending. unit: second.";
     };
-
-    autoWake = {
-      time = mkOption {
-        default = "21:00";
-        type = with types; str;
-        description = "Automatic wakeup from suspend at time, the main purpose is to sync.";
-      };
-      enable = mkEnableOption "enable auto wake";
-    };
   };
 
   config = mkIf config.vonfry.enable {
@@ -58,9 +31,8 @@ in {
       xclip
       alacritty
       dunst libnotify
-      unstable.dracula-theme
-      cfg.chiliPackage
-      breeze-icons
+      vonfryPackages.chili-theme
+      breeze-icons breeze-gtk breeze-qt5
       screenlocker
     ];
 
@@ -76,14 +48,10 @@ in {
 
       libinput = {
         enable = true;
-        accelProfile = "flat";
+        mouse.accelProfile = "flat";
       };
 
       displayManager= {
-        setupCommands = ''
-          # prevent garbage collection
-          # ${chili-drv}
-        '';
         sddm = {
           enable = true;
           theme = "chili";
@@ -99,17 +67,21 @@ in {
 
     services.xserver.displayManager.job.environment =
       let
-        qtPkgs = cfg.chiliPackage.buildInputs;
+        qtPkgs = with pkgs.libsForQt5; [ qtbase qtquickcontrols qtgraphicaleffects ];
+        qtVersion = pkgs.qt5.qtbase.version;
         generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/qml") qtPkgs;
         generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/plugins") qtPkgs;
       in {
-        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs."qt${cfg.sddmQtVersion}".qtbase.qtPluginPrefix}";
-        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs."qt${cfg.sddmQtVersion}".qtbase.qtQmlPrefix}";
+        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}";
+        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
       };
 
-    programs.xss-lock = {
-      enable = true;
-      lockerCommand = "${lockCommand} -n";
+    programs = {
+      xss-lock = {
+        enable = true;
+        lockerCommand = "${lockCommand} -n";
+      };
+      qt5ct.enable = true;
     };
 
     systemd = {
@@ -125,34 +97,6 @@ in {
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
-        };
-      };
-
-      services = {
-        autowake = {
-          enable = mkDefault cfg.autoWake.enable;
-          before = [ "sleep.target" ];
-          wantedBy = [ "sleep.target" ];
-          script = ''
-            current_time=$(${pkgs.coreutils}/bin/date +%R)
-            if [[ "$current_time" < "${cfg.autoWake.time}" ]]; then
-              ${pkgs.utillinux}/bin/rtcwake -m no --date ${cfg.autoWake.time}
-            else
-              ${pkgs.utillinux}/bin/rtcwake -m no --date "$(date -d 'next day ${cfg.autoWake.time}' '+%F %R')"
-            fi
-          '';
-          description = "auto wake from suspend.";
-          serviceConfig.Type = "oneshot";
-        };
-
-        autowakeAfter = {
-          enable = mkDefault (config.systemd.services.autowake.enable);
-          after = [ "sleep.target" ];
-          wantedBy = [ "sleep.target" ];
-          script = "${pkgs.utillinux}/bin/rtcwake -m disable";
-          preStart = "sleep 30";
-          description = "clean previous wake process.";
-          serviceConfig.Type = "oneshot";
         };
       };
     };

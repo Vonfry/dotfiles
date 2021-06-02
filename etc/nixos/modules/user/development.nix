@@ -67,79 +67,53 @@ in {
     };
 
     programs = {
-      vim = {
-        enable = true;
-        settings = {
-          background = "dark";
-          backupdir = [ "~/.cache/vim/backup/" ];
-          expandtab = true;
-          mousemodel = "popup";
-          number = true;
-          relativenumber = true;
-          shiftwidth = 4;
-          ignorecase = true;
-          smartcase = true;
-          tabstop = 4;
-          undofile = true;
-          undodir = [ "~/.cache/vim/undo" ];
-          history = 1024;
-        };
-        extraConfig = builtins.readFile ./files/vimrc;
-      };
-
       neovim = {
         enable = true;
-        configure = {
-          packages.myPackage = with pkgs.vimPlugins; {
-            start = [
-              vim-test
-              # SQHell-vim
-              vim-logreview
-              vim-surround
-              auto-pairs
-              direnv-vim
-              nerdtree
-              nerdtree-git-plugin
-              vim-rooter
-              vim-projectionist
-              vim-polyglot
-              vim-ragtag
-              # MatchTagAlways
-              DoxygenToolkit-vim
-              nerdcommenter
-              vim-orgmode
-              vim-easymotion
-              tagbar
-              fzf-vim
-              editorconfig-vim
-              vim-better-whitespace
-              vim-signature
-              incsearch-vim
-              vim-over
-              vimproc-vim
-              tabular
-              vim-which-key
-              deoplete-nvim
-              ultisnips
-              vim-snippets
-              # nvim-lspconfig # neovim > 0.5
-              vim-fugitive
-              vim-signify
-              NeoSolarized
-              vim-airline
-              # vim-airline-clock
-              indentLine
-              vim-mundo
-            ];
-            opt = [ dracula-vim ];
-          };
+        plugins = with pkgs.vimPlugins; [
+          vim-logreview
+          vim-surround
+          auto-pairs
+          direnv-vim
+          nerdtree
+          nerdtree-git-plugin
+          vim-rooter
+          vim-polyglot
+          vim-ragtag
+          MatchTagAlways
+          nerdcommenter
+          vim-orgmode
+          vim-easymotion
+          fzf-vim
+          editorconfig-vim
+          vim-better-whitespace
+          vim-signature
+          incsearch-vim
+          vim-over
+          tabular
+          vim-which-key
+          # nvim-compe
+          ultisnips
+          vim-snippets
+          # nvim-lspconfig
+          vim-fugitive
+          vim-signify
+          NeoSolarized
+          vim-airline
+          vim-airline-clock
+          indentLine
+          vim-mundo
+          { plugin = dracula-vim;
+            optional = true;
+          }
+        ];
 
-          customRC = ''
-            " see github:nixos/nixpkgs#96062
-            packadd! dracula-vim
-            call vonfry#init()
-          '';
-        };
+        extraConfig = ''
+          " see github:nixos/nixpkgs#96062
+          " This have to be done here instead of config option at below because
+          " my configuration will load this.
+          packadd! dracula-vim
+          call vonfry#init()
+        '';
       };
 
       emacs =  {
@@ -161,6 +135,7 @@ in {
           evil-matchit
           amx
           flx
+          wgrep
           ivy
           counsel
           ivy-avy
@@ -190,7 +165,6 @@ in {
           cargo
           company-shell
           markdown-mode
-          epkgs."markdown-mode+"
           haskell-mode
           lsp-haskell
           hasky-extensions
@@ -208,16 +182,13 @@ in {
           magit-gitflow
           gitlab-ci-mode
           forge
-          inf-ruby
           diff-hl
           disaster
-          function-args
           cmake-mode
-          cmake-font-lock
           realgud-lldb
           mu4e-alert
           mu4e-maildirs-extension
-          elfeed
+          elfeed elfeed-org
           emacsql
           sql-indent
           ebib
@@ -284,6 +255,10 @@ in {
           rebase.autoSquash = mkDefault true;
           github.user = "Vonfry";
           gitlab.user = "Vonfry";
+          core = {
+            pager = "nvim -R";
+            color = false;
+          };
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
@@ -299,10 +274,12 @@ in {
     home = {
       sessionVariables = {
         EDITOR = "nvim";
+        MANPAGER = "nvim -c 'set ft=man' -";
+        PAGER = "nvim -R";
       };
 
       packages = with pkgs; [
-        # neovim vim emacs
+        # neovim emacs
         emacs-all-the-icons-fonts
 
         # git git-lfs

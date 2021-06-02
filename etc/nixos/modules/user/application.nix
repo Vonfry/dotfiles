@@ -105,12 +105,11 @@ in {
 
         tdesktop
 
-        # remmina
-        filezilla
+        filezilla pcmanfm
 
-        flameshot feh # inkscape gimp
-        pavucontrol # kid3 audacity
-        # mpv ffmpeg
+        flameshot feh
+        pavucontrol
+        # mpv
         # zathura
         libreoffice
 
@@ -136,7 +135,10 @@ in {
     };
 
     services = {
-      pulseeffects.enable = true;
+      pulseeffects = {
+        enable = true;
+        package = pkgs.pulseeffects-pw;
+      };
 
       mpd = {
         enable = mkDefault true;
