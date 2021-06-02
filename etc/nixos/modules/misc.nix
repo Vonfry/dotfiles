@@ -7,7 +7,8 @@ in {
   config = mkIf cfg.enable {
     i18n.inputMethod = {
       enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-table-extra ];
+      fcitx5.addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-chinese-addons
+                                 ];
     };
 
     services.xserver.displayManager.sessionCommands = "${config.i18n.inputMethod.package}/bin/fcitx5 -d";
