@@ -1,9 +1,10 @@
 * System
-** NixOS[1/3]
+** NixOS[2/3]
 *** DONE migrate to nixos
     - [X] clean setup script about sed and some local configuration.
     - [X] code nixos module instead of configuration directly
-*** TODO podman replaces docker
+*** DONE podman replaces docker
+    CLOSED: [2021-06-02 Wed 14:07]
 *** TODO X [8/10]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
