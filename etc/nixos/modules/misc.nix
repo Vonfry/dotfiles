@@ -12,6 +12,8 @@ in {
                                  ];
     };
 
+    services.xserver.displayManager.sessionCommands = "${config.i18n.inputMethod.package}/bin/fcitx5";
+
     console = {
       font = "ter-v12n";
       packages = with pkgs; [ terminus_font kbd ];
