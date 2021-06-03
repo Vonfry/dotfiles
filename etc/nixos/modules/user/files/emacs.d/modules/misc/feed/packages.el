@@ -12,7 +12,9 @@
   :general
   ("C-x w" 'elfeed)
   (nmap-at
-    "f" 'elfeed))
+    "f"   'elfeed
+    "F"   '(nil :whik-hcey "feed")
+    "F u" 'elfeed-search-fetch))
 
 (use-package elfeed-org
   :custom
