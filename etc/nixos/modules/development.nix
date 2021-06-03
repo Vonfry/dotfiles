@@ -8,21 +8,20 @@ in {
     environment.systemPackages = with pkgs; [
       neovim emacs
 
-      docker_compose # docker
-
       git git-lfs
     ];
 
     virtualisation = {
+      oci-containers.backend = "podman";
+
       libvirtd = {
         enable = true;
         qemuRunAsRoot = mkDefault false;
         qemuPackage = mkDefault pkgs.qemu_kvm;
       };
 
-      docker = {
+      podman = {
         enable = true;
-        autoPrune.enable = mkDefault true;
       };
     };
     environment.sessionVariables = {

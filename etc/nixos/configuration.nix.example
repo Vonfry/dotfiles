@@ -41,6 +41,16 @@
           };
         };
 
+        # xdg = {
+        #   configFile = {
+        #     "containers/registeries.conf".text = ''
+        #       [[registry.mirror]]
+        #       prefix = "docker.io"
+        #       location = "docker.mirrors.sjtug.sjtu.edu.cn"
+        #     '';
+        #   };
+        # };
+
         imports = [ ./local/mail.nix ./local/qutebrowser.nix
                     ./local/proxy-config.nix
                   ];
