@@ -109,8 +109,6 @@ in {
 
         flameshot feh
         pavucontrol
-        # mpv
-        # zathura
         libreoffice
 
         virt-manager

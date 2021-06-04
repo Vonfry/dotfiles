@@ -13,14 +13,13 @@ in {
     time.timeZone = mkDefault "Asia/Shanghai";
 
     environment.systemPackages = with pkgs; [
-      # sudo
       gnutls cacert
       pciutils usbutils inxi
       exfat
 
       lnav
       atop htop
-      lm_sensors lsof
+      sysstat lm_sensors lsof
 
       file patch colordiff parallel
       ripgrep fd exa

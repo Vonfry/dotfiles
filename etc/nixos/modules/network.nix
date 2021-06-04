@@ -12,12 +12,7 @@ in {
   };
 
   config = mkIf config.vonfry.enable {
-    environment.systemPackages = with pkgs; [
-      curl
-
-      iftop
-      wireshark nmap
-    ];
+    environment.systemPackages = with pkgs; [ curl ];
 
     networking = {
       firewall = {

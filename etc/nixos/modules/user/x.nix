@@ -112,10 +112,6 @@ in {
       };
     };
 
-    home.packages = with pkgs; [
-      # alacritty
-    ];
-
     xdg = {
       enable = true;
       userDirs.enable = true;

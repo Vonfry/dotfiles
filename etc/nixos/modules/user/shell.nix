@@ -507,7 +507,7 @@ in {
 
       packages = with pkgs; [
         zsh fzf zoxide
-        trash-cli thefuck # tmux
+        trash-cli thefuck
         neofetch
         asciinema
 

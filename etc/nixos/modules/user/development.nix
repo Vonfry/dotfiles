@@ -278,10 +278,8 @@ in {
       };
 
       packages = with pkgs; [
-        # neovim emacs
         emacs-all-the-icons-fonts
 
-        # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
 
         nixfmt niv
