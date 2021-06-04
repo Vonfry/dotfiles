@@ -31,14 +31,14 @@ in {
       xclip
       alacritty
       dunst libnotify
-      vonfryPackages.chili-theme
+      vonfryPackages.sddm-slice-theme
       breeze-icons breeze-gtk breeze-qt5
       screenlocker
     ];
 
-    services.xbanish.enable = true;
+    fonts.fonts = with pkgs; [ roboto ];
 
-    services.dbus.packages = with pkgs; [ gnome3.dconf ];
+    services.xbanish.enable = true;
 
     services.xserver = {
       enable = true;
@@ -54,7 +54,7 @@ in {
       displayManager= {
         sddm = {
           enable = true;
-          theme = "chili";
+          theme = "slice";
         };
       };
       windowManager = {
@@ -67,7 +67,7 @@ in {
 
     services.xserver.displayManager.job.environment =
       let
-        qtPkgs = with pkgs.libsForQt5; [ qtbase qtquickcontrols qtgraphicaleffects ];
+        qtPkgs = with pkgs.libsForQt5; [ qtbase qtgraphicaleffects ];
         qtVersion = pkgs.qt5.qtbase.version;
         generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/qml") qtPkgs;
         generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/plugins") qtPkgs;
