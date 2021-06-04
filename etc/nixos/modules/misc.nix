@@ -11,7 +11,11 @@ in {
                                  ];
     };
 
-    services.xserver.displayManager.sessionCommands = "${config.i18n.inputMethod.package}/bin/fcitx5 -d";
+    systemd.user.services.fcitx5-daemon = {
+      enable = true;
+      script = "${config.i18n.inputMethod.package}/bin/fcitx5";
+      wantedBy = [ "graphical.target" ];
+    };
 
     console = {
       font = "ter-v12n";
