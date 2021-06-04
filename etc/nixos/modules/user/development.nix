@@ -256,8 +256,8 @@ in {
           gitlab.user = "Vonfry";
           core = {
             pager = "nvim -R";
-            color = false;
           };
+          color.pager = false;
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
