@@ -1,6 +1,6 @@
-{ stdenv, fetchFromGitHub, lib }: # qtbase qtquickcontrols qtgraphicaleffects
+{ stdenvNoCC, fetchFromGitHub, lib }: # qtbase qtquickcontrols qtgraphicaleffects
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "chili";
   version = "0.1.5";
 

@@ -1,7 +1,7 @@
-{ stdenv, fetchFromGitHub, lib }: # qtbase qtgraphicaleffects roboto
+{ stdenvNoCC, fetchFromGitHub, lib }: # qtbase qtgraphicaleffects roboto
 let
 in
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "sddm-slice-theme";
   version = "1.5.1";
 
