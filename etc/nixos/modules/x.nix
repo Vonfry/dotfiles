@@ -34,6 +34,9 @@ in {
       vonfryPackages.sddm-slice-theme
       breeze-icons breeze-gtk breeze-qt5
       screenlocker
+
+      # need by sddm theme in path
+      libsForQt5.qtgraphicaleffects
     ];
 
     fonts.fonts = with pkgs; [ roboto ];
@@ -66,16 +69,6 @@ in {
         };
       };
     };
-
-    services.xserver.displayManager.job.environment =
-      let
-        qtPkgs = with pkgs.libsForQt5; [ qtbase qtgraphicaleffects ];
-        generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-*/qml") qtPkgs;
-        generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-*/plugins") qtPkgs;
-      in {
-        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}";
-        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
-      };
 
     programs = {
       xss-lock = {
