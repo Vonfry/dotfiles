@@ -39,8 +39,6 @@ in {
       libsForQt5.qtgraphicaleffects
     ];
 
-    fonts.fonts = with pkgs; [ roboto ];
-
     services.xbanish.enable = true;
 
     services.dbus.packages = with pkgs; [ dconf ];
@@ -92,7 +90,45 @@ in {
         '';
           wantedBy = [ "graphical-session.target" ];
         };
+
+        fcitx5-daemon = { # TODO remove after pr is merged
+          enable = true;
+          script = "${config.i18n.inputMethod.package}/bin/fcitx5";
+          wantedBy = [ "graphical-session.target" ];
+        };
       };
     };
+
+    i18n.inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-chinese-addons
+                                 ];
+    };
+
+    fonts = {
+      fonts = with pkgs; [
+        hack-font
+        sarasa-gothic
+        symbola
+        liberation_ttf
+        source-han-sans-simplified-chinese
+        source-han-serif-simplified-chinese
+
+        # need for sddm
+        roboto
+      ];
+      fontconfig = {
+        enable = true;
+        # config this by your self, it is depended on which screen you
+        # are using. It is suggested as a multiple of 6 or 12.
+        # dpi = 96;
+        defaultFonts = {
+          monospace = [ "Hack" "Sarasa Mono SC" ];
+          sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" ];
+          serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" ];
+        };
+      };
+    };
+
   };
 }

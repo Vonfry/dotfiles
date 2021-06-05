@@ -9,5 +9,10 @@ in {
       zsh.enable = true;
       tmux.enable = true;
     };
+
+    console = {
+      font = "ter-v12n";
+      packages = with pkgs; [ terminus_font ];
+    };
   };
 }

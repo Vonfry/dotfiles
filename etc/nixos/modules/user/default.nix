@@ -31,11 +31,6 @@ in {
       shell = pkgs.zsh;
     } cfg.user.extraConfig];
 
-    services.xserver.displayManager.sessionCommands = ''
-       setfacl -m u:sddm:x ${config.users.users.vonfry.home}/
-       setfacl -m u:sddm:r ${config.users.users.vonfry.home}/.face.icon
-    '';
-
     home-manager = {
       useUserPackages = true;
       users.vonfry = mkMerge [
