@@ -6,6 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
+    # GTK needs dbus with dconf
     gtk = {
       enable = true;
       font = {
