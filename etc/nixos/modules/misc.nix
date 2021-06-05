@@ -14,7 +14,7 @@ in {
     systemd.user.services.fcitx5-daemon = {
       enable = true;
       script = "${config.i18n.inputMethod.package}/bin/fcitx5";
-      wantedBy = [ "graphical.target" ];
+      wantedBy = [ "graphical-session.target" ];
     };
 
     console = {

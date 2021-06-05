@@ -68,9 +68,8 @@ in {
     services.xserver.displayManager.job.environment =
       let
         qtPkgs = with pkgs.libsForQt5; [ qtbase qtgraphicaleffects ];
-        qtVersion = pkgs.qt5.qtbase.version;
-        generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/qml") qtPkgs;
-        generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/plugins") qtPkgs;
+        generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-*/qml") qtPkgs;
+        generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-*/plugins") qtPkgs;
       in {
         QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}";
         QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
