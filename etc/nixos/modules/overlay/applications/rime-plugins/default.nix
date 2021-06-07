@@ -4,7 +4,12 @@ with pkgs;
 with lib;
 
 let
-  wrap = import ./wrap.nix { inherit runCommand; };
+  wrap = src:
+    runCommand "rime-${src.name}" {} ''
+      mkdir -p $out/share/rime
+      cp ${src}/*.yaml $out/share/rime
+      ${if src ? "extraRun" then src.extraRun else "" }
+    '';
 
   srcs = [
     (fetchFromGitHub rec {

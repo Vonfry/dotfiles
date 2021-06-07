@@ -31,9 +31,7 @@ in {
       '';
 
       packages = with pkgs; [
-        atop # htop
         sshfs exfat
-        lnav lm_sensors lsof
 
         patch parallel file
 

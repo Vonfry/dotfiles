@@ -6,6 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
+    # GTK needs dbus with dconf
     gtk = {
       enable = true;
       font = {
@@ -112,9 +113,7 @@ in {
       };
     };
 
-    home.packages = with pkgs; [
-      # alacritty
-    ];
+    fonts.fontconfig.enable = true;
 
     xdg = {
       enable = true;
@@ -130,7 +129,35 @@ in {
           Terminal=false
           MimeType=x-scheme-handler/org-protocol;
         '';
+
+        "fcitx5/rime" = {
+          source = with pkgs; with vonfryPackages.rimePlugins;
+            runCommand "fcitx-rime-plugins" {} ''
+              mkdir -p $out
+              cp ${./files/rime/default.custom.yaml} $out/default.custom.yaml
+              cp ${cangjie}/share/rime/cangjie5.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/numbers.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/wubi86_jidian.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/wubi86_jidian_extra.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/wubi86_jidian_trad.*.yaml $out
+              cp ${japanese}/share/rime/japanese.*.yaml $out
+            '';
+          recursive = true;
+        };
+        "fcitx5/themes/Material-Color/theme.conf".source = "${pkgs.vonfryPackages.fcitx5-theme.material-color}/theme-deepPurple.conf";
       };
+    };
+
+    home = {
+      packages = with pkgs; [
+        hack-font
+        sarasa-gothic
+        symbola
+        liberation_ttf
+        source-han-sans-simplified-chinese
+        source-han-serif-simplified-chinese
+        font-awesome
+      ];
     };
   };
 }

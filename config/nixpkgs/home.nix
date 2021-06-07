@@ -1,1 +1,1 @@
-../../etc/nixos/user/vonfry/home.nix
+../../etc/nixos/modules/user/home.nix

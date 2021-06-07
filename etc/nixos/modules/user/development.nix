@@ -256,8 +256,8 @@ in {
           gitlab.user = "Vonfry";
           core = {
             pager = "nvim -R";
-            color = false;
           };
+          color.pager = false;
         };
         lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
@@ -278,10 +278,8 @@ in {
       };
 
       packages = with pkgs; [
-        # neovim emacs
         emacs-all-the-icons-fonts
 
-        # git git-lfs
         gitAndTools.gitflow tig gitAndTools.git-extras
 
         nixfmt niv
@@ -292,7 +290,7 @@ in {
 
         graphviz
 
-        rnix-lsp
+        rnix-lsp nixpkgs-review nix-prefetch-scripts
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a

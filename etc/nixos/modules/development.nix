@@ -9,6 +9,8 @@ in {
       neovim emacs
 
       git git-lfs
+
+      # bintools-unwrapped # for readelf objdump size nm
     ];
 
     virtualisation = {

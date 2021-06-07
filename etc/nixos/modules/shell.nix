@@ -10,9 +10,9 @@ in {
       tmux.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      zsh fzf
-      tmux
-    ];
+    console = {
+      font = "ter-v12n";
+      packages = with pkgs; [ terminus_font ];
+    };
   };
 }

@@ -1,6 +1,6 @@
-{ stdenv, fetchFromGitHub }:
+{ stdenvNoCC, fetchFromGitHub, lib }: # qtbase qtquickcontrols qtgraphicaleffects
 
-stdenv.mkDerivation rec {
+stdenvNoCC.mkDerivation rec {
   pname = "chili";
   version = "0.1.5";
 
@@ -13,10 +13,10 @@ stdenv.mkDerivation rec {
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes/chili
-    mv * $out/share/sddm/themes/chili/
+    cp -r * $out/share/sddm/themes/chili
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     license = licenses.gpl3;
     maintainers = with maintainers; [ mschneider ];
     homepage = https://github.com/MarianArlt/sddm-chili;

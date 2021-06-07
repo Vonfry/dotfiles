@@ -31,14 +31,17 @@ in {
       xclip
       alacritty
       dunst libnotify
-      vonfryPackages.chili-theme
+      vonfryPackages.sddm-slice-theme
       breeze-icons breeze-gtk breeze-qt5
       screenlocker
+
+      # need by sddm theme in path
+      libsForQt5.qtgraphicaleffects
     ];
 
     services.xbanish.enable = true;
 
-    services.dbus.packages = with pkgs; [ gnome3.dconf ];
+    services.dbus.packages = with pkgs; [ dconf ];
 
     services.xserver = {
       enable = true;
@@ -54,7 +57,7 @@ in {
       displayManager= {
         sddm = {
           enable = true;
-          theme = "chili";
+          theme = "slice";
         };
       };
       windowManager = {
@@ -64,17 +67,6 @@ in {
         };
       };
     };
-
-    services.xserver.displayManager.job.environment =
-      let
-        qtPkgs = with pkgs.libsForQt5; [ qtbase qtquickcontrols qtgraphicaleffects ];
-        qtVersion = pkgs.qt5.qtbase.version;
-        generateQml = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/qml") qtPkgs;
-        generatePlugins = concatMapStringsSep ":" (p: "${p.out}/lib/qt-${qtVersion}/plugins") qtPkgs;
-      in {
-        QT_PLUGIN_PATH = "${generatePlugins}:/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}";
-        QML2_IMPORT_PATH = "${generateQml}:/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}";
-      };
 
     programs = {
       xss-lock = {
@@ -98,7 +90,45 @@ in {
         '';
           wantedBy = [ "graphical-session.target" ];
         };
+
+        fcitx5-daemon = { # TODO remove after pr is merged
+          enable = true;
+          script = "${config.i18n.inputMethod.package}/bin/fcitx5";
+          wantedBy = [ "graphical-session.target" ];
+        };
       };
     };
+
+    i18n.inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-chinese-addons
+                                 ];
+    };
+
+    fonts = {
+      fonts = with pkgs; [
+        hack-font
+        sarasa-gothic
+        symbola
+        liberation_ttf
+        source-han-sans-simplified-chinese
+        source-han-serif-simplified-chinese
+
+        # need for sddm
+        roboto
+      ];
+      fontconfig = {
+        enable = true;
+        # config this by your self, it is depended on which screen you
+        # are using. It is suggested as a multiple of 6 or 12.
+        # dpi = 96;
+        defaultFonts = {
+          monospace = [ "Hack" "Sarasa Mono SC" ];
+          sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" ];
+          serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" ];
+        };
+      };
+    };
+
   };
 }

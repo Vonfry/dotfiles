@@ -66,14 +66,12 @@ in {
 
       packages = with pkgs; [
         curl rsync
-        # mu isync
 
-        firefox # qutebrowser
+        firefox
         qbittorrent
         # unstable.tor-browser-bundle-bin
 
-        wireshark nmap
-        iftop httpstat
+        wireshark iftop httpstat
       ];
     };
 
