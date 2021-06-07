@@ -66,6 +66,9 @@
 
 (use-package ivy-rich
   :after ivy
+  :custom
+  (ivy-rich-parse-remote-buffer nil)
+  (ivy-rich-parse-remote-file-path nil)
   :config
   (ivy-rich-mode 1))
 
