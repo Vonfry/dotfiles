@@ -17,16 +17,12 @@
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)
   (nmap-mode :keymaps 'bibtex-mode-map
-    "e" 'ebib
-    "d" '+bib/switch-dir-current)
+    "E" 'ebib
+    "e" '+bib/ebib-current)
   (nmap-mode :keymaps '(org-mode-map TeX-mode-map)
     "["   '(:ignore t :which-key "bib")
     "[ [" 'ebib
-    "[ {" '+bib/switch-dir-current
-    "[ }" '+bib/switch-dir
-    "[ (" '+bib/switch-dir-from-search-dir
-    "[ &" 'ebib-insert-citation
-    "[ -" '+bib/toggle-insert-multiple)
+    "[ &" 'ebib-insert-citation)
   ;; These has confliction with evil
   (general-unbind ebib-log-mode-map
     :with nil
