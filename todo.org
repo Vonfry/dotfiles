@@ -105,3 +105,6 @@
 *** TODO 21.05[1/2]
    - [X] qutebrowser module for autoconfig instead of extraConfig
    - [ ] reuse zsh-completions after the collision is fixed
+
+** Browser[0/1]
+   - [ ] replace qutebrowser with nyxt?
