@@ -72,7 +72,7 @@ myKeys conf = mkKeymap conf
     , ("M-S-x", shellPrompt myXPConfNoAc       )
     , ("M-C-x", xmonadPrompt myXPConf          )
     , ("M-/"  , promptSearch myXPConfNoAc multi)
-    , ("M-z", sshPrompt myXPConf               )
+    , ("M-z"  , sshPrompt myXPConf             )
 
     , ("M-<F1>"  , manPrompt myXPConf   )
 
