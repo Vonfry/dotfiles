@@ -45,7 +45,6 @@ in {
         defaultKeymap = "emacs";
 
         localVariables = {
-          PATH = "~/.local/bin:$PATH";
           WORDCHARS = "*?_-.[]~&;!#$%^(){}<>";
         };
 
@@ -518,6 +517,8 @@ in {
           '';
         }))
       ];
+
+      sessionPath = [ "~/.local/bin" ];
     };
   };
 }
