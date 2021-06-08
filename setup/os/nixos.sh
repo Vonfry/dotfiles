@@ -1,12 +1,12 @@
 echo_info "* system packages: Nix"
 sudo nixos-generate-config
 sudo cp -r /etc/nixos /etc/nixos.bak
-sudo ln -sf $script_dir/etc/nixos /etc/nixos
+sudo mkdir -p /etc/nixos/local
+sudo ln -sf $script_dir/etc/nixos/modules /etc/nixos/modules
 find /etc/nixos -name "*.nix.example" |
     sed s/\.example$// |
     xargs -n1 -I "{}" sudo cp {}.example {}
-sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
-sudo cp $script_dir/etc/nixos/configuration.nix /etc/nixos/configuration.nix
+sudo cp $script_dir/etc/nixos/configuration.nix.example /etc/nixos/configuration.nix
 echo_info "--- set some local configuration"
 read
 rm -rf /etc/nixos.bak

@@ -58,7 +58,7 @@ in {
 
       password-store = {
         enable = true;
-        package = pkgs.pass.withExtensions (exts: with exts; [ pass-otp ]);
+        package = pkgs.pass-nodmenu.withExtensions (exts: with exts; [ pass-otp ]);
       };
     };
 

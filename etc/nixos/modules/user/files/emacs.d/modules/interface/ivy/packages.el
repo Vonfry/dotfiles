@@ -21,6 +21,7 @@
 (use-package counsel
   :custom
   (counsel-find-file-at-point t)
+  (counsel-switch-buffer-preview-virtual-buffers nil)
   :config
   (counsel-mode 1)
   (setq ivy-initial-inputs-alist nil)
@@ -65,8 +66,14 @@
 
 (use-package ivy-rich
   :after ivy
+  :custom
+  (ivy-rich-parse-remote-buffer nil)
+  (ivy-rich-parse-remote-file-path nil)
   :config
   (ivy-rich-mode 1))
 
 (use-package counsel-tramp
-  :after counsel)
+  :after counsel
+  :general
+  (nmap-leader
+    "F t" 'counsel-tramp))
