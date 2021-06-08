@@ -20,4 +20,5 @@
     (+company-set-backends-grouped '(company-shell company-shell-env)))))
 
 (nmap-leader
-  "$" '+shell-open-term-at-pwd)
+  "$" '+shell/open-term-at-pwd
+  "~" '+shell/open-file-manager-x)

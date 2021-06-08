@@ -1,7 +1,7 @@
 ;;; shell func -*- lexical-binding: t -*-
 ;;
 
-(defun +shell-open-term-at-pwd ()
+(defun +shell/open-term-at-pwd ()
   (interactive)
   (let* ((pwd (projectile-project-root))
          (pwd (if pwd pwd default-directory))
@@ -11,7 +11,12 @@
          (args (concat +shell-terminal-args-pwd
                        " "
                        pwd)))
-    (start-process-shell-command
+    (start-process
      (concat "*terminal: " pwd "*")
-     nil nil
-     cmd args)))
+     nil cmd args)))
+
+(defun +shell/open-file-manager-x ()
+  (interactive)
+  (start-process
+   (concat "*file-manager: " (pwd) "*")
+   nil "xdg-open" "."))
