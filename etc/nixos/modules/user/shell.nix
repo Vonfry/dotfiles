@@ -500,11 +500,6 @@ in {
 
             ! [ -f ${toString configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/bg.png
 
-            if ! [ -f ~/.face.icon ]; then
-              cp ${pkgs.vonfryPackages.icon-face} .face.icon
-              setfacl -m u:sddm:x ~/
-              setfacl -m u:sddm:r ~/.face.icon
-            fi
           '';
         in lib.hm.dag.entryAfter ["writeBoundary"]
           (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs makeLib ]);
