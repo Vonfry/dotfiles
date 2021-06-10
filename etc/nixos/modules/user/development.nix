@@ -62,10 +62,6 @@ in {
       "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
     };
 
-    services = {
-      lorri.enable = true;
-    };
-
     programs = {
       neovim = {
         enable = true;
@@ -266,6 +262,16 @@ in {
       direnv = {
         enable = true;
         enableZshIntegration = true;
+        enableNixDirenvIntegration = true;
+        stdlib = ''
+          declare -A direnv_layout_dirs
+          direnv_layout_dir() {
+              echo "''${direnv_layout_dirs[$PWD]:=$(
+                  echo -n "$XDG_CACHE_HOME"/direnv/layouts/
+                  echo -n "$PWD" | shasum | cut -d ' ' -f 1
+              )}"
+          }
+        '';
       };
 
     };

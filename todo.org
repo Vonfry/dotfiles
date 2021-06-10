@@ -72,6 +72,9 @@
 ** Nix[3/4]
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
+*** DONE nix-direnv replace lorri
+    There is a problem on ~XDG_DATA_DIRS~ with lorri. Perhaps lorri is reused
+    somedays.
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
