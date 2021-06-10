@@ -3,20 +3,25 @@
 
 (defun +shell/open-term-at-pwd ()
   (interactive)
-  (let* ((pwd (projectile-project-root))
-         (pwd (if pwd pwd default-directory))
-         (cmd (concat +shell-terminal-command
-                      " "
-                      +shell-terminal-extra-arguments))
-         (args (concat +shell-terminal-args-pwd
-                       " "
-                       pwd)))
-    (start-process
-     (concat "*terminal: " pwd "*")
-     nil cmd args)))
+  (let* ((projdir (projectile-project-root))
+         (pwd (if projdir projdir default-directory))
+         (cmd +shell-terminal-command)
+         (args (-non-nil
+                (list +shell-terminal-extra-arguments
+                      +shell-terminal-args-pwd
+                      pwd))))
+    (apply 'start-process
+           (concat "*terminal: " pwd "*")
+           nil cmd args)))
 
 (defun +shell/open-file-manager-x ()
   (interactive)
-  (start-process
-   (concat "*file-manager: " (pwd) "*")
-   nil "xdg-open" "."))
+  (let* ((projdir (projectile-project-root))
+         (pwd (if projdir projdir default-directory))
+         (cmd +shell-terminal-command)
+         (args (-non-nil
+                (list +shell-file-manager-args-pwd
+                      pwd))))
+  (apply 'start-process
+         (concat "*file-manager: " pwd "*")
+         nil +shell-file-manager-command args)))

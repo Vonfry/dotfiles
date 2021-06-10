@@ -7,7 +7,7 @@
   :type 'string
   :group 'vonfry-modules)
 
-(defcustom +shell-terminal-extra-arguments ""
+(defcustom +shell-terminal-extra-arguments nil
   "Extra arguments for linux"
   :type 'string
   :group 'vonfry-modules)
@@ -17,3 +17,12 @@
   :type 'string
   :group 'vonfry-modules)
 
+(defcustom +shell-file-manager-command "xdg-open"
+  "The command to open file manager"
+  :type 'string
+  :group 'vonfry-modules)
+
+(defcustom +shell-file-manager-args-pwd nil
+  "The argument add before pwd which lets the command set pwd."
+  :type 'string
+  :group 'vonfry-modules)
