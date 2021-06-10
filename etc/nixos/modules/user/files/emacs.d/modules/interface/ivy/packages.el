@@ -41,6 +41,7 @@
     "F r" 'counsel-recentf
     "F a" 'counsel-rg
     "F ;" 'counsel-outline
+    "F x" 'counsel-linux-app
     "p" 'counsel-cd
     "b" 'counsel-switch-buffer
     "<" 'counsel-mark-ring
