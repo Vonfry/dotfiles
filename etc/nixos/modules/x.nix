@@ -114,6 +114,7 @@ in {
         source-han-sans-simplified-chinese
         source-han-serif-simplified-chinese
 
+        font-awesome
         # need for sddm
         roboto
       ];
@@ -123,9 +124,9 @@ in {
         # are using. It is suggested as a multiple of 6 or 12.
         # dpi = 96;
         defaultFonts = {
-          monospace = [ "Hack" "Sarasa Mono SC" ];
-          sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" ];
-          serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" ];
+          monospace = [ "Hack" "Sarasa Mono SC" "Font Awesome 5 Free" ];
+          sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" "Font Awesome 5 Free" ];
+          serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" "Font Awesome 5 Free" ];
         };
       };
     };
