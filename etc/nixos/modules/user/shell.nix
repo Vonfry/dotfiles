@@ -45,7 +45,6 @@ in {
         defaultKeymap = "emacs";
 
         localVariables = {
-          PATH = "~/.local/bin:$PATH";
           WORDCHARS = "*?_-.[]~&;!#$%^(){}<>";
         };
 
@@ -120,6 +119,11 @@ in {
           done
 
           unset keymap
+
+          function set_win_title() {
+            echo -ne "\033]0; shell: $(basename "$PWD") \007"
+          }
+          precmd_functions+=(set_win_title)
         '';
 
         loginExtra = ''
@@ -496,11 +500,6 @@ in {
 
             ! [ -f ${toString configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/bg.png
 
-            if ! [ -f ~/.face.icon ]; then
-              cp ${pkgs.vonfryPackages.icon-face} .face.icon
-              setfacl -m u:sddm:x ~/
-              setfacl -m u:sddm:r ~/.face.icon
-            fi
           '';
         in lib.hm.dag.entryAfter ["writeBoundary"]
           (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs makeLib ]);
@@ -518,6 +517,8 @@ in {
           '';
         }))
       ];
+
+      sessionPath = [ "~/.local/bin" ];
     };
   };
 }

@@ -27,7 +27,6 @@
     "M w" 'bookmark-write
     "F B" 'hexl-find-file
     "F b" 'hexl-mode
-    "~"   'eshell
     "!"   'calc
     "\""  'comint-run
     "l"   'list-processes

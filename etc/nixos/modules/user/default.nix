@@ -3,6 +3,10 @@
 with lib;
 let
   cfg = config.vonfry;
+  vonfryFace = with pkgs; runCommandNoCC "" {} ''
+    mkdir -p $out/share/sddm/faces/
+    ln -s ${vonfryPackages.icon-face} $out/share/sddm/faces/vonfry.face.icon
+  '';
 in {
   imports = [ <home-manager/nixos> ];
 
@@ -23,6 +27,8 @@ in {
   config = mkIf cfg.enable {
     users.motd = builtins.readFile ./files/motd;
 
+    environment.systemPackages = [ vonfryFace ];
+
     users.users.vonfry = mkMerge [{
       isNormalUser = true;
       home = "/home/vonfry";
@@ -30,21 +36,6 @@ in {
       extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
       shell = pkgs.zsh;
     } cfg.user.extraConfig];
-
-    system.activationScripts.setAclForVonfry.text =
-      let pathes = [
-            {
-              path = "${config.users.users.vonfry.home}/";
-              mode = "u:sddm:x";
-            }
-            {
-              path = "${config.users.users.vonfry.home}/.face.icon";
-              mode = "u:sddm:r";
-            }
-          ];
-      in lib.concatMapStringsSep "\n"
-        (p: "${pkgs.acl}/bin/setfacl -m ${p.mode} ${p.path}" )
-        pathes;
 
     home-manager = {
       useUserPackages = true;
