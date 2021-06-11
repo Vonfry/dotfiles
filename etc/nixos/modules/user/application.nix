@@ -142,6 +142,10 @@ in {
         enable = mkDefault true;
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
         extraConfig = ''
+          audio_output {
+            type "pulse"
+            name "My Pulse Output"
+          }
           restore_paused "yes"
         '';
       };
