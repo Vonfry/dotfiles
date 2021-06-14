@@ -27,5 +27,7 @@
                      (mode . mpdel-playlist-current-playlist-mode)))
     ("Message"   (or (name . "\\*.**\\*")
                      (mode . help-mode)))
-    ("Org Tool" (name . "\\*org-roam\\*")))
+    ("Org Tool" (name . "\\*org-roam\\*"))
+    ("Telega" (or (mode . telega-root-mode)
+                  (mode . telega-chat-mode))))
   "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'")
