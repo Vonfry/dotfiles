@@ -1,4 +1,4 @@
-;;; irc config -*- lexical-binding: t -*-
+;;; im config -*- lexical-binding: t -*-
 ;;
 
 (defcustom +irc-local-file (expand-file-name "irc.el" vonfry-local-dir)

@@ -234,6 +234,7 @@ in {
           org-plus-contrib
           evil-collection
           license-snippets
+          telega
         ];
       };
 

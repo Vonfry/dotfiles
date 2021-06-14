@@ -1,4 +1,4 @@
-;;; irc func -*- lexical-binding: t -*-
+;;; im func -*- lexical-binding: t -*-
 ;;
 
 (defun +irc/connect ()

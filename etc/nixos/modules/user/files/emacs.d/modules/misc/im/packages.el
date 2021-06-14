@@ -1,4 +1,4 @@
-;;; irc packages -*- lexical-binding: t -*-
+;;; im packages -*- lexical-binding: t -*-
 ;;
 
 (use-package erc
@@ -17,3 +17,11 @@
     "I I" 'erc-tls
     "I l" 'erc-log-enable
     "I e" 'erc))
+
+(use-package telega
+  :custom
+  (telega-directory (expand-file-name "telega" vonfry-cache-dir))
+  (telega-database-dir (expand-file-name "telega" vonfry-local-dir))
+  :general
+  (nmap-at
+    "t" 'telega))

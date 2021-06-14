@@ -102,11 +102,7 @@ in {
         fortune cmatrix figlet
 
         hledger
-
-        tdesktop
-
-        filezilla pcmanfm
-
+        pcmanfm
         flameshot feh
         pavucontrol
         libreoffice
