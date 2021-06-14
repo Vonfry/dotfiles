@@ -24,7 +24,11 @@
   (telega-database-dir (expand-file-name "telega" vonfry-local-dir))
   (telega-open-file-function 'org-open-file)
   :hook
-  (telega-load-hook . telega-notifications-mode)
+  ((telega-load . telega-notifications-mode)
+   (evil-mode . (lambda ()
+    (dolist (mode '(telega-root-mode telega-chat-mode telega-image-mode
+                    telega-webpage-mode))
+      (evil-set-initial-state mode 'emacs)))))
   :general
   (nmap-at
     "t" telega-prefix-map))
