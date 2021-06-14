@@ -286,7 +286,7 @@ in {
       packages = with pkgs; [
         emacs-all-the-icons-fonts
 
-        gitAndTools.gitflow tig gitAndTools.git-extras
+        gitAndTools.gitflow gitAndTools.git-extras
 
         nixfmt niv
 
