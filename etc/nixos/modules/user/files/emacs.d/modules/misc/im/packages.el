@@ -22,6 +22,9 @@
   :custom
   (telega-directory (expand-file-name "telega" vonfry-cache-dir))
   (telega-database-dir (expand-file-name "telega" vonfry-local-dir))
+  (telega-open-file-function 'org-open-file)
+  :hook
+  (telega-load-hook . telega-notifications-mode)
   :general
   (nmap-at
-    "t" 'telega))
+    "t" telega-prefix-map))

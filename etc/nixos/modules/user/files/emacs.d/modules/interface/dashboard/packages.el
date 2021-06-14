@@ -38,6 +38,10 @@
        "IRC"
        "IRC"
        (lambda (&rest _) (call-interactively '+irc/connect)))
+      (,(all-the-icons-material "chat" :height 1.0 :v-adjust 0.0)
+       "Telega"
+       "Telega"
+       (lambda (&rest _) (call-interactively 'telega)))
       )
      ((,(all-the-icons-fileicon "gitlab" :height 1.0 :v-adjust 0.0)
        "Gitlab"
