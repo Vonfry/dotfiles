@@ -205,7 +205,6 @@ in {
           treemacs-icons-dired
           which-key
           logview
-          pdf-tools
           projectile
           counsel-projectile
           org-projectile
