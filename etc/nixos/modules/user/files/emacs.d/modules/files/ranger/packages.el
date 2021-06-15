@@ -2,8 +2,10 @@
 
 (use-package ranger
   :custom
-  (ranger-width-parents 0.2)
-  (ranger-width-preview 0.5)
+  (ranger-width-parents 0.3)
+  (ranger-width-preview 0.4)
+  :config
+  (ranger-override-dired-mode t)
   :general
   (nmap-leader
     "D" 'ranger))

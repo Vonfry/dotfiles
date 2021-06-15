@@ -62,10 +62,6 @@ in {
       "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
     };
 
-    services = {
-      lorri.enable = true;
-    };
-
     programs = {
       neovim = {
         enable = true;
@@ -209,7 +205,6 @@ in {
           treemacs-icons-dired
           which-key
           logview
-          pdf-tools
           projectile
           counsel-projectile
           org-projectile
@@ -238,6 +233,8 @@ in {
           org-plus-contrib
           evil-collection
           license-snippets
+          telega
+          terminal-here
         ];
       };
 
@@ -266,8 +263,17 @@ in {
       direnv = {
         enable = true;
         enableZshIntegration = true;
+        enableNixDirenvIntegration = true;
+        stdlib = ''
+          declare -A direnv_layout_dirs
+          direnv_layout_dir() {
+              echo "''${direnv_layout_dirs[$PWD]:=$(
+                  echo -n "$XDG_CACHE_HOME"/direnv/layouts/
+                  echo -n "$PWD" | shasum | cut -d ' ' -f 1
+              )}"
+          }
+        '';
       };
-
     };
 
     home = {
@@ -280,7 +286,7 @@ in {
       packages = with pkgs; [
         emacs-all-the-icons-fonts
 
-        gitAndTools.gitflow tig gitAndTools.git-extras
+        gitAndTools.gitflow gitAndTools.git-extras
 
         nixfmt niv
 

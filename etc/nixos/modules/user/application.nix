@@ -102,11 +102,7 @@ in {
         fortune cmatrix figlet
 
         hledger
-
-        tdesktop
-
-        filezilla pcmanfm
-
+        pcmanfm
         flameshot feh
         pavucontrol
         libreoffice
@@ -128,7 +124,7 @@ in {
         "application/xhtml+xml"         = "org.qutebrowser.qutebrowser.desktop";
         "application/x-extension-xhtml" = "org.qutebrowser.qutebrowser.desktop";
         "application/x-extension-xht"   = "org.qutebrowser.qutebrowser.desktop";
-        "application/pdf"               = "org.pwmt.zathura.desktop";
+        "application/pdf"               = "org.pwmt.zathura-pdf-mupdf.desktop";
       };
     };
 
@@ -142,6 +138,10 @@ in {
         enable = mkDefault true;
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
         extraConfig = ''
+          audio_output {
+            type "pulse"
+            name "My Pulse Output"
+          }
           restore_paused "yes"
         '';
       };

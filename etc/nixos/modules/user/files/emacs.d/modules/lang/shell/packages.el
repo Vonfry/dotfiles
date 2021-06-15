@@ -19,6 +19,12 @@
   ((eshell-mode shell-mode) . (lambda ()
     (+company-set-backends-grouped '(company-shell company-shell-env)))))
 
-(nmap-leader
-  "$" '+shell/open-term-at-pwd
-  "~" '+shell/open-file-manager-x)
+(use-package terminal-here
+  :custom
+  (terminal-here-linux-terminal-command 'alacritty)
+  :general
+  (nmap-leader
+    "$" 'terminal-here-launch
+    "C-$" 'terminal-here-project-launch))
+
+(nmap-leader "~" '+shell/open-file-manager-x)

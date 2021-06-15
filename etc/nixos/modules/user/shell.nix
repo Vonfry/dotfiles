@@ -27,6 +27,12 @@ in {
         changeDirWidgetCommand = "fd --type d";
         defaultCommand = "fd --type f";
         fileWidgetCommand = "fd --type f";
+        defaultOptions = [ "--multi" ];
+      };
+
+      zoxide = {
+        enable = true;
+        enableZshIntegration = true;
       };
 
       zsh = {
@@ -101,7 +107,6 @@ in {
           source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
           # ${zsh-completions}
 
-          eval "$(zoxide init zsh)"
           eval $(thefuck --alias)
 
           # Emacs
@@ -505,7 +510,6 @@ in {
           (concatStringsSep "\n" [ linkNormal linkOrg linkEmacs makeLib ]);
 
       packages = with pkgs; [
-        zsh fzf zoxide
         trash-cli thefuck
         neofetch
         asciinema
