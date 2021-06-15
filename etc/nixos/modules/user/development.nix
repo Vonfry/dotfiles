@@ -234,6 +234,7 @@ in {
           evil-collection
           license-snippets
           telega
+          terminal-here
         ];
       };
 
