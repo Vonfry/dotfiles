@@ -86,6 +86,9 @@
 
   indent-tabs-mode nil)
 
+(when (rassq 'doc-view-mode-maybe auto-mode-alist)
+  (setq auto-mode-alist (rassq-delete-all 'doc-view-mode-maybe auto-mode-alist)))
+
 (defvaralias 'c-basic-offset 'tab-width)
 
 (recentf-mode 1)

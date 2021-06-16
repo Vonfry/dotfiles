@@ -29,9 +29,9 @@
          (insert-file-contents file)
          (buffer-string)))))))
   (org-agenda-tags org-tag-alist)
-  (org-file-apps '(("\\.pdf\\'" . system)
-                   (auto-mode . emacs)
-                   (remote . emacs)))
+  (org-file-apps '((auto-mode . emacs)
+                   (remote . emacs)
+                   (t . system)))
   (org-file-apps-gnu '((system . browse-url-xdg-open)))
   (org-todo-keywords
    '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
