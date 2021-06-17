@@ -137,9 +137,7 @@ in {
               cp ${./files/rime/default.custom.yaml} $out/default.custom.yaml
               cp ${cangjie}/share/rime/cangjie5.*.yaml $out
               cp ${wubi86-jidian}/share/rime/numbers.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian_extra.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian_trad.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/wubi86_jidian*.yaml $out
               cp ${japanese}/share/rime/japanese.*.yaml $out
             '';
           recursive = true;
