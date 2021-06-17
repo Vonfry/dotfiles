@@ -29,9 +29,12 @@
          (insert-file-contents file)
          (buffer-string)))))))
   (org-agenda-tags org-tag-alist)
-  (org-file-apps '((auto-mode . emacs)
-                   (remote . emacs)
-                   (t . system)))
+  (org-file-apps (-concat
+                  (+org--auto-mode-to-file-apps 'doc-view-mode-maybe 'system)
+                  (+org--auto-mode-to-file-apps 'image-mode 'system)
+                  '((auto-mode . emacs)
+                    (remote . emacs)
+                    (t . emacs))))
   (org-file-apps-gnu '((system . browse-url-xdg-open)))
   (org-todo-keywords
    '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")

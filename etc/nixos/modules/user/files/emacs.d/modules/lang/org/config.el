@@ -52,3 +52,9 @@
 
 (defconst +org-contacts-dir (expand-file-name "contacts" +org-dir)
   "dir where to save contacts.")
+
+(defun +org--auto-mode-to-file-apps (mode cmd)
+  (when (and mode cmd)
+    (let* ((modes (--filter (equal mode (cdr it)) auto-mode-alist))
+           (regs (--map (car it) modes)))
+      (--map (cons it cmd) regs))))
