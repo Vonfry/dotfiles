@@ -24,6 +24,7 @@
   (telega-database-dir (expand-file-name "telega" vonfry-local-dir))
   (telega-open-file-function 'org-open-file)
   (telega-msg-save-dir (xdg-user-dir "DOWNLOAD"))
+  (telega-open-message-as-file '(photo video audio video-note voice-note))
   :hook
   ((telega-load . telega-notifications-mode)
    (evil-mode . (lambda ()

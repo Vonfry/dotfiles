@@ -86,8 +86,12 @@
 
   indent-tabs-mode nil)
 
-(when (rassq 'doc-view-mode-maybe auto-mode-alist)
-  (setq auto-mode-alist (rassq-delete-all 'doc-view-mode-maybe auto-mode-alist)))
+; remove these from auto-mode to make `org-open-file' or other tools can work
+; with external apps for binary files. If you want to open files in emacs
+; temporarily,; take a look at `magic-fallback-mode-alist'.
+(dolist (mode '(doc-view-mode-maybe image-mode))
+  (when (rassq mode auto-mode-alist)
+    (setq auto-mode-alist (rassq-delete-all mode auto-mode-alist))))
 
 (defvaralias 'c-basic-offset 'tab-width)
 
