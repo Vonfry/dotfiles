@@ -10,7 +10,17 @@ let
     paths = [ python3 sqlite perl bundler jekyll ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
+  emacsclientDesktop = pkgs.vonfryPackages.emacsclientDesktop.override {
+    emacs = config.programs.emacs.package;
+  };
 
+  editorMimeApps = listToAttrs
+    (map
+      (type: {
+        name = type;
+        value = "emacsclient.desktop";
+      })
+      emacsclientDesktop.passthru.mimeTypes);
 in {
   options.vonfry.development = {
     emacs = {
@@ -38,28 +48,32 @@ in {
 
   config = mkIf cfg'.enable {
 
-    xdg.configFile = {
-      "emacs.d" = {
-        source = ./files/emacs.d;
-        recursive = true;
-      };
-      "nvim" = {
-        source = ./files/nvim;
-        recursive = true;
-      };
+    xdg = {
+      mimeApps.defaultApplications = editorMimeApps;
 
-      "emacs.d/local/pre-custom.el".text =
-        (concatStringsSep "\n" [
-          ''
+      configFile = {
+        "emacs.d" = {
+          source = ./files/emacs.d;
+          recursive = true;
+        };
+        "nvim" = {
+          source = ./files/nvim;
+          recursive = true;
+        };
+
+        "emacs.d/local/pre-custom.el".text =
+          (concatStringsSep "\n" [
+            ''
             (setq-default
               vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
-                                         cfg.emacs.excludeModules}))
+                cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
           ''
-          cfg.emacs.preCustom
-        ]);
+            cfg.emacs.preCustom
+          ]);
 
-      "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
+        "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
+      };
     };
 
     programs = {
@@ -284,7 +298,7 @@ in {
       };
 
       packages = with pkgs; [
-        emacs-all-the-icons-fonts
+        emacs-all-the-icons-fonts emacsclientDesktop
 
         gitAndTools.gitflow gitAndTools.git-extras
 
