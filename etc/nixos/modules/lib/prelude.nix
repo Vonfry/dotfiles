@@ -1,5 +1,4 @@
 { lib }:
 
-with builtins; with lib;
-{
+with builtins; with lib; {
 }

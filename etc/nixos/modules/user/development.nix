@@ -21,6 +21,29 @@ let
         value = "emacsclient.desktop";
       })
       emacsclientDesktop.passthru.mimeTypes);
+
+  sessions = config.home.sessionVariables;
+  inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
+  inherit (config.xdg) configHome;
+
+  hasOrg = sessions ? "ORG_DIR";
+  hasCloud = sessions ? "CLOUD_DIR";
+
+  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
+  emacsPrivate = "${CLOUD_DIR}/dotfiles/config/emacs.d/private";
+  linkOrg = optionalString (hasOrg && hasCloud) ''
+    ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+  '';
+  linkEmacs = optionalString hasCloud ''
+    if [ -d "${emacsLocal}" ]; then
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local
+    fi
+    if [ -d "${emacsPrivate}" ]; then
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPrivate}/* ${toString configHome}/emacs.d/modules/private
+    fi
+
+    ! [ -f ${toString configHome}/emacs.d/local/dashboard-image.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
+  '';
 in {
   options.vonfry.development = {
     emacs = {
@@ -291,6 +314,9 @@ in {
     };
 
     home = {
+      activation.developmentActivation = lib.hm.dag.entryAfter ["writeBoundary"]
+        (concatStringsSep "\n" [ linkOrg linkEmacs ]);
+
       sessionVariables = {
         EDITOR = "nvim";
         MANPAGER = "nvim -c 'set ft=man' -";

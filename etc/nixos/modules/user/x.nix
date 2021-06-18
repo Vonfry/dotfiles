@@ -3,6 +3,12 @@
 with lib;
 let
   cfg = config.vonfry;
+
+  inherit (config.home) homeDirectory;
+
+  bgFile = "${homeDirectory}/.background-image";
+
+  defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
 in {
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
@@ -32,12 +38,14 @@ in {
     xsession = {
       enable = true;
       initExtra = ''
-        feh --bg-center ${toString config.xdg.configHome}/bg.png
+        feh --bg-center ~/.background-image
       '';
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        config = ./files/xmonad.hs;
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+          config = ./files/xmonad.hs;
+        };
       };
 
       pointerCursor = {
@@ -147,10 +155,10 @@ in {
     };
 
     home = {
-
       activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        ! [ -f ${config.home.homeDirectory}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${config.home.homeDirectory}/bg.png
+        ! [ -f "${bgFile}" ] && ln -s ${defaultBgFile} ${bgFile}
       '';
+
       packages = with pkgs; [
         hack-font
         sarasa-gothic

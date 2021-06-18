@@ -4,6 +4,19 @@ with lib;
 let
   cfg = config.vonfry.net;
   cfg' = config.vonfry;
+
+  sessions = config.home.sessionVariables;
+  hasCloud = sessions ? "CLOUD_DIR";
+  qutebrowserLocal = "${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser";
+
+  colorscheme = config.lib.theme.dracula;
+
+  linkQutebrowser = optionalString hasCloud ''
+    if [ -d "${qutebrowserLocal}" ]; then
+      $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
+      $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${qutebrowserLocal}/* ${toString config.xdg.configHome}/qutebrowser
+    fi
+  '';
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -48,16 +61,8 @@ in {
 
     home = {
       activation = {
-        browserActivation =
-          let
-            sessions = config.home.sessionVariables;
-            qutebrowserLocal = "${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser";
-          in lib.hm.dag.entryAfter ["shellActivation"] (optionalString (sessions ? "CLOUD_DIR") ''
-            if [ -d "${qutebrowserLocal}" ]; then
-              $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-              $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${qutebrowserLocal}/* ${toString config.xdg.configHome}/qutebrowser
-            fi
-          '');
+        browserActivation = lib.hm.dag.entryAfter ["shellActivation"]
+          (concatStringsSep "\n" [ linkQutebrowser ]);
       };
 
       sessionVariables = {
@@ -109,121 +114,104 @@ in {
           gs  = "https://scholar.google.com/scholar?q={}";
           doi = "https://www.doi.org/{}";
         };
-        settings =
-          let
-            draculaBackground          = "#282a36";
-            draculaBackgroundAttention = "#181920";
-            draculaForeground          = "#f8f8f2";
-            draculaForegroundAlt       = "#e0e0e0";
-            draculaForegroundAttention = "#ffffff";
-            draculaComment             = "#6272a4";
-            draculaSelection           = "#44475a";
-            draculaCurrent             = "#44475a";
-            draculaYellow              = "#f1fabc";
-            draculaOrange              = "#ffb86c";
-            draculaRed                 = "#ff5555";
-            draculaPink                = "#ff79c6";
-            draculaPurple              = "#bd93f9";
-            draculaCyan                = "#8be9fd";
-            draculaGreen               = "#50fa7b";
-          in {
-            hints.chars = "aoeuidhtns";
-            input.partial_timeout = 30000;
-            url = {
-              default_page = "about:blank";
-              start_pages = [ "about:blank" ];
-            };
-            colors = {
-              completion.category.bg = draculaBackground;
-              completion.category.border.bottom = draculaBackground;
-              completion.category.border.top = draculaBackground;
-              completion.category.fg = draculaForeground;
-              completion.even.bg = draculaBackground;
-              completion.odd.bg = draculaBackground;
-              completion.fg = draculaForeground;
-              completion.item.selected.bg = draculaSelection;
-              completion.item.selected.border.bottom = draculaSelection;
-              completion.item.selected.border.top = draculaSelection;
-              completion.item.selected.fg = draculaForeground;
-              completion.match.fg = draculaOrange;
-              completion.scrollbar.bg = draculaBackground;
-              completion.scrollbar.fg = draculaForeground;
-              downloads.bar.bg = draculaBackground;
-              downloads.error.bg = draculaBackground;
-              downloads.error.fg = draculaRed;
-              downloads.stop.bg = draculaBackground;
-              downloads.system.bg = "none";
-              hints.bg = draculaBackground;
-              hints.fg = draculaPurple;
-              hints.match.fg = draculaForegroundAlt;
-              keyhint.bg = draculaBackground;
-              keyhint.fg = draculaPurple;
-              keyhint.suffix.fg = draculaSelection;
-              messages.error.bg = draculaBackground;
-              messages.error.border = draculaBackground;
-              messages.error.fg = draculaRed;
-              messages.info.bg = draculaBackground;
-              messages.info.border = draculaBackground;
-              messages.info.fg = draculaComment;
-              messages.warning.bg = draculaBackground;
-              messages.warning.border = draculaBackground;
-              messages.warning.fg = draculaRed;
-              prompts.bg = draculaBackground;
-              prompts.border = "1px solid " + draculaBackground;
-              prompts.fg = draculaCyan;
-              prompts.selected.bg = draculaSelection;
-              statusbar.caret.bg = draculaBackground;
-              statusbar.caret.fg = draculaOrange;
-              statusbar.caret.selection.bg = draculaBackground;
-              statusbar.caret.selection.fg = draculaOrange;
-              statusbar.command.bg = draculaBackground;
-              statusbar.command.fg = draculaPink;
-              statusbar.command.private.bg = draculaBackground;
-              statusbar.command.private.fg = draculaForegroundAlt;
-              statusbar.insert.bg = draculaBackgroundAttention;
-              statusbar.insert.fg = draculaForegroundAttention;
-              statusbar.normal.bg = draculaBackground;
-              statusbar.normal.fg = draculaForeground;
-              statusbar.passthrough.bg = draculaBackground;
-              statusbar.passthrough.fg = draculaOrange;
-              statusbar.private.bg = draculaBackground;
-              statusbar.private.fg = draculaForegroundAlt;
-              statusbar.progress.bg = draculaBackground;
-              statusbar.url.error.fg = draculaRed;
-              statusbar.url.fg = draculaForeground;
-              statusbar.url.hover.fg = draculaCyan;
-              statusbar.url.success.http.fg = draculaGreen;
-              statusbar.url.success.https.fg = draculaGreen;
-              statusbar.url.warn.fg = draculaYellow;
-              tabs.bar.bg = draculaSelection;
-              tabs.even.bg = draculaSelection;
-              tabs.even.fg = draculaForeground;
-              tabs.indicator.error = draculaRed;
-              tabs.indicator.start = draculaOrange;
-              tabs.indicator.stop = draculaGreen;
-              tabs.indicator.system = "none";
-              tabs.odd.bg = draculaSelection;
-              tabs.odd.fg = draculaForeground;
-              tabs.selected.even.bg = draculaBackground;
-              tabs.selected.even.fg = draculaForeground;
-              tabs.selected.odd.bg = draculaBackground;
-              tabs.selected.odd.fg = draculaForeground;
-            };
-            hints.border = "1px solid " + draculaBackground;
-            tabs = {
-              indicator.width = 1;
-              favicons.scale = 1;
-              show = "multiple";
-            };
-            editor.command = [ "alacritty" "-e" "nvim" "{file}" ];
-            downloads = {
-              location = {
-                directory = "~/Downloads";
-                prompt = false;
-              };
-              remove_finished = 7;
-            };
+        settings = {
+          hints.chars = "aoeuidhtns";
+          input.partial_timeout = 30000;
+          url = {
+            default_page = "about:blank";
+            start_pages = [ "about:blank" ];
           };
+          colors = {
+            completion.category.bg = colorscheme.background;
+            completion.category.border.bottom = colorscheme.background;
+            completion.category.border.top = colorscheme.background;
+            completion.category.fg = colorscheme.foreground;
+            completion.even.bg = colorscheme.background;
+            completion.odd.bg = colorscheme.background;
+            completion.fg = colorscheme.foreground;
+            completion.item.selected.bg = colorscheme.selection;
+            completion.item.selected.border.bottom = colorscheme.selection;
+            completion.item.selected.border.top = colorscheme.selection;
+            completion.item.selected.fg = colorscheme.foreground;
+            completion.match.fg = colorscheme.orange;
+            completion.scrollbar.bg = colorscheme.background;
+            completion.scrollbar.fg = colorscheme.foreground;
+            downloads.bar.bg = colorscheme.background;
+            downloads.error.bg = colorscheme.background;
+            downloads.error.fg = colorscheme.red;
+            downloads.stop.bg = colorscheme.background;
+            downloads.system.bg = "none";
+            hints.bg = colorscheme.background;
+            hints.fg = colorscheme.purple;
+            hints.match.fg = colorscheme.foregroundAlt;
+            keyhint.bg = colorscheme.background;
+            keyhint.fg = colorscheme.purple;
+            keyhint.suffix.fg = colorscheme.selection;
+            messages.error.bg = colorscheme.background;
+            messages.error.border = colorscheme.background;
+            messages.error.fg = colorscheme.red;
+            messages.info.bg = colorscheme.background;
+            messages.info.border = colorscheme.background;
+            messages.info.fg = colorscheme.comment;
+            messages.warning.bg = colorscheme.background;
+            messages.warning.border = colorscheme.background;
+            messages.warning.fg = colorscheme.red;
+            prompts.bg = colorscheme.background;
+            prompts.border = "1px solid " + colorscheme.background;
+            prompts.fg = colorscheme.cyan;
+            prompts.selected.bg = colorscheme.selection;
+            statusbar.caret.bg = colorscheme.background;
+            statusbar.caret.fg = colorscheme.orange;
+            statusbar.caret.selection.bg = colorscheme.background;
+            statusbar.caret.selection.fg = colorscheme.orange;
+            statusbar.command.bg = colorscheme.background;
+            statusbar.command.fg = colorscheme.pink;
+            statusbar.command.private.bg = colorscheme.background;
+            statusbar.command.private.fg = colorscheme.foregroundAlt;
+            statusbar.insert.bg = colorscheme.backgroundAttention;
+            statusbar.insert.fg = colorscheme.foregroundAttention;
+            statusbar.normal.bg = colorscheme.background;
+            statusbar.normal.fg = colorscheme.foreground;
+            statusbar.passthrough.bg = colorscheme.background;
+            statusbar.passthrough.fg = colorscheme.orange;
+            statusbar.private.bg = colorscheme.background;
+            statusbar.private.fg = colorscheme.foregroundAlt;
+            statusbar.progress.bg = colorscheme.background;
+            statusbar.url.error.fg = colorscheme.red;
+            statusbar.url.fg = colorscheme.foreground;
+            statusbar.url.hover.fg = colorscheme.cyan;
+            statusbar.url.success.http.fg = colorscheme.green;
+            statusbar.url.success.https.fg = colorscheme.green;
+            statusbar.url.warn.fg = colorscheme.yellow;
+            tabs.bar.bg = colorscheme.selection;
+            tabs.even.bg = colorscheme.selection;
+            tabs.even.fg = colorscheme.foreground;
+            tabs.indicator.error = colorscheme.red;
+            tabs.indicator.start = colorscheme.orange;
+            tabs.indicator.stop = colorscheme.green;
+            tabs.indicator.system = "none";
+            tabs.odd.bg = colorscheme.selection;
+            tabs.odd.fg = colorscheme.foreground;
+            tabs.selected.even.bg = colorscheme.background;
+            tabs.selected.even.fg = colorscheme.foreground;
+            tabs.selected.odd.bg = colorscheme.background;
+            tabs.selected.odd.fg = colorscheme.foreground;
+          };
+          hints.border = "1px solid " + colorscheme.background;
+          tabs = {
+            indicator.width = 1;
+            favicons.scale = 1;
+            show = "multiple";
+          };
+          editor.command = [ "alacritty" "-e" "nvim" "{file}" ];
+          downloads = {
+            location = {
+              directory = "~/Downloads";
+              prompt = false;
+            };
+            remove_finished = 7;
+          };
+        };
         extraConfig = ''
           padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
           c.tabs.padding = padding
