@@ -503,7 +503,7 @@ in {
               exit -1
             fi
 
-            ! [ -f ${toString configHome}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/bg.png
+            ! [ -f ${toString configHome}/emacs.d/local/dashboard-image.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
 
           '';
         in lib.hm.dag.entryAfter ["writeBoundary"]

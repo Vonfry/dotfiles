@@ -91,7 +91,7 @@ in {
           wantedBy = [ "graphical-session.target" ];
         };
 
-        fcitx5-daemon = { # TODO remove after pr is merged
+        fcitx5-daemon = { # TODO remove after pr#127367 is merged
           enable = true;
           script = "${config.i18n.inputMethod.package}/bin/fcitx5";
           wantedBy = [ "graphical-session.target" ];

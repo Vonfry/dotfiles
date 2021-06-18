@@ -147,6 +147,10 @@ in {
     };
 
     home = {
+
+      activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        ! [ -f ${config.home.homeDirectory}/bg.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${config.home.homeDirectory}/bg.png
+      '';
       packages = with pkgs; [
         hack-font
         sarasa-gothic

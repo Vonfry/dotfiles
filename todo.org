@@ -105,9 +105,10 @@
     - [X] remove darwin support
     - [X] nvim: some plugins problem and wait for update
     - [X] emacs wraping other tools instead of install into user env
-*** TODO 21.05[1/2]
+*** TODO 21.05[1/3]
    - [X] qutebrowser module for autoconfig instead of extraConfig
    - [ ] reuse zsh-completions after the collision is fixed
+   - [ ] remove fcitx5 services
 
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?

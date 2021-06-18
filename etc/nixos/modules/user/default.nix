@@ -29,6 +29,8 @@ in {
 
     environment.systemPackages = [ vonfryFace ];
 
+    services.xserver.desktopManager.wallpaper.mode = "center";
+
     users.users.vonfry = mkMerge [{
       isNormalUser = true;
       home = "/home/vonfry";
