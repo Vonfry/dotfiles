@@ -156,7 +156,7 @@ in {
 
     home = {
       activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        ! [ -f "${bgFile}" ] && ln -s ${defaultBgFile} ${bgFile}
+        [ -h "${bgFile}" ] || ln -s ${defaultBgFile} ${bgFile}
       '';
 
       packages = with pkgs; [

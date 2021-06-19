@@ -12,7 +12,7 @@ let
   hasLedger = sessions ? "LEDGER_FILE";
 
   linkFinancial = optionalString (hasLedger && hasCloud) ''
-    [ ! -h $(dirname ${FILE}) ] && ln -s ${CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
+    [ -h $(dirname ${FILE}) ] || ln -s ${CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
     if [ ! -f ${FILE} ]; then
       touch ${FILE}
       echo "include header.journal\nY$(date +%Y)\n"

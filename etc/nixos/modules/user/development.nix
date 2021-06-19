@@ -32,7 +32,7 @@ let
   emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
   emacsPrivate = "${CLOUD_DIR}/dotfiles/config/emacs.d/private";
   linkOrg = optionalString (hasOrg && hasCloud) ''
-    ! [ -h ${ORG_DIR} ] && $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+    [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
   '';
   linkEmacs = optionalString hasCloud ''
     if [ -d "${emacsLocal}" ]; then
@@ -42,7 +42,7 @@ let
       $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPrivate}/* ${toString configHome}/emacs.d/modules/private
     fi
 
-    ! [ -f ${toString configHome}/emacs.d/local/dashboard-image.png ] && ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
+    [ -h ${toString configHome}/emacs.d/local/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
   '';
 in {
   options.vonfry.development = {
