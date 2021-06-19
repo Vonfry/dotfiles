@@ -37,16 +37,7 @@ in {
 
     xsession = {
       enable = true;
-      initExtra = ''
-        feh --bg-center ~/.background-image
-      '';
-      windowManager = {
-        xmonad = {
-          enable = true;
-          enableContribAndExtras = true;
-          config = ./files/xmonad.hs;
-        };
-      };
+      windowManager.command = mkForce ''test -n "$1" && eval "$@"'';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
@@ -158,6 +149,10 @@ in {
       activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         [ -h "${bgFile}" ] || ln -s ${defaultBgFile} ${bgFile}
       '';
+
+      file = {
+        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+      };
 
       packages = with pkgs; [
         hack-font
