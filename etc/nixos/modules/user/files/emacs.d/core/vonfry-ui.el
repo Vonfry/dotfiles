@@ -42,9 +42,9 @@ THEME is a symbol passed to `load-theme'"
 
 (defun vonfry/next-theme ()
   (interactive)
-  (let ((curids (-non-nil (--map (-elem-index it vonfry-themes)
-                                 custom-enabled-themes)))
-        (nextid (1+ (-min (if curids curids 0)))))
+  (let* ((curids (-non-nil (--map (-elem-index it vonfry-themes)
+                                  custom-enabled-themes)))
+         (nextid (1+ (-min (if curids curids 0)))))
     (if (> (length vonfry-themes) nextid)
       (vonfry--change-theme (nth nextid vonfry-themes))
       (vonfry--change-theme (car vonfry-themes)))))

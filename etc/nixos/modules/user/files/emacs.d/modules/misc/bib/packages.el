@@ -11,8 +11,6 @@
   (ebib-reading-list-file "reading.org")
   (ebib-notes-default-file "notes.org")
   (ebib-file-search-dirs '("."))
-  :hook
-  ((bibtex-mode LaTeX-mode) . +bib/switch-dir-current)
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
     "C-&" 'ebib-insert-citation)

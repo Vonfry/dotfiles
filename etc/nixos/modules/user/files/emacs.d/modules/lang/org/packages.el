@@ -29,10 +29,14 @@
          (insert-file-contents file)
          (buffer-string)))))))
   (org-agenda-tags org-tag-alist)
-  (org-file-apps '(("\\.pdf\\'" . system)
-                   (auto-mode . emacs)
+  (org-file-apps '((auto-mode . emacs)
                    (remote . emacs)))
-  (org-file-apps-gnu '((system . browse-url-xdg-open)))
+  (org-file-apps-gnu
+   (append
+    (+org--auto-mode-to-file-apps 'doc-view-mode-maybe 'system)
+    (+org--auto-mode-to-file-apps 'image-mode 'system)
+    '((system . browse-url-xdg-open)
+      (t . system))))
   (org-todo-keywords
    '((sequence "TODO(t)" "WAITING(w)" "SOMEDAY(s)" "|" "DONE(d)" "CANCELLED(c)")
      (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))

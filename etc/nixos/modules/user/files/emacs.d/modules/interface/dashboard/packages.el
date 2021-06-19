@@ -12,7 +12,7 @@
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons    t)
   (dashboard-startup-banner
-   (let ((bg-file-default (expand-file-name "bg.png" (xdg-config-home))))
+   (let ((bg-file-default (expand-file-name "dashboard-image.png" vonfry-local-dir)))
      (if (file-exists-p bg-file-default)
          bg-file-default
        'logo)))

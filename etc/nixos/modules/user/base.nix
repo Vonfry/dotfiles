@@ -3,6 +3,10 @@
 with lib;
 let
   cfg = config.vonfry;
+
+  inherit (config.xdg) configHome;
+
+  overlayPath = ../overlay/overlays.nix;
 in {
   config = mkIf cfg.enable {
     nixpkgs = {
@@ -27,7 +31,7 @@ in {
       stateVersion = "21.05";
 
       activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString ../overlay/overlays.nix} ${toString config.xdg.configHome}/nixpkgs/overlays.nix
+        $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString overlayPath} ${toString configHome}/nixpkgs/overlays.nix
       '';
 
       packages = with pkgs; [

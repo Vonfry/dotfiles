@@ -3,6 +3,12 @@
 with lib;
 let
   cfg = config.vonfry;
+
+  inherit (config.home) homeDirectory;
+
+  bgFile = "${homeDirectory}/.background-image";
+
+  defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
 in {
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
@@ -31,14 +37,7 @@ in {
 
     xsession = {
       enable = true;
-      initExtra = ''
-        feh --bg-center ${toString config.xdg.configHome}/bg.png
-      '';
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        config = ./files/xmonad.hs;
-      };
+      windowManager.command = mkForce ''test -n "$1" && eval "$@"'';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
@@ -137,9 +136,7 @@ in {
               cp ${./files/rime/default.custom.yaml} $out/default.custom.yaml
               cp ${cangjie}/share/rime/cangjie5.*.yaml $out
               cp ${wubi86-jidian}/share/rime/numbers.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian_extra.*.yaml $out
-              cp ${wubi86-jidian}/share/rime/wubi86_jidian_trad.*.yaml $out
+              cp ${wubi86-jidian}/share/rime/wubi86_jidian*.yaml $out
               cp ${japanese}/share/rime/japanese.*.yaml $out
             '';
           recursive = true;
@@ -149,6 +146,14 @@ in {
     };
 
     home = {
+      activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        [ -h "${bgFile}" ] || ln -s ${defaultBgFile} ${bgFile}
+      '';
+
+      file = {
+        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+      };
+
       packages = with pkgs; [
         hack-font
         sarasa-gothic
