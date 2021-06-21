@@ -29,5 +29,6 @@
                      (mode . help-mode)))
     ("Org Tool" (name . "\\*org-roam\\*"))
     ("Telega" (or (mode . telega-root-mode)
-                  (mode . telega-chat-mode))))
+                  (mode . telega-chat-mode)
+                  (name . "\\*Telega.*\\*"))))
   "ibuffer groups, because of `ibuffer-projectile', config it here. See more `ibuffer-filter-groups'")
