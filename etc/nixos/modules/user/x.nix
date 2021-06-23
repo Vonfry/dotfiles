@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixosConfig ? null, ... }:
 
 with lib;
 let
@@ -9,6 +9,10 @@ let
   bgFile = "${homeDirectory}/.background-image";
 
   defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
+
+  xmonadWithNixOS = nixosConfig != null &&
+    (with nixosConfig.services.xserver.windowManager.xmonad;
+      enable && enableContribAndExtras);
 in {
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
@@ -37,7 +41,19 @@ in {
 
     xsession = {
       enable = true;
-      windowManager.command = ''test -n "$1" && eval "$@"'';
+      windowManager = {
+        command = mkIf xmonadWithNixOS ''test -n "$1" && eval "$@"'';
+        xmonad = mkIf (!xmonadWithNixOS) {
+          enable = true;
+          config = ./files/xmonad.hs;
+          enableContribAndExtras = true;
+        };
+      };
+      initExtra = mkIf (!xmonadWithNixOS) ''
+        ${pkgs.feh}/bin/feh --bg-center ~/.background-image
+
+        # TODO xdg auto start
+      '';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
@@ -151,7 +167,7 @@ in {
       '';
 
       file = {
-        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+        ".xmonad/xmonad.hs".source = mkIf xmonadWithNixOS ./files/xmonad.hs;
       };
 
       packages = with pkgs; [

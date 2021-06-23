@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, nixosConfig ? null, ... }:
 
 with lib;
 let
@@ -7,8 +7,13 @@ let
   inherit (config.xdg) configHome;
 
   overlayPath = ../overlay/overlays.nix;
+  nixpkgsConfigPath = ./files/nixpkgs.nix;
+
+  isNixOS = nixosConfig != null;
+
+  hmSelfNixpkgs = (!isNixOS) || (!nixosConfig.home-manager.useGlobalPkgs);
 in {
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enable ({
     xdg.configFile = {
       "nix/nix.conf".text = ''
         auto-optimise-store = true
@@ -17,7 +22,7 @@ in {
         max-jobs = auto
         cores = 0
       '';
-      "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
+      "nixpkgs/config.nix".source = nixpkgsConfigPath;
     };
 
     home = {
@@ -77,5 +82,10 @@ in {
         };
       };
     };
-  };
+  } // (optionalAttrs hmSelfNixpkgs {
+    nixpkgs = {
+      config = import nixpkgsConfigPath;
+      overlays = import overlayPath;
+    };
+  }));
 }
