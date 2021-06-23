@@ -30,6 +30,11 @@ in {
       homeDirectory = "/home/vonfry";
       stateVersion = "21.05";
 
+      keyboard = {
+        variant = "dvp";
+        layout = "us";
+      };
+
       activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString overlayPath} ${toString configHome}/nixpkgs/overlays.nix
       '';
