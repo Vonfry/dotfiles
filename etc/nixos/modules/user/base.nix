@@ -9,11 +9,6 @@ let
   overlayPath = ../overlay/overlays.nix;
 in {
   config = mkIf cfg.enable {
-    nixpkgs = {
-      config = import ./files/nixpkgs.nix;
-      overlays = import ../overlay/overlays.nix;
-    };
-
     xdg.configFile = {
       "nix/nix.conf".text = ''
         auto-optimise-store = true
