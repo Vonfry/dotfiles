@@ -59,3 +59,9 @@ installed in system, to keep minimal.
 ### overlay
 
 See [user/vonfry/overlay](./user/vonfry/overlay/readme.md)
+
+## Home-manager
+
+Some features in home-manager are duplicated with NixOS and the NixOS ones are
+used, specially for xsession and nixpkgs. Home-manager is designed for private
+computer, so no compatible configs are coded.
