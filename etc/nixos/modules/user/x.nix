@@ -37,7 +37,14 @@ in {
 
     xsession = {
       enable = true;
-      windowManager.command = ''test -n "$1" && eval "$@"'';
+      windowManager = {
+        command = ''test -n "$1" && eval "$@"'';
+        xmonad = {
+          enable = mkDefault false; # For nixos
+          config = ./files/xmonad.hs;
+          enableContribAndExtras = true;
+        };
+      };
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
