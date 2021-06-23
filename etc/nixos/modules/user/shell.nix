@@ -178,7 +178,6 @@ in {
         shellAliases = {
           rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
 
-          lla = "ls -lAh";
           ecd = "emacs --daemon";
           ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
           ec  = "emacsclient -n";
@@ -198,17 +197,6 @@ in {
           sa = "alias | grep -i";
           d = "dirs -v";
           o = "xdg-open";
-          l = "ls -1A";
-          ll = "ls -lh";
-          lr = "ll -R";
-          la = "ll -A";
-          lm = "la | \"$PAGER\"";
-          lx = "ll -XB";
-          lk = "ll -Sr";
-          lt = "ll -tr";
-          lc = "lt -c";
-          lu = "lt -u";
-          sl = "ls";
           rmi = "\${aliases[rm]:-rm} -i";
           mvi = "\${aliases[mv]:-mv} -i";
           cpi = "\${aliases[cp]:-cp} -i";

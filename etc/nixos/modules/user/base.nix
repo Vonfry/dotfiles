@@ -41,12 +41,19 @@ in {
 
         unar convmv
         colordiff
-        ripgrep fd exa
+        ripgrep fd
       ];
     };
 
     programs = {
       man.enable = true;
+      lsd = {
+        enable = true;
+        enableAliases = true;
+        settings = {
+          sorting = { dir-grouping = "first"; };
+        };
+      };
       ssh = {
         enable = true;
         compression = true;
