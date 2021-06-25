@@ -11,7 +11,7 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
   emacsclientDesktop = pkgs.vonfryPackages.emacsclientDesktop.override {
-    emacs = config.programs.emacs.package;
+    emacs = config.programs.emacs.finalPackage;
   };
 
   editorMimeApps = listToAttrs
