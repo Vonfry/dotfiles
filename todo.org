@@ -23,6 +23,7 @@
 ** NeoVim[0/1]
 **** TODO use internal lsp
      wait for 0.5.0
+**** TODO lua config, see [[https://github.com/nanotee/nvim-lua-guide][ref]]
 ** Emacs[3/7]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
