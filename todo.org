@@ -110,6 +110,7 @@
    - [X] qutebrowser module for autoconfig instead of extraConfig
    - [ ] reuse zsh-completions after the collision is fixed
    - [ ] remove fcitx5 services
+*** TODO emacs daemon with hm instead of manual
 
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
