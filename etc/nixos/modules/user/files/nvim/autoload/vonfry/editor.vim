@@ -95,11 +95,6 @@ function! vonfry#editor#init()
     " include matchit for `%`
     runtime macros/matchit.vim
 
-
-    " set plugin fzf
-    let g:fzf_history_dir = '~/.local/share/fzf-history'
-    set rtp+=~/.fzf,/usr/local/opt/fzf
-
     if has("nvim")
         call vonfry#editor#nvim()
     end
