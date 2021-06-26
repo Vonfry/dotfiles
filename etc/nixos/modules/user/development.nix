@@ -99,6 +99,12 @@ in {
       };
     };
 
+    services.emacs = {
+      enable = true;
+      client.enable = true;
+      socketActivation.enable = true;
+    };
+
     programs = {
       neovim = {
         enable = true;
@@ -324,7 +330,7 @@ in {
       };
 
       packages = with pkgs; [
-        emacs-all-the-icons-fonts emacsclientDesktop
+        emacs-all-the-icons-fonts
 
         gitAndTools.gitflow gitAndTools.git-extras
 

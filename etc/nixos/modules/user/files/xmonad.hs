@@ -270,8 +270,6 @@ myWorkspaces = [ "home"
                , "play"
                ]
 
-myStartup = spawnOnOnce "home" "emacs"
-
 myLoghook = historyHook
          <> updatePointer (0.5, 0.5) (0, 0)
 
@@ -279,7 +277,6 @@ myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
     , keys               = myKeys
-    , startupHook        = myStartup
     , layoutHook         = myLayout
     , focusFollowsMouse  = True
     , focusedBorderColor = draculaPurple

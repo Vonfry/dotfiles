@@ -55,7 +55,7 @@ THEME is a symbol passed to `load-theme'"
 ;; customize the fonts
 ;;
 
-(progn
+(defun vonfry--set-font (&rest _)
   (set-face-font 'default "monospace-11")
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font nil charset
@@ -68,6 +68,8 @@ THEME is a symbol passed to `load-theme'"
     (set-fontset-font nil charset
                       "Symbola"
                       nil 'prepend)))
+
+(add-hook 'after-make-frame-functions 'vonfry--set-font)
 
 (use-package info :ensure nil)
 
