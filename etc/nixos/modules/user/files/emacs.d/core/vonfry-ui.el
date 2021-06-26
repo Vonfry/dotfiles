@@ -55,21 +55,23 @@ THEME is a symbol passed to `load-theme'"
 ;; customize the fonts
 ;;
 
-(defun vonfry--set-font (&rest _)
-  (set-face-font 'default "monospace-11")
+(defun vonfry--set-font (&optional frame)
+  (set-face-font 'default "monospace-11" frame)
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font nil charset
                       "Sarasa Mono SC-11"
-                      nil 'append))
+                      frame 'append))
   (set-fontset-font nil 'unicode
                     "Symbola"
-                    nil 'append)
+                    frame 'append)
   (dolist (charset '(greek symbol))
     (set-fontset-font nil charset
                       "Symbola"
-                      nil 'prepend)))
+                      frame 'prepend)))
 
 (add-hook 'after-make-frame-functions 'vonfry--set-font)
+;(cond ((daemonp) (add-hook 'server-after-make-frame-hook 'vonfry--set-font))
+;      ((display-graphic-p) (vonfry--set-font)))
 
 (use-package info :ensure nil)
 
