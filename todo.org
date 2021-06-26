@@ -79,7 +79,7 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** home-manager[1/2]
+** home-manager[2/3]
 *** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
     - Note taken on [2020-04-01 Wed 08:04] \\
@@ -110,7 +110,8 @@
    - [X] qutebrowser module for autoconfig instead of extraConfig
    - [ ] reuse zsh-completions after the collision is fixed
    - [ ] remove fcitx5 services
-*** TODO emacs daemon with hm instead of manual
+*** DONE emacs daemon with hm instead of manual
+    CLOSED: [2021-06-26 Sat 10:23]
 
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
