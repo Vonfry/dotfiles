@@ -37,11 +37,10 @@
   :group 'vonfry
   :type 'boolean)
 
-(if (or debug-on-error vonfry-debug)
-  (progn
-    (setq vonfry-debug t)
-    (setq debug-on-error t))
-  nil)
+(when (or debug-on-error vonfry-debug)
+  (setq vonfry-debug t
+        debug-on-error t
+        eval-expression-debug-on-error))
 
 (require 'vonfry-local)
 
