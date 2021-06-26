@@ -57,6 +57,8 @@ in {
         enableZshIntegration = true;
       };
 
+      bash.enable = true; # make some script can load hm-sessions.
+
       zsh = {
         enable = true;
         dotDir = ".config/zsh";
