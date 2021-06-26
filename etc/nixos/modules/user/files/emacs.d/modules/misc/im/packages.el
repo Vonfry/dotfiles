@@ -26,11 +26,11 @@
   (telega-msg-save-dir (xdg-user-dir "DOWNLOAD"))
   (telega-open-message-as-file '(photo video audio video-note voice-note))
   :hook
-  ((telega-load . telega-notifications-mode)
-   (evil-mode . (lambda ()
-    (dolist (mode '(telega-root-mode telega-chat-mode telega-image-mode
-                    telega-webpage-mode))
-      (evil-set-initial-state mode 'emacs)))))
+  (server-after-make-frame .
+    (lambda (&rest _)
+      (dolist (symbl '(telega-use-images telega-emoji-font-family
+                       telega-emoji-use-images telega-online-status-function))
+        (set symbl (eval (car (get symbl 'standard-value)))))))
   :general
   (nmap-at
     "t" telega-prefix-map))
