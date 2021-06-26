@@ -22,7 +22,7 @@ in {
       sysstat lm_sensors lsof
 
       file patch colordiff parallel
-      ripgrep fd exa
+      ripgrep fd lsd
     ];
 
     nix = {

@@ -2,12 +2,6 @@
 ;;
 
 (use-package mpdel
-  :hook
-  (evil-mode . (lambda ()
-    (dolist (mode '(mpdel-playlist-mode mpdel-tablist-mode mpdel-song-mode
-                    mpdel-playlist-stored-playlist-mode mpdel-browser-mode
-                    mpdel-playlist-current-playlist-mode))
-    (evil-set-initial-state mode 'emacs))))
   :general
   (nmap-at
     "m"     '(:ignore t :which-key "mpd")

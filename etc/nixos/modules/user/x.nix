@@ -37,7 +37,7 @@ in {
 
     xsession = {
       enable = true;
-      windowManager.command = mkForce ''test -n "$1" && eval "$@"'';
+      windowManager.command = ''test -n "$1" && eval "$@"'';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;

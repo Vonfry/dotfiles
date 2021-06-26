@@ -17,6 +17,8 @@ function! vonfry#bundle#interface#config()
     imap <c-x><c-k> <plug>(fzf-complete-word)
     imap <c-x><c-f> <plug>(fzf-complete-path)
     imap <c-x><c-l> <plug>(fzf-complete-line)
+    
+    let g:fzf_layout = { 'down': '40%' }
 
     let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
     let g:EditorConfig_exec_path="editorconfig"

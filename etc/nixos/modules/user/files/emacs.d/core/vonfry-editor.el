@@ -96,7 +96,8 @@
   (add-hook mode 'turn-on-auto-fill)
   (add-hook mode 'whitespace-mode))
 
-(add-hook 'after-init-hook 'server-start)
+(unless (daemonp)
+  (add-hook 'after-init-hook 'server-start))
 
 (use-package whitespace-cleanup-mode
   :hook

@@ -11,16 +11,18 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
   emacsclientDesktop = pkgs.vonfryPackages.emacsclientDesktop.override {
-    emacs = config.programs.emacs.package;
+    emacs = config.programs.emacs.finalPackage;
   };
 
   editorMimeApps = listToAttrs
-    (map
-      (type: {
-        name = type;
-        value = "emacsclient.desktop";
-      })
-      emacsclientDesktop.passthru.mimeTypes);
+    (map (type: {name = type; value = "emacsclient.desktop"; })
+      [ # copy from emacs.desktop
+        "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr"
+        "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc"
+        "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript"
+        "text/x-c" "text/x-c++"
+      ]);
+
 
   sessions = config.home.sessionVariables;
   inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
@@ -99,6 +101,12 @@ in {
       };
     };
 
+    services.emacs = {
+      enable = true;
+      client.enable = true;
+      socketActivation.enable = true;
+    };
+
     programs = {
       neovim = {
         enable = true;
@@ -138,6 +146,7 @@ in {
           { plugin = dracula-vim;
             optional = true;
           }
+          vim-gnupg
         ];
 
         extraConfig = ''
@@ -324,7 +333,7 @@ in {
       };
 
       packages = with pkgs; [
-        emacs-all-the-icons-fonts emacsclientDesktop
+        emacs-all-the-icons-fonts
 
         gitAndTools.gitflow gitAndTools.git-extras
 

@@ -9,11 +9,6 @@ let
   overlayPath = ../overlay/overlays.nix;
 in {
   config = mkIf cfg.enable {
-    nixpkgs = {
-      config = import ./files/nixpkgs.nix;
-      overlays = import ../overlay/overlays.nix;
-    };
-
     xdg.configFile = {
       "nix/nix.conf".text = ''
         auto-optimise-store = true
@@ -30,6 +25,11 @@ in {
       homeDirectory = "/home/vonfry";
       stateVersion = "21.05";
 
+      keyboard = {
+        variant = "dvp";
+        layout = "us";
+      };
+
       activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString overlayPath} ${toString configHome}/nixpkgs/overlays.nix
       '';
@@ -41,12 +41,19 @@ in {
 
         unar convmv
         colordiff
-        ripgrep fd exa
+        ripgrep fd
       ];
     };
 
     programs = {
       man.enable = true;
+      lsd = {
+        enable = true;
+        enableAliases = true;
+        settings = {
+          sorting = { dir-grouping = "first"; };
+        };
+      };
       ssh = {
         enable = true;
         compression = true;
