@@ -90,17 +90,4 @@ All modules should use function and macro in this file. By default, every module
     (-map 'vonfry-load-module-packages module-list)
     (-map 'vonfry-load-autoload        module-list)))
 
-(use-package exec-shell-from-path
-  :when (daemonp)
-  :custom
-  (exec-path-from-shell-variables
-   '("PATH" "MANPATH"
-     "LOCALE_ARCHIVE" "XDG_CACHE_HOME" "XDG_CONFIG_HOME" "XDG_DATA_HOME"
-     "LEDGER_FILE" "GNUPGHOME"  "BROWSER"
-     "CLOUD_DIR" "CLONE_LIB" "ORG_DIR" "DOTFILES_DIR" "FZF_ALT_C_COMMAND"
-     "FZF_CTRL_T_COMMAND" "FZF_DEFAULT_COMMAND" "FZF_DEFAULT_OPTS"))
-  (exec-path-from-shell-arguments '("-l"))
-  :config
-  (exec-path-from-shell-initialize))
-
 (provide 'vonfry-packages)

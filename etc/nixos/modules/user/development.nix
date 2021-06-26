@@ -281,7 +281,6 @@ in {
           license-snippets
           telega
           terminal-here
-          exec-path-from-shell
         ];
       };
 
