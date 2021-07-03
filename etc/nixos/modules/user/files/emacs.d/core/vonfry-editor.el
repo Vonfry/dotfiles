@@ -84,7 +84,11 @@
 
   epg-pinentry-mode 'loopback
 
-  indent-tabs-mode nil)
+  indent-tabs-mode nil
+
+  gc-cons-threshold (* 100 1024 1024) ; 1 mib
+  read-process-output-max (* 1024 1024) ; 1mb
+)
 
 (defvaralias 'c-basic-offset 'tab-width)
 
