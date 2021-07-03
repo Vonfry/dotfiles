@@ -24,3 +24,9 @@
                   ,(expand-file-name "authinfo" (xdg-data-home))
                   "~/.authinfo.gpg" "~/.authinfo"))
   :ensure nil)
+
+
+(use-package auth-source-pass
+  :after auth-source
+  :config
+  (auth-source-pass-enable))

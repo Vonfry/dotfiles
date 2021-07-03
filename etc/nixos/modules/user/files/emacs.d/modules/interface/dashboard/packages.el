@@ -25,7 +25,11 @@
       (,(all-the-icons-material "folder" :height 1.0 :v-adjust 0.0)
        "Files"
        "Files Manager"
-       (lambda (&rest _) (ranger))))
+       (lambda (&rest _) (ranger)))
+      (,(all-the-icons-material "queue_music" :height 1.0 :v-adjust 0.0)
+       "Music"
+       "Music Player Daemon"
+       (lambda (&rest _) (mpdel-playlist-open))))
      ((,(all-the-icons-octicon "mail" :height 1.1 :v-adjust 0.0)
        "Mail"
        "Check Mail"
