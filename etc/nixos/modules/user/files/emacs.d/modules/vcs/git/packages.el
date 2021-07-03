@@ -1,6 +1,10 @@
 ;;; git packages -*- lexical-binding: t -*-
 ;;
 
+(use-package vc
+  :custom
+  (vc-follow-symlinks t))
+
 (use-package magit
   :general
   (nmap-leader "-" 'magit-status)
