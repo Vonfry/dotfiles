@@ -56,6 +56,14 @@
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
+  (nmap-leader :infix "o"
+    ""    '(:ignore t :which-key "notes")
+    "t"   '(:ignore t :which-key "timer/clock")
+    "t i" 'org-clock-in-last
+    "t o" 'org-clock-out
+    "t q" 'org-clock-cancel
+    "t d" 'org-clock-display
+    "t j" 'org-clock-goto)
   (nvmap-mode :keymaps 'org-mode-map
     "/"   'org-occur
     "n"   'next-error
@@ -67,7 +75,7 @@
     "@"   'counsel-org-tag
     "^"   'counsel-org-tag-agenda
     "#"   'counsel-org-file
-    "t"   'org-tags-view
+    "T"   'org-tags-view
     ","   'org-set-property
     "d"   'org-deadline
     "s"   'org-schedule
@@ -75,6 +83,15 @@
     "m"   'org-refile
     "$"   'org-archive-subtree-default
     "c"   'org-ctrl-c-ctrl-c
+    "C"   '(:ignore t :which-key "clock")
+    "C i" 'org-clock-in
+    "C I" 'org-clock-in-last
+    "C o" 'org-clock-out
+    "C q" 'org-clock-cancel
+    "C d" 'org-clock-display
+    "C j" 'org-clock-goto
+    "C e" 'org-evaluate-time-range
+    "C E" 'org-clock-modify-effort-estimate
     "h"   'avy-org-goto-heading-timer
     "u"   'org-id-get-create
     "U"   'org-id-update-id-locations
@@ -111,7 +128,6 @@
   :after org
   :general
   (nmap-leader :infix "o"
-    ""  '(:ignore t :which-key "notes")
     "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
