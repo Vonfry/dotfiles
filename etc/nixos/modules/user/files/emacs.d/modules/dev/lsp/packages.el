@@ -5,8 +5,8 @@
   :hook lsp-enable-which-key-integration
   :custom
   (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
-  (lsp-session-file (expand-file-name "lsp-session" vonfry-cache-dir))
-  (lsp-diagnostic-package :flycheck)
+  (lsp-session-file (expand-file-name "emacs-lsp-session" (temporary-file-directory)))
+  (lsp-diagnostic-provider :flycheck)
   (lsp-keymap-prefix "M-*")
   :general
   (nmap-leader :keymaps 'lsp-mode-map
