@@ -70,7 +70,7 @@
   tramp-save-ad-hoc-proxies t
   tramp-auto-save-directory vonfry-auto-save-dir
   tramp-persistency-file-name (expand-file-name "tramp" vonfry-cache-dir)
-  tramp-backup-directory-alist nil
+  tramp-backup-directory-alist backup-directory-alist
 
   recentf-save-file (expand-file-name "recentf" vonfry-cache-dir)
 
@@ -84,7 +84,11 @@
 
   epg-pinentry-mode 'loopback
 
-  indent-tabs-mode nil)
+  indent-tabs-mode nil
+
+  gc-cons-threshold (* 100 1024 1024) ; 1 mib
+  read-process-output-max (* 1024 1024) ; 1mb
+)
 
 (defvaralias 'c-basic-offset 'tab-width)
 

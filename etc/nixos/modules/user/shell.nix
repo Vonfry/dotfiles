@@ -49,7 +49,6 @@ in {
         changeDirWidgetCommand = "fd --type d";
         defaultCommand = "fd --type f";
         fileWidgetCommand = "fd --type f";
-        defaultOptions = [ "--multi" ];
       };
 
       zoxide = {

@@ -281,6 +281,7 @@ in {
           license-snippets
           telega
           terminal-here
+          zoxide
         ];
       };
 
