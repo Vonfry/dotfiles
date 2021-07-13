@@ -5,9 +5,9 @@
   :hook
   ((lsp-mode . lsp-enable-which-key-integration)
    (lsp-mode .
-    (lambda ()
-      (mapc (lambda (client) (setf (lsp-client-download-server-fn client) nil))
-                    (ht-values lsp-clients)))))
+     (lambda ()
+       (mapc (lambda (client) (setf (lsp-client-download-server-fn client) nil))
+             (ht-values lsp-clients)))))
   :custom
   (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
   (lsp-session-file (expand-file-name "emacs-lsp-session" (temporary-file-directory)))
