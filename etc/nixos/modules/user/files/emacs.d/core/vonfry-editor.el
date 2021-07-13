@@ -100,8 +100,6 @@
   (add-hook mode 'turn-on-auto-fill)
   (add-hook mode 'whitespace-mode))
 
-(unless (daemonp) (server-start))
-
 (use-package whitespace-cleanup-mode
   :hook
   ((text-mode prog-mode) . whitespace-cleanup-mode))
