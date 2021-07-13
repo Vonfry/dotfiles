@@ -100,22 +100,22 @@
   (add-hook mode 'turn-on-auto-fill)
   (add-hook mode 'whitespace-mode))
 
-(unless (daemonp)
-  (add-hook 'after-init-hook 'server-start))
+(unless (daemonp) (server-start))
 
 (use-package whitespace-cleanup-mode
   :hook
   ((text-mode prog-mode) . whitespace-cleanup-mode))
 
 (use-package hl-line
-  :hook
-  (after-init . global-hl-line-mode))
+  :config
+  (global-hl-line-mode))
 
 (use-package saveplace
   :ensure nil
   :custom
   (save-place-file (expand-file-name "saveplace" vonfry-cache-dir))
-  :hook (after-init . save-place-mode))
+  :config
+  (save-place-mode 1))
 
 (defun vonfry/local-indent (int)
   (interactive "Ntab-indent: ")
