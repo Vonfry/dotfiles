@@ -41,8 +41,6 @@ in {
 
     services.xbanish.enable = true;
 
-    services.dbus.packages = with pkgs; [ dconf ];
-
     services.xserver = {
       enable = true;
       layout = "us";
@@ -69,6 +67,7 @@ in {
     };
 
     programs = {
+      dconf.enable = true;
       xss-lock = {
         enable = true;
         lockerCommand = "${lockCommand} -n";
