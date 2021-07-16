@@ -131,11 +131,6 @@ in {
     };
 
     services = {
-      pulseeffects = {
-        enable = true;
-        package = pkgs.pulseeffects-pw;
-      };
-
       mpd = {
         enable = mkDefault true;
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
