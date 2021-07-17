@@ -197,13 +197,14 @@
     "n"   'org-roam-find-file
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
-    "R b" 'org-roam-db-build-cache
-    "R p" '+org/roam-switch
-    "R a" 'org-roam-jump-to-index)
+    "R a" 'org-roam-jump-to-index
+    "R b" 'org-roam-db-sync
+    "R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
-    "r"   'org-roam
+    "r"   'org-roam-buffer-toggle
     "R "  '(:ignore t :which-key "org roam")
-    "R m" 'org-roam-mode
+    "R m" 'org-roam-setup
+    "R M" 'org-roam-teardown
     "R g" 'org-roam-graph
     "R i" 'org-roam-insert))
 
