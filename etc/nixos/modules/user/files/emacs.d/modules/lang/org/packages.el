@@ -209,6 +209,7 @@
     "R i" 'org-roam-insert))
 
 (use-package org-roam-server
+  :disabled
   :general
   (nmap-leader :infix "o"
     "s" 'org-roam-server-mode)
