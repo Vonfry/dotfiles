@@ -36,19 +36,6 @@
     "="   'lsp-format-region
     "> =" 'align-regexp))
 
-(use-package lsp-treemacs
-  :after (treemacs lsp-mode)
-  :general
-  (nmap-leader :keymaps 'lsp-mode-map
-    "{"   'lsp-treemacs-references
-    "}"   'lsp-treemacs-implementations
-    "t"   'lsp-treemacs-symbols
-    "q"   'lsp-treemacs-errors-list
-    "> [" 'lsp-treemacs-call-hierarchy
-    "> #" 'lsp-treemacs-deps-list)
-  :config
-  (lsp-treemacs-sync-mode t))
-
 (use-package lsp-ivy
   :after lsp-mode
   :general

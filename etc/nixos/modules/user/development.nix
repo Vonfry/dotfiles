@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacsExtraBin";
-    paths = [ python3 sqlite perl bundler jekyll ];
+    paths = [ sqlite perl bundler jekyll ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
   emacsclientDesktop = pkgs.vonfryPackages.emacsclientDesktop.override {
@@ -244,11 +244,6 @@ in {
           ranger
           avy
           ace-window
-          treemacs
-          treemacs-evil
-          treemacs-projectile
-          treemacs-magit
-          treemacs-icons-dired
           which-key
           logview
           projectile
@@ -257,7 +252,6 @@ in {
           ibuffer-vc
           ibuffer-projectile
           lsp-mode
-          lsp-treemacs
           lsp-ivy
           editorconfig
           realgud
@@ -282,6 +276,7 @@ in {
           telega
           terminal-here
           zoxide
+          dired-sidebar
         ];
       };
 
