@@ -6,7 +6,7 @@
   (nmap-leader :keymaps 'prog-mode-map
     "." 'xref-goto-xref
     "," 'xref-pop-marker-stack
-    ">" 'xref-find-apropos
+    "&" 'xref-find-apropos
     "[" 'xref-find-definitions
     "{" 'xref-find-references
     "(" 'info-xref
