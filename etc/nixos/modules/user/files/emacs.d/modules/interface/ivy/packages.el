@@ -43,6 +43,7 @@
     "F a" 'counsel-rg
     "F ;" 'counsel-outline
     "F x" 'counsel-linux-app
+    "a" 'counsel-rg
     "q" 'counsel-flycheck
     "p" 'counsel-fzf
     "b" 'counsel-switch-buffer

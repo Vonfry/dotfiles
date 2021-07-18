@@ -42,9 +42,8 @@
   :after (projectile counsel)
   :hook (projectile-mode . counsel-projectile-mode)
   :general
-  (nmap-leader
-    "p" 'counsel-projectile)
   (nmap-leader :keymaps 'projectile-mode-map
+    "p"   'counsel-projectile
     "a"   'counsel-projectile-rg
     "P p" 'counsel-projectile-switch-project
     "P f" 'counsel-projectile-find-file-dwim
