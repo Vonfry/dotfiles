@@ -192,12 +192,14 @@
 (use-package org-roam
   :init
   (+org--roam-set-path +org-note-dir)
+  :custom
+  (org-roam-graph-viewer 'org-open-file)
   :general
   (nmap-leader :infix "o"
-    "n"   'org-roam-find-file
+    "n"   'org-roam-node-find
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
-    "R a" 'org-roam-jump-to-index
+    "R i" 'org-roam-node-insert
     "R b" 'org-roam-db-sync
     "R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
@@ -206,7 +208,8 @@
     "R m" 'org-roam-setup
     "R M" 'org-roam-teardown
     "R g" 'org-roam-graph
-    "R i" 'org-roam-insert))
+    "R f" 'org-roam-node-find
+    "R i" 'org-roam-node-insert))
 
 (use-package org-roam-server
   :disabled
