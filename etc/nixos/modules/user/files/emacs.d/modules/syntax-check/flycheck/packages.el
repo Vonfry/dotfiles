@@ -7,5 +7,7 @@
   (flycheck-global-modes nil)
   :general
   (nmap-leader :keymaps 'prog-mode-map
-    "q" 'flycheck-list-errors))
+    "Q"   '(nil :which-key "flycheck")
+    "Q Q" 'flycheck-explain-error-at-point
+    "Q q" 'flycheck-list-errors))
 
