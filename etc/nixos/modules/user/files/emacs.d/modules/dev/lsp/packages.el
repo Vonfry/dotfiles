@@ -6,7 +6,6 @@
   :custom
   (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
   (lsp-session-file (expand-file-name "lsp-session" vonfry-local-dir))
-  (lsp-diagnostic-provider :flycheck)
   (lsp-keymap-prefix "M-*")
   :general
   (nmap-leader :keymaps 'lsp-mode-map
