@@ -105,7 +105,7 @@ in {
         hledger
         pcmanfm
         flameshot feh
-        pavucontrol
+        helvum
         libreoffice
 
         virt-manager
@@ -136,8 +136,8 @@ in {
         musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
         extraConfig = ''
           audio_output {
-            type "pulse"
-            name "My Pulse Output"
+            type "pipewire"
+            name "My Pipewire Output"
           }
           restore_paused "yes"
         '';

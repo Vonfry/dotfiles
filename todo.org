@@ -112,10 +112,10 @@
    - [ ] remove fcitx5 services
 *** DONE emacs daemon with hm instead of manual
     CLOSED: [2021-06-26 Sat 10:23]
-*** TODO pipewire replaces pulseaudio[0/4]
-    - [ ] service (nixos)
-    - [ ] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
+*** TODO pipewire replaces pulseaudio[3/4]
+    - [X] service (nixos)
+    - [X] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
     - [ ] easyeffect replaces pulseeffects
-    - [ ] Helvum replaces pavucontrol
+    - [X] Helvum replaces pavucontrol
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
