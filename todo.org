@@ -117,5 +117,8 @@
     - [X] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
     - [ ] easyeffect replaces pulseeffects
     - [X] Helvum replaces pavucontrol
+    - [ ] mpv with pipewire github:mpv-player/mpv#8569 and nixpkgs support
+    - [ ] pulse client close?
+    - [X] Helvum replaces pavucontrol
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
