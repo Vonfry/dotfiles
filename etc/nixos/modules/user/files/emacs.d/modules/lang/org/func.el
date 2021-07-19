@@ -36,9 +36,13 @@
   (interactive)
   (find-file +org-capture-file))
 
+
+(defun +org/id-update-recursively (dir)
+  (interactive "Ddir: ")
+  (org-id-update-id-locations (directory-files-recursively dir "\\.org$")))
+
 (defun +org/id-update-default ()
   (interactive)
-  (dolist (dir (list org-roam-directory))
-    (org-id-update-id-locations (directory-files dir t "\\.org$")))
+  (+org/id-update-recursively org-roam-directory)
   (org-id-update-id-locations)
   (org-id-locations-save))
