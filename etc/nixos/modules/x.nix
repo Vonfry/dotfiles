@@ -84,7 +84,6 @@ in {
           partOf = [ "graphical-session.target" ];
           script = ''
           ${pkgs.xidlehook}/bin/xidlehook \
-            --timer ${toString cfg.durationLock}  "${lockCommand} || true" "" \
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];
