@@ -211,16 +211,13 @@
     "R f" 'org-roam-node-find
     "R i" 'org-roam-node-insert))
 
-(use-package org-roam-server
+(use-package org-roam-ui
   :disabled
   :general
   (nmap-leader :infix "o"
-    "s" 'org-roam-server-mode)
+    "s" 'org-roam-ui-mode)
   :custom
-  (org-roam-server-port 8100))
-
-(use-package org-protocol :ensure nil)
-(use-package org-roam-protocol :ensure nil)
+  (org-roam-ui-port 8100))
 
 (use-package ob
   :init
