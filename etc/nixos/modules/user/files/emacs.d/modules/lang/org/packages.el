@@ -194,6 +194,8 @@
   (+org--roam-set-path +org-note-dir)
   :custom
   (org-roam-graph-viewer 'org-open-file)
+  :config
+  (org-roam-setup)
   :general
   (nmap-leader :infix "o"
     "n"   'org-roam-node-find
