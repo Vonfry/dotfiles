@@ -199,14 +199,14 @@
     "n"   'org-roam-node-find
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
+    "R m" 'org-roam-setup
+    "R M" 'org-roam-teardown
     "R i" 'org-roam-node-insert
     "R b" 'org-roam-db-sync
     "R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam-buffer-toggle
     "R "  '(:ignore t :which-key "org roam")
-    "R m" 'org-roam-setup
-    "R M" 'org-roam-teardown
     "R g" 'org-roam-graph
     "R f" 'org-roam-node-find
     "R i" 'org-roam-node-insert))
