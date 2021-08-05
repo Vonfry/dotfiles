@@ -20,11 +20,8 @@
           (rx (+ (| (| space blank) "\n")))
           " "
           (replace-regexp-in-string
-           (concat (string 27) "\\[[0-9;]*[A-z]" (string 29) "?")
+           (rx 27 "[" (* (| digit ";")) alpha (? 29))
            ""
            (shell-command-to-string
-            (s-join " "
-                    (list "fortune"
-                          "-s"
-                          (expand-file-name "fortunes" (xdg-data-home))
-                          "all"))))))))
+            (format "fortune -s %s all"
+                    (expand-file-name "fortunes" (xdg-data-home)))))))))

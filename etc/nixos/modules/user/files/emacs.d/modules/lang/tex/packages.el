@@ -34,10 +34,10 @@
   (LaTeX-mode .
      (lambda ()
        (set (make-local-variable 'compile-command)
-            (s-trim (s-join " "
-                            (list
-                             "latexmk"
-                             (file-relative-name buffer-file-name)))))
+            (format "latexmk %s"
+                    (if TeX-master
+                        TeX-master
+                    (file-relative-name buffer-file-name))))
        (require 'preview)
        (require 'tex-site)
        ;; use pdfview with auctex
@@ -45,7 +45,7 @@
        (reftex-mode)
        (rainbow-delimiters-mode)
        (LaTeX-math-mode)
-       (lsp)))
+       (lsp-defer)))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
