@@ -52,10 +52,11 @@
   (nmap-leader :keymaps '(TeX-mode-map)
     "?"      'TeX-doc
     "RET"    'preview-at-point
-    "r"      'compile
-    "R"      'TeX-command-run-all)
+    "R"      'compile
+    "r"      'TeX-command-master)
   (nmap-mode :keymaps '(TeX-mode-map)
     "-"       'TeX-recenter-output-buffer
+    "r"       'TeX-command-run-all
     "%"       'TeX-comment-or-uncomment-paragraph
     "k"       'TeX-kill-job
     "l"       'TeX-recenter-output-buffer
@@ -108,6 +109,7 @@
   :after latex
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)
+  (TeX-command-default "LatexMk")
   :config
   (auctex-latexmk-setup))
 
@@ -124,12 +126,3 @@
       company-math-symbols-unicode
       company-math-symbols-unicode
       company-latex-commands)))))
-
-(use-package auctex-latexmk
-  :after latex
-  :custom
-  (auctex-latexmk-inherit-TeX-PDF-mode t)
-  :hook
-  (LaTeX-mode . (lambda () (setq TeX-command-default "LatexMk")))
-  :config
-  (auctex-latexmk-setup))
