@@ -56,7 +56,7 @@
     "r"      'TeX-command-master)
   (nmap-mode :keymaps '(TeX-mode-map)
     "-"       'TeX-recenter-output-buffer
-    "r"       'TeX-command-run-all
+    "R"       'TeX-command-run-all
     "%"       'TeX-comment-or-uncomment-paragraph
     "k"       'TeX-kill-job
     "l"       'TeX-recenter-output-buffer
