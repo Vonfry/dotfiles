@@ -11,6 +11,7 @@
     "{" 'xref-find-references
     "(" 'info-xref
     "?" 'info-xref-docstrings)
-  :hook (xref-backend-functions . dumb-jump-xref-activate)
+  :config
+  (add-hook 'xref-backend-functions  'dumb-jump-xref-activate)
   :custom
   (dumb-jump-selector 'ivy))
