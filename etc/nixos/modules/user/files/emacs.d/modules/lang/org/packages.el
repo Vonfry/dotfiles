@@ -77,6 +77,7 @@
     "#"   'counsel-org-file
     "T"   'org-tags-view
     ","   'org-set-property
+    "<"   'org-columns
     "d"   'org-deadline
     "s"   'org-schedule
     "t"   'org-todo
