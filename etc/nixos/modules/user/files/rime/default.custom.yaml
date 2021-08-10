@@ -23,10 +23,7 @@ patch:
       Shift_R: commit_text
 
   punctuator:
-    full_shape:
-      __include: punctuation:/full_shape
-    half_shape:
-      __include: punctuation:/half_shape
+    import_preset: symbols
 
   key_binder:
     bindings:
