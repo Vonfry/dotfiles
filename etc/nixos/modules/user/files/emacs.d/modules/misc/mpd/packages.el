@@ -7,15 +7,11 @@
     "m"     '(:ignore t :which-key "mpd")
     "m m"   'mpdel-mode
     "m SPC" 'libmpdel-playback-play-pause
-    "m n"   'libmpdel-playback-next
-    "m p"   'libmpdel-playback-previous
-    "m a"   'mpdel-core-add-to-current-playlist
-    "m A"   'mpdel-core-add-to-stored-playlist
-    "m r"   'mpdel-core-replace-current-playlist
-    "m R"   'mpdel-core-replace-stored-playlist
-    "m P"   'mpdel-core-insert-current-playlist
+    "m p"   'libmpdel-playback-play-pause
+    "m }"   'libmpdel-playback-next
+    "m {"   'libmpdel-playback-previous
     "m D"   'mpdel-core-dired
-    "m N"   'mpdel-core-open-artists
+    "m A"   'mpdel-core-open-artists
     "m L"   'mpdel-core-open-stored-playlists
     "m s s" 'mpdel-core-search-by-title
     "m s l" 'mpdel-core-search-by-album
