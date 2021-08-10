@@ -23,8 +23,8 @@ in {
         package = pkgs.breeze-gtk;
       };
       iconTheme = {
-        name = "breeze-dark";
-        package = pkgs.breeze-icons;
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-standard;
       };
     };
 
