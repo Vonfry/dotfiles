@@ -11,8 +11,6 @@
   (TeX-syntactic-comment t)
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
-  (TeX-command-default "latexmk")
-  (TeX-command "latexmk")
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
@@ -110,6 +108,7 @@
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)
   (TeX-command-default "LatexMk")
+  (TeX-command TeX-command-default)
   :config
   (auctex-latexmk-setup))
 
