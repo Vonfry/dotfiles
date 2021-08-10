@@ -30,7 +30,7 @@ in {
     environment.systemPackages = with pkgs; [
       xclip
       alacritty
-      dunst libnotify
+      libnotify
       vonfryPackages.sddm-slice-theme
       breeze-icons breeze-gtk breeze-qt5
       screenlocker
