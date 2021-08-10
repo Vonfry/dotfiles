@@ -165,7 +165,7 @@
   (org-journal-find-file 'find-file)
   (org-journal-file-type 'monthly)
   (org-journal-dir +org-journal-dir)
-  (org-journal-tags
+  (org-journal-tag-alist
    (let ((file (expand-file-name ".tags.el" +org-journal-dir)))
      (eval (read-from-whole-string
        (with-temp-buffer
