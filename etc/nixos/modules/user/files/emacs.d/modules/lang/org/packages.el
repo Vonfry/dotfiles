@@ -23,12 +23,10 @@
   (org-agenda-files (list +org-agenda-dir +org-capture-file))
   (org-tag-alist
    (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
-    (eval (read-from-whole-string
      (with-temp-buffer
        (when (file-exists-p file)
          (insert-file-contents file)
-         (buffer-string)))))))
-  (org-agenda-tags org-tag-alist)
+         (read (current-buffer))))))
   (org-file-apps '((auto-mode . emacs)
                    (remote . emacs)))
   (org-file-apps-gnu
@@ -167,11 +165,10 @@
   (org-journal-dir +org-journal-dir)
   (org-journal-tag-alist
    (let ((file (expand-file-name ".tags.el" +org-journal-dir)))
-     (eval (read-from-whole-string
-       (with-temp-buffer
-         (when (file-exists-p file)
-           (insert-file-contents file)
-           (buffer-string)))))))
+     (with-temp-buffer
+       (when (file-exists-p file)
+         (insert-file-contents file)
+         (read (current-buffer))))))
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
