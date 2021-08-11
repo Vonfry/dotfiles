@@ -22,7 +22,7 @@
                         (org-agenda-files :maxlevel . 99)))
   (org-agenda-files (list +org-agenda-dir +org-capture-file))
   (org-tag-alist
-   (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
+   (let ((file (expand-file-name ".tags.el" +org-dir)))
      (with-temp-buffer
        (when (file-exists-p file)
          (insert-file-contents file)
@@ -163,12 +163,6 @@
   (org-journal-find-file 'find-file)
   (org-journal-file-type 'monthly)
   (org-journal-dir +org-journal-dir)
-  (org-journal-tag-alist
-   (let ((file (expand-file-name ".tags.el" +org-journal-dir)))
-     (with-temp-buffer
-       (when (file-exists-p file)
-         (insert-file-contents file)
-         (read (current-buffer))))))
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
