@@ -159,7 +159,7 @@
   :after org
   :custom
   (org-journal-file-format "%Y-%m.org")
-  (org-journal-enable-agenda-integration t)
+  (org-journal-enable-agenda-integration nil)
   (org-journal-find-file 'find-file)
   (org-journal-file-type 'monthly)
   (org-journal-dir +org-journal-dir)
