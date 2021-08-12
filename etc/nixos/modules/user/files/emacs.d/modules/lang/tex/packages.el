@@ -43,7 +43,7 @@
        (reftex-mode)
        (rainbow-delimiters-mode)
        (LaTeX-math-mode)
-       (lsp-defer)))
+       (lsp-deferred)))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
