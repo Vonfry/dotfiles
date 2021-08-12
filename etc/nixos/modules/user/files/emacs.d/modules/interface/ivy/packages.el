@@ -37,12 +37,15 @@
   (nmap-leader
     "f" 'counsel-find-file
     "F" '(:ignore t :which-key "counsel misc")
-    "F f" 'counsel-fzf
+    "F p" 'counsel-fzf
+    "F c" 'counsel-cd
     "F r" 'counsel-recentf
     "F a" 'counsel-rg
     "F ;" 'counsel-outline
     "F x" 'counsel-linux-app
-    "p" 'counsel-cd
+    "a" 'counsel-rg
+    "q" 'counsel-flycheck
+    "p" 'counsel-fzf
     "b" 'counsel-switch-buffer
     "<" 'counsel-mark-ring
     "?" 'counsel-info-lookup-symbol

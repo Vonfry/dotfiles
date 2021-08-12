@@ -6,11 +6,12 @@
   (nmap-leader :keymaps 'prog-mode-map
     "." 'xref-goto-xref
     "," 'xref-pop-marker-stack
-    ">" 'xref-find-apropos
+    "&" 'xref-find-apropos
     "[" 'xref-find-definitions
     "{" 'xref-find-references
     "(" 'info-xref
     "?" 'info-xref-docstrings)
-  :hook (xref-backend-functions . dumb-jump-xref-activate)
+  :config
+  (add-hook 'xref-backend-functions  'dumb-jump-xref-activate)
   :custom
   (dumb-jump-selector 'ivy))

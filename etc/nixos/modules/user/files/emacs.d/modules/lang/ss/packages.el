@@ -24,5 +24,5 @@
     "' r" 'ess-eval-region))
 
 (use-package ess-r-mode
-  :hook (ess-r-mode . lsp)
+  :hook (ess-r-mode . lsp-defer)
   :ensure nil)

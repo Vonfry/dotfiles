@@ -2,7 +2,7 @@
 ;;
 
 (dolist (mode '(c-mode-hook c++-mode-hook))
-  (add-hook mode 'lsp))
+  (add-hook mode 'lsp-deferred))
 
 (use-package disaster
   :general

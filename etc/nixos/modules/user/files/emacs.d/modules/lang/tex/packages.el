@@ -11,8 +11,6 @@
   (TeX-syntactic-comment t)
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
-  (TeX-command-default "latexmk")
-  (TeX-command "latexmk")
   (TeX-auto-untabify t)
   (TeX-engine 'xetex)
   (TeX-save-query nil)
@@ -34,10 +32,10 @@
   (LaTeX-mode .
      (lambda ()
        (set (make-local-variable 'compile-command)
-            (s-trim (s-join " "
-                            (list
-                             "latexmk"
-                             (file-relative-name buffer-file-name)))))
+            (format "latexmk %s"
+                    (if TeX-master
+                        TeX-master
+                    (file-relative-name buffer-file-name))))
        (require 'preview)
        (require 'tex-site)
        ;; use pdfview with auctex
@@ -45,17 +43,18 @@
        (reftex-mode)
        (rainbow-delimiters-mode)
        (LaTeX-math-mode)
-       (lsp)))
+       (lsp-defer)))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
   (nmap-leader :keymaps '(TeX-mode-map)
     "?"      'TeX-doc
     "RET"    'preview-at-point
-    "r"      'compile
-    "R"      'TeX-command-run-all)
+    "R"      'compile
+    "r"      'TeX-command-master)
   (nmap-mode :keymaps '(TeX-mode-map)
     "-"       'TeX-recenter-output-buffer
+    "R"       'TeX-command-run-all
     "%"       'TeX-comment-or-uncomment-paragraph
     "k"       'TeX-kill-job
     "l"       'TeX-recenter-output-buffer
@@ -108,6 +107,8 @@
   :after latex
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)
+  (TeX-command-default "LatexMk")
+  (TeX-command TeX-command-default)
   :config
   (auctex-latexmk-setup))
 
@@ -124,12 +125,3 @@
       company-math-symbols-unicode
       company-math-symbols-unicode
       company-latex-commands)))))
-
-(use-package auctex-latexmk
-  :after latex
-  :custom
-  (auctex-latexmk-inherit-TeX-PDF-mode t)
-  :hook
-  (LaTeX-mode . (lambda () (setq TeX-command-default "LatexMk")))
-  :config
-  (auctex-latexmk-setup))

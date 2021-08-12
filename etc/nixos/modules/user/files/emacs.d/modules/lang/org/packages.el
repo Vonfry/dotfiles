@@ -22,13 +22,11 @@
                         (org-agenda-files :maxlevel . 99)))
   (org-agenda-files (list +org-agenda-dir +org-capture-file))
   (org-tag-alist
-   (let ((file (expand-file-name ".tags.el" +org-agenda-dir)))
-    (eval (read-from-whole-string
+   (let ((file (expand-file-name ".tags.el" +org-dir)))
      (with-temp-buffer
        (when (file-exists-p file)
          (insert-file-contents file)
-         (buffer-string)))))))
-  (org-agenda-tags org-tag-alist)
+         (read (current-buffer))))))
   (org-file-apps '((auto-mode . emacs)
                    (remote . emacs)))
   (org-file-apps-gnu
@@ -77,6 +75,7 @@
     "#"   'counsel-org-file
     "T"   'org-tags-view
     ","   'org-set-property
+    "<"   'org-columns
     "d"   'org-deadline
     "s"   'org-schedule
     "t"   'org-todo
@@ -160,17 +159,10 @@
   :after org
   :custom
   (org-journal-file-format "%Y-%m.org")
-  (org-journal-enable-agenda-integration t)
+  (org-journal-enable-agenda-integration nil)
   (org-journal-find-file 'find-file)
   (org-journal-file-type 'monthly)
   (org-journal-dir +org-journal-dir)
-  (org-journal-tags
-   (let ((file (expand-file-name ".tags.el" +org-journal-dir)))
-     (eval (read-from-whole-string
-       (with-temp-buffer
-         (when (file-exists-p file)
-           (insert-file-contents file)
-           (buffer-string)))))))
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
@@ -192,30 +184,34 @@
 (use-package org-roam
   :init
   (+org--roam-set-path +org-note-dir)
+  :custom
+  (org-roam-graph-viewer 'org-open-file)
+  :config
+  (org-roam-setup)
   :general
   (nmap-leader :infix "o"
-    "n"   'org-roam-find-file
+    "n"   'org-roam-node-find
     "C"   'org-roam-capture
     "R "  '(:ignore t :which-key "org roam")
-    "R b" 'org-roam-db-build-cache
-    "R p" '+org/roam-switch
-    "R a" 'org-roam-jump-to-index)
+    "R m" 'org-roam-setup
+    "R M" 'org-roam-teardown
+    "R i" 'org-roam-node-insert
+    "R b" 'org-roam-db-sync
+    "R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
-    "r"   'org-roam
+    "r"   'org-roam-buffer-toggle
     "R "  '(:ignore t :which-key "org roam")
-    "R m" 'org-roam-mode
     "R g" 'org-roam-graph
-    "R i" 'org-roam-insert))
+    "R f" 'org-roam-node-find
+    "R i" 'org-roam-node-insert))
 
-(use-package org-roam-server
+(use-package org-roam-ui
+  :disabled
   :general
   (nmap-leader :infix "o"
-    "s" 'org-roam-server-mode)
+    "s" 'org-roam-ui-mode)
   :custom
-  (org-roam-server-port 8100))
-
-(use-package org-protocol :ensure nil)
-(use-package org-roam-protocol :ensure nil)
+  (org-roam-ui-port 8100))
 
 (use-package ob
   :init

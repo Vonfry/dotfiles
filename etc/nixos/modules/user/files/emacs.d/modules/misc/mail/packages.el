@@ -43,12 +43,10 @@
 
 (use-package mu4e-alert
   :after mu4e
-  :hook
-  (after-init .
-    (lambda ()
-      (mu4e-alert-enable-mode-line-display)
-      (mu4e-alert-set-default-style 'libnotify)
-      (mu4e-alert-enable-notifications))))
+  :config
+  (mu4e-alert-enable-mode-line-display)
+  (mu4e-alert-set-default-style 'libnotify)
+  (mu4e-alert-enable-notifications))
 
 (use-package mu4e-maildirs-extension
   :after mu4e-vars

@@ -3,7 +3,7 @@
 
 (use-package vc
   :custom
-  (vc-follow-symlinks t))
+  (vc-follow-symlinks nil))
 
 (use-package magit
   :general

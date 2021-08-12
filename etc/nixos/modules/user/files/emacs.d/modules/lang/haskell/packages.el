@@ -3,7 +3,7 @@
 
 (use-package haskell
   :ensure haskell-mode
-  :hook (haskell-mode . lsp)
+  :hook (haskell-mode . lsp-deferred)
   :custom
   (haskell-indentation-layout-offset 4)
   (imenu-add-menubar-index t)

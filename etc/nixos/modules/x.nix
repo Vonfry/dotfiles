@@ -30,7 +30,7 @@ in {
     environment.systemPackages = with pkgs; [
       xclip
       alacritty
-      dunst libnotify
+      libnotify
       vonfryPackages.sddm-slice-theme
       breeze-icons breeze-gtk breeze-qt5
       screenlocker
@@ -40,8 +40,6 @@ in {
     ];
 
     services.xbanish.enable = true;
-
-    services.dbus.packages = with pkgs; [ dconf ];
 
     services.xserver = {
       enable = true;
@@ -69,6 +67,7 @@ in {
     };
 
     programs = {
+      dconf.enable = true;
       xss-lock = {
         enable = true;
         lockerCommand = "${lockCommand} -n";
@@ -85,7 +84,6 @@ in {
           partOf = [ "graphical-session.target" ];
           script = ''
           ${pkgs.xidlehook}/bin/xidlehook \
-            --timer ${toString cfg.durationLock}  "${lockCommand} || true" "" \
             --timer ${toString cfg.durationSuspend} "systemctl suspend" ""
         '';
           wantedBy = [ "graphical-session.target" ];

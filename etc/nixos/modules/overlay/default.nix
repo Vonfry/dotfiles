@@ -5,8 +5,6 @@ with pkgs;
 {
   inherit unstable;
 
-  emacsclientDesktop = callPackage ./applications/emacsclient/desktop.nix { };
-
   rimePlugins = callPackage ./applications/rime-plugins { };
 
   icon-face = callPackage ./data/icon-face { };
