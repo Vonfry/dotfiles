@@ -10,9 +10,6 @@ let
     paths = [ python3 sqlite perl bundler jekyll ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
-  emacsclientDesktop = pkgs.vonfryPackages.emacsclientDesktop.override {
-    emacs = config.programs.emacs.finalPackage;
-  };
 
   editorMimeApps = listToAttrs
     (map (type: {name = type; value = "emacsclient.desktop"; })
