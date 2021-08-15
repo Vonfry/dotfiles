@@ -13,19 +13,18 @@
     ;; These has confliction with evil
     "SPC" "S-SPC"))
 
-(use-package git-commit :after magit)
-(use-package transient :after magit
+(use-package git-commit)
+(use-package transient
   :custom
   (transient-history-file (expand-file-name "transient/history.el" vonfry-cache-dir))
   (transient-values-file (expand-file-name "transient/values.el" vonfry-cache-dir))
   (transient-levels-file (expand-file-name "transient/levels.el" vonfry-cache-dir)))
-(use-package with-editor :after magit)
-(use-package gitconfig-mode :after magit)
-(use-package gitignore-mode :after magit)
-(use-package gitattributes-mode :after magit)
+(use-package with-editor)
+(use-package gitconfig-mode)
+(use-package gitignore-mode)
+(use-package gitattributes-mode)
 
 (use-package magit-gitflow
-  :after magit
   :init
   (setq-default magit-gitflow-popup-key "C-c g")
   :hook
@@ -34,6 +33,5 @@
 (use-package gitlab-ci-mode)
 
 (use-package forge
-  :after magit
   :custom
   (forge-database-file (expand-file-name "forge" vonfry-local-dir)))

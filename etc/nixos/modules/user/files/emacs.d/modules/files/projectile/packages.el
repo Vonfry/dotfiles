@@ -39,7 +39,7 @@
   (projectile-global-mode t))
 
 (use-package counsel-projectile
-  :after (projectile counsel)
+  :after counsel
   :hook (projectile-mode . counsel-projectile-mode)
   :general
   (nmap-leader :keymaps 'projectile-mode-map
@@ -53,7 +53,7 @@
     "P g" 'counsel-projectile-org-agenda))
 
 (use-package org-projectile
-  :after (projectile org org-agenda)
+  :after (org org-agenda)
   :custom
   (org-projectile-per-project-filepath "todo.org")
   :general

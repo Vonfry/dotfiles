@@ -18,12 +18,10 @@
   (global-company-mode 1))
 
 (use-package company-quickhelp
-  :after company
   :config
   (company-quickhelp-mode 1))
 
 (use-package company-prescient
-  :after company
   :custom
   (prescient-save-file (expand-file-name "prescient" vonfry-cache-dir))
   :hook

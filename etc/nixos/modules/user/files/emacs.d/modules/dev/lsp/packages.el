@@ -37,7 +37,7 @@
     "> =" 'align-regexp))
 
 (use-package lsp-treemacs
-  :after (treemacs lsp-mode)
+  :after treemacs
   :general
   (nmap-leader :keymaps 'lsp-mode-map
     "{"   'lsp-treemacs-references
@@ -50,7 +50,7 @@
   (lsp-treemacs-sync-mode t))
 
 (use-package lsp-ivy
-  :after lsp-mode
+  :after ivy
   :general
   (nmap-leader :keymaps 'lsp-mode-map
     "&" 'lsp-ivy-workspace-symbol

@@ -104,7 +104,6 @@
     ";"       'TeX-comment-or-uncomment-region))
 
 (use-package auctex-latexmk
-  :after latex
   :custom
   (auctex-latexmk-inherit-TeX-PDF-mode t)
   (TeX-command-default "LatexMk")
@@ -113,7 +112,7 @@
   (auctex-latexmk-setup))
 
 (use-package company-auctex
-  :after (company latex yasnippet)
+  :after (company yasnippet)
   :config
   (use-package company-math)
   :hook

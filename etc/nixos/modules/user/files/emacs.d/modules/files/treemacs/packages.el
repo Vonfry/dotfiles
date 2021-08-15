@@ -17,17 +17,16 @@
   (treemacs-follow-mode 1)
   (treemacs-filewatch-mode 1))
 
-(use-package treemacs-evil
-  :after (treemacs evil))
+(use-package treemacs-evil)
 
 (use-package treemacs-projectile
-  :after (treemacs projectile)
+  :after projectile
   :general
   (nmap-leader
     "P T" 'treemacs-projectile))
 
 (use-package treemacs-magit
-  :after (treemacs magit)
+  :after magit
   :config
   (treemacs-git-mode 'deferred))
 

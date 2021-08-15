@@ -27,6 +27,5 @@
 
 
 (use-package auth-source-pass
-  :after auth-source
   :config
   (auth-source-pass-enable))
