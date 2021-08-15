@@ -5,6 +5,7 @@
     ./hardware-configuration.nix # use `nixos-generate-config`
     ./modules
     ./local/proxy.nix
+    ./local/mirror.nix
   ];
 
   vonfry = {
@@ -23,11 +24,11 @@
       {
         # sessionVariables must be set after creating these directories.
         home.sessionVariables = {
-          DOTFILES_DIR = "$HOME/dotfiles";
-          CLOUD_DIR    = "$HOME/cloud";
-          ORG_DIR      = "$HOME/orgmode";
-          CLONE_LIB    = "$HOME/repos";
-          LEDGER_FILE  = "$HOME/financial/$(date +%Y).journal";
+          DOTFILES_DIR = "${config.home.homeDirectory}/dotfiles";
+          CLOUD_DIR    = "${config.home.homeDirectory}/cloud";
+          ORG_DIR      = "${config.home.homeDirectory}/orgmode";
+          CLONE_LIB    = "${config.home.homeDirectory}/repos";
+          LEDGER_FILE  = "${config.home.homeDirectory}/financial/$(date +%Y).journal";
         };
 
         vonfry = {
@@ -42,18 +43,10 @@
           };
         };
 
-        # xdg = {
-        #   configFile = {
-        #     "containers/registeries.conf".text = ''
-        #       [[registry.mirror]]
-        #       prefix = "docker.io"
-        #       location = "docker.mirrors.sjtug.sjtu.edu.cn"
-        #     '';
-        #   };
-        # };
-
         imports = [ ./local/mail.nix ./local/qutebrowser.nix
                     ./local/proxy-config.nix
+                    ./local/emacs.nix
+                    ./local/mirror-config.nix
                   ];
       };
   };
@@ -61,7 +54,6 @@
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
   # if your number of cpu threads is larger than 32.
   nix.maxJobs = "auto";
-  # nix.binaryCaches = lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 
   fonts.fontconfig.dpi = 96;
   # services.xserver.videoDrivers = [ "nvidia" ];
