@@ -102,8 +102,29 @@
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
 
+(use-package org-superstar
+  :after org
+  :custom
+  (org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
+  :hook
+  (org-mode . org-superstar-mode))
+
+(use-package evil-org
+  :after (evil org)
+  :hook
+  (org-mode . evil-org-mode)
+  :config
+  (evil-org-set-key-theme))
+
+(use-package evil-org-agenda
+  :after evil-org
+  :ensure nil
+  :config
+  (evil-org-agenda-set-keys))
+
 (use-package org-agenda
   :ensure nil
+  :after org
   :general
   (nmap-leader :infix "o"
     "h" 'counsel-org-agenda-headlines
@@ -115,23 +136,6 @@
     "c" 'org-capture
     "k" '+org/open-capture))
 
-(use-package org-superstar
-  :custom
-  (org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
-  :hook
-  (org-mode . org-superstar-mode))
-
-(use-package evil-org
-  :hook
-  (org-mode . evil-org-mode)
-  :config
-  (evil-org-set-key-theme))
-
-(use-package evil-org-agenda
-  :ensure nil
-  :config
-  (evil-org-agenda-set-keys))
-
 (use-package org-archive
   :ensure nil
   :general
@@ -139,6 +143,7 @@
     "a" 'org-archive-subtree-default))
 
 (use-package org-web-tools
+  :after org
   :general
   (nmap-leader :infix "o"
     "u" 'org-web-tools-read-url-as-org)
@@ -151,6 +156,7 @@
    "w a" 'org-web-tools-archive-attach))
 
 (use-package org-journal
+  :after org
   :custom
   (org-journal-file-format "%Y-%m.org")
   (org-journal-enable-agenda-integration nil)
@@ -229,7 +235,8 @@
                               (R          . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (perl       . t))))
+                              (perl       . t)))
+  :after org)
 
 (use-package org-contacts
   :ensure org-plus-contrib

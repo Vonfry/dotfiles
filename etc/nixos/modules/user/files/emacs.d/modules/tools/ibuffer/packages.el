@@ -48,4 +48,4 @@
 (use-package ibuffer-vc :after ibuffer)
 
 (use-package ibuffer-projectile
-  :after projectile)
+  :after (ibuffer projectile))

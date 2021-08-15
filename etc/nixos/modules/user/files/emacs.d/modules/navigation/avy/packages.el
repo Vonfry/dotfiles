@@ -25,6 +25,7 @@
     "G ;" 'avy-push-mark))
 
 (use-package ace-window
+  :after avy
   :custom
   (aw-keys '(?a ?i ?q ?d ?h ?t ?f ?p ?y))
   (aw-minibuffer-flag t)

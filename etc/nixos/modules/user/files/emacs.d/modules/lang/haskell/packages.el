@@ -59,7 +59,7 @@
   (haskell-process-log t))
 
 (use-package lsp-haskell
-  :after lsp-mode)
+  :after (haskell lsp-mode))
 
 (use-package hasky-extensions
   :general
@@ -67,4 +67,4 @@
     "{"  'hasky-extensions))
 
 (use-package haskell-snippets
-  :after yasnippet)
+  :after (haskell yasnippet))

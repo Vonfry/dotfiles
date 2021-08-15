@@ -29,7 +29,7 @@
     "n"      'proof-assert-next-command-interactive))
 
 (use-package company-coq
-  :after company
+  :after (proof-general company)
   :hook
   (coq-mode . company-coq-mode)
   :general

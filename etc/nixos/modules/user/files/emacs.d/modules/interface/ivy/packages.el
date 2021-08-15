@@ -57,7 +57,7 @@
   (nmap-mode :keymaps 'org-mode-map
     "f" 'counsel-org-file))
 
-(use-package ivy-avy :after avy)
+(use-package ivy-avy :after (ivy avy))
 
 (use-package swiper
   :custom
@@ -69,6 +69,7 @@
     "F /" 'swiper))
 
 (use-package ivy-rich
+  :after ivy
   :custom
   (ivy-rich-parse-remote-buffer nil)
   (ivy-rich-parse-remote-file-path nil)
@@ -76,6 +77,7 @@
   (ivy-rich-mode 1))
 
 (use-package counsel-tramp
+  :after counsel
   :general
   (nmap-leader
     "F t" 'counsel-tramp))

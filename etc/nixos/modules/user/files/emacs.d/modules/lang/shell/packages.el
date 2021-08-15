@@ -14,7 +14,7 @@
   :ensure nil)
 
 (use-package company-shell
-  :after company
+  :after (company eshell)
   :hook
   ((eshell-mode shell-mode) . (lambda ()
     (+company-set-backends-grouped '(company-shell company-shell-env)))))
