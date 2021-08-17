@@ -256,7 +256,6 @@ myLayout = beforeLayouts layouts
                   . showWName' mySWNConf
                   . smartBorders
                   . hiddenWindows
-                  . workspaceDir "~"
 
 myWorkspaces = [ "home"
                , "doc"
