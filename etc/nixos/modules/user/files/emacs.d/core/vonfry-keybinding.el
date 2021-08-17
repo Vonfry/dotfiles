@@ -85,6 +85,7 @@
     "e s" 'server-start
     "e c" 'clean-buffer-list
     "e #" 'server-edit
+    "e t" 'list-timers
     "e D" 'diff)
   (vmap-leader
     "="   'align-regexp))
