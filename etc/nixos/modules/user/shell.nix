@@ -482,12 +482,7 @@ in {
         neofetch
         asciinema
 
-        (zsh-completions.overrideAttrs (old: {
-          installPhase = ''
-            ${old.installPhase}
-            rm $out/share/zsh/site-functions/_flameshot
-          '';
-        }))
+        zsh-completions
       ];
 
       sessionPath = [ "~/.local/bin" ];

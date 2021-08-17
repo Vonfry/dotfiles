@@ -2,7 +2,6 @@
 ;;
 
 (use-package evil-nerd-commenter
-  :after evil
   :general
   (nmap-leader :infix "c" :keymaps 'prog-mode-map
     ""   '(:ignore t :which-key "nerd-commenter")

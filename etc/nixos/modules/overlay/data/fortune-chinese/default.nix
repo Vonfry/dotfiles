@@ -4,8 +4,8 @@ let
   src = fetchFromGitHub {
     owner = "ruanyf";
     repo = "fortunes";
-    rev = "b3e61a751e724891f4723414144c74ef7dd413f1";
-    sha256 = "0x79j7gl2r21rw7mdd7kkc7zs5w2qmw4lj95xzciggcgq3pq4k2s";
+    rev = "000fb01261e4d119e4e988ce82f49fb8b139fe3c";
+    sha256 = "01x3fjbjsp52c3zwf7p94x2zwj4sxmcrj3vk4rmp8hq7f2z7qviv";
   };
 
 in runCommand "fortune-chinese" {} ''
