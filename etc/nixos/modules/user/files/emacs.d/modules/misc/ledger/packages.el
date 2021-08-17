@@ -6,9 +6,8 @@
   :custom
   (ledger-binary-path "hledger")
   (hledger-jfile (getenv "LEDGER_FILE"))
-  :hook
-  (evil-mode . (lambda ()
-    (evil-set-initial-state 'hledger-view-mode 'emacs)))
+  :config
+  (evil-set-initial-state 'hledger-view-mode 'emacs)
   :general
   (nmap-at
     "l" 'hledger-jentry
