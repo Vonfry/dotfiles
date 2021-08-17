@@ -31,6 +31,15 @@
           LEDGER_FILE  = "${config.home.homeDirectory}/financial/$(date +%Y).journal";
         };
 
+        # xsession.profileExtra = ''
+        #   xbow_id=$(xinput list | grep -oE 'SEMITEK USB-HID Gaming Keyboard[[:space:]]+id=([[:digit:]]+)' | head -1 | tail -1 | grep -oE 'id=[[:digit:]]+' | cut -c '4-')
+        #   if [ -n "$xbow_id" ]; then
+        #     setxkbmap -device $xbow_id -option altwin:swap_alt_win
+        #    # setxkbmap -device $codekeyboard_id -option altwin:swap_alt_win
+        #   fi
+        #   unset xbow_id
+        # '';
+
         vonfry = {
           development = {
             git.signKey = "";
