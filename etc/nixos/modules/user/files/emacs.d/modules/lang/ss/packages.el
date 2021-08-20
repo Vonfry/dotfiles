@@ -17,7 +17,7 @@
    "\""    'ess-interrupt
    "?"     'ess-help
    "RET"   'ess-eval-line
-   "' r"   'ess-eval-buffer-from-beg-to-here
+   "' RET" 'ess-eval-buffer-from-beg-to-here
    "' b"   'ess-eval-buffer
    "' f"   'ess-eval-function)
   (vmap-leader :keymaps 'ess-mode-map
