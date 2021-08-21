@@ -64,8 +64,6 @@
     "t j" 'org-clock-goto)
   (nvmap-mode :keymaps 'org-mode-map
     "/"   'org-occur
-    "n"   'next-error
-    "p"   'previous-error
     "g"   'counsel-org-goto
     "l"   'counsel-org-link
     "L"   'org-store-link
@@ -74,7 +72,8 @@
     "^"   'counsel-org-tag-agenda
     "#"   'counsel-org-file
     "T"   'org-tags-view
-    ","   'org-set-property
+    "p"   'org-set-property
+    ","   'org-priority
     "<"   'org-columns
     "d"   'org-deadline
     "s"   'org-schedule
