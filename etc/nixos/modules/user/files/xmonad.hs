@@ -206,9 +206,9 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-,", workspacePrompt myXPConf (windows . shift))
-    , ("M-w d", removeWorkspace                )
-    , ("M-w n", addWorkspacePrompt myXPConfNoAc)
-    , ("M-w r", renameWorkspace    myXPConfNoAc)
+    , ("M-S-w", removeWorkspace                )
+    , ("M-C-w", addWorkspacePrompt myXPConfNoAc)
+    , ("M-w",   renameWorkspace    myXPConfNoAc)
 
     -- change pwd for current workspace
     , ("M-c", changeDir myXPConfNoAc)
@@ -256,7 +256,6 @@ myLayout = beforeLayouts layouts
                   . showWName' mySWNConf
                   . smartBorders
                   . hiddenWindows
-                  . workspaceDir "~"
 
 myWorkspaces = [ "home"
                , "doc"

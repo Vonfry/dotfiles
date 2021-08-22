@@ -17,11 +17,11 @@
    "\""    'ess-interrupt
    "?"     'ess-help
    "RET"   'ess-eval-line
+   "' RET" 'ess-eval-buffer-from-beg-to-here
    "' b"   'ess-eval-buffer
-   "' f"   'ess-eval-function
-   "' RET" 'ess-eval-buffer-from-beg-to-here)
+   "' f"   'ess-eval-function)
   (vmap-leader :keymaps 'ess-mode-map
-    "' r" 'ess-eval-region))
+    "RET" 'ess-eval-region))
 
 (use-package ess-r-mode
   :hook (ess-r-mode . lsp-deferred)

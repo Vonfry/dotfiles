@@ -31,6 +31,7 @@
   (telega-emoji-font-family "Noto Color Emoji")
   (telega-emoji-use-images "Noto Color Emoji")
   (telega-online-status-function 'telega-focus-state)
+  (telega-completing-read-function 'ivy-completing-read)
   :hook
   (server-after-make-frame .
     (lambda (&rest _)

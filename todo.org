@@ -120,3 +120,5 @@
     - [ ] Helvum replaces pavucontrol
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
+
+*** TODO remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
