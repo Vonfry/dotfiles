@@ -14,8 +14,6 @@ in {
         auto-optimise-store = true
         keep-outputs = true
         keep-derivations = true
-        max-jobs = auto
-        cores = 0
       '';
       "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
     };
