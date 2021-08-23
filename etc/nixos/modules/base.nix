@@ -40,8 +40,14 @@ in {
         keep-derivations = true
       '';
 
-      binaryCachePublicKeys = lib.mkBefore [ "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs=" ];
-      binaryCaches = lib.mkBefore [ "https://nix-community.cachix.org" ];
+      binaryCachePublicKeys = lib.mkBefore [
+        "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      ];
+      binaryCaches = lib.mkBefore [
+        "https://nixos-cn.cachix.org"
+        "https://nix-community.cachix.org"
+      ];
     };
 
     nixpkgs = {
