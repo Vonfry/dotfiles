@@ -15,7 +15,7 @@ in {
     environment.systemPackages = with pkgs; [
       gnutls cacert
       pciutils usbutils inxi
-      exfat lz4
+      exfat zstd
 
       lnav
       atop htop
