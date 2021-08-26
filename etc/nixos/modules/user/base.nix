@@ -37,7 +37,7 @@ in {
 
         patch parallel file
 
-        unar convmv
+        lzop unar convmv
         colordiff
         ripgrep fd
       ];
