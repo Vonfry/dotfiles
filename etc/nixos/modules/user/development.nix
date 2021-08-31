@@ -202,7 +202,6 @@ in {
           markdown-mode
           haskell-mode
           lsp-haskell
-          hasky-extensions
           haskell-snippets
           easy-jekyll
           json-mode
