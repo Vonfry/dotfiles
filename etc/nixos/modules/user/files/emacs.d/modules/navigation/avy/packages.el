@@ -12,17 +12,19 @@
   ("C-:"  'avy-goto-char-2)
   (nvmap-leader
     "g"   'avy-goto-word-1
+    "G"   'avy-goto-word-0
     "/"   'avy-goto-char-2
-    "G"   '(:ignore t :which-key "avy")
-    "G l" 'avy-goto-line
-    "G /" 'avy-goto-char-timer
-    "G g" 'avy-goto-char
-    "G w" 'avy-goto-word-0
-    "G f" 'avy-goto-char-in-line
-    "G b" 'avy-goto-subword-1
-    "G s" 'avy-goto-symbol-1
-    "G ," 'avy-pop-mark
-    "G ;" 'avy-push-mark))
+    "J"   'avy-goto-line
+    "j"   '(:ignore t :which-key "avy")
+    "j l" 'avy-goto-line
+    "j /" 'avy-goto-char-timer
+    "j g" 'avy-goto-char
+    "j w" 'avy-goto-word-0
+    "j f" 'avy-goto-char-in-line
+    "j b" 'avy-goto-subword-1
+    "j s" 'avy-goto-symbol-1
+    "j ," 'avy-pop-mark
+    "j ;" 'avy-push-mark))
 
 (use-package ace-window
   :after avy
