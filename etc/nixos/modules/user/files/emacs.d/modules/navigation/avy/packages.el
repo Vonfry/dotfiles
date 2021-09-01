@@ -4,6 +4,23 @@
 (use-package avy
   :custom
   (avy-keys (list ?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
+  (avy-orders-alist
+   '((avy-goto-char . avy-order-closest)
+     (avy-goto-char-2 . avy-order-closest)
+     (avy-isearch . avy-order-closest)
+     (avy-goto-line . avy-order-closest)
+     (avy-goto-subword-0 . avy-order-closest)
+     (avy-goto-subword-1 . avy-order-closest)
+     (avy-goto-word-0 . avy-order-closest)
+     (avy-goto-word-1 . avy-order-closest)
+     (avy-copy-line . avy-order-closest)
+     (avy-copy-region . avy-order-closest)
+     (avy-move-line . avy-order-closest)
+     (avy-move-region . avy-order-closest)
+     (avy-kill-whole-line . avy-order-closest)
+     (avy-kill-region . avy-order-closest)
+     (avy-kill-ring-save-whole-line . avy-order-closest)
+     (avy-kill-ring-save-region . avy-order-closest)))
   :config
   (avy-setup-default)
   :general
@@ -24,7 +41,17 @@
     "j b" 'avy-goto-subword-1
     "j s" 'avy-goto-symbol-1
     "j ," 'avy-pop-mark
-    "j ;" 'avy-push-mark))
+    "j ;" 'avy-push-mark)
+  (nmap-leader
+    "j c" 'avy-move-line
+    "j p" 'avy-copy-line
+    "j d" 'avy-kill-ring-whole-line
+    "j D" 'avy-kill-ring-save-whole-line)
+  (vmap-leader
+    "j c" 'avy-move-region
+    "j p" 'avy-copy-region
+    "j d" 'avy-kill-region
+    "j D" 'avy-kill-ring-save-region))
 
 (use-package ace-window
   :after avy
