@@ -4,6 +4,23 @@
 (use-package avy
   :custom
   (avy-keys (list ?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
+  (avy-orders-alist
+   '((avy-goto-char . avy-order-closest)
+     (avy-goto-char-2 . avy-order-closest)
+     (avy-isearch . avy-order-closest)
+     (avy-goto-line . avy-order-closest)
+     (avy-goto-subword-0 . avy-order-closest)
+     (avy-goto-subword-1 . avy-order-closest)
+     (avy-goto-word-0 . avy-order-closest)
+     (avy-goto-word-1 . avy-order-closest)
+     (avy-copy-line . avy-order-closest)
+     (avy-copy-region . avy-order-closest)
+     (avy-move-line . avy-order-closest)
+     (avy-move-region . avy-order-closest)
+     (avy-kill-whole-line . avy-order-closest)
+     (avy-kill-region . avy-order-closest)
+     (avy-kill-ring-save-whole-line . avy-order-closest)
+     (avy-kill-ring-save-region . avy-order-closest)))
   :config
   (avy-setup-default)
   :general
@@ -12,17 +29,29 @@
   ("C-:"  'avy-goto-char-2)
   (nvmap-leader
     "g"   'avy-goto-word-1
+    "G"   'avy-goto-word-0
     "/"   'avy-goto-char-2
-    "G"   '(:ignore t :which-key "avy")
-    "G l" 'avy-goto-line
-    "G /" 'avy-goto-char-timer
-    "G g" 'avy-goto-char
-    "G w" 'avy-goto-word-0
-    "G f" 'avy-goto-char-in-line
-    "G b" 'avy-goto-subword-1
-    "G s" 'avy-goto-symbol-1
-    "G ," 'avy-pop-mark
-    "G ;" 'avy-push-mark))
+    "J"   'avy-goto-line
+    "j"   '(:ignore t :which-key "avy")
+    "j l" 'avy-goto-line
+    "j /" 'avy-goto-char-timer
+    "j g" 'avy-goto-char
+    "j w" 'avy-goto-word-0
+    "j f" 'avy-goto-char-in-line
+    "j b" 'avy-goto-subword-1
+    "j s" 'avy-goto-symbol-1
+    "j ," 'avy-pop-mark
+    "j ;" 'avy-push-mark)
+  (nmap-leader
+    "j c" 'avy-move-line
+    "j p" 'avy-copy-line
+    "j d" 'avy-kill-ring-whole-line
+    "j D" 'avy-kill-ring-save-whole-line)
+  (vmap-leader
+    "j c" 'avy-move-region
+    "j p" 'avy-copy-region
+    "j d" 'avy-kill-region
+    "j D" 'avy-kill-ring-save-region))
 
 (use-package ace-window
   :after avy

@@ -61,10 +61,5 @@
 (use-package lsp-haskell
   :after (haskell lsp-mode))
 
-(use-package hasky-extensions
-  :general
-  (nmap-mode :keymaps 'haskell-mode-map
-    "{"  'hasky-extensions))
-
 (use-package haskell-snippets
   :after (haskell yasnippet))
