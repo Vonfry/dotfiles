@@ -265,6 +265,7 @@ in {
           telega
           terminal-here
           zoxide
+          smart-tab
         ];
       };
 
