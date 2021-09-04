@@ -139,6 +139,7 @@ in {
             optional = true;
           }
           vim-gnupg
+          supertab
         ];
 
         extraConfig = ''
