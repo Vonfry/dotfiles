@@ -17,10 +17,7 @@
   (compilation-always-kill t))
 
 (use-package cmake-mode
-  :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'")
-  :hook
-  (cmake-mode . (lambda ()
-    (+company-set-backends-grouped '(company-cmake)))))
+  :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'"))
 
 (use-package realgud-lldb
   :after realgud

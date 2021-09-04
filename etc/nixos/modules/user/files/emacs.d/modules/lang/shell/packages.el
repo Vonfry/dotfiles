@@ -13,12 +13,6 @@
   (eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir))
   :ensure nil)
 
-(use-package company-shell
-  :after (company eshell)
-  :hook
-  ((eshell-mode shell-mode) . (lambda ()
-    (+company-set-backends-grouped '(company-shell company-shell-env)))))
-
 (use-package terminal-here
   :custom
   (terminal-here-linux-terminal-command 'alacritty)
