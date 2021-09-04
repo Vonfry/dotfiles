@@ -14,6 +14,7 @@
 
 (use-package ivy
   :config
+  (ivy-display-functions-alist '((t)))
   (ivy-mode 1)
   :custom
   (ivy-use-virtual-buffers nil))
@@ -29,7 +30,6 @@
   ("M-x" 'counsel-M-x)
   ("C-x r b" 'counsel-bookmark)
   ("C-x C-f" 'counsel-find-file)
-  ("C-&" 'counsel-company)
   (nmap-leader :keymaps 'prog-mode-map
     "r" 'counsel-compile)
   (nvmap-leader

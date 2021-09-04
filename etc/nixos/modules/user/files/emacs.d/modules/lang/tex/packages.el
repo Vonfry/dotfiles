@@ -3,7 +3,6 @@
 
 (use-package latex
   :ensure auctex
-  :after company
   :custom
   (TeX-master nil)
   (TeX-auto-save t)
@@ -112,16 +111,3 @@
   :config
   (auctex-latexmk-setup))
 
-(use-package company-auctex
-  :after (company latex yasnippet)
-  :config
-  (use-package company-math)
-  :hook
-  (TeX-mode . (lambda ()
-   (+company-set-backends-grouped
-    '(company-auctex-labels company-auctex-bibs
-      company-auctex-macros company-auctex-symbols
-      company-auctex-environments
-      company-math-symbols-unicode
-      company-math-symbols-unicode
-      company-latex-commands)))))

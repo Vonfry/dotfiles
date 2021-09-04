@@ -2,7 +2,6 @@
 ;;
 
 (use-package yasnippet
-  :after company
   :custom
   (yas-snippet-dirs
    (list (expand-file-name "snippets/" vonfry-local-dir)

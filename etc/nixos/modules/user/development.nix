@@ -125,7 +125,6 @@ in {
           vim-over
           tabular
           vim-which-key
-          # nvim-compe
           ultisnips
           vim-snippets
           # nvim-lspconfig
@@ -180,11 +179,8 @@ in {
           flycheck
           auctex
           auctex-latexmk
-          company-math
-          company-auctex
           dashboard
           proof-general
-          company-coq
           python-mode
           pydoc
           nix-mode
@@ -198,7 +194,6 @@ in {
           org-roam-server
           rust-mode
           cargo
-          company-shell
           markdown-mode
           haskell-mode
           lsp-haskell
@@ -226,10 +221,6 @@ in {
           emacsql
           sql-indent
           ebib
-          company
-          company-quickhelp
-          company-prescient
-          yasnippet
           yasnippet-snippets
           info-colors
           dumb-jump

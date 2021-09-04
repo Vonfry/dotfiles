@@ -27,11 +27,3 @@
     "w"      'pg-response-clear-displays
     "l"      'proof-layout-windows
     "n"      'proof-assert-next-command-interactive))
-
-(use-package company-coq
-  :after (proof-general company)
-  :hook
-  (coq-mode . company-coq-mode)
-  :general
-  (nmap-mode :keymaps 'coq-mode-map
-    "B" 'company-coq-cite))
