@@ -14,9 +14,9 @@
 
 (use-package ivy
   :config
-  (ivy-display-functions-alist '((t)))
   (ivy-mode 1)
   :custom
+  (ivy-display-functions-alist '((t)))
   (ivy-use-virtual-buffers nil))
 
 (use-package counsel
