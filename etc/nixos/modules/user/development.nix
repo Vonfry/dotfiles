@@ -125,7 +125,6 @@ in {
           vim-over
           tabular
           vim-which-key
-          # nvim-compe
           ultisnips
           vim-snippets
           # nvim-lspconfig
