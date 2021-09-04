@@ -139,6 +139,7 @@ in {
             optional = true;
           }
           vim-gnupg
+          supertab
         ];
 
         extraConfig = ''
@@ -265,6 +266,7 @@ in {
           telega
           terminal-here
           zoxide
+          smart-tab
         ];
       };
 
