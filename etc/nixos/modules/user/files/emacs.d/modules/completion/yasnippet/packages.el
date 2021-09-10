@@ -2,6 +2,7 @@
 ;;
 
 (use-package yasnippet
+  :after smart-tab
   :init
   (unless (file-exists-p +yasnippet-local-dir)
     (make-directory +yasnippet-local-dir))
