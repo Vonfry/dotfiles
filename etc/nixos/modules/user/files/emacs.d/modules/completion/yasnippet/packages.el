@@ -2,9 +2,13 @@
 ;;
 
 (use-package yasnippet
+  :after smart-tab
+  :init
+  (unless (file-exists-p +yasnippet-local-dir)
+    (make-directory +yasnippet-local-dir))
   :custom
   (yas-snippet-dirs
-   (list (expand-file-name "snippets/" vonfry-local-dir)
+   (list '+yasnippet-local-dir
          (expand-file-name "completion/yasnippet/snippets" vonfry-modules-dir)
          'yasnippet-snippets-dir))
   :general
