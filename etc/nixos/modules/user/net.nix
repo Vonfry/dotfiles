@@ -212,6 +212,7 @@ in {
             remove_finished = 7;
           };
           content.autoplay = false;
+          session.default_name = "autosave";
         };
         extraConfig = ''
           padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
