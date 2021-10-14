@@ -114,8 +114,8 @@ myKeys conf = mkKeymap conf
     , ("M-m"        , windows swapMaster )
 
     -- resizing the master/slave ratio
-    , ("M-(", sendMessage Expand)
-    , ("M-)", sendMessage Shrink)
+    , ("M-(", sendMessage Shrink)
+    , ("M-)", sendMessage Expand)
 
     -- floating layer support
     , ("M-t"  , withFocused $ windows . sink)
