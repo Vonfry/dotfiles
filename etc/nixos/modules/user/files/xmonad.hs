@@ -206,9 +206,9 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-,", workspacePrompt myXPConf (windows . shift))
+    , ("M-w",   addWorkspacePrompt myXPConfNoAc)
     , ("M-S-w", removeWorkspace                )
-    , ("M-C-w", addWorkspacePrompt myXPConfNoAc)
-    , ("M-w",   renameWorkspace    myXPConfNoAc)
+    , ("M-C-w", renameWorkspace    myXPConfNoAc)
 
     -- change pwd for current workspace
     , ("M-c", changeDir myXPConfNoAc)
