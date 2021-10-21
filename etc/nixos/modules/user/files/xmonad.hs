@@ -22,7 +22,8 @@ import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Hidden
+import XMonad.Layout.Minimize
+import XMonad.Actions.Minimize
 import XMonad.Layout.MagicFocus
 import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.GridVariants hiding (Orientation(..))
@@ -214,9 +215,9 @@ myKeys conf = mkKeymap conf
     , ("M-c", changeDir myXPConfNoAc)
 
     -- hide windows
-    , ("M-d"  , withFocused hideWindow)
-    , ("M-S-d", popNewestHiddenWindow )
-    , ("M-C-d", popOldestHiddenWindow )
+    , ("M-d"  , withFocused minimizeWindow)
+    , ("M-S-d", withLastMinimized maximizeWindow)
+    , ("M-C-d", withFirstMinimized maximizeWindow)
 
     -- fcitx clipboard history to paste
 
@@ -255,7 +256,7 @@ myLayout = beforeLayouts layouts
     beforeLayouts = cleanupNames
                   . showWName' mySWNConf
                   . smartBorders
-                  . hiddenWindows
+                  . minimize
 
 myWorkspaces = [ "home"
                , "doc"
