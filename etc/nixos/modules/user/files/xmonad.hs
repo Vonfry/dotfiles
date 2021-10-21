@@ -216,9 +216,10 @@ myKeys conf = mkKeymap conf
 
     -- hide windows
     , ("M-d"  , withFocused minimizeWindow)
-    , ("M-S-d", withLastMinimized maximizeWindow)
-    , ("M-C-d", withFirstMinimized maximizeWindow)
-    -- , ("M-C-d", withMinimized $ foldr ((<>) . maximizeWindow) mempty)
+    , ("M-S-d", withFocused maximizeWindow)
+    , ("M-h"  , withFirstMinimized maximizeWindow)
+    , ("M-S-h", withLastMinimized maximizeWindow)
+    , ("M-C-h", withMinimized $ foldr ((<>) . maximizeWindow) mempty)
 
     -- fcitx clipboard history to paste
 
