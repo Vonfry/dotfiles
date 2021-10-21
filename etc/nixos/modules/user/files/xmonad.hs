@@ -22,7 +22,8 @@ import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Renamed
 import XMonad.Layout.ShowWName
 import XMonad.Layout.NoBorders
-import XMonad.Layout.Hidden
+import XMonad.Layout.Minimize
+import XMonad.Actions.Minimize
 import XMonad.Layout.MagicFocus
 import XMonad.Layout.WorkspaceDir
 import XMonad.Layout.GridVariants hiding (Orientation(..))
@@ -110,12 +111,12 @@ myKeys conf = mkKeymap conf
     , ("M-S-<Tab>"  , windows focusUp    )
     , ("M-C-<Tab>"  , windows swapDown   )
     , ("M-C-S-<Tab>", windows swapUp     )
-    , ("M-S-m"      , windows focusMaster)
-    , ("M-m"        , windows swapMaster )
+    , ("M-m"        , windows focusMaster)
+    , ("M-S-m"      , windows swapMaster )
 
     -- resizing the master/slave ratio
-    , ("M-(", sendMessage Expand)
-    , ("M-)", sendMessage Shrink)
+    , ("M-(", sendMessage Shrink)
+    , ("M-)", sendMessage Expand)
 
     -- floating layer support
     , ("M-t"  , withFocused $ windows . sink)
@@ -206,17 +207,19 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-,", workspacePrompt myXPConf (windows . shift))
+    , ("M-w"  , addWorkspacePrompt myXPConfNoAc)
     , ("M-S-w", removeWorkspace                )
-    , ("M-C-w", addWorkspacePrompt myXPConfNoAc)
-    , ("M-w",   renameWorkspace    myXPConfNoAc)
+    , ("M-C-w", renameWorkspace    myXPConfNoAc)
 
     -- change pwd for current workspace
     , ("M-c", changeDir myXPConfNoAc)
 
     -- hide windows
-    , ("M-d"  , withFocused hideWindow)
-    , ("M-S-d", popNewestHiddenWindow )
-    , ("M-C-d", popOldestHiddenWindow )
+    , ("M-d"  , withFocused minimizeWindow)
+    , ("M-S-d", withFocused maximizeWindow)
+    , ("M-h"  , withFirstMinimized maximizeWindow)
+    , ("M-S-h", withLastMinimized maximizeWindow)
+    , ("M-C-h", withMinimized $ foldr ((<>) . maximizeWindow) mempty)
 
     -- fcitx clipboard history to paste
 
@@ -255,7 +258,7 @@ myLayout = beforeLayouts layouts
     beforeLayouts = cleanupNames
                   . showWName' mySWNConf
                   . smartBorders
-                  . hiddenWindows
+                  . minimize
 
 myWorkspaces = [ "home"
                , "doc"
