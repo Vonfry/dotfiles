@@ -207,7 +207,7 @@ myKeys conf = mkKeymap conf
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
     , ("M-S-,", workspacePrompt myXPConf (windows . shift))
-    , ("M-w",   addWorkspacePrompt myXPConfNoAc)
+    , ("M-w"  , addWorkspacePrompt myXPConfNoAc)
     , ("M-S-w", removeWorkspace                )
     , ("M-C-w", renameWorkspace    myXPConfNoAc)
 
