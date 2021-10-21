@@ -111,8 +111,8 @@ myKeys conf = mkKeymap conf
     , ("M-S-<Tab>"  , windows focusUp    )
     , ("M-C-<Tab>"  , windows swapDown   )
     , ("M-C-S-<Tab>", windows swapUp     )
-    , ("M-S-m"      , windows focusMaster)
-    , ("M-m"        , windows swapMaster )
+    , ("M-m"        , windows focusMaster)
+    , ("M-S-m"      , windows swapMaster )
 
     -- resizing the master/slave ratio
     , ("M-(", sendMessage Shrink)
