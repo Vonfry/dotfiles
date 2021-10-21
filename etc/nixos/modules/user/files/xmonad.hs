@@ -218,6 +218,7 @@ myKeys conf = mkKeymap conf
     , ("M-d"  , withFocused minimizeWindow)
     , ("M-S-d", withLastMinimized maximizeWindow)
     , ("M-C-d", withFirstMinimized maximizeWindow)
+    -- , ("M-C-d", withMinimized $ foldr ((<>) . maximizeWindow) mempty)
 
     -- fcitx clipboard history to paste
 
