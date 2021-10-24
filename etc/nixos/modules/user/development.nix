@@ -203,8 +203,6 @@ in {
           json-mode
           yaml-mode
           magit
-          git-commit
-          transient
           with-editor
           git-modes
           magit-gitflow
