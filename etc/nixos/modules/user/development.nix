@@ -206,9 +206,7 @@ in {
           git-commit
           transient
           with-editor
-          gitconfig-mode
-          gitignore-mode
-          gitattributes-mode
+          git-modes
           magit-gitflow
           gitlab-ci-mode
           forge
