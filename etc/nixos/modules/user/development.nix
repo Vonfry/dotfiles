@@ -203,7 +203,6 @@ in {
           json-mode
           yaml-mode
           magit
-          with-editor
           git-modes
           magit-gitflow
           gitlab-ci-mode

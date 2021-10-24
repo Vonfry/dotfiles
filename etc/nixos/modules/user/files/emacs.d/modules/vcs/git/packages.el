@@ -17,8 +17,6 @@
   (transient-values-file (expand-file-name "transient/values.el" vonfry-cache-dir))
   (transient-levels-file (expand-file-name "transient/levels.el" vonfry-cache-dir)))
 
-(use-package with-editor :after magit)
-
 (use-package git-modes)
 
 (use-package magit-gitflow
