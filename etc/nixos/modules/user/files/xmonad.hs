@@ -123,8 +123,8 @@ myKeys conf = mkKeymap conf
     , ("M-S-t", withFocused float           )
 
     -- increase or decrease number of windows in the master area
-    , ("M-S-(", sendMessage (IncMasterN 1   ))
-    , ("M-S-)", sendMessage (IncMasterN (-1)))
+    , ("M-S-(", sendMessage (IncMasterN (-1)))
+    , ("M-S-)", sendMessage (IncMasterN 1   ))
 
     -- quit, or restart
     , ("M-S-q", io (exitWith ExitSuccess))
