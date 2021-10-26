@@ -118,7 +118,6 @@
     - [ ] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
     - [ ] easyeffect replaces pulseeffects
     - [ ] Helvum replaces pavucontrol
+*** TODO remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
-
-*** TODO remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
