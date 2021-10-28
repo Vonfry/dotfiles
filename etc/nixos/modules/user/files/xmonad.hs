@@ -1,6 +1,8 @@
 {-# LANGUAGE LambdaCase #-}
 
 import XMonad hiding ((|||))
+import XMonad.Core (whenJust)
+import XMonad.Operations (windows, killWindow)
 import XMonad.Util.EZConfig
 import XMonad.Actions.Navigation2D
 import XMonad.Actions.Search
@@ -9,6 +11,7 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.CycleSelectedLayouts
 import XMonad.Actions.GroupNavigation
 import XMonad.Actions.UpdatePointer
+import XMonad.Actions.EasyMotion (selectWindow, ChordKeys(AnyKeys))
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import XMonad.Prompt.XMonad
@@ -33,6 +36,7 @@ import XMonad.Layout.DragPane
 import XMonad.Layout.CenteredMaster
 import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
+import XMonad.Util.PureX (focusWindow)
 import XMonad.StackSet hiding (float, workspaces, allWindows)
 
 import Data.Ratio
@@ -65,6 +69,17 @@ mySWNConf = def { swn_font    = myFont
                 , swn_color   = draculaForeground
                 , swn_fade    = 1 % 1
                 }
+
+myEMConfig = def { txtCol      = draculaForeground
+                 , bgCol       = draculaBackground
+                 , borderCol   = draculaPurple
+                 , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
+                                          xK_h, xK_t, xK_n, xK_s]
+                 , cancelKey   = xK_q
+                 , emFont      = myFont
+                 }
+
+
 
 -- my configurations
 
@@ -203,6 +218,10 @@ myKeys conf = mkKeymap conf
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
     , ("M-C-," , toggleWS    )
+
+    -- easy motion
+    , ("M-g", selectWindow myEMConfig >>= (`whenJust` windows . focusWindow))
+    , ("M-S-g", selectWindow myEMConfig >>= (`whenJust` killWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
