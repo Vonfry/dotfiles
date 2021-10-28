@@ -1,12 +1,12 @@
 {-# LANGUAGE LambdaCase #-}
 
 import XMonad ( xmonad, refersh, io
-              , def, windows , withFocused
+              , def, windows , withFocused, whenJust
 
               , layoutHook, setLayout
               , Tall(Tall), Full(Full), Mirror(Mirror)
 
-              , kill, float
+              , kill, float, killWindow, focusWindow
 
               , mod4Mask
 
@@ -99,6 +99,17 @@ mySWNConf = def { swn_font    = myFont
                 , swn_color   = draculaForeground
                 , swn_fade    = 1 % 1
                 }
+
+myEMConfig = def { txtCol      = draculaForeground
+                 , bgCol       = draculaBackground
+                 , borderCol   = draculaPurple
+                 , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
+                                          xK_h, xK_t, xK_n, xK_s]
+                 , cancelKey   = xK_q
+                 , emFont      = myFont
+                 }
+
+
 
 -- my configurations
 
@@ -239,6 +250,10 @@ myKeys conf = mkKeymap conf
     , ("M-C-{" , swapTo Prev )
     , ("M-C-}" , swapTo Next )
     , ("M-C-," , toggleWS    )
+
+    -- easy motion
+    , ("M-g", selectWindow myEMConfig >>= (`whenJust` windows . focusWindow))
+    , ("M-S-g", selectWindow myEMConfig >>= (`whenJust` killWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
