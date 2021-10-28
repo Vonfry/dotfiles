@@ -31,6 +31,7 @@ import XMonad.Actions.CycleWS ( nextWS, prevWS, shiftToNext, shiftToPrev
                               , toggleWS
                               )
 import XMonad.Prompt.Workspace (workspacePrompt)
+import XMonad.Actions.SwapWorkspaces (swapWithCurrent, Direction1D(..), swapTo)
 import XMonad.Actions.DynamicWorkspaces ( addWorkspacePrompt, removeWorkspace
                                         , renameWorkspace
                                         )
@@ -235,6 +236,8 @@ myKeys conf = mkKeymap conf
     , ("M-{"   , prevWS      )
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
+    , ("M-C-{" , swapTo Prev )
+    , ("M-C-}" , swapTo Next )
     , ("M-C-," , toggleWS    )
 
     -- dynamic workspace
