@@ -228,9 +228,9 @@ myKeys conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt      myXPConf)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
-    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%+" )
+    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute   @DEFAULT_SINK@ toggle")
     ]
 
 myLayout = beforeLayouts layouts
