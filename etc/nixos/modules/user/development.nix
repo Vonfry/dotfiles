@@ -262,6 +262,7 @@ in {
           terminal-here
           zoxide
           smart-tab
+          org-roam-ui
         ];
       };
 

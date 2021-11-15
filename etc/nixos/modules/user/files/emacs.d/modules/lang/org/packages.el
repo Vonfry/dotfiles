@@ -205,7 +205,6 @@
     "R i" 'org-roam-node-insert))
 
 (use-package org-roam-ui
-  :disabled
   :general
   (nmap-leader :infix "o"
     "s" 'org-roam-ui-mode)
