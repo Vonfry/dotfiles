@@ -30,11 +30,11 @@
     "("   'agda2-compute-normalised-maybe-toplevel
     ")"   'agda2-show-constraints
     "c x" 'agda2-comment-dwim-rest-of-buffer
+    "' b" 'agda2-load
 
     "RET"   'agda2-give
     "' RET" 'agda2-elaborate-give)
   (nmap-mode :keymaps 'agda2-mode-map
-    "l" 'agda2-load
     "q" 'agda2-quit
     "R" 'agda2-restart
     "A" 'agda2-abort
