@@ -67,10 +67,11 @@
     "e"       'LaTeX-environment
     "i"       'LaTeX-insert-item
     "s"       'LaTeX-section
-    "f"       '(nil :which-key "fill")
-    "f e"     'LaTeX-fill-environment
-    "f p"     'LaTeX-fill-paragraph
-    "f s"     'LaTeX-fill-section
+    "f"       'TeX-font
+    "F"       '(nil :which-key "fill")
+    "F e"     'LaTeX-fill-environment
+    "F p"     'LaTeX-fill-paragraph
+    "F s"     'LaTeX-fill-section
     "p"       '(nil :which-key "preview")
     "p b"     'preview-buffer
     "p c"     'preview-clearout
@@ -83,6 +84,7 @@
     "z b"     'TeX-fold-buffer
     "z e"     'TeX-fold-env
     "z m"     'TeX-fold-macro
+    "r"       '(nil :which-key "reftex")
     "r c"     'reftex-citation
     "r g"     'reftex-grep-document
     "r i"     'reftex-index-selection-or-word
@@ -97,7 +99,7 @@
     "r T"     'reftex-toc-recenter
     "r v"     'reftex-view-crossref)
   (vmap-mode :keymaps '(TeX-mode-map)
-    "f r"     'LaTeX-fill-region
+    "F r"     'LaTeX-fill-region
     "p r"     'preview-region
     "z r"     'TeX-fold-region
     ";"       'TeX-comment-or-uncomment-region))
