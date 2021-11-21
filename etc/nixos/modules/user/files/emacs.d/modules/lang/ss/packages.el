@@ -12,7 +12,8 @@
   :general
   (nmap-mode :keymaps 'ess-mode-map
    "\""    'ess-interrupt
-   "?"     'ess-help)
+   "?"     'ess-help
+   "R"     'ess-tracebug)
   (nmap-leader :keymaps 'ess-mode-map
    "\""    'ess-interrupt
    "?"     'ess-help

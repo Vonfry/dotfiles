@@ -8,9 +8,8 @@ globally."
   (let ((agda-mode-exec (executable-find "agda-mode")))
     (when agda-mode-exec
       (load
-        (with-temp-buffer
-          (call-process agda-mode-exec nil t nil "locate")
-          (buffer-string))))))
+        (with-output-to-string
+          (call-process agda-mode-exec nil standard-output nil "locate"))))))
 
 (defun +agda/generate-dir-local ()
   (interactive)
