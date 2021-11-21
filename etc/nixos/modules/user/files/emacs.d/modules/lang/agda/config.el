@@ -9,9 +9,12 @@ globally."
     (when agda-mode-exec
       (load
         (with-output-to-string
-          (call-process agda-mode-exec nil standard-output nil "locate"))))))
+          (call-process agda-mode-exec nil standard-output nil "locate")))
+      (directory-file-name (file-name-directory agda-mode-exec)))))
 
-(defun +agda/generate-dir-local ()
+(defun +agda/unload ()
+  "unload agda mode to let us setup next agda version."
   (interactive)
-  (add-dir-local-variable nil 'eval
-   '(add-hook 'envrc-mode-hook  '+agda/setup -100 t)))
+  (dolist (feat '(agda2-queue agda2-abbrevs agda2-highlight
+                  agda-input agda2-mode agda2))
+    (unload-feature feat t)))
