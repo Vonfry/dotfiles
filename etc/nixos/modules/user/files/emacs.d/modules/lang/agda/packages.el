@@ -42,5 +42,5 @@
     "h" 'agda2-display-implicit-arguments
     "i" 'agda2-display-irrelevant-arguments
     "S" 'agda2-set-program-version
-    "(" 'eri-indent
-    ")" 'eri-indent-reverse))
+    ")" 'eri-indent
+    "(" 'eri-indent-reverse))
