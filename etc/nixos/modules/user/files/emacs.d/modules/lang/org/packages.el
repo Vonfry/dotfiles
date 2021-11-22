@@ -176,9 +176,9 @@
 (use-package org-ql
   :general
   (nmap-mode :keymaps 'org-mode-map
-    ";" 'org-ql-search
+    "." 'org-ql-search
     "," 'org-ql-view
-    "." 'org-ql-sparse-tree))
+    ";" 'org-ql-sparse-tree))
 
 (use-package org-roam
   :init
