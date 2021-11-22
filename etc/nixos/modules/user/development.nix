@@ -6,7 +6,7 @@ let
   cfg' = config.vonfry;
 
   emacsExtraBin = with pkgs; buildEnv {
-    name = "emacsExtraBin";
+    name = "emacs-extra-bin";
     paths = [ python3 sqlite perl bundler jekyll agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
