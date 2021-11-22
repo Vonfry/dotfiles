@@ -255,7 +255,7 @@ in {
           envrc
           ob-http
           mpdel
-          org-plus-contrib
+          org-contrib
           evil-collection
           license-snippets
           telega
