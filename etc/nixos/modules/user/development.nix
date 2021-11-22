@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacsExtraBin";
-    paths = [ python3 sqlite perl bundler jekyll ];
+    paths = [ python3 sqlite perl bundler jekyll agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 

@@ -2,8 +2,9 @@
 ;;
 
 (use-package agda2-mode
-  ; this mode is contained by agda which will be installed in project by nix.
-  :no-require t
+  :init
+  ; because agda2-mode included in agda package needs agda in path when loading
+  (+agda--mode-load)
   :general
   (nmap-leader :keymaps 'agda2-mode-map
     "("   'agda2-infer-type-maybe-toplevel
