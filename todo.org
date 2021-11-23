@@ -81,7 +81,7 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** home-manager[3/5]
+** home-manager[4/5]
 *** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
     - Note taken on [2020-04-01 Wed 08:04] \\
@@ -120,6 +120,7 @@
     - [ ] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
     - [ ] easyeffect replaces pulseeffects
     - [ ] Helvum replaces pavucontrol
-*** TODO remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
+*** DONE remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
+    CLOSED: [2021-11-23 Tue 09:40]
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
