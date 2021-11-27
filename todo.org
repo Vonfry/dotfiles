@@ -16,6 +16,49 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
+*** TODO update to 21.11[0/1]
+    - [ ] remove xmonad overlay after stackage is updated
+** home-manager[4/5]
+*** DONE home-manager instead setup script[22/22]
+    CLOSED: [2020-11-26 Thu 14:04]
+    - Note taken on [2020-04-01 Wed 08:04] \\
+      nix only tools? nixos only?
+    - [X] add home-manager
+    - [X] combine nixos module and home-manager
+    - [X] manage python & ruby packages by nix
+    - [X] packages on nixos and other system
+    - [X] home-manager: nix & nixpkgs config
+    - [X] home-manager: email
+    - [X] home-manager: xmonad, gtk, qt
+    - [X] zsh script and home-manager zsh config
+    - [X] home session and variables
+    - [X] shell and files activation script
+    - [X] emacs & vim config
+    - [X] gpg & passward init
+    - [X] link home-manager from nixos-config
+    - [X] remove update scripts
+    - [X] recode setup scripts
+    - [X] remove zplug overlay when 20.09 nixpkgs
+    - [X] lorri services
+    - [X] neovim & emacs packages management
+    - [X] qutebrowser setting, color, bookmark and search
+    - [X] remove darwin support
+    - [X] nvim: some plugins problem and wait for update
+    - [X] emacs wraping other tools instead of install into user env
+*** DONE 21.05[3/3]
+    CLOSED: [2021-11-23 Tue 09:25]
+   - [X] qutebrowser module for autoconfig instead of extraConfig
+   - [X] reuse zsh-completions after the collision is fixed
+   - [X] remove fcitx5 services
+*** DONE emacs daemon with hm instead of manual
+    CLOSED: [2021-06-26 Sat 10:23]
+*** TODO pipewire replaces pulseaudio[0/4]
+    - [ ] service (nixos)
+    - [ ] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
+    - [ ] easyeffect replaces pulseeffects
+    - [ ] Helvum replaces pavucontrol
+*** DONE remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
+    CLOSED: [2021-11-23 Tue 09:40]
 ** CANCELLED macOS
    CLOSED: [2020-10-01 Thu 19:26]
 
@@ -81,46 +124,5 @@
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
 *** TODO flakes
-** home-manager[4/5]
-*** DONE home-manager instead setup script[22/22]
-    CLOSED: [2020-11-26 Thu 14:04]
-    - Note taken on [2020-04-01 Wed 08:04] \\
-      nix only tools? nixos only?
-    - [X] add home-manager
-    - [X] combine nixos module and home-manager
-    - [X] manage python & ruby packages by nix
-    - [X] packages on nixos and other system
-    - [X] home-manager: nix & nixpkgs config
-    - [X] home-manager: email
-    - [X] home-manager: xmonad, gtk, qt
-    - [X] zsh script and home-manager zsh config
-    - [X] home session and variables
-    - [X] shell and files activation script
-    - [X] emacs & vim config
-    - [X] gpg & passward init
-    - [X] link home-manager from nixos-config
-    - [X] remove update scripts
-    - [X] recode setup scripts
-    - [X] remove zplug overlay when 20.09 nixpkgs
-    - [X] lorri services
-    - [X] neovim & emacs packages management
-    - [X] qutebrowser setting, color, bookmark and search
-    - [X] remove darwin support
-    - [X] nvim: some plugins problem and wait for update
-    - [X] emacs wraping other tools instead of install into user env
-*** DONE 21.05[3/3]
-    CLOSED: [2021-11-23 Tue 09:25]
-   - [X] qutebrowser module for autoconfig instead of extraConfig
-   - [X] reuse zsh-completions after the collision is fixed
-   - [X] remove fcitx5 services
-*** DONE emacs daemon with hm instead of manual
-    CLOSED: [2021-06-26 Sat 10:23]
-*** TODO pipewire replaces pulseaudio[0/4]
-    - [ ] service (nixos)
-    - [ ] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
-    - [ ] easyeffect replaces pulseeffects
-    - [ ] Helvum replaces pavucontrol
-*** DONE remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
-    CLOSED: [2021-11-23 Tue 09:40]
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
