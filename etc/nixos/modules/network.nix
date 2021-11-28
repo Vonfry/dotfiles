@@ -21,7 +21,7 @@ in {
         allowedTCPPortRanges = [ ];
         allowedUDPPorts = [ ];
         allowPing = mkDefault false;
-        extraPackages = with pkgs; [ ipset ];
+        extraPackages = with pkgs; [ ];
       };
       networkmanager = {
         enable = mkDefault true;
