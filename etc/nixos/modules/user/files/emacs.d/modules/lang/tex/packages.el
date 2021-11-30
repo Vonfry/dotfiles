@@ -18,7 +18,7 @@
   (TeX-style-local TeX-auto-local)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-region (concat TeX-auto-local "/_region_"))
-  (TeX-view-program-selection '((output-pdf "zathura")
+  (TeX-view-program-selection '((output-pdf "Zathura")
                                 (output-dvi "xdvi")
                                 (output-html "xdg-open")))
   ;; Synctex support
