@@ -14,6 +14,7 @@
   (TeX-engine 'xetex)
   (TeX-save-query nil)
   (TeX-auto-global (expand-file-name "latex" vonfry-cache-dir))
+  (TeX-output-dir "latex.out")
   (TeX-auto-local "latex.out")
   (TeX-style-local TeX-auto-local)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
@@ -25,7 +26,6 @@
   ;; Don't insert line-break at inline math
   (TeX-show-compilation t) ; display compilation windows
   (TeX-source-correlate-mode t)
-  (TeX-source-correlate-method 'synctex)
   (reftex-citation-format 'biblatex)
   :hook
   (LaTeX-mode .
