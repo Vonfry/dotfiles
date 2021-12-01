@@ -14,7 +14,6 @@ mkdir -p ~/.local/bin
 
 runscript="$SHELL"
 $runscript $script_dir/setup/os/default.sh
-$runscript $script_dir/setup/nix.sh
 
 # alert
 echo "
