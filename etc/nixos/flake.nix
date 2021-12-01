@@ -7,18 +7,24 @@
   };
   outputs = { self, nixpkgs, home-manager, emacs-overlay, unstable }:
     let
+      localSystem = "x86_64-linux";
       overlay = import ./modules/overlay;
       nixpkgsOverlaysConfig = { pkgs, ... }: {
         nixpkgs.overlays = [
           overlay
           emacs-overlay.overlay
-          (s: p: { unstable = import unstable { inherit (pkgs) config; }; })
+          (s: p: {
+            unstable = import unstable {
+              inherit localSystem;
+              inherit (pkgs) config;
+            };
+          })
         ];
       };
     in {
       inherit overlay;
       nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = localSystem;
         modules = [
           nixpkgsOverlaysConfig
           home-manager.nixosModules.home-manager
