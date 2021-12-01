@@ -192,7 +192,6 @@ in {
           org-journal
           org-ql
           org-roam
-          org-roam-server
           rust-mode
           cargo
           markdown-mode

@@ -64,7 +64,7 @@
   # if your number of cpu threads is larger than 32.
   nix.maxJobs = "auto";
 
-  fonts.fontconfig.dpi = 96;
+  services.xserver.dpi = 96;
   # services.xserver.videoDrivers = [ "nvidia" ];
   # hardware.nvidia.modesetting.enable = true;
   # hardware.nvidia.prime = {
