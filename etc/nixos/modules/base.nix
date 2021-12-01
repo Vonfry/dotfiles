@@ -26,6 +26,7 @@ in {
     ];
 
     nix = {
+      package = pkgs.nixFlakes;
       optimise.automatic = true;
       trustedUsers = [ "root" "@wheel" ];
       buildCores = 0;
@@ -36,6 +37,7 @@ in {
         dates = "Sun 19:00";
       };
       extraOptions = ''
+        experimental-features = nix-command flakes
         keep-outputs = true
         keep-derivations = true
       '';
@@ -50,10 +52,7 @@ in {
       ];
     };
 
-    nixpkgs = {
-      config = import ./user/files/nixpkgs.nix;
-      overlays = import ./overlay/overlays.nix;
-    };
+    nixpkgs.config = import ./user/files/nixpkgs.nix;
 
     services = {
       dbus.enable = true;

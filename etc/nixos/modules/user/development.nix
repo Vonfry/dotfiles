@@ -321,7 +321,7 @@ in {
 
         gitAndTools.gitflow gitAndTools.git-extras
 
-        nixfmt niv
+        nixfmt
 
         tokei zeal
 
