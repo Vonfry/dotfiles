@@ -312,7 +312,7 @@ in {
 
       sessionVariables = {
         EDITOR = "nvim";
-        MANPAGER = "nvim -c 'set ft=man' -";
+        MANPAGER = "nvim +Man!";
         PAGER = "nvim -R";
       };
 
