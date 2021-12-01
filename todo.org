@@ -115,7 +115,7 @@
    - [X] fzf-tab use nixpkgs version and remove overlay(note: change load path)
 
 * Utils
-** Nix[3/4]
+** Nix[4/4]
 *** DONE lorri instead of nix-shell
     CLOSED: [2020-04-01 Wed 08:28]
 *** DONE nix-direnv replace lorri
@@ -123,6 +123,7 @@
     somedays.
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
-*** TODO flakes
+*** DONE flakes
+    CLOSED: [2021-12-01 Wed 14:08]
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
