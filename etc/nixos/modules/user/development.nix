@@ -29,12 +29,16 @@ let
   hasCloud = sessions ? "CLOUD_DIR";
 
   emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
+  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs.d/private";
   linkOrg = optionalString (hasOrg && hasCloud) ''
     [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
   '';
   linkEmacs = optionalString hasCloud ''
     if [ -d "${emacsLocal}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local/
+    fi
+    if [ -d "${emacsPriv}" ]; then
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs.d/modules/private/
     fi
 
     [ -h ${toString configHome}/emacs.d/local/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
