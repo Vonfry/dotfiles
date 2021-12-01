@@ -1,31 +1,39 @@
 {-# LANGUAGE LambdaCase #-}
 
-import XMonad ( xmonad, refersh, io
+import XMonad ( xmonad, refresh, io, spawn
               , def, windows , withFocused, whenJust
 
               , layoutHook, setLayout
               , Tall(Tall), Full(Full), Mirror(Mirror)
 
-              , kill, float, killWindow, focusWindow
+              , kill, float, killWindow, Resize(..)
 
-              , mod4Mask
+              , mod4Mask, XConfig(..)
+              , xK_a, xK_o, xK_e, xK_u, xK_i, xK_d, xK_h, xK_t, xK_n, xK_s, xK_q
 
-              , sendMessage, ChangeLayout(NextLayout), ReSize(..)
+              , sendMessage, ChangeLayout(NextLayout)
               , IncMasterN(IncMasterN)
               )
-import XMonad.Prompt.XMonad (xmonadPrompt)
+import XMonad.Util.EZConfig (mkKeymap)
+import XMonad.Util.Run (runInTerm)
 import XMonad.StackSet ( focusDown, focusUp, focusMaster
+                       , focusWindow
                        , swapMaster, swapDown, swapUp
                        , sink, shift, view
                        )
-import XMonad.Actions.Navigation2D ( winodwGo, windowSwap, screenGo, screenSwap
-                                   , windowToScreen
-                                   , Direction2D(..)
+import XMonad.Prompt.XMonad (xmonadPrompt)
+
+import XMonad.Actions.Navigation2D ( Direction2D(..), windowGo, windowSwap
+                                   , screenGo, screenSwap, windowToScreen
+                                   , withNavigation2DConfig
                                    )
 import XMonad.Prompt.Window ( windowMultiPrompt, allWindows, wsWindows
                             , WindowPrompt(..)
                             )
 import XMonad.Actions.UpdatePointer (updatePointer)
+import XMonad.Actions.EasyMotion ( EasyMotionConfig(..), ChordKeys(..)
+                                 , selectWindow
+                                 )
 
 import XMonad.Actions.CycleWS ( nextWS, prevWS, shiftToNext, shiftToPrev
                               , toggleWS
@@ -40,7 +48,7 @@ import XMonad.Actions.GroupNavigation ( nextMatch, Direction(History)
                                       , historyHook
                                       )
 
-import XMonad.Prompt ()
+import XMonad.Prompt (XPConfig(..))
 import XMonad.Prompt.Shell (shellPrompt)
 import XMonad.Prompt.FuzzyMatch (fuzzyMatch, fuzzySort)
 import XMonad.Prompt.Pass (passPrompt, passOTPPrompt)
@@ -48,33 +56,30 @@ import XMonad.Prompt.Man (manPrompt)
 import XMonad.Prompt.Ssh (sshPrompt)
 import XMonad.Actions.Search (promptSearch, multi)
 
-import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(JumpToLayout)
-                                       , withNavigation2DConfig
-                                       )
+import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(JumpToLayout))
 import XMonad.Actions.CycleSelectedLayouts (cycleThroughLayouts)
 import XMonad.Layout.Renamed (renamed, Rename(..))
-import XMonad.Layout.ShowWName (showWName')
+import XMonad.Layout.ShowWName (showWName', SWNConfig(..))
 import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.Minimize (minmize)
+import XMonad.Layout.Minimize (minimize)
 import XMonad.Actions.Minimize ( minimizeWindow, maximizeWindow
                                , withFirstMinimized, withLastMinimized
                                , withMinimized
                                )
-import XMonad.Layout.GridVariants (SplitGrid, Grid)
+import XMonad.Layout.GridVariants (SplitGrid(..), Grid(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column (Column(Column))
 import XMonad.Layout.DragPane (dragPane, DragType(..))
 import XMonad.Layout.CenteredMaster (centerMaster)
 import XMonad.Layout.MagicFocus (magicFocus)
 
-import XMonad.Util.EZConfig (mkKeymap)
-import XMonad.Util.Run (spawn, runInTerm)
-
 import Data.Ratio ((%))
 import System.Exit (exitWith, ExitCode(ExitSuccess))
 
 -- auxiliary configuration
-myFont = "xft:Sarasa Mono SC:size=11"
+myFont' = "xft:Sarasa Mono SC"
+myFont = myFont' ++ ":size=11"
+myFontXL = myFont' ++ ":size=32"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -106,7 +111,7 @@ myEMConfig = def { txtCol      = draculaForeground
                  , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
                                           xK_h, xK_t, xK_n, xK_s]
                  , cancelKey   = xK_q
-                 , emFont      = myFont
+                 , emFont      = myFontXL
                  }
 
 
