@@ -237,7 +237,7 @@
   :after org)
 
 (use-package org-contacts
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :custom
   (org-contacts-icon-use-gravatar nil)
   (org-contacts-files
@@ -251,7 +251,7 @@
     "c" 'org-contacts))
 
 (use-package org-toc
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :general
   (nmap-mode :keymaps 'org-mode-map
     "T" 'org-toc-show))
