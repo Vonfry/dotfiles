@@ -52,10 +52,7 @@ in {
       ];
     };
 
-    nixpkgs = {
-      config = import ./user/files/nixpkgs.nix;
-      overlays = import ./overlay/overlays.nix;
-    };
+    nixpkgs.config = import ./user/files/nixpkgs.nix;
 
     services = {
       dbus.enable = true;

@@ -8,8 +8,6 @@ let
     ln -s ${vonfryPackages.icon-face} $out/share/sddm/faces/vonfry.face.icon
   '';
 in {
-  imports = [ <home-manager/nixos> ];
-
   options.vonfry = {
     user.extraConfig = mkOption {
       default = { };

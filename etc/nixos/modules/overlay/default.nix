@@ -1,23 +1,24 @@
-{ unstable, pkgs }:
+self: super:
 
-with pkgs;
+let
+  inherit (self) callPackage;
+in {
+  vonfryPackages = {
+    rimePlugins = callPackage ./applications/rime-plugins { };
 
-{
-  inherit unstable;
+    icon-face = callPackage ./data/icon-face { };
 
-  rimePlugins = callPackage ./applications/rime-plugins { };
+    fortuneChinese = callPackage ./data/fortune-chinese { };
 
-  icon-face = callPackage ./data/icon-face { };
+    desktopBackground = callPackage ./data/desktop-background { };
 
-  fortuneChinese = callPackage ./data/fortune-chinese { };
+    sddm-chili-theme = callPackage ./data/sddm-chili-theme { };
 
-  desktopBackground = callPackage ./data/desktop-background { };
+    sddm-slice-theme = callPackage ./data/sddm-slice-theme { };
 
-  sddm-chili-theme = callPackage ./data/sddm-chili-theme { };
+    fcitx5-theme = callPackage ./data/fcitx5-theme { };
 
-  sddm-slice-theme = callPackage ./data/sddm-slice-theme { };
+    aria2Ng = callPackage ./tools/networking/aria2/aria2-ng.nix { };
 
-  fcitx5-theme = callPackage ./data/fcitx5-theme { };
-
-  aria2Ng = callPackage ./tools/networking/aria2/aria2-ng.nix { };
+  };
 }
