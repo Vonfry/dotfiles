@@ -5,8 +5,6 @@ let
   cfg = config.vonfry;
 
   inherit (config.xdg) configHome;
-
-  overlayPath = ../overlay/overlays.nix;
 in {
   config = mkIf cfg.enable {
     xdg.configFile = {
@@ -27,10 +25,6 @@ in {
         variant = "dvp";
         layout = "us";
       };
-
-      activation.nixpkgsActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${toString overlayPath} ${toString configHome}/nixpkgs/overlays.nix
-      '';
 
       packages = with pkgs; [
         sshfs exfat

@@ -7,6 +7,7 @@ find /etc/nixos -name "*.nix.example" |
     sed s/\.example$// |
     xargs -n1 -I "{}" sudo cp {}.example {}
 sudo cp $script_dir/etc/nixos/configuration.nix.example /etc/nixos/configuration.nix
+sudo cp $script_dir/etc/nixos/flake.* /etc/nixos/
 echo_info "--- set some local configuration"
 read
 rm -rf /etc/nixos.bak

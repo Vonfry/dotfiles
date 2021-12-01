@@ -312,7 +312,7 @@ in {
 
       sessionVariables = {
         EDITOR = "nvim";
-        MANPAGER = "nvim -c 'set ft=man' -";
+        MANPAGER = "nvim +Man!";
         PAGER = "nvim -R";
       };
 
@@ -321,7 +321,7 @@ in {
 
         gitAndTools.gitflow gitAndTools.git-extras
 
-        nixfmt niv
+        nixfmt
 
         tokei zeal
 

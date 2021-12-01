@@ -1,0 +1,7 @@
+patch:
+  punctuator:
+    import_preset: symbols
+  recognizer:
+    patterns:
+      punct: "^/([0-9]+[a-z]*|[a-z]+)$" # for symbols
+
