@@ -179,6 +179,8 @@ in {
         shellAliases = {
           rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
 
+          tree = "lsd --tree";
+
           ecd = "emacs --daemon";
           ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
           ec  = "emacsclient -n";

@@ -176,9 +176,9 @@
 (use-package org-ql
   :general
   (nmap-mode :keymaps 'org-mode-map
-    ";" 'org-ql-search
+    "." 'org-ql-search
     "," 'org-ql-view
-    "." 'org-ql-sparse-tree))
+    ";" 'org-ql-sparse-tree))
 
 (use-package org-roam
   :init
@@ -205,7 +205,6 @@
     "R i" 'org-roam-node-insert))
 
 (use-package org-roam-ui
-  :disabled
   :general
   (nmap-leader :infix "o"
     "s" 'org-roam-ui-mode)
@@ -238,7 +237,7 @@
   :after org)
 
 (use-package org-contacts
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :custom
   (org-contacts-icon-use-gravatar nil)
   (org-contacts-files
@@ -252,7 +251,7 @@
     "c" 'org-contacts))
 
 (use-package org-toc
-  :ensure org-plus-contrib
+  :ensure org-contrib
   :general
   (nmap-mode :keymaps 'org-mode-map
     "T" 'org-toc-show))

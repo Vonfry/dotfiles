@@ -88,6 +88,8 @@
 
   gc-cons-threshold (* 100 1024 1024) ; 1 mib
   read-process-output-max (* 1024 1024) ; 1mb
+
+  calc-settings-file (expand-file-name "calc.el" vonfry-local-dir)
 )
 
 (defvaralias 'c-basic-offset 'tab-width)

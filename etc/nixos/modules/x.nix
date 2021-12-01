@@ -7,7 +7,7 @@ let
 
   screenlocker = pkgs.writeScriptBin "screenlocker" ''
     #!${pkgs.bash}/bin/bash -e
-    exec ${pkgs.i3lock-color}/bin/i3lock-color -c 282a36 --indicator -k -B 1 --insidecolor=282a36 --insidewrongcolor=282a36 --insidevercolor=282a36 --ringvercolor=bd93f9 --ringwrongcolor=ff79c6 --ringcolor=44475a --linecolor=6272a4 --keyhlcolor=f1fa8c --bshlcolor=ff5555 --verifcolor=bd93f9 --wrongcolor=ff79c6 --timecolor=f8f8f2 --datecolor=6272a4 "$@"
+    exec ${pkgs.i3lock-color}/bin/i3lock-color -c 282a36 --indicator -k -B 1 --inside-color=282a36 --insidewrong-color=282a36 --insidever-color=282a36 --ringver-color=bd93f9 --ringwrong-color=ff79c6 --ring-color=44475a --line-color=6272a4 --keyhl-color=f1fa8c --bshl-color=ff5555 --verif-color=bd93f9 --wrong-color=ff79c6 --time-color=f8f8f2 --date-color=6272a4 "$@"
   '';
 
   lockCommand = "${screenlocker}/bin/screenlocker";
@@ -66,6 +66,56 @@ in {
       };
     };
 
+    nixpkgs = {
+      overlays = [(self: super:  {
+        haskellPackages = super.haskellPackages.override (old: {
+          overrides = self.lib.composeExtensions (old.overrides or (_: _: {}))
+            (hself: hsuper: {
+              xmonad =
+                super.haskell.lib.appendPatch hsuper.xmonad_0_17_0
+                  (pkgs.writeText "xmonad-nix.patch" ''
+                      diff --git a/src/XMonad/Core.hs b/src/XMonad/Core.hs
+                      index 46a0939..92af53d 100644
+                      --- a/src/XMonad/Core.hs
+                      +++ b/src/XMonad/Core.hs
+                      @@ -46,6 +46,7 @@ import Data.Traversable (for)
+                       import Data.Time.Clock (UTCTime)
+                       import Data.Default.Class
+                       import Data.List (isInfixOf)
+                      +import System.Environment (lookupEnv)
+                       import System.FilePath
+                       import System.IO
+                       import System.Info
+                      @@ -458,7 +459,8 @@ xfork x = io . forkProcess . finally nullStdin $ do
+                       -- | Use @xmessage@ to show information to the user.
+                       xmessage :: MonadIO m => String -> m ()
+                       xmessage msg = void . xfork $ do
+                      -    executeFile "xmessage" True
+                      +    xmessageBin <- fromMaybe "xmessage" <$> liftIO (lookupEnv "XMONAD_XMESSAGE")
+                      +    executeFile xmessageBin True
+                               [ "-default", "okay"
+                               , "-xrm", "*international:true"
+                               , "-xrm", "*fontSet:-*-fixed-medium-r-normal-*-18-*-*-*-*-*-*-*,-*-fixed-*-*-*-*-18-*-*-*-*-*-*-*,-*-*-*-*-*-*-18-*-*-*-*-*-*-*"
+                      @@ -654,8 +656,9 @@ compile dirs method =
+                               bracket (openFile (errFileName dirs) WriteMode) hClose $ \err -> do
+                                   let run = runProc (cfgDir dirs) err
+                                   case method of
+                      -                CompileGhc ->
+                      -                    run "ghc" ghcArgs
+                      +                CompileGhc -> do
+                      +                    ghc <- fromMaybe "ghc" <$> (lookupEnv "NIX_GHC")
+                      +                    run ghc ghcArgs
+                                       CompileStackGhc stackYaml ->
+                                           run "stack" ["build", "--silent", "--stack-yaml", stackYaml] .&&.
+                                           run "stack" ("ghc" : "--stack-yaml" : stackYaml : "--" : ghcArgs)
+                      '');
+              xmonad-contrib = hsuper.xmonad-contrib_0_17_0;
+              xmonad-extras = hsuper.xmonad-extras_0_17_0;
+            });
+        });
+      })];
+    };
+
     programs = {
       dconf.enable = true;
       xss-lock = {
@@ -88,19 +138,12 @@ in {
         '';
           wantedBy = [ "graphical-session.target" ];
         };
-
-        fcitx5-daemon = { # TODO remove after pr#127367 is merged
-          enable = true;
-          script = "${config.i18n.inputMethod.package}/bin/fcitx5";
-          wantedBy = [ "graphical-session.target" ];
-        };
       };
     };
 
     i18n.inputMethod = {
       enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-rime fcitx5-mozc fcitx5-chinese-addons
-                                 ];
+      fcitx5.addons = with pkgs; [ fcitx5-rime ];
     };
 
     fonts = {

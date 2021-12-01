@@ -1,46 +1,85 @@
 {-# LANGUAGE LambdaCase #-}
 
-import XMonad hiding ((|||))
-import XMonad.Util.EZConfig
-import XMonad.Actions.Navigation2D
-import XMonad.Actions.Search
-import XMonad.Actions.DynamicWorkspaces
-import XMonad.Actions.CycleWS
-import XMonad.Actions.CycleSelectedLayouts
-import XMonad.Actions.GroupNavigation
-import XMonad.Actions.UpdatePointer
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import XMonad.Prompt.XMonad
-import XMonad.Prompt.Window
-import XMonad.Prompt.Workspace
-import XMonad.Prompt.FuzzyMatch
-import XMonad.Prompt.Pass
-import XMonad.Prompt.Man
-import XMonad.Prompt.Ssh
-import XMonad.Layout.LayoutCombinators
-import XMonad.Layout.Renamed
-import XMonad.Layout.ShowWName
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Minimize
-import XMonad.Actions.Minimize
-import XMonad.Layout.MagicFocus
-import XMonad.Layout.WorkspaceDir
-import XMonad.Layout.GridVariants hiding (Orientation(..))
-import qualified XMonad.Layout.GridVariants as GridVariants
-import XMonad.Layout.Column
-import XMonad.Layout.DragPane
-import XMonad.Layout.CenteredMaster
-import XMonad.Util.Run
-import XMonad.Util.SpawnOnce
-import XMonad.StackSet hiding (float, workspaces, allWindows)
+import XMonad ( xmonad, refresh, io, spawn
+              , def, windows , withFocused, whenJust
 
-import Data.Ratio
-import System.IO
-import System.Exit
+              , layoutHook, setLayout
+              , Tall(Tall), Full(Full), Mirror(Mirror)
+
+              , kill, float, killWindow, Resize(..)
+
+              , mod4Mask, XConfig(..)
+              , xK_a, xK_o, xK_e, xK_u, xK_i, xK_d, xK_h, xK_t, xK_n, xK_s, xK_q
+
+              , sendMessage, ChangeLayout(NextLayout)
+              , IncMasterN(IncMasterN)
+              )
+import XMonad.Util.EZConfig (mkKeymap)
+import XMonad.Util.Run (runInTerm)
+import XMonad.StackSet ( focusDown, focusUp, focusMaster
+                       , focusWindow
+                       , swapMaster, swapDown, swapUp
+                       , sink, shift, view
+                       )
+import XMonad.Prompt.XMonad (xmonadPrompt)
+
+import XMonad.Actions.Navigation2D ( Direction2D(..), windowGo, windowSwap
+                                   , screenGo, screenSwap, windowToScreen
+                                   , withNavigation2DConfig
+                                   )
+import XMonad.Prompt.Window ( windowMultiPrompt, allWindows, wsWindows
+                            , WindowPrompt(..)
+                            )
+import XMonad.Actions.UpdatePointer (updatePointer)
+import XMonad.Actions.EasyMotion ( EasyMotionConfig(..), ChordKeys(..)
+                                 , selectWindow
+                                 )
+
+import XMonad.Actions.CycleWS ( nextWS, prevWS, shiftToNext, shiftToPrev
+                              , toggleWS
+                              )
+import XMonad.Prompt.Workspace (workspacePrompt)
+import XMonad.Actions.SwapWorkspaces (swapWithCurrent, Direction1D(..), swapTo)
+import XMonad.Actions.DynamicWorkspaces ( addWorkspacePrompt, removeWorkspace
+                                        , renameWorkspace
+                                        )
+import XMonad.Layout.WorkspaceDir (changeDir)
+import XMonad.Actions.GroupNavigation ( nextMatch, Direction(History)
+                                      , historyHook
+                                      )
+
+import XMonad.Prompt (XPConfig(..))
+import XMonad.Prompt.Shell (shellPrompt)
+import XMonad.Prompt.FuzzyMatch (fuzzyMatch, fuzzySort)
+import XMonad.Prompt.Pass (passPrompt, passOTPPrompt)
+import XMonad.Prompt.Man (manPrompt)
+import XMonad.Prompt.Ssh (sshPrompt)
+import XMonad.Actions.Search (promptSearch, multi)
+
+import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(JumpToLayout))
+import XMonad.Actions.CycleSelectedLayouts (cycleThroughLayouts)
+import XMonad.Layout.Renamed (renamed, Rename(..))
+import XMonad.Layout.ShowWName (showWName', SWNConfig(..))
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.Minimize (minimize)
+import XMonad.Actions.Minimize ( minimizeWindow, maximizeWindow
+                               , withFirstMinimized, withLastMinimized
+                               , withMinimized
+                               )
+import XMonad.Layout.GridVariants (SplitGrid(..), Grid(..))
+import qualified XMonad.Layout.GridVariants as GridVariants
+import XMonad.Layout.Column (Column(Column))
+import XMonad.Layout.DragPane (dragPane, DragType(..))
+import XMonad.Layout.CenteredMaster (centerMaster)
+import XMonad.Layout.MagicFocus (magicFocus)
+
+import Data.Ratio ((%))
+import System.Exit (exitWith, ExitCode(ExitSuccess))
 
 -- auxiliary configuration
-myFont = "xft:Sarasa Mono SC:size=11"
+myFont' = "xft:Sarasa Mono SC"
+myFont = myFont' ++ ":size=11"
+myFontXL = myFont' ++ ":size=32"
 myModMask = mod4Mask
 myTerm = "alacritty"
 
@@ -65,6 +104,17 @@ mySWNConf = def { swn_font    = myFont
                 , swn_color   = draculaForeground
                 , swn_fade    = 1 % 1
                 }
+
+myEMConfig = def { txtCol      = draculaForeground
+                 , bgCol       = draculaBackground
+                 , borderCol   = draculaPurple
+                 , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
+                                          xK_h, xK_t, xK_n, xK_s]
+                 , cancelKey   = xK_q
+                 , emFont      = myFontXL
+                 }
+
+
 
 -- my configurations
 
@@ -123,8 +173,8 @@ myKeys conf = mkKeymap conf
     , ("M-S-t", withFocused float           )
 
     -- increase or decrease number of windows in the master area
-    , ("M-S-(", sendMessage (IncMasterN 1   ))
-    , ("M-S-)", sendMessage (IncMasterN (-1)))
+    , ("M-S-(", sendMessage (IncMasterN (-1)))
+    , ("M-S-)", sendMessage (IncMasterN 1   ))
 
     -- quit, or restart
     , ("M-S-q", io (exitWith ExitSuccess))
@@ -153,7 +203,7 @@ myKeys conf = mkKeymap conf
                                    ])
 
     -- window navigation
-    , ("M-C-.", nextMatch History (return True))
+    , ("M-C-.", nextMatch History (pure True))
 
     -- layout select
     , ("M-; d" , sendMessage $ JumpToLayout "DragV" )
@@ -202,7 +252,13 @@ myKeys conf = mkKeymap conf
     , ("M-{"   , prevWS      )
     , ("M-S-}" , shiftToNext )
     , ("M-S-{" , shiftToPrev )
+    , ("M-C-{" , swapTo Prev )
+    , ("M-C-}" , swapTo Next )
     , ("M-C-," , toggleWS    )
+
+    -- easy motion
+    , ("M-g", selectWindow myEMConfig >>= (`whenJust` windows . focusWindow))
+    , ("M-S-g", selectWindow myEMConfig >>= (`whenJust` killWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt myXPConf (windows . view ))
@@ -228,9 +284,9 @@ myKeys conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt      myXPConf)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
-    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%+" )
+    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute   @DEFAULT_SINK@ toggle")
     ]
 
 myLayout = beforeLayouts layouts

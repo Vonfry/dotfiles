@@ -6,8 +6,8 @@ let
   cfg' = config.vonfry;
 
   emacsExtraBin = with pkgs; buildEnv {
-    name = "emacsExtraBin";
-    paths = [ python3 sqlite perl bundler jekyll ];
+    name = "emacs-extra-bin";
+    paths = [ python3 sqlite perl bundler jekyll agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -192,7 +192,6 @@ in {
           org-journal
           org-ql
           org-roam
-          org-roam-server
           rust-mode
           cargo
           markdown-mode
@@ -203,12 +202,7 @@ in {
           json-mode
           yaml-mode
           magit
-          git-commit
-          transient
-          with-editor
-          gitconfig-mode
-          gitignore-mode
-          gitattributes-mode
+          git-modes
           magit-gitflow
           gitlab-ci-mode
           forge
@@ -260,13 +254,14 @@ in {
           envrc
           ob-http
           mpdel
-          org-plus-contrib
+          org-contrib
           evil-collection
           license-snippets
           telega
           terminal-here
           zoxide
           smart-tab
+          org-roam-ui
         ];
       };
 

@@ -87,17 +87,9 @@ in {
         financialActivation = lib.hm.dag.entryAfter ["shellActivation"] linkFinancial;
       };
 
-      sessionVariables =  mkMerge [
-        {
-          PDFVIEWER = "zathura";
-        }
-        (mkAfter {
-          # Use mkOrder to make sure this is override the default one by
-          # home-manager, because sessionVariables' type is `types.attrs`.`
-          # Use this to fix remote computer pam and other problems.
-          SSH_AUTH_SOCK = "\${SSH_AUTH_SOCK:-$(${pkgs.gnupg}/bin/gpgconf --list-dirs agent-ssh-socket)}";
-        })
-      ];
+      sessionVariables = {
+        PDFVIEWER = "zathura";
+      };
 
       packages = with pkgs; [
         fortune cmatrix figlet

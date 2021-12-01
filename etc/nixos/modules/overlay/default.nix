@@ -18,4 +18,6 @@ with pkgs;
   sddm-slice-theme = callPackage ./data/sddm-slice-theme { };
 
   fcitx5-theme = callPackage ./data/fcitx5-theme { };
+
+  aria2Ng = callPackage ./tools/networking/aria2/aria2-ng.nix { };
 }

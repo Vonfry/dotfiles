@@ -18,8 +18,10 @@ in {
 
       libvirtd = {
         enable = true;
-        qemuRunAsRoot = mkDefault false;
-        qemuPackage = mkDefault pkgs.qemu_kvm;
+        qemu = {
+          runAsRoot = mkDefault false;
+          package = mkDefault pkgs.qemu_kvm;
+        };
       };
 
       podman = {

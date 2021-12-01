@@ -33,7 +33,7 @@
   (message-sendmail-f-is-evil t)
   (message-sendmail-extra-arguments '("--read-envelope-from" "-t"))
   :hook
-  (emacs-startup . (lambda () (mu4e t)))
+  (emacs-startup . (lambda () (when (daemonp) (mu4e t))))
   :config
   (add-to-list 'mu4e-view-actions
                '("View in browser" . mu4e-action-view-in-browser))

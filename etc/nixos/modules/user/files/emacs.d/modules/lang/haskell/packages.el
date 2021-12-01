@@ -15,7 +15,7 @@
     "r"   'haskell-compile
     "#"   'haskell-navigate-imports)
   (nmap-mode :keymaps 'haskell-mode-map
-    "R"   'run-haskell
+    "r"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle
     "q"   '(:ignore t :which-key "query")
