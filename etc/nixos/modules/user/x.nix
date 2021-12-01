@@ -134,6 +134,7 @@ in {
             runCommand "fcitx-rime-plugins" {} ''
               mkdir -p $out
               cp ${./files/rime/default.custom.yaml} $out/default.custom.yaml
+              cp ${./files/rime/wubi86_jidian.schema.custom.yaml} $out/wubi86_jidian.schema.custom.yaml
               cp ${prelude}/share/rime/symbols.yaml $out
               cp ${prelude}/share/rime/punctuation.yaml $out
               cp ${cangjie}/share/rime/cangjie5.*.yaml $out
