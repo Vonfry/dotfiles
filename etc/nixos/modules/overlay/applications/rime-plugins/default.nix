@@ -8,7 +8,9 @@ let
     runCommand "rime-${src.name}" {} ''
       mkdir -p $out/share/rime
       cp ${src}/*.yaml $out/share/rime
-      ${if src ? "extraRun" then src.extraRun else "" }
+      if [ -f ${src}/rime.lua ]; then
+        cp ${src}/rime.lua $out/share/rime
+      fi
     '';
 
   srcs = [
