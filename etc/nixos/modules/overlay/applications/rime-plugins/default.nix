@@ -8,15 +8,17 @@ let
     runCommand "rime-${src.name}" {} ''
       mkdir -p $out/share/rime
       cp ${src}/*.yaml $out/share/rime
-      ${if src ? "extraRun" then src.extraRun else "" }
+      if [ -f ${src}/rime.lua ]; then
+        cp ${src}/rime.lua $out/share/rime
+      fi
     '';
 
   srcs = [
     (fetchFromGitHub rec {
       owner = "rime";
       repo = "rime-prelude";
-      rev = "3de303ffaa731dba07b0462ce59f4767e1219ad2";
-      sha256 = "0g7a0bla58rh1v3md59k6adk185pilb4z8i2i0pqdl4nwqp40n2p";
+      rev = "4001edf96791bbb5663573ba79ba4b1e9c0b8626";
+      sha256 = "6PfOZu3HlPxcO1s7E5RfiBYYcVKWRDLSaTzs2h9VEtI=";
       name = "prelude";
     })
     (fetchFromGitHub rec {
@@ -29,8 +31,8 @@ let
     (fetchFromGitHub rec {
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "b09ad94e23dd2416f5324ffcce7c263ea8d5d3f4";
-      sha256 = "1np3kp7xdmzvxbvxfxvd2g23jvy46mlvbrz07gmj78kz5gfn45p7";
+      rev = "5107e8354e1f2c3f43faedf2eb3be566fe00ffff";
+      sha256 = "xociF0vMJI8W2U2MkhoZT0zX4HHf3RNR5xjLwMeQxts=";
       name = "wubi86-jidian";
     })
     (fetchFromGitHub rec {

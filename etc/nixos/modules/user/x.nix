@@ -140,6 +140,7 @@ in {
               cp ${cangjie}/share/rime/cangjie5.*.yaml $out
               cp ${wubi86-jidian}/share/rime/numbers.*.yaml $out
               cp ${wubi86-jidian}/share/rime/wubi86_jidian*.yaml $out
+              cp ${wubi86-jidian}/share/rime/rime.lua $out
               cp ${japanese}/share/rime/japanese.*.yaml $out
             '';
           recursive = true;

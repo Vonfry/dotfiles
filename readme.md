@@ -24,7 +24,7 @@ The topic is not deprecated, but it is not the default one in config.
 
 - [x] ~~macOS~~
 
-- [x] NixOS :: See [nixos readme](./etc/nixos/readme.md).
+- [x] NixOS :: See [nixos readme](./etc/nixos/readme.md) and [flake.nix](./etc/nixos/flake.nix).
 
 - [ ] ~~Gentoo :: It is also testing, and without X11. See [todo](#todo)~~
 

@@ -9,7 +9,7 @@
     let
       localSystem = "x86_64-linux";
       overlay = import ./modules/overlay;
-      nixpkgsOverlaysConfig = { pkgs, ... }: {
+      flakeSpecialConfig = { pkgs, ... }: {
         nixpkgs.overlays = [
           overlay
           emacs-overlay.overlay
@@ -20,13 +20,17 @@
             };
           })
         ];
+        nix.registry = {
+          sys.flake = nixpkgs;
+          sys-unstable.flake = unstable;
+        };
       };
     in {
       inherit overlay;
       nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
         system = localSystem;
         modules = [
-          nixpkgsOverlaysConfig
+          flakeSpecialConfig
           home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
