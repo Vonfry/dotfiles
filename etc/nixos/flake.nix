@@ -24,6 +24,7 @@
           sys.flake = nixpkgs;
           sys-unstable.flake = unstable;
         };
+        _module.args = { inherit flakes; };
       };
     in {
       inherit overlay;
@@ -34,7 +35,6 @@
           home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
-        extraArgs = { inherit flakes; };
       };
     };
 }
