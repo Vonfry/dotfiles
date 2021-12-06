@@ -5,7 +5,7 @@
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, unstable }:
+  outputs = { self, nixpkgs, home-manager, emacs-overlay, unstable }@flakes:
     let
       localSystem = "x86_64-linux";
       overlay = import ./modules/overlay;
@@ -34,6 +34,7 @@
           home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
+        extraArgs = { inherit flakes; };
       };
     };
 }
