@@ -8,9 +8,7 @@ Reference nixpkgs' directories.
 
 ## Top level dir
 
-[default.nix](./default.nix): Collection for exporting drv with nixpkgs.
-
-[overlay.nix](./overlay.nix): Return a overlay function, but I don't use it.
+[default.nix](./default.nix): Collection for exporting drv with nixpkgs. It is an overlay.
 
 ## Update
 
