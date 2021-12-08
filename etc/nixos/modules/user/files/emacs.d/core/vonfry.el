@@ -38,7 +38,7 @@
 (when (or debug-on-error vonfry-debug)
   (setq vonfry-debug t
         debug-on-error t
-        eval-expression-debug-on-error))
+        eval-expression-debug-on-error t))
 
 (require 'vonfry-local)
 
