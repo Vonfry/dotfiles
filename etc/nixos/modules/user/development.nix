@@ -299,7 +299,7 @@ in {
         enableZshIntegration = true;
         nix-direnv = {
           enable = true;
-          enableFlakes = false;
+          enableFlakes = true;
         };
         stdlib = ''
           declare -A direnv_layout_dirs
