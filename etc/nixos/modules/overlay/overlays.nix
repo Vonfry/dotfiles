@@ -1,1 +1,1 @@
-[ (import ./overlay.nix) ]
+[ (import ./.) ]

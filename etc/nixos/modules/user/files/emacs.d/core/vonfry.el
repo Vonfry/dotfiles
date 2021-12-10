@@ -19,8 +19,6 @@
 ;; All plugins are in modules, load with use-package to deal with depence.
 ;;
 
-(require 'cl)
-
 (defgroup vonfry nil
   "Vonfry's emacs group")
 
@@ -40,7 +38,7 @@
 (when (or debug-on-error vonfry-debug)
   (setq vonfry-debug t
         debug-on-error t
-        eval-expression-debug-on-error))
+        eval-expression-debug-on-error t))
 
 (require 'vonfry-local)
 
