@@ -23,23 +23,17 @@ let
 
   syncFlake = with pkgs; writeScriptBin "nixos-sync-flake" ''
     #!/usr/bin/env bash
-    sudo rsync -auP ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
-      ${optionalString hasCloud ''
-        sudo rsync -auP ${CLOUD_DIR}/dotfiles/etc/nixos/local/ /etc/nixos/local/
-        sudo rsync -auP ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ /etc/nixos/local/
-      ''}
+    sudo rsync -auP ${DOTFILES_DIR}/etc/nixos/flake.* /etc/nixos/
   '';
 
-  syncNixOS = with pkgs; writeScriptBin "nixos-sync-flake" ''
+  syncNixOS = with pkgs; writeScriptBin "nixos-sync" ''
     #!/usr/bin/env bash
-    sudo rsync -auP ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
-      ${optionalString hasCloud ''
-        sudo rsync -auP ${CLOUD_DIR}/dotfiles/etc/nixos/local/ /etc/nixos/local/
-        sudo rsync -auP ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ /etc/nixos/local/
-      ''}
+    ${syncModules}/bin/nixos-sync-modules
+    ${syncLocal}/bin/nixos-sync-local
+    ${syncFlake}/bin/nixos-sync-flake
   '';
 in {
   config = mkIf cfg.enable {
-    home.packages = [ syncConfig ];
+    home.packages = [ syncNixOS syncModules syncLocal syncFlake ];
   };
 }
