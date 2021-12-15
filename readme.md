@@ -13,12 +13,11 @@ Besides release tags, here are some tags used with perfix for other proposing.
 
 ### deprecated 
 
-Some feature are not used with time going. I add a tag in the last commit
-supposed them. All of them are started with `deprecated`
-
+Some features are not used with time going. I add a tag in the last commit
+supporting them. All of them are started with `deprecated`.
 ### mark
 
-The topic is not deprecated, but it is not the default one in config.
+The topic is not deprecated, but it is not the default one and may be useless.
 
 ## System
 
@@ -70,8 +69,9 @@ in user environment only when the language is used directly, i.e., tex and nix.
 - **Perl** :: main script lang
 - **R** :: main data-analysis lang
 - orgmode & latex :: main doc lang
+- Agda :: proof only
 - Coq :: proof only
-- C/C++ 
+- C/C++
 - ~~Lisp~~
 - ~~Ruby~~
 - Python3 :: only interperter by some utils
@@ -96,11 +96,11 @@ ConEmu as terminal on windows.~~
 
 NixOS and Gentoo are good linux distributions, we can control a lot of
 things in our system. I'm mainly using **NixOS** now, which isn't only a system
-but also a kind of thinking. Further more, Nix is a awesome build tools.
+but also a kind of thinking. Further more, Nix is a awesome building tool.
 
-~~On macOS, Fantastical is a beautiful calander.~~ 
+~~On macOS, Fantastical is a beautiful calander.~~
 On Linux, I use emacs for mail(mu4e), newsreader(gnus), rss(elfeed)
-and other things. Gnus for mail is different from other tools such as 
+and other things. Gnus for mail is different from other tools such as
 mu4e, you can check a description
 [here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader). It
 is not fit for me, and the same reason for rss. I may switch to it someday if
@@ -119,4 +119,4 @@ never like to.
 
 I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is
 not easy like evernote, but I like it. Some website use eww with org for
-capturing. 
+capturing.

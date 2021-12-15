@@ -207,7 +207,7 @@
 (use-package org-roam-ui
   :general
   (nmap-leader :infix "o"
-    "s" 'org-roam-ui-mode)
+    "s" 'org-roam-ui-open)
   :custom
   (org-roam-ui-port 8100))
 

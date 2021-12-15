@@ -255,7 +255,6 @@ in {
           hl-todo
           hlinum
           rainbow-mode
-          undo-tree
           hledger-mode
           ess
           envrc
