@@ -144,6 +144,7 @@ in {
 
               sed -i '/.*lua_.*@.*/d' $out/wubi86_jidian*.schema.yaml
               sed -i '/.*terra_pinyin.*/d' $out/japanese*.schema.yaml
+              sed -i '/.*stroke.*/d' $out/japanese*.schema.yaml
             '';
           recursive = true;
         };
