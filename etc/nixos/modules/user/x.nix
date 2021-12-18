@@ -143,6 +143,7 @@ in {
               cp ${japanese}/share/rime/japanese.*.yaml $out
 
               sed -i '/.*lua_.*@.*/d' $out/wubi86_jidian*.schema.yaml
+              sed -i '/.*terra_pinyin.*/d' $out/japanese*.schema.yaml
             '';
           recursive = true;
         };
