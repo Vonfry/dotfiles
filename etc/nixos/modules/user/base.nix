@@ -31,7 +31,7 @@ in {
 
         patch parallel file
 
-        zstd unar convmv
+        zstd libarchive convmv
         colordiff
         ripgrep fd
       ];
