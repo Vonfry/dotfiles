@@ -207,7 +207,7 @@ in {
           pbcopy = "xclip -selection clipboard -in";
           pbpaste = "xclip -selection clipboard -out";
           get = "curl --continue-at - --location --progress-bar --remote-name --remote-time";
-          http-serve = "nix run nixpkgs.python3 -c python3 -m http.server";
+          http-serve = "nix run 'sys.python3' -- -m http.server";
 
           # Git
           g = "git";
