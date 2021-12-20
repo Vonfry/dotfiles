@@ -60,6 +60,7 @@
   (evil-want-integration t)
   (evil-shift-width 4)
   (evil-search-module 'isearch)
+  (evil-undo-system 'undo-redo)
   :general
   (nmap :prefix "g"
         "B" 'previous-buffer
