@@ -40,6 +40,7 @@ in {
         experimental-features = nix-command flakes
         keep-outputs = true
         keep-derivations = true
+        flake-registry = /etc/nix/registry.json
       '';
 
       binaryCachePublicKeys = lib.mkBefore [
