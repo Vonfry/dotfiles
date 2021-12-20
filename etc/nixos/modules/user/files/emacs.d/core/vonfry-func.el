@@ -3,6 +3,6 @@
 
 (defun vonfry/insert-current-date ()
   (interactive)
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S +0800")))
+  (insert (current-time-string)))
 
 (provide 'vonfry-func)
