@@ -6,7 +6,7 @@ let
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      neovim emacs
+      neovim
 
       git git-lfs
 

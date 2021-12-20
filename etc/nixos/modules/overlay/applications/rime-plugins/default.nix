@@ -31,8 +31,8 @@ let
     (fetchFromGitHub rec {
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "5107e8354e1f2c3f43faedf2eb3be566fe00ffff";
-      sha256 = "xociF0vMJI8W2U2MkhoZT0zX4HHf3RNR5xjLwMeQxts=";
+      rev = "81b8604c244456875a802aab9922264bb717286c";
+      sha256 = "NCmkQxCylB0fXX39sZVB9b10mLByJ4Cgh36DbwX2Pho=";
       name = "wubi86-jidian";
     })
     (fetchFromGitHub rec {
