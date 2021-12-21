@@ -78,7 +78,7 @@ in {
 
         fractal # matrix.org
 
-        wireshark iftop httpstat
+        wireshark iftop curlie
       ];
     };
 
