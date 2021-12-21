@@ -78,7 +78,7 @@ in {
 
         fractal # matrix.org
 
-        wireshark iftop curlie
+        wireshark iftop xh
       ];
     };
 
