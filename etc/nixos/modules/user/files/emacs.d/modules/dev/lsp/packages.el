@@ -15,12 +15,12 @@
     ","     'pop-tag-mark
     "="     'lsp-format-buffer
     "#"     'lsp-organize-imports
+    "{"     'lsp-find-references
+    "}"     'lsp-find-implementation
     "TAB"   'completion-at-point
     "("     'lsp-goto-type-definition
     "?"     'lsp-describe-thing-at-point
     ">"     '(:ignore t :which-key "lsp ext")
-    "> {"   'lsp-find-references
-    "> }"   'lsp-find-implementation
     "> ."   'lsp-find-type-definition
     "> *"   'lsp-rename
     "> r"   'lsp-execute-code-action
@@ -36,19 +36,6 @@
   (vmap-leader :keymaps 'lsp-mode-map
     "="   'lsp-format-region
     "> =" 'align-regexp))
-
-(use-package lsp-treemacs
-  :after (treemacs lsp-mode)
-  :general
-  (nmap-leader :keymaps 'lsp-mode-map
-    "{"   'lsp-treemacs-references
-    "}"   'lsp-treemacs-implementations
-    "t"   'lsp-treemacs-symbols
-    "Q t" 'lsp-treemacs-errors-list
-    "> [" 'lsp-treemacs-call-hierarchy
-    "> #" 'lsp-treemacs-deps-list)
-  :config
-  (lsp-treemacs-sync-mode t))
 
 (use-package lsp-ivy
   :after lsp-mode
