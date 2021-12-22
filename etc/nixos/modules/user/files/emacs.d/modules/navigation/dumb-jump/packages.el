@@ -4,10 +4,9 @@
 (use-package dumb-jump
   :general
   (nmap-leader :keymaps 'prog-mode-map
-    "."   'xref-goto-xref
+    "."   'xref-find-definitions
     ","   'xref-pop-marker-stack
     "&"   'xref-find-apropos
-    "("   'xref-find-definitions
     "{"   'xref-find-references
     "?"   'info-xref
     "> ?" 'info-xref-docstrings)
