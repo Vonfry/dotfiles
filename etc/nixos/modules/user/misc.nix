@@ -10,7 +10,7 @@ let
 
   syncModules = with pkgs; writeScriptBin "nixos-sync-modules" ''
     #!/usr/bin/env bash
-    sudo rsync -auP ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
+    sudo rsync --delete -auP ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
   '';
 
   syncLocal = with pkgs; writeScriptBin "nixos-sync-local" ''
