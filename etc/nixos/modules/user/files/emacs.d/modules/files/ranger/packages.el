@@ -8,4 +8,4 @@
   (ranger-override-dired-mode t)
   :general
   (nmap-leader
-    "D" 'ranger))
+    "d" 'ranger))

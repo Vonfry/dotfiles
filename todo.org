@@ -64,10 +64,12 @@
    CLOSED: [2020-10-01 Thu 19:26]
 
 * Editor
-** NeoVim[0/1]
-**** TODO use internal lsp
+** NeoVim[2/2]
+**** DONE use internal lsp
+     CLOSED: [2021-12-23 Thu 08:57]
      wait for 0.5.0
-**** TODO lua config, see [[https://github.com/nanotee/nvim-lua-guide][ref]]
+**** DONE lua config, see [[https://github.com/nanotee/nvim-lua-guide][ref]]
+     CLOSED: [2021-12-23 Thu 08:57]
 ** Emacs[6/7]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs

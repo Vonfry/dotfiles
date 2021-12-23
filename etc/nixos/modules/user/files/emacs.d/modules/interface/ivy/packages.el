@@ -63,10 +63,7 @@
   :custom
   (swiper-action-recenter t)
   :general
-  (nmap-leader
-    ; use `avy-goto-char-timer' or `evil-search' instead. swiper is slow when
-    ;the buffer is large
-    "F /" 'swiper))
+  (nmap-leader "/" 'swiper))
 
 (use-package ivy-rich
   :after ivy

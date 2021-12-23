@@ -1,21 +1,17 @@
 ;;; projectile packages -*- lexical-binding: t -*-
 ;;
 
-;; If you want to use a project's emacs configure, please see more about __.dir-locals.el__ and
-;; (projectile-edit-dir-locals)
+;; If you want to use a project's emacs configure, please see more about
+;; __.dir-locals.el__ and (projectile-edit-dir-locals)
 
 (use-package projectile
-  :init
-  (unless (file-exists-p +projectile-cache-dir)
-    (make-directory +projectile-cache-dir t))
   :custom
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))
   (projectile-known-projects-file
-   (expand-file-name "known" +projectile-cache-dir))
+   (expand-file-name "projectile" vonfry-local-dir))
   (projectile-completion-system 'ivy)
-  (projectile-cache-file
-   (expand-file-name "cache" +projectile-cache-dir))
+  (projectile-cache-file (expand-file-name "projectile" vonfry-cache-dir))
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
   (nmap-mode :keymaps '(c-mode-map c++-mode-map)
@@ -32,6 +28,8 @@
     "P q" 'projectile-switch-open-project
     "P a" 'projectile-add-known-project
     "P x" 'projectile-commander
+    "P k" 'projectile-kill-buffers
+    "P f" 'projectile-recentf
     "P *" 'projectile-replace-regexp)
   (:keymaps 'projectile-mode-map
     "C-c p" 'projectile-command-map)

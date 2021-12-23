@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ python3 sqlite perl bundler jekyll agda ];
+    paths = [ sqlite perl bundler jekyll agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -131,7 +131,7 @@ in {
           vim-which-key
           ultisnips
           vim-snippets
-          # nvim-lspconfig
+          nvim-lspconfig
           vim-fugitive
           vim-signify
           NeoSolarized
@@ -229,11 +229,6 @@ in {
           ranger
           avy
           ace-window
-          treemacs
-          treemacs-evil
-          treemacs-projectile
-          treemacs-magit
-          treemacs-icons-dired
           which-key
           logview
           projectile
@@ -242,7 +237,6 @@ in {
           ibuffer-vc
           ibuffer-projectile
           lsp-mode
-          lsp-treemacs
           lsp-ivy
           editorconfig
           realgud
