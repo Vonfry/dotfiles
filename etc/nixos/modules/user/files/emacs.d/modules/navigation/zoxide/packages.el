@@ -6,5 +6,7 @@
   (zoxide-find-file-function #'counsel-fzf)
   :general
   (nmap
-    "gz" 'zoxide-find-file
-    "gZ" 'zoxide-find-file))
+    "gc" 'zoxide-find-file
+    "gC" 'zoxide-travel)
+  (:keymaps 'ranger-normal-mode-map
+    "zc" 'zoxide-travel))
