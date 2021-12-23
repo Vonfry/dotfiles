@@ -33,6 +33,7 @@
     "P a" 'projectile-add-known-project
     "P x" 'projectile-commander
     "P k" 'projectile-kill-buffers
+    "P f" 'projectile-recentf
     "P *" 'projectile-replace-regexp)
   (:keymaps 'projectile-mode-map
     "C-c p" 'projectile-command-map)
