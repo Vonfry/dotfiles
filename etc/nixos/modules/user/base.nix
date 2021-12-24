@@ -27,7 +27,7 @@ in {
         update_ms = 2000
         proc_sorting = "cpu lazy"
         proc_reversed = False
-        proc_tree = False
+        proc_tree = True
         proc_colors = True
         proc_gradient = True
         proc_per_core = True
