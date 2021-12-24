@@ -135,7 +135,7 @@ myKeys conf = mkKeymap conf
     , ("M-o k", spawn "pavucontrol"     )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
-    , ("M-$", runInTerm "-t htop"    "htop")
+    , ("M-$", runInTerm "-t top"  "btop")
 
     , ("M-S-s r", spawn "systemctl reboot"   )
     , ("M-S-s s", spawn "systemctl suspend"  )

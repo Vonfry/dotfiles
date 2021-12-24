@@ -31,6 +31,7 @@ in {
 
         patch parallel file
 
+        btop atop
         zstd archiver convmv
         colordiff
         ripgrep fd
@@ -51,29 +52,6 @@ in {
         compression = true;
         forwardAgent = true;
         serverAliveInterval = 60;
-      };
-      htop = {
-        enable = true;
-        settings = with config.lib.htop; {
-          tree_view = 1;
-          highlight_base_name = 1;
-          show_program_path = 0;
-          vim_mode = 1;
-          shadow_other_users = 1;
-          hide_userland_threads = 1;
-          hide_threads = 1;
-          fields = with fields; [
-            PID USER PRIORITY NICE M_SIZE M_RESIDENT M_SHARE STATE PERCENT_CPU
-            PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
-          ];
-          left_meters = [ "AllCPUs" "Memory" "Swap" ];
-          left_meter_modes = lib.genList (_: modes.Text) 3;
-          right_meters = [ "Clock" "Battery" "Blank" "Tasks" "Uptime"
-                           "LoadAverage" "Blank" "PressureStallCPUSome"
-                           "PressureStallIOSome" "PressureStallMemorySome"
-                         ];
-          right_meter_modes = lib.genList (_: modes.Text) 10;
-        };
       };
     };
   };

@@ -18,7 +18,7 @@ in {
       exfat zstd
 
       lnav
-      atop htop
+      atop btop
       sysstat lm_sensors lsof
 
       file patch colordiff parallel
