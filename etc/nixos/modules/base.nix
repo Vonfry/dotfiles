@@ -17,9 +17,7 @@ in {
       pciutils usbutils inxi
       exfat zstd
 
-      lnav
-      atop btop
-      sysstat lm_sensors lsof
+      lnav btop lsof
 
       file patch colordiff parallel
       ripgrep fd lsd
