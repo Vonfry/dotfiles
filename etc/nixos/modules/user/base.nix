@@ -14,6 +14,62 @@ in {
         keep-derivations = true
       '';
       "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
+      "btop/btop.conf".text = ''
+        color_theme = "${pkgs.btop}/share/btop/themes/dracula.theme"
+        vim_keys = True
+        rounded_corners = True
+        graph_symbol = "braille"
+        graph_symbol_cpu = "default"
+        graph_symbol_mem = "default"
+        graph_symbol_net = "default"
+        graph_symbol_proc = "default"
+        shown_boxes = "cpu mem net proc"
+        update_ms = 2000
+        proc_sorting = "cpu lazy"
+        proc_reversed = False
+        proc_tree = False
+        proc_colors = True
+        proc_gradient = True
+        proc_per_core = True
+        proc_mem_bytes = True
+        proc_info_smaps = False
+        proc_left = False
+        cpu_graph_upper = "total"
+        cpu_graph_lower = "total"
+        cpu_invert_lower = True
+        cpu_single_graph = False
+        cpu_bottom = False
+        show_uptime = True
+        check_temp = True
+        cpu_sensor = "Auto"
+        show_coretemp = True
+        cpu_core_map = ""
+        temp_scale = "celsius"
+        show_cpu_freq = True
+        clock_format = "%X"
+        background_update = True
+        custom_cpu_name = ""
+        disks_filter = ""
+        mem_graphs = True
+        mem_below_net = False
+        show_swap = True
+        swap_disk = True
+        show_disks = True
+        only_physical = True
+        use_fstab = True
+        show_io_stat = True
+        io_mode = True
+        io_graph_combined = True
+        io_graph_speeds = ""
+        net_download = 100
+        net_upload = 100
+        net_auto = True
+        net_sync = False
+        net_iface = ""
+        show_battery = True
+        selected_battery = "Auto"
+        log_level = "WARNING"
+      '';
     };
 
     home = {
@@ -31,6 +87,7 @@ in {
 
         patch parallel file
 
+        btop atop
         zstd archiver convmv
         colordiff
         ripgrep fd
@@ -51,29 +108,6 @@ in {
         compression = true;
         forwardAgent = true;
         serverAliveInterval = 60;
-      };
-      htop = {
-        enable = true;
-        settings = with config.lib.htop; {
-          tree_view = 1;
-          highlight_base_name = 1;
-          show_program_path = 0;
-          vim_mode = 1;
-          shadow_other_users = 1;
-          hide_userland_threads = 1;
-          hide_threads = 1;
-          fields = with fields; [
-            PID USER PRIORITY NICE M_SIZE M_RESIDENT M_SHARE STATE PERCENT_CPU
-            PERCENT_MEM IO_READ_RATE IO_WRITE_RATE TIME COMM
-          ];
-          left_meters = [ "AllCPUs" "Memory" "Swap" ];
-          left_meter_modes = lib.genList (_: modes.Text) 3;
-          right_meters = [ "Clock" "Battery" "Blank" "Tasks" "Uptime"
-                           "LoadAverage" "Blank" "PressureStallCPUSome"
-                           "PressureStallIOSome" "PressureStallMemorySome"
-                         ];
-          right_meter_modes = lib.genList (_: modes.Text) 10;
-        };
       };
     };
   };
