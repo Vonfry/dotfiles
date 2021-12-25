@@ -23,6 +23,10 @@
         nix.registry = {
           sys.flake = nixpkgs;
           sys-unstable.flake = unstable;
+          nixpkgs.flake = nixpkgs;
+          nixpkgs-unstable.flake = unstable;
+          nixos.flake = nixpkgs;
+          nixos-unstable.flake = unstable;
         };
         _module.args = { inherit flakes; };
       };
