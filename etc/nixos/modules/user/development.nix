@@ -158,9 +158,6 @@ in {
       emacs =  {
         package = pkgs.emacsUnstable;
         enable = true;
-        overrides = self: super: {
-          org = self.elpaPackages.org;
-        };
         extraPackages = epkgs: with epkgs; [
           all-the-icons
           solarized-theme
