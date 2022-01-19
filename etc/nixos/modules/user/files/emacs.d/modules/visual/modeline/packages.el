@@ -2,8 +2,7 @@
 ;;
 
 (use-package doom-modeline
-  :hook ((doom-modeline-mode . column-number-mode)
-         (server-after-make-frame .
+  :hook ((server-after-make-frame .
            (lambda () (setq doom-modeline-icon (display-graphic-p)))))
   :custom
   (doom-modeline-lsp t)
