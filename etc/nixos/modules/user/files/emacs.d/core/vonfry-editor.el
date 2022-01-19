@@ -97,6 +97,8 @@
 (recentf-mode 1)
 (show-paren-mode 1)
 (visual-line-mode 1)
+(column-number-mode 1)
+(line-number-mode 1)
 
 (dolist (mode '(prog-mode-hook text-mode-hook))
   (add-hook mode 'turn-on-auto-fill)
