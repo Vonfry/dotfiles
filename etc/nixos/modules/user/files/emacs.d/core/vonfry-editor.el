@@ -36,7 +36,7 @@
   whitespace-style '(face trailing lines-tail)
   case-fold-search t
   line-spacing 0
-  display-line-numbers 'relative
+  display-line-numbers nil
 
   blink-cursor-interval 0.4
   buffers-menu-max-size 32
