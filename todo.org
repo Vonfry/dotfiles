@@ -61,6 +61,7 @@
     - [ ] Helvum replaces pavucontrol
 *** DONE remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
     CLOSED: [2021-11-23 Tue 09:40]
+*** TODO remove bash enable for emacs service after pr 2709 merged
 ** CANCELLED macOS
    CLOSED: [2020-10-01 Thu 19:26]
 
