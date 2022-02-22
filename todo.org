@@ -49,9 +49,9 @@
     - [X] emacs wraping other tools instead of install into user env
 *** DONE 21.05[3/3]
     CLOSED: [2021-11-23 Tue 09:25]
-   - [X] qutebrowser module for autoconfig instead of extraConfig
-   - [X] reuse zsh-completions after the collision is fixed
-   - [X] remove fcitx5 services
+    - [X] qutebrowser module for autoconfig instead of extraConfig
+    - [X] reuse zsh-completions after the collision is fixed
+    - [X] remove fcitx5 services
 *** DONE emacs daemon with hm instead of manual
     CLOSED: [2021-06-26 Sat 10:23]
 *** TODO pipewire replaces pulseaudio[0/4]
@@ -92,6 +92,11 @@
     CLOSED: [2021-11-23 Tue 09:25]
 *** DONE org-roam v2 migration
     CLOSED: [2021-08-12 Thu 17:12]
+*** WAITING replace xim with gtk native input?
+    because there is a bug for fcitx5's xim. If I restart fcitx5 service, emacs
+    cannot handle the new service, but other softwares like qutebrowser and
+    alacritty can do.
+    ~(setq x-gtk-use-native-input t)~
 ** DONE LSP[2/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
