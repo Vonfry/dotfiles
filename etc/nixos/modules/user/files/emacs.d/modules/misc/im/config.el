@@ -1,7 +1,7 @@
 ;;; im config -*- lexical-binding: t -*-
 ;;
 
-(defcustom +irc-local-file (expand-file-name "irc.el" vonfry-local-dir)
+(defcustom +irc-local-file (expand-file-name "irc.el" vonfry-custom-dir)
   "A local config for irc, loads by `load'. It can be missing. "
   :type 'file
   :group 'vonfry-modules)
