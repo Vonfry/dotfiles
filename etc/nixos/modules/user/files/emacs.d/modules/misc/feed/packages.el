@@ -18,6 +18,6 @@
 
 (use-package elfeed-org
   :custom
-  (rmh-elfeed-org-files (list (expand-file-name "feeds.org" vonfry-local-dir)))
+  (rmh-elfeed-org-files (list (expand-file-name "feeds.org" vonfry-custom-dir)))
   :config
   (elfeed-org))
