@@ -190,7 +190,7 @@ in {
           eC  = "emacsclient";
           eCc = "emacsclient -c";
 
-          _ = "sudo";
+          _ = "doas";
           b = "\${(z)BROWSER}";
           diffu = "diff --unified";
           e = "\${(z)VISUAL:-\${(z)EDITOR}}";
