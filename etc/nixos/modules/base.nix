@@ -68,17 +68,19 @@ in {
     };
 
     security = {
-      sudo = {
+      sudo.enable = false;
+      doas = {
         enable = true;
-        extraConfig = mkBefore ''
-          Defaults timestamp_timeout=30
-          Defaults env_keep += "*_proxy *_PROXY"
-        '';
+        extraRules = [
+          { groups = [ "wheel" ];
+            setEnv = [ "http_proxy" "https_proxy" "all_proxy"
+                       "HTTP_PROXY" "HTTPS_PROXY" "ALL_PROXY"
+                     ]; }
+        ];
         wheelNeedsPassword = mkDefault true;
       };
-      pam = rec {
+      pam = {
        enableSSHAgentAuth = mkDefault true;
-       services.sudo.sshAgentAuth = mkDefault enableSSHAgentAuth;
       };
     };
 
