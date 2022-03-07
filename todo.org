@@ -16,10 +16,11 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-*** TODO update to 22.05[1/3]
+*** TODO update to 22.05[1/4]
     - [ ] remove xmonad overlay
     - [X] remove org override after pr is merged
     - [ ] [[https://github.com/NixOS/nixpkgs/pull/139075][nix structure config]]
+    - [ ] add distrobox
 ** home-manager[4/5]
 *** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
