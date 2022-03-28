@@ -44,7 +44,7 @@
           development = {
             git.signKey = "";
             emacs.preCustom = ''
-              (setq-default easy-jekyll-basedir (expand-file-name (getenv "CLONE_LIB") "website")
+              (setq-default easy-hugo-basedir (expand-file-name (getenv "CLONE_LIB") "website")
                             enable-local-variables :all
                             enable-local-eval t
               )

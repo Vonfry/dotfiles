@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite perl bundler jekyll agda ];
+    paths = [ sqlite perl hugo agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -205,7 +205,7 @@ in {
           haskell-mode
           lsp-haskell
           haskell-snippets
-          easy-jekyll
+          easy-hugo
           json-mode
           yaml-mode
           magit
