@@ -13,7 +13,7 @@
   (nmap-mode :keymaps 'ess-mode-map
    "\""    'ess-interrupt
    "?"     'ess-help
-   "R"     'ess-tracebug)
+   "R"     ess-dev-map)
   (nmap-leader :keymaps 'ess-mode-map
    "\""    'ess-interrupt
    "?"     'ess-help
