@@ -4,6 +4,7 @@
   :after (yasnippet projectile)
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
+  (lsp-enable-suggest-server-download nil)
   (lsp-completion-provider :none)
   (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
   (lsp-session-file (expand-file-name "lsp-session" vonfry-local-dir))
