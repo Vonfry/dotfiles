@@ -52,6 +52,8 @@ in {
         mouse.accelProfile = "flat";
       };
 
+      desktopManager.runXdgAutostartIfNone = true;
+
       displayManager= {
         sddm = {
           enable = true;
