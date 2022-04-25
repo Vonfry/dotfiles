@@ -25,7 +25,7 @@ in {
       };
       networkmanager = {
         enable = mkDefault true;
-        dhcp = "internal";
+        dhcp = "dhcpcd";
       };
     };
 
