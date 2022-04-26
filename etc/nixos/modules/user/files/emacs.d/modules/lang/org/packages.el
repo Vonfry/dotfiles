@@ -209,7 +209,7 @@
   (nmap-leader :infix "o"
     "s" 'org-roam-ui-open)
   :custom
-  (org-roam-ui-port 8100))
+  (org-roam-ui-port 8800))
 
 (use-package ob
   :init
