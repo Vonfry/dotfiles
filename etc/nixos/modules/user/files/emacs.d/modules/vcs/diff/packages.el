@@ -2,6 +2,8 @@
 ;;
 
 (use-package diff-hl
+  :hook
+  ((prog-mode text-mode) . diff-hl-mode)
   :custom
   (diff-hl-flydiff-mode 1))
 
