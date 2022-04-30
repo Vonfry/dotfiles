@@ -166,7 +166,7 @@ in {
       };
 
       packages = with pkgs; [
-        hack-font
+        cascadia-code
         sarasa-gothic
         symbola
         liberation_ttf
