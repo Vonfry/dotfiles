@@ -15,12 +15,6 @@ in {
       description = "User extra config.";
       type = types.attrs;
     };
-
-    hmConfig = mkOption {
-      default = _: {};
-      description = "home-manager config.";
-      type = types.functionTo types.attrs;
-    };
   };
 
   config = mkIf cfg.enable {
@@ -41,17 +35,13 @@ in {
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
-      users.vonfry = mkMerge [
-        (args:
-        {
-          imports = [ ./home.nix ];
+      users.vonfry = _: {
+        imports = [ ./home.nix ];
 
-          vonfry = mkDefault {
-            inherit (cfg) enable;
-          };
-        })
-        cfg.hmConfig
-      ];
+        vonfry = mkDefault {
+          inherit (cfg) enable;
+        };
+      };
     };
 
   };
