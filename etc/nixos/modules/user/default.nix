@@ -1,4 +1,4 @@
-{ config, options, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 with lib;
 let
@@ -19,7 +19,7 @@ in {
     hmConfig = mkOption {
       default = _: {};
       description = "home-manager config.";
-      type = options.home-manager.users.type.nestedTypes.elemType;
+      type = types.functionTo types.attrs;
     };
   };
 
