@@ -150,7 +150,7 @@ in {
 
     fonts = {
       fonts = with pkgs; [
-        hack-font
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf
@@ -167,7 +167,7 @@ in {
         # are using. It is suggested as a multiple of 6 or 12.
         # dpi = 96;
         defaultFonts = {
-          monospace = [ "Hack" "Sarasa Mono SC" "Font Awesome 5 Free" ];
+          monospace = [ "Rec Mono Duotone" "Sarasa Mono SC" "Font Awesome 5 Free" ];
           sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" "Font Awesome 5 Free" ];
           serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" "Font Awesome 5 Free" ];
         };

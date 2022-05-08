@@ -80,6 +80,12 @@
   # services.fprintd.enable = true;
   # services.hardware.bolt.enable = true;
 
+  # For windows 11 the support of secure boot for ovmf and tpm are needed. 
+  # virtualisation.libvirtd.qemu = {
+  #   swtpm.enable = true;
+  #   ovmf.package = pkgs.OVMFFull;
+  # };
+
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.networkmanager.enable = false;
 

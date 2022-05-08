@@ -166,7 +166,7 @@ in {
       };
 
       packages = with pkgs; [
-        hack-font
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf
