@@ -10,7 +10,7 @@
 
   vonfry = {
     enable = true;
-    user.extraConfig = {
+    userConfiguration = {
       openssh.authorizedKeys.keys = [];
     };
 
@@ -18,7 +18,7 @@
       zerotierNets = [];
     };
 
-    hmConfig =
+    homeConfiguration =
       [({ config, pkgs, lib, ... }:
 
       {
