@@ -13,7 +13,13 @@ in {
       default = { };
       example = { openssh.authorizedKeys.keys = [ ]; };
       description = "User extra config.";
-      type = types.attrs;
+    };
+
+    hmConfig = mkOption {
+      default = [ ];
+      example = [ ({ ... }: { }) ];
+      description = "home configuration.";
+      type = types.listOf types.raw;
     };
   };
 
@@ -35,14 +41,14 @@ in {
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
-      users.vonfry = _: {
-        imports = [ ./home.nix ];
+      users.vonfry = mkMerge ([
+        (_: {
+          imports = [ ./home.nix ];
 
-        vonfry = mkDefault {
-          inherit (cfg) enable;
-        };
-      };
+          vonfry = mkDefault {
+            inherit (cfg) enable;
+          };
+        })]) ++ cfg.hmConfig;
     };
-
   };
 }

@@ -19,7 +19,7 @@
     };
 
     hmConfig =
-      { config, pkgs, lib, ... }:
+      [({ config, pkgs, lib, ... }:
 
       {
         # sessionVariables must be set after creating these directories.
@@ -57,7 +57,7 @@
                     ./local/emacs.nix
                     ./local/mirror-config.nix
                   ];
-      };
+      })];
   };
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
