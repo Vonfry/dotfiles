@@ -166,7 +166,7 @@ in {
       };
 
       packages = with pkgs; [
-        cascadia-code
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf
