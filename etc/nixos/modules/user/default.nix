@@ -18,10 +18,17 @@ in {
       [ "users" "users" "vonfry" ])
   ];
 
+  options.vonfry.facePackage = mkOption {
+    default = vonfryFace;
+    description =
+      "A face picture for sddm under sddm/faces named <user>.face.icon.";
+    type = types.package;
+  };
+
   config = mkIf cfg.enable {
     users.motd = builtins.readFile ./files/motd;
 
-    environment.systemPackages = [ vonfryFace ];
+    environment.systemPackages = [ cfg.facePackage ];
 
     services.xserver.desktopManager.wallpaper.mode = "center";
 
