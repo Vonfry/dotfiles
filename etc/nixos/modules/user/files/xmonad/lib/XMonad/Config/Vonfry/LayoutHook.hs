@@ -16,6 +16,8 @@ import XMonad.Layout.DragPane (dragPane, DragType(..))
 import XMonad.Layout.CenteredMaster (centerMaster)
 import XMonad.Layout.MagicFocus (magicFocus)
 
+import XMonad.Layout.Spacing (smartSpacing)
+
 import Data.Ratio ((%))
 
 layoutHook = beforeLayouts layouts
@@ -44,6 +46,7 @@ layoutHook = beforeLayouts layouts
                   . showWName' showWNameConfig
                   . smartBorders
                   . minimize
+                  . smartSpacing 2
 
 
 showWNameConfig = def { swn_font    = C.font
