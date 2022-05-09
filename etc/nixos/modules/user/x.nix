@@ -169,7 +169,10 @@ in {
       '';
 
       file = {
-        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+        ".xmonad" = {
+          source = ./files/xmonad;
+          recursive = true;
+        };
       };
 
       packages = with pkgs; [
