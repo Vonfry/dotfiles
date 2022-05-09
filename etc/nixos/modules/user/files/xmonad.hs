@@ -13,6 +13,8 @@ import XMonad ( xmonad, refresh, io, spawn
 
               , sendMessage, ChangeLayout(NextLayout)
               , IncMasterN(IncMasterN)
+
+              , doIgnore, (-->)
               )
 import XMonad.Util.EZConfig (mkKeymap)
 import XMonad.Util.Run (runInTerm)
@@ -72,6 +74,8 @@ import XMonad.Layout.Column (Column(Column))
 import XMonad.Layout.DragPane (dragPane, DragType(..))
 import XMonad.Layout.CenteredMaster (centerMaster)
 import XMonad.Layout.MagicFocus (magicFocus)
+
+import XMonad.Hooks.ManageHelpers (isInProperty)
 
 import Data.Ratio ((%))
 import System.Exit (exitWith, ExitCode(ExitSuccess))
@@ -330,6 +334,13 @@ myWorkspaces = [ "home"
 myLoghook = historyHook
          <> updatePointer (0.5, 0.5) (0, 0)
 
+myManage = mconcat
+    [ def
+    , isUtility --> doIgnore
+    ]
+  where
+    isUtility = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_UTILITY"
+
 myDef = def
     { modMask            = myModMask
     , terminal           = myTerm
@@ -341,6 +352,7 @@ myDef = def
     , borderWidth        = 2
     , workspaces         = myWorkspaces
     , logHook            = myLoghook
+    , manageHook         = myManage
     }
 
 -- main
