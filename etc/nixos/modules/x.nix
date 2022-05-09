@@ -52,17 +52,18 @@ in {
         mouse.accelProfile = "flat";
       };
 
-      displayManager = {
+      displayManager= {
         sddm = {
           enable = true;
           theme = "slice";
         };
       };
-
-      # Let each user to config their own WM such as xmonad by home-manager, so
-      # we set xterm here for lightweight which is also enabled in xserver
-      # module by default.
-      desktopManager.xterm.enable = true;
+      windowManager = {
+        xmonad = {
+          enable = mkDefault true;
+          enableContribAndExtras = true;
+        };
+      };
     };
 
     nixpkgs = {

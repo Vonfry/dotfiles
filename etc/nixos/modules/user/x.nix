@@ -44,11 +44,7 @@ in {
 
     xsession = {
       enable = true;
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        config = ./files/xmonad.hs;
-      };
+      windowManager.command = ''test -n "$1" && eval "$@"'';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
@@ -171,6 +167,10 @@ in {
       activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
         [ -h "${bgFile}" ] || ln -s ${cfg'.bgFile} ${bgFile}
       '';
+
+      file = {
+        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+      };
 
       packages = with pkgs; [
         cascadia-code
