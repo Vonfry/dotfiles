@@ -13,8 +13,6 @@ import XMonad.Layout.GridVariants (SplitGrid(..), Grid(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
 import XMonad.Layout.Column (Column(Column))
 import XMonad.Layout.DragPane (dragPane, DragType(..))
-import XMonad.Layout.CenteredMaster (centerMaster)
-import XMonad.Layout.MagicFocus (magicFocus)
 
 import XMonad.Layout.Spacing (smartSpacing)
 
@@ -33,13 +31,11 @@ layoutHook = beforeLayouts layouts
           ||| renamed [ Replace "Column"    ] column
           ||| renamed [ Replace "MColumn"   ] (Mirror column  )
           ||| renamed [ Replace "Full"      ] Full
-          ||| renamed [ Replace "Preview"   ] preview
     splitGrid = SplitGrid GridVariants.L 2 3 (2/3) gridRatio (1/100)
     grid      = Grid gridRatio
     tiled     = Tall 1 (3/100) (1/2)
     drag d    = dragPane d 0.1 0.5
     column    = Column 1
-    preview   = magicFocus $ centerMaster grid
 
     cleanupNames  = renamed [ CutWordsLeft 1 ]
     beforeLayouts = cleanupNames

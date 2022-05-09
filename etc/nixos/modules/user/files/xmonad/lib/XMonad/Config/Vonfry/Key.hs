@@ -45,7 +45,6 @@ import XMonad.Actions.EasyMotion ( EasyMotionConfig(..), ChordKeys(..)
                                  , selectWindow
                                  )
 
-import XMonad.Actions.CycleSelectedLayouts (cycleThroughLayouts)
 import XMonad.Layout.LayoutCombinators (JumpToLayout(JumpToLayout))
 import XMonad.Actions.Minimize ( minimizeWindow, maximizeWindow
                                , withFirstMinimized, withLastMinimized
@@ -99,9 +98,10 @@ key conf = mkKeymap conf
     , ("M-C-<Return>", spawn "pcmanfm"                   )
     , ("M-S-<Return>", spawn "emacsclient -c"            )
     , ("M-S-c"       , kill                              )
+    , ("M-S-<Space>"   , sendMessage NextLayout          )
     , ("M-C-<Space>" , setLayout $ layoutHook conf       )
-    , ("M-S-<Space>" , sendMessage NextLayout            )
     , ("M-r"         , refresh                           )
+    -- We use M-<Space> for input methods
 
     -- move focus up or down the window stack
     , ("M-<Tab>"    , windows focusDown  )
@@ -132,9 +132,6 @@ key conf = mkKeymap conf
     , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
     , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/" )
 
-    -- Switch between layers
-    , ("M-<Space>", cycleThroughLayouts [ "Full", "Preview" ])
-
     -- switch window
     , ("M-.", windowMultiPrompt promptConfig $
         (\d -> (d, allWindows)) <$> [ Goto
@@ -158,6 +155,7 @@ key conf = mkKeymap conf
     , ("M-; v" , sendMessage $ JumpToLayout "GridL" )
     , ("M-; c" , sendMessage $ JumpToLayout "Column")
     , ("M-; t" , sendMessage $ JumpToLayout "Tiled" )
+    , ("M-; f" , sendMessage $ JumpToLayout "Full"  )
     , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled" )
     , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn")
     , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"  )
