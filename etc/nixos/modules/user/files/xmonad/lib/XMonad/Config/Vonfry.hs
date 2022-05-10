@@ -9,7 +9,10 @@ import qualified XMonad.Config.Vonfry.LayoutHook as LayoutHook
 
 import XMonad (def, XConfig(..), mod4Mask)
 
-import XMonad.Actions.Navigation2D (withNavigation2DConfig)
+import XMonad.Actions.Navigation2D
+    ( withNavigation2DConfig, Navigation2DConfig(..)
+    , hybridOf, lineNavigation, sideNavigation
+    )
 
 realConfig = def
     { modMask            = mod4Mask
@@ -27,7 +30,11 @@ realConfig = def
     , manageHook         = ManageHook.manageHook
     }
 
-beforeConfig = withNavigation2DConfig def
+beforeConfig = withNavigation2DConfig nav2dConfig
+  where
+    nav2dConfig = def
+        { defaultTiledNavigation = hybridOf lineNavigation sideNavigation
+        }
 
 config = beforeConfig realConfig
 
