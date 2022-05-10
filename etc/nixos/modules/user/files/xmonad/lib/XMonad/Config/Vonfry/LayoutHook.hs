@@ -34,7 +34,7 @@ layoutHook = beforeLayouts layouts
     splitGrid = SplitGrid GridVariants.L 2 3 (2/3) gridRatio (1/100)
     grid      = Grid gridRatio
     tiled     = Tall 1 (3/100) (1/2)
-    drag d    = dragPane d 0.1 0.5
+    drag d    = dragPane d 0.1 0.1
     column    = Column 1
 
     cleanupNames  = renamed [ CutWordsLeft 1 ]
