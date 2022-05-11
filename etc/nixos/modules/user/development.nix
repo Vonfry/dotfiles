@@ -84,15 +84,15 @@ in {
         };
 
         "emacs.d/local/pre-custom.el".text =
-          (concatStringsSep "\n" [
+          concatStringsSep "\n" [
             ''
             (setq-default
               vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
                 cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
-          ''
+            ''
             cfg.emacs.preCustom
-          ]);
+          ];
 
         "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
       };
