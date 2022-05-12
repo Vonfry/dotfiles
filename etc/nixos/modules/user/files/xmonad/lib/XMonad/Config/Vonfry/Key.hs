@@ -55,7 +55,7 @@ import XMonad.Prompt.Workspace (workspacePrompt)
 import XMonad.Actions.CycleWS ( nextWS, prevWS, shiftToNext, shiftToPrev
                               , toggleWS
                               )
-import XMonad.Actions.SwapWorkspaces (swapWithCurrent, Direction1D(..), swapTo)
+import XMonad.Actions.SwapWorkspaces (Direction1D(..), swapTo)
 import XMonad.Actions.DynamicWorkspaces ( addWorkspacePrompt, removeWorkspace
                                         , renameWorkspace
                                         )
