@@ -72,14 +72,14 @@ key conf = mkKeymap conf
     , ("M-/"  , promptSearch promptConfigNoAc multi)
     , ("M-z"  , sshPrompt promptConfig             )
 
-    , ("M-<F1>"  , manPrompt promptConfig   )
+    , ("M-<F1>"  , manPrompt promptConfig)
 
-    , ("M-o d", spawn "zeal"            )
-    , ("M-o b", spawn "qutebrowser"     )
-    , ("M-o o", spawn "libreoffice"     )
-    , ("M-o v", spawn "virt-manager"    )
-    , ("M-o f", spawn "zathura"         )
-    , ("M-o k", spawn "pavucontrol"     )
+    , ("M-o d", spawn "zeal"        )
+    , ("M-o b", spawn "qutebrowser" )
+    , ("M-o o", spawn "libreoffice" )
+    , ("M-o v", spawn "virt-manager")
+    , ("M-o f", spawn "zathura"     )
+    , ("M-o k", spawn "pavucontrol" )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t top"  "btop")
@@ -95,13 +95,13 @@ key conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn $ terminal conf             )
-    , ("M-C-<Return>", spawn "pcmanfm"                   )
-    , ("M-S-<Return>", spawn "emacsclient -c"            )
-    , ("M-S-c"       , kill                              )
-    , ("M-S-<Space>"   , sendMessage NextLayout          )
-    , ("M-C-<Space>" , setLayout $ layoutHook conf       )
-    , ("M-r"         , refresh                           )
+    , ("M-<Return>"  , spawn $ terminal conf      )
+    , ("M-C-<Return>", spawn "pcmanfm"            )
+    , ("M-S-<Return>", spawn "emacsclient -c"     )
+    , ("M-S-c"       , kill                       )
+    , ("M-S-<Space>"   , sendMessage NextLayout   )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf)
+    , ("M-r"         , refresh                    )
     -- We use M-<Space> for input methods
 
     -- move focus up or down the window stack
@@ -129,9 +129,9 @@ key conf = mkKeymap conf
     , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
-    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/" )
-    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/" )
-    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/" )
+    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/")
+    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/")
+    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/")
 
     -- switch window
     , ("M-.", windowMultiPrompt promptConfig $
@@ -151,15 +151,15 @@ key conf = mkKeymap conf
     , ("M-C-.", nextMatch History (pure True))
 
     -- layout select
-    , ("M-; d" , sendMessage $ JumpToLayout "DragV" )
-    , ("M-; g" , sendMessage $ JumpToLayout "Grid"  )
-    , ("M-; v" , sendMessage $ JumpToLayout "GridL" )
-    , ("M-; c" , sendMessage $ JumpToLayout "Column")
-    , ("M-; t" , sendMessage $ JumpToLayout "Tiled" )
-    , ("M-; f" , sendMessage $ JumpToLayout "Full"  )
-    , ("M-S-; t" , sendMessage $ JumpToLayout "MTiled" )
-    , ("M-S-; c" , sendMessage $ JumpToLayout "MColumn")
-    , ("M-S-; d" , sendMessage $ JumpToLayout "DragH"  )
+    , ("M-; d"  , sendMessage $ JumpToLayout "DragV"  )
+    , ("M-; g"  , sendMessage $ JumpToLayout "Grid"   )
+    , ("M-; v"  , sendMessage $ JumpToLayout "GridL"  )
+    , ("M-; c"  , sendMessage $ JumpToLayout "Column" )
+    , ("M-; t"  , sendMessage $ JumpToLayout "Tiled"  )
+    , ("M-; f"  , sendMessage $ JumpToLayout "Full"   )
+    , ("M-S-; t", sendMessage $ JumpToLayout "MTiled" )
+    , ("M-S-; c", sendMessage $ JumpToLayout "MColumn")
+    , ("M-S-; d", sendMessage $ JumpToLayout "DragH"  )
 
     -- Directional navigation of windows
     -- keybind for dvorak like vim but different
@@ -194,23 +194,23 @@ key conf = mkKeymap conf
     , ("M-C-<Right>", windowToScreen R True)
 
     -- cycle workspace
-    , ("M-}"   , nextWS      )
-    , ("M-{"   , prevWS      )
-    , ("M-S-}" , shiftToNext )
-    , ("M-S-{" , shiftToPrev )
-    , ("M-C-{" , swapTo Prev )
-    , ("M-C-}" , swapTo Next )
-    , ("M-C-," , toggleWS    )
+    , ("M-}"  , nextWS     )
+    , ("M-{"  , prevWS     )
+    , ("M-S-}", shiftToNext)
+    , ("M-S-{", shiftToPrev)
+    , ("M-C-{", swapTo Prev)
+    , ("M-C-}", swapTo Next)
+    , ("M-C-,", toggleWS   )
 
     -- easy motion
-    , ("M-g", selectWindow emConfig >>= (`whenJust` windows . focusWindow))
+    , ("M-g"  , selectWindow emConfig >>= (`whenJust` windows . focusWindow))
     , ("M-S-g", selectWindow emConfig >>= (`whenJust` killWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt promptConfig (windows . view ))
     , ("M-S-,", workspacePrompt promptConfig (windows . shift))
     , ("M-w"  , addWorkspacePrompt promptConfigNoAc)
-    , ("M-S-w", removeWorkspace                )
+    , ("M-S-w", removeWorkspace                    )
     , ("M-C-w", renameWorkspace    promptConfigNoAc)
 
     -- change pwd for current workspace
@@ -226,12 +226,12 @@ key conf = mkKeymap conf
     -- fcitx clipboard history to paste
 
     -- password-store
-    , ("M-'"  , passPrompt         promptConfig)
-    , ("M-S-'", passOTPPrompt      promptConfig)
+    , ("M-'"  , passPrompt    promptConfig)
+    , ("M-S-'", passOTPPrompt promptConfig)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%+" )
+    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%-"   )
+    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%+"   )
     , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute   @DEFAULT_SINK@ toggle")
     ]
 
