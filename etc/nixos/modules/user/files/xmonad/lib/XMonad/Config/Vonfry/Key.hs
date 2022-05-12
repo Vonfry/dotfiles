@@ -21,13 +21,14 @@ import XMonad.StackSet ( focusDown, focusUp, focusMaster
                        , swapMaster, swapDown, swapUp
                        , sink, shift, view
                        )
-import XMonad.Actions.Navigation2D ( Direction2D(..), windowGo, windowSwap
+import XMonad.Actions.Navigation2D ( windowGo, windowSwap
                                    , screenGo, screenSwap, windowToScreen
                                    )
 
 import XMonad.Util.EZConfig (mkKeymap)
 
 import XMonad.Util.Run (runInTerm)
+import XMonad.Util.Types (Direction1D(..), Direction2D(..))
 
 import XMonad.Prompt (XPConfig(..))
 import XMonad.Prompt.Shell (shellPrompt)
@@ -55,10 +56,10 @@ import XMonad.Prompt.Workspace (workspacePrompt)
 import XMonad.Actions.CycleWS ( nextWS, prevWS, shiftToNext, shiftToPrev
                               , toggleWS
                               )
-import XMonad.Actions.SwapWorkspaces (Direction1D(..), swapTo)
 import XMonad.Actions.DynamicWorkspaces ( addWorkspacePrompt, removeWorkspace
                                         , renameWorkspace
                                         )
+import XMonad.Actions.WorkspaceNames (swapTo)
 import XMonad.Layout.WorkspaceDir (changeDir)
 import XMonad.Actions.GroupNavigation (nextMatch, Direction(History))
 
