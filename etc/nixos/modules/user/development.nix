@@ -262,6 +262,7 @@ in {
           zoxide
           smart-tab
           org-roam-ui
+          vundo
         ];
       };
 
