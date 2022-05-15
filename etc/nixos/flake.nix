@@ -30,6 +30,9 @@
         };
         _module.args = { inherit flakes; };
       };
+
+      pkgs = nixpkgs.legacyPackages.${localSystem};
+      ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
     in {
       inherit overlay;
       nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
@@ -39,6 +42,10 @@
           home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
+      };
+
+      devShell.${localSystem} = pkgs.mkShell {
+          packages = [ ghcWith ];
       };
     };
 }

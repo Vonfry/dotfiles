@@ -5,7 +5,7 @@ let
   cfg = config.vonfry;
   vonfryFace = with pkgs; runCommandNoCC "" {} ''
     mkdir -p $out/share/sddm/faces/
-    ln -s ${vonfryPackages.icon-face} $out/share/sddm/faces/vonfry.face.icon
+    ln -s ${vonfryPackages.iconFace} $out/share/sddm/faces/vonfry.face.icon
   '';
 in {
 

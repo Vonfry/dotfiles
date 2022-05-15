@@ -1,15 +1,10 @@
-{ stdenvNoCC, fetchFromGitHub, lib }: # qtbase qtquickcontrols qtgraphicaleffects
+{ stdenvNoCC, sources, lib }: # qtbase qtquickcontrols qtgraphicaleffects
 
 stdenvNoCC.mkDerivation rec {
   pname = "chili";
-  version = "0.1.5";
+  inherit (sources.sddm-chili) version;
 
-  src = fetchFromGitHub {
-    owner = "MarianArlt";
-    repo = "sddm-chili";
-    rev = version;
-    sha256 = "036fxsa7m8ymmp3p40z671z163y6fcsa9a641lrxdrw225ssq5f3";
-  };
+  src = sources.sddm-chili;
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes/chili
