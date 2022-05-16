@@ -54,6 +54,7 @@ in {
       zoxide = {
         enable = true;
         enableZshIntegration = true;
+        options = [ "--cmd cd" "--cmd j" ];
       };
 
       bash.enable = true; # make some script can load hm-sessions.
