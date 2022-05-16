@@ -41,3 +41,5 @@
   :general
   (nmap-at
     "t" telega-prefix-map))
+
+(use-package telega-dired-dwim :after telega)
