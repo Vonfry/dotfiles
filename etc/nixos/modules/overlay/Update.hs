@@ -7,13 +7,25 @@ import NvFetcher
 
 import Text.Printf (printf)
 import Data.String (fromString)
+import Data.Text (Text)
+
+import Data.Time.Clock (getCurrentTime, UTCTime(UTCTime, utctDay))
+import Data.Time.Calendar (showGregorian)
+
+data PkgSetArg = PkgSetArg { date :: Text }
 
 main :: IO ()
-main = runNvFetcher' nvfetcherConfig packageSet
+main = papareArguments >>= runNvFetcher' nvfetcherConfig . packageSet
 
 nvfetcherConfig = def
 
-packageSet = do
+papareArguments :: IO PkgSetArg
+papareArguments = do
+     UTCTime { utctDay } <- getCurrentTime
+     pure $ PkgSetArg { date = fromString $ showGregorian utctDay
+                      }
+
+packageSet (PkgSetArg {..}) = do
   define $ package "fcitx5-material-color"
       `sourceGit` "https://github.com/hosxy/fcitx5-material-color"
       `fetchGitHub` ("hosxy", "fcitx5-material-color")
@@ -35,7 +47,7 @@ packageSet = do
       `fetchGitHub` ("gkovacs", "rime-japanese")
 
   define $ package "background-image"
-      `sourceManual` "20220515"
+      `sourceManual` date
       `fetchUrl` const "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
 
   define $ package "aria-ng"
@@ -50,7 +62,7 @@ packageSet = do
   define $ package "sddm-chili" `fromGitHub` ("MarianArlt", "sddm-chili")
 
   define $ package "vonfry-icon"
-      `sourceManual` "20220515"
+      `sourceManual` date
       `fetchUrl` const "https://vonfry.name/static/images/default/logo-white.png";
 
   define $ package "fortune-chinese"
