@@ -2,7 +2,7 @@ echo_info "* system"
 case "$(unname)" in
     "Linux")
         $runscript /etc/os-release
-        sudo ln -f -s $script_dir/etc/issue /etc/issue
+        doas ln -f -s $script_dir/etc/issue /etc/issue
         case "$(ID)" in
             "nixos")
                 $runscript $script_dir/setup/os/nixos.sh
