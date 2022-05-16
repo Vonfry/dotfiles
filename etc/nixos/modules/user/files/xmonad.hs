@@ -148,13 +148,12 @@ myKeys conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn $ terminal conf             )
-    , ("M-C-<Return>", spawn "pcmanfm"                   )
-    , ("M-S-<Return>", spawn "emacsclient -c"            )
-    , ("M-S-c"       , kill                              )
-    , ("M-C-<Space>" , setLayout $ layoutHook conf       )
-    , ("M-S-<Space>" , sendMessage NextLayout            )
-    , ("M-r"         , refresh                           )
+    , ("M-<Return>"  , spawn $ terminal conf      )
+    , ("M-S-<Return>", spawn "emacsclient -c"     )
+    , ("M-S-c"       , kill                       )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf)
+    , ("M-S-<Space>" , sendMessage NextLayout     )
+    , ("M-r"         , refresh                    )
 
     -- move focus up or down the window stack
     , ("M-<Tab>"    , windows focusDown  )
