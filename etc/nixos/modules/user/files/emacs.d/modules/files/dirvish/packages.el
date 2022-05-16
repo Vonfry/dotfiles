@@ -8,5 +8,15 @@
   (dirvish-override-dired-mode 1)
   :general
   (nmap-leader
-    "D" 'dirvish
-    "d" 'dirvish-dired))
+    "d"   'dirvish-dwim
+    "D d" 'dirvish
+    "D D" 'dirvish-dired))
+
+(use-package dirvish-side :after dirvish
+  :general
+  (nmap-leader
+    "D t" 'dirvish-side))
+
+(use-package dirvish-vc :after (magit dirvish))
+
+(use-package dirvish-extras :after dirvish)
