@@ -33,11 +33,12 @@
   (telega-online-status-function 'telega-focus-state)
   (telega-completing-read-function 'ivy-completing-read)
   :hook
-  (server-after-make-frame .
-    (lambda (&rest _)
-      (dolist (symbl '(telega-use-images telega-emoji-font-family
-                       telega-emoji-use-images telega-online-status-function))
-        (set symbl (eval (car (get symbl 'standard-value)))))))
+  ((telega-load . telega-notifications-mode)
+   (server-after-make-frame .
+     (lambda (&rest _)
+       (dolist (symbl '(telega-use-images telega-emoji-font-family
+                        telega-emoji-use-images telega-online-status-function))
+         (set symbl (eval (car (get symbl 'standard-value))))))))
   :general
   (nmap-at
     "t" telega-prefix-map))
