@@ -22,7 +22,7 @@ realConfig = def
     , focusFollowsMouse  = True
     , focusedBorderColor = Color.purple
     , normalBorderColor  = Color.comment
-    , borderWidth        = 1
+    , borderWidth        = 2
     , workspaces         = [ "home", "doc", "web", "taichi", "misc", "bg", "vm",
                              "magic", "play"
                            ]

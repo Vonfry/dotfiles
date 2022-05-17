@@ -236,17 +236,18 @@ key conf = mkKeymap conf
     ]
 
 promptConfig = def
-    { font            = C.font
-    , searchPredicate = fuzzyMatch
-    , sorter          = fuzzySort
-    , bgColor         = Color.background
-    , fgColor         = Color.foreground
-    , bgHLight        = Color.yellow
-    , fgHLight        = Color.selection
-    , borderColor     = Color.purple
-    , autoComplete    = Just $ 2 * 10 ^ 5 -- use this to avoid pass unwill
-                                          -- key to applications
-    , height          = 30
+    { font              = C.font
+    , searchPredicate   = fuzzyMatch
+    , sorter            = fuzzySort
+    , bgColor           = Color.background
+    , fgColor           = Color.foreground
+    , bgHLight          = Color.yellow
+    , fgHLight          = Color.selection
+    , borderColor       = Color.purple
+    , promptBorderWidth = 2
+    -- use this to avoid pass unexpected key to applications
+    , autoComplete      = Just $ 2 * 10 ^ 5
+    , height            = 30
     }
 
 promptConfigNoAc = promptConfig { autoComplete = Nothing }
@@ -254,6 +255,7 @@ promptConfigNoAc = promptConfig { autoComplete = Nothing }
 emConfig = def { txtCol      = Color.foreground
                , bgCol       = Color.background
                , borderCol   = Color.purple
+               , borderPx    = 2
                , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
                                         xK_h, xK_t, xK_n, xK_s]
                , cancelKey   = xK_q
