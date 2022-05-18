@@ -65,6 +65,8 @@ import XMonad.Actions.GroupNavigation (nextMatch, Direction(History))
 
 import System.Exit (exitWith, ExitCode(ExitSuccess))
 
+import Data.Function (on)
+
 key conf = mkKeymap conf
     [ ("M-x"  , shellPrompt promptConfig           )
     , ("M-S-x", shellPrompt promptConfigNoAc       )
@@ -205,6 +207,7 @@ key conf = mkKeymap conf
     -- easy motion
     , ("M-g"  , selectWindow emConfig >>= (`whenJust` windows . focusWindow))
     , ("M-S-g", selectWindow emConfig >>= (`whenJust` killWindow))
+    , ("M-C-g", selectWindow emConfig >>= (`whenJust` on (flip (<>)) windows swapMaster . focusWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt promptConfig (windows . view ))
