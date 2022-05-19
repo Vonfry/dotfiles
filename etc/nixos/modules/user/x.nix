@@ -176,6 +176,7 @@ in {
       };
 
       packages = with pkgs; [
+        dragon
         cascadia-code
         sarasa-gothic
         symbola
