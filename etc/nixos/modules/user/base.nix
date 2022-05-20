@@ -75,7 +75,7 @@ in {
     home = {
       username = "vonfry";
       homeDirectory = "/home/vonfry";
-      stateVersion = "21.11";
+      stateVersion = "22.05";
 
       keyboard = {
         variant = "dvp";
