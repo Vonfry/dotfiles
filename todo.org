@@ -1,5 +1,5 @@
 * System
-** NixOS[2/3]
+** NixOS[3/4]
 *** DONE migrate to nixos
     - [X] clean setup script about sed and some local configuration.
     - [X] code nixos module instead of configuration directly
@@ -17,10 +17,11 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-*** TODO update to 22.05[3/4]
+*** DONE update to 22.05[4/4]
+    CLOSED: [2022-05-20 Fri 09:10]
     - [X] remove xmonad overlay
     - [X] remove org override after pr is merged
-    - [ ] [[https://github.com/NixOS/nixpkgs/pull/139075][nix structure config]]
+    - [X] [[https://github.com/NixOS/nixpkgs/pull/139075][nix structure config]]
     - [X] add distrobox
 ** home-manager[4/5]
 *** DONE home-manager instead setup script[22/22]

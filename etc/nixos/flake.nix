@@ -20,13 +20,20 @@
             };
           })
         ];
-        nix.registry = {
-          sys.flake = nixpkgs;
-          sys-unstable.flake = unstable;
-          nixpkgs.flake = nixpkgs;
-          nixpkgs-unstable.flake = unstable;
-          nixos.flake = nixpkgs;
-          nixos-unstable.flake = unstable;
+        nix = {
+          package = pkgs.nixFlakes;
+          registry = {
+            sys.flake = nixpkgs;
+            sys-unstable.flake = unstable;
+            nixpkgs.flake = nixpkgs;
+            nixpkgs-unstable.flake = unstable;
+            nixos.flake = nixpkgs;
+            nixos-unstable.flake = unstable;
+          };
+          extraOptions = ''
+            flake-registry = /etc/nix/registry.json
+            experimental-features = nix-command flakes
+          '';
         };
         _module.args = { inherit flakes; };
       };
