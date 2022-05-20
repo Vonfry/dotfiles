@@ -260,6 +260,7 @@ in {
           smart-tab
           org-roam-ui
           graphviz-dot-mode
+          vundo
         ];
       };
 
