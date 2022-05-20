@@ -1,0 +1,215 @@
+{
+    "aria-ng": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "aria-ng",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-GGIXVQDhWzsU7/jbTrovveTpSKHSqInvFDm/p9k87cM=",
+            "type": "url",
+            "url": "https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3-AllInOne.zip"
+        },
+        "version": "1.2.3"
+    },
+    "background-image": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "background-image",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=",
+            "type": "url",
+            "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
+        },
+        "version": "20220515"
+    },
+    "fcitx5-material-color": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fcitx5-material-color",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hosxy",
+            "repo": "fcitx5-material-color",
+            "rev": "2256feeae48dcc87f19a3cfe98f171862f8fcace",
+            "sha256": "sha256-i9JHIJ+cHLTBZUNzj9Ujl3LIdkCllTWpO1Ta4OT1LTc=",
+            "type": "github"
+        },
+        "version": "2256feeae48dcc87f19a3cfe98f171862f8fcace"
+    },
+    "fcitx5-nord": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fcitx5-nord",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tonyfettes",
+            "repo": "fcitx5-nord",
+            "rev": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1",
+            "sha256": "sha256-qVo/0ivZ5gfUP17G29CAW0MrRFUO0KN1ADl1I/rvchE=",
+            "type": "github"
+        },
+        "version": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1"
+    },
+    "fortune-chinese": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fortune-chinese",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ruanyf",
+            "repo": "fortunes",
+            "rev": "000fb01261e4d119e4e988ce82f49fb8b139fe3c",
+            "sha256": "sha256-O258vnAHQ3RrJnMPmVntmkj+RSfpHsf/YKJcLZd0owc=",
+            "type": "github"
+        },
+        "version": "000fb01261e4d119e4e988ce82f49fb8b139fe3c"
+    },
+    "rime-cangjie": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "rime-cangjie",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rime",
+            "repo": "rime-prelude",
+            "rev": "dd84abecc33f0b05469f1d744e32d2b60b3529e3",
+            "sha256": "sha256-r3jx/iCUOxBFLYhmHEuSFxzmHg8l6vnuONmsjbtBlpM=",
+            "type": "github"
+        },
+        "version": "dd84abecc33f0b05469f1d744e32d2b60b3529e3"
+    },
+    "rime-japanese": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "rime-japanese",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gkovacs",
+            "repo": "rime-japanese",
+            "rev": "189f5e57198ff392518a901ab748beb0b44254f2",
+            "sha256": "sha256-YY5c8slZWpIuCazz6Ltbt813wYxR38xgGY/aqY0DozM=",
+            "type": "github"
+        },
+        "version": "189f5e57198ff392518a901ab748beb0b44254f2"
+    },
+    "rime-prelude": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "rime-prelude",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rime",
+            "repo": "rime-prelude",
+            "rev": "dd84abecc33f0b05469f1d744e32d2b60b3529e3",
+            "sha256": "sha256-r3jx/iCUOxBFLYhmHEuSFxzmHg8l6vnuONmsjbtBlpM=",
+            "type": "github"
+        },
+        "version": "dd84abecc33f0b05469f1d744e32d2b60b3529e3"
+    },
+    "rime-wubi86-jidian": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "rime-wubi86-jidian",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "KyleBing",
+            "repo": "rime-wubi86-jidian",
+            "rev": "e97c079010eb9e4befb3c4edb8ccf73a26b54c60",
+            "sha256": "sha256-3hbtL0TCLeYySQFpACITgPjocdkZoyIORpAHkgtIvVk=",
+            "type": "github"
+        },
+        "version": "e97c079010eb9e4befb3c4edb8ccf73a26b54c60"
+    },
+    "sddm-chili": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sddm-chili",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "MarianArlt",
+            "repo": "sddm-chili",
+            "rev": "0.1.5",
+            "sha256": "sha256-wxWsdRGC59YzDcSopDRzxg8TfjjmA3LHrdWjepTuzgw=",
+            "type": "github"
+        },
+        "version": "0.1.5"
+    },
+    "sddm-slice": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "sddm-slice",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "RadRussianRus",
+            "repo": "sddm-slice",
+            "rev": "1.5.1",
+            "sha256": "sha256-1AxRM2kHOzqjogYjFXqM2Zm8G3aUiRsdPDCYTxxQTyw=",
+            "type": "github"
+        },
+        "version": "1.5.1"
+    },
+    "vonfry-icon": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vonfry-icon",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "0000000000000000000000000000000000000000000000000000",
+            "type": "url",
+            "url": "https://vonfry.name/static/images/default/logo-white.png"
+        },
+        "version": "20220515"
+    }
+}
