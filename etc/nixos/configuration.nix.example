@@ -96,6 +96,7 @@
   #   allowedTCPPorts = [ ];
   #   allowedTCPPortRanges = [
   #     { from = 5900; to = 5902; } # vnc
+  #     { from = 8000; to = 8100; } # for some temporary public service 
   #   ];
   #   allowedUDPPorts = [ ];
   #   allowedTCPPortRanges = [];

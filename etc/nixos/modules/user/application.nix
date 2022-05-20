@@ -95,7 +95,6 @@ in {
         fortune cmatrix figlet
 
         hledger
-        pcmanfm
         flameshot feh
         pavucontrol
         libreoffice

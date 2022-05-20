@@ -177,7 +177,7 @@ in {
 
       packages = with pkgs; [
         dragon
-        cascadia-code
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf

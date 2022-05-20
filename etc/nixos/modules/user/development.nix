@@ -223,7 +223,7 @@ in {
           yasnippet-snippets
           info-colors
           dumb-jump
-          ranger
+          dirvish
           avy
           ace-window
           which-key
