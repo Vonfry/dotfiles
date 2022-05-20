@@ -320,14 +320,15 @@ in {
 
         gitAndTools.gitflow gitAndTools.git-extras
 
-        nixfmt
-
         tokei zeal
 
         pandoc
 
         graphviz
 
+        distrobox
+
+        nixfmt
         rnix-lsp nixpkgs-review nix-prefetch-scripts
       ];
 

@@ -5,9 +5,10 @@
     - [X] code nixos module instead of configuration directly
 *** DONE podman replaces docker
     CLOSED: [2021-06-02 Wed 14:07]
-*** TODO X [9/10]
+*** TODO X [10/11]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
+    - [X] XMonad by custom lib
     - [X] alacritty
     - [X] alacritty color scheme fix
     - [ ] use wayland instead
@@ -16,11 +17,11 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-*** TODO update to 22.05[1/4]
-    - [ ] remove xmonad overlay
+*** TODO update to 22.05[3/4]
+    - [X] remove xmonad overlay
     - [X] remove org override after pr is merged
     - [ ] [[https://github.com/NixOS/nixpkgs/pull/139075][nix structure config]]
-    - [ ] add distrobox
+    - [X] add distrobox
 ** home-manager[4/5]
 *** DONE home-manager instead setup script[22/22]
     CLOSED: [2020-11-26 Thu 14:04]
@@ -85,6 +86,7 @@
 **** DONE envrc instead of direnv.el
 **** CANCELLED ob-gnuplot and gnuplot(build failed now)
      CLOSED: [2021-05-25 Tue 16:32]
+**** DONE dirvish replaces ranger and file-manager out of emacs
 *** DONE replace undo-tree with emacs 28 builtin's one.
     CLOSED: [2021-12-12 Sun 15:03]
 *** DONE merge to new ebib options
