@@ -10,7 +10,6 @@
   (projectile-file-exists-local-cache-expire (* 7 24 60))
   (projectile-known-projects-file
    (expand-file-name "projectile" vonfry-local-dir))
-  (projectile-completion-system 'ivy)
   (projectile-cache-file (expand-file-name "projectile" vonfry-cache-dir))
   (projectile-tags-command "ctags -R --fields=+latinKS --extra=+qf .")
   :general
