@@ -5,8 +5,8 @@
   :custom
   (prefix-help-command 'embark-prefix-help-command)
   :general
-  ("C-[" 'embark-act
-   "C-{" 'embark-dwim))
+  ("M-o" 'embark-act
+   "M-O" 'embark-dwim))
 
 (use-package embark-consult
   :after (embark consult)

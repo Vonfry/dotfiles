@@ -2,6 +2,7 @@
 ;;
 
 (use-package consult
+  :hook (completion-list-mode . consult-preview-at-point-mode)
   :custom
   (xref-show-xrefs-function 'consult-xref)
   (xref-show-definitions-function 'consult-xref)
@@ -12,12 +13,11 @@
    "M-e" 'consult-isearch-history
    "M-s e" 'consult-isearch-history
    "M-s l" 'consult-line
-   "M-s L" 'consult-line-multi
-   :keymapsmap 'minibuffer-local-map
-   "M-s" 'consult-history
+   "M-s L" 'consult-line-multi)
+  (:keymaps 'minibuffer-local-map
    "M-r" 'consult-history)
   (nmap-leader
-    "f" 'consult-find
+    "f" 'find-file
     "p" 'consult-locate
     "F" '(:ignore t :which-key "completion misc")
     "F r" 'consult-recentf
