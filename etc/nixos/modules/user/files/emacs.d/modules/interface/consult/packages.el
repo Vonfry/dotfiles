@@ -17,7 +17,6 @@
   (:keymaps 'minibuffer-local-map
    "M-r" 'consult-history)
   (nmap-leader
-    "f" 'find-file
     "p" 'consult-file
     "F" '(:ignore t :which-key "completion misc")
     "F r" 'consult-recentf

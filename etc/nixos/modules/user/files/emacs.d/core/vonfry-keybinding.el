@@ -66,6 +66,7 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (nmap-leader
+    "f"   'find-file
     "M"   '(:ignore t :which-key "bookmarks")
     "M a" 'bookmark-set
     "M A" 'bookmark-set-no-overwrite
