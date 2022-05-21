@@ -4,15 +4,11 @@
 (defun +irc/connect ()
   "connect to server"
   (interactive)
-  (if (fboundp 'ivy-read)
-    (ivy-read "server: "
-              (-map (lambda (l)
+  (let* ((read-alist (-map (lambda (l)
                       `(,(concat (plist-get l :server)
                                  "(" (plist-get l :nick) ")")
                         ,@l))
-                    +irc-connect-list)
-              :require-match t
-              :action
-              (lambda (c)
-                (eval `(erc-tls ,@(cdr c)))))
-    (message "not support")))
+                           +irc-connect-list))
+         (selection (completing-read "server: " read-alist nil t))
+         (sel-val (cdr (assoc selection read-alist))))
+    (apply 'erc-tls sel-val)))

@@ -257,6 +257,7 @@ in {
           embark-consult
           marginalia
           vertico
+          consult-lsp
         ];
       };
 
