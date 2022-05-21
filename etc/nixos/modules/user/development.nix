@@ -128,7 +128,6 @@ in {
           incsearch-vim
           vim-over
           tabular
-          vim-which-key
           ultisnips
           vim-snippets
           nvim-lspconfig
@@ -172,15 +171,7 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          amx
-          flx
           wgrep
-          ivy
-          counsel
-          ivy-avy
-          swiper
-          ivy-rich
-          counsel-tramp
           flycheck
           auctex
           auctex-latexmk
@@ -226,10 +217,8 @@ in {
           dirvish
           avy
           ace-window
-          which-key
           logview
           projectile
-          counsel-projectile
           org-projectile
           ibuffer-vc
           ibuffer-projectile
@@ -261,6 +250,13 @@ in {
           org-roam-ui
           graphviz-dot-mode
           vundo
+          consult
+          orderless
+          embark
+          embark-consult
+          marginalia
+          vertico
+          consult-lsp
         ];
       };
 

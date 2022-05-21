@@ -64,13 +64,10 @@
     "t j" 'org-clock-goto)
   (nvmap-mode :keymaps 'org-mode-map
     "/"   'org-occur
-    "g"   'counsel-org-goto
-    "l"   'counsel-org-link
+    "g"   'org-goto
     "L"   'org-store-link
-    "e"   'counsel-org-entity
-    "@"   'counsel-org-tag
-    "^"   'counsel-org-tag-agenda
-    "#"   'counsel-org-file
+    "@"   'org-set-tags-command
+    "^"   'org-agenda-set-tags
     "T"   'org-tags-view
     "p"   'org-set-property
     ","   'org-priority
@@ -126,7 +123,6 @@
   :after org
   :general
   (nmap-leader :infix "o"
-    "h" 'counsel-org-agenda-headlines
     "a" 'org-agenda
     "A" '+org/find-agenda
     "N" '+org/find-notes

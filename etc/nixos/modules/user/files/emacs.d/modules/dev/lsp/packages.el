@@ -38,9 +38,10 @@
     "="   'lsp-format-region
     "> =" 'align-regexp))
 
-(use-package lsp-ivy
+(use-package consult-lsp
   :after lsp-mode
   :general
   (nmap-leader :keymaps 'lsp-mode-map
-    "&" 'lsp-ivy-workspace-symbol
-    "> &" 'lsp-ivy-global-workspace-symbol))
+    "&" 'consult-lsp-symbols
+    "q" 'consult-lsp-diagnostics
+    "> &" 'consult-lsp-file-symbols))
