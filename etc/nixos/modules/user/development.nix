@@ -254,6 +254,7 @@ in {
           consult
           orderless
           embark
+          embark-consult
           marginalia
           vertico
         ];
