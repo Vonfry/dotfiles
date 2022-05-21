@@ -5,9 +5,8 @@
   :custom
   (prefix-help-command 'embark-prefix-help-command)
   :general
-  ("C-[" 'embark-act)
-  ("C-{" 'embark-dwim)
-  ("C-h B" 'embark-bindings))
+  ("C-[" 'embark-act
+   "C-{" 'embark-dwim))
 
 (use-package embark-consult
   :after (embark consult)
