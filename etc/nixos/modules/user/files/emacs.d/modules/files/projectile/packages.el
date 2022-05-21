@@ -26,6 +26,7 @@
     "P H" 'projectile-find-other-file-other-window
     "P !" 'projectile-run-shell-command-in-root
     "P q" 'projectile-switch-open-project
+    "P p" 'projectile-switch-project
     "P a" 'projectile-add-known-project
     "P x" 'projectile-commander
     "P k" 'projectile-kill-buffers
