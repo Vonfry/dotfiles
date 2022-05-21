@@ -8,3 +8,13 @@
   (vertico-cycle t)
   :config
   (vertico-mode))
+
+(use-package vertico-quick
+  :after vertico
+  :custom
+  (vertico-quick1 "aoeui")
+  (vertico-quick2 "dhtns")
+  :general
+  (:keymaps 'vertico-map
+    "C-'" 'vertico-quick-insert
+    "C-"" 'vertico-quick-exit))
