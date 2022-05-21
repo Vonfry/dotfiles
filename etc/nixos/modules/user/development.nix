@@ -255,6 +255,7 @@ in {
           orderless
           embark
           marginalia
+          vertico
         ];
       };
 

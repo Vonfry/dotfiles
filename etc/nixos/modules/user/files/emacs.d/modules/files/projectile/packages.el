@@ -6,6 +6,7 @@
 
 (use-package projectile
   :custom
+  (consult-project-function (lambda (_) (projectile-project-root)))
   (projectile-enable-caching t)
   (projectile-file-exists-local-cache-expire (* 7 24 60))
   (projectile-known-projects-file
@@ -34,20 +35,6 @@
     "C-c p" 'projectile-command-map)
   :config
   (projectile-global-mode t))
-
-(use-package counsel-projectile
-  :after (projectile counsel)
-  :hook (projectile-mode . counsel-projectile-mode)
-  :general
-  (nmap-leader :keymaps 'projectile-mode-map
-    "p"   'counsel-projectile
-    "a"   'counsel-projectile-rg
-    "P p" 'counsel-projectile-switch-project
-    "P f" 'counsel-projectile-find-file-dwim
-    "P d" 'counsel-projectile-find-dir
-    "P b" 'counsel-projectile-switch-to-buffer
-    "P c" 'counsel-projectile-org-capture
-    "P g" 'counsel-projectile-org-agenda))
 
 (use-package org-projectile
   :after (projectile org org-agenda)

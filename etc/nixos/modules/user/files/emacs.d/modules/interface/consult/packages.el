@@ -18,7 +18,7 @@
    "M-r" 'consult-history)
   (nmap-leader
     "f" 'find-file
-    "p" 'consult-locate
+    "p" 'consult-file
     "F" '(:ignore t :which-key "completion misc")
     "F r" 'consult-recentf
     "F h "'consult-history
