@@ -55,8 +55,6 @@
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
   (nmap-leader :infix "o"
-    ""    '(:ignore t :which-key "notes")
-    "t"   '(:ignore t :which-key "timer/clock")
     "t i" 'org-clock-in-last
     "t o" 'org-clock-out
     "t q" 'org-clock-cancel
@@ -78,7 +76,6 @@
     "m"   'org-refile
     "$"   'org-archive-subtree-default
     "c"   'org-ctrl-c-ctrl-c
-    "C"   '(:ignore t :which-key "clock")
     "C i" 'org-clock-in
     "C I" 'org-clock-in-last
     "C o" 'org-clock-out
@@ -93,7 +90,6 @@
     "G"   'org-id-goto
     "o"   'org-store-link
     "O"   'org-id-store-link
-    "D"   '(:ignore t :which-key "display")
     "D i" 'org-display-inline-images
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
@@ -143,7 +139,6 @@
   (nmap-leader :infix "o"
     "u" 'org-web-tools-read-url-as-org)
   (nmap-mode :keymaps 'org-mode-map
-   "w"   '(:ignore t :which-key "web")
    "w o" 'org-web-tools-read-url-as-org
    "w l" 'org-web-tools-insert-link-for-url
    "w e" 'org-web-tools-insert-web-page-as-entry
@@ -162,7 +157,6 @@
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
   (nmap-leader :infix "o j"
-    ""  '(:ignore t :which-key "journal")
     "n" 'org-journal-new-entry
     "j" 'org-journal-open-next-entry
     "k" 'org-journal-open-previous-entry
@@ -187,7 +181,6 @@
   (nmap-leader :infix "o"
     "n"   'org-roam-node-find
     "C"   'org-roam-capture
-    "R "  '(:ignore t :which-key "org roam")
     "R m" 'org-roam-setup
     "R M" 'org-roam-teardown
     "R i" 'org-roam-node-insert
@@ -195,7 +188,6 @@
     "R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam-buffer-toggle
-    "R "  '(:ignore t :which-key "org roam")
     "R g" 'org-roam-graph
     "R f" 'org-roam-node-find
     "R i" 'org-roam-node-insert))

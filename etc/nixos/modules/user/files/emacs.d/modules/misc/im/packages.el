@@ -12,7 +12,6 @@
   :general
   (nmap-at
     "i"   'erc-switch-to-buffer
-    "I"   '(:ignore t :which-key "irc")
     "I i" '+irc/connect
     "I I" 'erc-tls
     "I l" 'erc-log-enable

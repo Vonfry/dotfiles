@@ -6,8 +6,6 @@
   (project-list-file (expand-file-name "projects" vonfry-local-dir))
   :general
   (nmap-leader
-    "P"   '(:ignore t :which-key "project"))
-  (nmap-leader
     "P !" 'project-shell-command
     "P $" 'project-eshell
     "P f" 'project-find-file

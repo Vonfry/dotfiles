@@ -31,7 +31,6 @@
     "g"   'avy-goto-word-1
     "G"   'avy-goto-word-0
     "J"   'avy-goto-line
-    "j"   '(:ignore t :which-key "avy")
     "j j" 'avy-goto-char-2
     "j l" 'avy-goto-line
     "j /" 'avy-goto-char-timer

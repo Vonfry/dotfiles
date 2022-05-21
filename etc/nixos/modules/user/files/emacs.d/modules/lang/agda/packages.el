@@ -14,7 +14,6 @@
     "."   'agda2-goto-definition-keyboard
     "r"   'agda2-compile
     "{"   'agda2-auto-maybe-all
-    "}"   '(nil :which-key "goal")
     "} ." 'agda2-goal-and-context-and-inferred
     "} ;" 'agda2-goal-and-context-and-checked
     "} t" 'agda2-show-context

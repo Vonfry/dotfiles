@@ -5,7 +5,6 @@
   :hook ((text-mode prog-mode) . origami-mode)
   :general
   (nmap :prefix "z Z"
-    ""  '(:ignore t :which-key "fold")
     "o" 'origami-open-node
     "O" 'origami-open-node-recursively
     "s" 'origami-show-node

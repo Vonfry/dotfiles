@@ -2,7 +2,6 @@
 
 (use-package lsp-mode
   :after yasnippet
-  :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
   (lsp-enable-suggest-server-download nil)
   (lsp-completion-provider :none)
@@ -21,7 +20,6 @@
     "TAB"   'completion-at-point
     "("     'lsp-goto-type-definition
     "?"     'lsp-describe-thing-at-point
-    ">"     '(:ignore t :which-key "lsp ext")
     "> ."   'lsp-find-type-definition
     "> *"   'lsp-rename
     "> r"   'lsp-execute-code-action
@@ -29,7 +27,6 @@
     "> D"   'lsp-describe-session
     "> h"   'lsp-symbol-highlight
     "> ?"   'lsp-document-highlight
-    "> L"   '(:ignore t :which-key "lens")
     "> L L" 'lsp-lens-mode
     "> L s" 'lsp-lens-show
     "> L h" 'lsp-lens-hide
