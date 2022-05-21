@@ -172,15 +172,7 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          amx
-          flx
           wgrep
-          ivy
-          counsel
-          ivy-avy
-          swiper
-          ivy-rich
-          counsel-tramp
           flycheck
           auctex
           auctex-latexmk
@@ -261,6 +253,7 @@ in {
           org-roam-ui
           graphviz-dot-mode
           vundo
+          consult
         ];
       };
 
