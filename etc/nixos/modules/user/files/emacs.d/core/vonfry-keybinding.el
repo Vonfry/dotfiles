@@ -63,6 +63,7 @@
         "b" 'next-buffer)
   (nmap-leader
     "f"   'find-file
+    "x"   'execute-extended-command
     "M a" 'bookmark-set
     "M A" 'bookmark-set-no-overwrite
     "M l" 'bookmark-bmenu-list
