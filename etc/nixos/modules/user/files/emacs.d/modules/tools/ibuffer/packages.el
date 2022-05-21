@@ -28,7 +28,7 @@
   (ibuffer .
     (lambda ()
       (setq ibuffer-filter-groups (append
-                                    (ibuffer-projectile-generate-filter-groups)
+                                    (ibuffer-project-generate-filter-groups)
                                     +org--ibuffer-group
                                     +ibuffer-filter-groups))
       (ibuffer-update nil t)))
@@ -47,5 +47,5 @@
 
 (use-package ibuffer-vc :after ibuffer)
 
-(use-package ibuffer-projectile
-  :after (ibuffer projectile))
+(use-package ibuffer-project
+  :after (ibuffer project))

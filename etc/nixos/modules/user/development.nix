@@ -218,10 +218,7 @@ in {
           avy
           ace-window
           logview
-          projectile
-          org-projectile
           ibuffer-vc
-          ibuffer-projectile
           lsp-mode
           lsp-ivy
           editorconfig
@@ -257,6 +254,8 @@ in {
           marginalia
           vertico
           consult-lsp
+          project
+          ibuffer-project
         ];
       };
 

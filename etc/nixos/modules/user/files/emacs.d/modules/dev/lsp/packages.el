@@ -1,7 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (use-package lsp-mode
-  :after (yasnippet projectile)
+  :after yasnippet
   :hook (lsp-mode . lsp-enable-which-key-integration)
   :custom
   (lsp-enable-suggest-server-download nil)
