@@ -31,7 +31,8 @@
     "y"   'consult-yank-pop
     "m"   'consult-bookmark
     ";"   'consult-imenu
-    ":"   'consult-imenu-multi)
+    ":"   'consult-imenu-multi
+    "/"   'consult-line)
   (nmap-leader :keymaps 'outline-mode-map
     ";" 'consult-outline)
   (nmap-mode :keymaps 'org-mode-map
