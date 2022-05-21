@@ -128,7 +128,6 @@ in {
           incsearch-vim
           vim-over
           tabular
-          vim-which-key
           ultisnips
           vim-snippets
           nvim-lspconfig
@@ -218,7 +217,6 @@ in {
           dirvish
           avy
           ace-window
-          which-key
           logview
           projectile
           counsel-projectile

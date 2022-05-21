@@ -32,7 +32,4 @@ function! vonfry#bundle#interface#config()
 
     " whitespace
     let g:better_whitespace_operator = ''
-
-    " whichkey
-    exec "nmap <silent> <leader> :<c-u>WhichKey '" . g:mapleader . "'<CR>"
 endfunction
