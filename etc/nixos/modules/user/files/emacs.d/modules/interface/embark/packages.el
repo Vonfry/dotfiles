@@ -8,3 +8,8 @@
   ("C-[" 'embark-act)
   ("C-{" 'embark-dwim)
   ("C-h B" 'embark-bindings))
+
+(use-package embark-consult
+  :after (embark consult)
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))

@@ -253,6 +253,8 @@ in {
           vundo
           consult
           orderless
+          embark
+          marginalia
         ];
       };
 
