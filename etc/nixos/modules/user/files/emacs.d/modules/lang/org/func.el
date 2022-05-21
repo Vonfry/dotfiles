@@ -2,13 +2,7 @@
 ;;
 
 (defun +org--find (path)
-  (cond ((and (executable-find "fzf")
-              (fboundp 'counsel-fzf))
-         (counsel-fzf nil path))
-        ((fboundp 'counsel-find-file)
-         (counsel-find-file path))
-        (t (let ((default-directory path))
-             (call-interactively 'find-file)))))
+  (consult-find path))
 
 (defun +org/find-agenda ()
   (interactive)

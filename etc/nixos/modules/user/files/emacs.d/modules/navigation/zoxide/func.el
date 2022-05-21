@@ -3,5 +3,5 @@
 
 (defun +zoxide-fzf ()
   (interactive)
-  (let ((zoxide-find-file-function #'counsel-fzf))
+  (let ((zoxide-find-file-function #'consult-find))
     (zoxide-find-file)))

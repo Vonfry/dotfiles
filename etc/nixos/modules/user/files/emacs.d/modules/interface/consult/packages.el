@@ -21,6 +21,9 @@
     "p" 'consult-file
     "F" '(:ignore t :which-key "completion misc")
     "F r" 'consult-recentf
+    "F f" 'consult-file
+    "F F" 'consult-file-externally
+    "F p" 'consult-locate
     "F h "'consult-history
     "F ?" 'consult-man
     "q"   'consult-flycheck

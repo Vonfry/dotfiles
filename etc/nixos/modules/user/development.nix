@@ -219,7 +219,6 @@ in {
           ace-window
           logview
           projectile
-          counsel-projectile
           org-projectile
           ibuffer-vc
           ibuffer-projectile
