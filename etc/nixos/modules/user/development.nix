@@ -254,6 +254,7 @@ in {
           graphviz-dot-mode
           vundo
           consult
+          orderless
         ];
       };
 
