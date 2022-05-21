@@ -4,6 +4,10 @@
 (dolist (mode '(c-mode-hook c++-mode-hook))
   (add-hook mode 'lsp-deferred))
 
+(nmap-mode :keymaps '(c-mode-map c++-mode-map)
+  "h" 'ff-find-other-file
+  "H" 'ff-find-related-file)
+
 (use-package disaster
   :general
   (nmap-mode :keymaps '(c-mode-map c++-mode-map)
