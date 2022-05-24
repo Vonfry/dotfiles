@@ -4,6 +4,7 @@
 (use-package consult
   :hook (completion-list-mode . consult-preview-at-point-mode)
   :custom
+  (completion-in-region-function #'consult-completion-in-region)
   (xref-show-xrefs-function 'consult-xref)
   (xref-show-definitions-function 'consult-xref)
   (register-preview-delay 0.5)
