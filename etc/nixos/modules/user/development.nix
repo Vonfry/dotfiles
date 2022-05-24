@@ -286,7 +286,6 @@ in {
         enableZshIntegration = true;
         nix-direnv = {
           enable = true;
-          enableFlakes = true; # remove this in features because of it is always supported
         };
         stdlib = ''
           declare -A direnv_layout_dirs
