@@ -1,11 +1,16 @@
-{ sources, writeScriptBin }:
+{ sources, writeScriptBin, runCommandNoCC, unzip }:
 
 let
 
   ngSrc = sources.aria-ng.src;
+  ngDrv = runCommandNoCC "aria-ng" {} ''
+    unzip ${ngSrc}
+    mkdir $out
+    cp index.html $out/index.html
+  '';
   ariaNgOpen = writeScriptBin "aria2-ng-open" ''
     #!/usr/bin/env bash
-    indexpath=${ngSrc}/index.html
+    indexpath=${ngDrv}/index.html
     if [ -n "$BROWSER" ]; then
       $BROWSER $indexpath
     elif [ -n "$(type -P xdg-open)" ]; then
@@ -15,6 +20,6 @@ let
     fi
   '';
 in {
-  inherit ngSrc;
+  aria-ng = ngDrv;
   open = ariaNgOpen;
 }
