@@ -31,9 +31,9 @@
             nixos-unstable.flake = unstable;
           };
           extraOptions = ''
-            flake-registry = /etc/nix/registry.json
-            experimental-features = nix-command flakes
-          '';
+               flake-registry = /etc/nix/registry.json
+               experimental-features = nix-command flakes
+             '';
         };
         _module.args = { inherit flakes; };
       };
