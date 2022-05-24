@@ -17,9 +17,9 @@
   (:keymaps 'minibuffer-local-map
    "M-r" 'consult-history)
   (nmap-leader
-    "p" 'consult-file
+    "p"   'consult-find
     "F r" 'consult-recentf
-    "F f" 'consult-file
+    "F f" 'consult-find
     "F F" 'consult-file-externally
     "F p" 'consult-locate
     "F h "'consult-history
