@@ -46,11 +46,6 @@ in {
       enable = true;
       windowManager.command = ''test -n "$1" && eval "$@"'';
 
-      pointerCursor = {
-        package = pkgs.capitaine-cursors;
-        name = "capitaine-cursors";
-        size = mkDefault 16;
-      };
     };
 
     services = {
@@ -173,6 +168,13 @@ in {
           source = ./files/xmonad;
           recursive = true;
         };
+      };
+
+      pointerCursor = {
+        package = pkgs.capitaine-cursors;
+        name = "capitaine-cursors";
+        x11.enable = true;
+        size = mkDefault 16;
       };
 
       packages = with pkgs; [
