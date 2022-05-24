@@ -52,13 +52,13 @@
   };
   rime-cangjie = {
     pname = "rime-cangjie";
-    version = "dd84abecc33f0b05469f1d744e32d2b60b3529e3";
+    version = "8dfad9e537f18821b71ba28773315d9c670ae245";
     src = fetchFromGitHub ({
       owner = "rime";
-      repo = "rime-prelude";
-      rev = "dd84abecc33f0b05469f1d744e32d2b60b3529e3";
+      repo = "rime-cangjie";
+      rev = "8dfad9e537f18821b71ba28773315d9c670ae245";
       fetchSubmodules = false;
-      sha256 = "sha256-r3jx/iCUOxBFLYhmHEuSFxzmHg8l6vnuONmsjbtBlpM=";
+      sha256 = "fmWGgYqWndCpDUV6nzx0zjkcf5AcVeDIYwp0023iMwk=";
     });
   };
   rime-japanese = {
@@ -120,8 +120,8 @@
     pname = "vonfry-icon";
     version = "20220515";
     src = fetchurl {
-      url = "https://vonfry.name/static/images/default/logo-white.png";
-      sha256 = "0000000000000000000000000000000000000000000000000000";
+      url = "https://vonfry.name/images/default/logo-white.png";
+      sha256 = "0v8jxfx72c0ri1g5gai5s9k54shn7cgrnlyfwkdan7xrwkn5zdg7";
     };
   };
 }
