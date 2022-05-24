@@ -39,8 +39,8 @@ packageSet (PkgSetArg {..}) = do
       `sourceGit` "https://github.com/rime/rime-prelude"
       `fetchGitHub` ("rime", "rime-prelude")
   define $ package "rime-cangjie"
-      `sourceGit` "https://github.com/rime/rime-prelude"
-      `fetchGitHub` ("rime", "rime-prelude")
+      `sourceGit` "https://github.com/rime/rime-cangjie"
+      `fetchGitHub` ("rime", "rime-cangjie")
   define $ package "rime-wubi86-jidian"
       `sourceGit` "https://github.com/KyleBing/rime-wubi86-jidian"
       `fetchGitHub` ("KyleBing", "rime-wubi86-jidian")
