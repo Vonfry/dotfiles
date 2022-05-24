@@ -3,7 +3,7 @@
 let
 
   ngSrc = sources.aria-ng.src;
-  ngDrv = runCommandNoCC "aria-ng" {} ''
+  ngDrv = runCommandNoCC "aria-ng" { buildInputs = [ unzip ]; } ''
     unzip ${ngSrc}
     mkdir $out
     cp index.html $out/index.html
