@@ -10,20 +10,20 @@ let
 
   syncModules = with pkgs; writeScriptBin "nixos-sync-modules" ''
     #!/usr/bin/env bash
-    doas rsync --delete -auP ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
+    doas rsync --delete -auPL ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
   '';
 
   syncLocal = with pkgs; writeScriptBin "nixos-sync-local" ''
     #!/usr/bin/env bash
     ${optionalString hasCloud ''
-      doas rsync -auP ${CLOUD_DIR}/dotfiles/etc/nixos/local/ /etc/nixos/local/
-      doas rsync -auP ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ /etc/nixos/local/
+      doas rsync -auPL ${CLOUD_DIR}/dotfiles/etc/nixos/local/ /etc/nixos/local/
+      doas rsync -auPL ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ /etc/nixos/local/vonfry
     ''}
   '';
 
   syncFlake = with pkgs; writeScriptBin "nixos-sync-flake" ''
     #!/usr/bin/env bash
-    doas rsync -auP ${DOTFILES_DIR}/etc/nixos/flake.* /etc/nixos/
+    doas rsync -auPL ${DOTFILES_DIR}/etc/nixos/flake.* /etc/nixos/
   '';
 
   syncNixOS = with pkgs; writeScriptBin "nixos-sync" ''

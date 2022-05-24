@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-21.11";
-    home-manager.url = "github:nix-community/home-manager/release-21.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
+    home-manager.url = "github:nix-community/home-manager";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
@@ -20,16 +20,26 @@
             };
           })
         ];
-        nix.registry = {
-          sys.flake = nixpkgs;
-          sys-unstable.flake = unstable;
-          nixpkgs.flake = nixpkgs;
-          nixpkgs-unstable.flake = unstable;
-          nixos.flake = nixpkgs;
-          nixos-unstable.flake = unstable;
+        nix = {
+          package = pkgs.nixFlakes;
+          registry = {
+            sys.flake = nixpkgs;
+            sys-unstable.flake = unstable;
+            nixpkgs.flake = nixpkgs;
+            nixpkgs-unstable.flake = unstable;
+            nixos.flake = nixpkgs;
+            nixos-unstable.flake = unstable;
+          };
+          extraOptions = ''
+            flake-registry = /etc/nix/registry.json
+            experimental-features = nix-command flakes
+          '';
         };
         _module.args = { inherit flakes; };
       };
+
+      pkgs = nixpkgs.legacyPackages.${localSystem};
+      ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
     in {
       inherit overlay;
       nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
@@ -39,6 +49,10 @@
           home-manager.nixosModules.home-manager
           ./configuration.nix
         ];
+      };
+
+      devShell.${localSystem} = pkgs.mkShell {
+          packages = [ ghcWith ];
       };
     };
 }

@@ -18,7 +18,6 @@
     "r"   'run-haskell
     "."   'haskell-mode-jump-to-def
     "h"   'hoogle
-    "q"   '(:ignore t :which-key "query")
     "q l" 'haskell-hoogle-lookup-from-local
     "q e" 'engine/search-hoogle
     "q s" 'haskell-hoogle-start-server
@@ -45,7 +44,6 @@
   :ensure nil
   :general
   (nmap-mode :keymaps 'haskell-mode-map
-    "p"   '(:ignore t :which-key "process")
     "p l" 'haskell-process-load-or-reload
     "p t" 'haskell-process-do-type
     "p i" 'haskell-process-do-info

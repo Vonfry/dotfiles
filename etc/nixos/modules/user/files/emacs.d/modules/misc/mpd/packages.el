@@ -4,7 +4,6 @@
 (use-package mpdel
   :general
   (nmap-at
-    "m"     '(:ignore t :which-key "mpd")
     "m m"   'mpdel-mode
     "m SPC" 'libmpdel-playback-play-pause
     "m p"   'libmpdel-playback-play-pause

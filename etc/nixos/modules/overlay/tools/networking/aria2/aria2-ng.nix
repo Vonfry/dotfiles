@@ -1,16 +1,16 @@
-{ fetchzip, writeScriptBin }:
+{ sources, writeScriptBin, runCommandNoCC, unzip }:
 
 let
-  version = "1.2.3";
-  ariaNg = fetchzip {
-    url = "https://github.com/mayswind/AriaNg/releases/download/${version}/AriaNg-${version}-AllInOne.zip";
-    sha256 = "0lx7xykq74xg64323bfqsar87d002rz25y7a03glaw6j8cj0hr1x";
-    stripRoot = false;
-  };
 
+  ngSrc = sources.aria-ng.src;
+  ngDrv = runCommandNoCC "aria-ng" { buildInputs = [ unzip ]; } ''
+    unzip ${ngSrc}
+    mkdir $out
+    cp index.html $out/index.html
+  '';
   ariaNgOpen = writeScriptBin "aria2-ng-open" ''
     #!/usr/bin/env bash
-    indexpath=${ariaNg}/index.html
+    indexpath=${ngDrv}/index.html
     if [ -n "$BROWSER" ]; then
       $BROWSER $indexpath
     elif [ -n "$(type -P xdg-open)" ]; then
@@ -20,6 +20,6 @@ let
     fi
   '';
 in {
-  ngSrc = ariaNg;
+  aria-ng = ngDrv;
   open = ariaNgOpen;
 }

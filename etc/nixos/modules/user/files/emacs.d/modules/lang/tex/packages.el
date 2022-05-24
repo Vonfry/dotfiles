@@ -68,23 +68,19 @@
     "i"       'LaTeX-insert-item
     "s"       'LaTeX-section
     "f"       'TeX-font
-    "F"       '(nil :which-key "fill")
     "F e"     'LaTeX-fill-environment
     "F p"     'LaTeX-fill-paragraph
     "F s"     'LaTeX-fill-section
-    "p"       '(nil :which-key "preview")
     "p b"     'preview-buffer
     "p c"     'preview-clearout
     "p d"     'preview-document
     "p e"     'preview-environment
     "p f"     'preview-cache-preamble
     "p s"     'preview-section
-    "z"       '(nil :which-key "fold")
     "z ="     'TeX-fold-math
     "z b"     'TeX-fold-buffer
     "z e"     'TeX-fold-env
     "z m"     'TeX-fold-macro
-    "r"       '(nil :which-key "reftex")
     "r c"     'reftex-citation
     "r g"     'reftex-grep-document
     "r i"     'reftex-index-selection-or-word
@@ -103,13 +99,3 @@
     "p r"     'preview-region
     "z r"     'TeX-fold-region
     ";"       'TeX-comment-or-uncomment-region))
-
-(use-package auctex-latexmk
-  :after latex
-  :custom
-  (auctex-latexmk-inherit-TeX-PDF-mode t)
-  (TeX-command-default "LatexMk")
-  (TeX-command TeX-command-default)
-  :config
-  (auctex-latexmk-setup))
-

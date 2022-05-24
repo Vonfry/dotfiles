@@ -4,6 +4,5 @@
 (winner-mode t)
 
 (nmap-leader
-  "W"   '(:ignore t :which-key "winner")
   "W r" 'winner-redo
   "W u" 'winner-undo)

@@ -42,10 +42,6 @@
   (vonfry--keybind-definer vmap)
   (vonfry--keybind-definer nvmap)
 
-  (nmap-leader "" '(:ignore t :which-key "leader"))
-  (nmap-mode   "" '(:ignore t :which-key "mode special"))
-  (nmap-at     "" '(:ignore t :which-key "web/mail/contacts/.."))
-
   (nmap-leader "Z" 'vonfry/next-theme)
   (nmap-leader "' d" 'vonfry/insert-current-date))
 
@@ -66,7 +62,8 @@
         "B" 'previous-buffer
         "b" 'next-buffer)
   (nmap-leader
-    "M"   '(:ignore t :which-key "bookmarks")
+    "f"   'find-file
+    "x"   'execute-extended-command
     "M a" 'bookmark-set
     "M A" 'bookmark-set-no-overwrite
     "M l" 'bookmark-bmenu-list
@@ -82,7 +79,6 @@
     "L"   'proced
     "O"   'calendar
     "_"   '+evil/switch-scratch
-    "e"   '(:ignore t :which-key "emacs")
     "e s" 'server-start
     "e c" 'clean-buffer-list
     "e #" 'server-edit

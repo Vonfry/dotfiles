@@ -6,7 +6,6 @@
   (password-store-password-length 32)
   :general
   (nmap-at
-    "p"   '(:ignore t :which-key "pass")
     "p y" 'password-store-copy
     "p c" 'password-store-clear
     "p s" 'password-store-init

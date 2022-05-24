@@ -54,6 +54,7 @@ in {
       zoxide = {
         enable = true;
         enableZshIntegration = true;
+        options = [ "--cmd j" ];
       };
 
       bash.enable = true; # make some script can load hm-sessions.
@@ -79,7 +80,7 @@ in {
 
         initExtra = with pkgs; ''
           setopt nomatch
-          setopt extendedglob
+          setopt extended_glob
           setopt rm_star_silent
           setopt clobber
           setopt combining_chars

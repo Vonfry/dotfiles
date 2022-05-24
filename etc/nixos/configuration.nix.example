@@ -10,7 +10,7 @@
 
   vonfry = {
     enable = true;
-    user.extraConfig = {
+    userConfiguration = {
       openssh.authorizedKeys.keys = [];
     };
 
@@ -18,8 +18,8 @@
       zerotierNets = [];
     };
 
-    hmConfig =
-      { config, pkgs, lib, ... }:
+    homeConfiguration =
+      [({ config, pkgs, lib, ... }:
 
       {
         # sessionVariables must be set after creating these directories.
@@ -44,7 +44,7 @@
           development = {
             git.signKey = "";
             emacs.preCustom = ''
-              (setq-default easy-jekyll-basedir (expand-file-name (getenv "CLONE_LIB") "website")
+              (setq-default easy-hugo-basedir (expand-file-name (getenv "CLONE_LIB") "website")
                             enable-local-variables :all
                             enable-local-eval t
               )
@@ -57,7 +57,7 @@
                     ./local/emacs.nix
                     ./local/mirror-config.nix
                   ];
-      };
+      })];
   };
 
   # default nrBuildUsers is same as maxJobs or 32. You may set this variables
@@ -80,6 +80,12 @@
   # services.fprintd.enable = true;
   # services.hardware.bolt.enable = true;
 
+  # For windows 11 the support of secure boot for ovmf and tpm are needed. 
+  # virtualisation.libvirtd.qemu = {
+  #   swtpm.enable = true;
+  #   ovmf.package = pkgs.OVMFFull;
+  # };
+
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.networkmanager.enable = false;
 
@@ -90,6 +96,7 @@
   #   allowedTCPPorts = [ ];
   #   allowedTCPPortRanges = [
   #     { from = 5900; to = 5902; } # vnc
+  #     { from = 8000; to = 8100; } # for some temporary public service 
   #   ];
   #   allowedUDPPorts = [ ];
   #   allowedTCPPortRanges = [];

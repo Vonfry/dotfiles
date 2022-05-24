@@ -28,7 +28,3 @@
 
 (use-package gitlab-ci-mode)
 
-(use-package forge
-  :after magit
-  :custom
-  (forge-database-file (expand-file-name "forge" vonfry-local-dir)))

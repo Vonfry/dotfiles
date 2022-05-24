@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite perl bundler jekyll agda ];
+    paths = [ sqlite perl hugo agda ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -23,7 +23,7 @@ let
 
   sessions = config.home.sessionVariables;
   inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
-  inherit (config.xdg) configHome;
+  inherit (config.xdg) configHome dataHome;
 
   hasOrg = sessions ? "ORG_DIR";
   hasCloud = sessions ? "CLOUD_DIR";
@@ -41,7 +41,7 @@ let
       $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs.d/modules/private/
     fi
 
-    [ -h ${toString configHome}/emacs.d/local/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
+    [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
   '';
 in {
   options.vonfry.development = {
@@ -84,15 +84,15 @@ in {
         };
 
         "emacs.d/local/pre-custom.el".text =
-          (concatStringsSep "\n" [
+          concatStringsSep "\n" [
             ''
             (setq-default
               vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
                 cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
-          ''
+            ''
             cfg.emacs.preCustom
-          ]);
+          ];
 
         "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
       };
@@ -128,7 +128,6 @@ in {
           incsearch-vim
           vim-over
           tabular
-          vim-which-key
           ultisnips
           vim-snippets
           nvim-lspconfig
@@ -158,9 +157,6 @@ in {
       emacs =  {
         package = pkgs.emacsUnstable;
         enable = true;
-        overrides = self: super: {
-          org = self.elpaPackages.org;
-        };
         extraPackages = epkgs: with epkgs; [
           all-the-icons
           solarized-theme
@@ -175,18 +171,9 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          amx
-          flx
           wgrep
-          ivy
-          counsel
-          ivy-avy
-          swiper
-          ivy-rich
-          counsel-tramp
           flycheck
           auctex
-          auctex-latexmk
           dashboard
           proof-general
           python-mode
@@ -205,14 +192,13 @@ in {
           haskell-mode
           lsp-haskell
           haskell-snippets
-          easy-jekyll
+          easy-hugo
           json-mode
           yaml-mode
           magit
           git-modes
           magit-gitflow
           gitlab-ci-mode
-          forge
           diff-hl
           disaster
           cmake-mode
@@ -226,16 +212,11 @@ in {
           yasnippet-snippets
           info-colors
           dumb-jump
-          ranger
+          dirvish
           avy
           ace-window
-          which-key
           logview
-          projectile
-          counsel-projectile
-          org-projectile
           ibuffer-vc
-          ibuffer-projectile
           lsp-mode
           lsp-ivy
           editorconfig
@@ -262,6 +243,17 @@ in {
           zoxide
           smart-tab
           org-roam-ui
+          graphviz-dot-mode
+          vundo
+          consult
+          orderless
+          embark
+          embark-consult
+          marginalia
+          vertico
+          consult-lsp
+          project
+          ibuffer-project
         ];
       };
 
@@ -292,7 +284,6 @@ in {
         enableZshIntegration = true;
         nix-direnv = {
           enable = true;
-          enableFlakes = true; # remove this in features because of it is always supported
         };
         stdlib = ''
           declare -A direnv_layout_dirs
@@ -321,14 +312,15 @@ in {
 
         gitAndTools.gitflow gitAndTools.git-extras
 
-        nixfmt
-
         tokei zeal
 
         pandoc
 
         graphviz
 
+        distrobox
+
+        nixfmt
         rnix-lsp nixpkgs-review nix-prefetch-scripts
       ];
 

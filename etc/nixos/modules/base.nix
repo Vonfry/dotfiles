@@ -24,31 +24,31 @@ in {
     ];
 
     nix = {
-      package = pkgs.nixFlakes;
       optimise.automatic = true;
-      trustedUsers = [ "root" "@wheel" ];
-      buildCores = 0;
-      maxJobs = mkDefault "auto";
+      settings = {
+        trusted-users = [ "root" "@wheel" ];
+        cores = 0;
+        max-jobs = mkDefault "auto";
+        auto-optimise-store = true;
+        trusted-public-keys = [
+          "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+        substituters = lib.mkBefore [
+          "https://nixos-cn.cachix.org"
+          "https://nix-community.cachix.org"
+        ];
+      };
       gc = {
         automatic = mkDefault true;
         options = "--delete-older-than 14d";
         dates = "Sun 19:00";
       };
       extraOptions = ''
-        experimental-features = nix-command flakes
         keep-outputs = true
         keep-derivations = true
-        flake-registry = /etc/nix/registry.json
       '';
 
-      binaryCachePublicKeys = lib.mkBefore [
-        "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-      binaryCaches = lib.mkBefore [
-        "https://nixos-cn.cachix.org"
-        "https://nix-community.cachix.org"
-      ];
     };
 
     nixpkgs.config = import ./user/files/nixpkgs.nix;
@@ -84,6 +84,6 @@ in {
       };
     };
 
-    system.stateVersion = "21.11";
+    system.stateVersion = "22.05";
   };
 }

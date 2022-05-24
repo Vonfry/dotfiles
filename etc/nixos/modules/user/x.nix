@@ -3,6 +3,7 @@
 with lib;
 let
   cfg = config.vonfry;
+  cfg' = config.vonfry.x;
 
   inherit (config.home) homeDirectory;
 
@@ -10,6 +11,12 @@ let
 
   defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
 in {
+  options.vonfry.x.bgFile = mkOption {
+    default = defaultBgFile;
+    type = types.path;
+    description = "The background file.";
+  };
+
   config = mkIf cfg.enable {
     # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
     # GTK needs dbus with dconf
@@ -39,11 +46,6 @@ in {
       enable = true;
       windowManager.command = ''test -n "$1" && eval "$@"'';
 
-      pointerCursor = {
-        package = pkgs.capitaine-cursors;
-        name = "capitaine-cursors";
-        size = mkDefault 16;
-      };
     };
 
     services = {
@@ -158,15 +160,26 @@ in {
 
     home = {
       activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
-        [ -h "${bgFile}" ] || ln -s ${defaultBgFile} ${bgFile}
+        [ -h "${bgFile}" ] || ln -s ${cfg'.bgFile} ${bgFile}
       '';
 
       file = {
-        ".xmonad/xmonad.hs".source = ./files/xmonad.hs;
+        ".xmonad" = {
+          source = ./files/xmonad;
+          recursive = true;
+        };
+      };
+
+      pointerCursor = {
+        package = pkgs.capitaine-cursors;
+        name = "capitaine-cursors";
+        x11.enable = true;
+        size = mkDefault 16;
       };
 
       packages = with pkgs; [
-        hack-font
+        dragon
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf

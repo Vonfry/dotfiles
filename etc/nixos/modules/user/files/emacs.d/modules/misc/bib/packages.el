@@ -18,7 +18,6 @@
     "E" 'ebib
     "e" '+bib/ebib-current)
   (nmap-mode :keymaps '(org-mode-map TeX-mode-map)
-    "["   '(:ignore t :which-key "bib")
     "[ [" 'ebib
     "[ &" 'ebib-insert-citation)
   ;; These has confliction with evil

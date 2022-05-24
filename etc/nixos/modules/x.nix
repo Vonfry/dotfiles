@@ -52,6 +52,8 @@ in {
         mouse.accelProfile = "flat";
       };
 
+      desktopManager.runXdgAutostartIfNone = true;
+
       displayManager= {
         sddm = {
           enable = true;
@@ -64,56 +66,6 @@ in {
           enableContribAndExtras = true;
         };
       };
-    };
-
-    nixpkgs = {
-      overlays = [(self: super:  {
-        haskellPackages = super.haskellPackages.override (old: {
-          overrides = self.lib.composeExtensions (old.overrides or (_: _: {}))
-            (hself: hsuper: {
-              xmonad =
-                super.haskell.lib.appendPatch hsuper.xmonad_0_17_0
-                  (pkgs.writeText "xmonad-nix.patch" ''
-                      diff --git a/src/XMonad/Core.hs b/src/XMonad/Core.hs
-                      index 46a0939..92af53d 100644
-                      --- a/src/XMonad/Core.hs
-                      +++ b/src/XMonad/Core.hs
-                      @@ -46,6 +46,7 @@ import Data.Traversable (for)
-                       import Data.Time.Clock (UTCTime)
-                       import Data.Default.Class
-                       import Data.List (isInfixOf)
-                      +import System.Environment (lookupEnv)
-                       import System.FilePath
-                       import System.IO
-                       import System.Info
-                      @@ -458,7 +459,8 @@ xfork x = io . forkProcess . finally nullStdin $ do
-                       -- | Use @xmessage@ to show information to the user.
-                       xmessage :: MonadIO m => String -> m ()
-                       xmessage msg = void . xfork $ do
-                      -    executeFile "xmessage" True
-                      +    xmessageBin <- fromMaybe "xmessage" <$> liftIO (lookupEnv "XMONAD_XMESSAGE")
-                      +    executeFile xmessageBin True
-                               [ "-default", "okay"
-                               , "-xrm", "*international:true"
-                               , "-xrm", "*fontSet:-*-fixed-medium-r-normal-*-18-*-*-*-*-*-*-*,-*-fixed-*-*-*-*-18-*-*-*-*-*-*-*,-*-*-*-*-*-*-18-*-*-*-*-*-*-*"
-                      @@ -654,8 +656,9 @@ compile dirs method =
-                               bracket (openFile (errFileName dirs) WriteMode) hClose $ \err -> do
-                                   let run = runProc (cfgDir dirs) err
-                                   case method of
-                      -                CompileGhc ->
-                      -                    run "ghc" ghcArgs
-                      +                CompileGhc -> do
-                      +                    ghc <- fromMaybe "ghc" <$> (lookupEnv "NIX_GHC")
-                      +                    run ghc ghcArgs
-                                       CompileStackGhc stackYaml ->
-                                           run "stack" ["build", "--silent", "--stack-yaml", stackYaml] .&&.
-                                           run "stack" ("ghc" : "--stack-yaml" : stackYaml : "--" : ghcArgs)
-                      '');
-              xmonad-contrib = hsuper.xmonad-contrib_0_17_0;
-              xmonad-extras = hsuper.xmonad-extras_0_17_0;
-            });
-        });
-      })];
     };
 
     programs = {
@@ -148,7 +100,7 @@ in {
 
     fonts = {
       fonts = with pkgs; [
-        hack-font
+        recursive
         sarasa-gothic
         symbola
         liberation_ttf
@@ -165,7 +117,7 @@ in {
         # are using. It is suggested as a multiple of 6 or 12.
         # dpi = 96;
         defaultFonts = {
-          monospace = [ "Hack" "Sarasa Mono SC" "Font Awesome 5 Free" ];
+          monospace = [ "Rec Mono Duotone" "Sarasa Mono SC" "Font Awesome 5 Free" ];
           sansSerif = [ "Liberation Sans" "Soruce Han Sans SC" "Font Awesome 5 Free" ];
           serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" "Font Awesome 5 Free" ];
         };

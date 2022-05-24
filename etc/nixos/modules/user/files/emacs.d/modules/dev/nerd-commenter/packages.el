@@ -4,7 +4,6 @@
 (use-package evil-nerd-commenter
   :general
   (nmap-leader :infix "c" :keymaps 'prog-mode-map
-    ""   '(:ignore t :which-key "nerd-commenter")
     "i"  'evilnc-comment-or-uncomment-lines
     "l"  'evilnc-quick-comment-or-uncomment-to-the-line
     "c"  'evilnc-copy-and-comment-lines
