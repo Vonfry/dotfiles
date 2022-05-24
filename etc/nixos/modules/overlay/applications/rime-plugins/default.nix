@@ -1,11 +1,10 @@
-{ pkgs, sources }:
+{ lib, runCommandNoCC, sources }:
 
-with pkgs;
 with lib;
 
 let
   wrap = src:
-    runCommand "rime-${src.name}" {} ''
+    runCommandNoCC "rime-${src.name}" {} ''
       mkdir -p $out/share/rime
       cp ${src}/*.yaml $out/share/rime
       if [ -f ${src}/rime.lua ]; then
@@ -19,11 +18,11 @@ let
 
   gen = src:
     let
-      name = removePrefix "rime-" (getAttr "pname" src);
-      value = wrap src;
+      name = removePrefix "rime-" src.pname;
+      value = wrap src.src;
     in { "${name}" = value; };
 
   pack = with lib;
-    foldr recursiveUpdate {} (map gen srcs.src);
+    foldr recursiveUpdate {} (map gen srcs);
 
 in pack
