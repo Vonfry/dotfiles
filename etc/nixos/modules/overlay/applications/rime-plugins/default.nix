@@ -4,11 +4,11 @@ with lib;
 
 let
   wrap = src:
-    runCommandNoCC "rime-${src.name}" {} ''
+    runCommandNoCC src.pname {} ''
       mkdir -p $out/share/rime
-      cp ${src}/*.yaml $out/share/rime
-      if [ -f ${src}/rime.lua ]; then
-        cp ${src}/rime.lua $out/share/rime
+      cp ${src.src}/*.yaml $out/share/rime
+      if [ -f ${src.src}/rime.lua ]; then
+        cp ${src.src}/rime.lua $out/share/rime
       fi
     '';
 
@@ -19,7 +19,7 @@ let
   gen = src:
     let
       name = removePrefix "rime-" src.pname;
-      value = wrap src.src;
+      value = wrap src;
     in { "${name}" = value; };
 
   pack = with lib;
