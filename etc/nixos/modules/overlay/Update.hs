@@ -1,4 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE NamedFieldPuns    #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 module Update (main) where
 
@@ -63,7 +65,7 @@ packageSet (PkgSetArg {..}) = do
 
   define $ package "vonfry-icon"
       `sourceManual` date
-      `fetchUrl` const "https://vonfry.name/static/images/default/logo-white.png";
+      `fetchUrl` const "https://vonfry.name/images/default/logo-white.png";
 
   define $ package "fortune-chinese"
       `sourceGit` "https://github.com/ruanyf/fortunes.git"
