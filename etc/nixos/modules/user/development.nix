@@ -174,7 +174,6 @@ in {
           wgrep
           flycheck
           auctex
-          auctex-latexmk
           dashboard
           proof-general
           python-mode

@@ -99,13 +99,3 @@
     "p r"     'preview-region
     "z r"     'TeX-fold-region
     ";"       'TeX-comment-or-uncomment-region))
-
-(use-package auctex-latexmk
-  :after latex
-  :custom
-  (auctex-latexmk-inherit-TeX-PDF-mode t)
-  (TeX-command-default "LatexMk")
-  (TeX-command TeX-command-default)
-  :config
-  (auctex-latexmk-setup))
-
