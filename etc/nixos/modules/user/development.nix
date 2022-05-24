@@ -171,7 +171,6 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          wgrep
           flycheck
           auctex
           dashboard
@@ -238,7 +237,7 @@ in {
           org-contrib
           evil-collection
           license-snippets
-          telega
+          melpaPackages.telega
           terminal-here
           zoxide
           smart-tab
