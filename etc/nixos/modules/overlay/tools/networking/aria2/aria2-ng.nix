@@ -1,9 +1,11 @@
-{ source, writeScriptBin }:
+{ sources, writeScriptBin }:
 
 let
+
+  ngSrc = sources.aria-ng.src;
   ariaNgOpen = writeScriptBin "aria2-ng-open" ''
     #!/usr/bin/env bash
-    indexpath=${source}/index.html
+    indexpath=${ngSrc}/index.html
     if [ -n "$BROWSER" ]; then
       $BROWSER $indexpath
     elif [ -n "$(type -P xdg-open)" ]; then
@@ -13,6 +15,6 @@ let
     fi
   '';
 in {
-  ngSrc = source;
+  inherit ngSrc;
   open = ariaNgOpen;
 }

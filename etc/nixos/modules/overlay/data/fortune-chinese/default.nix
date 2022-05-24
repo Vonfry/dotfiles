@@ -1,7 +1,7 @@
 { runCommand, fortune, sources }:
 
 let
-  src = sources.fortune-chinese;
+  inherit (sources.fortune-chinese) src;
 
 in runCommand "fortune-chinese" {} ''
   mkdir -p $out/share/fortunes

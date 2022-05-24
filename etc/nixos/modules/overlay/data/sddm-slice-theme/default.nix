@@ -3,9 +3,7 @@ let
 in
 stdenvNoCC.mkDerivation rec {
   pname = "sddm-slice-theme";
-  inherit (sources.sddm-slice) version;
-
-  src = sources.sddm-slice;
+  inherit (sources.sddm-slice) version src;
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes/slice

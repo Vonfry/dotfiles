@@ -2,9 +2,7 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "chili";
-  inherit (sources.sddm-chili) version;
-
-  src = sources.sddm-chili;
+  inherit (sources.sddm-chili) version src;
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes/chili

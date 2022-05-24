@@ -7,20 +7,20 @@ in {
   vonfryPackages = {
     rimePlugins = callPackage ./applications/rime-plugins { inherit sources; };
 
-    iconFace = sources.vonfry-icon;
+    iconFace = sources.vonfry-icon.src;
 
-    fortuneChinese = callPackage ./data/fortune { inherit sources; };
+    fortuneChinese = callPackage ./data/fortune-chinese { inherit sources; };
 
-    desktopBackground = sources.background-image;
+    desktopBackground = sources.background-image.src;
 
     sddm-chili-theme = callPackage ./data/sddm-chili-theme { inherit sources; };
 
     sddm-slice-theme = callPackage ./data/sddm-slice-theme { inherit sources; };
 
     fcitx5-theme = {
-      material-color = sources.fcitx5-material-color;
+      material-color = sources.fcitx5-material-color.src;
 
-      nord = sources.fcitx5-nord;
+      nord = sources.fcitx5-nord.src;
     };
 
     aria2Ng = callPackage ./tools/networking/aria2/aria2-ng.nix {

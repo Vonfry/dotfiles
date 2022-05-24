@@ -24,6 +24,6 @@ let
     in { "${name}" = value; };
 
   pack = with lib;
-    foldr recursiveUpdate {} (map gen srcs);
+    foldr recursiveUpdate {} (map gen srcs.src);
 
 in pack
