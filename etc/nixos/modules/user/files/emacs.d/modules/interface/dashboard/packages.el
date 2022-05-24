@@ -55,6 +55,7 @@
        "Github"
        "Goto Github"
        (lambda (&rest _) (browse-url "https://github.com/Vonfry"))))))
+  (dashboard-projects-backend 'project-el)
   (dashboard-items '((agenda    . 5)
                      (bookmarks . 5)
                      (projects  . 5)

@@ -16,5 +16,5 @@
   (vertico-quick2 "dhtns")
   :general
   (:keymaps 'vertico-map
-    "C-'" 'vertico-quick-insert
-    "C-"" 'vertico-quick-exit))
+    "C-'"  'vertico-quick-insert
+    "C-\"" 'vertico-quick-exit))
