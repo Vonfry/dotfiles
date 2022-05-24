@@ -18,7 +18,7 @@
    "M-r" 'consult-history)
   (nmap-leader
     "p"   'consult-find
-    "F r" 'consult-recentf
+    "F r" 'consult-recent-file
     "F f" 'consult-find
     "F F" 'consult-file-externally
     "F p" 'consult-locate
