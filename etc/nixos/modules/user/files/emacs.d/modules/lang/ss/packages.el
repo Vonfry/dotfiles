@@ -12,8 +12,7 @@
   :general
   (nmap-mode :keymaps 'ess-mode-map
    "\""    'ess-interrupt
-   "?"     'ess-help
-   "R"     ess-dev-map)
+   "?"     'ess-help)
   (nmap-leader :keymaps 'ess-mode-map
    "\""    'ess-interrupt
    "?"     'ess-help
@@ -26,4 +25,7 @@
 
 (use-package ess-r-mode
   :hook (ess-r-mode . lsp-deferred)
+  :general
+  (nmap-mode :keymaps 'ess-r-mode-map
+    "R" ess-dev-map)
   :ensure nil)
