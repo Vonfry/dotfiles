@@ -199,7 +199,6 @@ in {
           git-modes
           magit-gitflow
           gitlab-ci-mode
-          forge
           diff-hl
           disaster
           cmake-mode
