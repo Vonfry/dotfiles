@@ -28,9 +28,9 @@
   (ibuffer .
     (lambda ()
       (setq ibuffer-filter-groups (append
-                                    (ibuffer-project-generate-filter-groups)
                                     +org--ibuffer-group
-                                    +ibuffer-filter-groups))
+                                    +ibuffer-filter-groups
+                                    (ibuffer-project-generate-filter-groups)))
       (ibuffer-update nil t)))
   :custom
   (ibuffer-show-empty-filter-groups nil)
