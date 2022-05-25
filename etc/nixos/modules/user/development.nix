@@ -203,7 +203,6 @@ in {
           cmake-mode
           realgud-lldb
           mu4e-alert
-          mu4e-maildirs-extension
           elfeed elfeed-org
           emacsql
           sql-indent
