@@ -7,7 +7,6 @@
   (load +mail-local-file t t)
   :custom
   (rfc2047-encode-encoded-words nil)
-  (mu4e-maildir "~/.mail")
   (mu4e-attachment-dir (xdg-user-dir "DOWNLOAD"))
   (mu4e-get-mail-command "mbsync -a")
   (mail-user-agent 'mu4e-user-agent)
