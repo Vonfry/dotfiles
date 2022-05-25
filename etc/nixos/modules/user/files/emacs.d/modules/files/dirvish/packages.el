@@ -3,6 +3,20 @@
 (use-package dirvish
   :custom
   (dirvish-cache-dir (expand-file-name "dirvish" vonfry-cache-dir))
+  (dired-guess-shell-alist-user
+   (list
+    (list
+     (rx ".pdf" bos)
+     "zathura")
+    (list
+     (rx "." (| "png" (: "jp" (? "e") "g") "gif") bos)
+     "feh -.")
+    (list
+     (rx "." (| "mp3" "mp4" "wav" "flac" "mkv" "mov") bos)
+     "mpv")
+    (list
+     (rx "." (| "zip" "7z") bos)
+     "arc ls")))
   :config
   (dirvish-override-dired-mode 1)
   :general
