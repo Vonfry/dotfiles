@@ -3,6 +3,7 @@
 (use-package dirvish
   :custom
   (dirvish-cache-dir (expand-file-name "dirvish" vonfry-cache-dir))
+  (dired-dwim-target t)
   (dired-guess-shell-alist-user
    (list
     (list
