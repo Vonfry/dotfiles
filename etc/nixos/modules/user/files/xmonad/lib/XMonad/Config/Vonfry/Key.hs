@@ -132,9 +132,9 @@ key conf = mkKeymap conf
     , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
-    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/")
-    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/")
-    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/")
+    , ("M-a"  , spawn "flameshot gui   ")
+    , ("M-S-a", spawn "flameshot screen")
+    , ("M-C-a", spawn "flameshot full  ")
 
     -- switch window
     , ("M-.", windowMultiPrompt promptConfig $
