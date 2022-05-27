@@ -7,16 +7,16 @@
   (dired-guess-shell-alist-user
    (list
     (list
-     (rx ".pdf" bos)
+     (rx ".pdf" eos)
      "zathura")
     (list
-     (rx "." (| "png" (: "jp" (? "e") "g") "gif") bos)
+     (rx "." (| "png" (: "jp" (? "e") "g") "gif") eos)
      "feh -.")
     (list
-     (rx "." (| "mp3" "mp4" "wav" "flac" "mkv" "mov") bos)
+     (rx "." (| "mp3" "mp4" "wav" "flac" "mkv" "mov") eos)
      "mpv")
     (list
-     (rx "." (| "zip" "7z") bos)
+     (rx "." (| "zip" "7z") eos)
      "arc ls")))
   :config
   (dirvish-override-dired-mode 1)
