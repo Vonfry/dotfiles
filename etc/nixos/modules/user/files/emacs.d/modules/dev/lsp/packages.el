@@ -36,9 +36,9 @@
     "> =" 'align-regexp))
 
 (use-package consult-lsp
-  :after lsp-mode
+  :after (lsp-mode consult)
   :general
   (nmap-leader :keymaps 'lsp-mode-map
     "&" 'consult-lsp-symbols
     "q" 'consult-lsp-diagnostics
-    "> &" 'consult-lsp-file-symbols))
+    ":" 'consult-lsp-file-symbols))
