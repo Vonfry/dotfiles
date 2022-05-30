@@ -38,6 +38,8 @@
                         telega-emoji-use-images telega-online-status-function))
          (set symbl (eval (car (get symbl 'standard-value))))))))
   :general
+  (:keymaps 'telega-msg-button-map
+   "SPC" nil)
   (nmap-at
     "t" telega-prefix-map))
 

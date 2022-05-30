@@ -82,6 +82,7 @@ key conf = mkKeymap conf
     , ("M-o v", spawn "virt-manager")
     , ("M-o f", spawn "zathura"     )
     , ("M-o k", spawn "pavucontrol" )
+    , ("M-o a", spawn "dragon"      )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t top"  "btop")
@@ -98,10 +99,10 @@ key conf = mkKeymap conf
 
     -- basic window
     , ("M-<Return>"  , spawn $ terminal conf      )
-    , ("M-C-<Return>", spawn "pcmanfm"            )
+    , ("M-C-<Return>", spawn "emacsclient -c ."   )
     , ("M-S-<Return>", spawn "emacsclient -c"     )
     , ("M-S-c"       , kill                       )
-    , ("M-S-<Space>"   , sendMessage NextLayout   )
+    , ("M-S-<Space>" , sendMessage NextLayout     )
     , ("M-C-<Space>" , setLayout $ layoutHook conf)
     , ("M-r"         , refresh                    )
     -- We use M-<Space> for input methods
@@ -131,9 +132,9 @@ key conf = mkKeymap conf
     , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
-    , ("M-a"  , spawn "flameshot gui    -p ~/Pictures/screenshot/")
-    , ("M-S-a", spawn "flameshot screen -p ~/Pictures/screenshot/")
-    , ("M-C-a", spawn "flameshot full   -p ~/Pictures/screenshot/")
+    , ("M-a"  , spawn "flameshot gui   ")
+    , ("M-S-a", spawn "flameshot screen")
+    , ("M-C-a", spawn "flameshot full  ")
 
     -- switch window
     , ("M-.", windowMultiPrompt promptConfig $

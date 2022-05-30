@@ -52,6 +52,7 @@
   (advice-add 'vonfry/local-indent
               :after (lambda (int) (setq-local evil-shift-width int)))
   :custom
+  (evil-symbol-word-search t)
   (evil-want-keybinding nil)
   (evil-want-integration t)
   (evil-shift-width 4)

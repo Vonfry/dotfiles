@@ -9,7 +9,7 @@
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         config = { allowUnfree = true; };
-        localSystem = \${system};
+        localSystem = system;
       };
     in {
       devShell.\${system} = with pkgs; mkShell {

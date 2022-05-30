@@ -1,7 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-22.05";
-    home-manager.url = "github:nix-community/home-manager";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.05";
+    home-manager.url = "github:nix-community/home-manager/release-22.05";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
   };
@@ -31,9 +31,9 @@
             nixos-unstable.flake = unstable;
           };
           extraOptions = ''
-            flake-registry = /etc/nix/registry.json
-            experimental-features = nix-command flakes
-          '';
+               flake-registry = /etc/nix/registry.json
+               experimental-features = nix-command flakes
+             '';
         };
         _module.args = { inherit flakes; };
       };
@@ -52,7 +52,7 @@
       };
 
       devShell.${localSystem} = pkgs.mkShell {
-          packages = [ ghcWith ];
+          packages = [ pkgs.nix-prefetch ghcWith ];
       };
     };
 }

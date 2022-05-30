@@ -171,7 +171,6 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          wgrep
           flycheck
           auctex
           dashboard
@@ -204,7 +203,6 @@ in {
           cmake-mode
           realgud-lldb
           mu4e-alert
-          mu4e-maildirs-extension
           elfeed elfeed-org
           emacsql
           sql-indent
@@ -238,7 +236,7 @@ in {
           org-contrib
           evil-collection
           license-snippets
-          telega
+          melpaPackages.telega
           terminal-here
           zoxide
           smart-tab
