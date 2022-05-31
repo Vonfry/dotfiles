@@ -46,6 +46,8 @@
   (nmap-leader "' d" 'vonfry/insert-current-date))
 
 (use-package evil
+  :hook
+  (window-configuration-change . evil-normalize-keymaps)
   :config
   (evil-mode 1)
   (fset 'evil-visual-update-x-selection 'ignore)
