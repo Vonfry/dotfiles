@@ -7,11 +7,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GGIXVQDhWzsU7/jbTrovveTpSKHSqInvFDm/p9k87cM=",
+            "sha256": "sha256-sX296+06PVm2H7ESaM0kWSrZi/gnIKkazbttjF5UKF8=",
             "type": "url",
-            "url": "https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3-AllInOne.zip"
+            "url": "https://github.com/mayswind/AriaNg/releases/download/1.2.4/AriaNg-1.2.4-AllInOne.zip"
         },
-        "version": "1.2.3"
+        "version": "1.2.4"
     },
     "background-image": {
         "cargoLocks": null,
@@ -25,7 +25,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "20220515"
+        "version": "2022-05-31"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -96,12 +96,12 @@
             "leaveDotGit": false,
             "name": null,
             "owner": "rime",
-            "repo": "rime-prelude",
-            "rev": "dd84abecc33f0b05469f1d744e32d2b60b3529e3",
-            "sha256": "sha256-r3jx/iCUOxBFLYhmHEuSFxzmHg8l6vnuONmsjbtBlpM=",
+            "repo": "rime-cangjie",
+            "rev": "8dfad9e537f18821b71ba28773315d9c670ae245",
+            "sha256": "sha256-fmWGgYqWndCpDUV6nzx0zjkcf5AcVeDIYwp0023iMwk=",
             "type": "github"
         },
-        "version": "dd84abecc33f0b05469f1d744e32d2b60b3529e3"
+        "version": "8dfad9e537f18821b71ba28773315d9c670ae245"
     },
     "rime-japanese": {
         "cargoLocks": null,
@@ -154,11 +154,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "e97c079010eb9e4befb3c4edb8ccf73a26b54c60",
-            "sha256": "sha256-3hbtL0TCLeYySQFpACITgPjocdkZoyIORpAHkgtIvVk=",
+            "rev": "90d10df2a6a3fd0ef8f8e2a4b0a96c3abc49f1d2",
+            "sha256": "sha256-Bbp8VlQm9TRwdnZYrHqMwh4+K/r0SBq2z44M0YPQAGo=",
             "type": "github"
         },
-        "version": "e97c079010eb9e4befb3c4edb8ccf73a26b54c60"
+        "version": "90d10df2a6a3fd0ef8f8e2a4b0a96c3abc49f1d2"
     },
     "sddm-chili": {
         "cargoLocks": null,
@@ -206,10 +206,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "0000000000000000000000000000000000000000000000000000",
+            "sha256": "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=",
             "type": "url",
-            "url": "https://vonfry.name/static/images/default/logo-white.png"
+            "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "20220515"
+        "version": "2022-05-31"
     }
 }
