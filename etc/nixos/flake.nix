@@ -52,7 +52,7 @@
       };
 
       devShell.${localSystem} = pkgs.mkShell {
-          packages = [ pkgs.nix-prefetch ghcWith ];
+          packages = [ pkgs.nix-prefetch ghcWith pkgs.nvchecker ];
       };
     };
 }

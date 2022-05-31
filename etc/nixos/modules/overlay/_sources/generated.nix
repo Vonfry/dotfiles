@@ -3,15 +3,15 @@
 {
   aria-ng = {
     pname = "aria-ng";
-    version = "1.2.3";
+    version = "1.2.4";
     src = fetchurl {
-      url = "https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3-AllInOne.zip";
-      sha256 = "sha256-GGIXVQDhWzsU7/jbTrovveTpSKHSqInvFDm/p9k87cM=";
+      url = "https://github.com/mayswind/AriaNg/releases/download/1.2.4/AriaNg-1.2.4-AllInOne.zip";
+      sha256 = "sha256-sX296+06PVm2H7ESaM0kWSrZi/gnIKkazbttjF5UKF8=";
     };
   };
   background-image = {
     pname = "background-image";
-    version = "20220515";
+    version = "2022-05-31";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -58,7 +58,7 @@
       repo = "rime-cangjie";
       rev = "8dfad9e537f18821b71ba28773315d9c670ae245";
       fetchSubmodules = false;
-      sha256 = "fmWGgYqWndCpDUV6nzx0zjkcf5AcVeDIYwp0023iMwk=";
+      sha256 = "sha256-fmWGgYqWndCpDUV6nzx0zjkcf5AcVeDIYwp0023iMwk=";
     });
   };
   rime-japanese = {
@@ -85,13 +85,13 @@
   };
   rime-wubi86-jidian = {
     pname = "rime-wubi86-jidian";
-    version = "e97c079010eb9e4befb3c4edb8ccf73a26b54c60";
+    version = "90d10df2a6a3fd0ef8f8e2a4b0a96c3abc49f1d2";
     src = fetchFromGitHub ({
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "e97c079010eb9e4befb3c4edb8ccf73a26b54c60";
+      rev = "90d10df2a6a3fd0ef8f8e2a4b0a96c3abc49f1d2";
       fetchSubmodules = false;
-      sha256 = "sha256-3hbtL0TCLeYySQFpACITgPjocdkZoyIORpAHkgtIvVk=";
+      sha256 = "sha256-Bbp8VlQm9TRwdnZYrHqMwh4+K/r0SBq2z44M0YPQAGo=";
     });
   };
   sddm-chili = {
@@ -118,10 +118,10 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "20220515";
+    version = "2022-05-31";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
-      sha256 = "0v8jxfx72c0ri1g5gai5s9k54shn7cgrnlyfwkdan7xrwkn5zdg7";
+      sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
     };
   };
 }
