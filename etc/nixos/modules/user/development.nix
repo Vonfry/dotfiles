@@ -175,8 +175,6 @@ in {
           auctex
           dashboard
           proof-general
-          python-mode
-          pydoc
           nix-mode
           org
           org-superstar
