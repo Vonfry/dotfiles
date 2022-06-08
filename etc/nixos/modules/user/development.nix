@@ -233,7 +233,8 @@ in {
           envrc
           ob-http
           mpdel
-          org-contrib
+          org-contacts
+          toc-org
           evil-collection
           license-snippets
           melpaPackages.telega
