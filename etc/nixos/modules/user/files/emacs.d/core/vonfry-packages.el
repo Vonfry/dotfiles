@@ -30,8 +30,10 @@
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
 (setq-default
-  use-package-always-demand t
-  use-package-always-ensure nil)
+ ;; nix replaces package.el to manage but we also set it.
+ package-user-dir (expand-file-name "packages" vonfry-local-dir)
+ use-package-always-demand t
+ use-package-always-ensure nil)
 
 ;;
 ;; define some basic packages
