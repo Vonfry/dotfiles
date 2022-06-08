@@ -223,7 +223,6 @@ in {
           evil-nerd-commenter
           rainbow-delimiters
           highlight-indent-guides
-          origami
           doom-modeline
           hl-todo
           rainbow-mode
