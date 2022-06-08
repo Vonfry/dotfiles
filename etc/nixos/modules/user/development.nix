@@ -226,7 +226,6 @@ in {
           origami
           doom-modeline
           hl-todo
-          hlinum
           rainbow-mode
           hledger-mode
           ess
