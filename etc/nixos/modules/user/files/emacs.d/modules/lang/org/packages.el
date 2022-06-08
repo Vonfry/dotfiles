@@ -207,7 +207,6 @@
   (use-package ob-haskell)
   (use-package ob-R)
   (use-package ob-latex)
-  (use-package ob-coq)
   (use-package ob-sql)
   (use-package ob-sqlite)
   (use-package ob-perl)
@@ -217,7 +216,6 @@
                               (http       . t)
                               (haskell    . t)
                               (latex      . t)
-                              (coq        . t)
                               (R          . t)
                               (sql        . t)
                               (sqlite     . t)
@@ -225,7 +223,6 @@
   :after org)
 
 (use-package org-contacts
-  :ensure org-contrib
   :custom
   (org-contacts-icon-use-gravatar nil)
   (org-contacts-files
@@ -238,8 +235,9 @@
     "C" '+org/find-contacts
     "c" 'org-contacts))
 
-(use-package org-toc
-  :ensure org-contrib
+(use-package toc-org
+  :config
+  (add-to-list 'org-tag-alist '("TOC" . ?T))
   :general
   (nmap-mode :keymaps 'org-mode-map
-    "T" 'org-toc-show))
+    "T" 'toc-org-mode))

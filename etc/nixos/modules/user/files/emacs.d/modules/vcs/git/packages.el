@@ -8,6 +8,7 @@
 (use-package magit
   :general
   (nmap-leader "-" 'magit-status)
+  (nmap-leader "_" 'magit-dispatch)
   (general-unbind magit-mode-map
     :with nil
     ;; These has confliction with evil

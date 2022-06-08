@@ -23,7 +23,7 @@
     "> ."   'lsp-find-type-definition
     "> *"   'lsp-rename
     "> r"   'lsp-execute-code-action
-    "> R"   'lsp-restart-workspace
+    "> R"   'lsp-workspace-restart
     "> D"   'lsp-describe-session
     "> h"   'lsp-symbol-highlight
     "> ?"   'lsp-document-highlight

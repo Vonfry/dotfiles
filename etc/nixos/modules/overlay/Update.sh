@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-nix develop '../..' --command runghc Update.hs
+nix develop '../..' --command runghc Update.hs "$@"

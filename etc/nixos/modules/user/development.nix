@@ -175,8 +175,6 @@ in {
           auctex
           dashboard
           proof-general
-          python-mode
-          pydoc
           nix-mode
           org
           org-superstar
@@ -223,17 +221,16 @@ in {
           evil-nerd-commenter
           rainbow-delimiters
           highlight-indent-guides
-          origami
           doom-modeline
           hl-todo
-          hlinum
           rainbow-mode
           hledger-mode
           ess
           envrc
           ob-http
           mpdel
-          org-contrib
+          org-contacts
+          toc-org
           evil-collection
           license-snippets
           melpaPackages.telega
