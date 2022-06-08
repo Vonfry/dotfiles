@@ -82,7 +82,7 @@
     "l"   'list-processes
     "L"   'proced
     "O"   'calendar
-    "_"   '+evil/switch-scratch
+    "e a" '+evil/switch-scratch
     "e s" 'server-start
     "e c" 'clean-buffer-list
     "e #" 'server-edit
