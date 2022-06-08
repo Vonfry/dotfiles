@@ -236,6 +236,8 @@
     "c" 'org-contacts))
 
 (use-package toc-org
+  :config
+  (add-to-list 'org-tag-alist '("TOC" . ?T))
   :general
   (nmap-mode :keymaps 'org-mode-map
     "T" 'toc-org-mode))
