@@ -39,4 +39,6 @@
 		:keybinding "H")
   (defengine hoogle
     "https://www.haskell.org/hoogle/?hoogle=%s"
-    :keybinding "h"))
+    :keybinding "h")
+  :general
+  (nmap-at "/" engine-mode-prefixed-map))
