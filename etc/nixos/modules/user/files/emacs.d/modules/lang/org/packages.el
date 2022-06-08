@@ -235,7 +235,7 @@
     "C" '+org/find-contacts
     "c" 'org-contacts))
 
-(use-package org-toc
+(use-package toc-org
   :general
   (nmap-mode :keymaps 'org-mode-map
-    "T" 'org-toc-show))
+    "T" 'toc-org-mode))
