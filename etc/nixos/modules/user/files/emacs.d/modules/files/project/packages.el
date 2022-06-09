@@ -7,20 +7,11 @@
   :config
   (setq project-switch-commands
         (append project-switch-commands
-                '((magit-status "Magit status")
-                  (magit-dispatch "Magit dispatch"))))
+                '((magit-status "Magit status" ?s)
+                  (magit-dispatch "Magit dispatch" ?d))))
   :general
-  (nmap-leader
-    "P !" 'project-shell-command
-    "P $" 'project-eshell
-    "P f" 'project-find-file
-    "P F" 'project-find-dir
-    "P d" 'project-dired
-    "P b" 'project-switch-to-buffer
-    "P p" 'project-switch-project
-    "P r" 'project-compile
-    "P k" 'project-kill-buffers
-    "P /" 'project-search
-    "P *" 'project-query-replace-regexp
-    "P a" 'project-remember-projects-under
-    "P r" 'project-forget-project))
+  (nmap-leader "P" project-prefix-map)
+  (nmap-leader :infix "P"
+    "/" 'project-search
+    "a" 'project-remember-projects-under
+    "A" 'project-forget-project))
