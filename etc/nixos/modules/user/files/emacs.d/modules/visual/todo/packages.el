@@ -4,7 +4,7 @@
 (use-package hl-todo
   :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
-  (nmap-leader :infix "k"
-    "p" 'hl-todo-previous
-    "n" 'hl-todo-next
-    "o" 'hl-todo-occur))
+  (nmap-leader
+    "k p" 'hl-todo-previous
+    "k n" 'hl-todo-next
+    "k o" 'hl-todo-occur))

@@ -11,7 +11,7 @@
                   (magit-dispatch "Magit dispatch" ?d))))
   :general
   (nmap-leader "P" project-prefix-map)
-  (nmap-leader :infix "P"
-    "/" 'project-search
-    "a" 'project-remember-projects-under
-    "A" 'project-forget-project))
+  (nmap-leader
+    "P /" 'project-search
+    "P a" 'project-remember-projects-under
+    "P A" 'project-forget-project))
