@@ -4,6 +4,11 @@
 (use-package project
   :custom
   (project-list-file (expand-file-name "projects" vonfry-local-dir))
+  :config
+  (setq project-switch-commands
+        (append project-switch-commands
+                '((magit-status "Magit status")
+                  (magit-dispatch "Magit dispatch"))))
   :general
   (nmap-leader
     "P !" 'project-shell-command
