@@ -200,16 +200,17 @@
   (org-roam-ui-port 8800))
 
 (use-package ob
+  :ensure nil
   :init
-  (use-package ob-emacs-lisp)
-  (use-package ob-org)
+  (use-package ob-emacs-lisp :ensure nil)
+  (use-package ob-org :ensure nil)
   (use-package ob-http)
-  (use-package ob-haskell)
-  (use-package ob-R)
-  (use-package ob-latex)
-  (use-package ob-sql)
-  (use-package ob-sqlite)
-  (use-package ob-perl)
+  (use-package ob-haskell :ensure nil)
+  (use-package ob-R :ensure nil)
+  (use-package ob-latex :ensure nil)
+  (use-package ob-sql :ensure nil)
+  (use-package ob-sqlite :ensure nil)
+  (use-package ob-perl :ensure nil)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)

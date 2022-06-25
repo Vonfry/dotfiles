@@ -34,4 +34,4 @@
     :with nil
     "SPC" "S-SPC"))
 
-(use-package org-ebib :after org)
+(use-package org-ebib :ensure nil :after org)
