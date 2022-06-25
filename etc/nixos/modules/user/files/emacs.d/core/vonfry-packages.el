@@ -90,12 +90,13 @@ This function finds module with the file, and loads it."
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
 All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `use-package`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
-  (let* ((module-list '())
+  (let* ((flatten-exclude (-flatten exclude))
+         (module-list '())
          (regexp-match "^[^\\.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
         (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-match))
           (let ((module-name (concat module "/" submodule)))
-            (unless (member module-name exclude)
+            (unless (member module-name flatten-exclude)
               (push module-name module-list)))))
     (-map 'vonfry-load-module-config   module-list)
     (-map 'vonfry-load-module-packages module-list)
