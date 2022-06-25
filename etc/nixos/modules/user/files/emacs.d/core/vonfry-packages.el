@@ -54,6 +54,8 @@ If t, package.el is used to install packages automatically."
   )
   "These are the default basic packages, which are used by modules.")
 
+(package-initialize)
+
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
   (let ((qpkg `(quote ,pkg)))
