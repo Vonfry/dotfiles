@@ -29,11 +29,18 @@
 
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
+(defcustom vonfry-package-ensure
+  (not (or (executable-find "nixos-rebuild") (executable-find "home-manager")))
+  "Whether ensure package is installed by emacs.
+If t, package.el is used to install packages automatically."
+  :type 'boolean
+  :group 'vonfry)
+
 (setq-default
  ;; nix replaces package.el to manage but we also set it.
  package-user-dir (expand-file-name "packages" vonfry-local-dir)
  use-package-always-demand t
- use-package-always-ensure nil)
+ use-package-always-ensure vonfry-package-ensure)
 
 ;;
 ;; define some basic packages
