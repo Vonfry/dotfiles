@@ -75,7 +75,14 @@ in {
         lockerCommand = "${lockCommand} -n";
       };
       qt5ct.enable = true;
+      weylus = {
+        enable = true;
+        openFirewall = true;
+        users = [ "vonfry" ];
+      };
     };
+
+    hardware.uinput.enable = true;
 
     systemd = {
       # Make screen locker in system due to security consider.

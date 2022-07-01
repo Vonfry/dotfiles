@@ -61,7 +61,7 @@
     "o t d" 'org-clock-display
     "o t j" 'org-clock-goto)
   (nvmap-mode :keymaps 'org-mode-map
-    "/"   'org-occur
+    "?"   'org-occur
     "g"   'org-goto
     "L"   'org-store-link
     "@"   'org-set-tags-command
@@ -165,10 +165,13 @@
 
 (use-package org-ql
   :general
+  (nmap-leader
+    "o /" 'org-ql-search
+    "o T" 'org-ql-view-sidebar
+    "o t" 'org-ql-view)
   (nmap-mode :keymaps 'org-mode-map
-    "." 'org-ql-search
-    "," 'org-ql-view
-    ";" 'org-ql-sparse-tree))
+    ";" 'org-ql-sparse-tree
+    "/" 'org-ql-find))
 
 (use-package org-roam
   :init
