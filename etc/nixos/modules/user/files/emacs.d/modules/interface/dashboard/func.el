@@ -14,14 +14,15 @@
 
 (defun +dashboard/set-fortune ()
   (interactive)
-  (setq dashboard-footer-messages
-        (list
-         (replace-regexp-in-string
-          (rx (+ (| (| space blank) "\n")))
-          " "
-          (replace-regexp-in-string
-           (rx 27 "[" (* (| digit ";")) alpha (? 29))
-           ""
-           (shell-command-to-string
-            (format "fortune -s %s all"
-                    (expand-file-name "fortunes" (xdg-data-home)))))))))
+  (when (executable-find "fortune")
+    (setq dashboard-footer-messages
+          (list
+           (replace-regexp-in-string
+            (rx (+ (| (| space blank) "\n")))
+            " "
+            (replace-regexp-in-string
+             (rx 27 "[" (* (| digit ";")) alpha (? 29))
+             ""
+             (shell-command-to-string
+              (format "fortune -s %s all"
+                      (expand-file-name "fortunes" (xdg-data-home))))))))))

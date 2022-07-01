@@ -11,6 +11,7 @@
 
 (use-package vertico-quick
   :after vertico
+  :ensure nil
   :custom
   (vertico-quick1 "aoeui")
   (vertico-quick2 "dhtns")

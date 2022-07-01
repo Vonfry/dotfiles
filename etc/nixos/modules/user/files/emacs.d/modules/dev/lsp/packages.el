@@ -32,8 +32,7 @@
     "> L h" 'lsp-lens-hide
     "> l"   'lsp-avy-lens)
   (vmap-leader :keymaps 'lsp-mode-map
-    "="   'lsp-format-region
-    "> =" 'align-regexp))
+    "=" 'lsp-format-region))
 
 (use-package consult-lsp
   :after (lsp-mode consult)

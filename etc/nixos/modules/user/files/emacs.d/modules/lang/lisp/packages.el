@@ -13,8 +13,8 @@
     "RET"   'eval-last-sexp
     "' b"   'eval-buffer
     "' f"   'eval-defun)
-  (nmap-leader :infix "e"
-    "a"   'eval-expression)
+  (nmap-leader
+    "e a"   'eval-expression)
   (vmap-leader :keymaps 'emacs-lisp-mode-map
     "' r" 'eval-region))
 

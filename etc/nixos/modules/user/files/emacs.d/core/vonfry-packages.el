@@ -29,11 +29,18 @@
 
 (defconst vonfry-modules-dir (expand-file-name "modules/" vonfry-config-dir))
 
+(defcustom vonfry-package-ensure
+  (not (or (executable-find "nixos-rebuild") (executable-find "home-manager")))
+  "Whether ensure package is installed by emacs.
+If t, package.el is used to install packages automatically."
+  :type 'boolean
+  :group 'vonfry)
+
 (setq-default
  ;; nix replaces package.el to manage but we also set it.
  package-user-dir (expand-file-name "packages" vonfry-local-dir)
  use-package-always-demand t
- use-package-always-ensure nil)
+ use-package-always-ensure vonfry-package-ensure)
 
 ;;
 ;; define some basic packages
@@ -46,6 +53,8 @@
     org
   )
   "These are the default basic packages, which are used by modules.")
+
+(package-initialize)
 
 ;; load the basic packages
 (dolist (pkg vonfry-basic-packages)
@@ -81,12 +90,13 @@ This function finds module with the file, and loads it."
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
 All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `use-package`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
-  (let* ((module-list '())
+  (let* ((flatten-exclude (-flatten exclude))
+         (module-list '())
          (regexp-match "^[^\\.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
         (dolist (submodule (directory-files (expand-file-name module vonfry-modules-dir) nil regexp-match))
           (let ((module-name (concat module "/" submodule)))
-            (unless (member module-name exclude)
+            (unless (member module-name flatten-exclude)
               (push module-name module-list)))))
     (-map 'vonfry-load-module-config   module-list)
     (-map 'vonfry-load-module-packages module-list)

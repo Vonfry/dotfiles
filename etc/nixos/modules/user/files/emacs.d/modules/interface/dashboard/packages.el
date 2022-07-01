@@ -25,7 +25,7 @@
       (,(all-the-icons-material "folder" :height 1.0 :v-adjust 0.0)
        "Files"
        "Files Manager"
-       (lambda (&rest _) (ranger)))
+       (lambda (&rest _) (dirvish)))
       (,(all-the-icons-material "queue_music" :height 1.0 :v-adjust 0.0)
        "Music"
        "Music Player Daemon"

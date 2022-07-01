@@ -54,14 +54,14 @@
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
-  (nmap-leader :infix "o"
-    "t i" 'org-clock-in-last
-    "t o" 'org-clock-out
-    "t q" 'org-clock-cancel
-    "t d" 'org-clock-display
-    "t j" 'org-clock-goto)
+  (nmap-leader
+    "o t i" 'org-clock-in-last
+    "o t o" 'org-clock-out
+    "o t q" 'org-clock-cancel
+    "o t d" 'org-clock-display
+    "o t j" 'org-clock-goto)
   (nvmap-mode :keymaps 'org-mode-map
-    "/"   'org-occur
+    "?"   'org-occur
     "g"   'org-goto
     "L"   'org-store-link
     "@"   'org-set-tags-command
@@ -118,14 +118,14 @@
   :ensure nil
   :after org
   :general
-  (nmap-leader :infix "o"
-    "a" 'org-agenda
-    "A" '+org/find-agenda
-    "N" '+org/find-notes
-    "b" '+org/append-to-agenda-file
-    "B" 'append-to-buffer
-    "c" 'org-capture
-    "k" '+org/open-capture))
+  (nmap-leader
+    "o a" 'org-agenda
+    "o A" '+org/find-agenda
+    "o N" '+org/find-notes
+    "o b" '+org/append-to-agenda-file
+    "o B" 'append-to-buffer
+    "o c" 'org-capture
+    "o k" '+org/open-capture))
 
 (use-package org-archive
   :ensure nil
@@ -136,8 +136,8 @@
 (use-package org-web-tools
   :after org
   :general
-  (nmap-leader :infix "o"
-    "u" 'org-web-tools-read-url-as-org)
+  (nmap-leader
+    "o u" 'org-web-tools-read-url-as-org)
   (nmap-mode :keymaps 'org-mode-map
    "w o" 'org-web-tools-read-url-as-org
    "w l" 'org-web-tools-insert-link-for-url
@@ -156,19 +156,22 @@
   :config
   (setq org-journal-cache-file (expand-file-name "org-journal.cache" vonfry-cache-dir))
   :general
-  (nmap-leader :infix "o j"
-    "n" 'org-journal-new-entry
-    "j" 'org-journal-open-next-entry
-    "k" 'org-journal-open-previous-entry
-    "/" 'org-journal-search
-    "s" 'org-journal-schedule-view))
+  (nmap-leader
+    "o j n" 'org-journal-new-entry
+    "o j j" 'org-journal-open-next-entry
+    "o j k" 'org-journal-open-previous-entry
+    "o j /" 'org-journal-search
+    "o j s" 'org-journal-schedule-view))
 
 (use-package org-ql
   :general
+  (nmap-leader
+    "o /" 'org-ql-search
+    "o T" 'org-ql-view-sidebar
+    "o t" 'org-ql-view)
   (nmap-mode :keymaps 'org-mode-map
-    "." 'org-ql-search
-    "," 'org-ql-view
-    ";" 'org-ql-sparse-tree))
+    ";" 'org-ql-sparse-tree
+    "/" 'org-ql-find))
 
 (use-package org-roam
   :init
@@ -178,14 +181,14 @@
   :config
   (org-roam-setup)
   :general
-  (nmap-leader :infix "o"
-    "n"   'org-roam-node-find
-    "C"   'org-roam-capture
-    "R m" 'org-roam-setup
-    "R M" 'org-roam-teardown
-    "R i" 'org-roam-node-insert
-    "R b" 'org-roam-db-sync
-    "R p" '+org/roam-switch)
+  (nmap-leader
+    "o n"   'org-roam-node-find
+    "o C"   'org-roam-capture
+    "o R m" 'org-roam-setup
+    "o R M" 'org-roam-teardown
+    "o R i" 'org-roam-node-insert
+    "o R b" 'org-roam-db-sync
+    "o R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam-buffer-toggle
     "R g" 'org-roam-graph
@@ -194,22 +197,23 @@
 
 (use-package org-roam-ui
   :general
-  (nmap-leader :infix "o"
-    "s" 'org-roam-ui-open)
+  (nmap-leader
+    "o s" 'org-roam-ui-open)
   :custom
   (org-roam-ui-port 8800))
 
 (use-package ob
+  :ensure nil
   :init
-  (use-package ob-emacs-lisp)
-  (use-package ob-org)
+  (use-package ob-emacs-lisp :ensure nil)
+  (use-package ob-org :ensure nil)
   (use-package ob-http)
-  (use-package ob-haskell)
-  (use-package ob-R)
-  (use-package ob-latex)
-  (use-package ob-sql)
-  (use-package ob-sqlite)
-  (use-package ob-perl)
+  (use-package ob-haskell :ensure nil)
+  (use-package ob-R :ensure nil)
+  (use-package ob-latex :ensure nil)
+  (use-package ob-sql :ensure nil)
+  (use-package ob-sqlite :ensure nil)
+  (use-package ob-perl :ensure nil)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -237,7 +241,7 @@
 
 (use-package toc-org
   :config
-  (add-to-list 'org-tag-alist '("TOC" . ?T))
+  (add-to-list 'org-tag-persistent-alist '("TOC" . ?T))
   :general
   (nmap-mode :keymaps 'org-mode-map
     "T" 'toc-org-mode))

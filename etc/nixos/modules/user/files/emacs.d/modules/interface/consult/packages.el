@@ -25,7 +25,6 @@
     "F p" 'consult-locate
     "F h "'consult-history
     "F ?" 'consult-man
-    "q"   'consult-flycheck
     "a"   'consult-ripgrep
     "b"   'consult-buffer
     "<"   'consult-mark
@@ -39,3 +38,8 @@
     ";" 'consult-outline)
   (nmap-mode :keymaps 'org-mode-map
     ";" 'consult-org-heading))
+
+(use-package consult-flycheck
+  :after (consult flycheck)
+  :general
+  (nmap-leader "q" 'consult-flycheck))

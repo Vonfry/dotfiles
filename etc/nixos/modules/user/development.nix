@@ -249,6 +249,7 @@ in {
           consult-lsp
           project
           ibuffer-project
+          consult-flycheck
         ];
       };
 

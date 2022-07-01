@@ -28,9 +28,9 @@ IMPORTANT!!! You must load the other files by youself. The only files under the 
 (defconst vonfry-custom-file-after (expand-file-name "post-custom.el" vonfry-custom-dir)
   "custom for user's emacs. The file is loaded after custom. You can set some variables at here which affect the configure in modules.  You can only custom the var in init file, I think.")
 
-(dolist (dir (list vonfry-cache-dir vonfry-local-dir))
+(dolist (dir (list vonfry-cache-dir vonfry-local-dir vonfry-custom-dir))
   (unless (file-exists-p dir)
-    (make-directory dir)))
+    (make-directory dir t)))
 
 (setq-default custom-file vonfry-custom-file)
 

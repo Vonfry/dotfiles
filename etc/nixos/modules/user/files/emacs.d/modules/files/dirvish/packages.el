@@ -24,13 +24,16 @@
   (nmap-leader
     "d"   'dirvish-dwim
     "D d" 'dirvish
-    "D D" 'dirvish-dired))
+    "D D" 'dired-jump
+    "D o" 'dired-jump-other-window))
 
-(use-package dirvish-side :after dirvish
+(use-package dirvish-side
+  :ensure nil
+  :after dirvish
   :general
   (nmap-leader
     "D t" 'dirvish-side))
 
-(use-package dirvish-vc :after (magit dirvish))
+(use-package dirvish-vc :ensure nil :after (magit dirvish))
 
-(use-package dirvish-extras :after dirvish)
+(use-package dirvish-extras :ensure nil :after dirvish)
