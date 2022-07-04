@@ -39,7 +39,7 @@ import XMonad.Prompt.Ssh (sshPrompt)
 import XMonad.Prompt.XMonad (xmonadPrompt)
 import XMonad.Actions.Search (promptSearch, multi)
 
-import XMonad.Prompt.Window ( windowMultiPrompt, allWindows, wsWindows
+import XMonad.Prompt.Window ( windowMultiPrompt, allWindows, allApplications
                             , WindowPrompt(..)
                             )
 import XMonad.Actions.EasyMotion ( EasyMotionConfig(..), ChordKeys(..)
@@ -144,11 +144,11 @@ key conf = mkKeymap conf
                                     , BringCopy
                                     ])
     , ("M-S-.", windowMultiPrompt promptConfig $
-        (\d -> (d, wsWindows)) <$> [ Goto
-                                   , Bring
-                                   , BringToMaster
-                                   , BringCopy
-                                   ])
+        (\d -> (d, allApplications)) <$> [ Goto
+                                         , Bring
+                                         , BringToMaster
+                                         , BringCopy
+                                         ])
 
     -- window navigation
     , ("M-C-.", nextMatch History (pure True))
