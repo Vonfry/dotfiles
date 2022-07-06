@@ -47,14 +47,14 @@
        "Telega"
        (lambda (&rest _) (call-interactively 'telega)))
       )
-     ((,(all-the-icons-fileicon "gitlab" :height 1.0 :v-adjust 0.0)
-       "Gitlab"
-       "Goto Gitlab"
-       (lambda (&rest _) (browse-url "https://gitlab.com/Vonfry")))
-      (,(all-the-icons-octicon "mark-github" :height 1.1 :v-adjust 0.0)
-       "Github"
-       "Goto Github"
-       (lambda (&rest _) (browse-url "https://github.com/Vonfry"))))))
+     ((,(all-the-icons-octicon "home" :height 1.0 :v-adjust 0.0)
+       "Website"
+       "Goto vonfry.name"
+       (lambda (&rest _) (browse-url "https://vonfry.name")))
+      (,(all-the-icons-octicon "repo" :height 1.0 :v-adjust 0.0)
+       "Repos"
+       "Goto repos"
+       (lambda (&rest _) (browse-url "https://sr.ht/~vonfry"))))))
   (dashboard-projects-backend 'project-el)
   (dashboard-items '((agenda    . 5)
                      (bookmarks . 5)

@@ -89,6 +89,7 @@
     "e t" 'list-timers
     "e D" 'diff)
   (vmap-leader
+    "x"   'execute-extended-command
     "="   'align-regexp))
 
 (provide 'vonfry-keybinding)
