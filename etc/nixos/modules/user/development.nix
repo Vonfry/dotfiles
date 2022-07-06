@@ -271,7 +271,6 @@ in {
           };
           color.pager = false;
         };
-        lfs.enable = true;
         ignores = [ (builtins.readFile ./files/gitignore) ];
       };
 
