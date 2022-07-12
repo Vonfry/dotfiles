@@ -216,6 +216,7 @@ in {
           content.autoplay = false;
           session.default_name = "autosave";
           auto_save.session = true;
+          colors.webpage.preferred_color_scheme = "dark";
         };
         extraConfig = ''
           padding = { "top": 6, "right": 8, "bottom": 6, "left": 8 }
