@@ -355,7 +355,7 @@ in {
 
         ".latexmkrc".text = ''
           $out_dir = "latex.out";
-          $pdf_mode = 5;
+          $pdf_mode = 4;
           $dvi_previewer = 'xdvi -watchfile 1.5';
           $ps_previewer  = 'feh';
           $pdf_previewer = 'zathura';
