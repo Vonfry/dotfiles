@@ -58,7 +58,7 @@
         foreground = "#44475a";
         background = "#ffb86c";
       };
-      bar = {
+      footer_bar = {
         background = "#282a36";
         foreground = "#f8f8f2";
       };
