@@ -256,6 +256,7 @@ in {
       git = {
         userName = "Vonfry";
         userEmail = "mail@vonfry.name";
+        package = pkgs.gitAndTools.gitFull;
         signing = mkIf (cfg.git.signKey != null) {
           signByDefault = true;
           key = cfg.git.signKey;
