@@ -256,6 +256,7 @@ in {
       git = {
         userName = "Vonfry";
         userEmail = "mail@vonfry.name";
+        package = pkgs.gitAndTools.gitFull;
         signing = mkIf (cfg.git.signKey != null) {
           signByDefault = true;
           key = cfg.git.signKey;
@@ -355,7 +356,7 @@ in {
 
         ".latexmkrc".text = ''
           $out_dir = "latex.out";
-          $pdf_mode = 5;
+          $pdf_mode = 4;
           $dvi_previewer = 'xdvi -watchfile 1.5';
           $ps_previewer  = 'feh';
           $pdf_previewer = 'zathura';

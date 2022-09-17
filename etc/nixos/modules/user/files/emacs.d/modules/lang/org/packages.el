@@ -54,6 +54,7 @@
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
+  ("C-x 8 s" '+org/insert-zero-width-space)
   (nmap-leader
     "o t i" 'org-clock-in-last
     "o t o" 'org-clock-out

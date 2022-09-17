@@ -185,16 +185,16 @@ key conf = mkKeymap conf
     , ("M-<Right>", screenGo R True)
 
     -- Swap workspaces on adjacent screens
-    , ("M-S-<Left>" , screenSwap L True)
-    , ("M-S-<Down>" , screenSwap D True)
-    , ("M-S-<Up>"   , screenSwap U True)
-    , ("M-S-<Right>", screenSwap R True)
+    , ("M-C-<Left>" , screenSwap L True)
+    , ("M-C-<Down>" , screenSwap D True)
+    , ("M-C-<Up>"   , screenSwap U True)
+    , ("M-C-<Right>", screenSwap R True)
 
     -- Send window to adjacent screen
-    , ("M-C-<Left>" , windowToScreen L True)
-    , ("M-C-<Down>" , windowToScreen D True)
-    , ("M-C-<Up>"   , windowToScreen U True)
-    , ("M-C-<Right>", windowToScreen R True)
+    , ("M-S-<Left>" , windowToScreen L True)
+    , ("M-S-<Down>" , windowToScreen D True)
+    , ("M-S-<Up>"   , windowToScreen U True)
+    , ("M-S-<Right>", windowToScreen R True)
 
     -- cycle workspace
     , ("M-}"  , nextWS     )
