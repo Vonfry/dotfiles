@@ -250,6 +250,7 @@ in {
           project
           ibuffer-project
           consult-flycheck
+          ess-view-data
         ];
       };
 
