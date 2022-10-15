@@ -11,16 +11,6 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
-  editorMimeApps = listToAttrs
-    (map (type: {name = type; value = "emacsclient.desktop"; })
-      [ # copy from emacs.desktop
-        "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr"
-        "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc"
-        "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript"
-        "text/x-c" "text/x-c++"
-      ]);
-
-
   sessions = config.home.sessionVariables;
   inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
   inherit (config.xdg) configHome dataHome;
@@ -71,7 +61,6 @@ in {
   config = mkIf cfg'.enable {
 
     xdg = {
-      mimeApps.defaultApplications = editorMimeApps;
 
       configFile = {
         "emacs.d" = {
@@ -101,7 +90,8 @@ in {
     services.emacs = {
       enable = true;
       client.enable = true;
-      socketActivation.enable = true;
+      socketActivation.enable = false;
+      defaultEditor = true;
     };
 
     programs = {
@@ -299,7 +289,6 @@ in {
         (concatStringsSep "\n" [ linkOrg linkEmacs ]);
 
       sessionVariables = {
-        EDITOR = "nvim";
         MANPAGER = "nvim +Man!";
         PAGER = "nvim -R";
       };
