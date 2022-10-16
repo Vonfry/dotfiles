@@ -4,10 +4,12 @@
     home-manager.url = "github:nix-community/home-manager/release-22.05";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, unstable }@flakes:
+  outputs = { self, nixpkgs, home-manager
+            , emacs-overlay, unstable, flake-utils
+            }@flakes:
     let
-      localSystem = "x86_64-linux";
       overlay = import ./modules/overlay;
       flakeSpecialConfig = { pkgs, ... }: {
         nixpkgs.overlays = [
@@ -15,7 +17,7 @@
           emacs-overlay.overlay
           (s: p: {
             unstable = import unstable {
-              inherit localSystem;
+              inherit p.system;
               inherit (pkgs) config;
             };
           })
@@ -37,13 +39,9 @@
         };
         _module.args = { inherit flakes; };
       };
-
-      pkgs = nixpkgs.legacyPackages.${localSystem};
-      ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
     in {
       inherit overlay;
       nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
-        system = localSystem;
         modules = [
           flakeSpecialConfig
           home-manager.nixosModules.home-manager
@@ -51,8 +49,13 @@
         ];
       };
 
-      devShell.${localSystem} = pkgs.mkShell {
+      devShell = flake-utils.lib.eachDefaultSystem (system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+            ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
+        in pkgs.mkShell {
           packages = [ pkgs.nix-prefetch ghcWith pkgs.nvchecker ];
-      };
+        }
+      );
     };
 }
