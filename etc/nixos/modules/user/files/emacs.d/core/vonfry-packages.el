@@ -42,6 +42,10 @@ If t, package.el is used to install packages automatically."
  use-package-always-demand t
  use-package-always-ensure vonfry-package-ensure)
 
+(when (boundp 'native-comp-eln-load-path)
+  (setq-default startup-redirect-eln-cache
+                (expand-file-name "eln/" vonfry-cache-dir)))
+
 ;;
 ;; define some basic packages
 ;;
