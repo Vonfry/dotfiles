@@ -17,7 +17,7 @@
           emacs-overlay.overlay
           (s: p: {
             unstable = import unstable {
-              inherit p.system;
+              inherit (p.hostPlatform) system;
               inherit (pkgs) config;
             };
           })
