@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite perl hugo agda ];
+    paths = [ sqlite perl hugo ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -241,6 +241,7 @@ in {
           ibuffer-project
           consult-flycheck
           ess-view-data
+          agda2-mode
         ];
       };
 
