@@ -74,12 +74,16 @@ in {
         enable = true;
         lockerCommand = "${lockCommand} -n";
       };
-      qt5ct.enable = true;
       weylus = {
         enable = true;
         openFirewall = true;
         users = [ "vonfry" ];
       };
+    };
+
+    qt5 = {
+      enable = true;
+      platformTheme = "qt5ct";
     };
 
     hardware.uinput.enable = true;
