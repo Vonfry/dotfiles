@@ -39,23 +39,25 @@
         };
         _module.args = { inherit flakes; };
       };
-    in {
-      inherit overlay;
-      nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
-        modules = [
-          flakeSpecialConfig
-          home-manager.nixosModules.home-manager
-          ./configuration.nix
-        ];
-      };
-
-      devShell = flake-utils.lib.eachDefaultSystem (system:
+      flakeOutputs = flake-utils.lib.eachDefaultSystem (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-            ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
-        in pkgs.mkShell {
-          packages = [ pkgs.nix-prefetch ghcWith pkgs.nvchecker ];
-        }
-      );
+          ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
+        in {
+          devShell = pkgs.mkShell {
+            packages = [ pkgs.nix-prefetch ghcWith pkgs.nvchecker ];
+          };
+        });
+      nixosOutputs = {
+        nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
+          modules = [
+            flakeSpecialConfig
+            home-manager.nixosModules.home-manager
+            ./configuration.nix
+          ];
+        };
+      };
+    in flakeOutputs // nixosOutputs // {
+      inherit overlay;
     };
 }
