@@ -31,24 +31,9 @@
           LEDGER_FILE  = "${config.home.homeDirectory}/financial/$(date +%Y).journal";
         };
 
-        # xsession.profileExtra = ''
-        #   xbow_id=$(xinput list | grep -oE 'SEMITEK USB-HID Gaming Keyboard[[:space:]]+id=([[:digit:]]+)' | head -1 | tail -1 | grep -oE 'id=[[:digit:]]+' | cut -c '4-')
-        #   if [ -n "$xbow_id" ]; then
-        #     setxkbmap -device $xbow_id -option altwin:swap_alt_win
-        #    # setxkbmap -device $codekeyboard_id -option altwin:swap_alt_win
-        #   fi
-        #   unset xbow_id
-        # '';
-
         vonfry = {
           development = {
             git.signKey = "";
-            emacs.preCustom = ''
-              (setq-default easy-hugo-basedir (expand-file-name (getenv "CLONE_LIB") "website")
-                            enable-local-variables :all
-                            enable-local-eval t
-              )
-            '';
           };
         };
 
@@ -65,25 +50,16 @@
   nix.maxJobs = "auto";
 
   services.xserver.dpi = 96;
-  # services.xserver.videoDrivers = [ "nvidia" ];
-  # hardware.nvidia.modesetting.enable = true;
-  # hardware.nvidia.prime = {
-  #     sync.enable = true;
-  #     nvidiaBusId = "PCI:1:0:0";
-  #     intelBusId = "PCI:0:2:0";
-  # };
-
-  # services.openssh.enable = true;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
   # services.fprintd.enable = true;
   # services.hardware.bolt.enable = true;
 
-  # For windows 11 the support of secure boot for ovmf and tpm are needed. 
+  # For windows 11 the support of secure boot for ovmf and tpm are needed.
   # virtualisation.libvirtd.qemu = {
   #   swtpm.enable = true;
-  #   ovmf.package = pkgs.OVMFFull;
+  #   ovmf.packages = [ pkgs.OVMFFull.fd ];
   # };
 
   # networking.hostName = "nixos"; # Define your hostname.
@@ -96,49 +72,14 @@
   #   allowedTCPPorts = [ ];
   #   allowedTCPPortRanges = [
   #     { from = 5900; to = 5902; } # vnc
-  #     { from = 8000; to = 8100; } # for some temporary public service 
+  #     { from = 8000; to = 8100; } # for some temporary public service
   #   ];
   #   allowedUDPPorts = [ ];
   #   allowedTCPPortRanges = [];
   #   allowedUDPPorts = [ ];
   # };
 
-  # environment.systemPackages = with pkgs; [ krb5 heimdal ];
-  # krb5 = {
-  #   enable = true;
-  #   realms = {
-  #     "<realm>" = {
-  #       admin_server = "<host>";
-  #   kdc = "<host>";
-  #     };
-  #   };
-  #   libdefaults = {
-  #     default_realm = "<realm>";
-  #   };
-  #   extraConfig =
-  #     ''
-  #     [logging]
-  #     kdc = FILE:/var/log/krb5kdc.log
-  #     admin_server = FILE:/var/log/kadmin.log
-  #     default = FILE:/var/log/krb5lib.log
-  #     '';
-  # };
-
-  # services.nfs.server = {
-  #   enable = true;
-  #   exports =
-  #     ''
-  #     / 10.0.0.0/8(rw,fsid=0,sec=krb5p,no_subtree_check,insecure)
-  #     /home/vonfry 10.0.0.0/8(rw,sec=krb5p,no_subtree_check,insecure)
-  #     '';
-  # };
-
   # nesting.clone = [];
-
-  # environment.systemPackages = with pkgs; [
-  #    # cli browser for network auth with login in web page
-  #    browsh elinks w3m lynx
-  # ];
 
   # N.B. boot loader
 
