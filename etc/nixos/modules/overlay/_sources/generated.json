@@ -25,7 +25,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2022-11-24"
+        "version": "2022-11-26"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -154,11 +154,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "b19546764e4b2c3d1e25a0da3c3cf87b3796f99f",
-            "sha256": "sha256-ianbYUSIPoeVkv/T54bVomKWKurS/nMlbrwNTXg0NAY=",
+            "rev": "2e72043eadfb47ae714e04407ac64542d596fb8f",
+            "sha256": "sha256-68vDAk+YxGlB+f53dF56PIrEf/W7CA20RBe3zne90ZM=",
             "type": "github"
         },
-        "version": "b19546764e4b2c3d1e25a0da3c3cf87b3796f99f"
+        "version": "2e72043eadfb47ae714e04407ac64542d596fb8f"
     },
     "sddm-chili": {
         "cargoLocks": null,
@@ -210,6 +210,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2022-11-24"
+        "version": "2022-11-26"
     }
 }
