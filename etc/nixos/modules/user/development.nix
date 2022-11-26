@@ -308,8 +308,7 @@ in {
 
         distrobox
 
-        nixfmt
-        rnix-lsp nixpkgs-review nix-prefetch-scripts
+        nixfmt nil nixpkgs-review nix-prefetch-scripts
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
