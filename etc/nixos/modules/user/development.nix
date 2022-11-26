@@ -18,17 +18,17 @@ let
   hasOrg = sessions ? "ORG_DIR";
   hasCloud = sessions ? "CLOUD_DIR";
 
-  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
-  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs.d/private";
+  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs/local";
+  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs/private";
   linkOrg = optionalString (hasOrg && hasCloud) ''
     [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
   '';
   linkEmacs = optionalString hasCloud ''
     if [ -d "${emacsLocal}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local/
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs/local/
     fi
     if [ -d "${emacsPriv}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs.d/modules/private/
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs/modules/private/
     fi
 
     [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
@@ -63,7 +63,7 @@ in {
     xdg = {
 
       configFile = {
-        "emacs.d" = {
+        "emacs" = {
           source = ./files/emacs.d;
           recursive = true;
         };
@@ -72,7 +72,7 @@ in {
           recursive = true;
         };
 
-        "emacs.d/local/pre-custom.el".text =
+        "emacs/local/pre-custom.el".text =
           concatStringsSep "\n" [
             ''
             (setq-default
@@ -83,7 +83,7 @@ in {
             cfg.emacs.preCustom
           ];
 
-        "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
+        "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
       };
     };
 
