@@ -286,7 +286,8 @@ in {
     };
 
     home = {
-      activation.developmentActivation = lib.hm.dag.entryAfter ["writeBoundary"]
+      activation.developmentActivation = lib.hm.dag.entryAfter
+        [ "writeBoundary" "linkGeneration" ]
         (concatStringsSep "\n" [ linkOrg linkEmacs ]);
 
       sessionVariables = {

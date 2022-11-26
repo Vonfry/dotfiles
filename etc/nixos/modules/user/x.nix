@@ -159,7 +159,8 @@ in {
     };
 
     home = {
-      activation.xActivation = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      activation.xActivation = lib.hm.dag.entryAfter
+        [ "writeBoundary" "linkGeneration" ] ''
         [ -h "${bgFile}" ] || ln -s ${cfg'.bgFile} ${bgFile}
       '';
 
