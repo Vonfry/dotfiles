@@ -65,6 +65,7 @@ in {
           ClientAliveCountMax 4
         '';
       };
+      udisks2.enable = true;
     };
 
     security = {
