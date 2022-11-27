@@ -65,6 +65,7 @@ in {
           ClientAliveCountMax 4
         '';
       };
+      udisks2.enable = true;
     };
 
     security = {
@@ -84,6 +85,6 @@ in {
       };
     };
 
-    system.stateVersion = "22.05";
+    system.stateVersion = "22.11";
   };
 }

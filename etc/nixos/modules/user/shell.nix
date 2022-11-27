@@ -477,7 +477,8 @@ in {
     };
 
     home = {
-      activation.shellActivation = lib.hm.dag.entryAfter ["writeBoundary"]
+      activation.shellActivation = lib.hm.dag.entryAfter
+        [ "writeBoundary" "linkGeneration" ]
         (concatStringsSep "\n" [ linkNormal makeLib ]);
 
       packages = with pkgs; [

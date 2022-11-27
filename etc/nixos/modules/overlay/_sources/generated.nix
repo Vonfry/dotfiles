@@ -3,15 +3,15 @@
 {
   aria-ng = {
     pname = "aria-ng";
-    version = "1.2.4";
+    version = "1.3.2";
     src = fetchurl {
-      url = "https://github.com/mayswind/AriaNg/releases/download/1.2.4/AriaNg-1.2.4-AllInOne.zip";
-      sha256 = "sha256-sX296+06PVm2H7ESaM0kWSrZi/gnIKkazbttjF5UKF8=";
+      url = "https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2-AllInOne.zip";
+      sha256 = "sha256-Rxhxoe/1Nm1OXLw4S6VZ99RXxZ5ANegoVeTragDTHgs=";
     };
   };
   background-image = {
     pname = "background-image";
-    version = "2022-08-17";
+    version = "2022-11-26";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -85,13 +85,13 @@
   };
   rime-wubi86-jidian = {
     pname = "rime-wubi86-jidian";
-    version = "435e91703cdc83b45461379a034fe4fa40641917";
+    version = "2e72043eadfb47ae714e04407ac64542d596fb8f";
     src = fetchFromGitHub ({
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "435e91703cdc83b45461379a034fe4fa40641917";
+      rev = "2e72043eadfb47ae714e04407ac64542d596fb8f";
       fetchSubmodules = false;
-      sha256 = "sha256-04DPknoSVusFrrY+jw8lzb8F6Q0cpO0lB213AsK9MNU=";
+      sha256 = "sha256-68vDAk+YxGlB+f53dF56PIrEf/W7CA20RBe3zne90ZM=";
     });
   };
   sddm-chili = {
@@ -118,7 +118,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2022-08-17";
+    version = "2022-11-26";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";

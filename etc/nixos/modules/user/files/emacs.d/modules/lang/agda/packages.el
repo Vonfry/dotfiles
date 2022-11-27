@@ -2,9 +2,7 @@
 ;;
 
 (use-package agda2-mode
-  :init
-  ; because agda2-mode included in agda package needs agda in path when loading
-  (+agda--mode-load)
+  :after agda2
   :general
   (nmap-leader :keymaps 'agda2-mode-map
     "."   'agda2-goto-definition-keyboard

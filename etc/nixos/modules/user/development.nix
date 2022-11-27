@@ -7,19 +7,9 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite perl hugo agda ];
+    paths = [ sqlite perl hugo ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
-
-  editorMimeApps = listToAttrs
-    (map (type: {name = type; value = "emacsclient.desktop"; })
-      [ # copy from emacs.desktop
-        "text/english" "text/plain" "text/x-makefile" "text/x-c++hdr"
-        "text/x-c++src" "text/x-chdr" "text/x-csrc" "text/x-java" "text/x-moc"
-        "text/x-pascal" "text/x-tcl" "text/x-tex" "application/x-shellscript"
-        "text/x-c" "text/x-c++"
-      ]);
-
 
   sessions = config.home.sessionVariables;
   inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
@@ -28,20 +18,20 @@ let
   hasOrg = sessions ? "ORG_DIR";
   hasCloud = sessions ? "CLOUD_DIR";
 
-  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs.d/local";
-  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs.d/private";
+  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs/local";
+  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs/private";
   linkOrg = optionalString (hasOrg && hasCloud) ''
     [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
   '';
   linkEmacs = optionalString hasCloud ''
     if [ -d "${emacsLocal}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs.d/local/
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs/local/
     fi
     if [ -d "${emacsPriv}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs.d/modules/private/
+      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs/modules/private/
     fi
 
-    [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString configHome}/emacs.d/local/dashboard-image.png
+    [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
 in {
   options.vonfry.development = {
@@ -71,10 +61,9 @@ in {
   config = mkIf cfg'.enable {
 
     xdg = {
-      mimeApps.defaultApplications = editorMimeApps;
 
       configFile = {
-        "emacs.d" = {
+        "emacs" = {
           source = ./files/emacs.d;
           recursive = true;
         };
@@ -83,7 +72,7 @@ in {
           recursive = true;
         };
 
-        "emacs.d/local/pre-custom.el".text =
+        "emacs/local/pre-custom.el".text =
           concatStringsSep "\n" [
             ''
             (setq-default
@@ -94,14 +83,15 @@ in {
             cfg.emacs.preCustom
           ];
 
-        "emacs.d/local/post-custom.el".text = cfg.emacs.postCustom;
+        "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
       };
     };
 
     services.emacs = {
       enable = true;
       client.enable = true;
-      socketActivation.enable = true;
+      socketActivation.enable = false;
+      defaultEditor = true;
     };
 
     programs = {
@@ -250,6 +240,8 @@ in {
           project
           ibuffer-project
           consult-flycheck
+          ess-view-data
+          agda2-mode
         ];
       };
 
@@ -294,11 +286,11 @@ in {
     };
 
     home = {
-      activation.developmentActivation = lib.hm.dag.entryAfter ["writeBoundary"]
+      activation.developmentActivation = lib.hm.dag.entryAfter
+        [ "writeBoundary" "linkGeneration" ]
         (concatStringsSep "\n" [ linkOrg linkEmacs ]);
 
       sessionVariables = {
-        EDITOR = "nvim";
         MANPAGER = "nvim +Man!";
         PAGER = "nvim -R";
       };
@@ -316,8 +308,7 @@ in {
 
         distrobox
 
-        nixfmt
-        rnix-lsp nixpkgs-review nix-prefetch-scripts
+        nixfmt nil nixpkgs-review nix-prefetch-scripts
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
