@@ -8,32 +8,26 @@ let
   hasCloud = sVar ? "CLOUD_DIR";
   inherit (sVar) DOTFILES_DIR CLOUD_DIR;
 
-  syncModules = with pkgs; writeScriptBin "nixos-sync-modules" ''
-    #!/usr/bin/env bash
-    doas rsync --delete -auPL ${DOTFILES_DIR}/etc/nixos/modules/ /etc/nixos/modules/
-  '';
-
-  syncLocal = with pkgs; writeScriptBin "nixos-sync-local" ''
+  syncLocal = with pkgs; writeScriptBin "fryos-sync" ''
     #!/usr/bin/env bash
     ${optionalString hasCloud ''
-      doas rsync -auPL ${CLOUD_DIR}/dotfiles/etc/nixos/local/ /etc/nixos/local/
-      doas rsync -auPL ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ /etc/nixos/local/vonfry
-    ''}
-  '';
+      ${pkgs.rsync}/bin/rsync -auPL \
+        ${CLOUD_DIR}/dotfiles/etc/nixos/local/ \
+        ${DOTFILES_DIR}/etc/nixos/local/
+      ${pkgs.rsync}/bin/rsync -auPL \
+        ${CLOUD_DIR}/dotfiles/config/nixpkgs/home/local/ \
+        ${DOTFILES_DIR}/etc/nixos/local/vonfry
+      ''}
+    '';
 
-  syncFlake = with pkgs; writeScriptBin "nixos-sync-flake" ''
+    rebuildOS = with pkgs; writeScriptBin "fryos-rebuild" ''
     #!/usr/bin/env bash
-    doas rsync -auPL ${DOTFILES_DIR}/etc/nixos/flake.* /etc/nixos/
-  '';
-
-  syncNixOS = with pkgs; writeScriptBin "nixos-sync" ''
-    #!/usr/bin/env bash
-    ${syncModules}/bin/nixos-sync-modules
-    ${syncLocal}/bin/nixos-sync-local
-    ${syncFlake}/bin/nixos-sync-flake
+    ${pkgs.nixos-rebuild}/bin/nixos-rebuild --flake \
+      "path:${DOTFILES_DIR}/etc/nixos#vonfry"       \
+      "$@"
   '';
 in {
   config = mkIf cfg.enable {
-    home.packages = [ syncNixOS syncModules syncLocal syncFlake ];
+    home.packages = [ syncLocal rebuildOS ];
   };
 }
