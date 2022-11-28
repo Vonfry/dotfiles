@@ -210,7 +210,6 @@ in {
           engine-mode
           evil-nerd-commenter
           rainbow-delimiters
-          highlight-indent-guides
           doom-modeline
           hl-todo
           rainbow-mode

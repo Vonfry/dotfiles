@@ -2,9 +2,6 @@
 ;;
 ;; Set the configure about editing.
 
-(when (fboundp 'electric-pair-mode)
-  (electric-pair-mode))
-
 (defgroup vonfry-editor nil
   "Vonfry's group about editor")
 
