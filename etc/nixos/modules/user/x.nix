@@ -10,6 +10,16 @@ let
   bgFile = "${homeDirectory}/.background-image";
 
   defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
+
+  deployFcitx5Rime = with pkgs; writeScriptBin "fcitx5-rime-deploy" ''
+    #!/usr/bin/env bash
+    dbus-send --dest='org.fcitx.Fcitx5' \
+                --type=method_call \
+                '/controller' \
+                'org.fcitx.Fcitx.Controller1.SetConfig' \
+                string:"fcitx://config/addon/rime/deploy" \
+                variant:string:""
+  '';
 in {
   options.vonfry.x.bgFile = mkOption {
     default = defaultBgFile;
@@ -188,6 +198,7 @@ in {
         source-han-sans-simplified-chinese
         source-han-serif-simplified-chinese
         font-awesome
+        deployFcitx5Rime
       ];
     };
   };

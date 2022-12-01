@@ -74,6 +74,7 @@ in {
         enable = true;
         extraRules = [
           { groups = [ "wheel" ];
+            noPass = !config.security.doas.wheelNeedsPassword;
             setEnv = [ "http_proxy" "https_proxy" "all_proxy"
                        "HTTP_PROXY" "HTTPS_PROXY" "ALL_PROXY"
                      ]; }

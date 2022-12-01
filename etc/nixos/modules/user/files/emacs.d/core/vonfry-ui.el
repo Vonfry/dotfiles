@@ -69,8 +69,9 @@ THEME is a symbol passed to `load-theme'"
                       "Symbola"
                       frame 'prepend)))
 
-(add-hook 'server-after-make-frame-hook 'vonfry--set-font)
-(when (display-graphic-p) (vonfry--set-font))
+(defun vonfry--set-font-graphic ()
+  (when (display-graphic-p) (vonfry--set-font)))
+(add-hook 'server-after-make-frame-hook 'vonfry--set-font-graphic)
 
 (use-package info :ensure nil)
 
