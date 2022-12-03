@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-script_dir=$( cd "$( dirname "$0" )/.." && pwd )
+script_dir="$( dirname "$0" )"
 nix develop '$script_dir/../..' --command runghc Update.hs "$@"
