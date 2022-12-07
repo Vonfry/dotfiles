@@ -171,8 +171,8 @@
     "o T" 'org-ql-view-sidebar
     "o t" 'org-ql-view)
   (nmap-mode :keymaps 'org-mode-map
-    ";" 'org-ql-sparse-tree
-    "/" 'org-ql-find))
+    "/" 'org-ql-sparse-tree
+    ";" 'org-ql-find))
 
 (use-package org-roam
   :init
