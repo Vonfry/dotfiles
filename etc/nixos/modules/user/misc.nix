@@ -12,8 +12,11 @@ let
       "path:${DOTFILES_DIR}/etc/nixos#vonfry"   \
       "$@"
   '';
+  checkedRebuildOS = if sessions ? DOTFILES_DIR
+                     then rebuildOS
+                     else throw "DOTFILES_DIR isn't set.";
 in {
   config = mkIf cfg.enable {
-    home.packages = [ rebuildOS ];
+    home.packages = [ checkedRebuildOS ];
   };
 }
