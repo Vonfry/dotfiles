@@ -11,26 +11,8 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
-  sessions = config.home.sessionVariables;
-  inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
   inherit (config.xdg) configHome dataHome;
-
-  hasOrg = sessions ? "ORG_DIR";
-  hasCloud = sessions ? "CLOUD_DIR";
-
-  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs/local";
-  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs/private";
-  linkOrg = optionalString (hasOrg && hasCloud) ''
-    [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
-  '';
-  linkEmacs = optionalString hasCloud ''
-    if [ -d "${emacsLocal}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs/local/
-    fi
-    if [ -d "${emacsPriv}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs/modules/private/
-    fi
-
+  linkEmacs = ''
     [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
 in {
@@ -287,7 +269,7 @@ in {
     home = {
       activation.developmentActivation = lib.hm.dag.entryAfter
         [ "writeBoundary" "linkGeneration" ]
-        (concatStringsSep "\n" [ linkOrg linkEmacs ]);
+        (concatStringsSep "\n" [ linkEmacs ]);
 
       sessionVariables = {
         MANPAGER = "nvim +Man!";

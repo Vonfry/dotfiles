@@ -5,18 +5,7 @@ let
   cfg = config.vonfry.net;
   cfg' = config.vonfry;
 
-  sessions = config.home.sessionVariables;
-  hasCloud = sessions ? "CLOUD_DIR";
-  qutebrowserLocal = "${sessions.CLOUD_DIR}/dotfiles/config/qutebrowser";
-
   colorscheme = config.lib.theme.dracula;
-
-  linkQutebrowser = optionalString hasCloud ''
-    if [ -d "${qutebrowserLocal}" ]; then
-      $DRY_RUN_CMD mkdir -p ${toString config.xdg.configHome}/qutebrowser
-      $DRY_RUN_CMD ln $VERBOSE_ARG -s -f ${qutebrowserLocal}/* ${toString config.xdg.configHome}/qutebrowser
-    fi
-  '';
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -60,11 +49,6 @@ in {
                                     ];
 
     home = {
-      activation = {
-        browserActivation = lib.hm.dag.entryAfter ["shellActivation"]
-          (concatStringsSep "\n" [ linkQutebrowser ]);
-      };
-
       sessionVariables = {
         BROWSER = "qutebrowser";
       };
