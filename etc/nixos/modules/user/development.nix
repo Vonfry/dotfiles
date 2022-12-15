@@ -13,7 +13,7 @@ let
 
   inherit (config.xdg) configHome dataHome;
   linkEmacs = ''
-    [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
+    [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
 in {
   options.vonfry.development = {
