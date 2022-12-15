@@ -47,6 +47,7 @@ in {
       optionals (cfg.email == null) [ "misc/mail" "misc/feed" "misc/gnus"
                                       "misc/irc"
                                     ];
+    warnings = optional (cfg.email == null) "email isn't set, so emacs module is disabled.";
 
     home = {
       sessionVariables = {

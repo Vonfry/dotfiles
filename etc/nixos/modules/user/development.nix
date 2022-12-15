@@ -15,6 +15,9 @@ let
   linkEmacs = ''
     [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
+
+  sessions = config.home.sessionVariables;
+  hasOrg = sessions ? ORG_DIR;
 in {
   options.vonfry.development = {
     emacs = {
@@ -41,6 +44,7 @@ in {
   };
 
   config = mkIf cfg'.enable {
+    warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
 
     xdg = {
 
