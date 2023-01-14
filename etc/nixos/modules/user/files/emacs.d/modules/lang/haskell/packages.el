@@ -1,4 +1,4 @@
-;;; haskell config -*- lexical-binding: t -*-
+;;; haskell packages -*- lexical-binding: t -*-
 ;;
 
 (use-package haskell
