@@ -9,6 +9,7 @@
     "&"   'xref-find-apropos
     "{"   'xref-find-references
     "?"   'info-xref
+    "> &" 'xref-find-apropos
     "> ?" 'info-xref-docstrings)
   :config
   (add-hook 'xref-backend-functions  'dumb-jump-xref-activate)

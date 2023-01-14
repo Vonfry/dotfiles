@@ -162,7 +162,6 @@ in {
           cargo
           markdown-mode
           haskell-mode
-          lsp-haskell
           easy-hugo
           json-mode
           yaml-mode
@@ -186,8 +185,6 @@ in {
           ace-window
           logview
           ibuffer-vc
-          lsp-mode
-          lsp-ivy
           editorconfig
           realgud
           engine-mode
@@ -217,7 +214,6 @@ in {
           embark-consult
           marginalia
           vertico
-          consult-lsp
           project
           ibuffer-project
           ess-view-data
@@ -225,6 +221,7 @@ in {
           tempel
           tempel-collection
           flymake-collection
+          consult-eglot
         ];
       };
 

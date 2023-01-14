@@ -24,7 +24,7 @@
     "RET" 'ess-eval-region))
 
 (use-package ess-r-mode
-  :hook (ess-r-mode . lsp-deferred)
+  :hook (ess-r-mode . eglot-ensure)
   :general
   (nmap-mode :keymaps 'ess-r-mode-map
     "R" ess-dev-map)

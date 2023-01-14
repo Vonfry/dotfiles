@@ -1,6 +1,7 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
-(use-package lsp-mode
+(use-package eglot
+  :ensure nil
   :custom
   (lsp-enable-suggest-server-download nil)
   (lsp-completion-provider :none)
@@ -8,35 +9,28 @@
   (lsp-session-file (expand-file-name "lsp-session" vonfry-local-dir))
   (lsp-keymap-prefix "M-*")
   :general
-  (nmap-leader :keymaps 'lsp-mode-map
-    "."     'lsp-find-definition
-    "["     'lsp-find-declaration
-    ","     'pop-tag-mark
-    "="     'lsp-format-buffer
-    "#"     'lsp-organize-imports
-    "{"     'lsp-find-references
-    "}"     'lsp-find-implementation
-    "TAB"   'completion-at-point
-    "("     'lsp-goto-type-definition
-    "?"     'lsp-describe-thing-at-point
-    "> ."   'lsp-find-type-definition
-    "> *"   'lsp-rename
-    "> r"   'lsp-execute-code-action
-    "> R"   'lsp-workspace-restart
-    "> D"   'lsp-describe-session
-    "> h"   'lsp-symbol-highlight
-    "> ?"   'lsp-document-highlight
-    "> L L" 'lsp-lens-mode
-    "> L s" 'lsp-lens-show
-    "> L h" 'lsp-lens-hide
-    "> l"   'lsp-avy-lens)
-  (vmap-leader :keymaps 'lsp-mode-map
-    "=" 'lsp-format-region))
+  (nmap-leader :keymaps 'eglot-mode-map
+    "="     'eglot-format-buffer
+    "#"     'eglot-code-action-organize-imports
+    "> r"   'eglot-rename
+    "> a"   'eglot-execute-code-actions
+    "> W"   'eglot-execute-code-action-rewrite
+    "> q"   'eglot-code-action-quickfix
+    "> i"   'eglot-execute-code-action-inline
+    "> e"   'eglot-execute-code-action-extract
+    "> r"   'eglot-reconnect
+    "> s"   'eglot-shutdown
+    "> S"   'eglot-shutdown-all
+    "> D e" 'eglot-event-buffer
+    "> D s" 'eglot-stderr-buffer
+    "> D f" 'eglot-forget-pending-continuations
+    "> D u" 'eglot-signal-didChangeConfiguration
+    "> D c" 'eglot-clear-status)
+  (vmap-leader :keymaps 'eglot-mode-map
+    "=" 'eglot-format))
 
-(use-package consult-lsp
-  :after (lsp-mode consult)
+(use-package consult-eglot
+  :after (eglot consult)
   :general
-  (nmap-leader :keymaps 'lsp-mode-map
-    "&" 'consult-lsp-symbols
-    "q" 'consult-lsp-diagnostics
-    ":" 'consult-lsp-file-symbols))
+  (nmap-leader :keymaps 'eglot-mode-map
+    "&" 'consult-eglot-symbols))
