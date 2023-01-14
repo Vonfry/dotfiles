@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: setcjkfont
-# key: setcjkfont
-# --
-
-\setCJKmainfont{${1:Sarasa Gothic SC}}
-\setCJKsansfont{${2:Sarasa Gothic SC}}
-\setCJKmonofont{${3:Sarasa Mono SC}}

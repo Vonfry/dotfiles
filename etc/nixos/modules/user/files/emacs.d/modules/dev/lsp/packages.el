@@ -1,7 +1,6 @@
 ;;; lsp packages -*- lexical-binding: t -*-
 
 (use-package lsp-mode
-  :after yasnippet
   :custom
   (lsp-enable-suggest-server-download nil)
   (lsp-completion-provider :none)

@@ -164,7 +164,6 @@ in {
           markdown-mode
           haskell-mode
           lsp-haskell
-          haskell-snippets
           easy-hugo
           json-mode
           yaml-mode
@@ -181,7 +180,6 @@ in {
           emacsql
           sql-indent
           ebib
-          yasnippet-snippets
           info-colors
           dumb-jump
           dirvish
@@ -207,7 +205,6 @@ in {
           org-contacts
           toc-org
           evil-collection
-          license-snippets
           melpaPackages.telega
           terminal-here
           zoxide
@@ -227,6 +224,8 @@ in {
           consult-flycheck
           ess-view-data
           agda2-mode
+          tempel
+          tempel-collection
         ];
       };
 

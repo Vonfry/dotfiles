@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: setfont
-# key: setfont
-# --
-
-\setmainfont{${1:Source Han Serif SC}}
-\setsansfont{${2:Source Han Sans SC}}
-\setmonofont{${3:Sarasa Mono SC}}

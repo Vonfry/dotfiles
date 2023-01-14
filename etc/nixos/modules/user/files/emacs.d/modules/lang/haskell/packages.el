@@ -58,6 +58,3 @@
 
 (use-package lsp-haskell
   :after (haskell lsp-mode))
-
-(use-package haskell-snippets
-  :after (haskell yasnippet))
