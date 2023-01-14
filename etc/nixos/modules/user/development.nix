@@ -147,7 +147,6 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          flycheck
           auctex
           dashboard
           proof-general
@@ -221,11 +220,11 @@ in {
           consult-lsp
           project
           ibuffer-project
-          consult-flycheck
           ess-view-data
           agda2-mode
           tempel
           tempel-collection
+          flymake-collection
         ];
       };
 
