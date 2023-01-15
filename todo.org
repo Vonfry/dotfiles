@@ -78,12 +78,13 @@
 ** Emacs[6/7]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
-*** TODO Interesting plugins[4/6]
+*** TODO Interesting plugins[6/7]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
 **** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
      CLOSED: [2020-12-09 Wed 09:11]
 **** DONE magit evil and sth else is included in evil-collection
-**** TODO [[https://github.com/mickeynp/ligature.el][ligature.el]]
+**** DONE [[https://github.com/mickeynp/ligature.el][ligature.el]]
+     CLOSED: [2023-01-15 Sun 15:09]
 **** DONE envrc instead of direnv.el
 **** CANCELLED ob-gnuplot and gnuplot(build failed now)
      CLOSED: [2021-05-25 Tue 16:32]

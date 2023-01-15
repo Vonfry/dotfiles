@@ -227,6 +227,7 @@ in {
           consult-flycheck
           ess-view-data
           agda2-mode
+          ligature
         ];
       };
 
