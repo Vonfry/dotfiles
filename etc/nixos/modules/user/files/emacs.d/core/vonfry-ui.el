@@ -80,9 +80,7 @@ THEME is a symbol passed to `load-theme'"
   inhibit-startup-echo-area-message t
 
   display-time-default-load-average nil
-  display-time-24hr-format t
-
-  x-gtk-use-native-input t)
+  display-time-24hr-format t)
 
 (display-time-mode 1)
 
