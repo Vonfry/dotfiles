@@ -166,6 +166,10 @@ in {
 
         shellAliases = {
           rm = "echo \"This is not the command you are looking for. trash better. Focus to use 'rm' with a prefix backslash.\"; false";
+          rt = "trash put";
+          rl = "trash list";
+          rc = "trash empty";
+          rr = "trash restore";
 
           tree = "lsd --tree";
 
