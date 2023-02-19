@@ -14,4 +14,4 @@
   :config
   (add-hook 'xref-backend-functions  'dumb-jump-xref-activate)
   :custom
-  (dumb-jump-selector 'ivy))
+  (dumb-jump-selector 'completing-read))
