@@ -151,7 +151,6 @@ in {
           dashboard
           proof-general
           nix-mode
-          org
           org-superstar
           evil-org
           org-web-tools
@@ -214,7 +213,6 @@ in {
           embark-consult
           marginalia
           vertico
-          project
           ibuffer-project
           ess-view-data
           agda2-mode

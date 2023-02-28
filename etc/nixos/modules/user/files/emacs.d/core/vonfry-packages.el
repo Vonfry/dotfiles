@@ -52,9 +52,6 @@ If t, package.el is used to install packages automatically."
 
 (defconst vonfry-basic-packages '(
     use-package
-    ;; many package load org directly without eval-after-load, so add it here
-    ;; to make sure the newest is used.
-    org
   )
   "These are the default basic packages, which are used by modules.")
 
