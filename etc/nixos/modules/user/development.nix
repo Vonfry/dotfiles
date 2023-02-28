@@ -228,6 +228,7 @@ in {
           ess-view-data
           agda2-mode
           ligature
+          ement
         ];
       };
 

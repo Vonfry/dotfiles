@@ -44,3 +44,9 @@
     "t" telega-prefix-map))
 
 (use-package telega-dired-dwim :after telega)
+
+
+(use-package ement
+  :general
+  ; custom function is not necessary due to ement-save-session
+  (nmap-at "e" 'ement-connect))
