@@ -470,7 +470,6 @@ in {
     home = {
       packages = with pkgs; [
         trashy thefuck
-        neofetch
         asciinema
 
         (zsh-completions.overrideAttrs (fin: prev: {
