@@ -3,11 +3,7 @@
 (use-package eglot
   :ensure nil
   :custom
-  (lsp-enable-suggest-server-download nil)
-  (lsp-completion-provider :none)
-  (lsp-server-install-dir (expand-file-name "lsp" vonfry-cache-dir))
-  (lsp-session-file (expand-file-name "lsp-session" vonfry-local-dir))
-  (lsp-keymap-prefix "M-*")
+  (eglot-autoshutdown t)
   :general
   (nmap-leader :keymaps 'eglot-mode-map
     "="     'eglot-format-buffer
