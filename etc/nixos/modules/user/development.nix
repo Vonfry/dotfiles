@@ -220,6 +220,7 @@ in {
           tempel-collection
           flymake-collection
           consult-eglot
+          openpgp
         ];
       };
 
