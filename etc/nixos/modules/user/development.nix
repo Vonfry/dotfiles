@@ -139,7 +139,6 @@ in {
           dracula-theme
           general
           whitespace-cleanup-mode
-          use-package
           diminish
           dash
           s
