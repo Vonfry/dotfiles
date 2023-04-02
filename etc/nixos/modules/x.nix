@@ -11,6 +11,13 @@ let
   '';
 
   lockCommand = "${screenlocker}/bin/screenlocker";
+
+  fcitx5-rime-overlay = self: super: {
+    fcitx5-rime = super.fcitx5-rime.override {
+      rime-data = null;
+      rimeDataPkgs = [];
+    };
+  };
 in {
   options.vonfry.x = {
     durationLock = mkOption {
@@ -27,6 +34,9 @@ in {
   };
 
   config = mkIf config.vonfry.enable {
+
+    nixpkgs.overlays = [ fcitx5-rime-overlay ];
+
     environment.systemPackages = with pkgs; [
       xclip
       alacritty
