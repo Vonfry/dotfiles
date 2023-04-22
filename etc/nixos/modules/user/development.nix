@@ -200,7 +200,6 @@ in {
           hl-todo
           rainbow-mode
           hledger-mode
-          ess
           envrc
           ob-http
           mpdel
@@ -228,6 +227,8 @@ in {
           ess-view-data
           agda2-mode
           ligature
+          julia-mode
+          eglot-jl
         ];
       };
 
