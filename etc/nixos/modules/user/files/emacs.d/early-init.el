@@ -18,3 +18,7 @@
   frame-title-format '("" invocation-name ": %b")
 
   x-gtk-use-native-input t)
+
+(startup-redirect-eln-cache
+    (expand-file-name "eln/"
+                    (expand-file-name "emacs" (xdg-cache-home))))
