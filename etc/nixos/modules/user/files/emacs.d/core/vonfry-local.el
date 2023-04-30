@@ -6,6 +6,17 @@
 ;; Set some variables
 ;;
 
+(defgroup vonfry nil
+  "Vonfry's emacs group")
+
+(defcustom vonfry-config-dir user-emacs-directory
+  "The dir to saves the configures."
+  :type 'string
+  :group 'vonfry-dir)
+
+(defconst vonfry-core-dir (expand-file-name "core/" vonfry-config-dir)
+  "The dir to saves the core module.")
+
 (require 'xdg)
 
 (defconst vonfry-local-dir (expand-file-name "emacs/" (xdg-data-home))

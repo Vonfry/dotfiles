@@ -19,17 +19,6 @@
 ;; All plugins are in modules, load with use-package to deal with depence.
 ;;
 
-(defgroup vonfry nil
-  "Vonfry's emacs group")
-
-(defcustom vonfry-config-dir user-emacs-directory
-  "The dir to saves the configures."
-  :type 'string
-  :group 'vonfry-dir)
-
-(defconst vonfry-core-dir (expand-file-name "core/" vonfry-config-dir)
-  "The dir to saves the core module.")
-
 (defcustom vonfry-debug nil
   "debug flag."
   :group 'vonfry
