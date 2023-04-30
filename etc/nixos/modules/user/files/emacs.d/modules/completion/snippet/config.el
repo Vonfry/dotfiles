@@ -1,5 +1,6 @@
 ;;; snippet config -*- lexical-binding: t -*-
 ;;
 
-(defconst +snippet-local-dir (expand-file-name "snippets" vonfry-local-dir)
+(defconst +snippet-local-path
+  (expand-file-name "snippets/*.eld" vonfry-local-dir)
   "A local dir for snippet")

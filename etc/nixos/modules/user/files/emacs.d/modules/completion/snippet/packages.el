@@ -4,12 +4,15 @@
 (use-package tempel
   :after smart-tab
   :init
-  (unless (file-exists-p +snippet-local-dir)
-    (make-directory +snippet-local-dir))
+  (let ((snippet-local-dir (file-name-directory +snippet-local-path)))
+    (unless (file-exists-p snippet-local-dir)
+      (make-directory snippet-local-dir)))
   :custom
   (tempel-path
-   (list +snippet-local-dir
-         (expand-file-name "completion/snippet/templates" vonfry-modules-dir)))
+   (list +snippet-local-path
+         (expand-file-name "completion/snippet/templates/*.eld"
+                           vonfry-modules-dir)))
+  (tempel-auto-reload nil) ; disable it due to fixed file in home-manager
   :general
   ("C-;" 'tempel-insert))
 
