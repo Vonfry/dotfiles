@@ -131,7 +131,7 @@ in {
       };
 
       emacs =  {
-        package = pkgs.emacsUnstable;
+        package = pkgs.emacsGit.override { nativeComp = false; }; # wait for fix
         enable = true;
         extraPackages = epkgs: with epkgs; [
           all-the-icons
