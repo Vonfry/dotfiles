@@ -3,7 +3,7 @@
 
 (use-package haskell
   :ensure haskell-mode
-  :hook (haskell-mode . eglot)
+  :hook (haskell-mode . eglot-ensure)
   :custom
   (haskell-indentation-layout-offset 4)
   (imenu-add-menubar-index t)

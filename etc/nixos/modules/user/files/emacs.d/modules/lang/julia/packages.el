@@ -7,4 +7,4 @@
     "\"" 'inferior-julia))
 
 (use-package eglot-jl
-  :hook (julia-mode . eglot))
+  :hook (julia-mode . eglot-ensure))

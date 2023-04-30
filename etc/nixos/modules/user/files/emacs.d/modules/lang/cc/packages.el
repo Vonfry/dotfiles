@@ -2,7 +2,7 @@
 ;;
 
 (dolist (mode '(c-mode-hook c++-mode-hook))
-  (add-hook mode 'eglot))
+  (add-hook mode 'eglot-ensure))
 
 (nmap-mode :keymaps '(c-mode-map c++-mode-map)
   "h" 'ff-find-other-file

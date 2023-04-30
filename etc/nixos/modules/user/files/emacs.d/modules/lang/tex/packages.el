@@ -42,7 +42,7 @@
        (reftex-mode)
        (rainbow-delimiters-mode)
        (LaTeX-math-mode)
-       (eglot)))
+       (eglot-ensure)))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)

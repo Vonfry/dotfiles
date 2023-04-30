@@ -3,7 +3,7 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'"
-  :hook (rust-mode . eglot)
+  :hook (rust-mode . eglot-ensure)
   :general
   (nmap-mode :keymaps 'rust-mode-map
     "=" 'rust-mode-indent-line

@@ -3,7 +3,7 @@
 
 (use-package nix-mode
   :interpreter ("nix-shell" . nix-shebang-mode)
-  :hook (nix-mode . eglot)
+  :hook (nix-mode . eglot-ensure)
   :general
   (nmap-leader :keymaps 'nix-mode-map
     "="  'nix-format-buffer
