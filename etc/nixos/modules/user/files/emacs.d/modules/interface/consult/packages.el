@@ -33,13 +33,9 @@
     "m"   'consult-bookmark
     ";"   'consult-imenu
     ":"   'consult-imenu-multi
-    "/"   'consult-line)
+    "/"   'consult-line
+    "q"   'consult-flymake)
   (nmap-leader :keymaps 'outline-mode-map
     ";" 'consult-outline)
   (nmap-mode :keymaps 'org-mode-map
     ";" 'consult-org-heading))
-
-(use-package consult-flycheck
-  :after (consult flycheck)
-  :general
-  (nmap-leader "q" 'consult-flycheck))

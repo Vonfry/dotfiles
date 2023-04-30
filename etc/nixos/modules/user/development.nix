@@ -139,7 +139,6 @@ in {
           dracula-theme
           general
           whitespace-cleanup-mode
-          use-package
           diminish
           dash
           s
@@ -147,12 +146,10 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          flycheck
           auctex
           dashboard
           proof-general
           nix-mode
-          org
           org-superstar
           evil-org
           org-web-tools
@@ -163,8 +160,6 @@ in {
           cargo
           markdown-mode
           haskell-mode
-          lsp-haskell
-          haskell-snippets
           easy-hugo
           json-mode
           yaml-mode
@@ -181,7 +176,6 @@ in {
           emacsql
           sql-indent
           ebib
-          yasnippet-snippets
           info-colors
           dumb-jump
           dirvish
@@ -189,8 +183,6 @@ in {
           ace-window
           logview
           ibuffer-vc
-          lsp-mode
-          lsp-ivy
           editorconfig
           realgud
           engine-mode
@@ -206,7 +198,6 @@ in {
           org-contacts
           toc-org
           evil-collection
-          license-snippets
           melpaPackages.telega
           terminal-here
           zoxide
@@ -220,15 +211,17 @@ in {
           embark-consult
           marginalia
           vertico
-          consult-lsp
-          project
           ibuffer-project
-          consult-flycheck
           ess-view-data
           agda2-mode
           ligature
           julia-mode
           eglot-jl
+          tempel
+          tempel-collection
+          flymake-collection
+          consult-eglot
+          openpgp
         ];
       };
 

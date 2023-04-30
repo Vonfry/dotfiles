@@ -15,4 +15,6 @@
   menu-bar-mode nil
   scroll-bar-mode nil
 
-  frame-title-format '("" invocation-name ": %b"))
+  frame-title-format '("" invocation-name ": %b")
+
+  x-gtk-use-native-input t)
