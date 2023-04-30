@@ -40,8 +40,6 @@
         debug-on-error t
         eval-expression-debug-on-error t))
 
-(require 'vonfry-local)
-
 (when (file-exists-p custom-file)
   (custom-save-all)
   (load custom-file))
