@@ -222,6 +222,7 @@ in {
           flymake-collection
           consult-eglot
           openpgp
+          ement
         ];
       };
 
