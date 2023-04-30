@@ -22,26 +22,13 @@
       [({ config, pkgs, lib, ... }:
 
       {
-        # sessionVariables must be set after creating these directories.
-        home.sessionVariables = {
-          DOTFILES_DIR = "${config.home.homeDirectory}/dotfiles";
-          CLOUD_DIR    = "${config.home.homeDirectory}/cloud";
-          ORG_DIR      = "${config.home.homeDirectory}/orgmode";
-          CLONE_LIB    = "${config.home.homeDirectory}/repos";
-          LEDGER_FILE  = "${config.home.homeDirectory}/financial/$(date +%Y).journal";
-        };
-
         vonfry = {
           development = {
             git.signKey = "";
           };
         };
 
-        imports = [ ./local/mail.nix ./local/qutebrowser.nix
-                    ./local/proxy-config.nix
-                    ./local/emacs.nix
-                    ./local/mirror-config.nix
-                  ];
+        imports = [ ./local/cloud.nix ];
       })];
   };
 

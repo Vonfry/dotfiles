@@ -5,24 +5,9 @@ let
   cfg = config.vonfry;
 
   sessionVariables = config.home.sessionVariables;
-  inherit (sessionVariables) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
   inherit (config.xdg) configHome cacheHome dataHome;
 
   hasLedger = sessionVariables ? LEDGER_FILE;
-  hasLib = sessionVariables ? "CLONE_LIB";
-
-  makeLib = optionalString hasLib ''
-    $DRY_RUN_CMD mkdir -p ${CLONE_LIB}
-  '';
-
-  linkNormal = ''
-    if [ -z "${DOTFILES_DIR}"  ]; then
-        $DRY_RUN_CMD echo "Config local file at first."
-        exit -1
-    fi
-
-    mkdir -p ${toString cacheHome} ${toString dataHome}
-  '';
 
   _git_log_medium_format="%C(bold)Commit:%C(reset) %C(green)%H%C(red)%d%n%C(bold)Author:%C(reset) %C(cyan)%an <%ae>%n%C(bold)Date:%C(reset)   %C(blue)%ai (%ar)%C(reset)%n%+B";
   _git_log_oneline_format="%C(green)%h%C(reset) %s%C(red)%d%C(reset)%n";
@@ -31,6 +16,8 @@ let
 in {
   config = mkIf cfg.enable {
     vonfry.development.emacs.excludeModules = optional (!hasLedger) "misc/ledger";
+
+    warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
 
     programs = {
       tmux = {
@@ -178,7 +165,11 @@ in {
         '';
 
         shellAliases = {
-          rm = "echo \"This is not the command you are looking for. trash or trash-put is better. Focus to use 'rm' with a prefix backslash.\"; false";
+          rm = "echo \"This is not the command you are looking for. trash better. Focus to use 'rm' with a prefix backslash.\"; false";
+          rt = "trash put";
+          rl = "trash list";
+          rc = "trash empty";
+          rr = "trash restore";
 
           tree = "lsd --tree";
 
@@ -477,16 +468,16 @@ in {
     };
 
     home = {
-      activation.shellActivation = lib.hm.dag.entryAfter
-        [ "writeBoundary" "linkGeneration" ]
-        (concatStringsSep "\n" [ linkNormal makeLib ]);
-
       packages = with pkgs; [
-        trash-cli thefuck
-        neofetch
+        trashy thefuck
         asciinema
 
-        zsh-completions
+        (zsh-completions.overrideAttrs (fin: prev: {
+          postFixup = ''
+            # this must be removed after pr is merged.
+            rm $out/share/zsh/site-functions/_trash
+          '';
+        }))
       ];
 
       sessionPath = [ "~/.local/bin" ];

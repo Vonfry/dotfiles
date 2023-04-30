@@ -3,23 +3,6 @@
 with lib;
 let
   cfg = config.vonfry;
-
-  sessions = config.home.sessionVariables;
-  FILE = sessions.LEDGER_FILE;
-  inherit (sessions) CLOUD_DIR;
-
-  hasCloud = sessions ? "CLOUD_DIR";
-  hasLedger = sessions ? "LEDGER_FILE";
-
-  linkFinancial = optionalString (hasLedger && hasCloud) ''
-    [ -h $(dirname ${FILE}) ] || ln -s ${CLOUD_DIR}/dotfiles/financial $(dirname ${FILE})
-    if [ ! -f ${FILE} ]; then
-      touch ${FILE}
-      echo "include header.journal\nY$(date +%Y)\n"
-      echo "New year financial file is created. Please check it(${FILE})."
-      exit -1
-    fi
-  '';
 in {
   config = mkIf cfg.enable {
     programs = {
@@ -83,10 +66,6 @@ in {
       optional (!config.services.mpd.enable) "misc/mpd";
 
     home = {
-      activation = {
-        financialActivation = lib.hm.dag.entryAfter ["shellActivation"] linkFinancial;
-      };
-
       sessionVariables = {
         PDFVIEWER = "zathura";
       };

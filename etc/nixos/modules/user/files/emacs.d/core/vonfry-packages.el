@@ -42,19 +42,12 @@ If t, package.el is used to install packages automatically."
  use-package-always-demand t
  use-package-always-ensure vonfry-package-ensure)
 
-(when (and (boundp 'native-comp-eln-load-path)
-           (fboundp 'startup-redirect-eln-cache))
-  (startup-redirect-eln-cache (expand-file-name "eln/" vonfry-cache-dir)))
-
 ;;
 ;; define some basic packages
 ;;
 
 (defconst vonfry-basic-packages '(
     use-package
-    ;; many package load org directly without eval-after-load, so add it here
-    ;; to make sure the newest is used.
-    org
   )
   "These are the default basic packages, which are used by modules.")
 

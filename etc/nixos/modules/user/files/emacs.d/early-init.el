@@ -15,4 +15,14 @@
   menu-bar-mode nil
   scroll-bar-mode nil
 
-  frame-title-format '("" invocation-name ": %b"))
+  frame-title-format '("" invocation-name ": %b")
+
+  x-gtk-use-native-input t)
+
+(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
+(require 'vonfry-local)
+
+(when (and (boundp 'native-comp-eln-load-path)
+           (fboundp 'startup-redirect-eln-cache))
+  (startup-redirect-eln-cache
+   (expand-file-name "eln-cache/" vonfry-local-dir)))

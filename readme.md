@@ -67,11 +67,12 @@ in user environment only when the language is used directly, i.e., tex and nix.
 - **Haskell** :: main prog lang
 - **Rust** :: main sys-prog lang
 - **Perl** :: main script lang
-- **R** :: main data-analysis lang
+- **Julia** :: main data-analysis lang
 - orgmode & latex :: main doc lang
 - Agda :: proof only
 - Coq :: proof only
 - C/C++
+- ~~R~~
 - ~~Lisp~~
 - ~~Ruby~~
 - Python3 :: only interperter by some utils

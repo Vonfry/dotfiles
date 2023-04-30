@@ -11,28 +11,13 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
-  sessions = config.home.sessionVariables;
-  inherit (sessions) DOTFILES_DIR CLOUD_DIR ORG_DIR CLONE_LIB;
   inherit (config.xdg) configHome dataHome;
-
-  hasOrg = sessions ? "ORG_DIR";
-  hasCloud = sessions ? "CLOUD_DIR";
-
-  emacsLocal = "${CLOUD_DIR}/dotfiles/config/emacs/local";
-  emacsPriv = "${CLOUD_DIR}/dotfiles/config/emacs/private";
-  linkOrg = optionalString (hasOrg && hasCloud) ''
-    [ -h ${ORG_DIR} ] || $DRY_RUN_CMD ln $VERBOSE_ARG -s ${CLOUD_DIR}/dotfiles/orgmode ${ORG_DIR}
+  linkEmacs = ''
+    [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
-  linkEmacs = optionalString hasCloud ''
-    if [ -d "${emacsLocal}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsLocal}/* ${toString configHome}/emacs/local/
-    fi
-    if [ -d "${emacsPriv}" ]; then
-      $DRY_RUN_CMD ln $VERBOSE_ARG -sf ${emacsPriv}/* ${toString configHome}/emacs/modules/private/
-    fi
 
-    [ -h ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
-  '';
+  sessions = config.home.sessionVariables;
+  hasOrg = sessions ? ORG_DIR;
 in {
   options.vonfry.development = {
     emacs = {
@@ -59,6 +44,7 @@ in {
   };
 
   config = mkIf cfg'.enable {
+    warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
 
     xdg = {
 
@@ -145,7 +131,7 @@ in {
       };
 
       emacs =  {
-        package = pkgs.emacsUnstable;
+        package = pkgs.emacsGit.override { nativeComp = false; }; # wait for fix
         enable = true;
         extraPackages = epkgs: with epkgs; [
           all-the-icons
@@ -153,7 +139,6 @@ in {
           dracula-theme
           general
           whitespace-cleanup-mode
-          use-package
           diminish
           dash
           s
@@ -161,12 +146,10 @@ in {
           evil-numbers
           evil-surround
           evil-matchit
-          flycheck
           auctex
           dashboard
           proof-general
           nix-mode
-          org
           org-superstar
           evil-org
           org-web-tools
@@ -177,8 +160,6 @@ in {
           cargo
           markdown-mode
           haskell-mode
-          lsp-haskell
-          haskell-snippets
           easy-hugo
           json-mode
           yaml-mode
@@ -195,7 +176,6 @@ in {
           emacsql
           sql-indent
           ebib
-          yasnippet-snippets
           info-colors
           dumb-jump
           dirvish
@@ -203,8 +183,6 @@ in {
           ace-window
           logview
           ibuffer-vc
-          lsp-mode
-          lsp-ivy
           editorconfig
           realgud
           engine-mode
@@ -214,14 +192,12 @@ in {
           hl-todo
           rainbow-mode
           hledger-mode
-          ess
           envrc
           ob-http
           mpdel
           org-contacts
           toc-org
           evil-collection
-          license-snippets
           melpaPackages.telega
           terminal-here
           zoxide
@@ -235,12 +211,18 @@ in {
           embark-consult
           marginalia
           vertico
-          consult-lsp
-          project
           ibuffer-project
-          consult-flycheck
           ess-view-data
           agda2-mode
+          ligature
+          julia-mode
+          eglot-jl
+          tempel
+          tempel-collection
+          flymake-collection
+          consult-eglot
+          openpgp
+          ement
         ];
       };
 
@@ -287,7 +269,7 @@ in {
     home = {
       activation.developmentActivation = lib.hm.dag.entryAfter
         [ "writeBoundary" "linkGeneration" ]
-        (concatStringsSep "\n" [ linkOrg linkEmacs ]);
+        (concatStringsSep "\n" [ linkEmacs ]);
 
       sessionVariables = {
         MANPAGER = "nvim +Man!";
@@ -307,7 +289,7 @@ in {
 
         distrobox
 
-        nixfmt nil nixpkgs-review nix-prefetch-scripts
+        nixfmt nil nixpkgs-review
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a

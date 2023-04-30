@@ -10,7 +10,6 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
 (require 'vonfry)
 
 (provide 'init)
