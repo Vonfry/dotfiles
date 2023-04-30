@@ -75,11 +75,13 @@
      wait for 0.5.0
 **** DONE lua config, see [[https://github.com/nanotee/nvim-lua-guide][ref]]
      CLOSED: [2021-12-23 Thu 08:57]
-** Emacs[7/8]
+** Emacs[6/7]
 *** CANCELLED use raxod502/straight.el instead of package.el
 *** DONE manage plugins with nixpkgs
 *** TODO Interesting plugins[6/7]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
+**** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
+     CLOSED: [2020-12-09 Wed 09:11]
 **** DONE magit evil and sth else is included in evil-collection
 **** DONE [[https://github.com/mickeynp/ligature.el][ligature.el]]
      CLOSED: [2023-01-15 Sun 15:09]
@@ -95,8 +97,7 @@
     CLOSED: [2021-11-23 Tue 09:25]
 *** DONE org-roam v2 migration
     CLOSED: [2021-08-12 Thu 17:12]
-*** DONE replace xim with gtk native input?
-    CLOSED: [2023-01-15 Sun 11:18]
+*** WAITING replace xim with gtk native input?
     because there is a bug for fcitx5's xim. If I restart fcitx5 service, emacs
     cannot handle the new service, but other softwares like qutebrowser and
     alacritty can do.
