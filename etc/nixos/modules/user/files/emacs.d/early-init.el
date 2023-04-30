@@ -19,6 +19,8 @@
 
   x-gtk-use-native-input t)
 
-(startup-redirect-eln-cache
-    (expand-file-name "eln/"
-                    (expand-file-name "emacs" (xdg-cache-home))))
+(when (and (boundp 'native-comp-eln-load-path)
+           (fboundp 'startup-redirect-eln-cache))
+  (startup-redirect-eln-cache
+   (expand-file-name "eln/"
+                     (expand-file-name "emacs" (xdg-cache-home)))))
