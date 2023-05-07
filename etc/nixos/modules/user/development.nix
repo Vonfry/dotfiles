@@ -223,6 +223,7 @@ in {
           consult-eglot
           openpgp
           ement
+          wgrep
         ];
       };
 
