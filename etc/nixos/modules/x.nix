@@ -15,7 +15,9 @@ let
   fcitx5-rime-overlay = self: super: {
     fcitx5-rime = super.fcitx5-rime.override {
       rime-data = null;
-      rimeDataPkgs = [];
+      rimeDataPkgs = [
+        (self.runCommand "rime-data-nullify" {} "mkdir -p $out/share/rime-data")
+      ];
     };
   };
 in {
@@ -91,7 +93,7 @@ in {
       };
     };
 
-    qt5 = {
+    qt = {
       enable = true;
       platformTheme = "qt5ct";
     };
