@@ -1,20 +1,22 @@
 {
     "aria-ng": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "aria-ng",
         "passthru": null,
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Rxhxoe/1Nm1OXLw4S6VZ99RXxZ5ANegoVeTragDTHgs=",
+            "sha256": "sha256-EBUEq1YHK/1C6bWO+KvPuhyw7dzU2SV+4BHgJUYWpyA=",
             "type": "url",
-            "url": "https://github.com/mayswind/AriaNg/releases/download/1.3.2/AriaNg-1.3.2-AllInOne.zip"
+            "url": "https://github.com/mayswind/AriaNg/releases/download/1.3.6/AriaNg-1.3.6-AllInOne.zip"
         },
-        "version": "1.3.2"
+        "version": "1.3.6"
     },
     "background-image": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "background-image",
         "passthru": null,
@@ -25,10 +27,11 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2022-12-01"
+        "version": "2023-06-01"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
+        "date": "2021-02-21",
         "extract": null,
         "name": "fcitx5-material-color",
         "passthru": null,
@@ -48,6 +51,7 @@
     },
     "fcitx5-nord": {
         "cargoLocks": null,
+        "date": "2021-07-27",
         "extract": null,
         "name": "fcitx5-nord",
         "passthru": null,
@@ -67,6 +71,7 @@
     },
     "fortune-chinese": {
         "cargoLocks": null,
+        "date": "2021-08-13",
         "extract": null,
         "name": "fortune-chinese",
         "passthru": null,
@@ -86,6 +91,7 @@
     },
     "rime-cangjie": {
         "cargoLocks": null,
+        "date": "2021-02-23",
         "extract": null,
         "name": "rime-cangjie",
         "passthru": null,
@@ -105,6 +111,7 @@
     },
     "rime-japanese": {
         "cargoLocks": null,
+        "date": "2020-04-20",
         "extract": null,
         "name": "rime-japanese",
         "passthru": null,
@@ -124,6 +131,7 @@
     },
     "rime-prelude": {
         "cargoLocks": null,
+        "date": "2022-04-10",
         "extract": null,
         "name": "rime-prelude",
         "passthru": null,
@@ -143,6 +151,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
+        "date": "2023-05-16",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -154,14 +163,15 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "40a6dd2d75d9b258be7fb14fd01b017c382586fb",
-            "sha256": "sha256-LihQ9ALjzpLeZhFATzOiwVle1p6bN0DG9TL9mw7nRJg=",
+            "rev": "edd96adb4a396031124db02bbd9de1c688891460",
+            "sha256": "sha256-Bj2W+foUn+na0f1201RODNXFvACDvzScaejpFPJuiis=",
             "type": "github"
         },
-        "version": "40a6dd2d75d9b258be7fb14fd01b017c382586fb"
+        "version": "edd96adb4a396031124db02bbd9de1c688891460"
     },
     "sddm-chili": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "sddm-chili",
         "passthru": null,
@@ -181,6 +191,7 @@
     },
     "sddm-slice": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "sddm-slice",
         "passthru": null,
@@ -200,6 +211,7 @@
     },
     "vonfry-icon": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vonfry-icon",
         "passthru": null,
@@ -210,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2022-12-01"
+        "version": "2023-06-01"
     }
 }
