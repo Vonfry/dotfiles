@@ -290,7 +290,7 @@ in {
 
         distrobox
 
-        nixfmt nil nixpkgs-review
+        nixfmt nil nixpkgs-review nurl
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
