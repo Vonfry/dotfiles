@@ -11,6 +11,15 @@ let
   '';
 
   lockCommand = "${screenlocker}/bin/screenlocker";
+
+  fcitx5-rime-overlay = self: super: {
+    fcitx5-rime = super.fcitx5-rime.override {
+      rime-data = null;
+      rimeDataPkgs = [
+        (self.runCommand "rime-data-nullify" {} "mkdir -p $out/share/rime-data")
+      ];
+    };
+  };
 in {
   options.vonfry.x = {
     durationLock = mkOption {
@@ -27,6 +36,9 @@ in {
   };
 
   config = mkIf config.vonfry.enable {
+
+    nixpkgs.overlays = [ fcitx5-rime-overlay ];
+
     environment.systemPackages = with pkgs; [
       xclip
       alacritty
@@ -81,7 +93,7 @@ in {
       };
     };
 
-    qt5 = {
+    qt = {
       enable = true;
       platformTheme = "qt5ct";
     };

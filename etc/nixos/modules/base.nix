@@ -5,7 +5,7 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
-    boot.tmpOnTmpfs = mkDefault true;
+    boot.tmp.useTmpfs = mkDefault true;
 
     i18n.defaultLocale = "en_US.UTF-8";
     console.keyMap = mkDefault "dvorak-programmer";
@@ -58,12 +58,12 @@ in {
       openssh =  {
         enable = mkDefault false;
         allowSFTP = mkDefault true;
-        passwordAuthentication = mkDefault false;
-        permitRootLogin = mkDefault "prohibit-password";
-        extraConfig = ''
-          ClientAliveInterval 60
-          ClientAliveCountMax 4
-        '';
+        settings = {
+          PermitRootLogin = mkDefault "prohibit-password";
+          PasswordAuthentication = mkDefault false;
+          ClientAliveInterval = 60;
+          ClientAliveCountMax = 4;
+        };
       };
       udisks2.enable = true;
     };
@@ -86,6 +86,6 @@ in {
       };
     };
 
-    system.stateVersion = "22.11";
+    system.stateVersion = "23.05";
   };
 }

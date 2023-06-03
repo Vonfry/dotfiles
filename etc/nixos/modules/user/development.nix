@@ -131,10 +131,9 @@ in {
       };
 
       emacs =  {
-        package = pkgs.emacsGit.override { nativeComp = false; }; # wait for fix
+        package = pkgs.emacs-git.override { nativeComp = false; }; # wait for fix
         enable = true;
         extraPackages = epkgs: with epkgs; [
-          all-the-icons
           solarized-theme
           dracula-theme
           general
@@ -223,6 +222,7 @@ in {
           consult-eglot
           openpgp
           ement
+          wgrep
         ];
       };
 
@@ -277,8 +277,6 @@ in {
       };
 
       packages = with pkgs; [
-        emacs-all-the-icons-fonts
-
         gitAndTools.gitflow gitAndTools.git-extras
 
         tokei zeal
@@ -289,7 +287,7 @@ in {
 
         distrobox
 
-        nixfmt nil nixpkgs-review
+        nixfmt nil nixpkgs-review nurl
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
