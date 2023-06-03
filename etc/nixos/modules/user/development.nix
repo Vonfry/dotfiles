@@ -134,7 +134,6 @@ in {
         package = pkgs.emacs-git.override { nativeComp = false; }; # wait for fix
         enable = true;
         extraPackages = epkgs: with epkgs; [
-          all-the-icons
           solarized-theme
           dracula-theme
           general
@@ -278,8 +277,6 @@ in {
       };
 
       packages = with pkgs; [
-        emacs-all-the-icons-fonts
-
         gitAndTools.gitflow gitAndTools.git-extras
 
         tokei zeal
