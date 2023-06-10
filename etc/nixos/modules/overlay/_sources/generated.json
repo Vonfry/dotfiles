@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2023-06-01"
+        "version": "2023-06-10"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -151,7 +151,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2023-05-16",
+        "date": "2023-06-09",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -163,11 +163,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "edd96adb4a396031124db02bbd9de1c688891460",
-            "sha256": "sha256-Bj2W+foUn+na0f1201RODNXFvACDvzScaejpFPJuiis=",
+            "rev": "9a70e03e4701ecaf7c6de3aff4881a01e4a6788d",
+            "sha256": "sha256-P0nGnpdLf+zw4Al6gZJQZUVzitMcHCgdSm4S7o1xgfk=",
             "type": "github"
         },
-        "version": "edd96adb4a396031124db02bbd9de1c688891460"
+        "version": "9a70e03e4701ecaf7c6de3aff4881a01e4a6788d"
     },
     "sddm-chili": {
         "cargoLocks": null,
@@ -222,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2023-06-01"
+        "version": "2023-06-10"
     }
 }
