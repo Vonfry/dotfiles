@@ -197,7 +197,7 @@ in {
           org-contacts
           toc-org
           evil-collection
-          melpaPackages.telega
+          telega
           terminal-here
           zoxide
           smart-tab
