@@ -131,7 +131,7 @@ in {
       };
 
       emacs =  {
-        package = pkgs.emacs-git.override { nativeComp = false; }; # wait for fix
+        package = pkgs.emacs-git.override { withNativeCompilation = false; }; # wait for fix
         enable = true;
         extraPackages = epkgs: with epkgs; [
           solarized-theme
