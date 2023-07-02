@@ -225,9 +225,9 @@ myKeys conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt      myXPConf)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 1%+" )
-    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
+    , ("<XF86AudioLowerVolume>", spawn "amixer -D pipewire sset Master 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "amixer -D pipewire sset Master 1%+" )
+    , ("<XF86AudioMute>"       , spawn "amixer -D pipewire sset Master toggle")
     ]
 
 myLayout = beforeLayouts layouts
