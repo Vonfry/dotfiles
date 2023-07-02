@@ -9,7 +9,7 @@ in {
     services.pipewire = {
       enable = true;
       alsa.enable = true;
-      media-session.enable = true;
+      wireplumber.enable = true;
     };
   };
 }
