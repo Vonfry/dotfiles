@@ -234,9 +234,9 @@ key conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt promptConfig)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "amixer -D pipewire sset Master 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "amixer -D pipewire sset Master 1%+" )
-    , ("<XF86AudioMute>"       , spawn "amixer -D pipewire sset Master toggle")
+    , ("<XF86AudioLowerVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%+" )
+    , ("<XF86AudioMute>"       , spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
     ]
 
 promptConfig = def
