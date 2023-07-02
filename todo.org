@@ -140,7 +140,19 @@
     somedays.
 *** DONE niv
     CLOSED: [2020-07-31 Fri 21:45]
+<<<<<<< HEAD
 *** DONE flakes
     CLOSED: [2021-12-01 Wed 14:08]
+** home-manager[3/4]
+*** DONE emacs daemon with hm instead of manual
+    CLOSED: [2021-06-26 Sat 10:23]
+*** DONE pipewire replaces pulseaudio[5/6]
+    CLOSED: [2023-07-02 Sun 10:11]
+    - [X] service (nixos)
+    - [X] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
+    - [ ] easyeffect replaces pulseeffects
+    - [X] mpv with pipewire github:mpv-player/mpv#8569 and nixpkgs support
+    - [X] pulse client close?
+    - [X] qpwgraph replaces pavucontrol
 ** Browser[0/1]
    - [ ] replace qutebrowser with nyxt?
