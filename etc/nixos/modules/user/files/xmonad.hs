@@ -81,7 +81,7 @@ myKeys conf = mkKeymap conf
     , ("M-o o", spawn "libreoffice"     )
     , ("M-o v", spawn "virt-manager"    )
     , ("M-o f", spawn "zathura"         )
-    , ("M-o k", spawn "helvum"          )
+    , ("M-o k", spawn "qpwgraph"        )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t htop"    "htop")

@@ -105,7 +105,7 @@ in {
         hledger
         pcmanfm
         flameshot feh
-        helvum
+        qpwgraph
         libreoffice
 
         virt-manager
