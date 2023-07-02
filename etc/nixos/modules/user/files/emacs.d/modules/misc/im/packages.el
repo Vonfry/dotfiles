@@ -50,6 +50,9 @@
   :custom
   (ement-save-sessions t)
   (ement-sessions-file (expand-file-name "ement.el" vonfry-cache-dir))
+  :config
+  (evil-set-initial-state 'ement-room-mode 'emacs)
+  (evil-set-initial-state 'ement-room-list-mode 'emacs)
   :general
   ; custom function is not necessary due to ement-save-session
   (nmap-at "e" 'ement-connect))

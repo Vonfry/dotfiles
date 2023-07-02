@@ -6,6 +6,10 @@ let
 in {
   config = mkIf cfg.enable {
     sound.enable = true;
-    hardware.pulseaudio.enable = true;
+    services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      wireplumber.enable = true;
+    };
   };
 }

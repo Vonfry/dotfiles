@@ -81,7 +81,7 @@ key conf = mkKeymap conf
     , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")
     , ("M-o f", spawn "zathura"     )
-    , ("M-o k", spawn "pavucontrol" )
+    , ("M-o k", spawn "qpwgraph"    )
     , ("M-o a", spawn "dragon"      )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
@@ -234,9 +234,9 @@ key conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt promptConfig)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%-"   )
-    , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ 1%+"   )
-    , ("<XF86AudioMute>"       , spawn "pactl set-sink-mute   @DEFAULT_SINK@ toggle")
+    , ("<XF86AudioLowerVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%+" )
+    , ("<XF86AudioMute>"       , spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
     ]
 
 promptConfig = def
