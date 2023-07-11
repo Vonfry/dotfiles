@@ -3,8 +3,6 @@
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
 
-(use-package all-the-icons) ;; M-x all-the-icons-install-fonts and the run (fc-cache -f -v) with shell
-
 (use-package solarized
   :ensure solarized-theme
   :custom
