@@ -81,6 +81,7 @@ key conf = mkKeymap conf
     , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")
     , ("M-o f", spawn "zathura"     )
+    , ("M-o j", spawn "easyeffects" )
     , ("M-o k", spawn "qpwgraph"    )
     , ("M-o a", spawn "dragon"      )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
@@ -234,8 +235,8 @@ key conf = mkKeymap conf
     , ("M-S-'", passOTPPrompt promptConfig)
 
     -- midia keys
-    , ("<XF86AudioLowerVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%-" )
-    , ("<XF86AudioRaiseVolume>", spawn "wpctl setvolume @DEFAULT_AUDIO_SINK@ 1%+" )
+    , ("<XF86AudioLowerVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-" )
+    , ("<XF86AudioRaiseVolume>", spawn "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%+" )
     , ("<XF86AudioMute>"       , spawn "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle")
     ]
 

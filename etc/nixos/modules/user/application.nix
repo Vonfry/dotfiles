@@ -113,6 +113,8 @@ in {
         '';
       };
 
+      easyeffects.enable = true;
+
       gpg-agent = {
         enable = true;
         defaultCacheTtl = 1800;
