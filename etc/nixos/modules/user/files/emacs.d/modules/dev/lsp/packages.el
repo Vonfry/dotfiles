@@ -9,6 +9,7 @@
     "="     'eglot-format-buffer
     "#"     'eglot-code-action-organize-imports
     "?"     'eldoc
+    "> i"   'eglot-inlay-hints-mode
     "> r"   'eglot-rename
     "> a"   'eglot-execute-code-actions
     "> W"   'eglot-execute-code-action-rewrite
