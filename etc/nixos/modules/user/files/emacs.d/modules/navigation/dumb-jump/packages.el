@@ -8,9 +8,7 @@
     ","   'xref-pop-marker-stack
     "&"   'xref-find-apropos
     "{"   'xref-find-references
-    "?"   'info-xref-check
-    "> &" 'xref-find-apropos
-    "> ?" 'info-xref-docstrings)
+    "> &" 'xref-find-apropos)
   :config
   (add-hook 'xref-backend-functions  'dumb-jump-xref-activate)
   :custom
