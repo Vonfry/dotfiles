@@ -150,6 +150,7 @@ in {
               cp ${prelude}/share/rime/default.yaml $out
               cp ${prelude}/share/rime/symbols.yaml $out
               cp ${prelude}/share/rime/punctuation.yaml $out
+              cp ${prelude}/share/rime/key_bindings.yaml $out
               cp ${cangjie}/share/rime/cangjie5.*.yaml $out
               cp ${wubi86-jidian}/share/rime/numbers.*.yaml $out
               cp ${wubi86-jidian}/share/rime/wubi86_jidian*.yaml $out
