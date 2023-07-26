@@ -61,8 +61,6 @@ in {
         qbittorrent
         # unstable.tor-browser-bundle-bin
 
-        fractal # matrix.org
-
         wireshark iftop
       ];
     };
