@@ -98,8 +98,6 @@ in {
       platformTheme = "qt5ct";
     };
 
-    hardware.uinput.enable = true;
-
     systemd = {
       # Make screen locker in system due to security consider.
       user.services = {
