@@ -7,8 +7,7 @@
   :config
   (setq project-switch-commands
         (append project-switch-commands
-                '((magit-status "Magit status" ?s)
-                  (magit-dispatch "Magit dispatch" ?D))))
+                '((magit-dispatch "Magit dispatch" ?V))))
   :general
   (nmap-leader "P" project-prefix-map)
   (nmap-leader
