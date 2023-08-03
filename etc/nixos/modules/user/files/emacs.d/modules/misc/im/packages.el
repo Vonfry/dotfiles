@@ -49,7 +49,7 @@
 (use-package ement
   :custom
   (ement-save-sessions t)
-  (ement-sessions-file (expand-file-name "ement.el" vonfry-cache-dir))
+  (ement-sessions-file (expand-file-name "ement.el" vonfry-local-dir))
   :config
   (evil-set-initial-state 'ement-room-mode 'emacs)
   (evil-set-initial-state 'ement-room-list-mode 'emacs)
