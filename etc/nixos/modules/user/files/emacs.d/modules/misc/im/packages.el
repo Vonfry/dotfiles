@@ -55,4 +55,8 @@
   (evil-set-initial-state 'ement-room-list-mode 'emacs)
   :general
   ; custom function is not necessary due to ement-save-session
-  (nmap-at "e" 'ement-connect))
+  (nmap-at
+    "e" 'ement-connect
+    "E e" 'ement-room-list
+    "E d" 'ement-disconnect
+    "E k" 'ement-kill-buffers))
