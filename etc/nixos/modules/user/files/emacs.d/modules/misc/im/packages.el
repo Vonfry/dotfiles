@@ -45,7 +45,6 @@
 
 (use-package telega-dired-dwim :after telega)
 
-
 (use-package ement
   :custom
   (ement-save-sessions t)
@@ -59,4 +58,4 @@
     "e" 'ement-connect
     "E e" 'ement-room-list
     "E d" 'ement-disconnect
-    "E k" 'ement-kill-buffers))
+    "E K" 'ement-kill-buffers))

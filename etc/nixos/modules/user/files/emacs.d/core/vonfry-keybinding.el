@@ -74,6 +74,8 @@
     "M d" 'bookmark-delete
     "M r" 'bookmark-rename
     "M w" 'bookmark-write
+    "M v" 'evil-show-marks
+    "M j" 'evil-show-jumps
     "F B" 'hexl-find-file
     "F b" 'hexl-mode
     "F l" 'find-file-literally
@@ -87,7 +89,9 @@
     "e c" 'clean-buffer-list
     "e #" 'server-edit
     "e t" 'list-timers
-    "e D" 'diff)
+    "e D" 'diff
+    "e f" 'evil-show-file-info
+    "e m" 'woman)
   (vmap-leader
     "x"   'execute-extended-command
     "="   'align-regexp))
