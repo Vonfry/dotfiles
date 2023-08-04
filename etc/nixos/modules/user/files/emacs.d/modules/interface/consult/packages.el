@@ -20,15 +20,13 @@
   (nmap-leader
     "p"   'consult-find
     "F r" 'consult-recent-file
-    "F f" 'consult-find
     "F F" 'consult-file-externally
-    "F p" 'consult-locate
     "F h "'consult-history
-    "F ?" 'consult-man
+    "F m" 'consult-man
+    "F i" 'consult-info
     "a"   'consult-ripgrep
     "b"   'consult-buffer
     "<"   'consult-mark
-    "?"   'consult-apropos
     "y"   'consult-yank-pop
     "m"   'consult-bookmark
     ";"   'consult-imenu

@@ -68,6 +68,10 @@ in {
       udisks2.enable = true;
     };
 
+    documentation = {
+      man.generateCaches = true;
+    };
+
     security = {
       sudo.enable = false;
       doas = {

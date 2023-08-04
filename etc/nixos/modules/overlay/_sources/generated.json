@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2023-06-10"
+        "version": "2023-08-03"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -111,7 +111,7 @@
     },
     "rime-japanese": {
         "cargoLocks": null,
-        "date": "2020-04-20",
+        "date": "2023-08-02",
         "extract": null,
         "name": "rime-japanese",
         "passthru": null,
@@ -123,11 +123,11 @@
             "name": null,
             "owner": "gkovacs",
             "repo": "rime-japanese",
-            "rev": "189f5e57198ff392518a901ab748beb0b44254f2",
-            "sha256": "sha256-YY5c8slZWpIuCazz6Ltbt813wYxR38xgGY/aqY0DozM=",
+            "rev": "4c1e65135459175136f380e90ba52acb40fdfb2d",
+            "sha256": "sha256-/mIIyCu8V95ArKo/vIS3qAiD8InUmk8fAF/wejxRxGw=",
             "type": "github"
         },
-        "version": "189f5e57198ff392518a901ab748beb0b44254f2"
+        "version": "4c1e65135459175136f380e90ba52acb40fdfb2d"
     },
     "rime-prelude": {
         "cargoLocks": null,
@@ -151,7 +151,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2023-06-09",
+        "date": "2023-07-01",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -163,11 +163,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "9a70e03e4701ecaf7c6de3aff4881a01e4a6788d",
-            "sha256": "sha256-P0nGnpdLf+zw4Al6gZJQZUVzitMcHCgdSm4S7o1xgfk=",
+            "rev": "b08f468ecc5318a8bf91c1df373cda3362719de4",
+            "sha256": "sha256-vdzQcqQ//kpocja0seeRNGTqnJg4jQNX2AXGDWl+FlA=",
             "type": "github"
         },
-        "version": "9a70e03e4701ecaf7c6de3aff4881a01e4a6788d"
+        "version": "b08f468ecc5318a8bf91c1df373cda3362719de4"
     },
     "sddm-chili": {
         "cargoLocks": null,
@@ -222,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2023-06-10"
+        "version": "2023-08-03"
     }
 }

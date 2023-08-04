@@ -26,4 +26,4 @@
 (when (and (boundp 'native-comp-eln-load-path)
            (fboundp 'startup-redirect-eln-cache))
   (startup-redirect-eln-cache
-   (expand-file-name "eln-cache/" vonfry-local-dir)))
+   (expand-file-name "eln/" vonfry-cache-dir)))

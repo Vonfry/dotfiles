@@ -4,11 +4,12 @@
 (use-package project
   :custom
   (project-list-file (expand-file-name "projects" vonfry-local-dir))
-  :config
-  (setq project-switch-commands
-        (append project-switch-commands
-                '((magit-status "Magit status" ?s)
-                  (magit-dispatch "Magit dispatch" ?D))))
+  (project-switch-commands '((consult-find "Find file" ?f)
+                             (consult-ripgrep "Find regexp" ?a)
+                             (project-find-dir "Find directory" ?d)
+                             (project-vc-dir "VC-Dir" ?v)
+                             (project-eshell "Eshell" ?$)
+                             (magit-dispatch "Magit dispatch" ?V)))
   :general
   (nmap-leader "P" project-prefix-map)
   (nmap-leader

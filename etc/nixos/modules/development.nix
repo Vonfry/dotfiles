@@ -28,6 +28,11 @@ in {
         enable = true;
       };
     };
+
+    boot.kernel.sysctl = {
+      "net.ipv4.ip_forward" = true; # this is needed by libvirt for nat
+    };
+
     environment.sessionVariables = {
       MANPAGER = "nvim +Man!";
       PAGER = "nvim -R";
