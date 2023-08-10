@@ -240,6 +240,10 @@ in {
             pager = "nvim -R";
           };
           color.pager = false;
+          sendemail = mkIf config.programs.msmtp.enable {
+            smtpServer = "msmtp";
+            smtpServerOption = [ "--read-envelope-from" "-t" ];
+          };
         };
         ignores = [ (builtins.readFile ./files/gitignore) ];
       };
