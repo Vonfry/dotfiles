@@ -9,7 +9,7 @@
                              (project-find-dir "Find directory" ?d)
                              (project-vc-dir "VC-Dir" ?v)
                              (project-eshell "Eshell" ?$)
-                             (magit-dispatch "Magit dispatch" ?V)))
+                             (magit-status "Magit" ?V)))
   :general
   (nmap-leader "P" project-prefix-map)
   (nmap-leader

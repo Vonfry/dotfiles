@@ -19,13 +19,3 @@
   (transient-levels-file (expand-file-name "transient/levels.el" vonfry-cache-dir)))
 
 (use-package git-modes)
-
-(use-package magit-gitflow
-  :after magit
-  :init
-  (setq-default magit-gitflow-popup-key "C-c g")
-  :hook
-  (magit-mode . turn-on-magit-gitflow))
-
-(use-package gitlab-ci-mode)
-

@@ -162,8 +162,6 @@ in {
           yaml-mode
           magit
           git-modes
-          magit-gitflow
-          gitlab-ci-mode
           diff-hl
           disaster
           cmake-mode
@@ -275,7 +273,7 @@ in {
       };
 
       packages = with pkgs; [
-        gitAndTools.gitflow gitAndTools.git-extras
+        gitAndTools.git-extras
 
         tokei zeal
 
