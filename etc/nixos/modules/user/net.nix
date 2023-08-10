@@ -6,6 +6,11 @@ let
   cfg' = config.vonfry;
 
   colorscheme = config.lib.theme.dracula;
+
+  whether_emacsclient_email =
+    cfg'.development.enable
+    && config.services.emacs.enable
+    && cfg.email != null;
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -207,6 +212,12 @@ in {
           c.statusbar.padding = padding
         '';
         loadAutoconfig = true;
+      };
+    };
+
+    xdg = {
+      mimeApps.defaultApplications = mkIf whether_emacsclient_email {
+        "x-scheme-handler/mailto" = "emacsclient-mail.desktop";
       };
     };
   };

@@ -18,6 +18,15 @@ let
 
   sessions = config.home.sessionVariables;
   hasOrg = sessions ? ORG_DIR;
+
+  # copy from emacsclient.desktop
+  emacsclient_mimetypes = [ "text/english" "text/plain" "text/x-makefile"
+                           "text/x-c++hdr" "text/x-c++src" "text/x-chdr"
+                           "text/x-csrc" "text/x-java" "text/x-moc"
+                           "text/x-pascal" "text/x-tcl" "text/x-tex"
+                           "application/x-shellscript" "text/x-c" "text/x-c++"
+                         ];
+
 in {
   options.vonfry.development = {
     emacs = {
@@ -47,7 +56,6 @@ in {
     warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
 
     xdg = {
-
       configFile = {
         "emacs" = {
           source = ./files/emacs.d;
@@ -71,11 +79,14 @@ in {
 
         "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
       };
+
+      mimeApps.defaultApplications = mkIf config.services.emacs.enable
+        (genAttrs emacsclient_mimetypes (_: "emacsclient.desktop"));
     };
 
     services.emacs = {
       enable = true;
-      client.enable = true;
+      client.enable = false; # it has been included in emacs-git
       socketActivation.enable = false;
       defaultEditor = true;
     };
@@ -343,5 +354,6 @@ in {
         '';
       };
     };
+
   };
 }
