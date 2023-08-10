@@ -260,6 +260,11 @@ in {
           }
         '';
       };
+      zsh.initExtra = ''
+        # this is a source file instead of autoloaded function file, so let us
+        # source it!
+        source ${pkgs.gitAndTools.git-extras}/share/zsh/site-functions/_git_extras
+      '';
     };
 
     home = {
