@@ -4,7 +4,7 @@
 (defun +irc/connect ()
   "connect to server"
   (interactive)
-  (let* ((read-alist (-map (lambda (l)
+  (let* ((read-alist (mapcar (lambda (l)
                       `(,(concat (plist-get l :server)
                                  "(" (plist-get l :nick) ")")
                         ,@l))

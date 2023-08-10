@@ -32,20 +32,20 @@
 (defun vonfry--change-theme (theme)
   "change theme with disable current one.
 THEME is a symbol passed to `load-theme'"
-  (--map (unless (equal it 'use-package) (disable-theme it))
-         custom-enabled-themes)
+  (mapcar
+   (lambda (it)
+     (unless (equal it 'use-package)
+       (disable-theme it)))
+   custom-enabled-themes)
   (load-theme theme t))
 
 (vonfry--change-theme (car vonfry-themes))
 
 (defun vonfry/next-theme ()
   (interactive)
-  (let* ((curids (-non-nil (--map (-elem-index it vonfry-themes)
-                                  custom-enabled-themes)))
-         (nextid (1+ (-min (if curids curids 0)))))
-    (if (> (length vonfry-themes) nextid)
-      (vonfry--change-theme (nth nextid vonfry-themes))
-      (vonfry--change-theme (car vonfry-themes)))))
+  (let* ((nxt (cdr (memq (car custom-enabled-themes) vonfry-themes)))
+         (chthm (if nxt nxt (car vonfry-themes))))
+    (vonfry--change-theme chthm)))
 
 ;; customize the tabbar and other UI elements for GUI.
 

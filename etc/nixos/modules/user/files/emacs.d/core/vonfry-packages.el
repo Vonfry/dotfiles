@@ -59,9 +59,6 @@ If t, package.el is used to install packages automatically."
     (eval `(require ,qpkg))))
 
 (use-package diminish)
-(use-package dash)
-(use-package s)
-
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
 
@@ -87,7 +84,7 @@ This function finds module with the file, and loads it."
   "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
 
 All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `use-package`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
-  (let* ((flatten-exclude (-flatten exclude))
+  (let* ((flatten-exclude (flatten-tree exclude))
          (module-list '())
          (regexp-match "^[^\\.].*"))
     (dolist (module (directory-files vonfry-modules-dir nil regexp-match))
@@ -95,8 +92,8 @@ All modules should use function and macro in this file. By default, every module
           (let ((module-name (concat module "/" submodule)))
             (unless (member module-name flatten-exclude)
               (push module-name module-list)))))
-    (-map 'vonfry-load-module-config   module-list)
-    (-map 'vonfry-load-module-packages module-list)
-    (-map 'vonfry-load-autoload        module-list)))
+    (mapcar 'vonfry-load-module-config   module-list)
+    (mapcar 'vonfry-load-module-packages module-list)
+    (mapcar 'vonfry-load-autoload        module-list)))
 
 (provide 'vonfry-packages)

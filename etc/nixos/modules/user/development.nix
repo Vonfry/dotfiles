@@ -139,8 +139,6 @@ in {
           general
           whitespace-cleanup-mode
           diminish
-          dash
-          s
           evil
           evil-numbers
           evil-surround
