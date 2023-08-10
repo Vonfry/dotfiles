@@ -47,7 +47,6 @@
   delete-selection-mode t
 
   tab-always-indent 'always
-  tab-width 4
   scroll-preserve-screen-position 'always
   set-mark-command-repeat-pop t
   tooltip-delay 0.7
@@ -88,8 +87,6 @@
 
   calc-settings-file (expand-file-name "calc.el" vonfry-local-dir)
 )
-
-(defvaralias 'c-basic-offset 'tab-width)
 
 (recentf-mode 1)
 (show-paren-mode 1)
