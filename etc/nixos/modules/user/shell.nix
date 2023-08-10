@@ -275,69 +275,6 @@ in {
           gfr  = "git pull --rebase";
           gfra = "git pull --rebase --autostash";
 
-          # Flow (F)
-          gFi = "git flow init";
-          gFf = "git flow feature";
-          gFb = "git flow bugfix";
-          gFl = "git flow release";
-          gFh = "git flow hotfix";
-          gFs = "git flow support";
-
-          gFfl = "git flow feature list";
-          gFfs = "git flow feature start";
-          gFff = "git flow feature finish";
-          gFfp = "git flow feature publish";
-          gFft = "git flow feature track";
-          gFfd = "git flow feature diff";
-          gFfr = "git flow feature rebase";
-          gFfc = "git flow feature checkout";
-          gFfm = "git flow feature pull";
-          gFfx = "git flow feature delete";
-
-          gFbl = "git flow bugfix list";
-          gFbs = "git flow bugfix start";
-          gFbf = "git flow bugfix finish";
-          gFbp = "git flow bugfix publish";
-          gFbt = "git flow bugfix track";
-          gFbd = "git flow bugfix diff";
-          gFbr = "git flow bugfix rebase";
-          gFbc = "git flow bugfix checkout";
-          gFbm = "git flow bugfix pull";
-          gFbx = "git flow bugfix delete";
-
-          gFll = "git flow release list";
-          gFls = "git flow release start";
-          gFlf = "git flow release finish";
-          gFlp = "git flow release publish";
-          gFlt = "git flow release track";
-          gFld = "git flow release diff";
-          gFlr = "git flow release rebase";
-          gFlc = "git flow release checkout";
-          gFlm = "git flow release pull";
-          gFlx = "git flow release delete";
-
-          gFhl = "git flow hotfix list";
-          gFhs = "git flow hotfix start";
-          gFhf = "git flow hotfix finish";
-          gFhp = "git flow hotfix publish";
-          gFht = "git flow hotfix track";
-          gFhd = "git flow hotfix diff";
-          gFhr = "git flow hotfix rebase";
-          gFhc = "git flow hotfix checkout";
-          gFhm = "git flow hotfix pull";
-          gFhx = "git flow hotfix delete";
-
-          gFsl = "git flow support list";
-          gFss = "git flow support start";
-          gFsf = "git flow support finish";
-          gFsp = "git flow support publish";
-          gFst = "git flow support track";
-          gFsd = "git flow support diff";
-          gFsr = "git flow support rebase";
-          gFsc = "git flow support checkout";
-          gFsm = "git flow support pull";
-          gFsx = "git flow support delete";
-
           # Grep (g)
           gg  = "git grep";
           ggi = "git grep --ignore-case";
