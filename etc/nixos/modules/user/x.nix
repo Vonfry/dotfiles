@@ -131,16 +131,6 @@ in {
       userDirs.enable = true;
       mimeApps.enable = true;
       dataFile = {
-        "applications/org-protocol.desktop".text = ''
-          [Desktop Entry]
-          Name=org-protocol
-          Exec=emacsclient %u
-          Icon=emacs-icon
-          Type=Application
-          Terminal=false
-          MimeType=x-scheme-handler/org-protocol;
-        '';
-
         "fcitx5/rime" = {
           source = with pkgs; with vonfryPackages.rimePlugins;
             runCommand "fcitx-rime-plugins" {} ''

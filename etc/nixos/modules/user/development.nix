@@ -80,6 +80,18 @@ in {
         "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
       };
 
+      dataFile = {
+        "applications/org-protocol.desktop".text = ''
+          [Desktop Entry]
+          Name=org-protocol
+          Exec=emacsclient %u
+          Icon=emacs-icon
+          Type=Application
+          Terminal=false
+          MimeType=x-scheme-handler/org-protocol;
+        '';
+      };
+
       mimeApps.defaultApplications = mkIf config.services.emacs.enable
         (genAttrs emacsclient_mimetypes (id "emacsclient.desktop"));
     };
