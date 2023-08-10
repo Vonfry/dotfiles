@@ -230,7 +230,6 @@ in {
           marginalia
           vertico
           ibuffer-project
-          ess-view-data
           agda2-mode
           ligature
           julia-mode
