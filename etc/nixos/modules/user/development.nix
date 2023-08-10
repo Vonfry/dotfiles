@@ -93,7 +93,7 @@ in {
       };
 
       mimeApps.defaultApplications = mkIf config.services.emacs.enable
-        (genAttrs emacsclient_mimetypes (id "emacsclient.desktop"));
+        (genAttrs emacsclient_mimetypes (const "emacsclient.desktop"));
     };
 
     services.emacs = {

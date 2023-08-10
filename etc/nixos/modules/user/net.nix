@@ -223,7 +223,7 @@ in {
 
     xdg = {
       mimeApps.defaultApplications = mkMerge [
-        (genAttrs browser_mimetypes (id "org.qutebrowser.qutebrowser.desktop"))
+        (genAttrs browser_mimetypes (const "org.qutebrowser.qutebrowser.desktop"))
         (mkIf whether_emacsclient_email {
           "x-scheme-handler/mailto" = "emacsclient-mail.desktop";
         })
