@@ -48,7 +48,6 @@
 
   tab-always-indent 'always
   tab-width 4
-  c-default-style "k&r"
   scroll-preserve-screen-position 'always
   set-mark-command-repeat-pop t
   tooltip-delay 0.7
