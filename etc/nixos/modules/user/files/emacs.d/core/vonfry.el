@@ -44,7 +44,9 @@
   (load vonfry-custom-file-before))
 
 (defgroup vonfry-modules nil
-  "Vonfry's emacs group about modules")
+  "Vonfry's emacs group about modules"
+  :group 'vonfry
+  )
 
 (vonfry-load-modules vonfry-exclude-modules)
 

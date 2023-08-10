@@ -88,6 +88,7 @@ THEME is a symbol passed to `load-theme'"
 (add-hook 'term-mode-hook (lambda () (setq line-spacing 0)))
 
 (defgroup vonfry-ui nil
-  "vonfry's emacs ui custom group")
+  "vonfry's emacs ui custom group"
+  :group 'vonfry)
 
 (provide 'vonfry-ui)

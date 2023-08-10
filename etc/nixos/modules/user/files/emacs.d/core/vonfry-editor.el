@@ -3,7 +3,8 @@
 ;; Set the configure about editing.
 
 (defgroup vonfry-editor nil
-  "Vonfry's group about editor")
+  "Vonfry's group about editor"
+  :group 'vonfry)
 
 (defcustom vonfry-text-width 80
   "The width for a line"
@@ -13,17 +14,17 @@
 (defcustom vonfry-backup-file-dir (expand-file-name "backups/" vonfry-cache-dir)
   "The backup file dir."
   :type 'directory
-  :group 'vonfry-dir)
+  :group 'vonfry-editor)
 
 (defcustom vonfry-auto-save-dir (expand-file-name "auto-save/" vonfry-cache-dir)
   "The auto-save file dir."
   :type 'directory
-  :group 'vonfry-dir)
+  :group 'vonfry-editor)
 
 (defcustom vonfry-auto-save-list-prefix vonfry-auto-save-dir
   "The auto-save file prefix."
   :type 'string
-  :group 'vonfry-dir)
+  :group 'vonfry-editor)
 
 (dolist (tmp-dir `(,vonfry-backup-file-dir ,vonfry-auto-save-dir))
   (unless (file-exists-p tmp-dir)
