@@ -199,7 +199,7 @@ in {
           pbcopy = "xclip -selection clipboard -in";
           pbpaste = "xclip -selection clipboard -out";
           get = "curl --continue-at - --location --progress-bar --remote-name --remote-time";
-          http-serve = "nix run 'sys#ran' --";
+          http-serve = "nix run 'sys#simple-http-server' --";
 
           # Git
           g = "git";
