@@ -7,10 +7,16 @@ let
 
   colorscheme = config.lib.theme.dracula;
 
-  whether_emacsclient_email =
-    cfg'.development.enable
-    && config.services.emacs.enable
-    && cfg.email != null;
+  whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
+
+  browser_mimetypes = ["x-scheme-handler/http" "x-scheme-handler/https"
+                       "x-scheme-handler/ftp" "x-scheme-handler/chrome"
+                       "text/html" "text/xml" "application/x-extension-htm"
+                       "application/x-extension-html"
+                       "application/x-extension-shtml" "application/xhtml+xml"
+                       "application/x-extension-xhtml"
+                       "application/x-extension-xht"
+                      ];
 in {
   options.vonfry.net = {
     email = mkOption {
@@ -216,9 +222,12 @@ in {
     };
 
     xdg = {
-      mimeApps.defaultApplications = mkIf whether_emacsclient_email {
-        "x-scheme-handler/mailto" = "emacsclient-mail.desktop";
-      };
+      mimeApps.defaultApplications = mkMerge [
+        (genAttrs browser_mimetypes (id "org.qutebrowser.qutebrowser.desktop"))
+        (mkIf whether_emacsclient_email {
+          "x-scheme-handler/mailto" = "emacsclient-mail.desktop";
+        })
+      ];
     };
   };
 }
