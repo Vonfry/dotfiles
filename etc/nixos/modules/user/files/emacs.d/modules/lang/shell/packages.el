@@ -11,6 +11,8 @@
   (eshell-highlight-prompt nil)
   (eshell-plain-echo-behavior t)
   (eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir))
+  :general
+  (nmap-leader "~" 'eshell)
   :ensure nil)
 
 (use-package terminal-here
@@ -20,5 +22,3 @@
   (nmap-leader
     "$" 'terminal-here-launch
     "C-$" 'terminal-here-project-launch))
-
-(nmap-leader "~" '+shell/open-file-manager-x)
