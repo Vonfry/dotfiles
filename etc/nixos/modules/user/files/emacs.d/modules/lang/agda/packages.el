@@ -8,6 +8,7 @@
 reloading."))
 
 (use-package agda2-mode
+  :disabled
   :after agda2
   :general
   (nmap-leader :keymaps 'agda2-mode-map
