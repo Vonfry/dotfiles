@@ -34,7 +34,7 @@
 THEME is a symbol passed to `load-theme'"
   (mapcar
    (lambda (it)
-     (unless (equal it 'use-package)
+     (when (memq it vonfry-themes)
        (disable-theme it)))
    custom-enabled-themes)
   (load-theme theme t))
