@@ -71,8 +71,6 @@ THEME is a symbol passed to `load-theme'"
   (when (display-graphic-p) (vonfry--set-font)))
 (add-hook 'server-after-make-frame-hook 'vonfry--set-font-graphic)
 
-(use-package info :ensure nil)
-
 (setq-default
   inhibit-startup-screen t
   inhibit-startup-echo-area-message t
