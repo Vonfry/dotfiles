@@ -1,6 +1,12 @@
 ;;; agda pagkages -*- lexical-binding: t -*-
 ;;
 
+(use-package agda2
+  :config
+  (defconst +agda2--init-directory agda2-directory
+    "The agda2-directory from global installing to avoid removed when
+reloading."))
+
 (use-package agda2-mode
   :after agda2
   :general
@@ -44,5 +50,4 @@
     "w"   'agda2-why-in-scope-maybe-toplevel
     "v"   'agda2-display-program-version
     "V"   'agda2-set-program-version
-    "?"   'agda2-helper-function-type
-    ))
+    "?"   'agda2-helper-function-type))
