@@ -18,7 +18,7 @@
         (when (equal 0 (call-process agda-exec nil t nil "locate"))
           (buffer-string))))))
 
-(defun +agda2-reload ()
+(defun +agda2/reload ()
   "Bacuse agda-mode is distributed with special agda version, reload the agda2
 mode from current environment instead of default installed one."
   (interactive)
