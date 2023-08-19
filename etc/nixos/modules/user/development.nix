@@ -241,6 +241,12 @@ in {
           openpgp
           ement
           wgrep
+          (treesit-grammars.with-grammars (p: with p; [
+            tree-sitter-haskell tree-sitter-c tree-sitter-cpp tree-sitter-rust
+            tree-sitter-perl tree-sitter-nix tree-sitter-julia tree-sitter-latex
+            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
+            tree-sitter-bibtex
+          ]))
         ];
       };
 
