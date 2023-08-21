@@ -86,20 +86,6 @@
   read-process-output-max (* 1024 1024) ; 1mb
 
   calc-settings-file (expand-file-name "calc.el" vonfry-local-dir)
-
-  major-mode-remap-alist '(; (haskell-mode . haskell-ts-mode)
-                           (c-mode . c-ts-mode)
-                           (c++-mode . c++-ts-mode)
-                           (rust-mode . rust-ts-mode)
-                           ; (nix-mode . nix-ts-mode)
-                           ; (latex-mode . latex-ts-mode)
-                           ; (bibtex-mode . bibtex-ts-mode)
-                           ; (julia-mode . julia-ts-mode)
-                           ; (perl-mode . perl-ts-mode)
-                           (yaml-mode . yaml-ts-mode)
-                           (toml-mode . toml-ts-mode)
-                           (json-mode . json-ts-mode)
-                           (html-mode . html-ts-mode))
 )
 
 (recentf-mode 1)
