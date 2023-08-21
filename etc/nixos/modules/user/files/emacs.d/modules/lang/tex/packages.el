@@ -11,7 +11,7 @@
   (LaTeX-fill-break-at-separators nil)
   (reftex-plug-into-AUCTeX '(nil nil t t t))
   (TeX-auto-untabify t)
-  (TeX-engine 'xetex)
+  (TeX-engine 'luatex)
   (TeX-save-query nil)
   (TeX-auto-global (expand-file-name "latex" vonfry-cache-dir))
   (TeX-output-dir "latex.out")
