@@ -24,9 +24,8 @@
                                 (output-html "xdg-open")))
   ;; Synctex support
   ;; Don't insert line-break at inline math
-  (TeX-show-compilation t) ; display compilation windows
+  (TeX-show-compilation nil)
   (TeX-source-correlate-mode t)
-  (reftex-citation-format 'biblatex)
   :hook
   (LaTeX-mode .
      (lambda ()
