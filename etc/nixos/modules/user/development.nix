@@ -312,6 +312,8 @@ in {
       packages = with pkgs; [
         gitAndTools.git-extras
 
+        editorconfig-core-c
+
         tokei zeal
 
         pandoc
