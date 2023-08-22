@@ -9,8 +9,8 @@ org-mode
  "#+LATEX_CLASS_OPTIONS: [a4paper]")
 
 (export-latex-cn
- "#+LATEX_HEADER: \usepackage{ctex}" n
- "#+LATEX_HEADER: \usepackage{fontspec}" n
- "#+LATEX_HEADER: \setmainfont{Source Han Serif SC}" n
- "#+LATEX_HEADER: \setsansfont{Source Han Sans SC}" n
- "#+LATEX_HEADER: \setmonofont{Sarasa Mono SC}")
+ "#+LATEX_HEADER: \\usepackage{ctex}" n
+ "#+LATEX_HEADER: \\usepackage{fontspec}" n
+ "#+LATEX_HEADER: \\setmainfont{Source Han Serif SC}" n
+ "#+LATEX_HEADER: \\setsansfont{Source Han Sans SC}" n
+ "#+LATEX_HEADER: \\setmonofont{Sarasa Mono SC}")
