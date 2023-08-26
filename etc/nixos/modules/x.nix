@@ -120,7 +120,7 @@ in {
     };
 
     fonts = {
-      fonts = with pkgs; [
+      packages = with pkgs; [
         recursive
         sarasa-gothic
         symbola

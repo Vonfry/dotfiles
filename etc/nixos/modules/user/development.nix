@@ -216,7 +216,7 @@ in {
           org-contacts
           toc-org
           evil-collection
-          telega
+          melpaPackages.telega
           terminal-here
           zoxide
           smart-tab
@@ -232,6 +232,7 @@ in {
           ibuffer-project
           agda2-mode
           ligature
+          slime
           julia-mode
           eglot-jl
           tempel
@@ -247,6 +248,7 @@ in {
             tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
             tree-sitter-bibtex
           ]))
+          org-project-capture
         ];
       };
 
@@ -368,7 +370,7 @@ in {
         '';
 
         ".Rprofile".text = ''
-          options(browser = 'qutebrowser')
+          options(browser = 'nyxt')
           # options(help_type = 'html')
         '';
       };

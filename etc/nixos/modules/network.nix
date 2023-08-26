@@ -4,13 +4,6 @@ with lib;
 let
   cfg = config.vonfry.network;
 in {
-  options.vonfry.network = {
-    zerotierNets = mkOption {
-      default = [];
-      type = with types; listOf str;
-    };
-  };
-
   config = mkIf config.vonfry.enable {
     environment.systemPackages = with pkgs; [ curl ];
 
@@ -26,13 +19,6 @@ in {
       networkmanager = {
         enable = mkDefault true;
         dhcp = "internal";
-      };
-    };
-
-    services = {
-      zerotierone = {
-        enable = length cfg.zerotierNets != 0;
-        joinNetworks = cfg.zerotierNets;
       };
     };
   };

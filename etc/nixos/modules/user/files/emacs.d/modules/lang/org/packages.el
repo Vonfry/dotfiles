@@ -248,3 +248,17 @@
   :general
   (nmap-mode :keymaps 'org-mode-map
     "T" 'toc-org-mode))
+
+(use-package org-project-capture
+  :after project
+  :general
+  (nmap-leader
+    "o p p" 'org-project-capture-project-todo-completing-read
+    "o p g" 'org-project-capture-goto-location-for-project
+    "o p c" 'org-project-capture-capture-for-current-project
+    )
+  :config
+  (setq org-project-capture-backend
+    (make-instance 'org-project-capture-project-backend))
+  (org-project-capture-per-project)
+  :ensure t)
