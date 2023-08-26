@@ -1,5 +1,3 @@
-
-;; For version 3
 (in-package #:nyxt-user)
 
 (define-configuration browser

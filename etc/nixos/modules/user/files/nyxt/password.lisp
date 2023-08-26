@@ -10,7 +10,7 @@
 (define-configuration document-mode
   ((keyscheme-map
     (define-keyscheme-map "password-map"
-        (list :imports %slot-values%)
+        (list :import %slot-value%)
          nyxt/keyscheme:vi-normal
          (list "a u" 'copy-username
                "a p" 'copy-password)))))
