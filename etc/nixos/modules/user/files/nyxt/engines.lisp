@@ -4,13 +4,7 @@
   ((search-engines
     (mapcar
      (lambda (engine) (apply 'make-search-engine engine))
-     '(("DEFAULT"
-        "https://duckduckgo.com/?q=~a"
-        "https://duckduckgo.com/")
-       ("ddk"
-        "https://duckduckgo.com/?q=~a"
-        "https://duckduckgo.com/")
-       ("w"
+     '(("w"
         "https://en.wikipedia.org/wiki/Special:Search?search=~a&go=Go&ns0=1"
         "https://en.wikipedia.org/")
        ("g"
@@ -51,4 +45,7 @@
         "https://scholar.google.com/")
        ("doi"
         "https://www.doi.org/~a"
-        "https://www.doi.org/"))))))
+        "https://www.doi.org/")
+       ("ddg" ; the last one is the defalut
+        "https://duckduckgo.com/?q=~a"
+        "https://duckduckgo.com/"))))))
