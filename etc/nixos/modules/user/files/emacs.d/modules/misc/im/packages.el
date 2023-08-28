@@ -52,6 +52,8 @@
   :config
   (evil-set-initial-state 'ement-room-mode 'emacs)
   (evil-set-initial-state 'ement-room-list-mode 'emacs)
+  :hook
+  (ement-room-compose . ement-room-compose-org)
   :general
   ; custom function is not necessary due to ement-save-session
   (nmap-at
