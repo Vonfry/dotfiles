@@ -88,7 +88,6 @@
     "h"   'avy-org-goto-heading-timer
     "u"   'org-id-get-create
     "U"   'org-id-update-id-locations
-    "G"   'org-id-goto
     "o"   'org-store-link
     "O"   'org-id-store-link
     "D i" 'org-display-inline-images
