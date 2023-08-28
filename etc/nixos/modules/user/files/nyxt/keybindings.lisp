@@ -28,4 +28,11 @@
         (list :import %slot-value%)
         nyxt/keyscheme:vi-normal
         (list "a m" 'play-video-in-current-page
-              "; m" 'follow-hint-play-video)))))
+              "; m" 'follow-hint-play-video
+              "g B" 'list-buffers
+              "g L" 'list-history
+              "d a" 'delete-all-buffers
+              "d d" 'delete-buffer
+              "d o" 'delete-other-buffers
+              "u"   'reopen-last-buffer
+              "U"   'reopen-buffer)))))
