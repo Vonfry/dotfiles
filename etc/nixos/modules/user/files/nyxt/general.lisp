@@ -1,4 +1,4 @@
 (in-package #:nyxt-user)
 
-(define-configuration buffer
+(define-configuration hint-mode
   ((hints-alphabet "aoeuidhtns")))
