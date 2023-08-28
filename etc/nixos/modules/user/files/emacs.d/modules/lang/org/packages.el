@@ -180,13 +180,13 @@
   :custom
   (org-roam-graph-viewer 'org-open-file)
   :config
-  (org-roam-setup)
+  (org-roam-db-autosync-enable)
   :general
   (nmap-leader
     "o n"   'org-roam-node-find
     "o C"   'org-roam-capture
-    "o R m" 'org-roam-setup
-    "o R M" 'org-roam-teardown
+    "o R m" 'org-roam-db-autosync-enable
+    "o R M" 'org-roam-db-autosync-disable
     "o R i" 'org-roam-node-insert
     "o R b" 'org-roam-db-sync
     "o R p" '+org/roam-switch)

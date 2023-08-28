@@ -24,7 +24,7 @@
 (defun +org/roam-switch (path)
   "A path is a roam."
   (interactive "Droam: ")
-  (+org--roam-set-path (path)))
+  (+org--roam-set-path path))
 
 (defun +org/open-capture ()
   (interactive)
