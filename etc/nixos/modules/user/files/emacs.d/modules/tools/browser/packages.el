@@ -10,6 +10,6 @@
   :general
   (nmap-at
     "w w" 'eww
-    "w W" 'browse-url-generic
+    "w o" 'browse-url-generic
     "w g" '+browse/switch-emacs
     "w G" '+browse/switch-generic))
