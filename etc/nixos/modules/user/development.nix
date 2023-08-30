@@ -249,7 +249,6 @@ in {
             tree-sitter-bibtex
           ]))
           org-project-capture
-          gptel
         ];
       };
 
