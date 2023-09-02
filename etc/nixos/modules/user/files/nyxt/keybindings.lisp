@@ -17,7 +17,7 @@
 (define-command-global follow-hint-play-video
     (&optional (buffer (current-buffer)))
   "Prompt for element hints and open them in a video player."
-  (query-hints "Interact with element"
+  (nyxt/mode/hint:query-hints "Interact with element"
                (lambda (results)
                  (play-video-at-url (url (first results))))))
 
