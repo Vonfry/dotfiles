@@ -408,13 +408,6 @@ in {
       packages = with pkgs; [
         trashy thefuck
         asciinema
-
-        (zsh-completions.overrideAttrs (fin: prev: {
-          postFixup = ''
-            # this must be removed after pr is merged.
-            rm $out/share/zsh/site-functions/_trash
-          '';
-        }))
       ];
 
       sessionPath = [ "~/.local/bin" ];
