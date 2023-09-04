@@ -28,7 +28,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    # QT is set by qt5ct manually and the qt5ct is configured in nixos module.
+    qt = {
+      enable = true;
+      platformTheme = "qtct";
+      style = {
+        package = with pkgs; [ breeze-qt5 ];
+        name = "breeze";
+      };
+    };
     # GTK needs dbus with dconf
     gtk = {
       enable = true;
@@ -190,6 +197,8 @@ in {
         source-han-serif-simplified-chinese
         font-awesome
         deployFcitx5Rime
+
+        breeze-icons breeze-gtk breeze-qt5
       ];
     };
   };

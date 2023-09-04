@@ -44,7 +44,6 @@ in {
       alacritty
       libnotify
       vonfryPackages.sddm-slice-theme
-      breeze-icons breeze-gtk breeze-qt5
       screenlocker
 
       # need by sddm theme in path
@@ -91,11 +90,6 @@ in {
         openFirewall = true;
         users = [ "vonfry" ];
       };
-    };
-
-    qt = {
-      enable = true;
-      platformTheme = "qt5ct";
     };
 
     systemd = {
