@@ -212,7 +212,7 @@ in {
           hledger-mode
           envrc
           ob-http
-          mpdel
+          mpdel mpdel-embark
           org-contacts
           toc-org
           evil-collection

@@ -27,3 +27,8 @@
     "m b"   'mpdel-song-normal-decrement
     "m B"   'mpdel-song-small-decrement
     "m M-b" 'mpdel-song-large-decrement))
+
+(use-package mpdel-embark
+  :after (embark mpdel)
+  :config
+  (mpdel-embark-setup))
