@@ -168,7 +168,6 @@ in {
           evil-matchit
           auctex
           dashboard
-          proof-general
           nix-mode
           org-superstar
           evil-org
