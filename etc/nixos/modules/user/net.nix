@@ -79,7 +79,7 @@ in {
         qbittorrent
         # unstable.tor-browser-bundle-bin
 
-        wireshark iftop
+        iftop
       ];
     };
 
