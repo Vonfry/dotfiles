@@ -99,7 +99,8 @@ in {
     services.emacs = {
       enable = true;
       client.enable = false; # it has been included in emacs-git
-      socketActivation.enable = false;
+      socketActivation.enable = true;
+      startWithUserSession = "graphical";
       defaultEditor = true;
     };
 
