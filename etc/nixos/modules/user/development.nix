@@ -249,6 +249,7 @@ in {
             tree-sitter-bibtex
           ]))
           org-project-capture
+          password-store
         ];
       };
 
