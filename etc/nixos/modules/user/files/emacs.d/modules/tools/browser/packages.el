@@ -5,6 +5,7 @@
   :custom
   (browse-url-browser-function 'browse-url-generic)
   (browse-url-generic-program (getenv "BROWSER"))
+  (eww-bookmarks-directory vonfry-local-dir)
   (url-configuration-directory (expand-file-name "url/" vonfry-cache-dir))
   (url-cache-directory (expand-file-name "url" vonfry-cache-dir))
   :general
