@@ -55,7 +55,7 @@
 
 (defun +org--auto-mode-to-file-apps (mode cmd)
   (when (and mode cmd)
-    (let* ((modes (remq (lambda (it)
+    (let* ((modes (seq-filter (lambda (it)
                           (not (equal mode (cdr it))))
                         auto-mode-alist))
            (regs (mapcar (lambda (it) (car it)) modes)))
