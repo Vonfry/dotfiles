@@ -52,6 +52,7 @@
   :config
   (evil-set-initial-state 'ement-room-mode 'emacs)
   (evil-set-initial-state 'ement-room-list-mode 'emacs)
+  (persist-location 'ement-room-list-visibility-cache vonfry-local-dir)
   :hook
   (ement-room-compose . ement-room-compose-org)
   :general
