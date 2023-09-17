@@ -18,8 +18,7 @@
     (&optional (buffer (current-buffer)))
   "Prompt for element hints and open them in a video player."
   (nyxt/mode/hint:query-hints "Interact with element"
-               (lambda (results)
-                 (play-video-at-url (url (first results))))))
+    (lambda (results) (play-video-at-url (url (first results))))))
 
 (define-configuration document-mode
   ((keyscheme-map
