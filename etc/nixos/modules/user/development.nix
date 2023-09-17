@@ -189,6 +189,7 @@ in {
           disaster
           cmake-mode
           realgud-lldb
+          mu4e
           mu4e-alert
           elfeed elfeed-org
           emacsql
