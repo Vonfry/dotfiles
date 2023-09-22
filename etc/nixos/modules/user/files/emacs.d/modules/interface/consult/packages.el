@@ -24,6 +24,7 @@
     "F h "'consult-history
     "F m" 'consult-man
     "F i" 'consult-info
+    "F '" 'consult-mark
     "a"   'consult-ripgrep
     "b"   'consult-buffer
     "y"   'consult-yank-pop
