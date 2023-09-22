@@ -5,7 +5,8 @@
   :general
   (nmap-leader :keymaps 'prog-mode-map
     "."   'xref-find-definitions
-    ","   'xref-pop-marker-stack
+    ","   'xref-go-back
+    "<"   'xref-go-forward
     "&"   'xref-find-apropos
     "{"   'xref-find-references
     "> &" 'xref-find-apropos)

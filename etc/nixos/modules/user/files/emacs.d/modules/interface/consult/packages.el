@@ -26,7 +26,6 @@
     "F i" 'consult-info
     "a"   'consult-ripgrep
     "b"   'consult-buffer
-    "<"   'consult-mark
     "y"   'consult-yank-pop
     "m"   'consult-bookmark
     ";"   'consult-imenu
