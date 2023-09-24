@@ -261,3 +261,9 @@
     (make-instance 'org-project-capture-project-backend))
   (org-project-capture-per-project)
   :ensure t)
+
+(use-package org-ai
+  :after (org auth-source)
+  :custom
+  (org-ai-default-chat-model "gpt-4")
+  :hook org-mode)

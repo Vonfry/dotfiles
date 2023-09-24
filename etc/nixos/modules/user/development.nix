@@ -251,6 +251,7 @@ in {
           ]))
           org-project-capture
           password-store
+          org-ai
         ];
       };
 
