@@ -24,8 +24,7 @@
                   "~/.authinfo.gpg" "~/.authinfo"))
   :ensure nil)
 
-
 (use-package auth-source-pass
-  :after auth-source
   :config
+  ; this must before other files
   (auth-source-pass-enable))
