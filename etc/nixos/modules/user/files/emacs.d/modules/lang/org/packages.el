@@ -266,4 +266,6 @@
   :after (org auth-source)
   :custom
   (org-ai-default-chat-model "gpt-4")
-  :hook org-mode)
+  :hook org-mode
+  :general
+  (nmap-leader "o g" org-ai-global-prefix-map))
