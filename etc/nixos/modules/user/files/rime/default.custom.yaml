@@ -4,15 +4,9 @@ patch:
     - schema: japanese
     - schema: numbers
     - schema: wubi86_jidian_trad
-  "menu/page_size": 5
+  menu/page_size: 5
 
-  recognizer:
-    patterns:
-      email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-      uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
-      url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
-
-  "switcher/hotkeys":
+  switcher/hotkeys:
     - "Control+grave"
     - F4
 
@@ -22,23 +16,6 @@ patch:
       Shift_L: inline_ascii
       Shift_R: commit_text
 
-  key_binder:
-    bindings:
-      - {accept: semicolon, send: 2, when: has_menu}  # 候选2 用分号
-      - {accept: apostrophe, send: 3, when: has_menu} # 候选3 用单引号
-
-      # emacs key bindings
-      # copy from github:rime/rime-prelude/key_bindings.yaml
-      - { when: composing, accept: Control+p, send: Up }
-      - { when: composing, accept: Control+n, send: Down }
-      - { when: composing, accept: Control+b, send: Left }
-      - { when: composing, accept: Control+f, send: Right }
-      - { when: composing, accept: Control+a, send: Home }
-      - { when: composing, accept: Control+e, send: End }
-      - { when: composing, accept: Control+d, send: Delete }
-      - { when: composing, accept: Control+k, send: Shift+Delete }
-      - { when: composing, accept: Control+h, send: BackSpace }
-      - { when: composing, accept: Control+g, send: Escape }
-      - { when: composing, accept: Control+bracketleft, send: Escape }
-      - { when: composing, accept: Alt+v, send: Page_Up }
-      - { when: composing, accept: Control+v, send: Page_Down }
+  key_binder/bindings/+:
+  - {accept: semicolon, send: 2, when: has_menu}  # 候选2 用分号
+  - {accept: apostrophe, send: 3, when: has_menu} # 候选3 用单引号
