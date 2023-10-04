@@ -11,7 +11,7 @@
   };
   background-image = {
     pname = "background-image";
-    version = "2023-09-17";
+    version = "2023-10-04";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -91,15 +91,15 @@
   };
   rime-wubi86-jidian = {
     pname = "rime-wubi86-jidian";
-    version = "04722968ced7e4ef13ed925add448d33374c0239";
+    version = "abf05af18ebbf177902ec501bf631128e12bc943";
     src = fetchFromGitHub {
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "04722968ced7e4ef13ed925add448d33374c0239";
+      rev = "abf05af18ebbf177902ec501bf631128e12bc943";
       fetchSubmodules = false;
-      sha256 = "sha256-8qKAz3WgxITM1eTCJF02Gm7r+zmB0/ZA7g4BlFqXVc8=";
+      sha256 = "sha256-AAe6bNmaCa4KmR9oeaSMbIJtzKC3ZxsfbyUfq1eQx6s=";
     };
-    date = "2023-08-30";
+    date = "2023-09-24";
   };
   sddm-chili = {
     pname = "sddm-chili";
@@ -125,7 +125,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2023-09-17";
+    version = "2023-10-04";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
