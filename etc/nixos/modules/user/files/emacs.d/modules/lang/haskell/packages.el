@@ -55,9 +55,3 @@
   (haskell-process-suggest-remove-import-lines t)
   (haskell-process-auto-import-loaded-modules t)
   (haskell-process-log t))
-
-(use-package lsp-haskell
-  :after (haskell lsp-mode))
-
-(use-package haskell-snippets
-  :after (haskell yasnippet))
