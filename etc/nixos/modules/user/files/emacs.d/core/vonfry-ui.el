@@ -44,7 +44,7 @@ THEME is a symbol passed to `load-theme'"
 (defun vonfry/next-theme ()
   (interactive)
   (let* ((nxt (cdr (memq (car custom-enabled-themes) vonfry-themes)))
-         (chthm (if nxt nxt (car vonfry-themes))))
+         (chthm (car (if nxt nxt vonfry-themes))))
     (vonfry--change-theme chthm)))
 
 ;; customize the tabbar and other UI elements for GUI.
