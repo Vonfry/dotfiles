@@ -1,8 +1,10 @@
 org-mode
 
 (export-html-orgcss
- "#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"https://gongzhitaao.org/orgcss/org.css\"/>"
- )
+ "#+HTML_HEAD: <link rel=\"stylesheet\" type=\"text/css\" href=\"https://gongzhitaao.org/orgcss/org.css\"/>" n
+ "# Local Variables:" n
+ "# org-html-htmlize-output-type: css" n
+ "# End:")
 
 (export-latex-article
  "#+LATEX_CLASS: article" n
