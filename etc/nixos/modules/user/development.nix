@@ -253,6 +253,7 @@ in {
           password-store
           org-ai
           nov
+          org-tree-slide
         ];
       };
 
