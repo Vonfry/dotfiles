@@ -185,6 +185,7 @@ in {
           yaml-mode
           magit
           git-modes
+          forge
           diff-hl
           disaster
           cmake-mode

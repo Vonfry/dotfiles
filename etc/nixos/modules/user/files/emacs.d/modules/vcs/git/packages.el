@@ -19,3 +19,8 @@
   (transient-levels-file (expand-file-name "transient/levels.el" vonfry-cache-dir)))
 
 (use-package git-modes)
+
+(use-package forge
+  :after magit
+  :custom
+  (forge-database-file (expand-file-name "forge" vonfry-local-dir)))
