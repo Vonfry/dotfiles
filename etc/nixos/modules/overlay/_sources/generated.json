@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2023-10-04"
+        "version": "2023-10-14"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -222,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2023-10-04"
+        "version": "2023-10-14"
     }
 }
