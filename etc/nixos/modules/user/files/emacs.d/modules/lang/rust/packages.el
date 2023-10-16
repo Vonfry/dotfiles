@@ -9,14 +9,17 @@
     "=" 'rust-mode-indent-line
     "t" 'rust-test
     "R" 'rust-run)
-  (nmap-leader :keymaps 'rust-mode-map
+  (nmap-leader :keymaps '(rust-mode-map rust-ts-mode-map)
     "r" 'rust-compile
     "R" '+rust/lldb))
 
 (use-package cargo
   :hook (rust-mode . cargo-minor-mode)
+  :custom
+  (cargo-process--custom-path-to-bin "cargo")
+  (cargo-process--rustc-cmd "rustc")
   :general
-  (nmap-mode :keymaps 'rust-mode-map
+  (nmap-mode :keymaps 'cargo-mode-map
     "c e" 'cargo-process-bench
     "c b" 'cargo-process-build
     "c l" 'cargo-process-clean
