@@ -3,9 +3,9 @@
 
 (use-package rust-mode
   :mode "\\.rs\\'"
-  :hook (rust-mode . eglot-ensure)
+  :hook ((rust-mode rust-ts-mode) . eglot-ensure)
   :general
-  (nmap-mode :keymaps 'rust-mode-map
+  (nmap-mode :keymaps '(rust-mode-map rust-ts-mode-map)
     "=" 'rust-mode-indent-line
     "t" 'rust-test
     "R" 'rust-run)
@@ -14,7 +14,7 @@
     "R" '+rust/lldb))
 
 (use-package cargo
-  :hook (rust-mode . cargo-minor-mode)
+  :hook ((rust-mode rust-ts-mode) . cargo-minor-mode)
   :custom
   (cargo-process--custom-path-to-bin "cargo")
   (cargo-process--rustc-cmd "rustc")
