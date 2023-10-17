@@ -16,7 +16,7 @@
     "> q"   'eglot-code-action-quickfix
     "> i"   'eglot-execute-code-action-inline
     "> e"   'eglot-execute-code-action-extract
-    "> r"   'eglot-reconnect
+    "> R"   'eglot-reconnect
     "> s"   'eglot-shutdown
     "> S"   'eglot-shutdown-all
     "> D e" 'eglot-event-buffer
