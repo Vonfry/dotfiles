@@ -69,7 +69,9 @@ THEME is a symbol passed to `load-theme'"
 
 (defun vonfry--set-font-graphic ()
   (when (display-graphic-p) (vonfry--set-font)))
-(add-hook 'server-after-make-frame-hook 'vonfry--set-font-graphic)
+
+(add-hook (if (daemonp) 'server-after-make-frame-hook 'after-init-hook)
+          'vonfry--set-font-graphic)
 
 (setq-default
   inhibit-startup-screen t
