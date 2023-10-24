@@ -11,11 +11,11 @@
     "?"     'eldoc
     "> i"   'eglot-inlay-hints-mode
     "> r"   'eglot-rename
-    "> a"   'eglot-execute-code-actions
-    "> W"   'eglot-execute-code-action-rewrite
+    "> a"   'eglot-code-actions
+    "> W"   'eglot-code-action-rewrite
     "> q"   'eglot-code-action-quickfix
-    "> i"   'eglot-execute-code-action-inline
-    "> e"   'eglot-execute-code-action-extract
+    "> i"   'eglot-code-action-inline
+    "> e"   'eglot-code-action-extract
     "> R"   'eglot-reconnect
     "> s"   'eglot-shutdown
     "> S"   'eglot-shutdown-all
