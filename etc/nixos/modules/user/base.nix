@@ -88,7 +88,7 @@ in {
         patch parallel file
 
         btop atop
-        zstd archiver convmv
+        libarchive zstd convmv
         colordiff
         ripgrep fd
       ];
