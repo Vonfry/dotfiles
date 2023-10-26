@@ -6,7 +6,7 @@
   :hook ((rust-mode rust-ts-mode) . eglot-ensure)
   :general
   (nmap-mode :keymaps '(rust-mode-map rust-ts-mode-map)
-    "=" 'rust-mode-indent-line
+    "=" 'rust-format-buffer
     "t" 'rust-test
     "R" 'rust-run)
   (nmap-leader :keymaps '(rust-mode-map rust-ts-mode-map)
