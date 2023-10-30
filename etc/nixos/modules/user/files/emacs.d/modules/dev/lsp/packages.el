@@ -9,6 +9,8 @@
     "="     'eglot-format-buffer
     "#"     'eglot-code-action-organize-imports
     "?"     'eldoc
+    "> }"   'eglot-find-typeDefinition
+    "> ["   'eglot-find-declaration
     "> i"   'eglot-inlay-hints-mode
     "> r"   'eglot-rename
     "> a"   'eglot-code-actions
