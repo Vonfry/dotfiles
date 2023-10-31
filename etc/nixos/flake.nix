@@ -31,6 +31,8 @@
             nixos.flake = nixpkgs;
             nixos-unstable.flake = unstable;
           };
+          channel.enable = false;
+          nixPath = [ "nixos-config=${./.}" "nixpkgs=${nixpkgs}" ];
           extraOptions = ''
             flake-registry = /etc/nix/registry.json
             experimental-features = nix-command flakes
@@ -43,9 +45,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
           ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
         in {
-          devShell = pkgs.mkShell {
-            packages = [ ghcWith pkgs.nvchecker ];
-          };
+          devShell = pkgs.mkShell { packages = [ ghcWith pkgs.nvchecker ]; };
         });
       nixosOutputs = {
         nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
