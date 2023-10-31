@@ -42,7 +42,11 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
-        in { devShell = pkgs.mkShell { packages = [ ghcWith ]; }; });
+        in {
+          devShell = pkgs.mkShell {
+            packages = [ ghcWith pkgs.nvchecker ];
+          };
+        });
       nixosOutputs = {
         nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
           modules = [
