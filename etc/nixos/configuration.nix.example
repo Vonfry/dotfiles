@@ -11,32 +11,50 @@
   vonfry = {
     enable = true;
     userConfiguration = {
-      openssh.authorizedKeys.keys = [];
+      openssh.authorizedKeys.keys = [
+      ];
     };
-
-    network = {
-      zerotierNets = [];
-    };
-
-    homeConfiguration =
-      [({ config, pkgs, lib, ... }:
-
+    homeConfiguration = { config, pkgs, lib, ... }:
       {
-        vonfry = {
-          development = {
-            git.signKey = "";
+        # xsession.enable = lib.mkForce false;
+
+        xsession.initExtra = ''
+          # . .screenlayout/dual_monitor.sh
+        '';
+
+        home.sessionVariables = {
+          # GITHUB_TOKEN = "";
+        };
+
+        programs = {
+          gpg.settings = {
+            # default-key = "";
+          };
+          zsh.shellAliases = {
           };
         };
 
-        imports = [ ./local/cloud.nix ];
-      })];
+        vonfry = {
+          development = {
+            # git.signKey = "";
+          };
+        };
+
+        imports = [ ./local/vonfry/cloud.nix ];
+      };
   };
 
-  # default nrBuildUsers is same as maxJobs or 32. You may set this variables
-  # if your number of cpu threads is larger than 32.
-  nix.maxJobs = "auto";
-
   services.xserver.dpi = 96;
+
+  nix.settings = {
+    trusted-public-keys = lib.mkBefore [ ];
+    cores = 0;
+    max-jobs = "auto";
+  };
+
+  services.openssh.enable = true;
+
+  security.doas.wheelNeedsPassword = lib.mkForce false;
 
   boot.supportedFilesystems = [ "ntfs" ];
 
