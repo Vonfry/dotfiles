@@ -22,5 +22,6 @@ in {
     ./x.nix
     ./application.nix
     ./misc.nix
+    ./game.nix
   ];
 }

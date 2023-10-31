@@ -35,6 +35,7 @@
         };
 
         vonfry = {
+          game.enable = true;
           development = {
             # git.signKey = "";
           };
