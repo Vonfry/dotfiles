@@ -99,4 +99,6 @@
   #   ftp_proxy   = "prot://user:password@proxy:port";
   # };
 
+
+  # environment.systemPackages = with pkgs; [ nvtop intel-gpu-tools ];
 }
