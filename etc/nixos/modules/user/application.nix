@@ -75,7 +75,7 @@ in {
 
         hledger
         flameshot feh
-        qpwgraph
+        helvum
         libreoffice
 
         virt-manager

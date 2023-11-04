@@ -188,7 +188,6 @@ in {
       };
 
       packages = with pkgs; [
-        dragon
         recursive
         sarasa-gothic
         symbola

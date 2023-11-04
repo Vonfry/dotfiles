@@ -82,8 +82,7 @@ key conf = mkKeymap conf
     , ("M-o v", spawn "virt-manager")
     , ("M-o f", spawn "zathura"     )
     , ("M-o j", spawn "easyeffects" )
-    , ("M-o k", spawn "qpwgraph"    )
-    , ("M-o a", spawn "dragon"      )
+    , ("M-o k", spawn "helvum"      )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t top"  "btop")
