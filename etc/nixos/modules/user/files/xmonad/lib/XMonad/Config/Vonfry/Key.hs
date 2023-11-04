@@ -76,7 +76,6 @@ key conf = mkKeymap conf
 
     , ("M-<F1>"  , manPrompt promptConfig)
 
-    , ("M-o d", spawn "zeal"        )
     , ("M-o b", spawn "nyxt"        )
     , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")

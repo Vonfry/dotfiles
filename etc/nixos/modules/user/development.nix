@@ -322,7 +322,7 @@ in {
 
         editorconfig-core-c
 
-        tokei zeal
+        tokei
 
         pandoc
 
