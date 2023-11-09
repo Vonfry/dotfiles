@@ -8,10 +8,14 @@
   (nmap-mode :keymaps '(rust-mode-map rust-ts-mode-map)
     "=" 'rust-format-buffer
     "t" 'rust-test
-    "R" 'rust-run)
+    "k" 'rust-check
+    "k" 'rust-run-clippy
+    "r" 'rust-run-release
+    "R" 'rust-run
+    "d" 'rust-dbg-wrap-or-unwrap)
   (nmap-leader :keymaps '(rust-mode-map rust-ts-mode-map)
     "r" 'rust-compile
-    "R" '+rust/lldb))
+    "R" '+rust/gdb))
 
 (use-package cargo
   :hook ((rust-mode rust-ts-mode) . cargo-minor-mode)
