@@ -51,6 +51,7 @@
      ("c" "Contacts" entry (file+headline +org-capture-file "Contacts")
       "** %(org-contacts-template-name)\n:PROPERTIES:\n:EMAIL: %(org-contacts-template-email)\s\n:PHONE:\n:ALIAS:\n:NICKNAME:\n:IGNORE:\n:ICON:\n:NOTE:\n:ADDRESS:\n:BIRTHDAY:\n:END:")))
   (org-archive-subtree-add-inherited-tags t)
+  (org-html-htmlize-output-type 'css)
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
