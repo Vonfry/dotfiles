@@ -3,8 +3,7 @@
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
 
-(use-package solarized
-  :ensure solarized-theme
+(use-package solarized-theme
   :custom
   (solarized-use-variable-pitch nil)
   (solarized-scale-org-headlines nil)
