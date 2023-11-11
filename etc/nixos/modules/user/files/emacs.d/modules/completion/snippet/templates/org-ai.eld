@@ -1,12 +1,19 @@
 org-mode
 
-(orgai
- "#+begin_ai markdown" n>
+(chatgpt_shell
+ "#+begin_src chatgpt-shell"
+ " "
+ ":version \"gpt-4\""
+ " "
+ ":system \"\""
+ " "
+ ":temperature 0.6"
+ " "
+ ":context name"
  n>
- "#+end_ai")
+ "#+end_src")
 
-(orgai-sys
- "#+begin_ai markdown" n>
- "[SYS]:" n>
- "[ME]:" n>
- "#+end_ai")
+(dall-e
+ "#+begin_src dall-e-shell"
+ n>
+ "#+end_src")

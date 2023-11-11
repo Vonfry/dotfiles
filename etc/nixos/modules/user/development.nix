@@ -252,9 +252,10 @@ in {
           ]))
           org-project-capture
           password-store
-          org-ai
           nov
           org-tree-slide
+          chatgpt-shell dall-e-shell
+          ob-chatgpt-shell ob-dall-e-shell
         ];
       };
 

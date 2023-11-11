@@ -229,6 +229,16 @@
                               (dot        . t)))
   :after org)
 
+(use-package ob-chatgpt-shell
+  :after (ob chatgpt-shell)
+  :config
+  (ob-chatgpt-shell-setup))
+
+(use-package ob-dall-e-shell
+  :after (ob dall-e-shell)
+  :config
+  (ob-dall-e-shell-setup))
+
 (use-package org-contacts
   :custom
   (org-contacts-icon-use-gravatar nil)
@@ -262,11 +272,3 @@
     (make-instance 'org-project-capture-project-backend))
   (org-project-capture-per-project)
   :ensure t)
-
-(use-package org-ai
-  :after (org auth-source)
-  :custom
-  (org-ai-default-chat-model "gpt-4")
-  :hook org-mode
-  :general
-  (nmap-leader "o g" org-ai-global-prefix-map))
