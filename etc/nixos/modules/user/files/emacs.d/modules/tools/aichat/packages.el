@@ -1,6 +1,10 @@
 ;;; aichat packages -*- lexical-binding: t; -*-
 ;;
 
+(use-package shell-maker
+  :custom
+  (shell-maker-history-path (expand-file-name "shell-maker" vonfry-local-dir)))
+
 (use-package chatgpt-shell
   :general
   (nmap-leader "e g" 'chatgpt-shell)
