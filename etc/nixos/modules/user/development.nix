@@ -236,6 +236,7 @@ in {
           ligature
           slime
           julia-mode
+          julia-repl
           eglot-jl
           tempel
           tempel-collection
