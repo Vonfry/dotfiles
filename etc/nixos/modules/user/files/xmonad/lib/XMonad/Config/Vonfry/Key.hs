@@ -11,7 +11,8 @@ import XMonad ( refresh, io, spawn
               , kill, float, killWindow
 
               , XConfig(..)
-              , xK_a, xK_o, xK_e, xK_u, xK_i, xK_d, xK_h, xK_t, xK_n, xK_s, xK_q
+              , xK_a, xK_o, xK_e, xK_u, xK_i, xK_d, xK_h, xK_t, xK_n, xK_s
+              , xK_Escape
 
               , sendMessage, ChangeLayout(NextLayout)
               , IncMasterN(IncMasterN)
@@ -261,6 +262,6 @@ emConfig = def { txtCol      = Color.foreground
                , borderPx    = 2
                , sKeys       = AnyKeys [xK_a, xK_o, xK_e, xK_u, xK_i, xK_d,
                                         xK_h, xK_t, xK_n, xK_s]
-               , cancelKey   = xK_q
+               , cancelKey   = xK_Escape
                , emFont      = C.fontXL
                }
