@@ -20,5 +20,17 @@
 
 (add-hook 'elisp-mode-hook
           (lambda ()
-            (vonfry/local-indent 2)
-            (+company-set-backends-grouped 'company-elisp)))
+            (vonfry/local-indent 2)))
+
+(use-package slime
+  :general
+  (nmap-leader :keymaps 'lisp-mode-map
+    "' b"   'slime-eval-buffer
+    "' f"   'slime-eval-defun
+    "' RET" 'slime-eval-last-expression
+    "\""    'slime
+    "?"     'slime-documentation)
+  (nmap-mode :keymaps 'lisp-mode-map
+    "?"     'slime-documentation-lookup)
+  (vmap-leader :keymaps 'lisp-mode-map
+    "' r"   'slime-eval-region))
