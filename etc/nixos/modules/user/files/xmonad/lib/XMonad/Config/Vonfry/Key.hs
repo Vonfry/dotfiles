@@ -8,11 +8,11 @@ import XMonad ( refresh, io, spawn
 
               , layoutHook, setLayout, Resize(..)
 
-              , kill, float, killWindow
+              , kill, float, killWindow, gets, windowset
 
               , XConfig(..)
               , xK_a, xK_o, xK_e, xK_u, xK_i, xK_d, xK_h, xK_t, xK_n, xK_s
-              , xK_Escape
+              , xK_Escape, xK_Control_L
 
               , sendMessage, ChangeLayout(NextLayout)
               , IncMasterN(IncMasterN)
@@ -22,6 +22,7 @@ import XMonad.StackSet ( focusDown, focusUp, focusMaster
                        , swapMaster, swapDown, swapUp
                        , sink, shift, view
                        )
+import qualified XMonad.StackSet as W
 import XMonad.Actions.Navigation2D ( windowGo, windowSwap
                                    , screenGo, screenSwap, windowToScreen
                                    )
@@ -63,10 +64,12 @@ import XMonad.Actions.DynamicWorkspaces ( addWorkspacePrompt, removeWorkspace
 import XMonad.Actions.WorkspaceNames (swapTo)
 import XMonad.Layout.WorkspaceDir (changeDir)
 import XMonad.Actions.GroupNavigation (nextMatch, Direction(History))
+import XMonad.Actions.FocusNth (swapNth)
 
 import System.Exit (exitWith, ExitCode(ExitSuccess))
 
 import Data.Function (on)
+import qualified Data.List as L
 
 key conf = mkKeymap conf
     [ ("M-x"  , shellPrompt promptConfig           )
@@ -207,8 +210,13 @@ key conf = mkKeymap conf
 
     -- easy motion
     , ("M-g"  , selectWindow emConfig >>= (`whenJust` windows . focusWindow))
-    , ("M-S-g", selectWindow emConfig >>= (`whenJust` killWindow))
+    , ("M-S-g", do
+          sel <- selectWindow emConfig
+          stack <- gets $ W.index . windowset
+          let match = L.find ((sel ==) . Just . fst) $ zip stack [0..]
+          whenJust match $ swapNth . snd)
     , ("M-C-g", selectWindow emConfig >>= (`whenJust` on (flip (<>)) windows swapMaster . focusWindow))
+    , ("M-C-c", selectWindow emConfig >>= (`whenJust` killWindow))
 
     -- dynamic workspace
     , ("M-,"  , workspacePrompt promptConfig (windows . view ))
@@ -252,6 +260,7 @@ promptConfig = def
     -- use this to avoid pass unexpected key to applications
     , autoComplete      = Just $ 2 * 10 ^ 5
     , height            = 30
+    , changeModeKey     = xK_Control_L
     }
 
 promptConfigNoAc = promptConfig { autoComplete = Nothing }
