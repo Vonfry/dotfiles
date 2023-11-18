@@ -35,8 +35,10 @@
     "' f"   'slime-eval-defun
     "' RET" 'slime-eval-last-expression
     "\""    'slime
+    "' \""  'slime-connect
     "?"     'slime-documentation)
   (nmap-mode :keymaps 'lisp-mode-map
+    "RET"   'slime-inspect
     "?"     'slime-documentation-lookup)
   (vmap-leader :keymaps 'lisp-mode-map
     "' r"   'slime-eval-region))
