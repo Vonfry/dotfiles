@@ -63,19 +63,17 @@ libraries and lsp, are installed by nix-shell and export into environment
 per-project. Here list languages supporting in editor. The lsp client install
 in user environment only when the language is used directly, i.e., tex and nix.
 
-
 - **Haskell** :: main prog lang
 - **Rust** :: main sys-prog lang
-- **Perl** :: main script lang
+- **Common Lisp & Perl** :: main script lang
 - **Julia** :: main data-analysis lang
 - orgmode & latex :: main doc lang
 - Agda :: proof only
-- Coq :: proof only
+- ~~Coq :: proof only~~
 - C/C++
 - ~~R~~
-- ~~Lisp~~
 - ~~Ruby~~
-- Python3 :: only interperter by some utils
+- ~~Python3:: only interperter by some utils~~
 - ~~Web :: js, html, css/sass, ts~~
 
 The other languages are also supposed in system and editor, but they aren't used
