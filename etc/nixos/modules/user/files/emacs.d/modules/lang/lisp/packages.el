@@ -22,6 +22,12 @@
           (lambda ()
             (vonfry/local-indent 2)))
 
+(use-package lisp
+  :ensure nil
+  :no-require
+  :custom
+  (inferior-lisp-program "sbcl"))
+
 (use-package slime
   :general
   (nmap-leader :keymaps 'lisp-mode-map
