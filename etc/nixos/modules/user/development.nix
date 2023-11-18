@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite perl hugo ];
+    paths = [ sqlite hugo ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -247,9 +247,10 @@ in {
           wgrep
           (treesit-grammars.with-grammars (p: with p; [
             tree-sitter-haskell tree-sitter-c tree-sitter-cpp tree-sitter-rust
-            tree-sitter-perl tree-sitter-nix tree-sitter-julia tree-sitter-latex
-            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
+            tree-sitter-commonlisp tree-sitter-elisp
+            tree-sitter-nix tree-sitter-julia tree-sitter-latex
             tree-sitter-bibtex
+            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
           ]))
           org-project-capture
           password-store
