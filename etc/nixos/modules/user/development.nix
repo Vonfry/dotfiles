@@ -234,7 +234,7 @@ in {
           ibuffer-project
           agda2-mode
           ligature
-          slime
+          sly
           julia-mode
           julia-repl
           eglot-jl

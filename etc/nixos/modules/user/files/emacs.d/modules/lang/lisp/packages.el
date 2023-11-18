@@ -28,17 +28,17 @@
   :custom
   (inferior-lisp-program "sbcl"))
 
-(use-package slime
+(use-package sly
   :general
   (nmap-leader :keymaps 'lisp-mode-map
-    "' b"   'slime-eval-buffer
-    "' f"   'slime-eval-defun
-    "' RET" 'slime-eval-last-expression
-    "\""    'slime
-    "' \""  'slime-connect
-    "?"     'slime-documentation)
+    "' b"   'sly-eval-buffer
+    "' f"   'sly-eval-defun
+    "' RET" 'sly-eval-last-expression
+    "\""    'sly
+    "' \""  'sly-connect
+    "?"     'sly-documentation)
   (nmap-mode :keymaps 'lisp-mode-map
-    "RET"   'slime-inspect
-    "?"     'slime-documentation-lookup)
+    "RET"   'sly-inspect
+    "?"     'sly-documentation-lookup)
   (vmap-leader :keymaps 'lisp-mode-map
-    "' r"   'slime-eval-region))
+    "' r"   'sly-eval-region))
