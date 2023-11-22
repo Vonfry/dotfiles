@@ -221,12 +221,13 @@
                               (org        . t)
                               (http       . t)
                               (haskell    . t)
+                              (lisp       . t)
                               (latex      . t)
                               (julia      . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (perl       . t)
                               (dot        . t)))
+  (org-babel-lisp-eval-fn #'sly-eval)
   :after org)
 
 (use-package ob-chatgpt-shell
