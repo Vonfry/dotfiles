@@ -85,6 +85,7 @@
     "L"   'proced
     "O"   'calendar
     "e a" '+evil/switch-scratch
+    "e i" 'ielm
     "e s" 'server-start
     "e c" 'clean-buffer-list
     "e #" 'server-edit
