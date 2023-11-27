@@ -14,62 +14,6 @@ in {
         keep-derivations = true
       '';
       "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
-      "btop/btop.conf".text = ''
-        color_theme = "${pkgs.btop}/share/btop/themes/dracula.theme"
-        vim_keys = True
-        rounded_corners = True
-        graph_symbol = "braille"
-        graph_symbol_cpu = "default"
-        graph_symbol_mem = "default"
-        graph_symbol_net = "default"
-        graph_symbol_proc = "default"
-        shown_boxes = "cpu mem net proc"
-        update_ms = 2000
-        proc_sorting = "cpu lazy"
-        proc_reversed = False
-        proc_tree = True
-        proc_colors = True
-        proc_gradient = True
-        proc_per_core = True
-        proc_mem_bytes = True
-        proc_info_smaps = False
-        proc_left = False
-        cpu_graph_upper = "total"
-        cpu_graph_lower = "total"
-        cpu_invert_lower = True
-        cpu_single_graph = False
-        cpu_bottom = False
-        show_uptime = True
-        check_temp = True
-        cpu_sensor = "Auto"
-        show_coretemp = True
-        cpu_core_map = ""
-        temp_scale = "celsius"
-        show_cpu_freq = True
-        clock_format = "%X"
-        background_update = True
-        custom_cpu_name = ""
-        disks_filter = ""
-        mem_graphs = True
-        mem_below_net = False
-        show_swap = True
-        swap_disk = True
-        show_disks = True
-        only_physical = True
-        use_fstab = True
-        show_io_stat = True
-        io_mode = True
-        io_graph_combined = True
-        io_graph_speeds = ""
-        net_download = 100
-        net_upload = 100
-        net_auto = True
-        net_sync = False
-        net_iface = ""
-        show_battery = True
-        selected_battery = "Auto"
-        log_level = "WARNING"
-      '';
     };
 
     home = {
@@ -87,7 +31,7 @@ in {
 
         patch parallel file
 
-        btop atop
+        atop
         libarchive zstd convmv
         colordiff
         ripgrep fd
@@ -108,6 +52,65 @@ in {
         compression = true;
         forwardAgent = true;
         serverAliveInterval = 60;
+      };
+      btop = {
+        enable = true;
+        settings = {
+          color_theme = "dracula";
+          vim_keys = true;
+          rounded_corners = true;
+          graph_symbol = "braille";
+          graph_symbol_cpu = "default";
+          graph_symbol_mem = "default";
+          graph_symbol_net = "default";
+          graph_symbol_proc = "default";
+          shown_boxes = "cpu mem net proc";
+          update_ms = 2000;
+          proc_sorting = "cpu lazy";
+          proc_reversed = false;
+          proc_tree = true;
+          proc_colors = true;
+          proc_gradient = true;
+          proc_per_core = true;
+          proc_mem_bytes = true;
+          proc_info_smaps = false;
+          proc_left = false;
+          cpu_graph_upper = "total";
+          cpu_graph_lower = "total";
+          cpu_invert_lower = true;
+          cpu_single_graph = false;
+          cpu_bottom = false;
+          show_uptime = true;
+          check_temp = true;
+          cpu_sensor = "Auto";
+          show_coretemp = true;
+          cpu_core_map = "";
+          temp_scale = "celsius";
+          show_cpu_freq = true;
+          clock_format = "%X";
+          background_update = true;
+          custom_cpu_name = "";
+          disks_filter = "";
+          mem_graphs = true;
+          mem_below_net = false;
+          show_swap = true;
+          swap_disk = true;
+          show_disks = true;
+          only_physical = true;
+          use_fstab = true;
+          show_io_stat = true;
+          io_mode = true;
+          io_graph_combined = true;
+          io_graph_speeds = "";
+          net_download = 100;
+          net_upload = 100;
+          net_auto = true;
+          net_sync = false;
+          net_iface = "";
+          show_battery = true;
+          selected_battery = "Auto";
+          log_level = "WARNING";
+        };
       };
     };
   };
