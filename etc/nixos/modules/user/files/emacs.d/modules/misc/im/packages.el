@@ -50,8 +50,6 @@
   (ement-save-sessions t)
   (ement-sessions-file (expand-file-name "ement.el" vonfry-local-dir))
   :config
-  (evil-set-initial-state 'ement-room-mode 'emacs)
-  (evil-set-initial-state 'ement-room-list-mode 'emacs)
   (with-eval-after-load 'ement-room-list
     (persist-location 'ement-room-list-visibility-cache vonfry-local-dir))
   :hook
