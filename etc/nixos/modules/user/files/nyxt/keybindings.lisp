@@ -7,7 +7,7 @@
   ((default-modes (pushnew 'nyxt/mode/emacs:emacs-mode %slot-value%))))
 
 (defun play-video-at-url (url)
-  (uiop:run-program (list "mpv" (render-url url))))
+  (uiop:run-program (list "mpv" (format nil "ytdl://~A" (render-url url)))))
 
 (define-command-global play-video-in-current-page
     (&optional (buffer (current-buffer)))
