@@ -13,7 +13,7 @@
   (ebib-file-search-dirs '("."))
   :general
   (:keymaps '(LaTeX-mode-map org-mode-map)
-    "C-&" 'ebib-insert-citation)
+    "C-{" 'ebib-insert-citation)
   (nmap-mode :keymaps 'bibtex-mode-map
     "E" 'ebib
     "e" '+bib/ebib-current)
