@@ -3,15 +3,15 @@
 {
   aria-ng = {
     pname = "aria-ng";
-    version = "1.3.6";
+    version = "1.3.7";
     src = fetchurl {
-      url = "https://github.com/mayswind/AriaNg/releases/download/1.3.6/AriaNg-1.3.6-AllInOne.zip";
-      sha256 = "sha256-EBUEq1YHK/1C6bWO+KvPuhyw7dzU2SV+4BHgJUYWpyA=";
+      url = "https://github.com/mayswind/AriaNg/releases/download/1.3.7/AriaNg-1.3.7-AllInOne.zip";
+      sha256 = "sha256-G+bi1QS19t4PBHqs2ksOVNwcZTo8tenFjZ3tYnDPfdY=";
     };
   };
   background-image = {
     pname = "background-image";
-    version = "2023-12-02";
+    version = "2023-12-10";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -125,7 +125,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2023-12-02";
+    version = "2023-12-10";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";

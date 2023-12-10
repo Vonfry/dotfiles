@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-EBUEq1YHK/1C6bWO+KvPuhyw7dzU2SV+4BHgJUYWpyA=",
+            "sha256": "sha256-G+bi1QS19t4PBHqs2ksOVNwcZTo8tenFjZ3tYnDPfdY=",
             "type": "url",
-            "url": "https://github.com/mayswind/AriaNg/releases/download/1.3.6/AriaNg-1.3.6-AllInOne.zip"
+            "url": "https://github.com/mayswind/AriaNg/releases/download/1.3.7/AriaNg-1.3.7-AllInOne.zip"
         },
-        "version": "1.3.6"
+        "version": "1.3.7"
     },
     "background-image": {
         "cargoLocks": null,
@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2023-12-02"
+        "version": "2023-12-10"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -222,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2023-12-02"
+        "version": "2023-12-10"
     }
 }
