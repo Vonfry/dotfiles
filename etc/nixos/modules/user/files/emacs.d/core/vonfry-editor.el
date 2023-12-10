@@ -86,7 +86,8 @@
   read-process-output-max (* 1024 1024) ; 1mb
 
   calc-settings-file (expand-file-name "calc.el" vonfry-local-dir)
-)
+
+  delete-by-moving-to-trash t)
 
 (recentf-mode 1)
 (show-paren-mode 1)
