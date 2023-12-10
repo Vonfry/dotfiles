@@ -166,10 +166,11 @@ in {
 
         shellAliases = {
           rm = "echo \"This is not the command you are looking for. trash better. Focus to use 'rm' with a prefix backslash.\"; false";
-          rt = "trash put";
-          rl = "trash list";
-          rc = "trash empty";
-          rr = "trash restore";
+          rt = "trash-put";
+          rl = "trash-list";
+          re = "trash-empty";
+          rd = "trash-rm";
+          rr = "trash-restore";
 
           tree = "lsd --tree";
 
@@ -406,7 +407,7 @@ in {
 
     home = {
       packages = with pkgs; [
-        trashy thefuck
+        trash-cli thefuck
         asciinema
       ];
 
