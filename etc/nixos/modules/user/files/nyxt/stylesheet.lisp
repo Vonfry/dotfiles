@@ -4,6 +4,8 @@
     ((theme
       (make-instance 'theme:theme
                      :background-color "#282a36"
+                     :background-color+ "#282a36"
+                     :background-color- "#282a36"
                      :on-background-color "#f8f8f2"
                      :accent-color "#ff5555"
                      :on-accent-color "#282a36"
