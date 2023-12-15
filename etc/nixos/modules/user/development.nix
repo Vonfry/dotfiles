@@ -202,7 +202,6 @@ in {
           avy
           ace-window
           logview
-          ibuffer-vc
           editorconfig
           realgud
           engine-mode
@@ -231,7 +230,6 @@ in {
           embark-consult
           marginalia
           vertico
-          ibuffer-project
           agda2-mode
           ligature
           sly
@@ -258,6 +256,7 @@ in {
           org-tree-slide
           chatgpt-shell dall-e-shell
           ob-chatgpt-shell ob-dall-e-shell
+          bufler
         ];
       };
 

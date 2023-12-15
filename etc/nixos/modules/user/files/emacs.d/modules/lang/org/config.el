@@ -36,20 +36,6 @@
                           path)
                          +org-roam-local-dir)))
 
-(defconst +org--agenda-ibuffer-group
-  `(("Agenda" (or (name . ,(regexp-quote +org-agenda-dir))
-                  (name . ,(regexp-quote +org-capture-file))))))
-
-(defconst +org--note-ibuffer-group
-  `(("Note" (name . ,(regexp-quote +org-note-dir)))))
-
-(defconst +org--journal-ibuffer-group
-  `(("Journal" (name . ,(regexp-quote +org-journal-dir)))))
-
-(defconst +org--ibuffer-group (append +org--agenda-ibuffer-group
-                                      +org--note-ibuffer-group
-                                      +org--journal-ibuffer-group))
-
 (defconst +org-contacts-dir (expand-file-name "contacts" +org-dir)
   "dir where to save contacts.")
 
