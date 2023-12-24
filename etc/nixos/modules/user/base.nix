@@ -52,6 +52,8 @@ in {
         compression = true;
         forwardAgent = true;
         serverAliveInterval = 60;
+        # TODO remove this if I use gpg to manage all ssh keys.
+        addKeysToAgent = "yes";
       };
       btop = {
         enable = true;
