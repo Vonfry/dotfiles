@@ -1,3 +1,3 @@
-;;; avy config -*- lexical-binding: t -*-
+;;; avy/config.el --- -*- lexical-binding: t -*-
 ;;
 

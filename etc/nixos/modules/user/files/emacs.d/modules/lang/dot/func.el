@@ -1,3 +1,3 @@
-;;; dot func -*- lexical-binding: t -*-
+;;; dot/func.el --- -*- lexical-binding: t -*-
 ;;
 

@@ -1,4 +1,4 @@
-;;; mpdel packages -*- lexical-binding: t -*-
+;;; mpdel/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package mpdel

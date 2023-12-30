@@ -1,2 +1,2 @@
-;;; json func -*- lexical-binding: t -*-
+;;; json/func.el --- -*- lexical-binding: t -*-
 ;;

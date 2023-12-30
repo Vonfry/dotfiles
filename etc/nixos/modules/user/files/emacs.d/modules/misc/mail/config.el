@@ -1,4 +1,4 @@
-;;; mail config -*- lexical-binding: t -*-
+;;; mail/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (defcustom +mail-local-file (expand-file-name "mail.el" vonfry-custom-dir)

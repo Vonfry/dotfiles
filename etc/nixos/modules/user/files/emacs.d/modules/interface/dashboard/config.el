@@ -1,4 +1,4 @@
-;;; dashboard config -*- lexical-binding: t -*-
+;;; dashboard/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (defcustom +dashboard-pwd (expand-file-name "~")

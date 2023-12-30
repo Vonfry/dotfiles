@@ -1,4 +1,4 @@
-;;; yaml packages -*- lexical-binding: t -*-
+;;; yaml/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package yaml-mode

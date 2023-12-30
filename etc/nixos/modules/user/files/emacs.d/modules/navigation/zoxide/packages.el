@@ -1,4 +1,4 @@
-;;; zoxide packages -*- lexical-binding: t -*-
+;;; zoxide/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package zoxide

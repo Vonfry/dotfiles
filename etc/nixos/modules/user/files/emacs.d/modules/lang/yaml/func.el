@@ -1,2 +1,2 @@
-;;; yaml func -*- lexical-binding: t -*-
+;;; yaml/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,4 +1,4 @@
-;;; avy packages -*- lexical-binding: t -*-
+;;; avy/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package avy

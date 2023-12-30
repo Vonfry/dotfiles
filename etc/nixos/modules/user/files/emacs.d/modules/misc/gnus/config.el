@@ -1,4 +1,4 @@
-;;; gnus config -*- lexical-binding: t -*-
+;;; gnus/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (defcustom +gnus-local-file (expand-file-name "gnus.el" vonfry-custom-dir)

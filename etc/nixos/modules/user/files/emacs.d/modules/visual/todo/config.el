@@ -1,2 +1,2 @@
-;;; todo config -*- lexical-binding: t -*-
+;;; todo/config.el --- -*- lexical-binding: t -*-
 ;;

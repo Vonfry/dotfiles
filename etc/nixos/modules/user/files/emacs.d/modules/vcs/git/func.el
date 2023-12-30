@@ -1,2 +1,2 @@
-;;; git func -*- lexical-binding: t -*-
+;;; git/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,4 +1,4 @@
-;;; dumb-jump packages -*- lexical-binding: t -*-
+;;; dumb-jump/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package dumb-jump

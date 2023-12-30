@@ -1,4 +1,4 @@
-;;; winner mode packages -*- lexical-binding: t -*-
+;;; winner/mode.el --- packages -*- lexical-binding: t -*-
 ;;
 
 (winner-mode t)

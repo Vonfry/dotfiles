@@ -1,4 +1,4 @@
-;; shell packages -*- lexical-binding: t -*-
+;; shell/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package eshell

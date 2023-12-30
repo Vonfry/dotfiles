@@ -1,4 +1,4 @@
-;;; gnus packages -*- lexical-binding: t -*-
+;;; gnus/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 ;; gnus is a good client for nntp protocol, mail, and feed client, but I want to

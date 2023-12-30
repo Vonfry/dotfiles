@@ -1,2 +1,2 @@
-;;; nix func -*- lexical-binding: t -*-
+;;; nix/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,4 +1,4 @@
-;;; vertico packages -*- lexical-binding: t -*-
+;;; vertico/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package vertico

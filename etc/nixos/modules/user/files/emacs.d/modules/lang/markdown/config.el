@@ -1,2 +1,2 @@
-;;; markdown config -*- lexical-binding: t -*-
+;;; markdown/config.el --- -*- lexical-binding: t -*-
 ;;

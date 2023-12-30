@@ -1,2 +1,2 @@
-;;; agda config -*- lexical-binding: t -*-
+;;; agda/config.el --- -*- lexical-binding: t -*-
 ;;

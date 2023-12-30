@@ -1,2 +1,2 @@
-;;; editorconfig config -*- lexical-binding: t -*-
+;;; editorconfig/config.el --- -*- lexical-binding: t -*-
 ;;

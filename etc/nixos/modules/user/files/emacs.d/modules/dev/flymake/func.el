@@ -1,2 +1,2 @@
-;;; flymake func -*- lexical-binding: t -*-
+;;; flymake/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,13 +1,13 @@
-;;; core-editor.el -*- lexical-binding: t; -*-
+;;; core/vonfry-editor.el --- -*- lexical-binding: t; -*-
 ;;
 ;; Set the configure about editing.
 
 (defgroup vonfry-editor nil
-  "Vonfry's group about editor"
+  "Vonfry's group about editor."
   :group 'vonfry)
 
 (defcustom vonfry-text-width 80
-  "The width for a line"
+  "The width for a line."
   :type 'number
   :group 'vonfry-editor)
 
@@ -115,6 +115,7 @@
   (save-place-mode 1))
 
 (defun vonfry/local-indent (int)
+  "Change indent buffer locally."
   (interactive "Ntab-indent: ")
   (setq-local tab-width int))
 

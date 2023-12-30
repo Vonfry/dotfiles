@@ -1,3 +1,3 @@
-;;; cc config -*- lexical-binding: t -*-
+;;; cc/config.el --- -*- lexical-binding: t -*-
 ;;
 

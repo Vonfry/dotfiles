@@ -1,2 +1,2 @@
-;;; info-colors config -*- lexical-binding: t -*-
+;;; info-colors/config.el --- -*- lexical-binding: t -*-
 ;;

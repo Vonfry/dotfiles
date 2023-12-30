@@ -1,4 +1,4 @@
-;;; packages config -*- lexical-binding: t -*-
+;;; packages/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package password-store

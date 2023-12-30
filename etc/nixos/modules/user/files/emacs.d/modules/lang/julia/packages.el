@@ -1,4 +1,4 @@
-;;; julia packages -*- lexical-binding: t -*-
+;;; julia/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package julia-mode)

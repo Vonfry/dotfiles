@@ -1,1 +1,1 @@
-;;; dirvish config -*- lexical-binding: t -*-
+;;; dirvish/config.el --- -*- lexical-binding: t -*-

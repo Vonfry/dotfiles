@@ -1,4 +1,4 @@
-;;; org func -*- lexical-binding: t -*-
+;;; org/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +org--find (path)

@@ -1,4 +1,4 @@
-;;; snippet packages -*- lexical-binding: t -*-
+;;; snippet/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package tempel

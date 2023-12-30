@@ -1,2 +1,2 @@
-;;; imenu config -*- lexical-binding: t -*-
+;;; imenu/config.el --- -*- lexical-binding: t -*-
 ;;

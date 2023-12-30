@@ -1,4 +1,4 @@
-;;; avy func -*- lexical-binding: t -*-
+;;; avy/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +ace/append (start end)

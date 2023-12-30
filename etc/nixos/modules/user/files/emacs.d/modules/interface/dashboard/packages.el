@@ -1,4 +1,4 @@
-;;; dashboard packages -*- lexical-binding: t -*-
+;;; dashboard/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package dashboard
@@ -12,7 +12,8 @@
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons    t)
   (dashboard-startup-banner
-   (let ((bg-file-default (expand-file-name "dashboard-image.png" vonfry-local-dir)))
+   (let ((bg-file-default
+          (expand-file-name "dashboard-image.png" vonfry-local-dir)))
      (if (file-exists-p bg-file-default)
          bg-file-default
        'logo)))

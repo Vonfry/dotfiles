@@ -1,4 +1,4 @@
-;; package engine -*- lexical-binding: t -*-
+;; package/engine.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package engine-mode

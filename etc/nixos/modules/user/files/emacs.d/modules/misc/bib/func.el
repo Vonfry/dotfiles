@@ -1,4 +1,4 @@
-;;; bib func -*- lexical-binding: t -*-
+;;; bib/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +bib/ebib-current ()

@@ -1,4 +1,4 @@
-;;; core/core-ui.el -*- lexical-binding: t; -*-
+;;; core/vonfry-ui.el --- -*- lexical-binding: t; -*-
 ;;
 ;; Set emacs ui with the default variables and other theme.
 ;; The default theme is solarized.
@@ -29,9 +29,10 @@
   :group 'vonfry-ui)
 
 (defun vonfry--change-theme (theme)
-  "change theme with disable current one.
+  "Change theme with disable current one.
+
 THEME is a symbol passed to `load-theme'"
-  (mapcar
+  (mapc
    (lambda (it)
      (when (memq it vonfry-themes)
        (disable-theme it)))
@@ -87,7 +88,7 @@ THEME is a symbol passed to `load-theme'"
 (add-hook 'term-mode-hook (lambda () (setq line-spacing 0)))
 
 (defgroup vonfry-ui nil
-  "vonfry's emacs ui custom group"
+  "Vonfry's Emacs ui custom group."
   :group 'vonfry)
 
 (provide 'vonfry-ui)

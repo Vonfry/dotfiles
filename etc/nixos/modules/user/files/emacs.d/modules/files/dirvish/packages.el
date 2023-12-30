@@ -1,4 +1,4 @@
-;;; dirvish packages -*- lexical-binding: t -*-
+;;; dirvish/packages.el --- -*- lexical-binding: t -*-
 
 (use-package dirvish
   :custom

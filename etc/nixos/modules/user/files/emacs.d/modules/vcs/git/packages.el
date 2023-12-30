@@ -1,4 +1,4 @@
-;;; git packages -*- lexical-binding: t -*-
+;;; git/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package vc

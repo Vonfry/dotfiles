@@ -1,4 +1,4 @@
-;;; undo packages -*- lexical-binding: t -*-
+;;; undo/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package vundo

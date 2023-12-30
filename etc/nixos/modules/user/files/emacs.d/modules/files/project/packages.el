@@ -1,4 +1,4 @@
-;;; project packages -*- lexical-binding: t -*-
+;;; project/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package project

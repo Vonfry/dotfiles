@@ -1,4 +1,4 @@
-;;; lsp packages -*- lexical-binding: t -*-
+;;; lsp/packages.el --- -*- lexical-binding: t -*-
 
 (use-package eglot
   :ensure nil

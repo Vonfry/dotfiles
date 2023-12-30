@@ -1,2 +1,2 @@
-;;; lisp config -*- lexical-binding: t -*-
+;;; lisp/config.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,3 +1,3 @@
-;;; lsp config -*- lexical-binding: t -*-
+;;; lsp/config.el --- -*- lexical-binding: t -*-
 ;;
 

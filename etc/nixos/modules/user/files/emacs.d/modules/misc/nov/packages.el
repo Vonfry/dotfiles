@@ -1,4 +1,4 @@
-;;; nov packages -*- lexical-binding: t -*-
+;;; nov/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package nov

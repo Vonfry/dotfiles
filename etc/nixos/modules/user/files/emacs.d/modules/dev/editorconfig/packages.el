@@ -1,4 +1,4 @@
-;;; editorconfig packages -*- lexical-binding: t -*-
+;;; editorconfig/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package editorconfig

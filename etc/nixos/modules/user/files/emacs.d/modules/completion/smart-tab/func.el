@@ -1,2 +1,2 @@
-;;; smart-tab func -*- lexical-binding: t -*-
+;;; smart-tab/func.el --- -*- lexical-binding: t -*-
 ;;

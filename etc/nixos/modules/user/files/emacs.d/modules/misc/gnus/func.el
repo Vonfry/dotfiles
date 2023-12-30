@@ -1,2 +1,2 @@
-;;; gnus func -*- lexical-binding: t -*-
+;;; gnus/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,2 +1,2 @@
-;;; lisp func -*- lexical-binding: t -*-
+;;; lisp/func.el --- -*- lexical-binding: t -*-
 ;;

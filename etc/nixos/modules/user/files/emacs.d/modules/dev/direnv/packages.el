@@ -1,4 +1,4 @@
-;;; direnv packages -*- lexical-binding: t -*-
+;;; direnv/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package envrc

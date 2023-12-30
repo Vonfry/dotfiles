@@ -1,2 +1,2 @@
-;;; todo func -*- lexical-binding: t -*-
+;;; todo/func.el --- -*- lexical-binding: t -*-
 ;;

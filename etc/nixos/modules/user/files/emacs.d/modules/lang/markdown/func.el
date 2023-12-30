@@ -1,2 +1,2 @@
-;;; markdown func -*- lexical-binding: t -*-
+;;; markdown/func.el --- -*- lexical-binding: t -*-
 ;;

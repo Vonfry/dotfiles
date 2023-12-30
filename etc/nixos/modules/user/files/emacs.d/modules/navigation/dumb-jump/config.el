@@ -1,2 +1,2 @@
-;;; dumb-jump config -*- lexical-binding: t -*-
+;;; dumb-jump/config.el --- -*- lexical-binding: t -*-
 ;;

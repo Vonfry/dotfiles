@@ -1,4 +1,4 @@
-;;; info-colors modules -*- lexical-binding: t; -*-
+;;; info-colors/modules.el --- -*- lexical-binding: t; -*-
 ;;
 
 (use-package info-colors

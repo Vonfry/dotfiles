@@ -1,4 +1,4 @@
-;;; project func -*- lexical-binding: t -*-
+;;; project/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +project/magit ()

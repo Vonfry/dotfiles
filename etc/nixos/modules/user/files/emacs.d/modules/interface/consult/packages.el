@@ -1,4 +1,4 @@
-;;; consult packages -*- lexical-binding: t -*-
+;;; consult/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package consult

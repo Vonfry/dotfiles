@@ -1,2 +1,2 @@
-;;; snippet func -*- lexical-binding: t -*-
+;;; snippet/func.el --- -*- lexical-binding: t -*-
 ;;

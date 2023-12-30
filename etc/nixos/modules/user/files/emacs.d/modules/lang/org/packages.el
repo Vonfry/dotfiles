@@ -1,4 +1,4 @@
-;;; orgmode packages -*- lexical-binding: t -*-
+;;; orgmode/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package org

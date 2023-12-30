@@ -1,4 +1,4 @@
-;;; ligature modules -*- lexical-binding: t; -*-
+;;; ligature/modules.el --- -*- lexical-binding: t; -*-
 ;;
 
 (use-package ligature

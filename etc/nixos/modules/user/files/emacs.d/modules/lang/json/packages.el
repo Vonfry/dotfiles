@@ -1,4 +1,4 @@
-;;; json packages -*- lexical-binding: t -*-
+;;; json/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package json-mode

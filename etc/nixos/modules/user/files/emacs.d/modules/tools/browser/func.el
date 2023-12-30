@@ -1,4 +1,4 @@
-;;; browser func -*- lexical-binding: t -*-
+;;; browser/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +browse/switch-emacs ()

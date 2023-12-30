@@ -1,2 +1,2 @@
-;;; evil config -*- lexical-binding: t -*-
+;;; evil/config.el --- -*- lexical-binding: t -*-
 ;;

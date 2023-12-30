@@ -1,2 +1,2 @@
-;;; ledge packages -*- lexical-binding: t -*-
+;;; ledge/packages.el --- -*- lexical-binding: t -*-
 ;;

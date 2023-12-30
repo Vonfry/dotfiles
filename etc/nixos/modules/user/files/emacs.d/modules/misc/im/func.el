@@ -1,8 +1,8 @@
-;;; im func -*- lexical-binding: t -*-
+;;; im/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +irc/connect ()
-  "connect to server"
+  "Connect to irc server."
   (interactive)
   (let* ((read-alist (mapcar (lambda (l)
                       `(,(concat (plist-get l :server)

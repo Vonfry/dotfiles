@@ -1,4 +1,4 @@
-;;; fold packages -*- lexical-binding: t -*-
+;;; fold/packages.el --- -*- lexical-binding: t -*-
 
 (use-package hideshow
   :ensure nil

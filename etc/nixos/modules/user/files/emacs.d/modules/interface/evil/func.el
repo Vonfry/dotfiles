@@ -1,4 +1,4 @@
-;;; evil func -*- lexical-binding: t -*-
+;;; evil/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +evil/switch-scratch ()

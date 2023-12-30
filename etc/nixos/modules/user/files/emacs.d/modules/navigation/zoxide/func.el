@@ -1,4 +1,4 @@
-;;; zoxide func -*- lexical-binding: t -*-
+;;; zoxide/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +zoxide-fzf ()

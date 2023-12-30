@@ -1,2 +1,2 @@
-;;; imenu func -*- lexical-binding: t -*-
+;;; imenu/func.el --- -*- lexical-binding: t -*-
 ;;

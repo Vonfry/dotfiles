@@ -1,2 +1,2 @@
-;;; flymake config -*- lexical-binding: t -*-
+;;; flymake/config.el --- -*- lexical-binding: t -*-
 ;;

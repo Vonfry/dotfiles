@@ -1,4 +1,4 @@
-;;; agda pagkages -*- lexical-binding: t -*-
+;;; agda/pagkages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package agda2

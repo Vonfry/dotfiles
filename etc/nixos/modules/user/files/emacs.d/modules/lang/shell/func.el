@@ -1,4 +1,4 @@
-;;; shell func -*- lexical-binding: t -*-
+;;; shell/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +shell/display-ansi-colors ()

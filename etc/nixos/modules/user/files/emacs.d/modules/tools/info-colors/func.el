@@ -1,2 +1,2 @@
-;;; info-colors func -*- lexical-binding: t -*-
+;;; info-colors/func.el --- -*- lexical-binding: t -*-
 ;;

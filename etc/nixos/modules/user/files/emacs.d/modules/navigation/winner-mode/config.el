@@ -1,3 +1,3 @@
-;;; winner-mode config -*- lexical-binding: t -*-
+;;; winner-mode/config.el --- -*- lexical-binding: t -*-
 ;;
 

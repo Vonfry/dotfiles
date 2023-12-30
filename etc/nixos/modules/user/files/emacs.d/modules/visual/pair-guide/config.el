@@ -1,2 +1,2 @@
-;;; pair-guide config -*- lexical-binding: t -*-
+;;; pair-guide/config.el --- -*- lexical-binding: t -*-
 ;;

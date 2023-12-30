@@ -1,4 +1,4 @@
-;;; spaceline packages -*- lexical-binding: t -*-
+;;; spaceline/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package doom-modeline

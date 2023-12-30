@@ -1,4 +1,4 @@
-;;; snippet config -*- lexical-binding: t -*-
+;;; snippet/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (defconst +snippet-local-path

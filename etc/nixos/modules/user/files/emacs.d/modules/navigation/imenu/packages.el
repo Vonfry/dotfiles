@@ -1,4 +1,4 @@
-;;; imenu packages -*- lexical-binding: t -*-
+;;; imenu/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package imenu :ensure nil)

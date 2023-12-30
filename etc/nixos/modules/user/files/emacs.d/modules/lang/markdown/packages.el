@@ -1,4 +1,4 @@
-;;; markdown packages -*- lexical-binding: t -*-
+;;; markdown/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package markdown-mode

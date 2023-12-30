@@ -1,4 +1,4 @@
-;;; latex packages -*- lexical-binding: t -*-
+;;; latex/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package latex

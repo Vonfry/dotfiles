@@ -1,2 +1,2 @@
-;;; pair-guide func -*- lexical-binding: t -*-
+;;; pair-guide/func.el --- -*- lexical-binding: t -*-
 ;;

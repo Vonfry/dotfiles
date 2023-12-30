@@ -1,4 +1,4 @@
-;;; aichat packages -*- lexical-binding: t; -*-
+;;; aichat/packages.el --- -*- lexical-binding: t; -*-
 ;;
 
 (use-package shell-maker

@@ -1,4 +1,4 @@
-;;; openpgp packages -*- lexical-binding: t -*-
+;;; openpgp/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package openpgp)

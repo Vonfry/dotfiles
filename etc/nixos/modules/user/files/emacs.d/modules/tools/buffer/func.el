@@ -1,2 +1,2 @@
-;;; buffer func -*- lexical-binding: t -*-
+;;; buffer/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,2 +1,2 @@
-;;; diff config -*- lexical-binding: t -*-
+;;; diff/config.el --- -*- lexical-binding: t -*-
 ;;

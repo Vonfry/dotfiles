@@ -1,4 +1,4 @@
-;;; wgrep packages -*- lexical-binding: t -*-
+;;; wgrep/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 

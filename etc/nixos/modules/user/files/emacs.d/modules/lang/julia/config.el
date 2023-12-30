@@ -1,3 +1,3 @@
-;;; julia config -*- lexical-binding: t -*-
+;;; julia/config.el --- -*- lexical-binding: t -*-
 ;;
 

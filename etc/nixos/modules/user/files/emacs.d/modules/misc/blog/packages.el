@@ -1,4 +1,4 @@
-;;; blog packages -*- lexical-binding: t -*-
+;;; blog/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package easy-hugo

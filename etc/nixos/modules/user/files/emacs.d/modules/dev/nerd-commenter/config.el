@@ -1,2 +1,2 @@
-;;; nerd-commenter config -*- lexical-binding: t -*-
+;;; nerd-commenter/config.el --- -*- lexical-binding: t -*-
 ;;

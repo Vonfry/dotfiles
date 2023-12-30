@@ -1,4 +1,4 @@
-;;; orderless packages -*- lexical-binding: t -*-
+;;; orderless/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package orderless

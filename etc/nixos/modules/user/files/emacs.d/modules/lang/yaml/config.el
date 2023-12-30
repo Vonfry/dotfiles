@@ -1,2 +1,2 @@
-;;; yaml config -*- lexical-binding: t -*-
+;;; yaml/config.el --- -*- lexical-binding: t -*-
 ;;

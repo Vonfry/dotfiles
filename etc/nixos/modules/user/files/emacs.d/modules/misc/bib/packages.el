@@ -1,4 +1,4 @@
-;;; bib packages -*- lexical-binding: t -*-
+;;; bib/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package ebib

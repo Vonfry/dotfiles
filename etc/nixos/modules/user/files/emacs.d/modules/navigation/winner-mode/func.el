@@ -1,2 +1,2 @@
-;;; winner-mode func -*- lexical-binding: t -*-
+;;; winner-mode/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,4 +1,4 @@
-;;; dashboard func -*- lexical-binding: t -*-
+;;; dashboard/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +dashboard/goto (&optional new)

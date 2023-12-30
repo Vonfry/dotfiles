@@ -1,2 +1,2 @@
-;;; diff func -*- lexical-binding: t -*-
+;;; diff/func.el --- -*- lexical-binding: t -*-
 ;;

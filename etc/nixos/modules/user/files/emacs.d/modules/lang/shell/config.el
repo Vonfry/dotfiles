@@ -1,2 +1,2 @@
-;;; shell config -*- lexical-binding: t -*-
+;;; shell/config.el --- -*- lexical-binding: t -*-
 ;;

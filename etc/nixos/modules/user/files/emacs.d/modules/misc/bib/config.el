@@ -1,3 +1,3 @@
-;;; bib config -*- lexical-binding: t -*-
+;;; bib/config.el --- -*- lexical-binding: t -*-
 ;;
 

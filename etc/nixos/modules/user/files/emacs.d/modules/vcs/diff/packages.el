@@ -1,4 +1,4 @@
-;;; diff packages -*- lexical-binding: t -*-
+;;; diff/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package diff-hl

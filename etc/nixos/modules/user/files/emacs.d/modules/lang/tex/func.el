@@ -1,2 +1,2 @@
-;;; latex func -*- lexical-binding: t -*-
+;;; latex/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,4 +1,4 @@
-;;; ledge packages -*- lexical-binding: t -*-
+;;; ledge/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package hledger-mode

@@ -1,2 +1,2 @@
-;;; rainbow-delimiters config -*- lexical-binding: t -*-
+;;; rainbow-delimiters/config.el --- -*- lexical-binding: t -*-
 ;;

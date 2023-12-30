@@ -1,2 +1,2 @@
-;;; ledge config -*- lexical-binding: t -*-
+;;; ledge/config.el --- -*- lexical-binding: t -*-
 ;;

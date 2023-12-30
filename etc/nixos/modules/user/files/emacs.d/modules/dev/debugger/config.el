@@ -1,2 +1,2 @@
-;;; debugger config -*- lexical-binding: t -*-
+;;; debugger/config.el --- -*- lexical-binding: t -*-
 ;;

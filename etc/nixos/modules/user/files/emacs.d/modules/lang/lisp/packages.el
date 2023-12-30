@@ -1,4 +1,4 @@
-;;; lisp packages -*- lexical-binding: t -*-
+;;; lisp/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package eldoc

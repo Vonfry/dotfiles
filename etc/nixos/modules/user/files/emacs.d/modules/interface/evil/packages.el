@@ -1,4 +1,4 @@
-;;; evil packages -*- lexical-binding: t -*-
+;;; evil/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package evil-numbers

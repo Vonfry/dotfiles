@@ -1,4 +1,4 @@
-;;; buffer packages -*- lexical-binding: t -*-
+;;; buffer/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package bufler

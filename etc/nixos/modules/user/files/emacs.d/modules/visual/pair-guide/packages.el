@@ -1,4 +1,4 @@
-;;; pair-guide packages -*- lexical-binding: t -*-
+;;; pair-guide/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package pair-guide

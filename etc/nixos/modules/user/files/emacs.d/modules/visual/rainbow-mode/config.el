@@ -1,2 +1,2 @@
-;;; rainbow-mode config -*- lexical-binding: t -*-
+;;; rainbow-mode/config.el --- -*- lexical-binding: t -*-
 ;;

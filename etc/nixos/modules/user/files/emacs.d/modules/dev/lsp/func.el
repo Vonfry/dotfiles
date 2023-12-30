@@ -1,3 +1,3 @@
-;;; lsp func -*- lexical-binding: t -*-
+;;; lsp/func.el --- -*- lexical-binding: t -*-
 ;;
 

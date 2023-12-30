@@ -1,2 +1,2 @@
-;;; blog func -*- lexical-binding: t -*-
+;;; blog/func.el --- -*- lexical-binding: t -*-
 ;;

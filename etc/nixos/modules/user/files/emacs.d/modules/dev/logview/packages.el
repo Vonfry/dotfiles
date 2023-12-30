@@ -1,4 +1,4 @@
-;;; logview packages -*- lexical-binding: t -*-
+;;; logview/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package logview

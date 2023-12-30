@@ -1,2 +1,2 @@
-;;; rainbow-mode func -*- lexical-binding: t -*-
+;;; rainbow-mode/func.el --- -*- lexical-binding: t -*-
 ;;

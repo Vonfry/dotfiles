@@ -1,2 +1,2 @@
-;;; direnv config -*- lexical-binding: t -*-
+;;; direnv/config.el --- -*- lexical-binding: t -*-
 ;;

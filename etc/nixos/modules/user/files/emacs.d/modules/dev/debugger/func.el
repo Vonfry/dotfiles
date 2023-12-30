@@ -1,2 +1,2 @@
-;;; debugger func -*- lexical-binding: t -*-
+;;; debugger/func.el --- -*- lexical-binding: t -*-
 ;;

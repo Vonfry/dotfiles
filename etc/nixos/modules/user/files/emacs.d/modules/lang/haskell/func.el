@@ -1,2 +1,2 @@
-;;; haskell func -*- lexical-binding: t -*-
+;;; haskell/func.el --- -*- lexical-binding: t -*-
 ;;

@@ -1,2 +1,2 @@
-;;; blog config -*- lexical-binding: t -*-
+;;; blog/config.el --- -*- lexical-binding: t -*-
 ;;

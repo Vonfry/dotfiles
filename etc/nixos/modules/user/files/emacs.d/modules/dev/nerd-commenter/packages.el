@@ -1,4 +1,4 @@
-;;; nerd-commenter packages -*- lexical-binding: t -*-
+;;; nerd-commenter/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package evil-nerd-commenter

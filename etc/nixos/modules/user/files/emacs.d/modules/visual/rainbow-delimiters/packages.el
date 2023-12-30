@@ -1,4 +1,4 @@
-;;; rainbow-delimiters packages -*- lexical-binding: t -*-
+;;; rainbow-delimiters/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package rainbow-delimiters

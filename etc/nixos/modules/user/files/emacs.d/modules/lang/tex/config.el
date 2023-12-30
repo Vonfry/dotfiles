@@ -1,3 +1,3 @@
-;;; latex config -*- lexical-binding: t -*-
+;;; latex/config.el --- -*- lexical-binding: t -*-
 ;;
 

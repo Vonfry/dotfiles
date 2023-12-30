@@ -1,3 +1,3 @@
-;;; json config -*- lexical-binding: t -*-
+;;; json/config.el --- -*- lexical-binding: t -*-
 ;;
 

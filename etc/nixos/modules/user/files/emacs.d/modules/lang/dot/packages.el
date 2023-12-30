@@ -1,4 +1,4 @@
-;;; dot pagkages -*- lexical-binding: t -*-
+;;; dot/pagkages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package graphviz-dot-mode

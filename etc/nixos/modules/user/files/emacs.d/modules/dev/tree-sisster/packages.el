@@ -1,4 +1,4 @@
-;;; tree-sitters packages -*- lexical-binding: t -*-
+;;; tree-sitters/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package treesit

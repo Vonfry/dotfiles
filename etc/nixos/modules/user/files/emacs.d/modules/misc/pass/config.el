@@ -1,2 +1,2 @@
-;;; pass config -*- lexical-binding: t -*-
+;;; pass/config.el --- -*- lexical-binding: t -*-
 ;;

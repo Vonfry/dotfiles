@@ -1,4 +1,4 @@
-;;; mail packages -*- lexical-binding: t -*-
+;;; mail/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package mu4e

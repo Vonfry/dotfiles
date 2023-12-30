@@ -1,2 +1,2 @@
-;;; elfeed func -*- lexical-binding: t -*-
+;;; elfeed/func.el --- -*- lexical-binding: t -*-
 ;;

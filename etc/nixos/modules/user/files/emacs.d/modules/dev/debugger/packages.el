@@ -1,4 +1,4 @@
-;;; debugger packages -*- lexical-binding: t -*-
+;;; debugger/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package realgud

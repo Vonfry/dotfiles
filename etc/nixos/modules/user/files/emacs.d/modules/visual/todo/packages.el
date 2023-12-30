@@ -1,4 +1,4 @@
-;;; hl-todo modules -*- lexical-binding: t; -*-
+;;; hl-todo/modules.el --- -*- lexical-binding: t; -*-
 ;;
 
 (use-package hl-todo

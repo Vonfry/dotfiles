@@ -1,2 +1,2 @@
-;;; nerd-commenter func -*- lexical-binding: t -*-
+;;; nerd-commenter/func.el --- -*- lexical-binding: t -*-
 ;;

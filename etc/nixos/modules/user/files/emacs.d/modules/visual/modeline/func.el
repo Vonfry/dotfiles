@@ -1,2 +1,2 @@
-;;; spaceline func -*- lexical-binding: t -*-
+;;; spaceline/func.el --- -*- lexical-binding: t -*-
 ;;

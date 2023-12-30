@@ -1,4 +1,4 @@
-;;; smart-tab packages -*- lexical-binding: t -*-
+;;; smart-tab/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package smart-tab

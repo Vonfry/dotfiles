@@ -1,2 +1,2 @@
-;;; dot config -*- lexical-binding: t -*-
+;;; dot/config.el --- -*- lexical-binding: t -*-
 ;;

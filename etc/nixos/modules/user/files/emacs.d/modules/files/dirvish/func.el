@@ -1,4 +1,4 @@
-;;; dirvish func -*- lexical-binding: t -*-
+;;; dirvish/func.el --- -*- lexical-binding: t -*-
 
 (defun +dired/jump-with-zoxide (&optional other-window)
   (interactive "P")

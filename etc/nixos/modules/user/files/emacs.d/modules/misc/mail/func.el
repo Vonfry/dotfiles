@@ -1,2 +1,2 @@
-;;; mail func -*- lexical-binding: t -*-
+;;; mail/func.el --- -*- lexical-binding: t -*-
 ;;

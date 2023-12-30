@@ -1,4 +1,4 @@
-;;; browser packages -*- lexical-binding: t -*-
+;;; browser/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package eww

@@ -1,2 +1,2 @@
-;;; direnv func -*- lexical-binding: t -*-
+;;; direnv/func.el --- -*- lexical-binding: t -*-
 ;;

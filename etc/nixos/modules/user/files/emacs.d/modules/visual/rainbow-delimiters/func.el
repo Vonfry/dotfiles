@@ -1,2 +1,2 @@
-;;; rainbow-delimiters func -*- lexical-binding: t -*-
+;;; rainbow-delimiters/func.el --- -*- lexical-binding: t -*-
 ;;

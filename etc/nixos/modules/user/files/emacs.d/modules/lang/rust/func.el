@@ -1,4 +1,4 @@
-;;; rust func -*- lexical-binding: t -*-
+;;; rust/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +rust/lldb ()

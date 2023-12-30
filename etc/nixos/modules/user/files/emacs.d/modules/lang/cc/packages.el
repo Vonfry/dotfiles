@@ -1,4 +1,4 @@
-;;; cc packages -*- lexical-binding: t -*-
+;;; cc/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (dolist (mode '(c-mode-hook c++-mode-hook c-ts-mode-hook c++-ts-mode-hook))

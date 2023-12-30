@@ -1,2 +1,2 @@
-;;; dumb-jump func -*- lexical-binding: t -*-
+;;; dumb-jump/func.el --- -*- lexical-binding: t -*-
 ;;

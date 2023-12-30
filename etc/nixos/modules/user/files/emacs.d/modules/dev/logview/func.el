@@ -1,2 +1,2 @@
-;;; logview func -*- lexical-binding: t -*-
+;;; logview/func.el --- -*- lexical-binding: t -*-
 ;;

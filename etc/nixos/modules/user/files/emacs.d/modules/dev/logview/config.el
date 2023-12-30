@@ -1,2 +1,2 @@
-;;; logview config -*- lexical-binding: t -*-
+;;; logview/config.el --- -*- lexical-binding: t -*-
 ;;

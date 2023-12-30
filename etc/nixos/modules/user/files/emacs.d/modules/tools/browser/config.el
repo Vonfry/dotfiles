@@ -1,3 +1,3 @@
-;;; browser config -*- lexical-binding: t -*-
+;;; browser/config.el --- -*- lexical-binding: t -*-
 ;;
 

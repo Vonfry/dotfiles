@@ -1,4 +1,4 @@
-;;; agda func -*- lexical-binding: t -*-
+;;; agda/func.el --- -*- lexical-binding: t -*-
 ;;
 
 (defun +agda2--ensure-unload ()
@@ -19,8 +19,10 @@
           (buffer-string))))))
 
 (defun +agda2/reload ()
-  "Bacuse agda-mode is distributed with special agda version, reload the agda2
-mode from current environment instead of default installed one."
+  "Reload the agda2 mode from current environment.
+
+Bacuse agda-mode is distributed with special agda version, which may be
+different from default installed one."
   (interactive)
   (+agda2--ensure-unload)
   (let ((locate (+agda2--locate)))

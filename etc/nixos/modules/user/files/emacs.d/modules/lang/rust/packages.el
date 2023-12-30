@@ -1,4 +1,4 @@
-;;; rust config -*- lexical-binding: t -*-
+;;; rust/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package rust-mode

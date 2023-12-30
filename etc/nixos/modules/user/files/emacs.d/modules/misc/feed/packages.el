@@ -1,4 +1,4 @@
-;;; elfeed packages -*- lexical-binding: t -*-
+;;; elfeed/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package elfeed

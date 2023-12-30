@@ -1,4 +1,4 @@
-;;; flymake packages -*- lexical-binding: t -*-
+;;; flymake/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package flymake

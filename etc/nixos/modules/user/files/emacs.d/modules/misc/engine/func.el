@@ -1,2 +1,2 @@
-;;; engine func -*- lexical-binding: t -*-
+;;; engine/func.el --- -*- lexical-binding: t -*-
 ;;

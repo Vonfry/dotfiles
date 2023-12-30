@@ -1,13 +1,14 @@
-;;; core/core-packages.el -*- lexical-binding: t; -*-
+;;; core/vonfry-packages.el --- -*- lexical-binding: t; -*-
 ;;
 ;; Define packages manager with use-package.
 ;;
-;; All modules save in format modules/submodule, the submodule in different module can have the same name. In a
-;; submodule, config.el, packages.el and func.el file can be loaded automatically by the writting order. The other file
-;; should be loaded in these file or by yourself.
-;; config.el define custom, const and other varible for configure.
-;; packages.el define the dependence and default configure with `use-package'
-;; func.el define autoload funciotns which is suggested to saved under a dir named autoload.
+;; All modules save in format modules/submodule, the submodule in different
+;; module can have the same name. In a submodule, config.el, packages.el and
+;; func.el file can be loaded automatically by the writting order. The other
+;; file should be loaded in these file or by yourself. config.el define custom,
+;; const and other varible for configure. packages.el define the dependence and
+;; default configure with `use-package'func.el define autoload funciotns which
+;; is suggested to saved under a dir named autoload.
 ;;
 ;; use-package provide a tools that download a package if it isn't installed.;;
 
@@ -81,9 +82,16 @@ This function finds module with the file, and loads it."
   (vonfry-load-module module-name "func"))
 
 (defun vonfry-load-modules (&rest exclude)
-  "This function load all modules exclude the modules/submodule(i.e. lang/haskell) name in arguments.
+  "This function load all modules exclude the
+  modules/submodule(i.e. lang/haskell) name in arguments.
 
-All modules should use function and macro in this file. By default, every modules should have a file named packages.el which is used to define the dependence with `use-package`. This file will be loaded at first for each modules. After all modules' packages.el are loaded, it will load config.el which is used to configure for the module which is the main file for a module.  Finally, the autoload.el will be loaded. It used to load some function for the modules."
+All modules should use function and macro in this file. By default, every
+modules should have a file named packages.el which is used to define the
+dependence with `use-package`. This file will be loaded at first for each
+modules. After all modules' packages.el are loaded, it will load config.el
+which is used to configure for the module which is the main file for a module.
+Finally, the autoload.el will be loaded. It used to load some function for the
+modules."
   (let* ((flatten-exclude (flatten-tree exclude))
          (module-list '())
          (regexp-match "^[^\\.].*"))
@@ -92,8 +100,8 @@ All modules should use function and macro in this file. By default, every module
           (let ((module-name (concat module "/" submodule)))
             (unless (member module-name flatten-exclude)
               (push module-name module-list)))))
-    (mapcar 'vonfry-load-module-config   module-list)
-    (mapcar 'vonfry-load-module-packages module-list)
-    (mapcar 'vonfry-load-autoload        module-list)))
+    (mapc 'vonfry-load-module-config   module-list)
+    (mapc 'vonfry-load-module-packages module-list)
+    (mapc 'vonfry-load-autoload        module-list)))
 
 (provide 'vonfry-packages)

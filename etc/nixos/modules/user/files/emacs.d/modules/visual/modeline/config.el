@@ -1,2 +1,2 @@
-;;; spaceline config -*- lexical-binding: t -*-
+;;; spaceline/config.el --- -*- lexical-binding: t -*-
 ;;

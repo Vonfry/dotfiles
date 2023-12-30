@@ -1,2 +1,2 @@
-;;; buffer config -*- lexical-binding: t -*-
+;;; buffer/config.el --- -*- lexical-binding: t -*-
 ;;

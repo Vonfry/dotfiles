@@ -1,4 +1,4 @@
-;;; org config -*- lexical-binding: t -*-
+;;; org/config.el --- -*- lexical-binding: t -*-
 ;;
 
 (defcustom +org-dir (let ((env-orgmode-dir (getenv "ORG_DIR")))

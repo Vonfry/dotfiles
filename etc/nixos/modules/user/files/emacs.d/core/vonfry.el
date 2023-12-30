@@ -1,4 +1,4 @@
-;;; core.el --- the heart of the beast -*- lexical-binding: t; -*-
+;;; core/vonfry.el --- the heart of the beast -*- lexical-binding: t; -*-
 
 ;;; Naming conventions:
 ;;
@@ -10,7 +10,8 @@
 ;;   vonfry*...   advising functions
 ;;   ...!         a macro or function that configures Vonfry in modules
 ;;   %...         functions used for in-snippet logic
-;;   +...         Any of the above but part of a module, e.g. `+emacs-lisp|init-hook'
+;;   +...         Any of the above but part of a module,
+;;                e.g. `+emacs-lisp|init-hook'
 ;;
 ;; Autoloaded functions are in core/autoload/*.el and modules/*/*/autoload.el or
 ;; modules/*/*/autoload/*.el.
@@ -20,7 +21,7 @@
 ;;
 
 (defcustom vonfry-debug nil
-  "debug flag."
+  "Debug flag."
   :group 'vonfry
   :type 'boolean)
 
@@ -44,9 +45,8 @@
   (load vonfry-custom-file-before))
 
 (defgroup vonfry-modules nil
-  "Vonfry's emacs group about modules"
-  :group 'vonfry
-  )
+  "Vonfry's Emacs group about modules."
+  :group 'vonfry)
 
 (vonfry-load-modules vonfry-exclude-modules)
 

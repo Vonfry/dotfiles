@@ -1,2 +1,2 @@
-;;; git config -*- lexical-binding: t -*-
+;;; git/config.el --- -*- lexical-binding: t -*-
 ;;

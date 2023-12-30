@@ -1,4 +1,4 @@
-;;; embark packages -*- lexical-binding: t -*-
+;;; embark/packages.el --- -*- lexical-binding: t -*-
 ;;
 
 (use-package embark

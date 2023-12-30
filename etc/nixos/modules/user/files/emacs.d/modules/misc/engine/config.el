@@ -1,2 +1,2 @@
-;;; engine config -*- lexical-binding: t -*-
+;;; engine/config.el --- -*- lexical-binding: t -*-
 ;;
