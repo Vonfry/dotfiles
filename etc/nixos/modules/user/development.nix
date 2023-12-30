@@ -7,7 +7,7 @@ let
 
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ sqlite hugo ];
+    paths = [ hugo ];
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
@@ -194,7 +194,6 @@ in {
           mu4e-alert
           elfeed elfeed-org
           emacsql
-          sql-indent
           ebib
           info-colors
           dumb-jump
@@ -375,11 +374,6 @@ in {
           $dvi_previewer = 'xdvi -watchfile 1.5';
           $ps_previewer  = 'feh';
           $pdf_previewer = 'zathura';
-        '';
-
-        ".Rprofile".text = ''
-          options(browser = 'nyxt')
-          # options(help_type = 'html')
         '';
       };
     };
