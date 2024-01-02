@@ -42,6 +42,16 @@ in {
         default = [ ];
         type = with types; listOf str;
       };
+      treesistWith = mkOption {
+        default = p: with p; [
+            tree-sitter-haskell tree-sitter-c tree-sitter-cpp tree-sitter-rust
+            tree-sitter-commonlisp tree-sitter-elisp
+            tree-sitter-nix tree-sitter-julia tree-sitter-latex
+            tree-sitter-bibtex
+            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
+          ];
+        type = with types; functionTo (listOf package);
+      };
     };
 
     git = {
@@ -242,13 +252,7 @@ in {
           openpgp
           ement
           wgrep
-          (treesit-grammars.with-grammars (p: with p; [
-            tree-sitter-haskell tree-sitter-c tree-sitter-cpp tree-sitter-rust
-            tree-sitter-commonlisp tree-sitter-elisp
-            tree-sitter-nix tree-sitter-julia tree-sitter-latex
-            tree-sitter-bibtex
-            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
-          ]))
+          (treesit-grammars.with-grammars cfg.emacs.treesistWith)
           org-project-capture
           password-store
           nov
