@@ -11,7 +11,7 @@ let
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
-  inherit (config.xdg) configHome dataHome;
+  inherit (config.xdg) dataHome;
   linkEmacs = ''
     [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
