@@ -28,7 +28,7 @@ import them by yourselves. It can make file content more clearful.
 
 ### shell
 - shell own configuration
-- tools to enhance the original feature: fzf, thefuck, tmux, etc.
+- tools to enhance the original feature: fzf, thefuck, etc.
 - only play in terminal or with terminal self: neofetch, asciinema, etc.
 
 ### x

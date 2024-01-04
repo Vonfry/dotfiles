@@ -20,16 +20,6 @@ in {
     warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
 
     programs = {
-      tmux = {
-        enable = true;
-        clock24 = true;
-        keyMode = "vi";
-        extraConfig = ''
-          set -g update-environment -r
-          set -g status-right "#{tmux_mode_indicator}"
-        '';
-      };
-
       fzf = {
         enable = true;
         enableZshIntegration = true;
