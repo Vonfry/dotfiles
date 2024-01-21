@@ -86,7 +86,10 @@ in {
         wheelNeedsPassword = mkDefault true;
       };
       pam = {
-        sshAgentAuth.enable = mkDefault true;
+        sshAgentAuth = {
+          enable = mkDefault true;
+          authorizedKeysFiles = [ "/etc/ssh/authorized_keys.d/%u" ];
+        };
       };
     };
 
