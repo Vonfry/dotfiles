@@ -1,7 +1,9 @@
 {
-  padding = {
-    x = 4;
-    y = 4;
+  window = {
+    padding = {
+      x = 4;
+      y = 4;
+    };
   };
   env = {
     WINIT_HIDPI_FACTOR = "1";
@@ -58,10 +60,10 @@
         foreground = "#44475a";
         background = "#ffb86c";
       };
-      footer_bar = {
-        background = "#282a36";
-        foreground = "#f8f8f2";
-      };
+    };
+    footer_bar = {
+      background = "#282a36";
+      foreground = "#f8f8f2";
     };
     hints = {
       start = {
