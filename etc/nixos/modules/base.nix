@@ -86,7 +86,7 @@ in {
         wheelNeedsPassword = mkDefault true;
       };
       pam = {
-       enableSSHAgentAuth = mkDefault true;
+        sshAgentAuth.enable = mkDefault true;
       };
     };
 
