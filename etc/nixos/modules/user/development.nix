@@ -118,7 +118,6 @@ in {
       neovim = {
         enable = true;
         plugins = with pkgs.vimPlugins; [
-          vim-logreview
           vim-surround
           auto-pairs
           direnv-vim
