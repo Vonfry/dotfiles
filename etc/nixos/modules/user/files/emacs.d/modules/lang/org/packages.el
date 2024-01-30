@@ -3,6 +3,8 @@
 
 (use-package org
   :custom
+  (org-modules '(ol-doi ol-bbdb ol-bibtex ol-docview ol-gnus ol-info ol-irc
+                 ol-mhe ol-eww ol-eshell ol-bookmark org-id))
   (org-startup-folded t)
   (org-default-notes-file +org-capture-file)
   (org-directory +org-dir)
