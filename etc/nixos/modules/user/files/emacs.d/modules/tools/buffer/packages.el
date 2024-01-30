@@ -5,4 +5,7 @@
   :config
   :general
   ("C-x C-b" 'bufler)
-  (nmap-leader "B" 'bufler))
+  ("C-x C-B" 'bufler-switch-buffer)
+  (nmap-leader
+    "B B" 'bufler-switch-buffer
+    "B b" 'bufler))
