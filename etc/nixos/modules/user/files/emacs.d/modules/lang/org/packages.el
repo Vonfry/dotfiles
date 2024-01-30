@@ -170,8 +170,8 @@
   :general
   (nmap-leader
     "o /" 'org-ql-search
-    "o T" 'org-ql-view-sidebar
-    "o t" 'org-ql-view)
+    "o v" 'org-ql-view-sidebar
+    "o v" 'org-ql-view)
   (nmap-mode :keymaps 'org-mode-map
     "/" 'org-ql-sparse-tree
     ";" 'org-ql-find))
