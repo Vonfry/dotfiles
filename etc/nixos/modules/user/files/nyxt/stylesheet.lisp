@@ -3,29 +3,21 @@
 (define-configuration browser
     ((theme
       (make-instance 'theme:theme
-                     :background-color+ "#44475a"
-                     :background-color "#282a36"
-                     :background-color- "#6272a4"
-                     :on-background-color "#f8f8f2"
-                     :accent-color "#ff5555"
-                     :on-accent-color "#282a36"
-                     :primary-color "#50fa7b"
+                     :monospace-font-family "monospace"
+                     :font-family "sans serif"
+                     :background-color+ "#6272a4"
+                     :background-color  "#282a36"
+                     :background-color- "#44475a"
+                     :on-background-color- "#f8f8f2"
+                     :on-background-color  "#f8f8f2"
+                     :on-background-color+ "#f8f8f2"
+                     :action-color "#f1fa8c"
+                     :action-color+ "#f1fa8c"
+                     :action-color- "#f1fa8c"
+                     :on-action-color "#282a36"
+                     :on-action-color+ "#282a36"
+                     :on-action-color- "#282a36"
+                     :primary-color "#bd93f9"
                      :on-primary-color "#282a36"
-                     :secondary-color "#bd93f9"
+                     :secondary-color "#ff79c6"
                      :on-secondary-color "#282a36"))))
-
-(define-configuration prompt-buffer
-    ((style
-      (str:concat
-       %slot-value%
-       (theme:themed-css
-        (theme *browser*)
-        '("#prompt"
-          :background-color "#282a36" :color "#f8f8f2")
-        '("#prompt-extra"
-          :background-color "#282a36" :color "#f8f8f2")
-        '("#selection"
-          :background-color "#44475a" :color "#f8f8f2")
-        '("#input"
-          :background-color "#6272a4" :color "#f8f8f2" :border-color "#44475a")
-        '("#input:focus" :border-color "#6272a4"))))))
