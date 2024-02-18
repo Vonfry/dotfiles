@@ -9,7 +9,7 @@
   :general
   (nmap-leader "e g" 'chatgpt-shell)
   :custom
-  (chatgpt-shell-model-version "gpt-4-1106-preview")
+  (chatgpt-shell-model-version "gpt-4-turbo-preview")
   (chatgpt-shell-openai-key
     (lambda ()
       (auth-source-pick-first-password
