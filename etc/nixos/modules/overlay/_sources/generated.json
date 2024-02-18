@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2024-01-21"
+        "version": "2024-02-17"
     },
     "fcitx5-material-color": {
         "cargoLocks": null,
@@ -151,7 +151,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2024-01-09",
+        "date": "2024-01-29",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -163,11 +163,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "e436e16266a3c6c9c4f0da6f41522496061924e7",
-            "sha256": "sha256-JM0DKa3zDycZlDA2iXt1HgLrZKQdyaR8Wg0d+xL3uzo=",
+            "rev": "148043503e5b1ec9b8e3bc65aadd5c8cad21e69a",
+            "sha256": "sha256-r88j1VNLbX9n+6f8QbmX9jtKqZDpBDNKQdMz8gpPsTo=",
             "type": "github"
         },
-        "version": "e436e16266a3c6c9c4f0da6f41522496061924e7"
+        "version": "148043503e5b1ec9b8e3bc65aadd5c8cad21e69a"
     },
     "sddm-chili": {
         "cargoLocks": null,
@@ -222,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2024-01-21"
+        "version": "2024-02-17"
     }
 }

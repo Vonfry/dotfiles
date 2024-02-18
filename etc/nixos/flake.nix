@@ -3,10 +3,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     emacs-overlay.url = "github:nix-community/emacs-overlay";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, unstable, flake-utils
+  outputs = { self, nixpkgs, home-manager, emacs-overlay, flake-utils
     }@flakes:
     let
       overlay = import ./modules/overlay;
@@ -14,22 +13,13 @@
         nixpkgs.overlays = [
           overlay
           emacs-overlay.overlay
-          (s: p: {
-            unstable = import unstable {
-              inherit (p.hostPlatform) system;
-              inherit (pkgs) config;
-            };
-          })
         ];
         nix = {
           package = pkgs.nixFlakes;
           registry = {
             sys.flake = nixpkgs;
-            sys-unstable.flake = unstable;
             nixpkgs.flake = nixpkgs;
-            nixpkgs-unstable.flake = unstable;
             nixos.flake = nixpkgs;
-            nixos-unstable.flake = unstable;
           };
           channel.enable = false;
           nixPath = [ "nixos-config=${./.}" "nixpkgs=${nixpkgs}" ];

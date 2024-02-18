@@ -68,7 +68,7 @@ in {
 
         firefox nyxt
         qbittorrent
-        # unstable.tor-browser-bundle-bin
+        # tor-browser-bundle-bin
 
         iftop
       ];
