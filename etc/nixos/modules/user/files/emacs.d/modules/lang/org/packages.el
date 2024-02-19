@@ -78,6 +78,9 @@
     "s"   'org-schedule
     "t"   'org-todo
     "m"   'org-refile
+    "i"   'org-insert-structure-template
+    "'"   'org-edit-special
+    "e"   'org-export-dispatch
     "$"   'org-archive-subtree-default
     "c"   'org-ctrl-c-ctrl-c
     "C i" 'org-clock-in
