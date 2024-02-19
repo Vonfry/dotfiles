@@ -54,8 +54,10 @@ in {
 
     services.xserver = {
       enable = true;
-      layout = "us";
-      xkbVariant = mkDefault "dvp";
+      xkb = {
+        layout = "us";
+        variant = mkDefault "dvp";
+      };
       autorun = mkDefault true;
 
       libinput = {
