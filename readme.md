@@ -53,7 +53,7 @@ love.
 ## Editor
 
 - [x] ~~Vim~~
-- [x] Neovim
+- [x] ~~Neovim~~
 - [x] Emacs
 
 ## Lang

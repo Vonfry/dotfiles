@@ -6,8 +6,6 @@ let
 in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      neovim
-
       git
 
       # bintools-unwrapped # for readelf objdump size nm
@@ -31,11 +29,6 @@ in {
 
     boot.kernel.sysctl = {
       "net.ipv4.ip_forward" = true; # this is needed by libvirt for nat
-    };
-
-    environment.sessionVariables = {
-      MANPAGER = "nvim +Man!";
-      PAGER = "nvim -R";
     };
   };
 }

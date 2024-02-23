@@ -71,10 +71,6 @@ in {
           source = ./files/emacs.d;
           recursive = true;
         };
-        "nvim" = {
-          source = ./files/nvim;
-          recursive = true;
-        };
 
         "emacs/local/pre-custom.el".text =
           concatStringsSep "\n" [
@@ -115,54 +111,6 @@ in {
     };
 
     programs = {
-      neovim = {
-        enable = true;
-        plugins = with pkgs.vimPlugins; [
-          vim-surround
-          auto-pairs
-          direnv-vim
-          nerdtree
-          nerdtree-git-plugin
-          vim-rooter
-          vim-polyglot
-          vim-ragtag
-          MatchTagAlways
-          nerdcommenter
-          vim-orgmode
-          vim-easymotion
-          fzf-vim
-          editorconfig-vim
-          vim-better-whitespace
-          vim-signature
-          incsearch-vim
-          vim-over
-          tabular
-          ultisnips
-          vim-snippets
-          nvim-lspconfig
-          vim-fugitive
-          vim-signify
-          NeoSolarized
-          vim-airline
-          vim-airline-clock
-          indentLine
-          vim-mundo
-          { plugin = dracula-vim;
-            optional = true;
-          }
-          vim-gnupg
-          supertab
-        ];
-
-        extraConfig = ''
-          " see github:nixos/nixpkgs#96062
-          " This have to be done here instead of config option at below because
-          " my configuration will load this.
-          packadd! dracula-vim
-          call vonfry#init()
-        '';
-      };
-
       emacs =  {
         package = pkgs.emacs-git;
         enable = true;
@@ -276,10 +224,7 @@ in {
           rebase.autoSquash = mkDefault true;
           github.user = "Vonfry";
           gitlab.user = "Vonfry";
-          core = {
-            pager = "nvim -R";
-          };
-          color.pager = false;
+          color.pager = true;
           sendemail = mkIf config.programs.msmtp.enable {
             smtpServer = "msmtp";
             smtpServerOption = [ "--read-envelope-from" "-t" ];
@@ -315,11 +260,6 @@ in {
       activation.developmentActivation = lib.hm.dag.entryAfter
         [ "writeBoundary" "linkGeneration" ]
         (concatStringsSep "\n" [ linkEmacs ]);
-
-      sessionVariables = {
-        MANPAGER = "nvim +Man!";
-        PAGER = "nvim -R";
-      };
 
       packages = with pkgs; [
         gitAndTools.git-extras
