@@ -40,7 +40,7 @@ in {
         };
 
         autocd = true;
-        enableCompletion = false;
+        enableCompletion = true;
         defaultKeymap = "emacs";
 
         localVariables = {
@@ -391,7 +391,6 @@ in {
       packages = with pkgs; [
         trash-cli thefuck
         asciinema
-        nix-zsh-completions # because we disable zsh.enableCompletion
       ];
 
       sessionPath = [ "~/.local/bin" ];
