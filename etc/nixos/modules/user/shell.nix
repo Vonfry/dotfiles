@@ -5,7 +5,6 @@ let
   cfg = config.vonfry;
 
   sessionVariables = config.home.sessionVariables;
-  inherit (config.xdg) configHome cacheHome dataHome;
 
   hasLedger = sessionVariables ? LEDGER_FILE;
 
