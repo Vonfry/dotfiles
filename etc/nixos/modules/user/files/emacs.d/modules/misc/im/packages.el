@@ -54,7 +54,10 @@
   (with-eval-after-load 'ement-room-list
     (persist-location 'ement-room-list-visibility-cache vonfry-local-dir))
   :hook
-  (ement-room-compose . ement-room-compose-org)
+  ((ement-room-compose . ement-room-compose-org)
+   (server-after-make-frame .
+     (lambda (&rest _)
+       (custom-set-variables '(ement-room-images t)))))
   :general
   ; custom function is not necessary due to ement-save-session
   (nmap-at
