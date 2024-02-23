@@ -59,7 +59,6 @@
      (lambda (&rest _)
        (custom-set-variables '(ement-room-images t)))))
   :general
-  ; custom function is not necessary due to ement-save-session
   (nmap-at
     "e" 'ement-connect
     "E e" 'ement-room-list
