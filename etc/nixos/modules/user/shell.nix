@@ -20,14 +20,6 @@ in {
     warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
 
     programs = {
-      fzf = {
-        enable = true;
-        enableZshIntegration = true;
-        changeDirWidgetCommand = "fd --type d";
-        defaultCommand = "fd --type f";
-        fileWidgetCommand = "fd --type f";
-      };
-
       zoxide = {
         enable = true;
         enableZshIntegration = true;
@@ -48,7 +40,7 @@ in {
         };
 
         autocd = true;
-        enableCompletion = true;
+        enableCompletion = false;
         defaultKeymap = "emacs";
 
         localVariables = {
@@ -101,11 +93,11 @@ in {
             source ''${ZDOTDIR:-~}/.p10k.zsh
           fi
           source ${zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-          source ${zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
           source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
           source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
+          source ${zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
           # ${zsh-completions}
 
           eval $(thefuck --alias)
@@ -399,6 +391,7 @@ in {
       packages = with pkgs; [
         trash-cli thefuck
         asciinema
+        nix-zsh-completions # because we disable zsh.enableCompletion
       ];
 
       sessionPath = [ "~/.local/bin" ];

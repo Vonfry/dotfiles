@@ -6,7 +6,10 @@ let
 in {
   config = mkIf cfg.enable {
     programs = {
-      zsh.enable = true;
+      zsh = {
+        enable = true;
+        enableCompletion = false;
+      };
     };
 
     console = {
