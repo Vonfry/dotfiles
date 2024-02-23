@@ -8,7 +8,7 @@ in {
     environment.systemPackages = with pkgs; [
       neovim
 
-      git git-lfs
+      git
 
       # bintools-unwrapped # for readelf objdump size nm
     ];
