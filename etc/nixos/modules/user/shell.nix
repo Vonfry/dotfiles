@@ -39,7 +39,8 @@ in {
         };
 
         autocd = true;
-        enableCompletion = false;
+        enableCompletion = true;
+        completionInit = ""; # make it empty to increase load speed
         defaultKeymap = "emacs";
 
         localVariables = {
@@ -390,7 +391,6 @@ in {
       packages = with pkgs; [
         trash-cli thefuck
         asciinema
-        nix-zsh-completions # because we disable zsh.enableCompletion
       ];
 
       sessionPath = [ "~/.local/bin" ];
