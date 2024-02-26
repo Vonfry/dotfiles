@@ -367,11 +367,6 @@ in {
           gwC = "git clean -f";
           gwx = "git rm -r";
           gwX = "git rm -rf";
-
-          # Perl
-          pl  = "perl";
-          pld = "perldoc";
-          ple = "perl -wlne";
         };
       };
     };
