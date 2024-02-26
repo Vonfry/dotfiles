@@ -31,11 +31,9 @@ in {
         max-jobs = mkDefault "auto";
         auto-optimise-store = true;
         trusted-public-keys = [
-          "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
         substituters = lib.mkBefore [
-          "https://nixos-cn.cachix.org"
           "https://nix-community.cachix.org"
         ];
       };
