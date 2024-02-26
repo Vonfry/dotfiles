@@ -94,29 +94,12 @@ in {
           fi
           source ${zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
           source ${zsh-fast-syntax-highlighting}/share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh
-          source ${zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
           source ${zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
           source ${zsh-you-should-use}/share/zsh/plugins/you-should-use/you-should-use.plugin.zsh
           source ${zsh-autocomplete}/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
           # ${zsh-completions}
 
           eval $(thefuck --alias)
-
-          # Emacs
-          bindkey -M emacs "^P" history-substring-search-up
-          bindkey -M emacs "^N" history-substring-search-down
-
-          # Vi
-          bindkey -M vicmd "k" history-substring-search-up
-          bindkey -M vicmd "j" history-substring-search-down
-
-          # Emacs and Vi
-          for keymap in 'emacs' 'viins'; do
-            bindkey "$terminfo[kcuu1]" history-substring-search-up
-            bindkey "$terminfo[kcud1]" history-substring-search-down
-          done
-
-          unset keymap
 
           function set_win_title() {
             echo -ne "\033]0; shell: $(basename "$PWD") \007"
