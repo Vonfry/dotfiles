@@ -97,7 +97,10 @@
     "e t" 'list-timers
     "e D" 'diff
     "e f" 'evil-show-file-info
-    "e m" 'woman)
+    "e m" 'woman
+    "e & d" 'vonfry/insert-current-date
+    "e & SPC" 'vonfry/insert-zero-wide-space
+    "e & c" 'insert-char)
   (vmap-leader
     "x"   'execute-extended-command
     "="   'align-regexp))

@@ -40,7 +40,3 @@
   (+org/id-update-recursively org-roam-directory)
   (org-id-update-id-locations)
   (org-id-locations-save))
-
-(defun +org/insert-zero-width-space ()
-  (interactive)
-  (insert-char ?\u200B)) ;; code for ZERO WIDTH SPACE
