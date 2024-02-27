@@ -7,6 +7,8 @@
   ((emacs-lisp-mode lisp-interaction-mode ielm-mode) . turn-on-eldoc-mode))
 
 (use-package ielm :ensure nil
+  :custom
+  (ielm-history-file-name (expand-file-name "ielm-history.eld" vonfry-cache-dir))
   :general
   (nmap-leader :keymaps '(emacs-lisp-mode-map lisp-interaction-mode-map)
     "\""    'ielm
