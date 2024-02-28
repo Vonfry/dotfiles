@@ -269,9 +269,7 @@
   :general
   (nmap-leader
     "o p p" 'org-project-capture-project-todo-completing-read
-    "o p g" 'org-project-capture-goto-location-for-project
-    "o p c" 'org-project-capture-capture-for-current-project
-    )
+    "o p g" 'org-project-capture-goto-location-for-project)
   :config
   (setq org-project-capture-backend
     (make-instance 'org-project-capture-project-backend))
