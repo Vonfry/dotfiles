@@ -105,6 +105,8 @@ in {
             echo -ne "\033]0; shell: $(basename "$PWD") \007"
           }
           precmd_functions+=(set_win_title)
+
+          zstyle ':autocomplete:*' delay 0.2
         '';
 
         loginExtra = ''
