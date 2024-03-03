@@ -1,10 +1,5 @@
 * System
-** NixOS[3/4]
-*** DONE migrate to nixos
-    - [X] clean setup script about sed and some local configuration.
-    - [X] code nixos module instead of configuration directly
-*** DONE podman replaces docker
-    CLOSED: [2021-06-02 Wed 14:07]
+** NixOS[0/0]
 *** TODO X [10/11]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
@@ -17,93 +12,12 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-*** DONE update to 22.05[4/4]
-    CLOSED: [2022-05-20 Fri 09:10]
-    - [X] remove xmonad overlay
-    - [X] remove org override after pr is merged
-    - [X] [[https://github.com/NixOS/nixpkgs/pull/139075][nix structure config]]
-    - [X] add distrobox
 ** home-manager[5/6]
-*** DONE home-manager instead setup script[22/22]
-    CLOSED: [2020-11-26 Thu 14:04]
-    - Note taken on [2020-04-01 Wed 08:04] \\
-      nix only tools? nixos only?
-    - [X] add home-manager
-    - [X] combine nixos module and home-manager
-    - [X] manage python & ruby packages by nix
-    - [X] packages on nixos and other system
-    - [X] home-manager: nix & nixpkgs config
-    - [X] home-manager: email
-    - [X] home-manager: xmonad, gtk, qt
-    - [X] zsh script and home-manager zsh config
-    - [X] home session and variables
-    - [X] shell and files activation script
-    - [X] emacs & vim config
-    - [X] gpg & passward init
-    - [X] link home-manager from nixos-config
-    - [X] remove update scripts
-    - [X] recode setup scripts
-    - [X] remove zplug overlay when 20.09 nixpkgs
-    - [X] lorri services
-    - [X] neovim & emacs packages management
-    - [X] qutebrowser setting, color, bookmark and search
-    - [X] remove darwin support
-    - [X] nvim: some plugins problem and wait for update
-    - [X] emacs wraping other tools instead of install into user env
-*** DONE 21.05[3/3]
-    CLOSED: [2021-11-23 Tue 09:25]
-    - [X] qutebrowser module for autoconfig instead of extraConfig
-    - [X] reuse zsh-completions after the collision is fixed
-    - [X] remove fcitx5 services
-*** DONE emacs daemon with hm instead of manual
-    CLOSED: [2021-06-26 Sat 10:23]
-*** DONE pipewire replaces pulseaudio[4/4]
-    CLOSED: [2023-11-04 Sat 12:03]
-    - [X] service (nixos)
-    - [X] mpd support, check [[https://github.com/MusicPlayerDaemon/MPD/issues/1012][this issue]]
-    - [X] easyeffect replaces pulseeffects
-    - [X] Helvum replaces pavucontrol
-*** DONE remove ssh agent set after [[https://github.com/nix-community/home-manager/pull/2253/files][#2253]] is merged into released version.
-    CLOSED: [2021-11-23 Tue 09:40]
 *** TODO remove bash enable for emacs service after pr 2709 merged
-** CANCELLED macOS
-   CLOSED: [2020-10-01 Thu 19:26]
-
 * Editor
-** NeoVim[2/2]
-**** DONE use internal lsp
-     CLOSED: [2021-12-23 Thu 08:57]
-     wait for 0.5.0
-**** DONE lua config, see [[https://github.com/nanotee/nvim-lua-guide][ref]]
-     CLOSED: [2021-12-23 Thu 08:57]
-** Emacs[7/8]
-*** CANCELLED use raxod502/straight.el instead of package.el
-*** DONE manage plugins with nixpkgs
-*** TODO Interesting plugins[6/7]
+** Emacs[0/1]
+*** TODO Interesting plugins[0/1]
 **** TODO [[https://gitlab.com/matsievskiysv/math-preview][math-preview]]
-**** DONE [[https://melpa.org/#/license-snippets][license-snippet]]
-     CLOSED: [2020-12-09 Wed 09:11]
-**** DONE magit evil and sth else is included in evil-collection
-**** DONE [[https://github.com/mickeynp/ligature.el][ligature.el]]
-     CLOSED: [2023-01-15 Sun 15:09]
-**** DONE envrc instead of direnv.el
-**** CANCELLED ob-gnuplot and gnuplot(build failed now)
-     CLOSED: [2021-05-25 Tue 16:32]
-**** DONE dirvish replaces ranger and file-manager out of emacs
-*** DONE replace undo-tree with emacs 28 builtin's one.
-    CLOSED: [2021-12-12 Sun 15:03]
-*** DONE merge to new ebib options
-    CLOSED: [2021-05-30 Sun 09:35]
-*** DONE [[https://orgmode.org/list/87blb3epey.fsf@gnu.org/][org elpa is shutdown and org-plus-contrib is renamed to org-contrib]]
-    CLOSED: [2021-11-23 Tue 09:25]
-*** DONE org-roam v2 migration
-    CLOSED: [2021-08-12 Thu 17:12]
-*** DONE replace xim with gtk native input?
-    CLOSED: [2023-04-30 Sun 11:05]
-    because there is a bug for fcitx5's xim. If I restart fcitx5 service, emacs
-    cannot handle the new service, but other softwares like qutebrowser and
-    alacritty can do.
-    ~(setq x-gtk-use-native-input t)~
 ** DONE LSP[2/2]
    CLOSED: [2020-09-05 Sat 10:17]
    - [X] hls instead of hie?
@@ -134,14 +48,5 @@
 
 * Utils
 ** Nix[4/4]
-*** DONE lorri instead of nix-shell
-    CLOSED: [2020-04-01 Wed 08:28]
-*** DONE nix-direnv replace lorri
-    There is a problem on ~XDG_DATA_DIRS~ with lorri. Perhaps lorri is reused
-    somedays.
-*** DONE niv
-    CLOSED: [2020-07-31 Fri 21:45]
-*** DONE flakes
-    CLOSED: [2021-12-01 Wed 14:08]
 ** Browser[1/1]
    - [X] replace qutebrowser with nyxt?
