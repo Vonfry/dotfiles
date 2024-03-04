@@ -352,6 +352,8 @@ in {
           gwC = "git clean -f";
           gwx = "git rm -r";
           gwX = "git rm -rf";
+
+          lazygit = "nix run 'nixpkgs#lazygit'";
         };
       };
     };
