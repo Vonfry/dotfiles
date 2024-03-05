@@ -2,12 +2,7 @@
 ;;
 
 (use-package realgud
-  :hook
-  (realgud-short-key-mode .
-    (lambda ()
-      (local-set-key "\C-c" realgud:shortkey-mode-map)))
   :general
-  (nmap-leader
-    :keymaps 'realgud-short-key-mode-map
-    "'" 'realgud:shortkey-mode-map))
+  (nmap-leader :keymaps 'prog-mode-map
+    "' d" 'realgud:shortkey-mode-map))
 

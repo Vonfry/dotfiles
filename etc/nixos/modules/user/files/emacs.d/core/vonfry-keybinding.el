@@ -45,10 +45,7 @@
          (general-create-definer ,map-at     :wrapping ,map-leader :infix  "@"))))
   (vonfry--keybind-definer nmap)
   (vonfry--keybind-definer vmap)
-  (vonfry--keybind-definer nvmap)
-
-  (nmap-leader "Z" 'vonfry/next-theme)
-  (nmap-leader "' d" 'vonfry/insert-current-date))
+  (vonfry--keybind-definer nvmap))
 
 (use-package evil
   :hook
@@ -100,7 +97,8 @@
     "e m" 'woman
     "e & d" 'vonfry/insert-current-date
     "e & SPC" 'vonfry/insert-zero-wide-space
-    "e & c" 'insert-char)
+    "e & c" 'insert-char
+    "Z" 'vonfry/next-theme)
   (vmap-leader
     "x"   'execute-extended-command
     "="   'align-regexp))
