@@ -3,7 +3,10 @@
 
 (use-package shell-maker
   :custom
-  (shell-maker-history-path (expand-file-name "shell-maker" vonfry-cache-dir)))
+  (shell-maker-root-path (expand-file-name "shell-maker" vonfry-cache-dir))
+  :config
+  ; TODO github:chatgpt-shell#199
+  (setq shell-maker-history-path shell-maker-root-path))
 
 (use-package chatgpt-shell
   :general
