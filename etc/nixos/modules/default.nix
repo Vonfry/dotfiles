@@ -1,11 +1,6 @@
-{ lib, ... }:
+{ ... }:
 
-with lib;
 {
-  options.vonfry = {
-    enable = mkEnableOption "Vonfry configuration";
-  };
-
   imports = [
     ./base.nix
     ./development.nix
@@ -14,5 +9,6 @@ with lib;
     ./x.nix
     ./misc.nix
     ./user
+    ./workspace.nix
   ];
 }

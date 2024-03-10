@@ -5,9 +5,9 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
-    sound.enable = true;
+    sound.enable = mkDefault (!cfg.workspace.server);
     services.pipewire = {
-      enable = true;
+      enable = mkDefault (!cfg.workspace.server);
       alsa.enable = true;
       wireplumber.enable = true;
     };

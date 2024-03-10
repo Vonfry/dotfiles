@@ -4,10 +4,6 @@ with lib;
 let
   cfg = config.vonfry;
 in {
-  options.vonfry = {
-    enable = mkEnableOption "Vonfry configuration";
-  };
-
   config = mkIf cfg.enable {
     lib = pkgs.callPackage ./lib { };
 
@@ -23,5 +19,6 @@ in {
     ./application.nix
     ./misc.nix
     ./game.nix
+    ./workspace.nix
   ];
 }

@@ -3,8 +3,52 @@
 with lib;
 let
   cfg = config.vonfry;
-in {
-  config = mkIf cfg.enable {
+
+  isenable = cfg.application.enable;
+  ishome = config.vonfry.workspace.home;
+
+  appcfg = {
+    programs = {
+      gpg = {
+        enable = true;
+        settings = {
+          keyserver = "hkps://keys.openpgp.org";
+        };
+      };
+
+      password-store = {
+        enable = true;
+        package = pkgs.pass-nodmenu.withExtensions (exts: with exts; [ pass-otp ]);
+      };
+
+    };
+
+    vonfry.development.emacs.excludeModules =
+      optional (!config.services.mpd.enable) "misc/mpd";
+
+    services = {
+      gpg-agent = {
+        enable = true;
+        defaultCacheTtl = 1800;
+        enableSshSupport = true;
+        enableExtraSocket = true;
+        enableScDaemon = true;
+        pinentryFlavor = "qt";
+        extraConfig = ''
+          allow-loopback-pinentry
+          allow-preset-passphrase
+        '';
+      };
+    };
+
+    home = {
+      packages = with pkgs; [
+        fortune cmatrix figlet
+      ];
+    };
+  };
+
+  xcfg = {
     programs = {
       feh.enable = true;
 
@@ -48,22 +92,7 @@ in {
       };
 
       mpv.enable = true;
-
-      gpg = {
-        enable = true;
-        settings = {
-          keyserver = "hkps://keys.openpgp.org";
-        };
-      };
-
-      password-store = {
-        enable = true;
-        package = pkgs.pass-nodmenu.withExtensions (exts: with exts; [ pass-otp ]);
-      };
     };
-
-    vonfry.development.emacs.excludeModules =
-      optional (!config.services.mpd.enable) "misc/mpd";
 
     home = {
       sessionVariables = {
@@ -71,10 +100,7 @@ in {
       };
 
       packages = with pkgs; [
-        fortune cmatrix figlet
-
-        hledger
-        flameshot feh
+        flameshot
         helvum
         libreoffice
 
@@ -87,7 +113,9 @@ in {
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       };
     };
+  };
 
+  homecfg = {
     services = {
       mpd = {
         enable = mkDefault true;
@@ -102,19 +130,20 @@ in {
       };
 
       easyeffects.enable = true;
+    };
 
-      gpg-agent = {
-        enable = true;
-        defaultCacheTtl = 1800;
-        enableSshSupport = true;
-        enableExtraSocket = true;
-        enableScDaemon = true;
-        pinentryFlavor = "qt";
-        extraConfig = ''
-          allow-loopback-pinentry
-          allow-preset-passphrase
-        '';
-      };
+    home = {
+      packages = with pkgs; [ hledger ];
     };
   };
+in {
+  options.vonfry.application = {
+    enable = mkEnableOption "Vonfry's application configurations.";
+  };
+  config = mkMerge [
+    { vonfry.application.enable = mkDefault cfg.enable; }
+    (mkIf isenable appcfg)
+    (mkIf (isenable && cfg.x.enable) xcfg)
+    (mkIf (isenable && ishome) homecfg)
+  ];
 }

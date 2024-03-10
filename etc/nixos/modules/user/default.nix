@@ -7,6 +7,34 @@ let
     mkdir -p $out/share/sddm/faces/
     ln -s ${vonfryPackages.iconFace} $out/share/sddm/faces/vonfry.face.icon
   '';
+  userconfig = {
+    users.motd = builtins.readFile ./files/motd;
+
+    users.users.vonfry = {
+      isNormalUser = true;
+      home = "/home/vonfry";
+      description = "Vonfry";
+      extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
+      shell = pkgs.zsh;
+    };
+
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users.vonfry = _: {
+        imports = [ ./home.nix ];
+
+        vonfry = {
+          inherit (cfg) enable workspace;
+        };
+      };
+    };
+  };
+
+  xconfig = {
+    services.xserver.desktopManager.wallpaper.mode = "center";
+    environment.systemPackages = [ cfg.facePackage ];
+  };
 in {
 
   imports = [
@@ -25,31 +53,8 @@ in {
     type = types.package;
   };
 
-  config = mkIf cfg.enable {
-    users.motd = builtins.readFile ./files/motd;
-
-    environment.systemPackages = [ cfg.facePackage ];
-
-    services.xserver.desktopManager.wallpaper.mode = "center";
-
-    users.users.vonfry = {
-      isNormalUser = true;
-      home = "/home/vonfry";
-      description = "Vonfry";
-      extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
-      shell = pkgs.zsh;
-    };
-
-    home-manager = {
-      useUserPackages = true;
-      useGlobalPkgs = true;
-      users.vonfry = _: {
-        imports = [ ./home.nix ];
-
-        vonfry = mkDefault {
-          inherit (cfg) enable;
-        };
-      };
-    };
-  };
+  config = mkMerge [
+    (mkIf cfg.enable userconfig)
+    (mkIf cfg.x.enable xconfig)
+  ];
 }

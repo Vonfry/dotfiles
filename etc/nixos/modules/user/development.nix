@@ -5,14 +5,16 @@ let
   cfg = config.vonfry.development;
   cfg' = config.vonfry;
 
+  ishome = cfg'.workspace.home;
+
   emacsExtraBin = with pkgs; buildEnv {
     name = "emacs-extra-bin";
-    paths = [ hugo ];
+    paths = optional ishome hugo;
     pathsToLink = [ "/bin" "/share" "/lib" ];
   };
 
   inherit (config.xdg) dataHome;
-  linkEmacs = ''
+  linkEmacs = optionalString cfg'.x.enable ''
     [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
   '';
 
@@ -21,11 +23,11 @@ let
 
   # copy from emacsclient.desktop
   emacsclient_mimetypes = [ "text/english" "text/plain" "text/x-makefile"
-                           "text/x-c++hdr" "text/x-c++src" "text/x-chdr"
-                           "text/x-csrc" "text/x-java" "text/x-moc"
-                           "text/x-pascal" "text/x-tcl" "text/x-tex"
-                           "application/x-shellscript" "text/x-c" "text/x-c++"
-                         ];
+                            "text/x-c++hdr" "text/x-c++src" "text/x-chdr"
+                            "text/x-csrc" "text/x-java" "text/x-moc"
+                            "text/x-pascal" "text/x-tcl" "text/x-tex"
+                            "application/x-shellscript" "text/x-c" "text/x-c++"
+                          ];
 
 in {
   options.vonfry.development = {
@@ -64,6 +66,10 @@ in {
 
   config = mkIf cfg'.enable {
     warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
+
+    vonfry.development.emacs.excludeModules = mkIf (!ishome) [
+        "misc/blog" "misc/feed" "misc/gnus" "misc/ledger"
+    ];
 
     xdg = {
       configFile = {
@@ -106,13 +112,13 @@ in {
       enable = true;
       client.enable = false; # it has been included in emacs-git
       socketActivation.enable = true;
-      startWithUserSession = "graphical";
+      startWithUserSession = if cfg'.x.enable then "graphical" else true;
       defaultEditor = true;
     };
 
     programs = {
       emacs =  {
-        package = pkgs.emacs-git;
+        package = if cfg'.x.enable then pkgs.emacs-git else pkgs.emacs-git-nox;
         enable = true;
         extraPackages = epkgs: with epkgs; [
           solarized-theme
@@ -320,6 +326,5 @@ in {
         '';
       };
     };
-
   };
 }

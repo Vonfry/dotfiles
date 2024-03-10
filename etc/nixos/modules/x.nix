@@ -20,23 +20,8 @@ let
       ];
     };
   };
-in {
-  options.vonfry.x = {
-    durationLock = mkOption {
-      default = 600;
-      type = types.int;
-      description = "The no activation duration before system lock. unit: second.";
-    };
 
-    durationSuspend = mkOption {
-      default = 1800;
-      type = types.int;
-      description = "The no activation duration before system suspending. unit: second.";
-    };
-  };
-
-  config = mkIf config.vonfry.enable {
-
+  xconfig = {
     nixpkgs.overlays = [ fcitx5-rime-overlay ];
 
     environment.systemPackages = with pkgs; [
@@ -140,6 +125,26 @@ in {
         };
       };
     };
-
   };
+in {
+  options.vonfry.x = {
+    enable = mkEnableOption "xserver.";
+
+    durationLock = mkOption {
+      default = 600;
+      type = types.int;
+      description = "The no activation duration before system lock. unit: second.";
+    };
+
+    durationSuspend = mkOption {
+      default = 1800;
+      type = types.int;
+      description = "The no activation duration before system suspending. unit: second.";
+    };
+  };
+
+  config = mkMerge [
+    { vonfry.x.enable = mkDefault (!config.vonfry.workspace.server); }
+    (mkIf cfg.enable xconfig)
+  ];
 }

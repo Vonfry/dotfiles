@@ -15,7 +15,7 @@ in {
       oci-containers.backend = "podman";
 
       libvirtd = {
-        enable = true;
+        enable = mkDefault (!cfg.workspace.server);
         qemu = {
           runAsRoot = mkDefault false;
           package = mkDefault pkgs.qemu_kvm;

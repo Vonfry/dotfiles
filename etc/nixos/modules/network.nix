@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.vonfry.network;
+  cfg = config.vonfry;
 in {
   config = mkIf config.vonfry.enable {
     environment.systemPackages = with pkgs; [ curl ];
@@ -17,7 +17,7 @@ in {
         extraPackages = with pkgs; [ ];
       };
       networkmanager = {
-        enable = mkDefault true;
+        enable = mkDefault (!cfg.workspace.server);
         dhcp = "internal";
       };
     };

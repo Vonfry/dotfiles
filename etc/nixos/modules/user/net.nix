@@ -5,17 +5,11 @@ let
   cfg = config.vonfry.net;
   cfg' = config.vonfry;
 
-  whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
-in {
-  options.vonfry.net = {
-    email = mkOption {
-      type = with types; nullOr attrs;
-      description = "Private email config.";
-      default = null;
-    };
-  };
+  ishome = cfg'.workspace.home;
 
-  config = mkIf cfg'.enable {
+  whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
+
+  netcfg = {
     accounts.email = mkIf (cfg.email != null) {
       maildirBasePath = "${config.home.homeDirectory}/.mail";
       accounts = {
@@ -49,27 +43,8 @@ in {
                                     ];
     warnings = optional (cfg.email == null) "email isn't set, so emacs module is disabled.";
 
-    xdg.configFile = {
-      "nyxt" = {
-        source = ./files/nyxt;
-        recursive = true;
-      };
-    };
-
     home = {
-      sessionVariables = {
-        BROWSER = "nyxt";
-      };
-
-      packages = with pkgs; [
-        curl rsync
-
-        firefox nyxt
-        qbittorrent
-        # tor-browser-bundle-bin
-
-        iftop
-      ];
+      packages = with pkgs; [ curl rsync iftop ];
     };
 
     programs = {
@@ -86,4 +61,47 @@ in {
       ];
     };
   };
+
+  homecfg = {
+    home = {
+      packages = with pkgs; [
+        qbittorrent
+      ];
+    };
+  };
+
+  xcfg = {
+    xdg.configFile = {
+      "nyxt" = {
+        source = ./files/nyxt;
+        recursive = true;
+      };
+    };
+    home = {
+      sessionVariables = {
+        BROWSER = "nyxt";
+      };
+
+      packages = with pkgs; [
+        # tor-browser-bundle-bin
+        firefox nyxt
+      ];
+    };
+  };
+in {
+  options.vonfry.net = {
+    enable = mkEnableOption "Vonfry's network configurations.";
+    email = mkOption {
+      type = with types; nullOr attrs;
+      description = "Private email config.";
+      default = null;
+    };
+  };
+
+  config = mkMerge [
+    { vonfry.net.enable = cfg'.enable; }
+    (mkIf cfg.enable netcfg)
+    (mkIf (cfg.enable && cfg'.x.enable) xcfg)
+    (mkIf (cfg.enable && ishome) homecfg)
+  ];
 }

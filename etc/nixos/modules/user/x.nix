@@ -2,8 +2,8 @@
 
 with lib;
 let
-  cfg = config.vonfry;
-  cfg' = config.vonfry.x;
+  cfg = config.vonfry.x;
+  cfg' = config.vonfry;
 
   inherit (config.home) homeDirectory;
 
@@ -20,14 +20,8 @@ let
                 string:"fcitx://config/addon/rime/deploy" \
                 variant:string:""
   '';
-in {
-  options.vonfry.x.bgFile = mkOption {
-    default = defaultBgFile;
-    type = types.path;
-    description = "The background file.";
-  };
 
-  config = mkIf cfg.enable {
+  xcfg = {
     qt = {
       enable = true;
       platformTheme = "qtct";
@@ -170,7 +164,7 @@ in {
     home = {
       activation.xActivation = lib.hm.dag.entryAfter
         [ "writeBoundary" "linkGeneration" ] ''
-        [ -h "${bgFile}" ] || ln -s ${cfg'.bgFile} ${bgFile}
+        [ -h "${bgFile}" ] || ln -s ${cfg.bgFile} ${bgFile}
       '';
 
       file = {
@@ -201,4 +195,19 @@ in {
       ];
     };
   };
+in {
+  options.vonfry.x = {
+    enable = mkEnableOption "Vonfry's x configurations.";
+
+    bgFile = mkOption {
+      default = defaultBgFile;
+      type = types.path;
+      description = "The background file.";
+    };
+  };
+
+  config = mkMerge [
+    { vonfry.x.enable = mkDefault cfg'.enable; }
+    (mkIf cfg.enable xcfg)
+  ];
 }
