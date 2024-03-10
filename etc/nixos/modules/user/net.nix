@@ -5,8 +5,6 @@ let
   cfg = config.vonfry.net;
   cfg' = config.vonfry;
 
-  colorscheme = config.lib.theme.dracula;
-
   whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
 in {
   options.vonfry.net = {
