@@ -207,7 +207,7 @@ in {
   };
 
   config = mkMerge [
-    { vonfry.x.enable = mkDefault cfg'.enable; }
+    { vonfry.x.enable = mkDefault (!cfg'.workspace.server); }
     (mkIf cfg.enable xcfg)
   ];
 }
