@@ -21,6 +21,14 @@ let
                 variant:string:""
   '';
 
+  xdgcfg = {
+    xdg = {
+      enable = true;
+      userDirs.enable = true;
+      mimeApps.enable = true;
+    };
+  };
+
   xcfg = {
     qt = {
       enable = true;
@@ -128,9 +136,6 @@ let
     fonts.fontconfig.enable = true;
 
     xdg = {
-      enable = true;
-      userDirs.enable = true;
-      mimeApps.enable = true;
       dataFile = {
         "fcitx5/rime" = {
           source = with pkgs; with vonfryPackages.rimePlugins;
@@ -208,6 +213,7 @@ in {
 
   config = mkMerge [
     { vonfry.x.enable = mkDefault (!cfg'.workspace.server); }
+    xdgcfg
     (mkIf cfg.enable xcfg)
   ];
 }
