@@ -353,7 +353,7 @@ in {
           gwx = "git rm -r";
           gwX = "git rm -rf";
 
-          lazygit = "nix run 'nixpkgs#lazygit'";
+          gitu = "nix run 'nixpkgs#gitu'";
         };
       };
     };
