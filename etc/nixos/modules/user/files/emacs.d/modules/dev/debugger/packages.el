@@ -4,5 +4,5 @@
 (use-package realgud
   :general
   (nmap-leader :keymaps 'prog-mode-map
-    "' d" 'realgud:shortkey-mode-map))
+    "' d" 'realgud-short-key-mode))
 
