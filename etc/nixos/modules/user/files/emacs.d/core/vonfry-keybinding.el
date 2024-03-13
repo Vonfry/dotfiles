@@ -83,8 +83,6 @@
     "F l" 'find-file-literally
     "!"   'calc
     "\""  'comint-run
-    "l"   'list-processes
-    "L"   'proced
     "O"   'calendar
     "e a" '+evil/switch-scratch
     "e i" 'ielm
@@ -98,6 +96,8 @@
     "e & d" 'vonfry/insert-current-date
     "e & SPC" 'vonfry/insert-zero-wide-space
     "e & c" 'insert-char
+    "e l" 'list-processes
+    "s l" 'proced
     "Z" 'vonfry/next-theme)
   (vmap-leader
     "x"   'execute-extended-command
