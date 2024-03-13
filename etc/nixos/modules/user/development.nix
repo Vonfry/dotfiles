@@ -213,6 +213,8 @@ in {
           chatgpt-shell dall-e-shell
           ob-chatgpt-shell ob-dall-e-shell
           bufler
+          daemons
+          trashed
         ];
       };
 
