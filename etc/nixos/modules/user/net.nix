@@ -38,9 +38,7 @@ let
     };
 
     vonfry.development.emacs.excludeModules =
-      optionals (cfg.email == null) [ "misc/mail" "misc/feed" "misc/gnus"
-                                      "misc/irc"
-                                    ];
+      optionals (cfg.email == null) [ "tools/mail" ];
     warnings = optional (cfg.email == null) "email isn't set, so emacs module is disabled.";
 
     home = {

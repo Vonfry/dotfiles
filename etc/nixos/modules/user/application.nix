@@ -24,7 +24,9 @@ let
     };
 
     vonfry.development.emacs.excludeModules =
-      optional (!config.services.mpd.enable) "misc/mpd";
+      optional (!config.services.mpd.enable) "tools/mpd" ++
+      optionals (!ishome) [ "tools/blog" "tools/feed" "misc/gnus" "tools/ledge"
+                          ];
 
     services = {
       gpg-agent = {
