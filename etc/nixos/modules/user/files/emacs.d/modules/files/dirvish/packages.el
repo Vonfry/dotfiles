@@ -16,8 +16,8 @@
      (rx "." (| "mp3" "mp4" "wav" "flac" "mkv" "mov") eos)
      "mpv")
     (list
-     (rx "." (| "zip" "7z") eos)
-     "arc ls")))
+     (rx "." (| "zip" "7z" (: "tar." word)) eos)
+     "bsdtar -t")))
   :config
   (dirvish-override-dired-mode 1)
   :general
