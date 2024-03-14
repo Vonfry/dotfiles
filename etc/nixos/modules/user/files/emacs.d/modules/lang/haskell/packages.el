@@ -23,7 +23,15 @@
     "r"   'haskell-compile
     "#"   'haskell-navigate-imports
     "\""  'haskell-interactive-bring
-    "R"   'haskell-debug)
+    "R"   'haskell-debug
+    "' k" 'haskell-interactive-mode-clear
+    "' p" 'haskell-process-cd
+    "' l" 'haskell-process-load-file
+    "' t" 'haskell-process-do-type
+    "' i" 'haskell-process-do-info
+    "' b" 'haskell-process-cabal-build
+    "' c" 'haskell-process-cabal
+    "' r" 'haskell-process-restart)
   (nmap-mode :keymaps 'haskell-mode-map
     "r"   'run-haskell
     "."   'haskell-mode-jump-to-def
@@ -34,13 +42,6 @@
     "q k" 'haskell-hoogle-kill-server
     "t"   'haskell-mode-show-type-at
     "c"   'haskell-cabal-visit-file
-    "p l" 'haskell-process-load-or-reload
-    "p t" 'haskell-process-do-type
-    "p i" 'haskell-process-do-info
-    "p b" 'haskell-process-cabal-build
-    "p c" 'haskell-process-cabal
-    "p r" 'haskell-process-restart
-    "k"   'haskell-interactive-mode-clear
     "m"   'haskell-menu
     "C"   'haskell-session-change-target)
   (nmap-leader :keymaps 'haskell-interactive-mode-map
