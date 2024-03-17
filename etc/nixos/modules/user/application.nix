@@ -35,7 +35,7 @@ let
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;
-        pinentryFlavor = "qt";
+        pinentryPackage = pkgs.pinentry-qt;
         extraConfig = ''
           allow-loopback-pinentry
           allow-preset-passphrase
