@@ -21,6 +21,16 @@ let
                 variant:string:""
   '';
 
+  fcitx5-rime-overlay = self: super: {
+    fcitx5-rime = super.fcitx5-rime.override {
+      rime-data = null;
+      rimeDataPkgs = [
+        (self.runCommand "rime-data-nullify" {} "mkdir -p $out/share/rime-data")
+      ];
+    };
+  };
+
+
   xdgcfg = {
     xdg = {
       enable = true;
@@ -30,12 +40,14 @@ let
   };
 
   xcfg = {
+    nixpkgs.overlays = [ fcitx5-rime-overlay ];
+
     qt = {
       enable = true;
       platformTheme = "qtct";
       style = {
-        package = with pkgs; [ breeze-qt5 ];
-        name = "breeze";
+        package = [ ];
+        name = "fusion";
       };
     };
     # GTK needs dbus with dconf
@@ -45,12 +57,12 @@ let
         name = "monospace";
       };
       theme = {
-        name = "Breeze-Dark";
-        package = pkgs.breeze-gtk;
+        name = "Dracula";
+        package = pkgs.dracula-theme;
       };
       iconTheme = {
-        name = "breeze-dark";
-        package = pkgs.breeze-icons;
+        name = "Dracula";
+        package = pkgs.dracula-theme;
       };
     };
 
@@ -71,8 +83,8 @@ let
       dunst = {
         enable = true;
         iconTheme = {
-          name = "breeze-dark";
-          package = pkgs.breeze-icons;
+          name = "Dracula";
+          package = pkgs.dracula-icon-theme;
         };
 
         settings = {
@@ -195,8 +207,6 @@ let
         source-han-serif-simplified-chinese
         font-awesome
         deployFcitx5Rime
-
-        breeze-icons breeze-gtk breeze-qt5
       ];
     };
   };
