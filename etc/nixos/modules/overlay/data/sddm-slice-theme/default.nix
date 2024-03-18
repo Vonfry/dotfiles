@@ -13,7 +13,7 @@ stdenvNoCC.mkDerivation rec {
   meta = with lib; {
     license = licenses.cc-by-sa-40;
     maintainers = with maintainers; [ vonfry ];
-    homepage = https://github.com/RadRussianRus/sddm-slice;
+    homepage = "https://github.com/RadRussianRus/sddm-slice";
     description = "Simple dark SDDM theme with many customization options.";
   };
 }

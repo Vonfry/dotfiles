@@ -17,6 +17,18 @@
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
     };
   };
+  dracula-qt5-theme = {
+    pname = "dracula-qt5-theme";
+    version = "7b25ee305365f6e62efb2c7aca3b4635622b778c";
+    src = fetchFromGitHub {
+      owner = "dracula";
+      repo = "qt5";
+      rev = "7b25ee305365f6e62efb2c7aca3b4635622b778c";
+      fetchSubmodules = false;
+      sha256 = "sha256-tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=";
+    };
+    date = "2022-03-20";
+  };
   fcitx5-material-color = {
     pname = "fcitx5-material-color";
     version = "2256feeae48dcc87f19a3cfe98f171862f8fcace";

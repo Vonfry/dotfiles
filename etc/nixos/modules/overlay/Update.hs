@@ -54,11 +54,8 @@ packageSet (PkgSetArg {..}) = do
 
   define $ package "aria-ng"
       `sourceGitHub` ("mayswind", "AriaNg")
-      `fetchUrl` (\(Version v) ->
-        fromString $
-            printf
-            "https://github.com/mayswind/AriaNg/releases/download/%s/AriaNg-%s-AllInOne.zip"
-            v v)
+      `fetchGitHubRelease'` ("mayswind", "AriaNg", \(Version v) ->
+        fromString $ printf "AriaNg-%s-AllInOne.zip" v)
 
   define $ package "sddm-slice" `fromGitHub` ("RadRussianRus", "sddm-slice")
   define $ package "sddm-chili" `fromGitHub` ("MarianArlt", "sddm-chili")
@@ -70,3 +67,7 @@ packageSet (PkgSetArg {..}) = do
   define $ package "fortune-chinese"
       `sourceGit` "https://github.com/ruanyf/fortunes.git"
       `fetchGitHub` ("ruanyf", "fortunes")
+
+  define $ package "dracula-qt5-theme"
+      `sourceGit` "https://github.com/dracula/qt5.git"
+      `fetchGitHub` ("dracula", "qt5")

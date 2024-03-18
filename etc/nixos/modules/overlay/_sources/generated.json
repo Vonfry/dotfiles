@@ -29,6 +29,26 @@
         },
         "version": "2024-03-17"
     },
+    "dracula-qt5-theme": {
+        "cargoLocks": null,
+        "date": "2022-03-20",
+        "extract": null,
+        "name": "dracula-qt5-theme",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "dracula",
+            "repo": "qt5",
+            "rev": "7b25ee305365f6e62efb2c7aca3b4635622b778c",
+            "sha256": "sha256-tfUjAb+edbJ+5qar4IxWr4h3Si6MIwnbCrwI2ZdUFAM=",
+            "type": "github"
+        },
+        "version": "7b25ee305365f6e62efb2c7aca3b4635622b778c"
+    },
     "fcitx5-material-color": {
         "cargoLocks": null,
         "date": "2021-02-21",
