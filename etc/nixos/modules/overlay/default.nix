@@ -17,8 +17,6 @@ in {
 
     sddm-slice-theme = callPackage ./data/sddm-slice-theme { inherit sources; };
 
-    dracula-qt-theme = callPackage ./data/dracula-qt-theme { inherit sources; };
-
     fcitx5-theme = {
       material-color = sources.fcitx5-material-color.src;
 
