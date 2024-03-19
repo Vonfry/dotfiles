@@ -175,7 +175,6 @@ in {
           hledger-mode
           envrc
           ob-http
-          mpdel mpdel-embark
           org-contacts
           toc-org
           evil-collection
@@ -215,6 +214,7 @@ in {
           bufler
           daemons
           trashed
+          mpdired
         ];
       };
 
