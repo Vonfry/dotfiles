@@ -58,7 +58,6 @@ packageSet (PkgSetArg {..}) = do
         fromString $ printf "AriaNg-%s-AllInOne.zip" v)
 
   define $ package "sddm-slice" `fromGitHub` ("RadRussianRus", "sddm-slice")
-  define $ package "sddm-chili" `fromGitHub` ("MarianArlt", "sddm-chili")
 
   define $ package "vonfry-icon"
       `sourceManual` date

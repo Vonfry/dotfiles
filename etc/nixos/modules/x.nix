@@ -17,11 +17,9 @@ let
       xclip
       alacritty
       libnotify
-      vonfryPackages.sddm-slice-theme
       screenlocker
 
-      # need by sddm theme in path
-      libsForQt5.qtgraphicaleffects
+      sddm-chili-theme
     ];
 
     services.xbanish.enable = true;
