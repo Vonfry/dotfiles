@@ -228,7 +228,6 @@ in {
         };
         enable = true;
         extraConfig = {
-          pull.rebase = mkDefault true;
           rebase.autoSquash = mkDefault true;
           github.user = "Vonfry";
           gitlab.user = "Vonfry";
