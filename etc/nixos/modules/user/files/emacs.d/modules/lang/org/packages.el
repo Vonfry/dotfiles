@@ -269,9 +269,13 @@
   :general
   (nmap-leader
     "o p p" 'org-project-capture-project-todo-completing-read
-    "o p g" 'org-project-capture-goto-location-for-project)
+    "o p g" 'org-project-capture-goto-location-for-project
+    "o p S" 'org-project-capture-per-project
+    "o p s" 'org-project-capture-single-file)
+  :custom
+  (org-project-capture-projects-file
+   (expand-file-name "projects.org" +org-agenda-dir))
+  (org-project-capture-per-project-filepath "TODO.org")
   :config
   (setq org-project-capture-backend
-    (make-instance 'org-project-capture-project-backend))
-  (org-project-capture-per-project)
-  :ensure t)
+    (make-instance 'org-project-capture-project-backend)))
