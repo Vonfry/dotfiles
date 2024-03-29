@@ -1,0 +1,9 @@
+# key: html-orgcss
+# name: export to html orgcss style
+# type: snippet
+# uuid: 2fd0d71d-9d2a-414e-afc7-0d0f25348e13
+# --
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://gongzhitaao.org/orgcss/org.css"/>
+# Local Variables:
+# org-html-htmlize-output-type: css
+# End:

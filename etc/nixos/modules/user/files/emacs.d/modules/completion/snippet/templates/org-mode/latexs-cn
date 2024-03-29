@@ -1,0 +1,10 @@
+# key: latex-cn
+# name: export latex with cn config
+# type: snippet
+# uuid: 5a180aa8-1e40-4a10-bb28-7fbfa3cafd75
+# --
+#+LATEX_HEADER: \usepackage{ctex}
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \setmainfont{Source Han Serif SC}
+#+LATEX_HEADER: \setsansfont{Source Han Sans SC}
+#+LATEX_HEADER: \setmonofont{Sarasa Mono SC}

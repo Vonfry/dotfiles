@@ -1,0 +1,7 @@
+# key: latex-article
+# name: export latex article
+# type: snippet
+# uuid: 8471c497-52e3-414d-a840-0e88f24c113f
+# --
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper]

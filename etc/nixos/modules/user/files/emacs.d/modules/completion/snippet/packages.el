@@ -1,19 +1,19 @@
 ;;; snippet/packages.el --- -*- lexical-binding: t -*-
 ;;
 
-(use-package tempel
+(use-package yasnippet
   :after smart-tab
   :init
   (let ((snippet-local-dir (file-name-directory +snippet-local-path)))
     (unless (file-exists-p snippet-local-dir)
       (make-directory snippet-local-dir)))
   :custom
-  (tempel-path
-   (list +snippet-local-path
-         (expand-file-name "completion/snippet/templates/*.eld"
-                           vonfry-modules-dir)))
-  (tempel-auto-reload nil) ; disable it due to fixed file in home-manager
+  (yas-snippet-dirs
+   (list '+snippet-local-dir
+         (expand-file-name "completion/yasnippet/snippets" vonfry-modules-dir)
+         'yasnippet-snippets-dir))
   :general
-  ("C-;" 'tempel-insert))
-
-(use-package tempel-collection :after tempel)
+  ("C-;" 'yas-insert-snippet)
+  :config
+  (use-package yasnippet-snippets)
+  (yas-global-mode 1))

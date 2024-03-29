@@ -1,0 +1,8 @@
+# key: font
+# name: set font
+# type: snippet
+# uuid: 59ea3d7d-1a17-42ff-ba7e-db0d59b2e174
+# --
+\setmainfont{${0:Source Han Serif SC}}
+\setsansfont{${1:Source Han Sans SC}}
+\setmonofont{${2:Sarasa Mono SC}}

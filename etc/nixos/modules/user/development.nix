@@ -197,8 +197,6 @@ in {
           julia-mode
           julia-repl
           eglot-jl
-          tempel
-          tempel-collection
           flymake-collection
           consult-eglot
           openpgp
@@ -215,6 +213,8 @@ in {
           daemons
           trashed
           mpdired
+          yasnippet
+          yasnippet-snippets
         ];
       };
 

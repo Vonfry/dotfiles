@@ -1,0 +1,8 @@
+# key: cjk-font
+# name: set cjk font
+# type: snippet
+# uuid: 0f62ec0a-0444-4d16-ae84-bf0931beb3e3
+# --
+\setmainfont{${0:Source Han Serif SC}}
+\setsansfont{${0:Source Han Sans SC}}
+\setmonofont{${1:Sarasa Mono SC}}
