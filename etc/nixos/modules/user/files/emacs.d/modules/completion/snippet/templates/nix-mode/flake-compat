@@ -1,0 +1,8 @@
+# key: flake-compat
+# name: a default.nix to use flake info
+# type: snippet
+# uuid: f1c5e0b2-3532-43a2-8be6-6d68a439a29e
+# --
+(import (fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz") {
+  src = builtins.fetchGit ./.;
+}).defaultNix

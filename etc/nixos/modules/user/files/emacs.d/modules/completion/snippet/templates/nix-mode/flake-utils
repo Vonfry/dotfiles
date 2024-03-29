@@ -1,0 +1,24 @@
+# key: flake-utils
+# name: a flake template with flake utils
+# type: snippet
+# uuid: b2062805-bf30-4702-8c89-31068d68e3f1
+# --
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+    let
+      pkgs = import nixpkgs { localSystem = system };
+    in {
+      packages = {
+      };
+      devShells = {
+        default = pkgs.mkShell {
+          packages = [ $0 ];
+        };
+      };
+    });
+}
