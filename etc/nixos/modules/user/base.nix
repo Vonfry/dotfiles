@@ -3,8 +3,6 @@
 with lib;
 let
   cfg = config.vonfry;
-
-  inherit (config.xdg) configHome;
 in {
   config = mkIf cfg.enable {
     xdg.configFile = {
