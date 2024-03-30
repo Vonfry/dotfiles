@@ -70,7 +70,7 @@ let
       platformTheme = "qtct";
       style = {
         package = [ ];
-        name = "fusion";
+        name = "Fusion";
       };
     };
     # GTK needs dbus with dconf
