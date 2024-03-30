@@ -12,7 +12,7 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-    - [X] ly replaces sddm
+    - [X] greetd replaces sddm
 ** home-manager[0/1]
 *** TODO remove bash enable for emacs service after pr 2709 merged
 * Editor

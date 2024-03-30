@@ -94,8 +94,13 @@ let
 
     xsession = {
       enable = true;
-      windowManager.command = ''test -n "$1" && eval "$@"'';
-
+      scriptPath = ".xinitrc";
+      windowManager = {
+        xmonad = {
+          enable = true;
+          enableContribAndExtras = true;
+        };
+      };
     };
 
     services = {
