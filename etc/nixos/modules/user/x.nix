@@ -102,6 +102,11 @@ let
       };
     };
 
+    i18n.inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [ fcitx5-rime ];
+    };
+
     programs = {
       alacritty = {
         settings = import ./files/alacritty.nix;
@@ -113,9 +118,6 @@ let
       enable = true;
       scriptPath = ".xinitrc";
       initExtra = ''
-        # A fix from nixos xsession wrapper to ensure graphical session started.
-        /run/current-system/systemd/bin/systemctl --user start nixos-fake-graphical-session.target
-        /run/current-system/systemd/bin/systemctl --user start xdg-autostart-if-no-desktop-manager.target
         ${pkgs.feh}/bin/feh --bg-center ${bgFile}
       '';
       windowManager = {

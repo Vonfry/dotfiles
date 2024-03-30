@@ -36,8 +36,6 @@ let
         mouse.accelProfile = "flat";
       };
 
-      desktopManager.runXdgAutostartIfNone = true;
-
       displayManager.startx.enable = true;
     };
 
@@ -47,11 +45,6 @@ let
         enable = true;
         openFirewall = true;
       };
-    };
-
-    i18n.inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-rime ];
     };
 
     fonts = {
