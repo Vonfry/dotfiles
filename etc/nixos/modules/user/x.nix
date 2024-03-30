@@ -37,6 +37,23 @@ let
 
   lockCmd = "${screenlocker}/bin/screenlocker";
 
+  # TODO use this instead of home.files after
+  # github:nix-community/home-manager#5203 is merged
+  xmonad-dir = ./files/xmonad;
+  xmonad-main = xmonad-dir + "/xmonad.hs";
+  xmonad-libdir = xmonad-dir + "/lib";
+  genAttrSet = pathPrefix: dirPath:
+    foldlAttrs (acc: name: type:
+      let
+        curPathname = "${pathPrefix}${name}";
+        curPath = xmonad-libdir + "/${pathPrefix}${name}";
+      in
+      if type == "directory"
+      then acc // genAttrSet "${curPathname}/" curPath
+      else acc // { "${curPathname}" = curPath; }
+    ) { } (builtins.readDir dirPath);
+  xmonad-libFiles = genAttrSet "" xmonad-libdir ;
+
   xdgcfg = {
     xdg = {
       enable = true;
@@ -96,6 +113,8 @@ let
       enable = true;
       scriptPath = ".xinitrc";
       initExtra = ''
+        # A fix from nixos xsession wrapper to ensure graphical session started.
+        /run/current-system/systemd/bin/systemctl --user start nixos-fake-graphical-session.target
         ${pkgs.feh}/bin/feh --bg-center ${bgFile}
       '';
       windowManager = {
@@ -119,7 +138,7 @@ let
         timers = [
           {
             delay = cfg.durationSuspend;
-            command = "systemctl suspend";
+            command = "/run/current-system/systemd/bin/systemctl suspend";
           }
         ];
       };
@@ -250,6 +269,8 @@ let
         source-han-serif-simplified-chinese
         font-awesome
         deployFcitx5Rime
+
+        screenlocker
       ];
     };
   };
