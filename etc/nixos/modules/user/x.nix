@@ -30,6 +30,12 @@ let
     };
   };
 
+  screenlocker = pkgs.writeScriptBin "screenlocker" ''
+    #!${pkgs.bash}/bin/bash -e
+    exec ${pkgs.i3lock-color}/bin/i3lock-color -c 282a36 --indicator -k -B 1 --inside-color=282a36 --insidewrong-color=282a36 --insidever-color=282a36 --ringver-color=bd93f9 --ringwrong-color=ff79c6 --ring-color=44475a --line-color=6272a4 --keyhl-color=f1fa8c --bshl-color=ff5555 --verif-color=bd93f9 --wrong-color=ff79c6 --time-color=f8f8f2 --date-color=6272a4 "$@"
+  '';
+
+  lockCmd = "${screenlocker}/bin/screenlocker";
 
   xdgcfg = {
     xdg = {
@@ -93,6 +99,22 @@ let
     };
 
     services = {
+      screen-locker = {
+        enable = true;
+        inherit lockCmd;
+        xautolock.enable = false;
+        xss-lock = {};
+      };
+      xidlehook = {
+        enable = true;
+        not-when-audio = true;
+        timers = [
+          {
+            delay = cfg.durationSuspend;
+            command = "systemctl suspend";
+          }
+        ];
+      };
       dunst = {
         enable = true;
         iconTheme = {
@@ -231,6 +253,12 @@ in {
       default = defaultBgFile;
       type = types.path;
       description = "The background file.";
+    };
+
+    durationSuspend = mkOption {
+      default = 1800;
+      type = types.int;
+      description = "The no activation duration before system suspending. unit: second.";
     };
   };
 
