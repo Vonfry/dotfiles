@@ -130,8 +130,6 @@ let
           restore_paused "yes"
         '';
       };
-
-      easyeffects.enable = true;
     };
 
     home = {
