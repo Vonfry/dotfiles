@@ -14,6 +14,10 @@ let
       shell = pkgs.zsh;
     };
 
+    programs = {
+      weylus.users = [ "vonfry" ];
+    };
+
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;

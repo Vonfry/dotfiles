@@ -84,16 +84,15 @@ key conf = mkKeymap conf
     , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")
     , ("M-o f", spawn "zathura"     )
-    , ("M-o k", spawn "helvum"      )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
     , ("M-$", runInTerm "-t top"  "btop")
 
-    , ("M-S-s r", spawn "systemctl reboot"   )
-    , ("M-S-s s", spawn "systemctl suspend"  )
-    , ("M-S-s h", spawn "systemctl hibernate")
-    , ("M-S-s o", spawn "systemctl poweroff" )
-    , ("M-s",     spawn "screenlocker"       ) -- a wrapped script
+    , ("M-S-s r", spawn "reboot"   )
+    , ("M-S-s s", spawn "suspend"  )
+    , ("M-S-s h", spawn "hibernate")
+    , ("M-S-s o", spawn "poweroff" )
+    , ("M-s",     spawn "screenlocker") -- a wrapped script
 
     , ("M-n",   spawn "dunstctl close"      )
     , ("M-S-n", spawn "dunstctl close-all"  )

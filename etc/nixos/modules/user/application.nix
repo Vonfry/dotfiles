@@ -103,7 +103,6 @@ let
 
       packages = with pkgs; [
         flameshot
-        helvum
         libreoffice
 
         virt-manager

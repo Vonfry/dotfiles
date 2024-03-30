@@ -46,7 +46,6 @@ let
       weylus = {
         enable = true;
         openFirewall = true;
-        users = [ "vonfry" ];
       };
     };
 

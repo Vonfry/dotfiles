@@ -139,7 +139,7 @@ let
         timers = [
           {
             delay = cfg.durationSuspend;
-            command = "/run/current-system/systemd/bin/systemctl suspend";
+            command = "suspend";
           }
         ];
       };
