@@ -100,5 +100,5 @@
   # };
 
 
-  # environment.systemPackages = with pkgs; [ nvtop intel-gpu-tools ];
+  # environment.systemPackages = with pkgs; [ nvtopPackages.intel intel-gpu-tools ];
 }
