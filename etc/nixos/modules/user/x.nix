@@ -64,6 +64,10 @@ let
         name = "Dracula";
         package = pkgs.dracula-theme;
       };
+      cursorTheme = {
+        name = "Dracula-cursors";
+        package = pkgs.dracula-theme;
+      };
     };
 
     programs = {
