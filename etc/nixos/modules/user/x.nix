@@ -57,7 +57,7 @@ let
         name = "monospace";
       };
       theme = {
-        name = "Dracula-dark";
+        name = "Dracula";
         package = pkgs.dracula-theme;
       };
       iconTheme = {
