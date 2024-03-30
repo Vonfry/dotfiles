@@ -27,7 +27,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2024-03-17"
+        "version": "2024-03-30"
     },
     "dracula-qt5-theme": {
         "cargoLocks": null,
@@ -111,7 +111,7 @@
     },
     "rime-cangjie": {
         "cargoLocks": null,
-        "date": "2023-12-11",
+        "date": "2024-03-25",
         "extract": null,
         "name": "rime-cangjie",
         "passthru": null,
@@ -123,11 +123,11 @@
             "name": null,
             "owner": "rime",
             "repo": "rime-cangjie",
-            "rev": "75b10325bf4c590a3ffef7039a6f052a729edc55",
-            "sha256": "sha256-5Ku2dO1qULadIocOq4dYHx+p2HhvqCtz7h//wos19RY=",
+            "rev": "0ac8452eeb4abbcd8dd1f9e7314012310743285f",
+            "sha256": "sha256-v8n3+73l9YbTexpA9C2356quioRwFRVcBY0IncolVoY=",
             "type": "github"
         },
-        "version": "75b10325bf4c590a3ffef7039a6f052a729edc55"
+        "version": "0ac8452eeb4abbcd8dd1f9e7314012310743285f"
     },
     "rime-japanese": {
         "cargoLocks": null,
@@ -171,7 +171,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2024-03-17",
+        "date": "2024-03-22",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -183,31 +183,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "fb7d62b0b8e62e0e9047b29f3135886196c88a3d",
-            "sha256": "sha256-YB69n2LCrd9b+XNjGg2khlmPYV3jHc6Jpk1QKP2OhG0=",
+            "rev": "f55abbe8254ffea41b1044a7b2760ea08b36d9ca",
+            "sha256": "sha256-bEsQYohk3YUgcYCps71iDS1TVZxrEE4jIjhzs8xpVDQ=",
             "type": "github"
         },
-        "version": "fb7d62b0b8e62e0e9047b29f3135886196c88a3d"
-    },
-    "sddm-chili": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "sddm-chili",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "MarianArlt",
-            "repo": "sddm-chili",
-            "rev": "0.1.5",
-            "sha256": "sha256-wxWsdRGC59YzDcSopDRzxg8TfjjmA3LHrdWjepTuzgw=",
-            "type": "github"
-        },
-        "version": "0.1.5"
+        "version": "f55abbe8254ffea41b1044a7b2760ea08b36d9ca"
     },
     "sddm-slice": {
         "cargoLocks": null,
@@ -242,6 +222,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2024-03-17"
+        "version": "2024-03-30"
     }
 }

@@ -11,7 +11,7 @@
   };
   background-image = {
     pname = "background-image";
-    version = "2024-03-17";
+    version = "2024-03-30";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -67,15 +67,15 @@
   };
   rime-cangjie = {
     pname = "rime-cangjie";
-    version = "75b10325bf4c590a3ffef7039a6f052a729edc55";
+    version = "0ac8452eeb4abbcd8dd1f9e7314012310743285f";
     src = fetchFromGitHub {
       owner = "rime";
       repo = "rime-cangjie";
-      rev = "75b10325bf4c590a3ffef7039a6f052a729edc55";
+      rev = "0ac8452eeb4abbcd8dd1f9e7314012310743285f";
       fetchSubmodules = false;
-      sha256 = "sha256-5Ku2dO1qULadIocOq4dYHx+p2HhvqCtz7h//wos19RY=";
+      sha256 = "sha256-v8n3+73l9YbTexpA9C2356quioRwFRVcBY0IncolVoY=";
     };
-    date = "2023-12-11";
+    date = "2024-03-25";
   };
   rime-japanese = {
     pname = "rime-japanese";
@@ -103,26 +103,15 @@
   };
   rime-wubi86-jidian = {
     pname = "rime-wubi86-jidian";
-    version = "fb7d62b0b8e62e0e9047b29f3135886196c88a3d";
+    version = "f55abbe8254ffea41b1044a7b2760ea08b36d9ca";
     src = fetchFromGitHub {
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "fb7d62b0b8e62e0e9047b29f3135886196c88a3d";
+      rev = "f55abbe8254ffea41b1044a7b2760ea08b36d9ca";
       fetchSubmodules = false;
-      sha256 = "sha256-YB69n2LCrd9b+XNjGg2khlmPYV3jHc6Jpk1QKP2OhG0=";
+      sha256 = "sha256-bEsQYohk3YUgcYCps71iDS1TVZxrEE4jIjhzs8xpVDQ=";
     };
-    date = "2024-03-17";
-  };
-  sddm-chili = {
-    pname = "sddm-chili";
-    version = "0.1.5";
-    src = fetchFromGitHub {
-      owner = "MarianArlt";
-      repo = "sddm-chili";
-      rev = "0.1.5";
-      fetchSubmodules = false;
-      sha256 = "sha256-wxWsdRGC59YzDcSopDRzxg8TfjjmA3LHrdWjepTuzgw=";
-    };
+    date = "2024-03-22";
   };
   sddm-slice = {
     pname = "sddm-slice";
@@ -137,7 +126,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2024-03-17";
+    version = "2024-03-30";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
