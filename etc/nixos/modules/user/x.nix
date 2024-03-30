@@ -95,6 +95,9 @@ let
     xsession = {
       enable = true;
       scriptPath = ".xinitrc";
+      initExtra = ''
+        ${pkgs.feh}/bin/feh --bg-center ${bgFile}
+      '';
       windowManager = {
         xmonad = {
           enable = true;
