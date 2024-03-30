@@ -1,6 +1,6 @@
 * System
 ** NixOS[0/0]
-*** TODO X [10/11]
+*** TODO X [11/12]
     - [X] XMonad
     - [X] XMonad layout prompt with newlayout
     - [X] XMonad by custom lib
@@ -12,7 +12,8 @@
     - [X] sddm with chili instead of lightdm
     - [X] qgtk3 or qgnomeplatform support (wait for fix)
     - [X] [[https://github.com/dracula/alacritty/pull/8/files][alacritty update config]]
-** home-manager[5/6]
+    - [X] ly replaces sddm
+** home-manager[0/1]
 *** TODO remove bash enable for emacs service after pr 2709 merged
 * Editor
 ** Emacs[0/1]

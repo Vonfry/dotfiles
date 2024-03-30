@@ -3,10 +3,6 @@
 with lib;
 let
   cfg = config.vonfry;
-  vonfryFace = with pkgs; runCommandNoCC "" {} ''
-    mkdir -p $out/share/sddm/faces/
-    ln -s ${vonfryPackages.iconFace} $out/share/sddm/faces/vonfry.face.icon
-  '';
   userconfig = {
     users.motd = builtins.readFile ./files/motd;
 
@@ -33,7 +29,6 @@ let
 
   xconfig = {
     services.xserver.desktopManager.wallpaper.mode = "center";
-    environment.systemPackages = [ cfg.facePackage ];
   };
 in {
 
@@ -45,13 +40,6 @@ in {
       [ "vonfry" "userConfiguration" ]
       [ "users" "users" "vonfry" ])
   ];
-
-  options.vonfry.facePackage = mkOption {
-    default = vonfryFace;
-    description =
-      "A face picture for sddm under sddm/faces named <user>.face.icon.";
-    type = types.package;
-  };
 
   config = mkMerge [
     (mkIf cfg.enable userconfig)
