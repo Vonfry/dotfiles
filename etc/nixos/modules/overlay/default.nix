@@ -13,8 +13,6 @@ in {
 
     desktopBackground = sources.background-image.src;
 
-    sddm-slice-theme = callPackage ./data/sddm-slice-theme { inherit sources; };
-
     fcitx5-theme = {
       material-color = sources.fcitx5-material-color.src;
 

@@ -57,8 +57,6 @@ packageSet (PkgSetArg {..}) = do
       `fetchGitHubRelease'` ("mayswind", "AriaNg", \(Version v) ->
         fromString $ printf "AriaNg-%s-AllInOne.zip" v)
 
-  define $ package "sddm-slice" `fromGitHub` ("RadRussianRus", "sddm-slice")
-
   define $ package "vonfry-icon"
       `sourceManual` date
       `fetchUrl` const "https://vonfry.name/images/default/logo-white.png";
@@ -66,7 +64,3 @@ packageSet (PkgSetArg {..}) = do
   define $ package "fortune-chinese"
       `sourceGit` "https://github.com/ruanyf/fortunes.git"
       `fetchGitHub` ("ruanyf", "fortunes")
-
-  define $ package "dracula-qt5-theme"
-      `sourceGit` "https://github.com/dracula/qt5.git"
-      `fetchGitHub` ("dracula", "qt5")
