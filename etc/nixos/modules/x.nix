@@ -12,20 +12,76 @@ let
 
   lockCommand = "${screenlocker}/bin/screenlocker";
 
+  # Remove ly relatived config after github:nixos/nixpkgs#297234 is merged.
+  dmcfg = config.services.xserver.displayManager;
+  xEnv = config.systemd.services.display-manager.environment;
+
+  ly = pkgs.ly.overrideAttrs {
+    src = pkgs.fetchFromGitHub {
+      owner = "fairyglade";
+      repo = "ly";
+      rev = "4ee2b3ecc73882cfecdbe2162d4fece406a110e7";
+      hash = "sha256-puv8QCM6Vt/9WmJd9CLQIhVl7r1aVO64zopIrgMPGhw=";
+      fetchSubmodules = true;
+    };
+  };
+
+  iniFmt = pkgs.formats.iniWithGlobalSection { };
+
+  xserverWrapper = pkgs.writeShellScript "xserver-wrapper" ''
+    ${concatMapStrings (n: "export ${n}=\"${getAttr n xEnv}\"\n") (attrNames xEnv)}
+    exec systemd-cat -t xserver-wrapper ${dmcfg.xserverBin} ${toString dmcfg.xserverArgs} "$@"
+  '';
+  ly-data-wrapper = pkgs.linkFarm "ly-data-wrapper" {
+    "bin/xauth" = "${pkgs.xorg.xauth}/bin/xauth";
+    "bin/ly-xserver" = xserverWrapper;
+    "share/ly" = "${dmcfg.sessionData.desktops}/share";
+    "bin/ly-session" = dmcfg.sessionData.wrapper;
+  };
+
+  lyConfig = {
+      shutdown_cmd = "/run/current-system/systemd/bin/systemctl poweroff";
+      restart_cmd = "/run/current-system/systemd/bin/systemctl reboot";
+      tty = 2;
+      service_name = "ly";
+      path = "/run/current-system/sw/bin";
+      term_reset_cmd = "tput reset";
+      mcookie_cmd = "/run/current-system/sw/bin/mcookie";
+      waylandsessions = "/run/current-system/sw/share/ly/wayland-sessions";
+      wayland_cmd = "/run/current-system/sw/bin/ly-session";
+      xsessions = "/run/current-system/sw/share/ly/xsessions";
+      xauth_cmd = "/run/current-system/sw/bin/xauth";
+      x_cmd = "/run/current-system/sw/bin/ly-xserver";
+      x_cmd_setup = "/run/current-system/sw/bin/ly-session";
+  };
+
+  lyCfgFile = iniFmt.generate "config.ini" { globalSection = lyConfig; };
+
   xconfig = {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = (with pkgs; [
       xclip
       alacritty
       libnotify
       screenlocker
+    ]) ++ [ ly ly-data-wrapper ];
 
-      sddm-chili-theme
-    ];
+    environment.etc."ly/config.ini".source = lyCfgFile;
+    environment.pathsToLink = [ "/share/ly" ];
+    security.pam.services.ly = {
+      startSession = true;
+      unixAuth = true;
+    };
 
     services.xbanish.enable = true;
 
+
+    services.dbus.packages = [ ly ];
     services.xserver = {
       enable = true;
+      displayManager.job.execCmd = "exec /run/current-system/sw/bin/ly";
+      # To enable user switching, allow ly to allocate TTYs/displays dynamically.
+      tty = null;
+      display = null;
       xkb = {
         layout = "us";
         variant = mkDefault "dvp";
@@ -40,10 +96,7 @@ let
       desktopManager.runXdgAutostartIfNone = true;
 
       displayManager= {
-        sddm = {
-          enable = true;
-          theme = "slice";
-        };
+        lightdm.enable = false;
       };
       windowManager = {
         xmonad = {
@@ -67,6 +120,27 @@ let
     };
 
     systemd = {
+      services.display-manager = {
+        enable = true;
+        after = [
+          "systemd-user-sessions.service"
+          "plymouth-quit-wait.service"
+          "getty@tty${toString lyConfig.tty}.service"
+        ];
+
+        conflicts = [
+          "getty@tty7.service"
+        ];
+
+        serviceConfig = {
+          Type = "idle";
+          StandardInput = "tty";
+          TTYPath = "/dev/tty${toString lyConfig.tty}";
+          TTYReset = "yes";
+          TTYHangup = "yes";
+        };
+      };
+
       # Make screen locker in system due to security consider.
       user.services = {
         xidlehook = {
@@ -97,8 +171,6 @@ let
         source-han-serif-simplified-chinese
 
         font-awesome
-        # need for sddm
-        roboto
       ];
       fontconfig = {
         enable = true;
