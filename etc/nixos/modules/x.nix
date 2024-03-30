@@ -24,6 +24,12 @@ let
       hash = "sha256-puv8QCM6Vt/9WmJd9CLQIhVl7r1aVO64zopIrgMPGhw=";
       fetchSubmodules = true;
     };
+
+    nativeBuildInputs = [ pkgs.makeBinaryWrapper ];
+
+    postFixup = ''
+      wrapProgram $out/bin/ly --prefix PATH : ${makeBinPath [pkgs.ncurses]}
+    '';
   };
 
   iniFmt = pkgs.formats.iniWithGlobalSection { };
