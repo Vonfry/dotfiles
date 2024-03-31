@@ -5,7 +5,7 @@
   :general
   (nmap-at
     "m m"   'mpdired
-    "m SPC" 'mpdired-pause-internal
-    "m v"   'mpdired-set-volume-internal
+    "m SPC" 'mpdired-pause
+    "m v"   'mpdired-set-volume
     "m s"   'mpdired-stop
     "m r"   'mpdired-db-update))
