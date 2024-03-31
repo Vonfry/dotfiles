@@ -164,8 +164,8 @@ in {
           mvi = "\${aliases[mv]:-mv} -i";
           cpi = "\${aliases[cp]:-cp} -i";
           lni = "\${aliases[ln]:-ln} -i";
-          pbcopy = "xclip -selection clipboard -in";
-          pbpaste = "xclip -selection clipboard -out";
+          clipin = "xclip -selection clipboard -in";
+          clipout = "xclip -selection clipboard -out";
           get = "curl --continue-at - --location --progress-bar --remote-name --remote-time";
           http-serve = "nix run 'sys#simple-http-server' --";
 
