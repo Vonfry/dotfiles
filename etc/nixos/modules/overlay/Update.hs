@@ -52,11 +52,6 @@ packageSet (PkgSetArg {..}) = do
       `sourceManual` date
       `fetchUrl` const "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
 
-  define $ package "aria-ng"
-      `sourceGitHub` ("mayswind", "AriaNg")
-      `fetchGitHubRelease'` ("mayswind", "AriaNg", \(Version v) ->
-        fromString $ printf "AriaNg-%s-AllInOne.zip" v)
-
   define $ package "vonfry-icon"
       `sourceManual` date
       `fetchUrl` const "https://vonfry.name/images/default/logo-white.png";

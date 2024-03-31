@@ -5,8 +5,6 @@ let
   cfg = config.vonfry.net;
   cfg' = config.vonfry;
 
-  ishome = cfg'.workspace.home;
-
   whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
 
   netcfg = {
@@ -42,13 +40,28 @@ let
     warnings = optional (cfg.email == null) "email isn't set, so emacs module is disabled.";
 
     home = {
-      packages = with pkgs; [ curl rsync iftop ];
+      packages = with pkgs; [
+        curl
+        rsync
+        iftop
+
+      ];
+
+      shellAliases = {
+        aria2-server = "aria2c --enable-rpc --rpc-allow-origin-all";
+      };
     };
 
     programs = {
       mbsync.enable = true;
       mu.enable = true;
       msmtp.enable = true;
+      aria2 = {
+        enable = true;
+        settings = {
+          dir = "/tmp";
+        };
+      };
     };
 
     xdg = {
@@ -58,19 +71,6 @@ let
         })
       ];
     };
-  };
-
-  homecfg = {
-    programs.aria2 = {
-      enable = true;
-      settings = {
-        enable-rpc = true;
-        all-proxy = "http://127.0.0.1:1081";
-        dir = "/tmp";
-      };
-    };
-
-    home.packages = [ pkgs.vonfryPackages.aria2Ng.open ];
   };
 
   xcfg = {
@@ -105,6 +105,5 @@ in {
     { vonfry.net.enable = cfg'.enable; }
     (mkIf cfg.enable netcfg)
     (mkIf (cfg.enable && cfg'.x.enable) xcfg)
-    (mkIf (cfg.enable && ishome) homecfg)
   ];
 }

@@ -18,10 +18,5 @@ in {
 
       nord = sources.fcitx5-nord.src;
     };
-
-    aria2Ng = callPackage ./tools/networking/aria2/aria2-ng.nix {
-      inherit sources;
-    };
-
   };
 }
