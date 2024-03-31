@@ -61,11 +61,16 @@ let
   };
 
   homecfg = {
-    home = {
-      packages = with pkgs; [
-        qbittorrent
-      ];
+    programs.aria2 = {
+      enable = true;
+      settings = {
+        enable-rpc = true;
+        all-proxy = "http://127.0.0.1:1081";
+        dir = "/tmp";
+      };
     };
+
+    home.packages = [ pkgs.vonfryPackages.aria2Ng.open ];
   };
 
   xcfg = {
