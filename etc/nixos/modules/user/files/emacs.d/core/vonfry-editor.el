@@ -30,7 +30,7 @@
   (unless (file-exists-p tmp-dir)
     (make-directory tmp-dir)))
 
-(setq-default
+(setopt
   whitespace-style '(face trailing lines-tail)
   case-fold-search t
   line-spacing 0

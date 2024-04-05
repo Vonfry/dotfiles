@@ -81,7 +81,7 @@ in {
         "emacs/local/pre-custom.el".text =
           concatStringsSep "\n" [
             ''
-            (setq-default
+            (setopt
               vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
                 cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")

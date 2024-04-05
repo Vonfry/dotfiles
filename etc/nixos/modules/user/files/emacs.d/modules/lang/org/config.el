@@ -28,7 +28,7 @@
 (defconst +org-roam-local-dir (expand-file-name "org/roam" vonfry-local-dir))
 
 (defun +org--roam-set-path (path)
-  (setq-default
+  (setopt
    org-roam-directory path
    org-roam-db-location (expand-file-name
                          (replace-regexp-in-string

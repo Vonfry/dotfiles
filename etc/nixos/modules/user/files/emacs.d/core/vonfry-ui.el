@@ -73,7 +73,7 @@ THEME is a symbol passed to `load-theme'"
 (add-hook (if (daemonp) 'server-after-make-frame-hook 'after-init-hook)
           'vonfry--set-font-graphic)
 
-(setq-default
+(setopt
   inhibit-startup-screen t
   inhibit-startup-echo-area-message t
 

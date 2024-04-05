@@ -61,6 +61,6 @@ can only custom the var in init file, I think.")
   (unless (file-exists-p dir)
     (make-directory dir t)))
 
-(setq-default custom-file vonfry-custom-file)
+(setopt custom-file vonfry-custom-file)
 
 (provide 'vonfry-local)

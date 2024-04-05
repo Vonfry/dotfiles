@@ -14,7 +14,7 @@
 
 ;; define some variables for packages
 ;;
-;; Use `setq-default' everywhere to config the varibles with defcustom before
+;; Use `setopt' everywhere to config the varibles with defcustom before
 ;; package is loaded. This can avoid saving value into `custom-file'.
 ;; In other words, you should custom modules in `vonfry-custom-file-before'
 ;; which is loaded before all modules.
@@ -37,7 +37,7 @@ If t, package.el is used to install packages automatically."
   :type 'boolean
   :group 'vonfry)
 
-(setq-default
+(setopt
  ;; nix replaces package.el to manage but we also set it.
  package-user-dir (expand-file-name "packages" vonfry-local-dir)
  use-package-always-demand t

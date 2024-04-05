@@ -57,7 +57,7 @@
   ((ement-room-compose . ement-room-compose-org)
    (server-after-make-frame .
      (lambda (&rest _)
-       (custom-set-variables '(ement-room-images t)))))
+       (setopt ement-room-images t))))
   :general
   (nmap-at
     "e" 'ement-connect
