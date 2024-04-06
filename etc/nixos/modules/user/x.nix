@@ -37,8 +37,6 @@ let
 
   lockCmd = "${screenlocker}/bin/screenlocker";
 
-  # TODO use this instead of home.files after
-  # github:nix-community/home-manager#5203 is merged
   xmonad-dir = ./files/xmonad;
   xmonad-main = xmonad-dir + "/xmonad.hs";
   xmonad-libdir = xmonad-dir + "/lib";
@@ -124,6 +122,8 @@ let
         xmonad = {
           enable = true;
           enableContribAndExtras = true;
+          config = xmonad-main;
+          libFiles = xmonad-libFiles;
         };
       };
     };
@@ -248,13 +248,6 @@ let
         [ "writeBoundary" "linkGeneration" ] ''
         [ -h "${bgFile}" ] || ln -s ${cfg.bgFile} ${bgFile}
       '';
-
-      file = {
-        ".xmonad" = {
-          source = ./files/xmonad;
-          recursive = true;
-        };
-      };
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;

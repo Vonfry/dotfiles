@@ -130,7 +130,6 @@ key conf = mkKeymap conf
 
     -- quit, or restart
     , ("M-S-q", io (exitWith ExitSuccess))
-    , ("M-q"  , spawn "xmonad --recompile && xmonad --restart")
 
     -- screenshot
     , ("M-a"  , spawn "flameshot gui   ")
