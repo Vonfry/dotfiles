@@ -7,6 +7,11 @@ let
   isenable = cfg.application.enable;
   ishome = config.vonfry.workspace.home;
 
+
+  sessionVariables = config.home.sessionVariables;
+
+  hasLedger = sessionVariables ? LEDGER_FILE;
+
   appcfg = {
     programs = {
       gpg = {
@@ -23,10 +28,11 @@ let
 
     };
 
-    vonfry.development.emacs.excludeModules =
-      optional (!config.services.mpd.enable) "tools/mpd" ++
-      optionals (!ishome) [ "tools/blog" "tools/feed" "misc/gnus" "tools/ledge"
-                          ];
+    vonfry.development.emacs.excludeModules = mkMerge [
+      (optional (!config.services.mpd.enable) "tools/mpd")
+      (optionals (!ishome) [ "tools/blog" "tools/feed" ])
+      (optional (!ishome || !hasLedger) "tools/ledger")
+    ];
 
     services = {
       gpg-agent = {

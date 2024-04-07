@@ -4,13 +4,8 @@ with lib;
 let
   cfg = config.vonfry;
 
-  sessionVariables = config.home.sessionVariables;
-
-  hasLedger = sessionVariables ? LEDGER_FILE;
-
 in {
   config = mkIf cfg.enable {
-    vonfry.development.emacs.excludeModules = optional (!hasLedger) "tools/ledger";
 
     warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
 

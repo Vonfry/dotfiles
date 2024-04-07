@@ -67,10 +67,6 @@ in {
   config = mkIf cfg'.enable {
     warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
 
-    vonfry.development.emacs.excludeModules = mkIf (!ishome) [
-        "tools/blog" "tools/feed" "tools/ledger"
-    ];
-
     xdg = {
       configFile = {
         "emacs" = {
