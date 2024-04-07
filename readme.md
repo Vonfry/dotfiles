@@ -31,8 +31,8 @@ The topic is not deprecated, but it is not the default one and may be useless.
 
 ## command-line
 
-- [x] zsh
-- [x] ~~fish~~
+- [x] ~~zsh~~
+- [x] fish
 
 ## Window Manager
 

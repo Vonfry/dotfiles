@@ -11,7 +11,7 @@ let
       home = "/home/vonfry";
       description = "Vonfry";
       extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
-      shell = pkgs.zsh;
+      shell = pkgs.bash;
     };
 
     programs = {

@@ -5,13 +5,7 @@ let
   cfg = config.vonfry;
 in {
   config = mkIf cfg.enable {
-    programs = {
-      zsh = {
-        enable = true;
-        enableCompletion = true;
-        enableGlobalCompInit = false;
-      };
-    };
+    programs.command-not-found.enable = false;
 
     console = {
       font = "ter-v12n";

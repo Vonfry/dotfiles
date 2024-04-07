@@ -242,25 +242,10 @@ in {
 
       direnv = {
         enable = true;
-        enableZshIntegration = true;
         nix-direnv = {
           enable = true;
         };
-        stdlib = ''
-          declare -A direnv_layout_dirs
-          direnv_layout_dir() {
-              echo "''${direnv_layout_dirs[$PWD]:=$(
-                  echo -n "$XDG_CACHE_HOME"/direnv/layouts/
-                  echo -n "$PWD" | shasum | cut -d ' ' -f 1
-              )}"
-          }
-        '';
       };
-      zsh.initExtra = ''
-        # this is a source file instead of autoloaded function file, so let us
-        # source it!
-        source ${pkgs.gitAndTools.git-extras}/share/zsh/site-functions/_git_extras
-      '';
     };
 
     home = {

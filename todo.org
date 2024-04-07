@@ -42,11 +42,8 @@
    CLOSED: [2020-12-09 Wed 08:49]
 ** DONE LaTex
 * Shell
-** ZSH[2/2]
-   CLOSED: [2021-06-01 Tue 15:11]
-   - [X] fzf as completion
-   - [X] fzf-tab use nixpkgs version and remove overlay(note: change load path)
-
+** DONE Fish
+   CLOSED: [2024-04-07 Sun 14:47]
 * Utils
 ** Nix[4/4]
 ** Browser[1/1]

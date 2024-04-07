@@ -1,4 +1,7 @@
 {
+  shell = {
+    program = "fish";
+  };
   window = {
     padding = {
       x = 4;
