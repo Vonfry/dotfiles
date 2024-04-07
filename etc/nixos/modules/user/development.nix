@@ -207,6 +207,7 @@ in {
           ob-chatgpt-shell ob-dall-e-shell
           bufler
           daemons
+          journalctl-mode
           trashed
           mpdired
           yasnippet
