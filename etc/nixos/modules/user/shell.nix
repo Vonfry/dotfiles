@@ -10,7 +10,7 @@ let
 
 in {
   config = mkIf cfg.enable {
-    vonfry.development.emacs.excludeModules = optional (!hasLedger) "misc/ledger";
+    vonfry.development.emacs.excludeModules = optional (!hasLedger) "tools/ledger";
 
     warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
 
