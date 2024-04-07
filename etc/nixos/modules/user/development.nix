@@ -68,7 +68,7 @@ in {
     warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
 
     vonfry.development.emacs.excludeModules = mkIf (!ishome) [
-        "misc/blog" "misc/feed" "misc/gnus" "misc/ledger"
+        "tools/blog" "tools/feed" "tools/ledger"
     ];
 
     xdg = {
