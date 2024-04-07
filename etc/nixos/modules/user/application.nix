@@ -7,10 +7,13 @@ let
   isenable = cfg.application.enable;
   ishome = config.vonfry.workspace.home;
 
-
   sessionVariables = config.home.sessionVariables;
 
   hasLedger = sessionVariables ? LEDGER_FILE;
+
+  genEmacsModuleWarning = module:
+    optional (any (x: x == module) cfg.development.emacs.excludeModules)
+      "emacs ${module} module is disabled.";
 
   appcfg = {
     programs = {
@@ -23,7 +26,9 @@ let
 
       password-store = {
         enable = true;
-        package = pkgs.pass-nodmenu.withExtensions (exts: with exts; [ pass-otp ]);
+        package = pkgs.pass-nodmenu.withExtensions (exts: with exts;
+          [ pass-otp ]
+        );
       };
 
     };
@@ -32,6 +37,13 @@ let
       (optional (!config.services.mpd.enable) "tools/mpd")
       (optionals (!ishome) [ "tools/blog" "tools/feed" ])
       (optional (!ishome || !hasLedger) "tools/ledger")
+    ];
+
+    warnings = mkMerge [
+      (genEmacsModuleWarning "tools/ledger")
+      (genEmacsModuleWarning "tools/blog")
+      (genEmacsModuleWarning "tools/mpd")
+      (genEmacsModuleWarning "tools/feed")
     ];
 
     services = {

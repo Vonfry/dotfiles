@@ -7,8 +7,6 @@ let
 in {
   config = mkIf cfg.enable {
 
-    warnings = optional (!hasLedger) "ledger file isn't set, so emacs module is disabled.";
-
     programs = {
       zoxide = {
         enable = true;
@@ -23,15 +21,13 @@ in {
 
       bash.enable = true; # make some script can load hm-sessions.
 
+      starship = {
+        enable = true;
+        enableFishIntegration = true;
+      };
+
       fish = {
         enable = true;
-        plugins = [
-          {
-            name = pkgs.fishPlugins.tide.pname;
-            src = pkgs.fishPlugins.tide.src;
-          }
-        ];
-
         shellInitLast = ''
           function set_terminal_title --on-event fish_prompt
             # Set the terminal title to the current directory or any custom string

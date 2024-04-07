@@ -7,6 +7,10 @@ let
 
   whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
 
+  genEmacsModuleWarning = module:
+    optional (any (x: x == module) cfg'.development.emacs.excludeModules)
+      "emacs ${module} module is disabled.";
+
   netcfg = {
     accounts.email = mkIf (cfg.email != null) {
       maildirBasePath = "${config.home.homeDirectory}/.mail";
@@ -37,7 +41,10 @@ let
 
     vonfry.development.emacs.excludeModules =
       optionals (cfg.email == null) [ "tools/mail" ];
-    warnings = optional (cfg.email == null) "email isn't set, so emacs module is disabled.";
+
+    warnings = mkMerge [
+      (genEmacsModuleWarning "tools/mail")
+    ];
 
     home = {
       packages = with pkgs; [
