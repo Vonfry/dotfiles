@@ -137,7 +137,6 @@ let
       };
       xidlehook = {
         enable = true;
-        not-when-audio = true;
         timers = [
           {
             delay = cfg.durationSuspend;
