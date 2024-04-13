@@ -82,8 +82,8 @@ let
         package = pkgs.dracula-theme;
       };
       iconTheme = {
-        name = "Dracula";
-        package = pkgs.dracula-theme;
+        name = "candy-icons";
+        package = pkgs.candy-icons;
       };
       cursorTheme = {
         name = "Dracula-cursors";
@@ -147,8 +147,8 @@ let
       dunst = {
         enable = true;
         iconTheme = {
-          name = "Dracula";
-          package = pkgs.dracula-icon-theme;
+          name = "candy-icons";
+          package = pkgs.candy-icons;
         };
 
         settings = {
