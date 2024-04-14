@@ -19,7 +19,12 @@ in {
         enableFishIntegration = true;
       };
 
-      bash.enable = true; # make some script can load hm-sessions.
+      bash = {
+        enable = true; # make some script can load hm-sessions.
+        initExtra = ''
+            exec fish
+        '';
+      };
 
       starship = {
         enable = true;
