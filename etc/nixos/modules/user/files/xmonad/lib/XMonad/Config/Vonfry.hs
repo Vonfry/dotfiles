@@ -6,6 +6,7 @@ import qualified XMonad.Config.Vonfry.Color as Color
 import qualified XMonad.Config.Vonfry.LogHook as LogHook
 import qualified XMonad.Config.Vonfry.ManageHook as ManageHook
 import qualified XMonad.Config.Vonfry.LayoutHook as LayoutHook
+import qualified XMonad.Config.Vonfry.StartupHook as StartupHook
 
 import XMonad (def, XConfig(..), mod4Mask)
 
@@ -28,6 +29,7 @@ realConfig = def
                            ]
     , logHook            = LogHook.logHook
     , manageHook         = ManageHook.manageHook
+    , startupHook        = StartupHook.startupHook
     }
 
 beforeConfig = withNavigation2DConfig nav2dConfig

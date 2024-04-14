@@ -10,5 +10,3 @@ manageHook = mconcat
     ]
   where
     isUtility = isInProperty "_NET_WM_WINDOW_TYPE" "_NET_WM_WINDOW_TYPE_UTILITY"
-
-
