@@ -10,7 +10,7 @@ let
       isNormalUser = true;
       home = "/home/vonfry";
       description = "Vonfry";
-      extraGroups = [ "wheel" "libvirtd" "networkmanager" ];
+      extraGroups = [ "wheel" "libvirtd" ];
       shell = pkgs.bash;
     };
 

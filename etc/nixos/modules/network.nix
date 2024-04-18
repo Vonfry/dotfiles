@@ -4,7 +4,7 @@ with lib;
 let
   cfg = config.vonfry;
 in {
-  config = mkIf config.vonfry.enable {
+  config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ curl ];
 
     networking = {
@@ -15,10 +15,6 @@ in {
         allowedUDPPorts = [ ];
         allowPing = mkDefault false;
         extraPackages = with pkgs; [ ];
-      };
-      networkmanager = {
-        enable = mkDefault (!cfg.workspace.server);
-        dhcp = "internal";
       };
     };
   };

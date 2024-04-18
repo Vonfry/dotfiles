@@ -69,7 +69,6 @@
   # };
 
   # networking.hostName = "nixos"; # Define your hostname.
-  # networking.networkmanager.enable = false;
 
   # networking.hosts = {
   # };
