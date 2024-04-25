@@ -66,8 +66,9 @@ let
     qt = {
       enable = true;
       style = {
-        package = [];
-        name = "Fusion";
+        package = [ pkgs.libsForQt5.qtstyleplugin-kvantum
+                    pkgs.qt6Packages.qtstyleplugin-kvantum ];
+        name = "kvantum";
       };
     };
     # GTK needs dbus with dconf
@@ -211,6 +212,11 @@ let
     fonts.fontconfig.enable = true;
 
     xdg = {
+      configFile = {
+        "Kvantum/kvantum.kvconfig".text = ''
+            theme=KvArcDark
+        '';
+      };
       dataFile = {
         "fcitx5/rime" = {
           source = with pkgs; with vonfryPackages.rimePlugins;
