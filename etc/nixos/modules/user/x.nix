@@ -65,9 +65,8 @@ let
 
     qt = {
       enable = true;
-      platformTheme = "qtct";
       style = {
-        package = [ ];
+        package = [];
         name = "Fusion";
       };
     };
