@@ -33,6 +33,8 @@ let
 
   xconfig = {
     services.xserver.desktopManager.wallpaper.mode = "center";
+    # NixOS per-user profile also uses this.
+    environment.pathsToLink = [ "/share/fcitx5" ];
   };
 in {
 

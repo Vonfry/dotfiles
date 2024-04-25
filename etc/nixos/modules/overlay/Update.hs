@@ -28,9 +28,6 @@ papareArguments = do
                       }
 
 packageSet (PkgSetArg {..}) = do
-  define $ package "fcitx5-material-color"
-      `sourceGit` "https://github.com/hosxy/fcitx5-material-color"
-      `fetchGitHub` ("hosxy", "fcitx5-material-color")
   define $ package "fcitx5-nord"
       `sourceGit` "https://github.com/tonyfettes/fcitx5-nord"
       `fetchGitHub` ("tonyfettes", "fcitx5-nord")

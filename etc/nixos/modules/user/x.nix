@@ -234,11 +234,6 @@ let
             '';
           recursive = true;
         };
-        "fcitx5/themes/Material-Color/theme.conf".source = "${pkgs.vonfryPackages.fcitx5-theme.material-color}/theme-deepPurple.conf";
-        "fcitx5/themes/nord-dark" = {
-          source = "${pkgs.vonfryPackages.fcitx5-theme.nord}/Nord-Dark";
-          recursive = true;
-        };
       };
     };
 
@@ -256,6 +251,7 @@ let
       };
 
       packages = with pkgs; [
+        pkgs.vonfryPackages.fcitx5-theme.nord
         recursive
         sarasa-gothic
         symbola

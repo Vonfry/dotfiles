@@ -13,10 +13,6 @@ in {
 
     desktopBackground = sources.background-image.src;
 
-    fcitx5-theme = {
-      material-color = sources.fcitx5-material-color.src;
-
-      nord = sources.fcitx5-nord.src;
-    };
+    fcitx5-theme = callPackage ./data/fcitx5-theme { inherit sources; };
   };
 }
