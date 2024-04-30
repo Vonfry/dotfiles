@@ -4,18 +4,20 @@
 # uuid: 9c162872-1bb7-49d6-a20d-1714b94a42b9
 # --
 {
-    inputs.nixpkgs.url = "nixpkgs";
-    outputs = { self, nixpkgs }:
-      let
-        system = "${0:x86_64-linux}";
-        pkgs = import nixpkgs {" 
-          config = { allowUnfree = true; };
-          localSystem = system;
-        };
-      in {
-          devShell.${system} = with pkgs; mkShell {
-            packages = [ $1 ];
-            inputFrom = [];
-          };
+  inputs.nixpkgs.url = "nixpkgs";
+  outputs = { self, nixpkgs }:
+    let
+      system = "${0:x86_64-linux}";
+      pkgs = import nixpkgs {
+        config = { allowUnfree = true; };
+        localSystem = system;
       };
+    in {
+      devShells.\${system} = {
+        default = with pkgs; mkShell {
+          packages = [ $1 ];
+          inputFrom = [];
+        };
+      };
+    };
 }
