@@ -21,9 +21,6 @@ in {
 
       bash = {
         enable = true; # make some script can load hm-sessions.
-        initExtra = ''
-            exec fish
-        '';
       };
 
       starship = {
