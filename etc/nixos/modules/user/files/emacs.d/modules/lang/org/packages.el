@@ -277,5 +277,6 @@
    (expand-file-name "projects.org" +org-agenda-dir))
   (org-project-capture-per-project-filepath "TODO.org")
   :config
-  (setq org-project-capture-backend
-    (make-instance 'org-project-capture-project-backend)))
+  (setq org-project-capture-default-backend
+        (make-instance 'org-project-capture-project-backend))
+  (org-project-capture-single-file))
