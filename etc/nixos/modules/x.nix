@@ -30,12 +30,12 @@ let
       enable = true;
       autorun = mkDefault true;
 
-      libinput = {
-        enable = true;
-        mouse.accelProfile = "flat";
-      };
-
       displayManager.startx.enable = true;
+    };
+
+    services.libinput = {
+      enable = true;
+      mouse.accelProfile = "flat";
     };
 
     programs = {
