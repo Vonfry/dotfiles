@@ -3,23 +3,11 @@
 {
   background-image = {
     pname = "background-image";
-    version = "2024-04-21";
+    version = "2024-05-19";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
     };
-  };
-  fcitx5-material-color = {
-    pname = "fcitx5-material-color";
-    version = "2256feeae48dcc87f19a3cfe98f171862f8fcace";
-    src = fetchFromGitHub {
-      owner = "hosxy";
-      repo = "fcitx5-material-color";
-      rev = "2256feeae48dcc87f19a3cfe98f171862f8fcace";
-      fetchSubmodules = false;
-      sha256 = "sha256-i9JHIJ+cHLTBZUNzj9Ujl3LIdkCllTWpO1Ta4OT1LTc=";
-    };
-    date = "2021-02-21";
   };
   fcitx5-nord = {
     pname = "fcitx5-nord";
@@ -83,19 +71,19 @@
   };
   rime-wubi86-jidian = {
     pname = "rime-wubi86-jidian";
-    version = "8bd8d1eae47edd508559eec6dbb581c68e713a7b";
+    version = "628c1e116d33aa44b41b021693a6376b0e3e0ae8";
     src = fetchFromGitHub {
       owner = "KyleBing";
       repo = "rime-wubi86-jidian";
-      rev = "8bd8d1eae47edd508559eec6dbb581c68e713a7b";
+      rev = "628c1e116d33aa44b41b021693a6376b0e3e0ae8";
       fetchSubmodules = false;
-      sha256 = "sha256-5c5g3EOq0LHx9Ty0QKMPXy9E/f6MkjAq02sEVHw8RMs=";
+      sha256 = "sha256-1fWMNugfODVIH0Fdp5DBwV8EVFf/082Uc359YObN9Vs=";
     };
-    date = "2024-04-07";
+    date = "2024-05-09";
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2024-04-21";
+    version = "2024-05-19";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
