@@ -16,11 +16,6 @@
         ];
         nix = {
           package = pkgs.nixFlakes;
-          registry = {
-            sys.flake = nixpkgs;
-            nixpkgs.flake = nixpkgs;
-            nixos.flake = nixpkgs;
-          };
           channel.enable = false;
           nixPath = [ "nixos-config=${./.}" "nixpkgs=${nixpkgs}" ];
           extraOptions = ''
@@ -33,7 +28,7 @@
       flakeOutputs = flake-utils.lib.eachDefaultSystem (system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          ghcWith = pkgs.ghc.withPackages (p: with p; [ p.nvfetcher ]);
+          ghcWith = pkgs.ghc.withPackages (p: [ p.nvfetcher ]);
         in {
           devShell = pkgs.mkShell { packages = [ ghcWith pkgs.nvchecker ]; };
         });
