@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2024-05-19"
+        "version": "2024-06-02"
     },
     "fcitx5-nord": {
         "cargoLocks": null,
@@ -96,7 +96,7 @@
     },
     "rime-prelude": {
         "cargoLocks": null,
-        "date": "2022-04-10",
+        "date": "2024-05-19",
         "extract": null,
         "name": "rime-prelude",
         "passthru": null,
@@ -108,11 +108,11 @@
             "name": null,
             "owner": "rime",
             "repo": "rime-prelude",
-            "rev": "dd84abecc33f0b05469f1d744e32d2b60b3529e3",
-            "sha256": "sha256-r3jx/iCUOxBFLYhmHEuSFxzmHg8l6vnuONmsjbtBlpM=",
+            "rev": "3803f09458072e03b9ed396692ce7e1d35c88c95",
+            "sha256": "sha256-qLxkijfB/btd2yhUMbxmoNx6fKxpKYHBZoE7YEUKIu4=",
             "type": "github"
         },
-        "version": "dd84abecc33f0b05469f1d744e32d2b60b3529e3"
+        "version": "3803f09458072e03b9ed396692ce7e1d35c88c95"
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
@@ -147,6 +147,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2024-05-19"
+        "version": "2024-06-02"
     }
 }
