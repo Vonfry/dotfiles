@@ -249,9 +249,9 @@
   (org-contacts-icon-use-gravatar nil)
   (org-contacts-files
    (if (file-exists-p +org-contacts-dir)
-    (directory-files +org-contacts-dir t
-                     "^[A-z0-9_\\-]+\\.org$")
-    nil))
+     (directory-files +org-contacts-dir t
+                      "^[A-z0-9_\\-]+\\.org$")
+     (expand-file-name "contacts.org" vonfry-local-dir)))
   :general
   (nmap-at
     "C" '+org/find-contacts
