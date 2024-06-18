@@ -24,21 +24,20 @@
   :config
   (avy-setup-default)
   :general
-  ("C-'"  'avy-goto-word-1)
-  ("C-\"" 'avy-goto-word-0)
+  ("C-'"  'avy-goto-symbol-1)
+  ("C-\"" 'avy-goto-word-1)
   ("C-:"  'avy-goto-char-2)
   (nvmap-leader
-    "g"   'avy-goto-word-1
-    "G"   'avy-goto-word-0
+    "g"   'avy-goto-symbol-1
     "J"   'avy-goto-line
     "j j" 'avy-goto-char-2
     "j l" 'avy-goto-line
     "j /" 'avy-goto-char-timer
     "j g" 'avy-goto-char
-    "j w" 'avy-goto-word-0
+    "j w" 'avy-goto-word-1
+    "j W" 'avy-goto-word-0
     "j f" 'avy-goto-char-in-line
     "j b" 'avy-goto-subword-1
-    "j s" 'avy-goto-symbol-1
     "j ," 'avy-pop-mark
     "j ;" 'avy-push-mark)
   (nmap-leader
