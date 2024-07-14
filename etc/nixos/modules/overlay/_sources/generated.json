@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2024-07-07"
+        "version": "2024-07-14"
     },
     "fcitx5-nord": {
         "cargoLocks": null,
@@ -147,6 +147,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2024-07-07"
+        "version": "2024-07-14"
     }
 }
