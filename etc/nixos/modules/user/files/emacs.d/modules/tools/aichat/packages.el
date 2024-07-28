@@ -18,10 +18,10 @@
 
 (use-package dall-e-shell
   :custom
-  ((dall-e-shell-openai-key
+  (dall-e-shell-openai-key
     (lambda ()
       (auth-source-pick-first-password
        :host "api.openai.com"
-       :user "chatgpt-shell"))))
+       :user "chatgpt-shell")))
   :general
   (nmap-leader "e G" 'dall-e-shell))
