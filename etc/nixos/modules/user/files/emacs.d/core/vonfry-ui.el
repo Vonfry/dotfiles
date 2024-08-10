@@ -75,7 +75,7 @@ THEME is a symbol passed to `load-theme'"
 
 (setopt
   inhibit-startup-screen t
-  inhibit-startup-echo-area-message t
+  inhibit-startup-echo-area-message nil
 
   display-time-default-load-average nil
   display-time-24hr-format t)
