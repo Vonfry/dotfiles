@@ -46,8 +46,8 @@
   mouse-yank-at-point t
   delete-selection-mode t
 
-  tab-always-indent 'always
-  scroll-preserve-screen-position 'always
+  tab-always-indent 'complete
+  scroll-preserve-screen-position 't
   set-mark-command-repeat-pop t
   tooltip-delay 0.7
 
