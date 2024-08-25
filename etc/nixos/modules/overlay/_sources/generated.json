@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2024-08-10"
+        "version": "2024-08-25"
     },
     "fcitx5-nord": {
         "cargoLocks": null,
@@ -116,7 +116,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2024-08-07",
+        "date": "2024-08-24",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -128,11 +128,11 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "27f7128fbd0836f4941606988cbd2f1b6520b144",
-            "sha256": "sha256-7O5edSEQyiHx5VCPr57v7p+BgZe3pq/JO5Oz2/gdgok=",
+            "rev": "573f96b8f8304fa5ce749107fe84986d4232af6b",
+            "sha256": "sha256-eZNzDbRKN74RMCH3PRyAjE5egfX5rvSuBwSWwyG9Iho=",
             "type": "github"
         },
-        "version": "27f7128fbd0836f4941606988cbd2f1b6520b144"
+        "version": "573f96b8f8304fa5ce749107fe84986d4232af6b"
     },
     "vonfry-icon": {
         "cargoLocks": null,
@@ -147,6 +147,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2024-08-10"
+        "version": "2024-08-25"
     }
 }
