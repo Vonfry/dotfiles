@@ -17,6 +17,7 @@
     (list
      (rx "." (| "zip" "7z" (: "tar." word)) eos)
      "bsdtar -t")))
+  (dired-listing-switches "-ahl")
   :general
   (nmap-leader
     "d"   'dired-jump
