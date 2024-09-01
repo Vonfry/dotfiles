@@ -19,6 +19,7 @@
      "bsdtar -t")))
   :general
   (nmap-leader
-    "d"   'dired
-    "D j" 'dired-jump
-    "D o" 'dired-other-window))
+    "d"   'dired-jump
+    "D D" 'dired
+    "D o" 'dired-jump-other-window
+    "D O" 'dired-other-window))
