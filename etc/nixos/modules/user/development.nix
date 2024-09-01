@@ -156,7 +156,6 @@ in {
           ebib
           info-colors
           dumb-jump
-          dirvish
           avy
           ace-window
           logview
