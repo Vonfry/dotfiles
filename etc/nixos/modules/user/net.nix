@@ -94,7 +94,7 @@ let
 
       packages = with pkgs; [
         # tor-browser-bundle-bin
-        firefox # nyxt
+        firefox nyxt
       ];
     };
   };
