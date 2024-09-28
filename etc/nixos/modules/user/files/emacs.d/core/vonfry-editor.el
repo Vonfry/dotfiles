@@ -87,7 +87,9 @@
 
   calc-settings-file (expand-file-name "calc.el" vonfry-local-dir)
 
-  delete-by-moving-to-trash t)
+  delete-by-moving-to-trash t
+
+  ring-bell-function 'ignore)
 
 (recentf-mode 1)
 (show-paren-mode 1)
