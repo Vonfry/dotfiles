@@ -1,0 +1,8 @@
+# key: sr-ht-lists-subscript
+# name: Subscript or Unsubscript a list 
+# type: snippet
+# uuid: c68a2f36-c123-4a0c-9992-995fc4f7c586
+# --
+To: ${1}+subscribe@lists.sr.ht
+
+${2:+unsubscribe}
