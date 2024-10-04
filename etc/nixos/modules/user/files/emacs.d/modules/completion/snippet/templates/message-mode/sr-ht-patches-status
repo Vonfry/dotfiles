@@ -1,0 +1,6 @@
+# key: sr-ht-patches-status
+# name: A mail header to control sourcehut patches status
+# type: snippet
+# uuid: 50010631-ef80-46e6-bb4e-d73063d3be9b
+# --
+X-Sourcehut-Patchset-Update: ${1:$$(yas-choose-value '("PROPOSED" "NEEDS_REVISION" "SUPERSEDED" "APPROVED" "REJECTED" "APPLIED"))}
