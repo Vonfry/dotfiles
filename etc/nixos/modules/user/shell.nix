@@ -82,7 +82,7 @@ in {
           clipin = "xclip -selection clipboard -in";
           clipout = "xclip -selection clipboard -out";
 
-          http-serve = "nix run 'sys#simple-http-server' --";
+          http-serve = "nix run 'nixpkgs#simple-http-server' --";
 
           gitu = "nix run 'nixpkgs#gitu'";
 
