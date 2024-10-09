@@ -87,6 +87,8 @@ in {
           gitu = "nix run 'nixpkgs#gitu'";
 
           asciinema = "nix run 'nixpkgs#asciinema'";
+
+          helvum = "nix shell 'nixpkgs#helvum'";
         };
       };
     };
