@@ -79,8 +79,8 @@ in {
           sa = "alias | grep -i";
           d = "dirs -v";
           o = "xdg-open";
-          clipin = "xclip -selection clipboard -in";
-          clipout = "xclip -selection clipboard -out";
+          pbi = "xclip -selection clipboard -in";
+          pbo = "xclip -selection clipboard -out";
 
           http-serve = "nix run 'nixpkgs#simple-http-server' --";
 

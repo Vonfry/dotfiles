@@ -56,6 +56,7 @@ let
 
       shellAliases = {
         aria2-server = "aria2c --enable-rpc --rpc-allow-origin-all";
+        dl = "aria2c";
       };
     };
 

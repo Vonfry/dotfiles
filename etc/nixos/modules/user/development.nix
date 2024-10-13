@@ -211,6 +211,7 @@ in {
           mpdired
           yasnippet
           yasnippet-snippets
+          epkgs."0x0"
         ];
       };
 
