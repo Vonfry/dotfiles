@@ -196,6 +196,7 @@
     "o R p" '+org/roam-switch)
   (nmap-mode :keymaps 'org-mode-map
     "r"   'org-roam-buffer-toggle
+    "R d" 'org-roam-buffer-display-dedicated
     "R g" 'org-roam-graph
     "R f" 'org-roam-node-find
     "R i" 'org-roam-node-insert))
