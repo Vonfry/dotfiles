@@ -65,6 +65,7 @@
   # For windows 11 the support of secure boot for ovmf and tpm are needed.
   # virtualisation.libvirtd.qemu = {
   #   swtpm.enable = true;
+  #   vhostUserPackages = [ pkgs.virtiofsd ];
   #   ovmf.packages = [ pkgs.OVMFFull.fd ];
   # };
 
