@@ -111,7 +111,12 @@ let
         };
       };
 
-      mpv.enable = true;
+      mpv = {
+        enable = true;
+        scripts = with pkgs.mpvScripts; [
+          uosc mpv-cheatsheet mpv-playlistmanager
+        ];
+      };
     };
 
     home = {

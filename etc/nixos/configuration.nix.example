@@ -6,6 +6,7 @@
     ./modules
     ./local/proxy.nix
     ./local/mirror.nix
+    ./local/cloud.nix
   ];
 
   vonfry = {
