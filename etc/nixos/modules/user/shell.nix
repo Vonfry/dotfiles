@@ -88,7 +88,7 @@ in {
 
           asciinema = "nix run 'nixpkgs#asciinema'";
 
-          helvum = "nix shell 'nixpkgs#helvum'";
+          coppwr = "nix run 'nixpkgs#coppwr'";
         };
       };
     };
