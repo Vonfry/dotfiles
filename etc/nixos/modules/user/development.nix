@@ -270,7 +270,7 @@ in {
 
         distrobox
 
-        nil nixpkgs-review nurl nixfmt
+        nil nixpkgs-review nurl nixfmt-rfc-style
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
