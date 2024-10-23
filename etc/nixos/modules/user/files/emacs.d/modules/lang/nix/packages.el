@@ -3,13 +3,13 @@
 
 (use-package nix-mode
   :interpreter ("nix-shell" . nix-shebang-mode)
-  :hook (nix-mode . eglot-ensure)
+  :hook ((nix-mode nix-ts-mode) . eglot-ensure)
   :general
-  (nmap-leader :keymaps 'nix-mode-map
+  (nmap-leader :keymaps '(nix-mode-map nix-ts-mode-map)
     "="  'nix-format-buffer
     "\"" 'nix-repl
     "r"  'nix-build)
-  (nmap-mode :keymaps 'nix-mode-map
+  (nmap-mode :keymaps '(nix-mode-map nix-ts-mode-map)
     "u"  'nix-unpack
     "/"  'nix-search
     "="  'nix-indent-line))

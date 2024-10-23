@@ -128,7 +128,7 @@ in {
           evil-matchit
           auctex
           dashboard
-          nix-mode
+          nix-mode nix-ts-mode
           org-superstar
           evil-org
           org-web-tools

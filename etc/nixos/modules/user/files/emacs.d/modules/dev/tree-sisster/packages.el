@@ -8,7 +8,7 @@
            (c-mode . c-ts-mode)
            (c++-mode . c++-ts-mode)
            (rust-mode . rust-ts-mode)
-           ; (nix-mode . nix-ts-mode)
+           (nix-mode . nix-ts-mode)
            ; (latex-mode . latex-ts-mode)
            ; (bibtex-mode . bibtex-ts-mode)
            ; (elisp-mode . elisp-ts-mode)
