@@ -154,7 +154,6 @@ in {
           elfeed elfeed-org
           emacsql
           ebib
-          info-colors
           dumb-jump
           avy
           ace-window
