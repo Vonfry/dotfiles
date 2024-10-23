@@ -171,12 +171,14 @@ in {
           envrc
           ob-http
           org-contacts
+          toc-org
           evil-collection
           melpaPackages.telega
           terminal-here
           zoxide
           smart-tab
           org-roam-ui
+          graphviz-dot-mode
           vundo
           consult
           orderless
@@ -263,6 +265,8 @@ in {
         tokei
 
         pandoc
+
+        graphviz
 
         distrobox
 
