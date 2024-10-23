@@ -138,7 +138,7 @@ in {
           rust-mode
           cargo
           markdown-mode
-          haskell-mode
+          haskell-ts-mode
           easy-hugo
           json-mode
           yaml-mode

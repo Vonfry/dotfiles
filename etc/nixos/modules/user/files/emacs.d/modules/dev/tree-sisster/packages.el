@@ -4,7 +4,7 @@
 (use-package treesit
   :config
   (let ((remap-alist
-         '(; (haskell-mode . haskell-ts-mode)
+         '((haskell-mode . haskell-ts-mode)
            (c-mode . c-ts-mode)
            (c++-mode . c++-ts-mode)
            (rust-mode . rust-ts-mode)
