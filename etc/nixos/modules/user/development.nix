@@ -171,7 +171,6 @@ in {
           envrc
           ob-http
           org-contacts
-          toc-org
           evil-collection
           melpaPackages.telega
           terminal-here
