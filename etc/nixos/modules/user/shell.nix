@@ -86,9 +86,9 @@ in {
 
           gitu = "nix run 'nixpkgs#gitu'";
 
-          asciinema = "nix run 'nixpkgs#asciinema'";
+          asciinema = "exec nix run 'nixpkgs#asciinema'";
 
-          coppwr = "nix run 'nixpkgs#coppwr'";
+          coppwr = "exec nix run 'nixpkgs#coppwr'";
         };
       };
     };
