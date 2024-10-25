@@ -27,7 +27,7 @@ in {
       packages = with pkgs; [
         sshfs exfat
 
-        patch parallel file
+        patch file
 
         atop
         libarchive zstd convmv

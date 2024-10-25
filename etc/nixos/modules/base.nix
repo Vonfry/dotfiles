@@ -19,7 +19,7 @@ in {
 
       lnav btop lsof
 
-      file patch colordiff parallel
+      file patch colordiff
       ripgrep fd lsd
     ];
 
