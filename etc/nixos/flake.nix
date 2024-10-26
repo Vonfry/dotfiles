@@ -22,7 +22,7 @@
           emacs-overlay.overlay
         ];
         nix = {
-          package = pkgs.nixFlakes;
+          package = pkgs.nixVersions.stable;
           channel.enable = false;
           nixPath = [ "nixos-config=${./.}" "nixpkgs=${nixpkgs}" ];
           extraOptions = ''
