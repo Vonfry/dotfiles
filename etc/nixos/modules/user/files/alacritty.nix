@@ -1,5 +1,5 @@
 {
-  shell = {
+  terminal.shell = {
     program = "fish";
   };
   window = {
@@ -87,5 +87,5 @@
     semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
     save_to_clipboard = true;
   };
-  live_config_reload = false;
+  general.live_config_reload = false;
 }
