@@ -12,6 +12,5 @@ with lib;
 
   config = {
     vonfry.workspace.home = mkDefault (!config.vonfry.workspace.server);
-    vonfry.workspace.server = mkDefault (!config.vonfry.enable);
   };
 }

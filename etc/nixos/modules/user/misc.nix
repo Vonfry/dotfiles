@@ -18,5 +18,7 @@ let
 in {
   config = mkIf cfg.enable {
     home.packages = [ checkedRebuildOS ];
+
+    services.easyeffects.enable = mkDefault (!cfg.workspace.server);
   };
 }
