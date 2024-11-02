@@ -40,5 +40,9 @@
   (defengine hoogle
     "https://www.haskell.org/hoogle/?hoogle=%s"
     :keybinding "h")
+  (defengine roogle
+    "https://roogle.hkmatsumoto.com/search?query=%s&scope=set%3Acrates"
+    :keybinding "r")
+
   :general
   (nmap-at "/" engine-mode-prefixed-map))
