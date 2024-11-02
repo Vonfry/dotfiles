@@ -255,6 +255,8 @@ in {
           }
         '';
       };
+
+      nix-index.enable = true;
     };
 
     home = {
