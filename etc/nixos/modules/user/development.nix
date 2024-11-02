@@ -209,6 +209,7 @@ in {
           yasnippet
           yasnippet-snippets
           epkgs."0x0"
+          consult-hoogle
         ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

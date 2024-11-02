@@ -17,4 +17,13 @@
   (vmap-leader :keymaps 'haskell-ts-mode-map
     "' RET" 'haskell-ts-compile-region-and-go)
   (nmap-mode :keymaps 'haskell-ts-mode-map
-    "h"   'engine/search-hoogle))
+    "S"   'engine/search-hoogle))
+
+(use-package consult-hoogle
+  :general
+  (nmap-mode :keymaps 'haskell-ts-mode-map
+    "/" 'consult-hoogle
+    "?" 'consult-hoogle-project
+    "h" 'hoogle-buffer
+    "H" 'hoogle-buffer-project
+    "s" 'hoogle-buffer-web))
