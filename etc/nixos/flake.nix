@@ -11,9 +11,13 @@
       inputs.nixpkgs-stable.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, home-manager, emacs-overlay, flake-utils
-    }@flakes:
+  outputs = { self, nixpkgs, home-manager, emacs-overlay, flake-utils,
+    nix-index-database }@flakes:
     let
       overlay = import ./modules/overlay;
       flakeSpecialConfig = { pkgs, ... }: {
@@ -39,11 +43,15 @@
         in {
           devShell = pkgs.mkShell { packages = [ ghcWith pkgs.nvchecker ]; };
         });
+      hmSharedModules = _: {
+        home-manager.sharedModules = [ nix-index-database.hmModules.nix-index ];
+      };
       nixosOutputs = {
         nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
           modules = [
             flakeSpecialConfig
             home-manager.nixosModules.home-manager
+            hmSharedModules
             ./configuration.nix
           ];
         };
