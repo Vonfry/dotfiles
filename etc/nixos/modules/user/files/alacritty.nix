@@ -84,7 +84,7 @@
     };
   };
   selection = {
-    semantic_escape_chars = ",│`|:\"' ()[]{}<>\t";
+    semantic_escape_chars = '',│`|:"' ()[]{}<>	'';
     save_to_clipboard = true;
   };
   general.live_config_reload = false;

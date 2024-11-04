@@ -2,5 +2,4 @@
 
 with builtins;
 with lib;
-{
-}
+{ }

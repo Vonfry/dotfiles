@@ -61,7 +61,7 @@ in
         '';
 
         shellAliases = {
-          rm = "echo \"This is not the command you are looking for. trash better. Focus to use 'rm' with commond\"; false";
+          rm = ''echo "This is not the command you are looking for. trash better. Focus to use 'rm' with commond"; false'';
           rt = "trash-put";
           rl = "trash-list";
           re = "trash-empty";
@@ -71,7 +71,7 @@ in
           tree = "lsd --tree";
 
           ecd = "emacs --daemon";
-          ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
+          ecq = ''emacsclient -q -t -e "(kill-emacs)"'';
           ec = "emacsclient -n";
           ecc = "emacsclient -n -c";
           eCt = "emacsclient -t";
@@ -108,18 +108,14 @@ in
           with pkgs;
           symlinkJoin {
             name = "fortunes";
-            paths = [
-              "${vonfryPackages.fortuneChinese}/share/fortunes"
-            ];
+            paths = [ "${vonfryPackages.fortuneChinese}/share/fortunes" ];
           };
         recursive = true;
       };
     };
 
     home = {
-      packages = with pkgs; [
-        trash-cli
-      ];
+      packages = with pkgs; [ trash-cli ];
 
       sessionPath = [ "~/.local/bin" ];
     };

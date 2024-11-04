@@ -38,9 +38,7 @@ let
             };
             msmtp = {
               enable = true;
-              extraConfig =
-                {
-                };
+              extraConfig = { };
             };
             mu.enable = true;
           }
@@ -52,9 +50,7 @@ let
 
     vonfry.development.emacs.excludeModules = optionals (cfg.email == null) [ "tools/mail" ];
 
-    warnings = mkMerge [
-      (genEmacsModuleWarning "tools/mail")
-    ];
+    warnings = mkMerge [ (genEmacsModuleWarning "tools/mail") ];
 
     home = {
       packages = with pkgs; [
