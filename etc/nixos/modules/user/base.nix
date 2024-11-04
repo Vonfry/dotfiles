@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
-in {
+in
+{
   config = mkIf cfg.enable {
     xdg.configFile = {
       "nix/nix.conf".text = ''
@@ -25,14 +31,20 @@ in {
       };
 
       packages = with pkgs; [
-        sshfs exfat
+        sshfs
+        exfat
 
-        patch parallel file
+        patch
+        parallel
+        file
 
         atop
-        libarchive zstd convmv
+        libarchive
+        zstd
+        convmv
         colordiff
-        ripgrep fd
+        ripgrep
+        fd
       ];
     };
 
@@ -42,7 +54,9 @@ in {
         enable = true;
         enableAliases = true;
         settings = {
-          sorting = { dir-grouping = "first"; };
+          sorting = {
+            dir-grouping = "first";
+          };
         };
       };
       ssh = {

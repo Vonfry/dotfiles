@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -7,40 +12,45 @@ let
 
   whether_emacsclient_email = config.services.emacs.enable && cfg.email != null;
 
-  genEmacsModuleWarning = module:
-    optional (any (x: x == module) cfg'.development.emacs.excludeModules)
-      "emacs ${module} module is disabled.";
+  genEmacsModuleWarning =
+    module:
+    optional (any (
+      x: x == module
+    ) cfg'.development.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   netcfg = {
     accounts.email = mkIf (cfg.email != null) {
       maildirBasePath = "${config.home.homeDirectory}/.mail";
       accounts = {
-        vonfry = mkMerge [{
-          realName = "Vonfry";
-          primary = true;
-          # other configurations are save in local
-          maildir.path = "mail";
-          mbsync = {
-            enable = true;
-            create = "both";
-            expunge = "imap";
-            remove = "both";
-            patterns = [ "*" ];
-            extraConfig.channel.Sync = "All";
-          };
-          msmtp = {
-            enable = true;
-            extraConfig = {
+        vonfry = mkMerge [
+          {
+            realName = "Vonfry";
+            primary = true;
+            # other configurations are save in local
+            maildir.path = "mail";
+            mbsync = {
+              enable = true;
+              create = "both";
+              expunge = "imap";
+              remove = "both";
+              patterns = [ "*" ];
+              extraConfig.channel.Sync = "All";
             };
-          };
-          mu.enable = true;
-        } cfg.email];
+            msmtp = {
+              enable = true;
+              extraConfig =
+                {
+                };
+            };
+            mu.enable = true;
+          }
+          cfg.email
+        ];
         local.maildir.path = "local";
       };
     };
 
-    vonfry.development.emacs.excludeModules =
-      optionals (cfg.email == null) [ "tools/mail" ];
+    vonfry.development.emacs.excludeModules = optionals (cfg.email == null) [ "tools/mail" ];
 
     warnings = mkMerge [
       (genEmacsModuleWarning "tools/mail")
@@ -95,11 +105,13 @@ let
 
       packages = with pkgs; [
         # tor-browser-bundle-bin
-        firefox nyxt
+        firefox
+        nyxt
       ];
     };
   };
-in {
+in
+{
   options.vonfry.net = {
     enable = mkEnableOption "Vonfry's network configurations.";
     email = mkOption {

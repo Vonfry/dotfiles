@@ -1,9 +1,14 @@
-{ runCommand, fortune, sources }:
+{
+  runCommand,
+  fortune,
+  sources,
+}:
 
 let
   inherit (sources.fortune-chinese) src;
 
-in runCommand "fortune-chinese" {} ''
+in
+runCommand "fortune-chinese" { } ''
   mkdir -p $out/share/fortunes
   cp ${src}/data/* $out/share/fortunes
   (

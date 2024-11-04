@@ -1,9 +1,15 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
-in {
+in
+{
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ curl ];
 

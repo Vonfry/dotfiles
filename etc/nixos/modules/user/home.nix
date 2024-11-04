@@ -1,9 +1,15 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
-in {
+in
+{
   config = mkIf cfg.enable {
     lib = pkgs.callPackage ./lib { };
 

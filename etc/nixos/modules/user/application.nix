@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 with lib;
 let
@@ -11,9 +16,11 @@ let
 
   hasLedger = sessionVariables ? LEDGER_FILE;
 
-  genEmacsModuleWarning = module:
-    optional (any (x: x == module) cfg.development.emacs.excludeModules)
-      "emacs ${module} module is disabled.";
+  genEmacsModuleWarning =
+    module:
+    optional (any (
+      x: x == module
+    ) cfg.development.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   appcfg = {
     programs = {
@@ -26,16 +33,17 @@ let
 
       password-store = {
         enable = true;
-        package = pkgs.pass-nodmenu.withExtensions (exts: with exts;
-          [ pass-otp ]
-        );
+        package = pkgs.pass-nodmenu.withExtensions (exts: with exts; [ pass-otp ]);
       };
 
     };
 
     vonfry.development.emacs.excludeModules = mkMerge [
       (optional (!config.services.mpd.enable) "tools/mpd")
-      (optionals (!ishome) [ "tools/blog" "tools/feed" ])
+      (optionals (!ishome) [
+        "tools/blog"
+        "tools/feed"
+      ])
       (optional (!ishome || !hasLedger) "tools/ledger")
     ];
 
@@ -63,7 +71,9 @@ let
 
     home = {
       packages = with pkgs; [
-        fortune cmatrix figlet
+        fortune
+        cmatrix
+        figlet
       ];
     };
   };
@@ -78,43 +88,45 @@ let
           map T recolor
         '';
         options = {
-          font                    = "monospace normal 11";
-          notification-error-bg   = "#ff5555"; # Red
-          notification-error-fg   = "#f8f8f2"; # Foreground
+          font = "monospace normal 11";
+          notification-error-bg = "#ff5555"; # Red
+          notification-error-fg = "#f8f8f2"; # Foreground
           notification-warning-bg = "#ffb86c"; # Orange
           notification-warning-fg = "#44475a"; # Selection
-          notification-bg         = "#282a36"; # Background
-          notification-fg         = "#f8f8f2"; # Foreground
-          completion-bg           = "#282a36"; # Background
-          completion-fg           = "#6272a4"; # Comment
-          completion-group-bg     = "#282a36"; # Background
-          completion-group-fg     = "#6272a4"; # Comment
+          notification-bg = "#282a36"; # Background
+          notification-fg = "#f8f8f2"; # Foreground
+          completion-bg = "#282a36"; # Background
+          completion-fg = "#6272a4"; # Comment
+          completion-group-bg = "#282a36"; # Background
+          completion-group-fg = "#6272a4"; # Comment
           completion-highlight-bg = "#44475a"; # Selection
           completion-highlight-fg = "#f8f8f2"; # Foreground
-          index-bg                = "#282a36"; # Background
-          index-fg                = "#f8f8f2"; # Foreground
-          index-active-bg         = "#44475a"; # Current Line
-          index-active-fg         = "#f8f8f2"; # Foreground
-          inputbar-bg             = "#282a36"; # Background
-          inputbar-fg             = "#f8f8f2"; # Foreground
-          statusbar-bg            = "#282a36"; # Background
-          statusbar-fg            = "#f8f8f2"; # Foreground
-          highlight-color         = "#ffb86c"; # Orange
-          highlight-active-color  = "#ff79c6"; # Pink
-          default-bg              = "#282a36"; # Background
-          default-fg              = "#f8f8f2"; # Foreground
-          render-loading          = true     ;
-          render-loading-fg       = "#282a36"; # Background
-          render-loading-bg       = "#f8f8f2"; # Foreground
-          recolor-lightcolor      = "#282a36"; # Background
-          recolor-darkcolor       = "#f8f8f2"; # Foreground
+          index-bg = "#282a36"; # Background
+          index-fg = "#f8f8f2"; # Foreground
+          index-active-bg = "#44475a"; # Current Line
+          index-active-fg = "#f8f8f2"; # Foreground
+          inputbar-bg = "#282a36"; # Background
+          inputbar-fg = "#f8f8f2"; # Foreground
+          statusbar-bg = "#282a36"; # Background
+          statusbar-fg = "#f8f8f2"; # Foreground
+          highlight-color = "#ffb86c"; # Orange
+          highlight-active-color = "#ff79c6"; # Pink
+          default-bg = "#282a36"; # Background
+          default-fg = "#f8f8f2"; # Foreground
+          render-loading = true;
+          render-loading-fg = "#282a36"; # Background
+          render-loading-bg = "#f8f8f2"; # Foreground
+          recolor-lightcolor = "#282a36"; # Background
+          recolor-darkcolor = "#f8f8f2"; # Foreground
         };
       };
 
       mpv = {
         enable = true;
         scripts = with pkgs.mpvScripts; [
-          uosc mpv-cheatsheet mpv-playlistmanager
+          uosc
+          mpv-cheatsheet
+          mpv-playlistmanager
         ];
       };
     };
@@ -158,7 +170,8 @@ let
       packages = with pkgs; [ hledger ];
     };
   };
-in {
+in
+{
   options.vonfry.application = {
     enable = mkEnableOption "Vonfry's application configurations.";
   };

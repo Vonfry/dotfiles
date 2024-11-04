@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }:
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -63,14 +67,29 @@ let
         # are using. It is suggested as a multiple of 6 or 12.
         # dpi = 96;
         defaultFonts = {
-          monospace = [ "Rec Mono Casual" "Sarasa Mono SC" "Font Awesome 5 Free" ];
-          sansSerif = [ "Recursive Sans Casual Static" "Liberation Sans" "Soruce Han Sans SC" "Font Awesome 5 Free" ];
-          serif = [ "Liberation Serif" "Source Han Serif SC" "Symbola" "Font Awesome 5 Free" ];
+          monospace = [
+            "Rec Mono Casual"
+            "Sarasa Mono SC"
+            "Font Awesome 5 Free"
+          ];
+          sansSerif = [
+            "Recursive Sans Casual Static"
+            "Liberation Sans"
+            "Soruce Han Sans SC"
+            "Font Awesome 5 Free"
+          ];
+          serif = [
+            "Liberation Serif"
+            "Source Han Serif SC"
+            "Symbola"
+            "Font Awesome 5 Free"
+          ];
         };
       };
     };
   };
-in {
+in
+{
   options.vonfry.x = {
     enable = mkEnableOption "xserver.";
   };

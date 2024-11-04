@@ -1,17 +1,26 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
 
-in {
+in
+{
   config = mkIf cfg.enable {
 
     programs = {
       zoxide = {
         enable = true;
         enableFishIntegration = true;
-        options = [ "--cmd" "j" ];
+        options = [
+          "--cmd"
+          "j"
+        ];
       };
 
       thefuck = {
@@ -63,11 +72,11 @@ in {
 
           ecd = "emacs --daemon";
           ecq = "emacsclient -q -t -e \"(kill-emacs)\"";
-          ec  = "emacsclient -n";
+          ec = "emacsclient -n";
           ecc = "emacsclient -n -c";
           eCt = "emacsclient -t";
           ect = "eCt";
-          eC  = "emacsclient";
+          eC = "emacsclient";
           eCc = "emacsclient -c";
 
           b = "$BROWSER";
@@ -95,11 +104,14 @@ in {
 
     xdg.dataFile = {
       "fortunes" = {
-        source = with pkgs; symlinkJoin {
-          name = "fortunes";
-          paths = [ "${vonfryPackages.fortuneChinese}/share/fortunes"
-                  ];
-        };
+        source =
+          with pkgs;
+          symlinkJoin {
+            name = "fortunes";
+            paths = [
+              "${vonfryPackages.fortuneChinese}/share/fortunes"
+            ];
+          };
         recursive = true;
       };
     };

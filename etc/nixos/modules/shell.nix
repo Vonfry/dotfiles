@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
-in {
+in
+{
   config = mkIf cfg.enable {
     programs.command-not-found.enable = false;
 

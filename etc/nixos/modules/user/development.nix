@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -7,11 +12,17 @@ let
 
   ishome = cfg'.workspace.home;
 
-  emacsExtraBin = with pkgs; buildEnv {
-    name = "emacs-extra-bin";
-    paths = optional ishome hugo;
-    pathsToLink = [ "/bin" "/share" "/lib" ];
-  };
+  emacsExtraBin =
+    with pkgs;
+    buildEnv {
+      name = "emacs-extra-bin";
+      paths = optional ishome hugo;
+      pathsToLink = [
+        "/bin"
+        "/share"
+        "/lib"
+      ];
+    };
 
   inherit (config.xdg) dataHome;
   linkEmacs = optionalString cfg'.x.enable ''
@@ -22,13 +33,25 @@ let
   hasOrg = sessions ? ORG_DIR;
 
   # copy from emacsclient.desktop
-  emacsclient_mimetypes = [ "text/english" "text/plain" "text/x-makefile"
-                            "text/x-c++hdr" "text/x-c++src" "text/x-chdr"
-                            "text/x-csrc" "text/x-java" "text/x-moc"
-                            "text/x-pascal" "text/x-tcl" "text/x-tex"
-                            "application/x-shellscript" "text/x-c" "text/x-c++"
-                          ];
-in {
+  emacsclient_mimetypes = [
+    "text/english"
+    "text/plain"
+    "text/x-makefile"
+    "text/x-c++hdr"
+    "text/x-c++src"
+    "text/x-chdr"
+    "text/x-csrc"
+    "text/x-java"
+    "text/x-moc"
+    "text/x-pascal"
+    "text/x-tcl"
+    "text/x-tex"
+    "application/x-shellscript"
+    "text/x-c"
+    "text/x-c++"
+  ];
+in
+{
   options.vonfry.development = {
     emacs = {
       preCustom = mkOption {
@@ -44,12 +67,22 @@ in {
         type = with types; listOf str;
       };
       treesistWith = mkOption {
-        default = p: with p; [
-            tree-sitter-haskell tree-sitter-c tree-sitter-cpp tree-sitter-rust
-            tree-sitter-commonlisp tree-sitter-elisp
-            tree-sitter-nix tree-sitter-julia tree-sitter-latex
+        default =
+          p: with p; [
+            tree-sitter-haskell
+            tree-sitter-c
+            tree-sitter-cpp
+            tree-sitter-rust
+            tree-sitter-commonlisp
+            tree-sitter-elisp
+            tree-sitter-nix
+            tree-sitter-julia
+            tree-sitter-latex
             tree-sitter-bibtex
-            tree-sitter-json tree-sitter-yaml tree-sitter-toml tree-sitter-html
+            tree-sitter-json
+            tree-sitter-yaml
+            tree-sitter-toml
+            tree-sitter-html
           ];
         type = with types; functionTo (listOf package);
       };
@@ -73,16 +106,14 @@ in {
           recursive = true;
         };
 
-        "emacs/local/pre-custom.el".text =
-          concatStringsSep "\n" [
-            ''
+        "emacs/local/pre-custom.el".text = concatStringsSep "\n" [
+          ''
             (setopt
-              vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"")
-                cfg.emacs.excludeModules}))
+              vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"") cfg.emacs.excludeModules}))
             (add-to-list 'exec-path "${emacsExtraBin}/bin")
-            ''
-            cfg.emacs.preCustom
-          ];
+          ''
+          cfg.emacs.preCustom
+        ];
 
         "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
       };
@@ -99,8 +130,9 @@ in {
         '';
       };
 
-      mimeApps.defaultApplications = mkIf config.services.emacs.enable
-        (genAttrs emacsclient_mimetypes (const "emacsclient.desktop"));
+      mimeApps.defaultApplications = mkIf config.services.emacs.enable (
+        genAttrs emacsclient_mimetypes (const "emacsclient.desktop")
+      );
     };
 
     services.emacs = {
@@ -112,105 +144,110 @@ in {
     };
 
     programs = {
-      emacs =  {
+      emacs = {
         package = if cfg'.x.enable then pkgs.emacs-git else pkgs.emacs-git-nox;
         enable = true;
-        extraPackages = epkgs: with epkgs; [
-          solarized-theme
-          dracula-theme
-          general
-          whitespace-cleanup-mode
-          diminish
-          evil
-          evil-numbers
-          evil-surround
-          evil-matchit
-          auctex
-          dashboard
-          nix-mode nix-ts-mode
-          org-superstar
-          evil-org
-          org-web-tools
-          org-journal
-          org-ql
-          org-roam
-          rust-mode
-          cargo
-          markdown-mode
-          haskell-ts-mode
-          easy-hugo
-          json-mode
-          yaml-mode
-          magit
-          git-modes
-          forge
-          diff-hl
-          disaster
-          cmake-mode
-          realgud-lldb
-          mu4e
-          mu4e-alert
-          elfeed elfeed-org
-          emacsql
-          ebib
-          dumb-jump
-          avy
-          ace-window
-          logview
-          editorconfig
-          realgud
-          engine-mode
-          evil-nerd-commenter
-          rainbow-delimiters
-          doom-modeline
-          hl-todo
-          rainbow-mode
-          hledger-mode
-          envrc
-          ob-http
-          org-contacts
-          evil-collection
-          melpaPackages.telega
-          terminal-here
-          zoxide
-          smart-tab
-          org-roam-ui
-          graphviz-dot-mode
-          vundo
-          consult
-          orderless
-          embark
-          embark-consult
-          marginalia
-          vertico
-          agda2-mode
-          ligature
-          sly
-          julia-mode
-          julia-repl
-          eglot-jl
-          flymake-collection
-          consult-eglot
-          openpgp
-          ement
-          wgrep
-          (treesit-grammars.with-grammars cfg.emacs.treesistWith)
-          org-project-capture
-          password-store
-          nov
-          org-tree-slide
-          chatgpt-shell dall-e-shell
-          ob-chatgpt-shell ob-dall-e-shell
-          bufler
-          daemons
-          journalctl-mode
-          trashed
-          mpdired
-          yasnippet
-          yasnippet-snippets
-          epkgs."0x0"
-          consult-hoogle
-        ];
+        extraPackages =
+          epkgs: with epkgs; [
+            solarized-theme
+            dracula-theme
+            general
+            whitespace-cleanup-mode
+            diminish
+            evil
+            evil-numbers
+            evil-surround
+            evil-matchit
+            auctex
+            dashboard
+            nix-mode
+            nix-ts-mode
+            org-superstar
+            evil-org
+            org-web-tools
+            org-journal
+            org-ql
+            org-roam
+            rust-mode
+            cargo
+            markdown-mode
+            haskell-ts-mode
+            easy-hugo
+            json-mode
+            yaml-mode
+            magit
+            git-modes
+            forge
+            diff-hl
+            disaster
+            cmake-mode
+            realgud-lldb
+            mu4e
+            mu4e-alert
+            elfeed
+            elfeed-org
+            emacsql
+            ebib
+            dumb-jump
+            avy
+            ace-window
+            logview
+            editorconfig
+            realgud
+            engine-mode
+            evil-nerd-commenter
+            rainbow-delimiters
+            doom-modeline
+            hl-todo
+            rainbow-mode
+            hledger-mode
+            envrc
+            ob-http
+            org-contacts
+            evil-collection
+            melpaPackages.telega
+            terminal-here
+            zoxide
+            smart-tab
+            org-roam-ui
+            graphviz-dot-mode
+            vundo
+            consult
+            orderless
+            embark
+            embark-consult
+            marginalia
+            vertico
+            agda2-mode
+            ligature
+            sly
+            julia-mode
+            julia-repl
+            eglot-jl
+            flymake-collection
+            consult-eglot
+            openpgp
+            ement
+            wgrep
+            (treesit-grammars.with-grammars cfg.emacs.treesistWith)
+            org-project-capture
+            password-store
+            nov
+            org-tree-slide
+            chatgpt-shell
+            dall-e-shell
+            ob-chatgpt-shell
+            ob-dall-e-shell
+            bufler
+            daemons
+            journalctl-mode
+            trashed
+            mpdired
+            yasnippet
+            yasnippet-snippets
+            epkgs."0x0"
+            consult-hoogle
+          ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
             # FIXME github:nixos/nixpkg##328573 and emacs-dev:bug#67916
@@ -236,7 +273,10 @@ in {
           color.pager = true;
           sendemail = mkIf config.programs.msmtp.enable {
             smtpServer = "msmtp";
-            smtpServerOption = [ "--read-envelope-from" "-t" ];
+            smtpServerOption = [
+              "--read-envelope-from"
+              "-t"
+            ];
           };
         };
         ignores = [ (builtins.readFile ./files/gitignore) ];
@@ -260,9 +300,10 @@ in {
     };
 
     home = {
-      activation.developmentActivation = lib.hm.dag.entryAfter
-        [ "writeBoundary" "linkGeneration" ]
-        (concatStringsSep "\n" [ linkEmacs ]);
+      activation.developmentActivation = lib.hm.dag.entryAfter [
+        "writeBoundary"
+        "linkGeneration"
+      ] (concatStringsSep "\n" [ linkEmacs ]);
 
       packages = with pkgs; [
         gitAndTools.git-extras
@@ -277,7 +318,10 @@ in {
 
         distrobox
 
-        nil nixpkgs-review nurl nixfmt-rfc-style
+        nil
+        nixpkgs-review
+        nurl
+        nixfmt-rfc-style
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a

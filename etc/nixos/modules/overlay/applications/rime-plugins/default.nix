@@ -1,10 +1,15 @@
-{ lib, runCommandNoCC, sources }:
+{
+  lib,
+  runCommandNoCC,
+  sources,
+}:
 
 with lib;
 
 let
-  wrap = src:
-    runCommandNoCC src.pname {} ''
+  wrap =
+    src:
+    runCommandNoCC src.pname { } ''
       mkdir -p $out/share/rime
       cp ${src.src}/*.yaml $out/share/rime
       if [ -f ${src.src}/rime.lua ]; then
@@ -12,17 +17,24 @@ let
       fi
     '';
 
-  srcs = with sources; [ rime-prelude rime-cangjie rime-wubi86-jidian
-                         rime-japanese
-                       ];
+  srcs = with sources; [
+    rime-prelude
+    rime-cangjie
+    rime-wubi86-jidian
+    rime-japanese
+  ];
 
-  gen = src:
+  gen =
+    src:
     let
       name = removePrefix "rime-" src.pname;
       value = wrap src;
-    in { "${name}" = value; };
+    in
+    {
+      "${name}" = value;
+    };
 
-  pack = with lib;
-    foldr recursiveUpdate {} (map gen srcs);
+  pack = with lib; foldr recursiveUpdate { } (map gen srcs);
 
-in pack
+in
+pack

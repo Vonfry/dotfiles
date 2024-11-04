@@ -1,9 +1,15 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib;
 let
   cfg = config.vonfry;
-in {
+in
+{
   config = mkIf cfg.enable {
     boot.tmp.useTmpfs = mkDefault true;
 
@@ -13,20 +19,34 @@ in {
     time.timeZone = mkDefault "Asia/Shanghai";
 
     environment.systemPackages = with pkgs; [
-      gnutls cacert
-      pciutils usbutils inxi
-      exfat zstd
+      gnutls
+      cacert
+      pciutils
+      usbutils
+      inxi
+      exfat
+      zstd
 
-      lnav btop lsof
+      lnav
+      btop
+      lsof
 
-      file patch colordiff parallel
-      ripgrep fd lsd
+      file
+      patch
+      colordiff
+      parallel
+      ripgrep
+      fd
+      lsd
     ];
 
     nix = {
       optimise.automatic = true;
       settings = {
-        trusted-users = [ "root" "@wheel" ];
+        trusted-users = [
+          "root"
+          "@wheel"
+        ];
         cores = 0;
         max-jobs = mkDefault "auto";
         auto-optimise-store = true;
@@ -53,7 +73,7 @@ in {
 
     services = {
       dbus.enable = true;
-      openssh =  {
+      openssh = {
         enable = mkDefault false;
         allowSFTP = mkDefault true;
         settings = {

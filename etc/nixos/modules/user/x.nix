@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -11,21 +16,23 @@ let
 
   defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
 
-  deployFcitx5Rime = with pkgs; writeScriptBin "fcitx5-rime-deploy" ''
-    #!/usr/bin/env bash
-    dbus-send --dest='org.fcitx.Fcitx5' \
-                --type=method_call \
-                '/controller' \
-                'org.fcitx.Fcitx.Controller1.SetConfig' \
-                string:"fcitx://config/addon/rime/deploy" \
-                variant:string:""
-  '';
+  deployFcitx5Rime =
+    with pkgs;
+    writeScriptBin "fcitx5-rime-deploy" ''
+      #!/usr/bin/env bash
+      dbus-send --dest='org.fcitx.Fcitx5' \
+                  --type=method_call \
+                  '/controller' \
+                  'org.fcitx.Fcitx.Controller1.SetConfig' \
+                  string:"fcitx://config/addon/rime/deploy" \
+                  variant:string:""
+    '';
 
   fcitx5-rime-overlay = self: super: {
     fcitx5-rime = super.fcitx5-rime.override {
       rime-data = null;
       rimeDataPkgs = [
-        (self.runCommand "rime-data-nullify" {} "mkdir -p $out/share/rime-data")
+        (self.runCommand "rime-data-nullify" { } "mkdir -p $out/share/rime-data")
       ];
     };
   };
@@ -40,17 +47,20 @@ let
   xmonad-dir = ./files/xmonad;
   xmonad-main = xmonad-dir + "/xmonad.hs";
   xmonad-libdir = xmonad-dir + "/lib";
-  genAttrSet = pathPrefix: dirPath:
-    foldlAttrs (acc: name: type:
+  genAttrSet =
+    pathPrefix: dirPath:
+    foldlAttrs (
+      acc: name: type:
       let
         curPathname = "${pathPrefix}${name}";
         curPath = xmonad-libdir + "/${pathPrefix}${name}";
       in
-      if type == "directory"
-      then acc // genAttrSet "${curPathname}/" curPath
-      else acc // { "${curPathname}" = curPath; }
+      if type == "directory" then
+        acc // genAttrSet "${curPathname}/" curPath
+      else
+        acc // { "${curPathname}" = curPath; }
     ) { } (builtins.readDir dirPath);
-  xmonad-libFiles = genAttrSet "" xmonad-libdir ;
+  xmonad-libFiles = genAttrSet "" xmonad-libdir;
 
   xdgcfg = {
     xdg = {
@@ -66,8 +76,10 @@ let
     qt = {
       enable = true;
       style = {
-        package = [ pkgs.libsForQt5.qtstyleplugin-kvantum
-                    pkgs.qt6Packages.qtstyleplugin-kvantum ];
+        package = [
+          pkgs.libsForQt5.qtstyleplugin-kvantum
+          pkgs.qt6Packages.qtstyleplugin-kvantum
+        ];
         name = "kvantum";
       };
     };
@@ -133,7 +145,7 @@ let
         enable = true;
         inherit lockCmd;
         xautolock.enable = false;
-        xss-lock = {};
+        xss-lock = { };
       };
       xidlehook = {
         enable = true;
@@ -214,13 +226,15 @@ let
     xdg = {
       configFile = {
         "Kvantum/kvantum.kvconfig".text = ''
-            theme=KvArcDark
+          theme=KvArcDark
         '';
       };
       dataFile = {
         "fcitx5/rime" = {
-          source = with pkgs; with vonfryPackages.rimePlugins;
-            runCommand "fcitx-rime-plugins" {} ''
+          source =
+            with pkgs;
+            with vonfryPackages.rimePlugins;
+            runCommand "fcitx-rime-plugins" { } ''
               mkdir -p $out
               cp ${./files/rime/default.custom.yaml} $out/default.custom.yaml
               cp ${./files/rime/wubi86_jidian.custom.yaml} $out/wubi86_jidian.custom.yaml
@@ -243,10 +257,15 @@ let
     };
 
     home = {
-      activation.xActivation = lib.hm.dag.entryAfter
-        [ "writeBoundary" "linkGeneration" ] ''
-        [ -h "${bgFile}" ] || ln -s ${cfg.bgFile} ${bgFile}
-      '';
+      activation.xActivation =
+        lib.hm.dag.entryAfter
+          [
+            "writeBoundary"
+            "linkGeneration"
+          ]
+          ''
+            [ -h "${bgFile}" ] || ln -s ${cfg.bgFile} ${bgFile}
+          '';
 
       pointerCursor = {
         package = pkgs.capitaine-cursors;
@@ -270,7 +289,8 @@ let
       ];
     };
   };
-in {
+in
+{
   options.vonfry.x = {
     enable = mkEnableOption "Vonfry's x configurations.";
 

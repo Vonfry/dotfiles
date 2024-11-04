@@ -3,7 +3,8 @@ self: super:
 let
   inherit (self) callPackage;
   sources = super.callPackage ./_sources/generated.nix { };
-in {
+in
+{
   vonfryPackages = {
     rimePlugins = callPackage ./applications/rime-plugins { inherit sources; };
 

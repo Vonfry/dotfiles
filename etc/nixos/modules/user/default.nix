@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib;
 let
@@ -10,7 +15,10 @@ let
       isNormalUser = true;
       home = "/home/vonfry";
       description = "Vonfry";
-      extraGroups = [ "wheel" "libvirtd" ];
+      extraGroups = [
+        "wheel"
+        "libvirtd"
+      ];
       shell = pkgs.bash;
     };
 
@@ -36,15 +44,32 @@ let
     # NixOS per-user profile also uses this.
     environment.pathsToLink = [ "/share/fcitx5" ];
   };
-in {
+in
+{
 
   imports = [
     (mkAliasOptionModule
-      [ "vonfry" "homeConfiguration" ]
-      [ "home-manager" "users" "vonfry" ])
+      [
+        "vonfry"
+        "homeConfiguration"
+      ]
+      [
+        "home-manager"
+        "users"
+        "vonfry"
+      ]
+    )
     (mkAliasOptionModule
-      [ "vonfry" "userConfiguration" ]
-      [ "users" "users" "vonfry" ])
+      [
+        "vonfry"
+        "userConfiguration"
+      ]
+      [
+        "users"
+        "users"
+        "vonfry"
+      ]
+    )
   ];
 
   config = mkMerge [

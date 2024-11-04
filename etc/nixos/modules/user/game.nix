@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 let
@@ -7,7 +12,8 @@ let
       packages = with pkgs; [ osu-lazer-bin ];
     };
   };
-in {
+in
+{
   options.vonfry.game = {
     enable = mkEnableOption "Vonfry's game configuration";
   };
