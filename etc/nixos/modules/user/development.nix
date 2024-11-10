@@ -194,7 +194,6 @@ in
             logview
             editorconfig
             realgud
-            engine-mode
             evil-nerd-commenter
             rainbow-delimiters
             doom-modeline
@@ -244,6 +243,7 @@ in
             epkgs."0x0"
             consult-hoogle
             gptel
+            # consult-omni
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
