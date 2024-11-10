@@ -234,10 +234,6 @@ in
             password-store
             nov
             org-tree-slide
-            chatgpt-shell
-            dall-e-shell
-            ob-chatgpt-shell
-            ob-dall-e-shell
             bufler
             daemons
             journalctl-mode
@@ -247,6 +243,7 @@ in
             yasnippet-snippets
             epkgs."0x0"
             consult-hoogle
+            gptel
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

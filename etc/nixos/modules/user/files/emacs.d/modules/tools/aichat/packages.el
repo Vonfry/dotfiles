@@ -1,27 +1,23 @@
 ;;; aichat/packages.el --- -*- lexical-binding: t; -*-
 ;;
 
-(use-package shell-maker
-  :custom
-  (shell-maker-root-path (expand-file-name "shell-maker" vonfry-cache-dir)))
-
-(use-package chatgpt-shell
+(use-package gptel
   :general
-  (nmap-leader "e g" 'chatgpt-shell)
+  (nmap-leader
+    "e g g"     'gptel
+    "e g C-RET" 'gptel-add-file
+    "e g RET"   'gptel-send)
+  (vmap-leader
+    "e g RET" 'gptel-send
+    "e g a"   'gptel-add)
   :custom
-  (chatgpt-shell-model-version "gpt-4-turbo-preview")
-  (chatgpt-shell-openai-key
+  (gptel-use-curl t)
+  (gptel-backend gptel--openai)
+  (gptel-model "gpt-4o")
+  (gptel-org-branching-context t)
+  (gptel-default-mode 'org-mode)
+  (gptel-api-key
     (lambda ()
       (auth-source-pick-first-password
        :host "api.openai.com"
-       :user "chatgpt-shell"))))
-
-(use-package dall-e-shell
-  :custom
-  (dall-e-shell-openai-key
-    (lambda ()
-      (auth-source-pick-first-password
-       :host "api.openai.com"
-       :user "chatgpt-shell")))
-  :general
-  (nmap-leader "e G" 'dall-e-shell))
+       :user "gptel"))))
