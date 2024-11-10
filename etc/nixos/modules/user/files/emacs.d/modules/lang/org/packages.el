@@ -235,16 +235,6 @@
   (org-babel-lisp-eval-fn #'sly-eval)
   :after org)
 
-(use-package ob-chatgpt-shell
-  :after (ob chatgpt-shell)
-  :config
-  (ob-chatgpt-shell-setup))
-
-(use-package ob-dall-e-shell
-  :after (ob dall-e-shell)
-  :config
-  (ob-dall-e-shell-setup))
-
 (use-package org-contacts
   :custom
   (org-contacts-icon-use-gravatar nil)
