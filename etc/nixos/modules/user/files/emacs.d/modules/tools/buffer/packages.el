@@ -3,6 +3,7 @@
 
 (use-package bufler
   :config
+  (bufler-mode 1)
   :general
   ("C-x C-b" 'bufler)
   ("C-x C-B" 'bufler-switch-buffer)
