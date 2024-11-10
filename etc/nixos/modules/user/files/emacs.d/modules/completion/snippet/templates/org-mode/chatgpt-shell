@@ -1,8 +1,0 @@
-# key: chatgpt-shell
-# name: chatgpt-shell org-babel block
-# type: snippet
-# uuid: 6eea7fd5-2db7-49a2-847d-f7e788305898
-# --
-#+begin_src chatgpt-shell :version "gpt-4" :system "" :temperature 0.6 :context ${0:ctx_name}
-  $1
-#+end_src

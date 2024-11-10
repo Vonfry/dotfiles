@@ -1,8 +1,0 @@
-# key: dall-e
-# name: chatgpt-shell d all-e org-babel block
-# type: snippet
-# uuid: 541fd622-0de4-491a-9d97-e8dc0d40f5d7
-# --
-#+begin_src dall-e-shell
-  $0
-#+end_src
