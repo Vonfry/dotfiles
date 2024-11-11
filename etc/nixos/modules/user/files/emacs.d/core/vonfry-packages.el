@@ -41,7 +41,11 @@ If t, package.el is used to install packages automatically."
  ;; nix replaces package.el to manage but we also set it.
  package-user-dir (expand-file-name "packages" vonfry-local-dir)
  use-package-always-demand t
- use-package-always-ensure vonfry-package-ensure)
+ use-package-always-ensure vonfry-package-ensure
+ package-archives
+ '(("gnu" . "https://elpa.gnu.org/packages/")
+   ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+   ("melpa" . "https://melpa.org/packages/")))
 
 ;;
 ;; define some basic packages
