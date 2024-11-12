@@ -2,6 +2,7 @@
 ;;
 
 (use-package treesit
+  :ensure nil
   :config
   (let ((remap-alist
          '((haskell-mode . haskell-ts-mode)

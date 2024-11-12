@@ -1,6 +1,7 @@
 ;;; dired/packages.el --- -*- lexical-binding: t -*-
 
 (use-package dired
+  :ensure nil
   :custom
   (dired-dwim-target t)
   (dired-guess-shell-alist-user

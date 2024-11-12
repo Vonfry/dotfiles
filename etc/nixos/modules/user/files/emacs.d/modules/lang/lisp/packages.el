@@ -24,13 +24,9 @@
           (lambda ()
             (vonfry/local-indent 2)))
 
-(use-package lisp
-  :ensure nil
-  :no-require
-  :custom
-  (inferior-lisp-program "sbcl"))
-
 (use-package sly
+  :custom
+  (inferior-lisp-program "sbcl")
   :general
   (nmap-leader :keymaps 'lisp-mode-map
     "' b"   'sly-eval-buffer
