@@ -13,7 +13,7 @@
   :custom
   (gptel-use-curl t)
   (gptel-backend gptel--openai)
-  (gptel-model "gpt-4o")
+  (gptel-model 'gpt-4o)
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode)
   (gptel-api-key
