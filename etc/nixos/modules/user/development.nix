@@ -167,7 +167,6 @@ in
             org-web-tools
             org-journal
             org-ql
-            org-roam
             rust-mode
             cargo
             markdown-mode
@@ -208,7 +207,6 @@ in
             terminal-here
             zoxide
             smart-tab
-            org-roam-ui
             vundo
             consult
             orderless
@@ -245,14 +243,15 @@ in
             # consult-omni
             d2-mode
             ob-d2
+            org-zettelkasten
           ];
-        overrides = self: super: {
-          openpgp = super.openpgp.overrideAttrs (old: {
-            # FIXME github:nixos/nixpkg##328573 and emacs-dev:bug#67916
-            turnCompilationWarningToError = false;
-            ignoreCompilationError = true;
-          });
-        };
+        # overrides = self: super: {
+        #   openpgp = super.openpgp.overrideAttrs (old: {
+        #     # FIXME github:nixos/nixpkg##328573 and emacs-dev:bug#67916
+        #     turnCompilationWarningToError = false;
+        #     ignoreCompilationError = true;
+        #   });
+        # };
       };
 
       git = {

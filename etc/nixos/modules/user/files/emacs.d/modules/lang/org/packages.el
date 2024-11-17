@@ -178,35 +178,18 @@
     "/" 'org-ql-sparse-tree
     ";" 'org-ql-find))
 
-(use-package org-roam
+(use-package org-zettelkasten
   :init
   (+org--roam-set-path +org-note-dir)
   :custom
+  (org-zettelkasten-directory +org-note-dir)
+  (org-zettelkasten-mapping-file (expand-file-name "index.org" +org-note-dir))
   (org-roam-graph-viewer 'org-open-file)
-  :config
-  (org-roam-db-autosync-enable)
   :general
   (nmap-leader
-    "o n"   'org-roam-node-find
-    "o C"   'org-roam-capture
-    "o R m" 'org-roam-db-autosync-enable
-    "o R M" 'org-roam-db-autosync-disable
-    "o R i" 'org-roam-node-insert
-    "o R b" 'org-roam-db-sync
-    "o R p" '+org/roam-switch)
-  (nmap-mode :keymaps 'org-mode-map
-    "r"   'org-roam-buffer-toggle
-    "R d" 'org-roam-buffer-display-dedicated
-    "R g" 'org-roam-graph
-    "R f" 'org-roam-node-find
-    "R i" 'org-roam-node-insert))
-
-(use-package org-roam-ui
-  :general
-  (nmap-leader
-    "o s" 'org-roam-ui-open)
-  :custom
-  (org-roam-ui-port 8800))
+    "o n" org-zettelkasten-mode-map
+    "o N" 'org-zettelkasten-consult-search-current-id
+    "o s" '+org/notes-switch))
 
 (use-package ob
   :ensure nil
