@@ -162,7 +162,6 @@ in
             dashboard
             nix-mode
             nix-ts-mode
-            org-superstar
             evil-org
             org-web-tools
             org-journal
@@ -244,6 +243,7 @@ in
             d2-mode
             ob-d2
             consult-notes
+            org-modern
           ];
         # overrides = self: super: {
         #   openpgp = super.openpgp.overrideAttrs (old: {

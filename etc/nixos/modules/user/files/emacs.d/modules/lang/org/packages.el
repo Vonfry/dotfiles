@@ -106,12 +106,12 @@
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
 
-(use-package org-superstar
+(use-package org-modern
   :after org
   :custom
-  (org-superstar-headline-bullets-list '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
+  (org-modern-replace-stars '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
   :hook
-  (org-mode . org-superstar-mode))
+  (org-mode . org-modern-mode))
 
 (use-package evil-org
   :after (evil org)
