@@ -218,9 +218,9 @@
   (use-package ob-latex :ensure nil)
   (use-package ob-sql :ensure nil)
   (use-package ob-sqlite :ensure nil)
-  (use-package ob-perl :ensure nil)
-  (use-package ob-dot :ensure nil)
+  (use-package ob-lisp :ensure nil)
   (use-package ob-julia :ensure nil)
+  (use-package ob-d2)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -231,7 +231,8 @@
                               (julia      . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (dot        . t)))
+                              (lisp       . t)
+                              (d2         . t)))
   (org-babel-lisp-eval-fn #'sly-eval)
   :after org)
 

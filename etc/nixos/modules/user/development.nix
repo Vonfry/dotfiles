@@ -209,7 +209,6 @@ in
             zoxide
             smart-tab
             org-roam-ui
-            graphviz-dot-mode
             vundo
             consult
             orderless
@@ -244,6 +243,8 @@ in
             consult-hoogle
             gptel
             # consult-omni
+            d2-mode
+            ob-d2
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
@@ -309,9 +310,7 @@ in
 
         tokei
 
-        pandoc
-
-        graphviz
+        pandoc d2
 
         distrobox
 
