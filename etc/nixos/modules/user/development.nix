@@ -243,7 +243,6 @@ in
             # consult-omni
             d2-mode
             ob-d2
-            org-zettelkasten
           ];
         # overrides = self: super: {
         #   openpgp = super.openpgp.overrideAttrs (old: {

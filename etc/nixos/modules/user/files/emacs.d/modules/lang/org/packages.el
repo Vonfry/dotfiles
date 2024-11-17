@@ -5,6 +5,7 @@
   :custom
   (org-modules '(ol-doi ol-bbdb ol-bibtex ol-docview ol-gnus ol-info ol-irc
                  ol-mhe ol-eww ol-eshell ol-bookmark org-id))
+  (org-link-file-path-type 'relative)
   (org-startup-folded t)
   (org-default-notes-file +org-capture-file)
   (org-directory +org-dir)
@@ -66,6 +67,7 @@
   (nvmap-mode :keymaps 'org-mode-map
     "?"   'org-occur
     "g"   'org-goto
+    "l"   'org-insert-link
     "L"   'org-store-link
     "@"   'org-set-tags-command
     "^"   'org-agenda-set-tags
@@ -177,19 +179,6 @@
   (nmap-mode :keymaps 'org-mode-map
     "/" 'org-ql-sparse-tree
     ";" 'org-ql-find))
-
-(use-package org-zettelkasten
-  :init
-  (+org--roam-set-path +org-note-dir)
-  :custom
-  (org-zettelkasten-directory +org-note-dir)
-  (org-zettelkasten-mapping-file (expand-file-name "index.org" +org-note-dir))
-  (org-roam-graph-viewer 'org-open-file)
-  :general
-  (nmap-leader
-    "o n" org-zettelkasten-mode-map
-    "o N" 'org-zettelkasten-consult-search-current-id
-    "o s" '+org/notes-switch))
 
 (use-package ob
   :ensure nil

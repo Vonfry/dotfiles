@@ -21,22 +21,11 @@
   (interactive)
   (+org--find +org-contacts-dir))
 
-(defun +org/roam-switch (path)
+(defun +org/notes-switch (path)
   "A path is a roam."
-  (interactive "Droam: ")
+  (interactive "Dnotes: ")
   (+org--roam-set-path path))
 
 (defun +org/open-capture ()
   (interactive)
   (find-file +org-capture-file))
-
-
-(defun +org/id-update-recursively (dir)
-  (interactive "Ddir: ")
-  (org-id-update-id-locations (directory-files-recursively dir "\\.org$")))
-
-(defun +org/id-update-default ()
-  (interactive)
-  (+org/id-update-recursively org-roam-directory)
-  (org-id-update-id-locations)
-  (org-id-locations-save))

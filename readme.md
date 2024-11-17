@@ -11,7 +11,7 @@ of things which are unnecessary.
 
 Besides release tags, here are some tags used with perfix for other proposing.
 
-### deprecated 
+### deprecated
 
 Some features are not used with time going. I add a tag in the last commit
 supporting them. All of them are started with `deprecated`.
