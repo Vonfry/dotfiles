@@ -25,3 +25,10 @@
                               auto-mode-alist))
            (regs (mapcar #'car modes)))
       (mapcar (lambda (it) (cons it cmd)) regs))))
+
+(defun +org--refile-new-note (&optional slug)
+  "Get a new note file path in `+org-note-dir' with current time and SLUG."
+  (let* ((date (format-time-string "%Y%m%d%H%M%S" (current-time)))
+         (slug (if slug slug (read-string "slug: ")))
+         (filename (format "%s-%s.org" date slug)))
+    (find-file (expand-file-name filename +org-note-dir))))
