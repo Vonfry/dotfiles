@@ -34,6 +34,8 @@
                    (remote . emacs)))
   (org-file-apps-gnu
    (append
+    ; avoid the latter override.
+    (+org--auto-mode-to-file-apps 'nov 'emacs)
     (+org--auto-mode-to-file-apps 'doc-view-mode-maybe 'system)
     (+org--auto-mode-to-file-apps 'image-mode 'system)
     '((system . browse-url-xdg-open)

@@ -21,8 +21,7 @@
 
 (defun +org--auto-mode-to-file-apps (mode cmd)
   (when (and mode cmd)
-    (let* ((modes (seq-filter (lambda (it)
-                          (not (equal mode (cdr it))))
-                        auto-mode-alist))
-           (regs (mapcar (lambda (it) (car it)) modes)))
+    (let* ((modes (seq-filter (lambda (it) (equal mode (cdr it)))
+                              auto-mode-alist))
+           (regs (mapcar #'car modes)))
       (mapcar (lambda (it) (cons it cmd)) regs))))
