@@ -243,6 +243,7 @@ in
             # consult-omni
             d2-mode
             ob-d2
+            consult-notes
           ];
         # overrides = self: super: {
         #   openpgp = super.openpgp.overrideAttrs (old: {

@@ -242,3 +242,19 @@
   (setq org-project-capture-default-backend
         (make-instance 'org-project-capture-project-backend))
   (org-project-capture-single-file))
+
+(use-package consult-notes
+  :after counsult
+  :custom
+  (consult-notes-file-dir-sources
+   '(("Notes" ?n +org-note-dir)
+     ("Agenda" ?a +org-agenda-dir)
+     ("Contacts" ?c +org-contacts-dir)
+     ("Daily" ?d +org-journal-dir)))
+  (consult-notes-use-rg t)
+  :config
+  (consult-notes-org-headings-mode)
+  :general
+  (nmap-leader
+    "o n /" 'consult-notes-search-in-all-notes
+    "o n n" 'consult-notes))
