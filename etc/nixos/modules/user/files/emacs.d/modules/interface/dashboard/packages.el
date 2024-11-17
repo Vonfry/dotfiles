@@ -21,7 +21,7 @@
      ((,(nerd-icons-sucicon "nf-custom-emacs" :height 1.0 :v-adjust 0.0)
        "Scratch"
        "Goto scrath buffer"
-       (lambda (&rest _) (+evil/switch-scratch)))
+       (lambda (&rest _) (scratch-buffer)))
       (,(nerd-icons-sucicon "nf-custom-folder" :height 1.0 :v-adjust 0.0)
        "Files"
        "Files Manager"

@@ -84,7 +84,7 @@
     "!"   'calc
     "\""  'comint-run
     "O"   'calendar
-    "e a" '+evil/switch-scratch
+    "e a" 'scratch-buffer
     "e i" 'ielm
     "e s" 'server-start
     "e c" 'clean-buffer-list
