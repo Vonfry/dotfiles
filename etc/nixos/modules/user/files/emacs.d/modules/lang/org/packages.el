@@ -134,8 +134,6 @@
     "o a" 'org-agenda
     "o A" '+org/find-agenda
     "o N" '+org/find-notes
-    "o b" '+org/append-to-agenda-file
-    "o B" 'append-to-buffer
     "o c" 'org-capture
     "o k" '+org/open-capture))
 
