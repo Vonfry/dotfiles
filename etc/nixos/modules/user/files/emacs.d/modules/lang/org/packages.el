@@ -242,13 +242,13 @@
   (org-project-capture-single-file))
 
 (use-package consult-notes
-  :after counsult
+  :after consult
   :custom
   (consult-notes-file-dir-sources
-   '(("Notes" ?n +org-note-dir)
-     ("Agenda" ?a +org-agenda-dir)
-     ("Contacts" ?c +org-contacts-dir)
-     ("Daily" ?d +org-journal-dir)))
+   `(("Notes" ?n ,+org-note-dir)
+     ("Agenda" ?a ,+org-agenda-dir)
+     ("Contacts" ?c ,+org-contacts-dir)
+     ("Daily" ?d ,+org-journal-dir)))
   (consult-notes-use-rg t)
   :config
   (consult-notes-org-headings-mode)
