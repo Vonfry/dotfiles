@@ -4,7 +4,7 @@
 (use-package org
   :custom
   (org-modules '(ol-doi ol-bbdb ol-bibtex ol-docview ol-gnus ol-info ol-irc
-                 ol-mhe ol-eww ol-eshell ol-bookmark org-id))
+                 ol-mhe ol-eww ol-eshell ol-bookmark))
   (org-link-file-path-type 'relative)
   (org-startup-folded t)
   (org-default-notes-file +org-capture-file)
@@ -17,7 +17,6 @@
   (org-hide-leading-stars t)
   (org-indent-indentation-per-level 1)
   (org-list-indent-offset 2)
-  (org-id-link-to-org-use-id 'use-existing)
   (org-id-locations-file (expand-file-name "org/id" vonfry-local-dir))
   (org-log-refile 'time)
   (org-refile-targets '((nil :maxlevel . 99)
@@ -98,10 +97,7 @@
     "C e" 'org-evaluate-time-range
     "C E" 'org-clock-modify-effort-estimate
     "h"   'avy-org-goto-heading-timer
-    "u"   'org-id-get-create
-    "U"   'org-id-update-id-locations
     "o"   'org-store-link
-    "O"   'org-id-store-link
     "D i" 'org-display-inline-images
     "D t" 'org-latex-preview
     "D k" 'org-toggle-link-display))
