@@ -16,7 +16,7 @@
     "' b"   'eval-buffer
     "' f"   'eval-defun)
   (nmap-leader
-    "e a"   'eval-expression)
+    "e '"   'eval-expression)
   (vmap-leader :keymaps 'emacs-lisp-mode-map
     "' r" 'eval-region))
 
