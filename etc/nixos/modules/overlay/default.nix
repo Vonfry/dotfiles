@@ -15,5 +15,8 @@ in
     desktopBackground = sources.background-image.src;
 
     fcitx5-theme = callPackage ./data/fcitx5-theme { inherit sources; };
+
+    fcitx5-rime = callPackage ./applications/fcitx5-rime.nix { };
   };
+
 }

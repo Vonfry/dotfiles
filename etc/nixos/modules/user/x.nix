@@ -28,13 +28,6 @@ let
                   variant:string:""
     '';
 
-  fcitx5-rime-overlay = self: super: {
-    fcitx5-rime = super.fcitx5-rime.override {
-      rime-data = null;
-      rimeDataPkgs = [ ];
-    };
-  };
-
   screenlocker = pkgs.writeScriptBin "screenlocker" ''
     #!${pkgs.bash}/bin/bash -e
     exec ${pkgs.i3lock-color}/bin/i3lock-color -c 282a36 --indicator -k -B 1 --inside-color=282a36 --insidewrong-color=282a36 --insidever-color=282a36 --ringver-color=bd93f9 --ringwrong-color=ff79c6 --ring-color=44475a --line-color=6272a4 --keyhl-color=f1fa8c --bshl-color=ff5555 --verif-color=bd93f9 --wrong-color=ff79c6 --time-color=f8f8f2 --date-color=6272a4 "$@"
@@ -69,8 +62,6 @@ let
   };
 
   xcfg = {
-    nixpkgs.overlays = [ fcitx5-rime-overlay ];
-
     qt = {
       enable = true;
       style = {
@@ -112,7 +103,7 @@ let
 
     i18n.inputMethod = {
       enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [ fcitx5-rime ];
+      fcitx5.addons = [ pkgs.vonfryPackages.fcitx5-rime ];
     };
 
     programs = {
