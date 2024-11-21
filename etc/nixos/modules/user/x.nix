@@ -31,9 +31,7 @@ let
   fcitx5-rime-overlay = self: super: {
     fcitx5-rime = super.fcitx5-rime.override {
       rime-data = null;
-      rimeDataPkgs = [
-        (self.runCommand "rime-data-nullify" { } "mkdir -p $out/share/rime-data")
-      ];
+      rimeDataPkgs = [ ];
     };
   };
 
