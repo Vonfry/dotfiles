@@ -104,8 +104,6 @@
 
 (use-package org-modern
   :after org
-  :custom
-  (org-modern-replace-stars '("☰" "☷" "☵" "☲"  "☳" "☴"  "☶"  "☱" ))
   :hook
   (org-mode . org-modern-mode))
 
