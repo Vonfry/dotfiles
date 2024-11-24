@@ -173,7 +173,8 @@
     "o /" 'org-ql-search
     "o v" 'org-ql-view-sidebar
     "o v" 'org-ql-view
-    "o n q" '+org/ql-notes)
+    "o n q" '+org/ql-notes
+    "o n b" '+org/ql-notes-backlinks)
   (nmap-mode :keymaps 'org-mode-map
     "/" 'org-ql-sparse-tree
     ";" 'org-ql-find))
