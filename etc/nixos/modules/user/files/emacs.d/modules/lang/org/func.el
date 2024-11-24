@@ -19,3 +19,12 @@
 (defun +org/open-capture ()
   (interactive)
   (find-file +org-capture-file))
+
+(defun +org/ql-notes (query)
+  (interactive "Squery: ")
+  (org-ql-search
+    (org-ql-search-directories-files
+     :directories (list +org-note-dir)
+     :recurse t)
+    query
+    :title "Query Notes"))
