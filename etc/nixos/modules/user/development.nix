@@ -268,8 +268,8 @@ in
           gitlab.user = "Vonfry";
           color.pager = true;
           sendemail = mkIf config.programs.msmtp.enable {
-            smtpServer = "msmtp";
-            smtpServerOption = [
+            sendmailCmd = concatStringsSep " " [
+              (getExe config.programs.msmtp.package)
               "--read-envelope-from"
               "-t"
             ];
