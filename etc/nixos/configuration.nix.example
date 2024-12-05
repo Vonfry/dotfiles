@@ -9,6 +9,8 @@
     ./local/cloud.nix
   ];
 
+  system.stateVersion = throw "Fill it!";
+
   vonfry = {
     enable = true;
     userConfiguration = {
@@ -17,6 +19,8 @@
     };
     homeConfiguration = { config, pkgs, lib, ... }:
       {
+        home.stateVersion = throw "Fill it!";
+
         # xsession.enable = lib.mkForce false;
 
         xsession.initExtra = ''

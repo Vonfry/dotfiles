@@ -103,6 +103,6 @@ in
       };
     };
 
-    system.stateVersion = "25.05";
+    system.stateVersion = mkDefault "25.05";
   };
 }
