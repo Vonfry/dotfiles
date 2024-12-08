@@ -243,6 +243,7 @@ in
             ob-d2
             consult-notes
             org-modern
+            uniline
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
