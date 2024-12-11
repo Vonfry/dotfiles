@@ -19,6 +19,7 @@
      (rx "." (| "zip" "7z" (: "tar." word)) eos)
      "bsdtar -t")))
   (dired-listing-switches "-ahl")
+  (image-dired-thumbnail-storage 'standard)
   :general
   (nmap-leader
     "d"   'dired-jump
