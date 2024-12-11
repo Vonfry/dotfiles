@@ -64,7 +64,6 @@ If t, package.el is used to install packages automatically."
   (let ((qpkg `(quote ,pkg)))
     (eval `(require ,qpkg))))
 
-(use-package diminish)
 (defun vonfry-load-module (module-name file)
   "This function load a module with two level name.
 

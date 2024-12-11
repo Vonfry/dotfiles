@@ -153,7 +153,6 @@ in
             dracula-theme
             general
             whitespace-cleanup-mode
-            diminish
             evil
             evil-numbers
             evil-surround
