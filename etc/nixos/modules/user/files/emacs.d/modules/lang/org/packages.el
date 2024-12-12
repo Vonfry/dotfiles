@@ -191,7 +191,6 @@
   (use-package ob-sqlite :ensure nil)
   (use-package ob-lisp :ensure nil)
   (use-package ob-julia :ensure nil)
-  (use-package ob-d2)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -202,8 +201,7 @@
                               (julia      . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (lisp       . t)
-                              (d2         . t)))
+                              (lisp       . t)))
   (org-babel-lisp-eval-fn #'sly-eval)
   :after org)
 

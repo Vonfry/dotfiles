@@ -238,8 +238,6 @@ in
             epkgs."0x0"
             consult-hoogle
             gptel
-            d2-mode
-            ob-d2
             consult-notes
             org-modern
             uniline
@@ -308,7 +306,7 @@ in
 
         tokei
 
-        pandoc d2
+        pandoc
 
         distrobox
 
