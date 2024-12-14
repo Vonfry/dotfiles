@@ -51,7 +51,7 @@ packageSet (PkgSetArg {..}) = do
 
   define $ package "vonfry-icon"
       `sourceManual` date
-      `fetchUrl` const "https://vonfry.name/images/default/logo-white.png";
+      `fetchUrl` const "https://vonfry.name/images/default/logo-white.png"
 
   define $ package "fortune-chinese"
       `sourceGit` "https://github.com/ruanyf/fortunes.git"
@@ -61,6 +61,6 @@ packageSet (PkgSetArg {..}) = do
       `sourceGit` "https://github.com/p-chan5/EasyPulse.git"
       `fetchGitHub` ("p-chan5", "EasyPulse")
 
-  define $ package "bundy01Easyeffects"
-      `sourceGit` "https://github.com/Bundy01/EasyEffects-Presets.git"
-      `fetchGitHub` ("Bundy01", "EasyEffects-Presets")
+  define $ package "jackhack96Easyeffects"
+      `sourceGit` "https://github.com/JackHack96/EasyEffects-Presets.git"
+      `fetchGitHub` ("JackHack96", "EasyEffects-Presets")

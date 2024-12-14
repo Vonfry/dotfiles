@@ -2,5 +2,5 @@
 
 {
   easypulse = callPackage ./easypulse.nix { inherit sources; };
-  bundy01 = callPackage ./bundy01.nix { inherit sources; };
+  jackhack96 = callPackage ./jackhack96.nix { inherit sources; };
 }

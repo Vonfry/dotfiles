@@ -14,26 +14,6 @@
         },
         "version": "2024-11-17"
     },
-    "bundy01Easyeffects": {
-        "cargoLocks": null,
-        "date": "2024-11-28",
-        "extract": null,
-        "name": "bundy01Easyeffects",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Bundy01",
-            "repo": "EasyEffects-Presets",
-            "rev": "f07f22796643278478e9c82f204cbfc944b9a43b",
-            "sha256": "sha256-e2roAgAmP8DASpFNYMxWM+oJbD4yycKjhBi0FYGos7w=",
-            "type": "github"
-        },
-        "version": "f07f22796643278478e9c82f204cbfc944b9a43b"
-    },
     "easypulse": {
         "cargoLocks": null,
         "date": "2024-07-07",
@@ -93,6 +73,26 @@
             "type": "github"
         },
         "version": "000fb01261e4d119e4e988ce82f49fb8b139fe3c"
+    },
+    "jackhack96Easyeffects": {
+        "cargoLocks": null,
+        "date": "2024-05-12",
+        "extract": null,
+        "name": "jackhack96Easyeffects",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "JackHack96",
+            "repo": "EasyEffects-Presets",
+            "rev": "bd175d6f110e4053e3d0f4a0affd445fa5ecb814",
+            "sha256": "sha256-t+9E1l0ejRCmIUu8dK3e+0OX4lslRm1AN7yHUfd9frg=",
+            "type": "github"
+        },
+        "version": "bd175d6f110e4053e3d0f4a0affd445fa5ecb814"
     },
     "rime-cangjie": {
         "cargoLocks": null,

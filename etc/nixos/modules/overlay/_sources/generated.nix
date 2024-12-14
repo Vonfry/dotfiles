@@ -9,18 +9,6 @@
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
     };
   };
-  bundy01Easyeffects = {
-    pname = "bundy01Easyeffects";
-    version = "f07f22796643278478e9c82f204cbfc944b9a43b";
-    src = fetchFromGitHub {
-      owner = "Bundy01";
-      repo = "EasyEffects-Presets";
-      rev = "f07f22796643278478e9c82f204cbfc944b9a43b";
-      fetchSubmodules = false;
-      sha256 = "sha256-e2roAgAmP8DASpFNYMxWM+oJbD4yycKjhBi0FYGos7w=";
-    };
-    date = "2024-11-28";
-  };
   easypulse = {
     pname = "easypulse";
     version = "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6";
@@ -56,6 +44,18 @@
       sha256 = "sha256-O258vnAHQ3RrJnMPmVntmkj+RSfpHsf/YKJcLZd0owc=";
     };
     date = "2021-08-13";
+  };
+  jackhack96Easyeffects = {
+    pname = "jackhack96Easyeffects";
+    version = "bd175d6f110e4053e3d0f4a0affd445fa5ecb814";
+    src = fetchFromGitHub {
+      owner = "JackHack96";
+      repo = "EasyEffects-Presets";
+      rev = "bd175d6f110e4053e3d0f4a0affd445fa5ecb814";
+      fetchSubmodules = false;
+      sha256 = "sha256-t+9E1l0ejRCmIUu8dK3e+0OX4lslRm1AN7yHUfd9frg=";
+    };
+    date = "2024-05-12";
   };
   rime-cangjie = {
     pname = "rime-cangjie";
