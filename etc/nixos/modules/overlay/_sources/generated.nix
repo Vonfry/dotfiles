@@ -9,6 +9,18 @@
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
     };
   };
+  easypulse = {
+    pname = "easypulse";
+    version = "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6";
+    src = fetchFromGitHub {
+      owner = "p-chan5";
+      repo = "EasyPulse";
+      rev = "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6";
+      fetchSubmodules = false;
+      sha256 = "sha256-BOIvqo4OC/UzCMApdONLyxX4chpX5Av9kpMpwIoHOas=";
+    };
+    date = "2024-07-07";
+  };
   fcitx5-nord = {
     pname = "fcitx5-nord";
     version = "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1";

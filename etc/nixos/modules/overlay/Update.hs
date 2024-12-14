@@ -56,3 +56,7 @@ packageSet (PkgSetArg {..}) = do
   define $ package "fortune-chinese"
       `sourceGit` "https://github.com/ruanyf/fortunes.git"
       `fetchGitHub` ("ruanyf", "fortunes")
+
+  define $ package "easypulse"
+      `sourceGit` "https://github.com/p-chan5/EasyPulse.git"
+      `fetchGitHub` ("p-chan5", "EasyPulse")

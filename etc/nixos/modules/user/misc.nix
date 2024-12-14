@@ -20,11 +20,15 @@ let
         "$@"
     '';
   checkedRebuildOS = if sessions ? DOTFILES_DIR then rebuildOS else throw "DOTFILES_DIR isn't set.";
+
+  easyeffctsCommunityPresets = optional config.services.easyeffects.enable
+    pkgs.vonfryPackages.easypulse;
 in
 {
   config = mkIf cfg.enable {
-    home.packages = [ checkedRebuildOS ];
+    home.packages = [ checkedRebuildOS ] ++ easyeffctsCommunityPresets;
 
     services.easyeffects.enable = mkDefault (!cfg.workspace.server);
+
   };
 }
