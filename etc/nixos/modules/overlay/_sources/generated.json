@@ -14,6 +14,26 @@
         },
         "version": "2024-11-17"
     },
+    "bundy01Easyeffects": {
+        "cargoLocks": null,
+        "date": "2024-11-28",
+        "extract": null,
+        "name": "bundy01Easyeffects",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Bundy01",
+            "repo": "EasyEffects-Presets",
+            "rev": "f07f22796643278478e9c82f204cbfc944b9a43b",
+            "sha256": "sha256-e2roAgAmP8DASpFNYMxWM+oJbD4yycKjhBi0FYGos7w=",
+            "type": "github"
+        },
+        "version": "f07f22796643278478e9c82f204cbfc944b9a43b"
+    },
     "easypulse": {
         "cargoLocks": null,
         "date": "2024-07-07",

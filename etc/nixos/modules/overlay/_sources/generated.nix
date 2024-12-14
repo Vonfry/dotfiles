@@ -9,6 +9,18 @@
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
     };
   };
+  bundy01Easyeffects = {
+    pname = "bundy01Easyeffects";
+    version = "f07f22796643278478e9c82f204cbfc944b9a43b";
+    src = fetchFromGitHub {
+      owner = "Bundy01";
+      repo = "EasyEffects-Presets";
+      rev = "f07f22796643278478e9c82f204cbfc944b9a43b";
+      fetchSubmodules = false;
+      sha256 = "sha256-e2roAgAmP8DASpFNYMxWM+oJbD4yycKjhBi0FYGos7w=";
+    };
+    date = "2024-11-28";
+  };
   easypulse = {
     pname = "easypulse";
     version = "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6";

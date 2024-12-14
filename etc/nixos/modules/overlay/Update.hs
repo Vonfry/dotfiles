@@ -60,3 +60,7 @@ packageSet (PkgSetArg {..}) = do
   define $ package "easypulse"
       `sourceGit` "https://github.com/p-chan5/EasyPulse.git"
       `fetchGitHub` ("p-chan5", "EasyPulse")
+
+  define $ package "bundy01Easyeffects"
+      `sourceGit` "https://github.com/Bundy01/EasyEffects-Presets.git"
+      `fetchGitHub` ("Bundy01", "EasyEffects-Presets")

@@ -18,7 +18,9 @@ in
 
     fcitx5-rime = callPackage ./applications/fcitx5-rime.nix { };
 
-    easypulse = callPackage ./data/easypulse { inherit sources; };
+    easyeffects-presets = import ./data/easyeffects-presets {
+      inherit sources callPackage;
+    };
   };
 
 }

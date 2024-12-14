@@ -21,8 +21,8 @@ let
     '';
   checkedRebuildOS = if sessions ? DOTFILES_DIR then rebuildOS else throw "DOTFILES_DIR isn't set.";
 
-  easyeffctsCommunityPresets = optional config.services.easyeffects.enable
-    pkgs.vonfryPackages.easypulse;
+  easyeffctsCommunityPresets = optionals config.services.easyeffects.enable
+    (with pkgs.vonfryPackages.easyeffects-presets; [ easypulse bundy01 ]);
 in
 {
   config = mkIf cfg.enable {
