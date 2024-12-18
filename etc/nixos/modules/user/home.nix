@@ -19,6 +19,7 @@ in
   imports = [
     ./base.nix
     ./env.nix
+    ./impermanence.nix
     ./development.nix
     ./net.nix
     ./shell.nix

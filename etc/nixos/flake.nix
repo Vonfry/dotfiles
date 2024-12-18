@@ -15,6 +15,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    impermanence.url = "github:nix-community/impermanence";
   };
   outputs =
     {
@@ -24,6 +25,7 @@
       emacs-overlay,
       flake-utils,
       nix-index-database,
+      impermanence,
     }@flakes:
     let
       overlay = import ./modules/overlay;
@@ -67,12 +69,16 @@
         }
       );
       hmSharedModules = _: {
-        home-manager.sharedModules = [ nix-index-database.hmModules.nix-index ];
+        home-manager.sharedModules = [
+          impermanence.homeManagerModules.impermanence
+          nix-index-database.hmModules.nix-index
+        ];
       };
       nixosOutputs = {
         nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
           modules = [
             flakeSpecialConfig
+            impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             hmSharedModules
             ./configuration.nix

@@ -3,6 +3,7 @@
 {
   imports = [
     ./base.nix
+    ./impermanence.nix
     ./development.nix
     ./network.nix
     ./shell.nix
