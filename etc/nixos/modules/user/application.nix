@@ -8,19 +8,10 @@
 with lib;
 let
   cfg = config.vonfry;
+  envcfg = config.vonfry.environment;
 
   isenable = cfg.application.enable;
   ishome = config.vonfry.workspace.home;
-
-  sessionVariables = config.home.sessionVariables;
-
-  hasLedger = sessionVariables ? LEDGER_FILE;
-
-  genEmacsModuleWarning =
-    module:
-    optional (any (
-      x: x == module
-    ) cfg.development.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   appcfg = {
     programs = {
@@ -38,22 +29,6 @@ let
 
     };
 
-    vonfry.development.emacs.excludeModules = mkMerge [
-      (optional (!config.services.mpd.enable) "tools/mpd")
-      (optionals (!ishome) [
-        "tools/blog"
-        "tools/feed"
-      ])
-      (optional (!ishome || !hasLedger) "tools/ledger")
-    ];
-
-    warnings = mkMerge [
-      (genEmacsModuleWarning "tools/ledger")
-      (genEmacsModuleWarning "tools/blog")
-      (genEmacsModuleWarning "tools/mpd")
-      (genEmacsModuleWarning "tools/feed")
-    ];
-
     services = {
       gpg-agent = {
         enable = true;
@@ -69,13 +44,22 @@ let
       };
     };
 
-    home = {
-      packages = with pkgs; [
-        fortune
-        cmatrix
-        figlet
-      ];
-    };
+    home = mkMerge [
+      (mkIf envcfg.financial.enable {
+        packages = with pkgs; [ hledger ];
+        sessionVariables = {
+          # HOLD This should update every year manually.
+          "LEDGER_FILE" = "${envcfg.financial.absolute_path}/2024.journal";
+        };
+      })
+      {
+        packages = with pkgs; [
+          fortune
+          cmatrix
+          figlet
+        ];
+      }
+    ];
   };
 
   xcfg = {
@@ -168,7 +152,7 @@ let
     services = {
       mpd = {
         enable = mkDefault true;
-        musicDirectory = mkDefault "${config.home.homeDirectory}/Music";
+        musicDirectory = mkDefault "${config.xdg.userDirs.music}";
         extraConfig = ''
           audio_output {
             type "pipewire"
@@ -177,10 +161,6 @@ let
           restore_paused "yes"
         '';
       };
-    };
-
-    home = {
-      packages = with pkgs; [ hledger ];
     };
   };
 in
