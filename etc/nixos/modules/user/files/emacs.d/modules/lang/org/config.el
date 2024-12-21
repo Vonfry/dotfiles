@@ -1,8 +1,9 @@
 ;;; org/config.el --- -*- lexical-binding: t -*-
 ;;
 
-(defcustom +org-dir (let ((env-orgmode-dir (getenv "ORG_DIR")))
-                      (if env-orgmode-dir env-orgmode-dir "~/orgmode"))
+(defcustom +org-dir (if-let* ((env-orgmode-dir (getenv "ORG_DIR")))
+                        env-orgmode-dir
+                      "~/orgmode")
   "org dir"
   :type 'directory
   :group 'vonfry-modules)

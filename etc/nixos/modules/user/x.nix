@@ -10,12 +10,6 @@ let
   cfg = config.vonfry.x;
   cfg' = config.vonfry;
 
-  inherit (config.home) homeDirectory;
-
-  bgFile = "${homeDirectory}/.background-image";
-
-  defaultBgFile = pkgs.vonfryPackages.desktopBackground.outPath;
-
   deployFcitx5Rime =
     with pkgs;
     writeScriptBin "fcitx5-rime-deploy" ''
@@ -52,14 +46,6 @@ let
         acc // { "${curPathname}" = curPath; }
     ) { } (builtins.readDir dirPath);
   xmonad-libFiles = genAttrSet "" xmonad-libdir;
-
-  xdgcfg = {
-    xdg = {
-      enable = true;
-      userDirs.enable = true;
-      mimeApps.enable = true;
-    };
-  };
 
   xcfg = {
     qt = {
@@ -117,7 +103,7 @@ let
       enable = true;
       scriptPath = ".xinitrc";
       initExtra = ''
-        ${pkgs.feh}/bin/feh --bg-center ${bgFile}
+        ${pkgs.feh}/bin/feh --bg-center ${cfg.bgFile}
       '';
       windowManager = {
         xmonad = {
@@ -246,16 +232,6 @@ let
     };
 
     home = {
-      activation.xActivation =
-        lib.hm.dag.entryAfter
-          [
-            "writeBoundary"
-            "linkGeneration"
-          ]
-          ''
-            [ -h "${bgFile}" ] || ln -s ${cfg.bgFile} ${bgFile}
-          '';
-
       pointerCursor = {
         package = pkgs.capitaine-cursors;
         name = "capitaine-cursors";
@@ -284,7 +260,7 @@ in
     enable = mkEnableOption "Vonfry's x configurations.";
 
     bgFile = mkOption {
-      default = defaultBgFile;
+      default = pkgs.vonfryPackages.desktopBackground.outPath;
       type = types.path;
       description = "The background file.";
     };
@@ -298,7 +274,6 @@ in
 
   config = mkMerge [
     { vonfry.x.enable = mkDefault (!cfg'.workspace.server); }
-    xdgcfg
     (mkIf cfg.enable xcfg)
   ];
 }

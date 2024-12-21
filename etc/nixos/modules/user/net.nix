@@ -20,14 +20,14 @@ let
 
   netcfg = {
     accounts.email = mkIf (cfg.email != null) {
-      maildirBasePath = "${config.home.homeDirectory}/.mail";
+      maildirBasePath = "${config.xdg.dataHome}/email";
       accounts = {
         vonfry = mkMerge [
           {
             realName = "Vonfry";
             primary = true;
             # other configurations are save in local
-            maildir.path = "mail";
+            maildir.path = "_";
             mbsync = {
               enable = true;
               create = "both";
@@ -112,7 +112,7 @@ in
     enable = mkEnableOption "Vonfry's network configurations.";
     email = mkOption {
       type = with types; nullOr attrs;
-      description = "Private email config.";
+      description = "Private email config. This only for one account for myself. Other account should use original hm options.";
       default = null;
     };
   };

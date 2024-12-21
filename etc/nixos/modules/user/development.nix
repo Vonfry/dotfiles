@@ -9,6 +9,7 @@ with lib;
 let
   cfg = config.vonfry.development;
   cfg' = config.vonfry;
+  envcfg = config.vonfry.environment;
 
   ishome = cfg'.workspace.home;
 
@@ -24,13 +25,11 @@ let
       ];
     };
 
-  inherit (config.xdg) dataHome;
-  linkEmacs = optionalString cfg'.x.enable ''
-    [ -e ${toString dataHome}/emacs/dashboard-image.png ] || ln -s ${pkgs.vonfryPackages.desktopBackground} ${toString dataHome}/emacs/dashboard-image.png
-  '';
+  hasOrg = envcfg.orgmode.enable;
 
-  sessions = config.home.sessionVariables;
-  hasOrg = sessions ? ORG_DIR;
+  genEmacsModuleWarning =
+    module:
+    optional (any (x: x == module) cfg.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   # copy from emacsclient.desktop
   emacsclient_mimetypes = [
@@ -97,7 +96,26 @@ in
   };
 
   config = mkIf cfg'.enable {
-    warnings = optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.";
+    vonfry.development.emacs.excludeModules = mkMerge [
+      (optional (!config.services.mpd.enable) "tools/mpd")
+      (optionals (!ishome) [
+        "tools/blog"
+        "tools/feed"
+      ])
+      (optional (!ishome || envcfg.financial.enable) "tools/ledger")
+    ];
+
+    warnings = mkMerge [
+      (optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.")
+      (genEmacsModuleWarning "tools/ledger")
+      (genEmacsModuleWarning "tools/blog")
+      (genEmacsModuleWarning "tools/mpd")
+      (genEmacsModuleWarning "tools/feed")
+    ];
+
+    home.sessionVariables = {
+      EMACS_DASHBOARD_IMAGE = pkgs.vonfryPackages.desktopBackground;
+    };
 
     xdg = {
       configFile = {
@@ -294,11 +312,6 @@ in
     };
 
     home = {
-      activation.developmentActivation = lib.hm.dag.entryAfter [
-        "writeBoundary"
-        "linkGeneration"
-      ] (concatStringsSep "\n" [ linkEmacs ]);
-
       packages = with pkgs; [
         gitAndTools.git-extras
 
