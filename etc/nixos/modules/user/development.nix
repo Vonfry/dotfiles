@@ -102,7 +102,7 @@ in
         "tools/blog"
         "tools/feed"
       ])
-      (optional (!ishome || envcfg.financial.enable) "tools/ledger")
+      (optional (!ishome || !envcfg.financial.enable) "tools/ledger")
     ];
 
     warnings = mkMerge [
