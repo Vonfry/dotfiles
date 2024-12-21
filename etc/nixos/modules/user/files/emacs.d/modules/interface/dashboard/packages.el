@@ -14,8 +14,8 @@
    (let ((bg-file (if-let* ((bg-file (getenv "EMACS_DASHBOARD_IMAGE")))
                       bg-file
                     (expand-file-name "dashboard-image.png" vonfry-local-dir))))
-     (if (file-exists-p bg-file-default)
-         bg-file-default
+     (if (file-exists-p bg-file)
+         bg-file
        'logo)))
   (dashboard-navigator-buttons
    `(;; (icon title help action face prefix suffix)
