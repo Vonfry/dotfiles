@@ -53,14 +53,6 @@ let
     ) { } (builtins.readDir dirPath);
   xmonad-libFiles = genAttrSet "" xmonad-libdir;
 
-  xdgcfg = {
-    xdg = {
-      enable = true;
-      userDirs.enable = true;
-      mimeApps.enable = true;
-    };
-  };
-
   xcfg = {
     qt = {
       enable = true;
@@ -298,7 +290,6 @@ in
 
   config = mkMerge [
     { vonfry.x.enable = mkDefault (!cfg'.workspace.server); }
-    xdgcfg
     (mkIf cfg.enable xcfg)
   ];
 }

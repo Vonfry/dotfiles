@@ -143,12 +143,25 @@ let
         virt-manager
       ];
     };
+  };
 
+  xdgcfg = {
     xdg = {
       mimeApps.defaultApplications = {
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       };
+
+      enable = true;
+      userDirs.enable = true;
+      mimeApps.enable = true;
     };
+
+    asserts = [
+      {
+        assertion = config.xdg.enable && config.xdg.userDirs.enable;
+        message = "You must enable xdg and xdg's userDirs, because vonfry's module is highly depended on it for some paths.";
+      }
+    ];
   };
 
   homecfg = {
@@ -178,6 +191,7 @@ in
   config = mkMerge [
     { vonfry.application.enable = mkDefault cfg.enable; }
     (mkIf isenable appcfg)
+    (mkIf cfg.enable xdgcfg)
     (mkIf (isenable && cfg.x.enable) xcfg)
     (mkIf (isenable && ishome) homecfg)
   ];
