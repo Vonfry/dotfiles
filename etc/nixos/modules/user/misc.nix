@@ -18,13 +18,17 @@ let
         "path:${envcfg.dotfiles.absolute_path}/etc/nixos#vonfry"   \
         "$@"
     '';
-  easyeffctsCommunityPresets = optionals config.services.easyeffects.enable
-    (with pkgs.vonfryPackages.easyeffects-presets; [ easypulse jackhack96 ]);
+  easyeffctsCommunityPresets = optionals config.services.easyeffects.enable (
+    with pkgs.vonfryPackages.easyeffects-presets;
+    [
+      easypulse
+      jackhack96
+    ]
+  );
 in
 {
   config = mkIf cfg.enable {
-    home.packages = optional envcfg.dotfiles.enable rebuildOS
-      ++ easyeffctsCommunityPresets;
+    home.packages = optional envcfg.dotfiles.enable rebuildOS ++ easyeffctsCommunityPresets;
 
     services.easyeffects.enable = mkDefault (!cfg.workspace.server);
 

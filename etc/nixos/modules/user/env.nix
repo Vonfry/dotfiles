@@ -29,9 +29,11 @@ let
     };
   };
 
-  mkSessionVariable = name: optionalAttrs cfg.${name}.enable {
-    ${cfg.dotfiles.sessionVariable} = cfg.dotfiles.absolute_path;
-  };
+  mkSessionVariable =
+    name:
+    optionalAttrs cfg.${name}.enable {
+      ${cfg.dotfiles.sessionVariable} = cfg.dotfiles.absolute_path;
+    };
 in
 {
   options.vonfry.environment = {
@@ -53,8 +55,14 @@ in
       };
     }
     (mkIf cfg'.enable {
-      home.sessionVariables = mkMerge
-        (map mkSessionVariable ["dotfiles" "repos" "orgmode" "financial"]);
+      home.sessionVariables = mkMerge (
+        map mkSessionVariable [
+          "dotfiles"
+          "repos"
+          "orgmode"
+          "financial"
+        ]
+      );
     })
-  ] ;
+  ];
 }

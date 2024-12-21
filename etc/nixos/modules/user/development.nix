@@ -29,9 +29,7 @@ let
 
   genEmacsModuleWarning =
     module:
-    optional (any (
-      x: x == module
-    ) cfg.emacs.excludeModules) "emacs ${module} module is disabled.";
+    optional (any (x: x == module) cfg.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   # copy from emacsclient.desktop
   emacsclient_mimetypes = [
@@ -114,7 +112,6 @@ in
       (genEmacsModuleWarning "tools/mpd")
       (genEmacsModuleWarning "tools/feed")
     ];
-
 
     home.sessionVariables = {
       EMACS_DASHBOARD_IMAGE = pkgs.vonfryPackages.desktopBackground;
