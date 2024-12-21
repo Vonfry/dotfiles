@@ -55,7 +55,6 @@ in
     (mkIf cfg'.enable {
       home.sessionVariables = mkMerge
         (map mkSessionVariable ["dotfiles" "repos" "orgmode" "financial"]);
-
     })
   ] ;
 }
