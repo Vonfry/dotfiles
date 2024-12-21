@@ -4,8 +4,6 @@
   imports =  [
     ./hardware-configuration.nix # use `nixos-generate-config`
     ./modules
-    ./local/proxy.nix
-    ./local/mirror.nix
     ./local/cloud.nix
   ];
 
