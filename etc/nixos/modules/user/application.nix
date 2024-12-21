@@ -140,7 +140,7 @@ let
       mimeApps.enable = true;
     };
 
-    asserts = [
+    assertions = [
       {
         assertion = config.xdg.enable && config.xdg.userDirs.enable;
         message = "You must enable xdg and xdg's userDirs, because vonfry's module is highly depended on it for some paths.";

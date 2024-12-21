@@ -116,6 +116,10 @@ in
     ];
 
 
+    home.sessionVariables = {
+      EMACS_DASHBOARD_IMAGE = pkgs.vonfryPackages.desktopBackground;
+    };
+
     xdg = {
       configFile = {
         "emacs" = {
@@ -145,8 +149,6 @@ in
           Terminal=false
           MimeType=x-scheme-handler/org-protocol;
         '';
-
-        "emacs/dashboard-image.png".source = pkgs.vonfryPackages.desktopBackground;
       };
 
       mimeApps.defaultApplications = mkIf config.services.emacs.enable (

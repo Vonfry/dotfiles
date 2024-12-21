@@ -11,8 +11,9 @@
   (dashboard-set-heading-icons t)
   (dashboard-set-file-icons    t)
   (dashboard-startup-banner
-   (let ((bg-file-default
-          (expand-file-name "dashboard-image.png" vonfry-local-dir)))
+   (let ((bg-file (if-let* ((bg-file (getenv "EMACS_DASHBOARD_IMAGE")))
+                      bg-file
+                    (expand-file-name "dashboard-image.png" vonfry-local-dir))))
      (if (file-exists-p bg-file-default)
          bg-file-default
        'logo)))
