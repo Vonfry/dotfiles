@@ -17,7 +17,7 @@ let
       type = types.str;
     };
     home_path = mkOption {
-      default = removePrefix config.home.homeDirectory cfg.${name}.absolute_path;
+      default = removePrefix "${config.home.homeDirectory}/" cfg.${name}.absolute_path;
       description = "The path related to home.";
       readOnly = true;
       type = types.str;
