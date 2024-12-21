@@ -1,7 +1,7 @@
 ;;; org/config.el --- -*- lexical-binding: t -*-
 ;;
 
-(defcustom +org-dir (if-let* ((env-orgmode-dir (getenv "ORG_DIR")))
+(defcustom +org-dir (if-let* ((env-orgmode-dir (getenv "ORGMODE_DIR")))
                         env-orgmode-dir
                       "~/orgmode")
   "org dir"

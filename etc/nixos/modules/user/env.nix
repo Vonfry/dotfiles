@@ -32,7 +32,7 @@ let
   mkSessionVariable =
     name:
     optionalAttrs cfg.${name}.enable {
-      ${cfg.dotfiles.sessionVariable} = cfg.dotfiles.absolute_path;
+      ${cfg.${name}.sessionVariable} = cfg.${name}.absolute_path;
     };
 in
 {
