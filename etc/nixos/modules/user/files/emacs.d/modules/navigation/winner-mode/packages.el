@@ -1,8 +1,12 @@
 ;;; winner/mode.el --- packages -*- lexical-binding: t -*-
 ;;
 
-(winner-mode t)
-
-(nmap-leader
-  "W r" 'winner-redo
-  "W u" 'winner-undo)
+(use-package winner
+  :custom
+  (winner-ring-size 50)
+  :config
+  (winner-mode t)
+  :general
+  (nmap-leader
+    "W r" 'winner-redo
+    "W u" 'winner-undo))
