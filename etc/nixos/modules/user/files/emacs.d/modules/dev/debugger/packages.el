@@ -8,3 +8,9 @@
   (nmap-leader :keymaps 'prog-mode-map
     "' d" dape-global-map
     "\""  dape-global-map))
+
+(use-package compile
+  :general
+  (nmap-leader :keymaps 'prog-mode-map
+    "' c" 'compile
+    "' C" 'recompile))

@@ -18,7 +18,8 @@
   (nmap-leader
     "e '"   'eval-expression)
   (vmap-leader :keymaps 'emacs-lisp-mode-map
-    "' r" 'eval-region))
+    "RET"   'eval-region
+    "' RET" 'eval-region))
 
 (add-hook 'elisp-mode-hook
           (lambda ()
@@ -32,6 +33,7 @@
     "' b"   'sly-eval-buffer
     "' f"   'sly-eval-defun
     "' RET" 'sly-eval-last-expression
+    "RET"   'sly-eval-last-expression
     "\""    'sly
     "' \""  'sly-connect
     "?"     'sly-documentation)
@@ -39,4 +41,5 @@
     "RET"   'sly-inspect
     "?"     'sly-documentation-lookup)
   (vmap-leader :keymaps 'lisp-mode-map
-    "' r"   'sly-eval-region))
+    "RET"     'sly-eval-region
+    "' RET"   'sly-eval-region))

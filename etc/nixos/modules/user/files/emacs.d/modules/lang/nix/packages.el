@@ -6,9 +6,9 @@
   :hook ((nix-mode nix-ts-mode) . eglot-ensure)
   :general
   (nmap-leader :keymaps '(nix-mode-map nix-ts-mode-map)
-    "="  'nix-format-buffer
-    "\"" 'nix-repl
-    "r"  'nix-build)
+    "="   'nix-format-buffer
+    "\""  'nix-repl
+    "' c" 'nix-build)
   (nmap-mode :keymaps '(nix-mode-map nix-ts-mode-map)
     "u"  'nix-unpack
     "/"  'nix-search

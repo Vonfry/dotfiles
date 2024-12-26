@@ -16,12 +16,11 @@ reloading."))
     ","   'agda2-go-back
     ";"   'agda2-module-contents-maybe-toplevel
     "&"   'agda2-search-about-toplevel
-    "r"   'agda2-compile
+    "' c" 'agda2-compile
     ")"   'eri-indent
     "("   'eri-indent-reverse
     "c x" 'agda2-comment-dwim-rest-of-buffer
     "' b" 'agda2-load
-    "r"   'agda2-compile
 
     "RET"   'agda2-give
     "' RET" 'agda2-elaborate-give)

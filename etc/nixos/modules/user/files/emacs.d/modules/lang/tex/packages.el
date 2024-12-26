@@ -48,8 +48,7 @@
   (nmap-leader :keymaps '(TeX-mode-map)
     "?"      'TeX-doc
     "RET"    'preview-at-point
-    "R"      'compile
-    "r"      'TeX-command-master)
+    "' c"    'TeX-command-master)
   (nmap-mode :keymaps '(TeX-mode-map)
     "-"       'TeX-recenter-output-buffer
     "R"       'TeX-command-run-all

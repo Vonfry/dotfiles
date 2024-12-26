@@ -10,12 +10,13 @@
     "t" 'rust-test
     "k" 'rust-check
     "k" 'rust-run-clippy
-    "r" 'rust-run-release
-    "R" 'rust-run
+    "R" 'rust-run-release
+    "r" 'rust-run
     "d" 'rust-dbg-wrap-or-unwrap)
   (nmap-leader :keymaps '(rust-mode-map rust-ts-mode-map)
-    "r" 'rust-compile
-    "R" '+rust/gdb))
+    "' c" 'rust-compile
+    "' r" 'rust-run
+    "' R" 'rust-run-release))
 
 (use-package cargo
   :hook ((rust-mode rust-ts-mode) . cargo-minor-mode)
