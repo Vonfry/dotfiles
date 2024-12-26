@@ -23,9 +23,3 @@
 
 (use-package cmake-mode
   :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'"))
-
-(use-package realgud-lldb
-  :after realgud
-  :general
-  (nmap-mode :keymaps '(c-mode-map c++-mode-map c-ts-mode-map c++-ts-mode-map)
-    "R" 'lldb))

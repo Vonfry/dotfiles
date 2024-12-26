@@ -196,7 +196,6 @@ in
             diff-hl
             disaster
             cmake-mode
-            realgud-lldb
             mu4e
             mu4e-alert
             elfeed
@@ -208,7 +207,6 @@ in
             ace-window
             logview
             editorconfig
-            realgud
             evil-nerd-commenter
             rainbow-delimiters
             doom-modeline
@@ -259,6 +257,7 @@ in
             consult-notes
             org-modern
             uniline
+            dape
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
