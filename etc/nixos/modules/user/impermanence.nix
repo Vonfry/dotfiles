@@ -16,7 +16,6 @@ let
 
   base = {
     enable = true;
-    hideMounts = true;
   };
 
   envcfg = cfg.environment;
@@ -33,22 +32,24 @@ let
     ]);
   };
 
-  xdg = mkMerge [
-    (mkIf config.xdg.enable {
-      directories = mkIf xdg.userDirs.enable (map mkHomeRelpath [
+  xdg = mkIf config.xdg.enable {
+    directories = mkMerge [
+      (mkIf config.xdg.userDirs.enable (map mkHomeRelpath [
         # user dirs
         # download and desktop aren't here. Let us clean it everytime!
         config.xdg.userDirs.documents
         config.xdg.userDirs.music
-        config.xdg.userDirs.picture
+        config.xdg.userDirs.pictures
         config.xdg.userDirs.publicShare
         config.xdg.userDirs.templates
         config.xdg.userDirs.videos
-      ]);
-    })
-    (mkHomeRelpath config.xdg.stateHome)
-    (mkDataRelpath "Trash")
-  ];
+      ]))
+      [
+        (mkHomeRelpath config.xdg.stateHome)
+        (mkDataRelpath "Trash")
+      ]
+    ];
+  };
 
   emacs = {
     files = [
@@ -62,39 +63,19 @@ let
 
   shell = {
     files = [
-      {
-        file = ".ssh/id_ed25519";
-        mode = "0600";
-        parentDirectory = { mode = "0700"; };
-      }
-      {
-        file = ".ssh/id_ed25519.pub";
-        mode = "0600";
-        parentDirectory = { mode = "0700"; };
-      }
-      {
-        file = ".ssh/rsa";
-        mode = "0600";
-        parentDirectory = { mode = "0700"; };
-      }
-      {
-        file = ".ssh/rsa.pub";
-        mode = "0600";
-        parentDirectory = { mode = "0700"; };
-      }
-      {
-        file = ".ssh/known_hosts";
-        mode = "0600";
-        parentDirectory = { mode = "0700"; };
-      }
+      ".ssh/id_ed25519"
+      ".ssh/id_ed25519.pub"
+      ".ssh/rsa"
+      ".ssh/rsa.pub"
+      ".ssh/known_hosts"
     ] ++ map mkDataRelpath [
       "fish/fish_history"
+      "fish/fish_variables"
     ];
     directories = map mkCacheRelpath [
       "fsh"
       "starship"
     ] ++ map mkConfigRelpath [
-      "fish/fish_variables"
     ] ++ map mkDataRelpath [
       "fish/generated_completions"
     ];
@@ -163,10 +144,7 @@ let
       ".cargo/git"
       ".cargo/registry"
 
-      {
-        directory = (mkHomeRelpath config.programs.gpg.homedir);
-        mode = "0700";
-      }
+      (mkHomeRelpath config.programs.gpg.homedir)
 
       ".texlive2023"
       ".texlive2024"
@@ -222,7 +200,7 @@ let
 in
 {
   config = mkIf cfg.enable {
-    home.persistence."/persistent/${config.home.homeDirectory}" = mkMerge [
+    home.persistence."/persistent${config.home.homeDirectory}" = mkMerge [
       base
       envdir
       xdg
