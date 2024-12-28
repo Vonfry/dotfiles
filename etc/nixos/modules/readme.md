@@ -19,6 +19,11 @@ import them by yourselves. It can make file content more clearful.
 - nix and system configuration: nixpkgs, log, exfat, etc.
 - basic tools: zip, interpreter, htop, etc.
 
+### workspace
+- machine usage scope definition
+
+### env
+- some useful file structures definition
 ### development
 - editor, lib, compiler, vcs, etc.
 
