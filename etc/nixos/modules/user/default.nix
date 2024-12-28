@@ -10,6 +10,7 @@ let
   cfg = config.vonfry;
   userconfig = {
     users.motd = builtins.readFile ./files/motd;
+    users.mutableUsers = false;
 
     users.users.vonfry = {
       isNormalUser = true;
