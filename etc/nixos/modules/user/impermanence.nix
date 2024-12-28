@@ -71,14 +71,13 @@ let
       ".ssh/known_hosts"
     ] ++ map mkDataRelpath [
       "fish/fish_history"
+    ] ++ map mkConfigRelpath [
       "fish/fish_variables"
     ];
     directories = map mkCacheRelpath [
       "fsh"
       "starship"
     ] ++ map mkConfigRelpath [
-    ] ++ map mkDataRelpath [
-      "fish/generated_completions"
     ];
   };
 
