@@ -99,7 +99,6 @@ let
       "mu"
 
       "nix"
-      "nix-index"
       "nixpkgs-review"
 
       "nyxt"
