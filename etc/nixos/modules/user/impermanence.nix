@@ -70,7 +70,6 @@ let
       ".ssh/rsa.pub"
       ".ssh/known_hosts"
     ] ++ map mkDataRelpath [
-      "fish/fish_history"
     ] ++ map mkConfigRelpath [
       "fish/fish_variables"
     ];
@@ -78,6 +77,9 @@ let
       "fsh"
       "starship"
     ] ++ map mkConfigRelpath [
+      # TODO try this? "fish"
+    ] ++ map mkDataRelpath [
+      "fish"
     ];
   };
 
