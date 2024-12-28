@@ -30,10 +30,9 @@ in
       ];
       files = [
         "/etc/machine-id"
+        "/etc/.updated"
         "/var/lib/logrotate.status"
 
-        "/etc/passwd"
-        "/etc/group"
         "/etc/shadow"
 
         "/etc/ssh/ssh_host_ed25519_key"
