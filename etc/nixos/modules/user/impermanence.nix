@@ -16,6 +16,7 @@ let
 
   base = {
     enable = true;
+    allowOther = true;
   };
 
   envcfg = cfg.environment;

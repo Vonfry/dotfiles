@@ -6,6 +6,8 @@ let
 in
 {
   config = mkIf cfg.enable {
+    programs.fuse.userAllowOther = true;
+
     environment.persistence."/persistent" = {
       enable = true;
       hideMounts = true;
