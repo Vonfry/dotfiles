@@ -115,13 +115,21 @@ let
       };
     };
 
+    services.flameshot = {
+      enable = true;
+      settings = {
+        General = {
+          savePath = config.xdg.userDirs.pictures;
+        };
+      };
+    };
+
     home = {
       sessionVariables = {
         PDFVIEWER = "zathura";
       };
 
       packages = with pkgs; [
-        flameshot
         libreoffice
 
         virt-manager
