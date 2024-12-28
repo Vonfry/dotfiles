@@ -16,6 +16,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     impermanence.url = "github:nix-community/impermanence";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -26,6 +30,7 @@
       flake-utils,
       nix-index-database,
       impermanence,
+      disko,
     }@flakes:
     let
       overlay = import ./modules/overlay;
@@ -81,6 +86,7 @@
             impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
             hmSharedModules
+            disko.nixosModules.disko
             ./configuration.nix
           ];
         };

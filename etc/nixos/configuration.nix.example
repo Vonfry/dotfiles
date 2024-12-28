@@ -2,7 +2,7 @@
 
 {
   imports =  [
-    ./hardware-configuration.nix # use `nixos-generate-config`
+    ./hardware-configuration.nix # use `nixos-generate-config` with disko config
     ./modules
     ./local/cloud.nix
   ];
