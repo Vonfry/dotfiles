@@ -59,6 +59,7 @@
       ":PROPERTIES:\n:CREATED: %U\n:END:\n#+title: %?\n#+author: Vonfry\n")))
   (org-archive-subtree-add-inherited-tags t)
   (org-html-htmlize-output-type 'css)
+  (org-persist-directory (expand-file-name "org-persist" vonfry-cache-dir))
   :general
   ("C-c C" 'org-capture-goto-target)
   ("C-c a" 'org-agenda)
