@@ -30,6 +30,11 @@ in
         layout = "us";
       };
 
+      file = {
+        # make it auto cite
+        ".parallel/will-cite".text = "";
+      };
+
       packages = with pkgs; [
         sshfs
         exfat
