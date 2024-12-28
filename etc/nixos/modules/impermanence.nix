@@ -27,14 +27,14 @@ in
 
         "/var/lib/dhcpcd"
         "/var/db/dhcpcd"
-
-        "/etc/passwd"
-        "/etc/group"
-        "/etc/shadow"
       ];
       files = [
         "/etc/machine-id"
         "/var/lib/logrotate.status"
+
+        "/etc/passwd"
+        "/etc/group"
+        "/etc/shadow"
 
         "/etc/ssh/ssh_host_ed25519_key"
         "/etc/ssh/ssh_host_ed25519_key.pub"
