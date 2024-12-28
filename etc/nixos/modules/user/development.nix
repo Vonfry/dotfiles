@@ -75,7 +75,6 @@ in
             tree-sitter-commonlisp
             tree-sitter-elisp
             tree-sitter-nix
-            tree-sitter-julia
             tree-sitter-latex
             tree-sitter-bibtex
             tree-sitter-json
@@ -231,9 +230,6 @@ in
             agda2-mode
             ligature
             sly
-            julia-mode
-            julia-repl
-            eglot-jl
             flymake-collection
             consult-eglot
             openpgp

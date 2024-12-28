@@ -14,7 +14,6 @@
            ; (bibtex-mode . bibtex-ts-mode)
            ; (elisp-mode . elisp-ts-mode)
            ; (lisp-mode . lisp-ts-mode)
-           ; (julia-mode . julia-ts-mode)
            (yaml-mode . yaml-ts-mode)
            (toml-mode . toml-ts-mode)
            (json-mode . json-ts-mode)

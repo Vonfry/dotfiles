@@ -190,7 +190,6 @@
   (use-package ob-sql :ensure nil)
   (use-package ob-sqlite :ensure nil)
   (use-package ob-lisp :ensure nil)
-  (use-package ob-julia :ensure nil)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -198,7 +197,6 @@
                               (haskell    . t)
                               (lisp       . t)
                               (latex      . t)
-                              (julia      . t)
                               (sql        . t)
                               (sqlite     . t)
                               (lisp       . t)))

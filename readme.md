@@ -67,7 +67,7 @@ in user environment only when the language is used directly, i.e., tex and nix.
 - **Rust** :: main sys-prog lang
 - **Common Lisp & Emacs Lisp** :: main script lang
 - ~~Perl :: script lang~~
-- **Julia** :: main data-analysis lang
+- ~~Julia :: main data-analysis lang~~
 - orgmode & latex :: main doc lang
 - Agda :: proof only
 - ~~Coq :: proof only~~
