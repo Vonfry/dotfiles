@@ -148,6 +148,8 @@ let
       mimeApps.enable = true;
     };
 
+    home.preferXdgDirectories = true;
+
     assertions = [
       {
         assertion = config.xdg.enable && config.xdg.userDirs.enable;
