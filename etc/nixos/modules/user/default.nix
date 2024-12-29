@@ -15,6 +15,7 @@ let
     users.users.vonfry = {
       isNormalUser = true;
       home = "/home/vonfry";
+      uid = mkDefault 1000;
       description = "Vonfry";
       extraGroups = [
         "wheel"
