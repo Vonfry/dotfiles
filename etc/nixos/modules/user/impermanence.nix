@@ -127,6 +127,8 @@ let
     ];
   };
 
+  gpgbase = mkHomeRelpath config.programs.gpg.homedir;
+
   development = {
     files = [
       ".cargo/.crates2.json"
@@ -138,6 +140,11 @@ let
       ".ghc/ghci_history"
 
       ".sly-mrepl-history"
+
+      "${gpgbase}/sshcontrol"
+      "${gpgbase}/trustdb.gpg"
+      "${gpgbase}/random_seed"
+      "${gpgbase}/pubring.kbx"
     ];
     directories = [
       ".android"
@@ -145,7 +152,9 @@ let
       ".cargo/git"
       ".cargo/registry"
 
-      (mkHomeRelpath config.programs.gpg.homedir)
+      "${gpgbase}/crls.d"
+      "${gpgbase}/openpgp-revocs.d"
+      "${gpgbase}/private-keys-v1.d"
 
       ".texlive2023"
       ".texlive2024"
