@@ -49,6 +49,9 @@ let
     "text/x-c"
     "text/x-c++"
   ];
+
+  gpgHasKey = config.programs.gpg.settings ? "default-key";
+  gpgKey = config.programs.gpg.settings.default-key;
 in
 {
   options.vonfry.development = {
@@ -83,13 +86,6 @@ in
             tree-sitter-html
           ];
         type = with types; functionTo (listOf package);
-      };
-    };
-
-    git = {
-      signKey = mkOption {
-        default = null;
-        type = with types; nullOr str;
       };
     };
   };
@@ -268,9 +264,9 @@ in
         userName = "Vonfry";
         userEmail = "mail@vonfry.name";
         package = pkgs.gitAndTools.gitFull;
-        signing = mkIf (cfg.git.signKey != null) {
+        signing = mkIf gpgHasKey {
           signByDefault = true;
-          key = cfg.git.signKey;
+          key = gpgKey;
         };
         enable = true;
         extraConfig = {

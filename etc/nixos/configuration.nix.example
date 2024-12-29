@@ -22,7 +22,8 @@
         # xsession.enable = lib.mkForce false;
 
         xsession.initExtra = ''
-          # . .screenlayout/dual_monitor.sh
+          # generate by axrandr
+          # ...
         '';
 
         home.sessionVariables = {
@@ -33,14 +34,13 @@
           gpg.settings = {
             # default-key = "";
           };
-          zsh.shellAliases = {
+          fish.shellAliases = {
           };
         };
 
         vonfry = {
           game.enable = true;
           development = {
-            # git.signKey = "";
           };
         };
 
