@@ -186,7 +186,6 @@ let
     ] ++ map mkConfigRelpath [
       "QtProject.conf"
     ] ++ map mkDataRelpath [
-      "recently-used.xbel"
     ];
     directories = [
       ".vnc"
