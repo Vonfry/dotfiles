@@ -20,6 +20,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -31,6 +35,7 @@
       nix-index-database,
       impermanence,
       disko,
+      sops-nix,
     }@flakes:
     let
       overlay = import ./modules/overlay;
@@ -75,8 +80,9 @@
       );
       hmSharedModules = _: {
         home-manager.sharedModules = [
-          impermanence.homeManagerModules.impermanence
           nix-index-database.hmModules.nix-index
+          impermanence.homeManagerModules.impermanence
+          sops-nix.homeManagerModules.sops
         ];
       };
       nixosOutputs = {
@@ -87,6 +93,7 @@
             home-manager.nixosModules.home-manager
             hmSharedModules
             disko.nixosModules.disko
+            sops-nix.nixosModules.sops
             ./configuration.nix
           ];
         };
