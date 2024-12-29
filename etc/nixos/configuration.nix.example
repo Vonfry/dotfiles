@@ -27,7 +27,6 @@
         '';
 
         home.sessionVariables = {
-          # GITHUB_TOKEN = "";
         };
 
         programs = {

@@ -12,6 +12,8 @@ let
     users.motd = builtins.readFile ./files/motd;
     users.mutableUsers = false;
 
+    sops.secrets.${cfg.secretsName.password}.neededForUsers = true;
+
     users.users.vonfry = {
       isNormalUser = true;
       home = "/home/vonfry";
@@ -22,6 +24,8 @@ let
         "libvirtd"
       ];
       shell = pkgs.bash;
+
+      hashedPasswordFile = config.sops.secrets.${cfg.secretsName.password}.path;
     };
 
     programs = {
@@ -51,6 +55,14 @@ let
   };
 in
 {
+
+  options = {
+    vonfry.secretsName.password = mkOption {
+      description = "The sops key for password.";
+      type = types.nonEmptyStr;
+      default = "${config.users.users.vonfry.name}-password";
+    };
+  };
 
   imports = [
     (mkAliasOptionModule
