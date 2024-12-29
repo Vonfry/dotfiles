@@ -13,7 +13,10 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ curl ];
 
+    systemd.network.enable = true;
+
     networking = {
+      useNetworkd = mkDefault true;
       firewall = {
         enable = mkDefault true;
         allowedTCPPorts = [ ];

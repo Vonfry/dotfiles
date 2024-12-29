@@ -24,9 +24,6 @@ in
         "/var/lib/swtpm-localca"
 
         "/var/lib/btrfs"
-
-        "/var/lib/dhcpcd"
-        "/var/db/dhcpcd"
       ];
       files = [
         "/etc/machine-id"
