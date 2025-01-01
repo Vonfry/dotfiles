@@ -49,7 +49,7 @@ let
         packages = with pkgs; [ hledger ];
         sessionVariables = {
           # HOLD This should update every year manually.
-          "LEDGER_FILE" = "${envcfg.financial.absolute_path}/2024.journal";
+          "LEDGER_FILE" = "${envcfg.financial.absolute_path}/2025.journal";
         };
       })
       {
