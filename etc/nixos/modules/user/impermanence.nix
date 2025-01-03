@@ -5,18 +5,20 @@
 
 with lib;
 let
-  cfg = config.vonfry;
+  inherit (config.vonfry) homeDir cacheHome configHome dataHome stateHome
+    gpgHome documentsHome musicHome picturesHome publicShareHome templatesHome
+    videosHome;
+  cfg' = config.home-manager.users.vonfry;
+  cfg = cfg'.vonfry;
 
-  mkHomeRelpath = path: removePrefix "${config.home.homeDirectory}/" path;
+  mkHomeRelpath = path: removePrefix "${homeDir}/" path;
 
-  inherit (config.xdg) configHome dataHome cacheHome;
   mkCacheRelpath = path: mkHomeRelpath "${cacheHome}/${path}";
   mkDataRelpath = path: mkHomeRelpath "${dataHome}/${path}";
   mkConfigRelpath = path: mkHomeRelpath "${configHome}/${path}";
 
   base = {
-    enable = true;
-    allowOther = true;
+    home = homeDir;
   };
 
   envcfg = cfg.environment;
@@ -33,20 +35,20 @@ let
     ]);
   };
 
-  xdg = mkIf config.xdg.enable {
+  xdg = mkIf cfg'.xdg.enable {
     directories = mkMerge [
-      (mkIf config.xdg.userDirs.enable (map mkHomeRelpath [
+      (mkIf cfg'.xdg.userDirs.enable (map mkHomeRelpath [
         # user dirs
         # download and desktop aren't here. Let us clean it everytime!
-        config.xdg.userDirs.documents
-        config.xdg.userDirs.music
-        config.xdg.userDirs.pictures
-        config.xdg.userDirs.publicShare
-        config.xdg.userDirs.templates
-        config.xdg.userDirs.videos
+        documentsHome
+        musicHome
+        picturesHome
+        publicShareHome
+        templatesHome
+        videosHome
       ]))
       [
-        (mkHomeRelpath config.xdg.stateHome)
+        (mkHomeRelpath stateHome)
         (mkDataRelpath "Trash")
       ]
     ];
@@ -64,11 +66,36 @@ let
 
   shell = {
     files = [
-      ".ssh/id_ed25519"
-      ".ssh/id_ed25519.pub"
-      ".ssh/rsa"
-      ".ssh/rsa.pub"
-      ".ssh/known_hosts"
+      {
+        file = ".ssh/id_ed25519";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = ".ssh/id_ed25519.pub";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = ".ssh/rsa";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = ".ssh/rsa.pub";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = ".ssh/known_hosts";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
       "fish/fish_variables"
@@ -92,7 +119,7 @@ let
     directories = [
       ".mozilla"
     ] ++ map mkHomeRelpath [
-       config.programs.password-store.settings.PASSWORD_STORE_DIR
+       cfg'.programs.password-store.settings.PASSWORD_STORE_DIR
     ] ++ map mkCacheRelpath [
       "aria2"
       "fontconfig"
@@ -127,7 +154,7 @@ let
     ];
   };
 
-  gpgbase = mkHomeRelpath config.programs.gpg.homedir;
+  gpgbase = mkHomeRelpath gpgHome;
 
   development = {
     files = [
@@ -141,10 +168,30 @@ let
 
       ".sly-mrepl-history"
 
-      "${gpgbase}/sshcontrol"
-      "${gpgbase}/trustdb.gpg"
-      "${gpgbase}/random_seed"
-      "${gpgbase}/pubring.kbx"
+      {
+        file = "${gpgbase}/sshcontrol";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = "${gpgbase}/trustdb.gpg";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = "${gpgbase}/random_seed";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
+      {
+        file = "${gpgbase}/pubring.kbx";
+        parentDirectory = {
+          mode = "u=rwx,g=,o=";
+        };
+      }
     ];
     directories = [
       ".android"
@@ -209,16 +256,17 @@ let
 in
 {
   config = mkIf cfg.enable {
-    home.persistence."/persistent${config.home.homeDirectory}" = mkMerge [
-      base
-      envdir
-      xdg
-      emacs
-      shell
-      development
-      x
-      application
-      game
-    ];
+    environment.persistence.${config.vonfry.impermanenceDir}.users.vonfry =
+      mkMerge [
+        base
+        envdir
+        xdg
+        emacs
+        shell
+        development
+        x
+        application
+        game
+      ];
   };
 }

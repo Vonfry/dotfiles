@@ -14,7 +14,7 @@ let
     absolute_path = mkOption {
       default = "${config.home.homeDirectory}/${name}";
       description = "The absolute path for this dir. It must be in `home.homeDirectory`. Otherwise, some undefined behaviour may be take.";
-      type = types.str;
+      type = types.path;
     };
     home_path = mkOption {
       default = removePrefix "${config.home.homeDirectory}/" cfg.${name}.absolute_path;

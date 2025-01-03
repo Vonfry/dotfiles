@@ -81,7 +81,6 @@
       hmSharedModules = _: {
         home-manager.sharedModules = [
           nix-index-database.hmModules.nix-index
-          impermanence.homeManagerModules.impermanence
           sops-nix.homeManagerModules.sops
         ];
       };
