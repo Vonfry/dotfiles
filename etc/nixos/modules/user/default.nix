@@ -16,7 +16,6 @@ let
 
     users.users.vonfry = {
       isNormalUser = true;
-      home = "/home/vonfry";
       uid = mkDefault 1000;
       description = "Vonfry";
       extraGroups = [
@@ -55,9 +54,8 @@ let
   };
 in
 {
-
-  options = {
-    vonfry.secretsName.password = mkOption {
+  options.vonfry = {
+    secretsName.password = mkOption {
       description = "The sops key for password.";
       type = types.nonEmptyStr;
       default = "${config.users.users.vonfry.name}-password";
@@ -87,6 +85,8 @@ in
         "vonfry"
       ]
     )
+    ./impermanence.nix
+    ./definitions.nix
   ];
 
   config = mkMerge [

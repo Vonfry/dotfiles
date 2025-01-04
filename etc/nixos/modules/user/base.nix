@@ -22,7 +22,7 @@ in
 
     home = {
       username = "vonfry";
-      homeDirectory = "/home/vonfry";
+      homeDirectory = mkDefault "/home/vonfry";
       stateVersion = mkDefault "25.05";
 
       keyboard = {

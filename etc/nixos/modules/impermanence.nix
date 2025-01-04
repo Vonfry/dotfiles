@@ -5,10 +5,14 @@ let
   cfg = config.vonfry;
 in
 {
-  config = mkIf cfg.enable {
-    programs.fuse.userAllowOther = true;
+  options.vonfry.impermanenceDir = mkOption {
+    type = types.path;
+    default = "/persistence";
+    description = "The impermanence directory for persistence.";
+  };
 
-    environment.persistence."/persistent" = {
+  config = mkIf cfg.enable {
+    environment.persistence.${config.vonfry.impermanenceDir} = {
       enable = true;
       hideMounts = true;
       directories = [
