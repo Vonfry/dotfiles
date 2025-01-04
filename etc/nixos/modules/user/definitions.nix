@@ -12,8 +12,6 @@
 with lib;
 let
   cfg = config.vonfry;
-  hmcfg' = config.home-manager.users.vonfry;
-  hmcfg = hmcfg'.vonfry;
 in {
   options.vonfry = {
     homeDir = mkOption {
