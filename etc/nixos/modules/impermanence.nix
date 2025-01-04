@@ -7,7 +7,7 @@ in
 {
   options.vonfry.impermanenceDir = mkOption {
     type = types.path;
-    default = "/persistence";
+    default = "/persistent";
     description = "The impermanence directory for persistence.";
   };
 
