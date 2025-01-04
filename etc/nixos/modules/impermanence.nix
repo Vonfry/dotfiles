@@ -31,7 +31,6 @@ in
       ];
       files = [
         "/etc/machine-id"
-        "/var/lib/logrotate.status"
 
         "/etc/ssh/ssh_host_ed25519_key"
         "/etc/ssh/ssh_host_ed25519_key.pub"
