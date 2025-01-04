@@ -74,6 +74,7 @@
             packages = [
               ghcWith
               pkgs.nvchecker
+              pkgs.sops
             ];
           };
         }
