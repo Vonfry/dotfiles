@@ -43,8 +43,7 @@ in
         parallel
         file
 
-        atop
-        libarchive
+        ouch
         zstd
         convmv
         colordiff

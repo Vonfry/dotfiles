@@ -16,8 +16,8 @@
      (rx "." (| "mp3" "mp4" "wav" "flac" "mkv" "mov") eos)
      "mpv")
     (list
-     (rx "." (| "zip" "7z" (: "tar." word)) eos)
-     "bsdtar -t")))
+     (rx "." (| "zip" "7z" (: "tar." word) "rar") eos)
+     "ouch list")))
   (dired-listing-switches "-ahl")
   (image-dired-thumbnail-storage 'standard)
   :general
