@@ -240,7 +240,6 @@ in
             daemons
             journalctl-mode
             trashed
-            mpdired
             yasnippet
             yasnippet-snippets
             epkgs."0x0"

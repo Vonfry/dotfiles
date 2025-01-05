@@ -1,11 +1,6 @@
-;;; mpdel/packages.el --- -*- lexical-binding: t -*-
+;;; mpd/packages.el --- -*- lexical-binding: t -*-
 ;;
 
-(use-package mpdired
+(use-package mpc
   :general
-  (nmap-at
-    "m m"   'mpdired
-    "m SPC" 'mpdired-pause
-    "m v"   'mpdired-set-volume
-    "m s"   'mpdired-stop
-    "m r"   'mpdired-db-update))
+  (nmap-at "m"   'mpc))
