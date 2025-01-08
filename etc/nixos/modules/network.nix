@@ -16,6 +16,7 @@ in
     systemd.network.enable = true;
 
     networking = {
+      nftables.enable = true;
       useNetworkd = mkDefault true;
       firewall = {
         enable = mkDefault true;
