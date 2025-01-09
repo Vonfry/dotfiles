@@ -174,7 +174,6 @@ in
             dashboard
             nix-mode
             nix-ts-mode
-            evil-org
             org-web-tools
             org-journal
             org-ql

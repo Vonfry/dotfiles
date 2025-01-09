@@ -108,19 +108,6 @@
   :hook
   (org-mode . org-modern-mode))
 
-(use-package evil-org
-  :after (evil org)
-  :hook
-  (org-mode . evil-org-mode)
-  :config
-  (evil-org-set-key-theme))
-
-(use-package evil-org-agenda
-  :after evil-org
-  :ensure nil
-  :config
-  (evil-org-agenda-set-keys))
-
 (use-package org-agenda
   :ensure nil
   :after org
