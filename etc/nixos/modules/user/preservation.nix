@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 # We put all configs here instead of seperate files to keep other files
-# unrelated to impermanence.
+# unrelated to preservation.
 
 with lib;
 let
