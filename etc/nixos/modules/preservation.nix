@@ -59,11 +59,6 @@ in
       directories = [
         "/var/log"
 
-        {
-          directory = "/var/lib/nixos";
-          inInitrd = true;
-        }
-
         "/var/lib/bluetooth"
         "/var/lib/systemd"
         "/var/lib/alsa"
