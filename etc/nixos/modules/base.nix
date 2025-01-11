@@ -71,9 +71,12 @@ in
       tmp.useTmpfs = mkDefault true;
       initrd.systemd.enable = true;
     };
-    system.etc.overlay = {
-      enable = true;
-      mutable = false;
+    system = {
+      switch.enableNg = true;
+      etc.overlay = {
+        enable = true;
+        mutable = false;
+      };
     };
 
     services = {
