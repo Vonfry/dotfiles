@@ -80,22 +80,6 @@ in
           configureParent = true;
           inInitrd = true;
         }
-        {
-          file = "/etc/ssh/ssh_host_ed25519_key";
-          mode = "0600";
-        }
-        {
-          file = "/etc/ssh/ssh_host_ed25519_key.pub";
-          mode = "0600";
-        }
-        {
-          file = "/etc/ssh/ssh_host_rsa_key";
-          mode = "0600";
-        }
-        {
-          file = "/etc/ssh/ssh_host_rsa_key.pub";
-          mode = "0600";
-        }
       ];
     };
 

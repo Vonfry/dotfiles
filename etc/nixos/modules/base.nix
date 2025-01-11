@@ -86,6 +86,17 @@ in
       openssh = {
         enable = mkDefault false;
         allowSFTP = mkDefault true;
+        hostKeys = [
+          {
+            bits = 4096;
+            path = "${config.vonfry.preservation.dir}/etc/ssh/ssh_host_rsa_key";
+            type = "rsa";
+          }
+          {
+            path = "${config.vonfry.preservation.dir}/etc/ssh/ssh_host_ed25519_key";
+            type = "ed25519";
+          }
+        ];
         settings = {
           PermitRootLogin = mkDefault "prohibit-password";
           PasswordAuthentication = mkDefault false;
