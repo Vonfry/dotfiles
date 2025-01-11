@@ -11,6 +11,9 @@ let
   homeDir = cfg'.home.homeDirectory;
   inherit (cfg'.xdg) cacheHome configHome dataHome stateHome;
 
+  username = config.users.users.vonfry.name;
+  usergroup = config.users.users.vonfry.group;
+
   mkHomeRelpath = path: removePrefix "${homeDir}/" path;
 
   mkCacheRelpath = path: mkHomeRelpath "${cacheHome}/${path}";
@@ -52,7 +55,7 @@ let
 
   emacs = {
     files = [
-      "${configHome}/emacs/local/custom.el"
+      (mkHomeRelpath "${configHome}/emacs/local/custom.el")
     ];
     directories = [
       (mkCacheRelpath "emacs")
@@ -64,28 +67,23 @@ let
     files = [
       {
         file = ".ssh/id_ed25519";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = ".ssh/id_ed25519.pub";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = ".ssh/rsa";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = ".ssh/rsa.pub";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = ".ssh/known_hosts";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
@@ -109,8 +107,12 @@ let
     ];
     directories = [
       ".mozilla"
-    ] ++ map mkHomeRelpath [
-       cfg'.programs.password-store.settings.PASSWORD_STORE_DIR
+    ] ++ [
+      {
+        directory = mkHomeRelpath
+          cfg'.programs.password-store.settings.PASSWORD_STORE_DIR;
+        mode = "0700";
+      }
     ] ++ map mkCacheRelpath [
       "aria2"
       "fontconfig"
@@ -161,23 +163,19 @@ let
 
       {
         file = "${gpgbase}/sshcontrol";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = "${gpgbase}/trustdb.gpg";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = "${gpgbase}/random_seed";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
       {
         file = "${gpgbase}/pubring.kbx";
-        configureParent = true;
-        parent.mode = "0700";
+        mode = "0600";
       }
     ];
     directories = [
@@ -253,5 +251,24 @@ in
       application
       game
     ];
+
+    # Create some directories with custom permissions.
+    #
+    # This is manily for hm service to make links and normal program usage.
+    systemd.tmpfiles.settings.preservation = {
+      "${homeDir}/${gpgbase}".d = { user = username; group = usergroup; mode = "0700"; };
+      "${homeDir}/.ssh".d = { user = username; group = usergroup; mode = "0700"; };
+      "${homeDir}/.xmonad".d = { user = username; group = usergroup; mode = "0755"; };
+      ${cacheHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      ${configHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/fish".d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/emacs".d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/emacs/local".d = { user = username; group = usergroup; mode = "0755"; };
+      ${dataHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/nyxt".d = { user = username; group = usergroup; mode = "0755"; };
+      ${stateHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.cargo".d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.ghc".d = { user = username; group = usergroup; mode = "0755"; };
+    };
   };
 }

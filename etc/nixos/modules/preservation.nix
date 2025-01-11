@@ -75,10 +75,22 @@ in
           file = "/etc/machine-id";
           inInitrd = true;
         }
-        "/etc/ssh/ssh_host_ed25519_key"
-        "/etc/ssh/ssh_host_ed25519_key.pub"
-        "/etc/ssh/ssh_host_rsa_key"
-        "/etc/ssh/ssh_host_rsa_key.pub"
+        {
+          file = "/etc/ssh/ssh_host_ed25519_key";
+          mode = "0600";
+        }
+        {
+          file = "/etc/ssh/ssh_host_ed25519_key.pub";
+          mode = "0600";
+        }
+        {
+          file = "/etc/ssh/ssh_host_rsa_key";
+          mode = "0600";
+        }
+        {
+          file = "/etc/ssh/ssh_host_rsa_key.pub";
+          mode = "0600";
+        }
       ];
     };
   };
