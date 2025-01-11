@@ -74,7 +74,7 @@ in
     system = {
       switch.enableNg = true;
       etc.overlay = {
-        enable = true;
+        enable = false;
         mutable = false;
       };
     };
