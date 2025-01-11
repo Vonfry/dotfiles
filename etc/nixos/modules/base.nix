@@ -11,8 +11,6 @@ let
 in
 {
   config = mkIf cfg.enable {
-    boot.tmp.useTmpfs = mkDefault true;
-
     i18n.defaultLocale = "en_US.UTF-8";
     console.keyMap = mkDefault "dvorak-programmer";
 
@@ -69,7 +67,18 @@ in
 
     nixpkgs.config = import ./home/files/nixpkgs.nix;
 
+    boot = {
+      tmp.useTmpfs = mkDefault true;
+      initrd.systemd.enable = true;
+    };
+    system.etc.overlay = {
+      enable = true;
+      mutable = false;
+    };
+
     services = {
+      # TODO switch to sysusers if it supports normal user.
+      userborn.enable = true;
       dbus.enable = true;
       openssh = {
         enable = mkDefault false;
