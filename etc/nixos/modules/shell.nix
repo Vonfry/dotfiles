@@ -17,8 +17,10 @@ in
     programs.fish.enable = true;
 
     console = {
-      font = "ter-v12n";
-      packages = with pkgs; [ terminus_font ];
+      # set console font to nix path instead of name with package.
+      # Because this is needed in stage 1 and etc isn't initialized if using
+      # root on tmpfs.
+      font = "${pkgs.terminus_font}/share/consolefonts/ter-v12n.psf.gz";
     };
   };
 }
