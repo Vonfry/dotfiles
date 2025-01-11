@@ -64,7 +64,6 @@ in
       ]
     )
     ./preservation.nix
-    ./definitions.nix
     ./application.nix
     ./x.nix
     ./secrets.nix

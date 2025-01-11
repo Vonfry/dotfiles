@@ -5,11 +5,11 @@
 
 with lib;
 let
-  inherit (config.vonfry) homeDir cacheHome configHome dataHome stateHome
-    gpgHome documentsHome musicHome picturesHome publicShareHome templatesHome
-    videosHome;
   cfg' = config.home-manager.users.vonfry;
   cfg = cfg'.vonfry;
+
+  homeDir = cfg'.home.homeDirectory;
+  inherit (cfg'.xdg) cacheHome configHome dataHome stateHome;
 
   mkHomeRelpath = path: removePrefix "${homeDir}/" path;
 
@@ -36,12 +36,12 @@ let
       (mkIf cfg'.xdg.userDirs.enable (map mkHomeRelpath [
         # user dirs
         # download and desktop aren't here. Let us clean it everytime!
-        documentsHome
-        musicHome
-        picturesHome
-        publicShareHome
-        templatesHome
-        videosHome
+        cfg'.xdg.userDirs.documents
+        cfg'.xdg.userDirs.music
+        cfg'.xdg.userDirs.pictures
+        cfg'.xdg.userDirs.publicShare
+        cfg'.xdg.userDirs.templates
+        cfg'.xdg.userDirs.videos
       ]))
       [
         (mkHomeRelpath stateHome)
@@ -145,7 +145,7 @@ let
     ];
   };
 
-  gpgbase = mkHomeRelpath gpgHome;
+  gpgbase = mkHomeRelpath cfg'.programs.gpg.homedir;
 
   development = {
     files = [
