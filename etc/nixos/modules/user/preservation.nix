@@ -17,10 +17,6 @@ let
   mkDataRelpath = path: mkHomeRelpath "${dataHome}/${path}";
   mkConfigRelpath = path: mkHomeRelpath "${configHome}/${path}";
 
-  base = {
-    home = homeDir;
-  };
-
   envcfg = cfg.environment;
   mkEnvdir = name:
     optional
@@ -68,33 +64,28 @@ let
     files = [
       {
         file = ".ssh/id_ed25519";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = ".ssh/id_ed25519.pub";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = ".ssh/rsa";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = ".ssh/rsa.pub";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = ".ssh/known_hosts";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
@@ -170,27 +161,23 @@ let
 
       {
         file = "${gpgbase}/sshcontrol";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = "${gpgbase}/trustdb.gpg";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = "${gpgbase}/random_seed";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
       {
         file = "${gpgbase}/pubring.kbx";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        configureParent = true;
+        parent.mode = "0700";
       }
     ];
     directories = [
@@ -256,17 +243,15 @@ let
 in
 {
   config = mkIf cfg.enable {
-    environment.persistence.${config.vonfry.impermanenceDir}.users.vonfry =
-      mkMerge [
-        base
-        envdir
-        xdg
-        emacs
-        shell
-        development
-        x
-        application
-        game
-      ];
+    vonfry.preservation.home = mkMerge [
+      envdir
+      xdg
+      emacs
+      shell
+      development
+      x
+      application
+      game
+    ];
   };
 }
