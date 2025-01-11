@@ -59,7 +59,10 @@ in
       directories = [
         "/var/log"
 
-        "/var/lib/nixos"
+        {
+          directory = "/var/lib/nixos";
+          inInitrd = true;
+        }
 
         "/var/lib/bluetooth"
         "/var/lib/systemd"
@@ -73,6 +76,8 @@ in
       files = [
         {
           file = "/etc/machine-id";
+          how = "symlink";
+          configureParent = true;
           inInitrd = true;
         }
         {
@@ -91,6 +96,21 @@ in
           file = "/etc/ssh/ssh_host_rsa_key.pub";
           mode = "0600";
         }
+      ];
+    };
+
+    # A work round for systemd-machine-id-commit.
+    # See github:nixos/nixpkgs#351151 and issues in preservation and
+    # impermanence.
+    systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
+    systemd.services.systemd-machine-id-commit = {
+      unitConfig.ConditionPathIsMountPoint = [
+        ""
+        "/persistent/etc/machine-id"
+      ];
+      serviceConfig.ExecStart = [
+        ""
+        "systemd-machine-id-setup --commit --root /persistent"
       ];
     };
   };

@@ -55,7 +55,10 @@ let
 
   emacs = {
     files = [
-      (mkHomeRelpath "${configHome}/emacs/local/custom.el")
+      {
+        file = (mkHomeRelpath "${configHome}/emacs/local/custom.el");
+	how = "symlink";
+      }
     ];
     directories = [
       (mkCacheRelpath "emacs")
@@ -175,6 +178,8 @@ let
       }
       {
         file = "${gpgbase}/pubring.kbx";
+	configureParent = false;
+	how = "symlink";
         mode = "0600";
       }
     ];
@@ -229,7 +234,7 @@ let
       "qt6ct"
       "weylus"
     ] ++ map mkDataRelpath [
-      "Xorg"
+      "xorg"
     ];
   };
 
@@ -264,9 +269,12 @@ in
       "${configHome}/fish".d = { user = username; group = usergroup; mode = "0755"; };
       "${configHome}/emacs".d = { user = username; group = usergroup; mode = "0755"; };
       "${configHome}/emacs/local".d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.local".d = { user = username; group = usergroup; mode = "0755"; };
       ${dataHome}.d = { user = username; group = usergroup; mode = "0755"; };
       "${dataHome}/nyxt".d = { user = username; group = usergroup; mode = "0755"; };
-      ${stateHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/fcitx5".d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/fcitx5/rime".d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/icons".d = { user = username; group = usergroup; mode = "0755"; };
       "${homeDir}/.cargo".d = { user = username; group = usergroup; mode = "0755"; };
       "${homeDir}/.ghc".d = { user = username; group = usergroup; mode = "0755"; };
     };
