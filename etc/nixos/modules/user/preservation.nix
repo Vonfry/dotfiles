@@ -5,21 +5,20 @@
 
 with lib;
 let
-  inherit (config.vonfry) homeDir cacheHome configHome dataHome stateHome
-    gpgHome documentsHome musicHome picturesHome publicShareHome templatesHome
-    videosHome;
   cfg' = config.home-manager.users.vonfry;
   cfg = cfg'.vonfry;
+
+  homeDir = cfg'.home.homeDirectory;
+  inherit (cfg'.xdg) cacheHome configHome dataHome stateHome;
+
+  username = config.users.users.vonfry.name;
+  usergroup = config.users.users.vonfry.group;
 
   mkHomeRelpath = path: removePrefix "${homeDir}/" path;
 
   mkCacheRelpath = path: mkHomeRelpath "${cacheHome}/${path}";
   mkDataRelpath = path: mkHomeRelpath "${dataHome}/${path}";
   mkConfigRelpath = path: mkHomeRelpath "${configHome}/${path}";
-
-  base = {
-    home = homeDir;
-  };
 
   envcfg = cfg.environment;
   mkEnvdir = name:
@@ -40,12 +39,12 @@ let
       (mkIf cfg'.xdg.userDirs.enable (map mkHomeRelpath [
         # user dirs
         # download and desktop aren't here. Let us clean it everytime!
-        documentsHome
-        musicHome
-        picturesHome
-        publicShareHome
-        templatesHome
-        videosHome
+        cfg'.xdg.userDirs.documents
+        cfg'.xdg.userDirs.music
+        cfg'.xdg.userDirs.pictures
+        cfg'.xdg.userDirs.publicShare
+        cfg'.xdg.userDirs.templates
+        cfg'.xdg.userDirs.videos
       ]))
       [
         (mkHomeRelpath stateHome)
@@ -56,7 +55,10 @@ let
 
   emacs = {
     files = [
-      "${configHome}/emacs/local/custom.el"
+      {
+        file = (mkHomeRelpath "${configHome}/emacs/local/custom.el");
+	how = "symlink";
+      }
     ];
     directories = [
       (mkCacheRelpath "emacs")
@@ -68,33 +70,23 @@ let
     files = [
       {
         file = ".ssh/id_ed25519";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = ".ssh/id_ed25519.pub";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = ".ssh/rsa";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = ".ssh/rsa.pub";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = ".ssh/known_hosts";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
@@ -118,8 +110,12 @@ let
     ];
     directories = [
       ".mozilla"
-    ] ++ map mkHomeRelpath [
-       cfg'.programs.password-store.settings.PASSWORD_STORE_DIR
+    ] ++ [
+      {
+        directory = mkHomeRelpath
+          cfg'.programs.password-store.settings.PASSWORD_STORE_DIR;
+        mode = "0700";
+      }
     ] ++ map mkCacheRelpath [
       "aria2"
       "fontconfig"
@@ -154,7 +150,7 @@ let
     ];
   };
 
-  gpgbase = mkHomeRelpath gpgHome;
+  gpgbase = mkHomeRelpath cfg'.programs.gpg.homedir;
 
   development = {
     files = [
@@ -170,27 +166,21 @@ let
 
       {
         file = "${gpgbase}/sshcontrol";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = "${gpgbase}/trustdb.gpg";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = "${gpgbase}/random_seed";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+        mode = "0600";
       }
       {
         file = "${gpgbase}/pubring.kbx";
-        parentDirectory = {
-          mode = "u=rwx,g=,o=";
-        };
+	configureParent = false;
+	how = "symlink";
+        mode = "0600";
       }
     ];
     directories = [
@@ -244,7 +234,7 @@ let
       "qt6ct"
       "weylus"
     ] ++ map mkDataRelpath [
-      "Xorg"
+      "xorg"
     ];
   };
 
@@ -256,17 +246,37 @@ let
 in
 {
   config = mkIf cfg.enable {
-    environment.persistence.${config.vonfry.impermanenceDir}.users.vonfry =
-      mkMerge [
-        base
-        envdir
-        xdg
-        emacs
-        shell
-        development
-        x
-        application
-        game
-      ];
+    vonfry.preservation.home = mkMerge [
+      envdir
+      xdg
+      emacs
+      shell
+      development
+      x
+      application
+      game
+    ];
+
+    # Create some directories with custom permissions.
+    #
+    # This is manily for hm service to make links and normal program usage.
+    systemd.tmpfiles.settings.preservation = {
+      "${homeDir}/${gpgbase}".d = { user = username; group = usergroup; mode = "0700"; };
+      "${homeDir}/.ssh".d = { user = username; group = usergroup; mode = "0700"; };
+      "${homeDir}/.xmonad".d = { user = username; group = usergroup; mode = "0755"; };
+      ${cacheHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      ${configHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/fish".d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/emacs".d = { user = username; group = usergroup; mode = "0755"; };
+      "${configHome}/emacs/local".d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.local".d = { user = username; group = usergroup; mode = "0755"; };
+      ${dataHome}.d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/nyxt".d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/fcitx5".d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/fcitx5/rime".d = { user = username; group = usergroup; mode = "0755"; };
+      "${dataHome}/icons".d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.cargo".d = { user = username; group = usergroup; mode = "0755"; };
+      "${homeDir}/.ghc".d = { user = username; group = usergroup; mode = "0755"; };
+    };
   };
 }

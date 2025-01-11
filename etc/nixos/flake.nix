@@ -15,7 +15,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    impermanence.url = "github:nix-community/impermanence";
+    preservation.url = "github:nix-community/preservation";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +33,7 @@
       emacs-overlay,
       flake-utils,
       nix-index-database,
-      impermanence,
+      preservation,
       disko,
       sops-nix,
     }@flakes:
@@ -89,7 +89,7 @@
         nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
           modules = [
             flakeSpecialConfig
-            impermanence.nixosModules.impermanence
+            preservation.nixosModules.preservation
             home-manager.nixosModules.home-manager
             hmSharedModules
             disko.nixosModules.disko
