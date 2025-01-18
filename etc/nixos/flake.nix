@@ -86,14 +86,20 @@
         ];
       };
       nixosOutputs = {
-        nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
-          modules = [
+        nixosModule = {
+          imports = [
             flakeSpecialConfig
             preservation.nixosModules.preservation
             home-manager.nixosModules.home-manager
             hmSharedModules
             disko.nixosModules.disko
             sops-nix.nixosModules.sops
+            (self + "/modules/")
+          ];
+        };
+        nixosConfigurations.vonfry = nixpkgs.lib.nixosSystem {
+          modules = [
+            self.nixosModule
             ./configuration.nix
           ];
         };
