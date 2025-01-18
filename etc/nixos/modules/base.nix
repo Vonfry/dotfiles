@@ -98,7 +98,7 @@ in
           }
         ];
         settings = {
-          PermitRootLogin = mkDefault "prohibit-password";
+          PermitRootLogin = mkDefault "no";
           PasswordAuthentication = mkDefault false;
           ClientAliveInterval = 60;
           ClientAliveCountMax = 4;
