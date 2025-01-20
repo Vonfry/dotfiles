@@ -70,12 +70,7 @@ let
       mbsync.enable = true;
       mu.enable = true;
       msmtp.enable = true;
-      aria2 = {
-        enable = true;
-        settings = {
-          dir = "/tmp";
-        };
-      };
+      aria2.enable = true;
     };
 
     xdg = {
