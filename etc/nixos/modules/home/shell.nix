@@ -91,7 +91,7 @@ in
           pbi = "xclip -selection clipboard -in";
           pbo = "xclip -selection clipboard -out";
 
-          http-serve = "nix run 'nixpkgs#simple-http-server' --";
+          http-serve = "nix run 'nixpkgs#dufs' --";
 
           gitu = "nix run 'nixpkgs#gitu'";
 
