@@ -68,6 +68,7 @@ in
         compression = true;
         forwardAgent = true;
         serverAliveInterval = 60;
+        serverAliveCountMax = 4;
         # TODO remove this if I use gpg to manage all ssh keys.
         addKeysToAgent = "yes";
       };
