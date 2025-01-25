@@ -260,7 +260,7 @@ in
 
       git = {
         userName = "Vonfry";
-        userEmail = "mail@vonfry.name";
+        userEmail = "dev@vonfry.name";
         package = pkgs.gitAndTools.gitFull;
         signing = mkIf gpgHasKey {
           signByDefault = true;
