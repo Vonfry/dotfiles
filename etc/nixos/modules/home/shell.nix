@@ -99,6 +99,12 @@ in
 
           coppwr = "exec nix run 'nixpkgs#coppwr'";
         };
+
+        interactiveShellInit = ''
+          # Set it here to avoid non-interactive issues and make it work in
+          # emacs.
+          set -gx PAGER less
+        '';
       };
     };
 
