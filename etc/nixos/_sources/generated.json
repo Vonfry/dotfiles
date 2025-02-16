@@ -1,0 +1,200 @@
+{
+    "background-image": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "background-image",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=",
+            "type": "url",
+            "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
+        },
+        "version": "2025-02-16"
+    },
+    "easypulse": {
+        "cargoLocks": null,
+        "date": "2024-07-07",
+        "extract": null,
+        "name": "easypulse",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "p-chan5",
+            "repo": "EasyPulse",
+            "rev": "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6",
+            "sha256": "sha256-BOIvqo4OC/UzCMApdONLyxX4chpX5Av9kpMpwIoHOas=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "0eafef1227a44a86bc6f5cefd7eeb6b8a7d235b6"
+    },
+    "fcitx5-nord": {
+        "cargoLocks": null,
+        "date": "2021-07-27",
+        "extract": null,
+        "name": "fcitx5-nord",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tonyfettes",
+            "repo": "fcitx5-nord",
+            "rev": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1",
+            "sha256": "sha256-qVo/0ivZ5gfUP17G29CAW0MrRFUO0KN1ADl1I/rvchE=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1"
+    },
+    "fortune-chinese": {
+        "cargoLocks": null,
+        "date": "2021-08-13",
+        "extract": null,
+        "name": "fortune-chinese",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ruanyf",
+            "repo": "fortunes",
+            "rev": "000fb01261e4d119e4e988ce82f49fb8b139fe3c",
+            "sha256": "sha256-O258vnAHQ3RrJnMPmVntmkj+RSfpHsf/YKJcLZd0owc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "000fb01261e4d119e4e988ce82f49fb8b139fe3c"
+    },
+    "jackhack96Easyeffects": {
+        "cargoLocks": null,
+        "date": "2025-01-02",
+        "extract": null,
+        "name": "jackhack96Easyeffects",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "JackHack96",
+            "repo": "EasyEffects-Presets",
+            "rev": "069195c4e73d5ce94a87acb45903d18e05bffdcc",
+            "sha256": "sha256-nXVtX0ju+Ckauo0o30Y+sfNZ/wrx3HXNCK05z7dLaFc=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "069195c4e73d5ce94a87acb45903d18e05bffdcc"
+    },
+    "rime-cangjie": {
+        "cargoLocks": null,
+        "date": "2024-03-25",
+        "extract": null,
+        "name": "rime-cangjie",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rime",
+            "repo": "rime-cangjie",
+            "rev": "0ac8452eeb4abbcd8dd1f9e7314012310743285f",
+            "sha256": "sha256-v8n3+73l9YbTexpA9C2356quioRwFRVcBY0IncolVoY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "0ac8452eeb4abbcd8dd1f9e7314012310743285f"
+    },
+    "rime-japanese": {
+        "cargoLocks": null,
+        "date": "2023-08-02",
+        "extract": null,
+        "name": "rime-japanese",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gkovacs",
+            "repo": "rime-japanese",
+            "rev": "4c1e65135459175136f380e90ba52acb40fdfb2d",
+            "sha256": "sha256-/mIIyCu8V95ArKo/vIS3qAiD8InUmk8fAF/wejxRxGw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "4c1e65135459175136f380e90ba52acb40fdfb2d"
+    },
+    "rime-prelude": {
+        "cargoLocks": null,
+        "date": "2024-05-19",
+        "extract": null,
+        "name": "rime-prelude",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rime",
+            "repo": "rime-prelude",
+            "rev": "3803f09458072e03b9ed396692ce7e1d35c88c95",
+            "sha256": "sha256-qLxkijfB/btd2yhUMbxmoNx6fKxpKYHBZoE7YEUKIu4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "3803f09458072e03b9ed396692ce7e1d35c88c95"
+    },
+    "rime-wubi86-jidian": {
+        "cargoLocks": null,
+        "date": "2024-11-21",
+        "extract": null,
+        "name": "rime-wubi86-jidian",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "KyleBing",
+            "repo": "rime-wubi86-jidian",
+            "rev": "b41847130df2b6e46aef76320d7d972921db2d2b",
+            "sha256": "sha256-hNwmEfkbZ2TTox32mqmmL2/hu/YvJPxeVmz+r1+QlXE=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "b41847130df2b6e46aef76320d7d972921db2d2b"
+    },
+    "vonfry-icon": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "vonfry-icon",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=",
+            "type": "url",
+            "url": "https://vonfry.name/images/default/logo-white.png"
+        },
+        "version": "2025-02-16"
+    }
+}
