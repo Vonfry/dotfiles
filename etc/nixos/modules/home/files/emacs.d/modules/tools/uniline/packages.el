@@ -6,4 +6,4 @@
   (evil-set-initial-state 'uniline-mode 'emacs)
   :general
   (nmap-at
-    "e u u" 'uniline-mode))
+    "e n" 'uniline-mode))
