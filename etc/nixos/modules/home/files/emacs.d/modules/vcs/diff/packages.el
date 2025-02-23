@@ -13,3 +13,9 @@
   :general
   (nmap-leader
     "e d" 'ediff))
+
+(use-package smerge-mode
+  :ensure nil
+  :general
+  (nmap-leader
+    "e e" 'smerge-mode))
