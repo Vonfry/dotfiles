@@ -21,3 +21,13 @@
       (auth-source-pick-first-password
        :host "api.openai.com"
        :user "gptel"))))
+
+(use-package elysium
+  :general
+  (nmap-leader
+    "' q q" 'elysium-query
+    "' q k" 'elysium-keep-all-suggested-changes
+    "' q d" 'elysium-discard-all-suggested-changes
+    "' q c" 'elysium-clear-buffer
+    "' q a" 'elysium-add-context
+    "' q t" 'elysium-toggle-window))

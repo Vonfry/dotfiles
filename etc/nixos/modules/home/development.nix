@@ -248,6 +248,7 @@ in
             org-modern
             uniline
             dape
+            elysium
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
