@@ -24,6 +24,9 @@
 
 (use-package elysium
   :general
+  (vmap-leader
+    "' q q" 'elysium-query
+    "' q a" 'elysium-add-context)
   (nmap-leader
     "' q q" 'elysium-query
     "' q k" 'elysium-keep-all-suggested-changes
