@@ -90,7 +90,6 @@ let
       }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
-      "fish/fish_variables"
     ];
     directories = map mkCacheRelpath [
       "fsh"
