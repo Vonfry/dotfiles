@@ -20,13 +20,6 @@
 (defconst +org-contacts-dir (expand-file-name "contacts" +org-dir)
   "dir where to save contacts.")
 
-(defun +org--auto-mode-to-file-apps (mode cmd)
-  (when (and mode cmd)
-    (let* ((modes (seq-filter (lambda (it) (equal mode (cdr it)))
-                              auto-mode-alist))
-           (regs (mapcar #'car modes)))
-      (mapcar (lambda (it) (cons it cmd)) regs))))
-
 (defun +org--refile-new-note (&optional slug)
   "Get a new note file path in `+org-note-dir' with current time and SLUG."
   (let* ((date (format-time-string "%Y%m%d%H%M%S" (current-time)))

@@ -7,9 +7,6 @@
   (dired-guess-shell-alist-user
    (list
     (list
-     (rx ".pdf" eos)
-     "zathura")
-    (list
      (rx "." (| "png" (: "jp" (? "e") "g") "gif") eos)
      "feh -.")
     (list

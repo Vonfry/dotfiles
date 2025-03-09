@@ -3,6 +3,10 @@
 
 (use-package latex
   :ensure auctex
+  :config
+  ; this is for pdf tools
+  (add-hook 'TeX-after-compilation-finished-functions
+            #'TeX-revert-document-buffer)
   :custom
   (TeX-master nil)
   (TeX-auto-save t)
@@ -19,7 +23,7 @@
   (TeX-style-local TeX-auto-local)
   (TeX-auto-private (expand-file-name "tex/" vonfry-cache-dir))
   (TeX-region (concat TeX-auto-local "/_region_"))
-  (TeX-view-program-selection '((output-pdf "Zathura")
+  (TeX-view-program-selection '((output-pdf "PDF Tools")
                                 (output-dvi "xdvi")
                                 (output-html "xdg-open")))
   ;; Synctex support

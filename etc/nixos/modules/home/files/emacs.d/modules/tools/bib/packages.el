@@ -4,7 +4,7 @@
 (use-package ebib
   :custom
   (ebib-filters-default-file (expand-file-name "ebib/filters" vonfry-cache-dir))
-  (ebib-file-associations '(("pdf" . "zathura")))
+  (ebib-file-associations '(("pdf" . nil)))
   (ebib-bibtex-dialect 'biblatex)
   (ebib-notes-storage 'multiple-notes-per-file)
   (ebib-notes-directory nil)

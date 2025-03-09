@@ -14,10 +14,12 @@ let
   ishome = cfg'.workspace.home;
 
   emacsExtraBin =
-    with pkgs;
-    buildEnv {
+    pkgs.buildEnv {
       name = "emacs-extra-bin";
-      paths = optional ishome hugo;
+      paths = with pkgs; [
+        # FIXME nov needed. Remove this when ouch can work for it.
+        unzip
+      ] ++ optional ishome hugo;
       pathsToLink = [
         "/bin"
         "/share"
@@ -32,22 +34,10 @@ let
     optional (any (x: x == module) cfg.emacs.excludeModules) "emacs ${module} module is disabled.";
 
   # copy from emacsclient.desktop
-  emacsclient_mimetypes = [
-    "text/english"
-    "text/plain"
-    "text/x-makefile"
-    "text/x-c++hdr"
-    "text/x-c++src"
-    "text/x-chdr"
-    "text/x-csrc"
-    "text/x-java"
-    "text/x-moc"
-    "text/x-pascal"
-    "text/x-tcl"
-    "text/x-tex"
-    "application/x-shellscript"
-    "text/x-c"
-    "text/x-c++"
+  emacsclient_default_mimetypes_txt = "text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;x-scheme-handler/org-protocol";
+  emacsclient_default_mimetypes = splitString ";" emacsclient_default_mimetypes_txt;
+  emacsclient_mimetypes = emacsclient_default_mimetypes ++ [
+    "application/pdf"
   ];
 
   gpgHasKey = config.programs.gpg.settings ? "default-key";
@@ -132,15 +122,6 @@ in
       };
 
       dataFile = {
-        "applications/org-protocol.desktop".text = ''
-          [Desktop Entry]
-          Name=org-protocol
-          Exec=emacsclient %u
-          Icon=emacs-icon
-          Type=Application
-          Terminal=false
-          MimeType=x-scheme-handler/org-protocol;
-        '';
       };
 
       mimeApps.defaultApplications = mkIf config.services.emacs.enable (
@@ -249,6 +230,7 @@ in
             uniline
             dape
             elysium
+            pdf-tools
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
@@ -358,7 +340,7 @@ in
           $pdf_mode = 4;
           $dvi_previewer = 'xdvi -watchfile 1.5';
           $ps_previewer  = 'feh';
-          $pdf_previewer = 'zathura';
+          $pdf_previewer = 'emacsclient -n';
         '';
       };
     };
