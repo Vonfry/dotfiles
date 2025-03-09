@@ -144,7 +144,6 @@ let
       "nyxt/default-web-context"
       "nyxt/history"
       "pipewire"
-      "zathura"
       "zoxide"
     ];
   };

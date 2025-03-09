@@ -83,7 +83,6 @@ key conf = mkKeymap conf
     , ("M-o b", spawn "nyxt"        )
     , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")
-    , ("M-o f", spawn "zathura"     )
     , ("M-o k", spawn "easyeffects" )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
