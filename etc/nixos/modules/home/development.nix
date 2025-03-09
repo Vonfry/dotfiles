@@ -14,10 +14,12 @@ let
   ishome = cfg'.workspace.home;
 
   emacsExtraBin =
-    with pkgs;
-    buildEnv {
+    pkgs.buildEnv {
       name = "emacs-extra-bin";
-      paths = optional ishome hugo;
+      paths = with pkgs; [
+        # FIXME nov needed. Remove this when ouch can work for it.
+        unzip
+      ] ++ optional ishome hugo;
       pathsToLink = [
         "/bin"
         "/share"

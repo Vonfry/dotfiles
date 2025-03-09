@@ -3,6 +3,9 @@
 
 (use-package nov
   :mode "\\.epub\\'"
-  :custom
-  (nov-unzip-program (executable-find "arc"))
-  (nov-unzip-args '("unarchive" "-ext" "zip" filename)))
+  ; :custom
+  ; FIXME current ouch will always create a new dir, which is different from
+  ; unzip.
+  ; (nov-unzip-program (executable-find "ouch"))
+  ; (nov-unzip-args '("decompress" "--format" "zip" "--dir" directory filename))
+  )
