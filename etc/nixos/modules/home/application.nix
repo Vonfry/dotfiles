@@ -91,8 +91,6 @@ let
       };
 
       packages = with pkgs; [
-        libreoffice
-
         virt-manager
       ];
     };

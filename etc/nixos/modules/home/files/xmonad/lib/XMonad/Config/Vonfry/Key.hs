@@ -81,7 +81,6 @@ key conf = mkKeymap conf
     , ("M-<F1>"  , manPrompt promptConfig)
 
     , ("M-o b", spawn "nyxt"        )
-    , ("M-o o", spawn "libreoffice" )
     , ("M-o v", spawn "virt-manager")
     , ("M-o k", spawn "easyeffects" )
     , ("M-o '", runInTerm "-t cmatrix" "cmatrix")

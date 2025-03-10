@@ -132,7 +132,6 @@ let
       "easyeffects"
       "fcitx5"
       "ibus"
-      "libreoffice"
     ] ++ map mkDataRelpath [
       "fcitx5/rime/build"
       "fcitx5/rime/hangyl.userdb"
