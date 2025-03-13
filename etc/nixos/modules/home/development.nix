@@ -232,6 +232,7 @@ in
             elysium
             pdf-tools
             mpv
+            org-pdftools
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

@@ -232,3 +232,7 @@
   (nmap-leader
     "o n /" 'consult-notes-search-in-all-notes
     "o n n" 'consult-notes))
+
+(use-package org-pdftools
+  :after pdf-tools
+  :hook (org-mode . org-pdftools-setup-link))
