@@ -231,6 +231,7 @@ in
             dape
             elysium
             pdf-tools
+            mpv
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
