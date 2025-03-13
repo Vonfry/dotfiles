@@ -4,10 +4,9 @@
 (use-package mpv
   :general
   (nmap-at
-    "v ." 'mpv-play
-    "v v" 'mpv-start
+    "v v" 'mpv-play
     "v p" 'mpv-pause
-    "v k" 'mpv-kill
+    "v c" 'mpv-kill
     "v h" 'mpv-seek-backward
     "v l" 'mpv-seek-forward
     "v {" 'mpv-speed-decrease
