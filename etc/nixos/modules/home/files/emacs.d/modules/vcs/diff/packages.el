@@ -12,7 +12,8 @@
   (ediff-window-setup-function 'ediff-setup-windows-plain)
   :general
   (nmap-leader
-    "e d" 'ediff))
+    "e d" 'ediff
+    "e D" 'ediff-directories))
 
 (use-package smerge-mode
   :ensure nil

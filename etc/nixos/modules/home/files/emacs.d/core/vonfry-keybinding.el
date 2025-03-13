@@ -90,7 +90,6 @@
     "e c" 'clean-buffer-list
     "e #" 'server-edit
     "e t" 'list-timers
-    "e D" 'diff
     "e f" 'evil-show-file-info
     "e m" 'woman
     "e & d" 'vonfry/insert-current-date
