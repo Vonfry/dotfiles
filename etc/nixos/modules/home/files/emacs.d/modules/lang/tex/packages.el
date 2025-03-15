@@ -9,6 +9,7 @@
             #'TeX-revert-document-buffer)
   :custom
   (TeX-master nil)
+  (TeX-PDF-mode t)
   (TeX-auto-save t)
   (TeX-parse-self t)
   (TeX-syntactic-comment t)
@@ -31,21 +32,9 @@
   (TeX-show-compilation nil)
   (TeX-source-correlate-mode t)
   :hook
-  (LaTeX-mode .
-     (lambda ()
-       (set (make-local-variable 'compile-command)
-            (format "latexmk %s"
-                    (if TeX-master
-                        TeX-master
-                    (file-relative-name buffer-file-name))))
-       (require 'preview)
-       (require 'tex-site)
-       ;; use pdfview with auctex
-       ;; have the buffer refresh after compilation
-       (reftex-mode)
-       (rainbow-delimiters-mode)
-       (LaTeX-math-mode)
-       (eglot-ensure)))
+  ((LaTeX-mode . reftex-mode)
+   (LaTex-mode . rainbow-delimiters-mode)
+   (LaTex-mode . eglot-ensure LaTeX-math-mode))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)

@@ -336,14 +336,6 @@ in
           -- allow C-c
           :set -fomit-yields
         '';
-
-        ".latexmkrc".text = ''
-          $out_dir = "latex.out";
-          $pdf_mode = 4;
-          $dvi_previewer = 'xdvi -watchfile 1.5';
-          $ps_previewer  = 'feh';
-          $pdf_previewer = 'emacsclient -n';
-        '';
       };
     };
   };
