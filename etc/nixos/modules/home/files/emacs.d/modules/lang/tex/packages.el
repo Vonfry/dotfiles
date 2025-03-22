@@ -34,7 +34,8 @@
   :hook
   ((LaTeX-mode . reftex-mode)
    (LaTex-mode . rainbow-delimiters-mode)
-   (LaTex-mode . eglot-ensure LaTeX-math-mode))
+   (LaTex-mode . eglot-ensure)
+   (LaTex-mode . LaTeX-math-mode))
   :general
   (:keymaps 'TeX-mode-map
     (kbd "TAB") 'TeX-complete-symbol)
