@@ -22,3 +22,19 @@
             (add-to-list 'major-mode-remap-alist alist))
           remap-alist)))
 
+(use-package treesit-fold
+  :after (evil treesit)
+  :hook (haskell-mode
+         c-mode
+         c++-mode
+         rust-mode
+         nix-mode
+         ; latex-mode
+         ; bibtex-mode
+         ; elisp-mode
+         ; lisp-mode
+         yaml-mode
+         toml-mode
+         json-mode
+         html-mode))
+

@@ -233,6 +233,7 @@ in
             pdf-tools
             mpv
             org-pdftools
+            treesit-fold
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
