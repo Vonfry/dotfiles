@@ -2,4 +2,4 @@
 
 (use-package hideshow
   :ensure nil
-  :hook (prog-mode . hs-minor-mode))
+  :hook ((lisp-mode elisp-mode latex-mode bibtex-mode) . hs-minor-mode))
