@@ -1,15 +1,7 @@
 ;;; agda/pagkages.el --- -*- lexical-binding: t -*-
 ;;
 
-(use-package agda2
-  :config
-  (defconst +agda2--init-directory agda2-directory
-    "The agda2-directory from global installing to avoid removed when
-reloading."))
-
 (use-package agda2-mode
-  :disabled
-  :after agda2
   :general
   (nmap-leader :keymaps 'agda2-mode-map
     "."   'agda2-goto-definition-keyboard
