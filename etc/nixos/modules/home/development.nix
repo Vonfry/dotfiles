@@ -231,7 +231,6 @@ in
             dape
             elysium
             pdf-tools
-            mpv
             org-pdftools
             treesit-fold
           ];
