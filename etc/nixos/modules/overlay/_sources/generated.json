@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2025-03-22"
+        "version": "2025-04-06"
     },
     "easypulse": {
         "cargoLocks": null,
@@ -163,7 +163,7 @@
     },
     "rime-wubi86-jidian": {
         "cargoLocks": null,
-        "date": "2025-03-18",
+        "date": "2025-03-31",
         "extract": null,
         "name": "rime-wubi86-jidian",
         "passthru": null,
@@ -175,12 +175,12 @@
             "name": null,
             "owner": "KyleBing",
             "repo": "rime-wubi86-jidian",
-            "rev": "54471ea77f870ece55e3a3678800f1f37e0c4b20",
-            "sha256": "sha256-+0SXc8yi/NTPVA2xVdVD1u9lvywAPR+02g2XLNhqk7Q=",
+            "rev": "3e7483f19eadbc87bafceb36beb01c8643d1f4c2",
+            "sha256": "sha256-68lV7wkaECeFVyXF4pT+XktiaQ17jDmSjMLcBvC1XrY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "54471ea77f870ece55e3a3678800f1f37e0c4b20"
+        "version": "3e7483f19eadbc87bafceb36beb01c8643d1f4c2"
     },
     "vonfry-icon": {
         "cargoLocks": null,
@@ -195,6 +195,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2025-03-22"
+        "version": "2025-04-06"
     }
 }
