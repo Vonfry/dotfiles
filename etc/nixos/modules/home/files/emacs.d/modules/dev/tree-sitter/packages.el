@@ -24,17 +24,17 @@
 
 (use-package treesit-fold
   :after (evil treesit)
-  :hook (haskell-mode
-         c-mode
-         c++-mode
-         rust-mode
-         nix-mode
-         ; latex-mode
-         ; bibtex-mode
-         ; elisp-mode
-         ; lisp-mode
-         yaml-mode
-         toml-mode
-         json-mode
-         html-mode))
+  :hook (haskell-ts-mode
+         c-ts-mode
+         c++-ts-mode
+         rust-ts-mode
+         nix-ts-mode
+         ; latex-ts-mode
+         ; bibtex-ts-mode
+         ; elisp-ts-mode
+         ; lisp-ts-mode
+         yaml-ts-mode
+         toml-ts-mode
+         json-ts-mode
+         html-ts-mode))
 
