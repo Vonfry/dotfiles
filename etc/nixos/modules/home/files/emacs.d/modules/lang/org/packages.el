@@ -174,9 +174,11 @@
   (use-package ob-sql :ensure nil)
   (use-package ob-sqlite :ensure nil)
   (use-package ob-lisp :ensure nil)
+  (use-package ob-calc :ensure nil)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
+                              (calc       . t)
                               (http       . t)
                               (haskell    . t)
                               (lisp       . t)
