@@ -55,7 +55,6 @@ let
       {
         packages = with pkgs; [
           fortune
-          cmatrix
           figlet
         ];
       }
@@ -92,6 +91,7 @@ let
 
       packages = with pkgs; [
         virt-manager
+        mission-center
       ];
     };
   };

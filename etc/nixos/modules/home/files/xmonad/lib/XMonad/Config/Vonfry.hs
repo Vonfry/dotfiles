@@ -17,7 +17,6 @@ import XMonad.Actions.Navigation2D
 
 realConfig = def
     { modMask            = mod4Mask
-    , terminal           = C.terminal
     , keys               = Key.key
     , layoutHook         = LayoutHook.layoutHook
     , focusFollowsMouse  = True

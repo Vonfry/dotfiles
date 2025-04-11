@@ -2,6 +2,7 @@
 ;;
 
 (use-package eshell
+  :ensure nil
   :custom
   (eshell-cmpl-cycle-completions nil)
   (eshell-buffer-maximum-lines 20000)
@@ -10,15 +11,10 @@
   (eshell-buffer-shorthand t)
   (eshell-highlight-prompt nil)
   (eshell-plain-echo-behavior t)
-  (eshell-directory-name (expand-file-name "eshell/" vonfry-cache-dir))
+  (eshell-directory-name (expand-file-name "eshell/" vonfry-local-dir))
+  (eshell-prompt-function #'+eshell--prompt)
+  (eshell-prompt-regexp +eshell--prompt-regexp)
+  :config
+  (+eshell--init-aliases)
   :general
-  (nmap-leader "~" 'eshell)
-  :ensure nil)
-
-(use-package terminal-here
-  :custom
-  (terminal-here-linux-terminal-command 'alacritty)
-  :general
-  (nmap-leader
-    "$" 'terminal-here-launch
-    "C-$" 'terminal-here-project-launch))
+  (nmap-leader "$" 'eshell))

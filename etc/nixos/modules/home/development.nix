@@ -193,8 +193,6 @@ in
             org-contacts
             evil-collection
             melpaPackages.telega
-            terminal-here
-            zoxide
             smart-tab
             vundo
             consult

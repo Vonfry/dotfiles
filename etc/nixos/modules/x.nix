@@ -11,8 +11,6 @@ let
 
   xconfig = {
     environment.systemPackages = with pkgs; [
-      xclip
-      alacritty
       libnotify
     ];
 

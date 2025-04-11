@@ -15,6 +15,7 @@ Besides release tags, here are some tags used with perfix for other proposing.
 
 Some features are not used with time going. I add a tag in the last commit
 supporting them. All of them are started with `deprecated`.
+
 ### mark
 
 The topic is not deprecated, but it is not the default one and may be useless.
@@ -25,14 +26,19 @@ The topic is not deprecated, but it is not the default one and may be useless.
 
 - [x] NixOS :: See [nixos readme](./etc/nixos/readme.md) and [flake.nix](./etc/nixos/flake.nix).
 
-- [ ] ~~Gentoo :: It is also testing, and without X11. See [todo](#todo)~~
+- [ ] ~~Gentoo~~ :: It is also testing, and without X11. See [todo](#todo)
 
 - [ ] ~~Fedora :: stop maintaining, old files by checking tag but I forget which one is.~~
 
 ## command-line
 
 - [x] ~~zsh~~
-- [x] fish
+- [x] ~~fish~~
+- [x] eshell
+
+I'm using emacs, and eshell can intergal all emacs lisp features.
+Although I cannot use TUI any longer, there are many alternatives in GUI or
+emacs.
 
 ## Window Manager
 
@@ -42,7 +48,7 @@ The topic is not deprecated, but it is not the default one and may be useless.
 
 - [X] ~~xterm~~
 - [ ] ~~termonad :: Its most feature can be done in xmonad.~~
-- [X] alacritty :: A good term with gpu. ~~but having some problem on my machine.~~
+- [X] ~~alacritty~~ :: A good term with gpu. ~~but having some problem on my machine.~~
 
 ## Colorscheme
 
@@ -69,7 +75,7 @@ in user environment only when the language is used directly, i.e., tex and nix.
 - ~~Perl :: script lang~~
 - ~~Julia :: main data-analysis lang~~
 - orgmode & latex :: main doc lang
-- Agda :: proof only
+- Agda :: For fun!
 - ~~Coq :: proof only~~
 - C/C++
 - ~~R~~
