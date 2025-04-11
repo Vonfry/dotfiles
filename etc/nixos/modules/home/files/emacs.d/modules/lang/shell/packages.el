@@ -14,7 +14,6 @@
   (eshell-directory-name (expand-file-name "eshell/" vonfry-local-dir))
   (eshell-prompt-function #'+eshell--prompt)
   (eshell-prompt-regexp +eshell--prompt-regexp)
-  :config
-  (+eshell--init-aliases)
+  (eshell-command-alias (append +eshell--aliases eshell-command-alias))
   :general
   (nmap-leader "$" 'eshell))
