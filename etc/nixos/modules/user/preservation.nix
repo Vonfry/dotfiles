@@ -93,11 +93,9 @@ let
     ];
     directories = map mkCacheRelpath [
       "fsh"
-      "starship"
     ] ++ map mkConfigRelpath [
       # TODO try this? "fish"
     ] ++ map mkDataRelpath [
-      "fish"
     ];
   };
 
@@ -263,7 +261,6 @@ in
       "${homeDir}/.xmonad".d = { user = username; group = usergroup; mode = "0755"; };
       ${cacheHome}.d = { user = username; group = usergroup; mode = "0755"; };
       ${configHome}.d = { user = username; group = usergroup; mode = "0755"; };
-      "${configHome}/fish".d = { user = username; group = usergroup; mode = "0755"; };
       "${configHome}/emacs".d = { user = username; group = usergroup; mode = "0755"; };
       "${configHome}/emacs/local".d = { user = username; group = usergroup; mode = "0755"; };
       "${homeDir}/.local".d = { user = username; group = usergroup; mode = "0755"; };

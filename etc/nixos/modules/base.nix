@@ -25,17 +25,13 @@ in
       exfat
       zstd
 
-      lnav
-      btop
       lsof
 
       file
       patch
-      colordiff
       parallel
       ripgrep
       fd
-      lsd
     ];
 
     nix = {

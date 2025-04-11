@@ -29,14 +29,12 @@ import XMonad.Actions.Navigation2D ( windowGo, windowSwap
 
 import XMonad.Util.EZConfig (mkKeymap)
 
-import XMonad.Util.Run (runInTerm)
 import XMonad.Util.Types (Direction1D(..), Direction2D(..))
 
 import XMonad.Prompt (XPConfig(..))
 import XMonad.Prompt.Shell (shellPrompt)
 import XMonad.Prompt.FuzzyMatch (fuzzyMatch, fuzzySort)
 import XMonad.Prompt.Pass (passPrompt, passOTPPrompt)
-import XMonad.Prompt.Man (manPrompt)
 import XMonad.Prompt.Ssh (sshPrompt)
 import XMonad.Prompt.XMonad (xmonadPrompt)
 import XMonad.Actions.Search (promptSearch, multi)
@@ -78,14 +76,11 @@ key conf = mkKeymap conf
     , ("M-/"  , promptSearch promptConfigNoAc multi)
     , ("M-z"  , sshPrompt promptConfig             )
 
-    , ("M-<F1>"  , manPrompt promptConfig)
-
     , ("M-o b", spawn "nyxt"        )
     , ("M-o v", spawn "virt-manager")
     , ("M-o k", spawn "easyeffects" )
-    , ("M-o '", runInTerm "-t cmatrix" "cmatrix")
 
-    , ("M-$", runInTerm "-t top"  "btop")
+    , ("M-$", spawn "missioncenter")
 
     , ("M-S-s r", spawn "reboot"   )
     , ("M-S-s s", spawn "suspend"  )
@@ -98,13 +93,13 @@ key conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn $ terminal conf      )
-    , ("M-C-<Return>", spawn "emacsclient -c ."   )
-    , ("M-S-<Return>", spawn "emacsclient -c"     )
-    , ("M-S-c"       , kill                       )
-    , ("M-S-<Space>" , sendMessage NextLayout     )
-    , ("M-C-<Space>" , setLayout $ layoutHook conf)
-    , ("M-r"         , refresh                    )
+    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell\")")
+    , ("M-C-<Return>", spawn "emacsclient -c ."              )
+    , ("M-S-<Return>", spawn "emacsclient -c"                )
+    , ("M-S-c"       , kill                                  )
+    , ("M-S-<Space>" , sendMessage NextLayout                )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf           )
+    , ("M-r"         , refresh                               )
     -- We use M-<Space> for input methods
 
     -- move focus up or down the window stack

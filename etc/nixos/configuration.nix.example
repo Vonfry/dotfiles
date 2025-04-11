@@ -33,8 +33,6 @@
           gpg.settings = {
             # default-key = "";
           };
-          fish.shellAliases = {
-          };
         };
 
         vonfry = {

@@ -5,5 +5,3 @@ font' = "xft:Sarasa Mono SC"
 font = font' ++ ":size=11"
 
 fontXL = font' ++ ":size=32"
-
-terminal = "alacritty"
