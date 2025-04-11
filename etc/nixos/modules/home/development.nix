@@ -294,7 +294,7 @@ in
 
         distrobox
 
-        nil
+        nixd
         nixpkgs-review
         nurl
         nixfmt-rfc-style
