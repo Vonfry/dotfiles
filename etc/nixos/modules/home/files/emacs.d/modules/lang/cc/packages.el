@@ -20,6 +20,3 @@
   :custom
   (compilation-scroll-output t)
   (compilation-always-kill t))
-
-(use-package cmake-mode
-  :mode ("\\.cmake\\'" "CMakeLists\\.txt\\'"))

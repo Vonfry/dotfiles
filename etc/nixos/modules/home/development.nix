@@ -170,7 +170,6 @@ in
             forge
             diff-hl
             disaster
-            cmake-mode
             mu4e
             mu4e-alert
             elfeed
