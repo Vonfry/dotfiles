@@ -19,7 +19,7 @@
     ("asciinema" "exec nix run 'nixpkgs#asciinema' -- $@*"))
   "Builtin aliases.")
 
-(defconst +eshell--prompt-hint "𝛌 " "The prompt hint for user input.")
+(defconst +eshell--prompt-hint "𝛌" "The prompt hint for user input.")
 
 (defun +eshell--prompt ()
   "For `eshell-prompt-function'."
@@ -36,7 +36,8 @@
          (exit-status-text (when exit-status
                              (propertize exit-status 'face 'error)))
          (hint-text (propertize +eshell--prompt-hint 'face
-                                'font-lock-function-name-face)))
+                                'font-lock-function-name-face))
+         (cmd-text (propertize " " 'face 'default)))
     (concat
      username-text
      usersep-text
@@ -44,8 +45,9 @@
      " "
      exit-status-text
      "\n"
-     hint-text)))
+     hint-text
+     cmd-text)))
 
-(defconst +eshell--prompt-regexp +eshell--prompt-hint
+(defconst +eshell--prompt-regexp (concat +eshell--prompt-hint " ")
   "A shell prompt matcher for `+eshell--prompt'.")
 
