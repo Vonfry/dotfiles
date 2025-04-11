@@ -93,7 +93,7 @@ key conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell\")")
+    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell)\"")
     , ("M-C-<Return>", spawn "emacsclient -c ."              )
     , ("M-S-<Return>", spawn "emacsclient -c"                )
     , ("M-S-c"       , kill                                  )
