@@ -92,13 +92,6 @@ let
       fcitx5.addons = [ pkgs.vonfryPackages.fcitx5-rime ];
     };
 
-    programs = {
-      alacritty = {
-        settings = import ./files/alacritty.nix;
-        enable = true;
-      };
-    };
-
     xsession = {
       enable = true;
       scriptPath = ".xinitrc";
