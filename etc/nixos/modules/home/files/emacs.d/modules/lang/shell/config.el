@@ -19,6 +19,15 @@
     ("asciinema" "exec nix run 'nixpkgs#asciinema' -- $@*"))
   "Builtin aliases.")
 
+(defun +eshell--init-aliases ()
+  "Init aliases with `+eshell-aliases'.
+
+Because we should modify `eshell-command-aliases-list' by `eshell/alias' instead
+of setting directly as its documentation."
+  (dolist (alias +eshell--aliases)
+      (apply 'eshell/alias alias)))
+
+
 (defconst +eshell--prompt-hint "𝛌" "The prompt hint for user input.")
 
 (defun +eshell--prompt ()
