@@ -230,6 +230,7 @@ in
             pdf-tools
             org-pdftools
             treesit-fold
+            eshell-syntax-highlighting
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

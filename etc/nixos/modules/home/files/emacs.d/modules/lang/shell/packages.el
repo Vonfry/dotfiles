@@ -18,3 +18,8 @@
   (+eshell--init-aliases)
   :general
   (nmap-leader "$" 'eshell))
+
+(use-package eshell-syntax-highlighting
+  :after eshell-mode
+  :config
+  (eshell-syntax-highlighting-global-mode 1))
