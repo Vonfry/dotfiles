@@ -20,6 +20,10 @@
   (nmap-leader "$" 'eshell))
 
 (use-package eshell-syntax-highlighting
-  :after eshell-mode
+  :after eshell
   :config
   (eshell-syntax-highlighting-global-mode 1))
+
+(use-package esh-autosuggest
+  :after eshell
+  :hook (eshell-mode))

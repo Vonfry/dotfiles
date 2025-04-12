@@ -231,6 +231,7 @@ in
             org-pdftools
             treesit-fold
             eshell-syntax-highlighting
+            esh-autosuggest
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
