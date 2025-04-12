@@ -8,6 +8,5 @@
   (doom-modeline-lsp t)
   (doom-modeline-mu4e t)
   (doom-modeline-buffer-file-name-style 'file-name)
-  (doom-modeline-irc t)
   :config
   (doom-modeline-mode 1))
