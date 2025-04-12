@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: create a simple nix env with mkshell
+# key: nix-env-shell
+# type: snippet
+# --
+let
+  nixpkgs-flake =  builtins.getFlake "nixpkgs";
+  nixpkgs-args = {
+    localSystem = "x86_64-linux";
+    config = {allowUnfree = true; };
+  };
+  defaultPkgs = import nixpkgs-flake nixpkgs-args;
+in
+{ pkgs ?  defaultPkgs }:
+
+pkgs.mkShell {
+  packages = with pkgs; [ $0 ];
+  inputFrom = [];
+}

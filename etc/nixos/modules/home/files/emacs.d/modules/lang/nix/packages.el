@@ -5,12 +5,11 @@
   :interpreter ("nix-shell" . nix-shebang-mode)
   :hook ((nix-mode nix-ts-mode) . eglot-ensure)
   :general
-  (nmap-leader "' $" 'nix-eshell)
+  (nmap-leader
+    "' $" 'nix-eshell
+    "' n" 'nix-flake-dispatch)
   (nmap-leader :keymaps '(nix-mode-map nix-ts-mode-map)
     "="   'nix-format-buffer
-    "\""  'nix-repl
-    "' c" 'nix-build)
+    "\""  'nix-repl)
   (nmap-mode :keymaps '(nix-mode-map nix-ts-mode-map)
-    "u"  'nix-unpack
-    "/"  'nix-search
     "="  'nix-indent-line))

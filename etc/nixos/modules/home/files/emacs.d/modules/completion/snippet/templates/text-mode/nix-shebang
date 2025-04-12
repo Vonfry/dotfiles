@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: a nix shebang with expr
+# key: snippet
+# type
+# --
+#!/usr/bin/env nix
+#!nix shell --expr ``
+#!nix (builtins.getFlake "nixpkgs").legacyPackages.$1
+#!nix ``
+#!nix --command $0
