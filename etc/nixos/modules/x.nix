@@ -56,8 +56,6 @@ let
         liberation_ttf
         source-han-sans-simplified-chinese
         source-han-serif-simplified-chinese
-
-        font-awesome
       ];
       fontconfig = {
         enable = true;
