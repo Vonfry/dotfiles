@@ -56,8 +56,6 @@ let
       packages = with pkgs; [
         curl
         rsync
-        iftop
-
       ];
 
       shellAliases = {
