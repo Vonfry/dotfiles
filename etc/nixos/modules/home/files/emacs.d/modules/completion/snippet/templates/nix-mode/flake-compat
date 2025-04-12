@@ -1,3 +1,4 @@
+# -*- mode: snippet -*-
 # key: flake-compat
 # name: a default.nix to use flake info
 # type: snippet

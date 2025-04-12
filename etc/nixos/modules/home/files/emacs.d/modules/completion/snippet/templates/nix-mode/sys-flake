@@ -1,3 +1,4 @@
+# -*- mode: snippet -*-
 # key: sys-flake
 # name: a flake template with system nixpkgs only
 # type: snippet
