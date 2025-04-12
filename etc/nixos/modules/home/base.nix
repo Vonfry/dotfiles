@@ -42,7 +42,6 @@ in
 
         ouch
         zstd
-        convmv
         ripgrep
         fd
       ];

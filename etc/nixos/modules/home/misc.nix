@@ -28,7 +28,13 @@ let
 in
 {
   config = mkIf cfg.enable {
-    home.packages = optional envcfg.dotfiles.enable rebuildOS ++ easyeffctsCommunityPresets;
+    home.packages =
+      with pkgs; [
+        convmv
+        libuchardet
+      ]
+      ++ optional envcfg.dotfiles.enable rebuildOS
+      ++ easyeffctsCommunityPresets;
 
     services.easyeffects.enable = mkDefault (!cfg.workspace.server);
 
