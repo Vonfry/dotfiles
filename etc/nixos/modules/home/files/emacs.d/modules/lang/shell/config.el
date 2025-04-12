@@ -41,7 +41,7 @@ of setting directly as its documentation."
          (username-text (propertize username 'face 'font-lock-builtin-face))
          (usersep-text (propertize usersep 'face 'warning))
          (current-dir-text (propertize current-dir 'face
-                                       'font-lock-variable-name-face))
+                                       'font-lock-keyword-face))
          (exit-status-text (when exit-status
                              (propertize exit-status 'face 'error)))
          (hint-text (propertize +eshell--prompt-hint 'face
