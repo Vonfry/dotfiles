@@ -20,6 +20,7 @@
 (use-package em-alias
   ; load this manually to ensure `eshell/alias' existed.
   :after eshell
+  :ensure nil
   :config
   (+eshell--init-aliases))
 
