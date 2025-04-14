@@ -5,6 +5,6 @@
   :hook ((prog-mode TeX-mode) . hl-todo-mode)
   :general
   (nmap-leader
-    "k p" 'hl-todo-previous
-    "k n" 'hl-todo-next
-    "k o" 'hl-todo-occur))
+    "j t p" 'hl-todo-previous
+    "j t n" 'hl-todo-next
+    "j t o" 'hl-todo-occur))

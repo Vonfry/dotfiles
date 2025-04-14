@@ -8,7 +8,7 @@
   ("C-x C-b" 'bufler)
   ("C-x C-B" 'bufler-switch-buffer)
   (nmap-leader
-    "B B" 'bufler-switch-buffer
-    "B b" 'bufler
-    "B f" 'bufler-workspace-focus-buffer
-    "B F" 'bufler-workspace-frame-set))
+    "B"   'bufler
+    "k k" 'bufler-switch-buffer
+    "k f" 'bufler-workspace-focus-buffer
+    "k F" 'bufler-workspace-frame-set))

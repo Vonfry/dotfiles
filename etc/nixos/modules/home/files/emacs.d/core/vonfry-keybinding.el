@@ -83,11 +83,11 @@
     "F l" 'find-file-literally
     "!"   'calc
     "\""  'comint-run
+    "B c" 'clean-buffer-list
     "O"   'calendar
     "e a" 'scratch-buffer
     "e i" 'ielm
     "e s" 'server-start
-    "e c" 'clean-buffer-list
     "e #" 'server-edit
     "e t" 'list-timers
     "e f" 'evil-show-file-info
