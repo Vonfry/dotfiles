@@ -180,7 +180,6 @@ in
             avy
             ace-window
             logview
-            editorconfig
             evil-nerd-commenter
             rainbow-delimiters
             doom-modeline
