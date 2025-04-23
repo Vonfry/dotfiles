@@ -153,7 +153,6 @@ in
             evil-matchit
             auctex
             dashboard
-            nix-mode
             nix-ts-mode
             org-web-tools
             org-journal
