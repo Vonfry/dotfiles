@@ -96,7 +96,6 @@
     "e & SPC" 'vonfry/insert-zero-wide-space
     "e & c" 'insert-char
     "e l" 'list-processes
-    "s l" 'proced
     "Z" 'vonfry/next-theme)
   (vmap-leader
     "x"   'execute-extended-command
