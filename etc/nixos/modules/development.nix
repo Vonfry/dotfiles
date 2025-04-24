@@ -30,6 +30,11 @@ in
 
       podman = {
         enable = true;
+        autoPrune = {
+          enable = mkDefault cfg.workspace.home;
+          dates = mkDefault "monthly";
+          flags = mkDefault ["-f"];
+        };
       };
     };
 
