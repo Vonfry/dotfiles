@@ -136,7 +136,6 @@ let
       "fcitx5/rime/hannomPS.userdb"
       "fcitx5/rime/japanese.userdb"
       "fonts"
-      "icons/distrobox"
       "mpd"
       "nyxt/default-web-context"
       "nyxt/history"

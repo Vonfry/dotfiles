@@ -293,8 +293,6 @@ in
 
         pandoc
 
-        distrobox
-
         nixd
         nixpkgs-review
         nurl
