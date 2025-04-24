@@ -1,8 +1,10 @@
 { ... }:
 
 {
+  # for rootless podman
+  # Only update-users-groups reads it. But userborn is now, we have to manual
+  # create them.
   users.users.vonfry = {
-    # for rootless podman
     subUidRanges = [
       {
         startUid = 100000;
@@ -15,5 +17,15 @@
         count = 65535;
       }
     ];
+  };
+
+  # FIXME remove this when nixos module can generate it with below configs.
+  environment.etc = {
+    "subuid".text = ''
+      vonfry:100000:65535
+    '';
+    "subgid".text = ''
+      vonfry:100000:65535
+    '';
   };
 }
