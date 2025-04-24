@@ -230,6 +230,7 @@ in
             eshell-syntax-highlighting
             esh-autosuggest
             empv
+            docker
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
