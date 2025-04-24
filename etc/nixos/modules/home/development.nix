@@ -190,7 +190,6 @@ in
             org-contacts
             evil-collection
             melpaPackages.telega
-            smart-tab
             vundo
             consult
             orderless
