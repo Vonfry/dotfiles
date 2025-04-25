@@ -94,7 +94,6 @@ let
     directories = map mkCacheRelpath [
       "fsh"
     ] ++ map mkConfigRelpath [
-      # TODO try this? "fish"
     ] ++ map mkDataRelpath [
     ];
   };
