@@ -21,11 +21,17 @@
 
   # FIXME remove this when nixos module can generate it with below configs.
   environment.etc = {
-    "subuid".text = ''
-      vonfry:100000:65535
-    '';
-    "subgid".text = ''
-      vonfry:100000:65535
-    '';
+    "subuid" = {
+      mode = "0644";
+      text = ''
+        vonfry:100000:65535
+      '';
+    };
+    subgid = {
+      mode = "0644";
+      text = ''
+        vonfry:100000:65535
+      '';
+    };
   };
 }
