@@ -16,10 +16,7 @@ let
   emacsExtraBin =
     pkgs.buildEnv {
       name = "emacs-extra-bin";
-      paths = with pkgs; [
-        # FIXME nov needed. Remove this when ouch can work for it.
-        unzip
-      ] ++ optional ishome hugo;
+      paths = with pkgs; optional ishome hugo;
       pathsToLink = [
         "/bin"
         "/share"
