@@ -19,6 +19,7 @@ let
       extraGroups = [
         "wheel"
         "libvirtd"
+        "podman"
       ];
       shell = pkgs.bash;
 
