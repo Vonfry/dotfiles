@@ -10,7 +10,9 @@ let
   cfg = config.vonfry;
   userconfig = {
     users.motd = builtins.readFile ../home/files/motd;
-    users.mutableUsers = false;
+    # FIXME userborn doesn't support subuid and subgid, but we need
+    # them. Therefore, mutable one here so that it can work.
+    users.mutableUsers = true;
 
     users.users.vonfry = {
       isNormalUser = true;
