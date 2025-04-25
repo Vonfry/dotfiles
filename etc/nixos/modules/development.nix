@@ -18,6 +18,8 @@ in
     ];
 
     virtualisation = {
+      containers.enable = true;
+
       oci-containers.backend = "podman";
 
       libvirtd = {
@@ -30,6 +32,8 @@ in
 
       podman = {
         enable = true;
+        defaultNetwork.settings.dns_enabled = true;
+        dockerCompat = true;
         autoPrune = {
           enable = mkDefault cfg.workspace.home;
           dates = mkDefault "monthly";
