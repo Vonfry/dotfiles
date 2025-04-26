@@ -48,6 +48,7 @@ of setting directly as its documentation."
                                 'font-lock-function-name-face))
          (cmd-text (propertize " " 'face 'default)))
     (concat
+     "\n"
      username-text
      usersep-text
      current-dir-text
