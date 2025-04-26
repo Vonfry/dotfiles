@@ -16,7 +16,9 @@
   (eshell-prompt-regexp +eshell--prompt-regexp)
   :general
   (nmap-leader "$" 'eshell)
-  (nmap-mode "r" :keymaps 'eshell-mode-map 'consult-history))
+  (nmap-mode :keymaps 'eshell-mode-map
+    "r" 'consult-history
+    "f" 'consult-fd))
 
 (use-package em-alias
   ; load this manually to ensure `eshell/alias' existed.
