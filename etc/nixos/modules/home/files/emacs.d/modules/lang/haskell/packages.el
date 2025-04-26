@@ -3,8 +3,6 @@
 
 (use-package haskell-ts-mode
   :after eglot
-  :config
-  (haskell-ts-setup-eglot)
   :hook
   ((haskell-ts-mode . eglot-ensure)
    (haskell-ts-mode .
