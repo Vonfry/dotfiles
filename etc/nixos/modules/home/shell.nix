@@ -32,8 +32,6 @@ in
     };
 
     home = {
-      packages = with pkgs; [ trash-cli ];
-
       sessionPath = [ "~/.local/bin" ];
     };
   };

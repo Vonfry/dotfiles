@@ -2,12 +2,7 @@
 ;;
 
 (defconst +eshell--aliases
-  '(("rt" "trash-put $@*")
-    ("rl" "trash-list $@*")
-    ("re" "trash-empty $@*")
-    ("rd" "trash-rm $@*")
-    ("rr" "trash-restore $@*")
-    ("b" "browse-url-xdg-open $@*")
+  '(("b" "browse-url-xdg-open $@*")
     ("B" "browse-url $@*")
     ("diffu" "diff --unified $@*")
     ("e" "find-file $@*")
