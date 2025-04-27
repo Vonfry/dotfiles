@@ -80,6 +80,7 @@ key conf = mkKeymap conf
     , ("M-o k", spawn "easyeffects" )
 
     , ("M-$", spawn "missioncenter")
+    , ("M-S-$", spawn "sniffnet")
 
     , ("M-S-s r", spawn "reboot"   )
     , ("M-S-s s", spawn "suspend"  )

@@ -96,6 +96,8 @@ let
         # tor-browser-bundle-bin
         firefox
         nyxt
+
+        sniffnet
       ];
     };
   };
