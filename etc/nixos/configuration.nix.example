@@ -11,6 +11,10 @@
 
   vonfry = {
     enable = true;
+    workspace = {
+      home = true;
+      server = false;
+    };
     userConfiguration = {
       openssh.authorizedKeys.keys = [
       ];
@@ -20,6 +24,13 @@
         home.stateVersion = throw "Fill it!";
 
         # xsession.enable = lib.mkForce false;
+
+        # home.packages = with pkgs; [
+        #   # simplescreenrecorder
+        #   mountpoint-s3
+        #   minio-client
+        #   restic
+        # ];
 
         xsession.initExtra = ''
           # generate by axrandr
@@ -58,6 +69,21 @@
   security.doas.wheelNeedsPassword = lib.mkForce false;
 
   boot.supportedFilesystems = [ "ntfs" ];
+
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize =  8192;
+      cores = 16;
+    };
+  };
+
+  security.pki.certificates = [
+  ];
+
+  # programs.adb.enable = true;
+  # users.users.vonfry.extraGroups = [ "adbusers" ];
+
+  # programs.nix-ld.enable = true;
 
   # services.fprintd.enable = true;
   # services.hardware.bolt.enable = true;
@@ -99,14 +125,6 @@
   # N.B. boot loader
 
   # N.B. network
-
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # systemd.services.nix-daemon.environment = {
-  #   http_proxy  = "prot://user:password@proxy:port";
-  #   https_proxy = "prot://user:password@proxy:port";
-  #   ftp_proxy   = "prot://user:password@proxy:port";
-  # };
 
 
   # environment.systemPackages = with pkgs; [ nvtopPackages.intel intel-gpu-tools ];
