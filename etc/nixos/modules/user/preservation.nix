@@ -195,12 +195,10 @@ let
       "direnv"
       "ghcide"
       "hie-bios"
-      "libvirt"
       "mesa_shader_cache"
       "mesa_shader_cache_db"
     ] ++ map mkConfigRelpath [
       "cabal"
-      "libvirt"
     ] ++ map mkDataRelpath [
       "containers"
       "direnv"

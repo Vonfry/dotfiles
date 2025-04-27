@@ -62,11 +62,20 @@
   # services.fprintd.enable = true;
   # services.hardware.bolt.enable = true;
 
-  # For windows 11 the support of secure boot for ovmf and tpm are needed.
-  # virtualisation.libvirtd.qemu = {
-  #   swtpm.enable = true;
-  #   vhostUserPackages = [ pkgs.virtiofsd ];
-  #   ovmf.packages = [ pkgs.OVMFFull.fd ];
+  # virtualisation.libvirtd = {
+  #   enable = mkDefault (!cfg.workspace.server);
+  #   qemu = {
+  #     runAsRoot = mkDefault false;
+  #     package = mkDefault pkgs.qemu_kvm;
+  #     For windows 11 the support of secure boot for ovmf and tpm are needed.
+  #     swtpm.enable = true;
+  #     vhostUserPackages = [ pkgs.virtiofsd ];
+  #     ovmf.packages = [ pkgs.OVMFFull.fd ];
+  #   };
+  # };
+
+  # boot.kernel.sysctl = {
+  #   "net.ipv4.ip_forward" = true; # this is needed by libvirt for nat
   # };
 
   # networking.hostName = "nixos"; # Define your hostname.

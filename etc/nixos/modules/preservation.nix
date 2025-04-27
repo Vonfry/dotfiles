@@ -62,7 +62,6 @@ in
         "/var/lib/bluetooth"
         "/var/lib/systemd"
         "/var/lib/alsa"
-        "/var/lib/libvirt"
         "/var/lib/os-prober"
         "/var/lib/swtpm-localca"
 
