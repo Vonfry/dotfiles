@@ -123,7 +123,6 @@ let
       "nixpkgs-review"
 
       "nyxt"
-      "virt-manager"
       "yt-dlp"
     ] ++ map mkConfigRelpath [
       "easyeffects"

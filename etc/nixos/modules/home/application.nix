@@ -90,7 +90,6 @@ let
       };
 
       packages = with pkgs; [
-        virt-manager
         mission-center
       ];
     };

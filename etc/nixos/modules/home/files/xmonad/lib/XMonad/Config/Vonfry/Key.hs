@@ -77,7 +77,6 @@ key conf = mkKeymap conf
     , ("M-z"  , sshPrompt promptConfig             )
 
     , ("M-o b", spawn "nyxt"        )
-    , ("M-o v", spawn "virt-manager")
     , ("M-o k", spawn "easyeffects" )
 
     , ("M-$", spawn "missioncenter")
