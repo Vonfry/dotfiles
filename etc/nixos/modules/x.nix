@@ -48,6 +48,9 @@ let
       };
     };
 
+    # HOLD It should be open manually.
+    security.pam.services.i3lock-color.enable = true;
+
     fonts = {
       packages = with pkgs; [
         recursive
