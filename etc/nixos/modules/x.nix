@@ -50,6 +50,7 @@ let
 
     # HOLD It should be open manually.
     security.pam.services.i3lock-color.enable = true;
+    security.pam.services.i3lock.enable = true;
 
     fonts = {
       packages = with pkgs; [
