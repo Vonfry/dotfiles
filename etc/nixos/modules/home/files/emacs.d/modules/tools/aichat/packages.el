@@ -35,6 +35,7 @@
     "' q s" 'gptel-aibo-summon))
 
 (use-package mcp
+  :disabled
   :after gptel
   :custom
   ; This is depended on mcp-servers-nix. When not on nixos/hm, these wrapper
@@ -42,3 +43,8 @@
   (mcp-hub-servers '(()))
   :general
   (nmap-leader "' q m" 'mcp-hub))
+
+(use-package gptel-magit
+  :disabled
+  :after (magit gptel)
+  :hook (magit-mode . gptel-magit-install))
