@@ -228,6 +228,7 @@ in
             empv
             docker
             gptel-aibo
+            mcp
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

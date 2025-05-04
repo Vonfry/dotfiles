@@ -33,3 +33,12 @@
     "a"   'gptel-aibo-apply-last-suggestions)
   (nvmap-leader :keymaps 'prog-mode-map
     "' q s" 'gptel-aibo-summon))
+
+(use-package mcp
+  :after gptel
+  :custom
+  ; This is depended on mcp-servers-nix. When not on nixos/hm, these wrapper
+  ; should be made.
+  (mcp-hub-servers '(()))
+  :general
+  (nmap-leader "' q m" 'mcp-hub))
