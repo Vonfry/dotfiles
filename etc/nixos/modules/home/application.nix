@@ -36,7 +36,7 @@ let
         enableSshSupport = true;
         enableExtraSocket = true;
         enableScDaemon = true;
-        pinentryPackage = pkgs.pinentry-gtk2;
+        pinentry.package = pkgs.pinentry-gtk2;
         extraConfig = ''
           allow-loopback-pinentry
           allow-preset-passphrase
