@@ -37,10 +37,10 @@
 (use-package mcp
   :disabled
   :after gptel
-  :custom
-  ; This is depended on mcp-servers-nix. When not on nixos/hm, these wrapper
-  ; should be made.
-  (mcp-hub-servers '(()))
+  ; hm manages this with file paths.
+  ; For non-nix based system, set this manually.
+  ; :custom
+  ; (mcp-hub-servers nil)
   :general
   (nmap-leader "' q m" 'mcp-hub))
 

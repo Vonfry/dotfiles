@@ -39,6 +39,38 @@ let
 
   gpgHasKey = config.programs.gpg.settings ? "default-key";
   gpgKey = config.programs.gpg.settings.default-key;
+
+  emacs-mcp-config = with pkgs; ''
+    (setopt
+      mcp-hub-servers
+      `(("filesystem"
+         . (:command "${getExe mcp-server-filesystem}"
+            :args (,(expand-file-name "~"))))
+        ("fetch"
+         . (:command "${getExe mcp-server-fetch}"))
+        ("brave-search"
+         . (:command "${getExe mcp-server-brave-search}"
+            :env (:BRAVE_API_KEY
+                  ,(auth-source-pick-first-password
+                    :host "api.search.brave.com"
+                    :user "mcp"))))
+        ("git"
+         . (:command "${getExe mcp-server-git}"))
+        ("github"
+         . (:command "${getExe mcp-server-github}"
+           :env (:GITHUB_PERSONAL_ACCESS_TOKEN
+                 ,(auth-source-pick-first-password
+                   :host "api.github.com"
+                   :user "mcp"))))
+        ("gitlab"
+         . (:command "${getExe mcp-server-gitlab}"
+            :env (:GITLAB_PERSONAL_ACCESS_TOKEN
+                  ,(auth-source-pick-first-password
+                   :host "api.gitlab.com"
+                   :user "mcp")
+                   :GITLAB_API_URL
+                   "https://gitlab.com/api/v4")))))
+  '';
 in
 {
   options.vonfry.development = {
@@ -86,6 +118,8 @@ in
       ])
       (optional (!ishome || !envcfg.financial.enable) "tools/ledger")
     ];
+
+    vonfry.development.emacs.postCustom = mkIf ishome emacs-mcp-config;
 
     warnings = mkMerge [
       (optional (!hasOrg) "org dir isn't set and some of emacs config cannot work directly.")
@@ -296,14 +330,6 @@ in
         pandoc
 
         nixd
-
-        mcp-server-fetch
-        mcp-server-filesystem
-        mcp-server-brave-search
-        mcp-server-git
-        mcp-server-github
-        mcp-server-gitlab
-        mcp-server-time
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
