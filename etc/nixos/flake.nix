@@ -24,6 +24,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mcp-servers = {
+      url = "github:natsukium/mcp-servers-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -36,6 +40,8 @@
       preservation,
       disko,
       sops-nix,
+      mcp-servers,
+      ...
     }@flakes:
     let
       overlay = import ./modules/overlay;
@@ -45,6 +51,7 @@
           nixpkgs.overlays = [
             overlay
             emacs-overlay.overlay
+            mcp-servers.overlays.default
           ];
           nix = {
             package = pkgs.nixVersions.stable;

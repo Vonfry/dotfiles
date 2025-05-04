@@ -289,12 +289,20 @@ in
         nurl
         nix-update
         nixfmt-rfc-style
-      ] + optionals ishome [
+      ] ++ optionals ishome [
         tokei
 
         pandoc
 
         nixd
+
+        mcp-server-fetch
+        mcp-server-filesystem
+        mcp-server-brave-search
+        mcp-server-git
+        mcp-server-github
+        mcp-server-gitlab
+        mcp-server-time
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
