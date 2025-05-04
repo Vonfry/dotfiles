@@ -285,14 +285,16 @@ in
       packages = with pkgs; [
         gitAndTools.git-extras
 
+        nixpkgs-review
+        nurl
+        nix-update
+        nixfmt-rfc-style
+      ] + optionals ishome [
         tokei
 
         pandoc
 
         nixd
-        nixpkgs-review
-        nurl
-        nixfmt-rfc-style
       ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
