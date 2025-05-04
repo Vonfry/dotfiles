@@ -68,8 +68,8 @@ let
                   ,(auth-source-pick-first-password
                    :host "api.gitlab.com"
                    :user "mcp")
-                   :GITLAB_API_URL
-                   "https://gitlab.com/api/v4")))))
+                  :GITLAB_API_URL
+                  "https://gitlab.com/api/v4")))))
   '';
 in
 {
