@@ -10,6 +10,8 @@
   (vmap-leader
     "e g RET" 'gptel-send
     "e g a"   'gptel-add)
+  (nmap-mode :keymaps gptel-mode-map
+    "RET" 'gptel-send)
   :custom
   (gptel-use-curl t)
   (gptel-backend gptel--openai)
@@ -22,15 +24,12 @@
        :host "api.openai.com"
        :user "gptel"))))
 
-(use-package elysium
+(use-package gptel-aibo
+  :after gptel
   :general
-  (vmap-leader
-    "' q q" 'elysium-query
-    "' q a" 'elysium-add-context)
-  (nmap-leader
-    "' q q" 'elysium-query
-    "' q k" 'elysium-keep-all-suggested-changes
-    "' q d" 'elysium-discard-all-suggested-changes
-    "' q c" 'elysium-clear-buffer
-    "' q a" 'elysium-add-context
-    "' q t" 'elysium-toggle-window))
+  (nmap-leader "' q q" 'gptel-aibo)
+  (nmap-mode :keymaps 'gptel-aibo-mode-map
+    "RET" 'gptel-aibo-send
+    "a"   'gptel-aibo-apply-last-suggestions)
+  (nvmap-leader :keymaps 'prog-mode-map
+    "' q s" 'gptel-aibo-summon))

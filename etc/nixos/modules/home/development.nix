@@ -220,7 +220,6 @@ in
             org-modern
             uniline
             dape
-            elysium
             pdf-tools
             org-pdftools
             treesit-fold
@@ -228,6 +227,7 @@ in
             esh-autosuggest
             empv
             docker
+            gptel-aibo
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
