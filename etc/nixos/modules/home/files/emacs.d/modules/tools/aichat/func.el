@@ -10,7 +10,7 @@
                        tool))
             tools)))
 
-(defun gptel-mcp-use-tool ()
+(defun +gptel-mcp-use-tool ()
   "Copied from mcp.el's readme."
   (interactive)
   (let ((tools (mcp-hub-get-all-tool :asyncp t :categoryp t)))
@@ -21,7 +21,7 @@
                         gptel-tools)))
             tools)))
 
-(defun gptel-mcp-close-use-tool ()
+(defun +gptel-mcp-close-use-tool ()
   "Copied from mcp.el's readme."
   (interactive)
   (let ((tools (mcp-hub-get-all-tool :asyncp t :categoryp t)))
