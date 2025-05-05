@@ -27,11 +27,12 @@
 (use-package gptel-aibo
   :after gptel
   :general
-  (nmap-leader "' q q" 'gptel-aibo)
+  (nmap-leader
+    "' q q" 'gptel-aibo)
   (nmap-mode :keymaps 'gptel-aibo-mode-map
     "RET" 'gptel-aibo-send
     "a"   'gptel-aibo-apply-last-suggestions)
-  (nvmap-leader :keymaps 'prog-mode-map
+  (vmap-leader :keymaps 'prog-mode-map
     "' q s" 'gptel-aibo-summon))
 
 (use-package mcp
