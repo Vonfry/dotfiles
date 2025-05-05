@@ -41,35 +41,39 @@ let
   gpgKey = config.programs.gpg.settings.default-key;
 
   emacs-mcp-config = with pkgs; ''
-    (setopt
-      mcp-hub-servers
-      `(("filesystem"
-         . (:command "${getExe mcp-server-filesystem}"
-            :args (,(expand-file-name "~"))))
-        ("fetch"
-         . (:command "${getExe mcp-server-fetch}"))
-        ("brave-search"
-         . (:command "${getExe mcp-server-brave-search}"
-            :env (:BRAVE_API_KEY
-                  ,(auth-source-pick-first-password
-                    :host "api.search.brave.com"
-                    :user "mcp"))))
-        ("git"
-         . (:command "${getExe mcp-server-git}"))
-        ("github"
-         . (:command "${getExe mcp-server-github}"
-           :env (:GITHUB_PERSONAL_ACCESS_TOKEN
-                 ,(auth-source-pick-first-password
-                   :host "api.github.com"
-                   :user "mcp"))))
-        ("gitlab"
-         . (:command "${getExe mcp-server-gitlab}"
-            :env (:GITLAB_PERSONAL_ACCESS_TOKEN
-                  ,(auth-source-pick-first-password
-                   :host "api.gitlab.com"
-                   :user "mcp")
-                  :GITLAB_API_URL
-                  "https://gitlab.com/api/v4")))))
+    (defun init-mcp-servers ()
+      "init mcp servers. This is a function because it is depended on password,
+       which sould be prompted."
+      (interactive)
+      (setopt
+        mcp-hub-servers
+        `(("filesystem"
+           . (:command "${getExe mcp-server-filesystem}"
+              :args (,(expand-file-name "~"))))
+          ("fetch"
+           . (:command "${getExe mcp-server-fetch}"))
+          ("brave-search"
+           . (:command "${getExe mcp-server-brave-search}"
+              :env (:BRAVE_API_KEY
+                    ,(auth-source-pick-first-password
+                      :host "api.search.brave.com"
+                      :user "mcp"))))
+          ("git"
+           . (:command "${getExe mcp-server-git}"))
+          ("github"
+           . (:command "${getExe mcp-server-github}"
+             :env (:GITHUB_PERSONAL_ACCESS_TOKEN
+                   ,(auth-source-pick-first-password
+                     :host "api.github.com"
+                     :user "mcp"))))
+          ("gitlab"
+           . (:command "${getExe mcp-server-gitlab}"
+              :env (:GITLAB_PERSONAL_ACCESS_TOKEN
+                    ,(auth-source-pick-first-password
+                     :host "api.gitlab.com"
+                     :user "mcp")
+                    :GITLAB_API_URL
+                    "https://gitlab.com/api/v4"))))))
   '';
 in
 {
