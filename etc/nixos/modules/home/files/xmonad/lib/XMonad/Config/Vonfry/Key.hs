@@ -93,13 +93,13 @@ key conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell)\"")
-    , ("M-C-<Return>", spawn "emacsclient -c ."              )
-    , ("M-S-<Return>", spawn "emacsclient -c"                )
-    , ("M-S-c"       , kill                                  )
-    , ("M-S-<Space>" , sendMessage NextLayout                )
-    , ("M-C-<Space>" , setLayout $ layoutHook conf           )
-    , ("M-r"         , refresh                               )
+    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell t)\"")
+    , ("M-C-<Return>", spawn "emacsclient -c ."                )
+    , ("M-S-<Return>", spawn "emacsclient -c"                  )
+    , ("M-S-c"       , kill                                    )
+    , ("M-S-<Space>" , sendMessage NextLayout                  )
+    , ("M-C-<Space>" , setLayout $ layoutHook conf             )
+    , ("M-r"         , refresh                                 )
     -- We use M-<Space> for input methods
 
     -- move focus up or down the window stack
