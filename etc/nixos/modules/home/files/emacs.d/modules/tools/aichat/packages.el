@@ -10,7 +10,7 @@
   (vmap-leader
     "e g RET" 'gptel-send
     "e g a"   'gptel-add)
-  (nmap-mode :keymaps gptel-mode-map
+  (nmap-mode :keymaps 'gptel-mode-map
     "RET" 'gptel-send)
   :custom
   (gptel-use-curl t)
