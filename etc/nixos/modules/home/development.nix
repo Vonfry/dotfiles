@@ -267,7 +267,7 @@ in
             docker
             gptel-aibo
             # mcp
-            # gptel-magit
+            gptel-magit
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

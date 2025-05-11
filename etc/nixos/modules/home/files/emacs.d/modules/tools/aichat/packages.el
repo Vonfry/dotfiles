@@ -46,6 +46,5 @@
   (nmap-leader "' q m" 'mcp-hub))
 
 (use-package gptel-magit
-  :disabled
   :after (magit gptel)
   :hook (magit-mode . gptel-magit-install))
