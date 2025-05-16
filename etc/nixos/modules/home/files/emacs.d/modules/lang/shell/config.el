@@ -11,7 +11,8 @@
     ("d" "dired $@*")
     ("o" "dired-do-open $@*")
     ("http-serve" "nix run 'nixpkgs#dufs' -- $@*")
-    ("asciinema" "exec nix run 'nixpkgs#asciinema' -- $@*"))
+    ("asciinema" "exec nix run 'nixpkgs#asciinema' -- $@*")
+    ("dl" "aria2c $@*"))
   "Builtin aliases.")
 
 (defun +eshell--init-aliases ()
