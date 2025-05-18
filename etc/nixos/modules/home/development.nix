@@ -262,7 +262,6 @@ in
             org-pdftools
             treesit-fold
             eshell-syntax-highlighting
-            esh-autosuggest
             docker
             gptel-aibo
             # mcp
