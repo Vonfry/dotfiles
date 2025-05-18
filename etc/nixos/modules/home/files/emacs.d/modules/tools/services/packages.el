@@ -3,9 +3,7 @@
 
 (use-package daemons
   :general
-  (nmap-leader
-    "s s" 'daemons
-    "s u" 'daemons-systemd-toggle-user))
+  (nmap-leader "s s" 'daemons))
 
 (use-package journalctl-mode
   :general
