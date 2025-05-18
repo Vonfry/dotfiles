@@ -97,25 +97,22 @@ see: [todo.org](todo.org)
 
 ## Life
 
-~~I use iTerm on mac and do anything on program with command line. And using
-ConEmu as terminal on windows.~~
-
 NixOS and Gentoo are good linux distributions, we can control a lot of
 things in our system. I'm mainly using **NixOS** now, which isn't only a system
 but also a kind of thinking. Further more, Nix is a awesome building tool.
 
-~~On macOS, Fantastical is a beautiful calander.~~
-On Linux, I use emacs for mail(mu4e), newsreader(gnus), rss(elfeed)
+On Linux, I use emacs for mail(mu4e), rss(elfeed)
 and other things. Gnus for mail is different from other tools such as
-mu4e, you can check a description
-[here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader). It
-is not fit for me, and the same reason for rss. I may switch to it someday if
-gnus is supported with async. org-contacts can be used as contacts, and ebdb is
+mu4e, you can check a description [here](https://www.gnu.org/software/emacs/manual/html_node/gnus/Mail-in-a-Newsreader.html#Mail-in-a-Newsreader) and [here](https://web.archive.org/web/20241108152000/https://www.rath.org/whats-wrong-with-gnus.html).
+It is not fit for me, and the same reason for rss.
+org-contacts can be used as contacts, and ebdb is
 also good, but it saves data into database(elisp) instead of plain
 text. Calender? Just org agenda. Furthermore, password-store is for password
 management and rsync is for file syncing. Both of them are free and easy to
 use, which is better than 1password and rclone with other servers. P2P for
 personal using is enough.
+Emacs can also manage medias with emms and play them with a backend, mpv is my
+choice, which is extensible and simple.
 
 Emacs and Vim are both magic editor. We can customize them what we
 want. Furthermore using lisp to do that is happy. I really lvoe the editing
