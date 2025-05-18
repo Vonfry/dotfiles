@@ -115,10 +115,10 @@ in
 
   config = mkIf cfg'.enable {
     vonfry.development.emacs.excludeModules = mkMerge [
-      (optional (!config.services.mpd.enable) "tools/mpd")
       (optionals (!ishome) [
         "tools/blog"
         "tools/feed"
+        "tools/media"
       ])
       (optional (!ishome || !envcfg.financial.enable) "tools/ledger")
     ];
@@ -263,11 +263,11 @@ in
             treesit-fold
             eshell-syntax-highlighting
             esh-autosuggest
-            empv
             docker
             gptel-aibo
             # mcp
             gptel-magit
+            emms
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

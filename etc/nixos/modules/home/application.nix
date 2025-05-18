@@ -112,21 +112,7 @@ let
     ];
   };
 
-  homecfg = {
-    services = {
-      mpd = {
-        enable = mkDefault true;
-        musicDirectory = mkDefault "${config.xdg.userDirs.music}";
-        extraConfig = ''
-          audio_output {
-            type "pipewire"
-            name "My Pipewire Output"
-          }
-          restore_paused "yes"
-        '';
-      };
-    };
-  };
+  homecfg = {};
 in
 {
   options.vonfry.application = {
