@@ -30,6 +30,12 @@ The topic is not deprecated, but it is not the default one and may be useless.
 
 - [ ] ~~Fedora :: stop maintaining, old files by checking tag but I forget which one is.~~
 
+NixOS and Gentoo are good linux distributions, we can control a lot of
+things in our system. I'm mainly using **NixOS** now, which isn't only a system
+but also a kind of thinking. Further more, Nix is a awesome building tool.
+
+Fedora/debain is simple for servers or public/share machines.
+
 ## command-line
 
 - [x] ~~zsh~~
@@ -50,6 +56,8 @@ emacs.
 - [ ] ~~termonad :: Its most feature can be done in xmonad.~~
 - [X] ~~alacritty~~ :: A good term with gpu. ~~but having some problem on my machine.~~
 
+Emacs is a shell as well, why not using eshell?
+
 ## Colorscheme
 
 Both solarized and dracula are terrific, so I install both and switch theme by
@@ -61,6 +69,12 @@ love.
 - [x] ~~Vim~~
 - [x] ~~Neovim~~
 - [x] Emacs
+
+Emacs and Vim are both magic editor. We can customize them what we
+want. Furthermore using lisp to do that is happy. I really lvoe the editing
+style with mode in vim and freely customizing in emacs, so I run emacs with
+vim. By the way, they are native application without web technology, which I
+never like to.
 
 ## Lang
 
@@ -95,11 +109,7 @@ them when the network is bad. see tag for more.
 
 see: [todo.org](todo.org)
 
-## Life
-
-NixOS and Gentoo are good linux distributions, we can control a lot of
-things in our system. I'm mainly using **NixOS** now, which isn't only a system
-but also a kind of thinking. Further more, Nix is a awesome building tool.
+## Mail/Feed/Calendar/Password/Media/...
 
 On Linux, I use emacs for mail(mu4e), rss(elfeed)
 and other things. Gnus for mail is different from other tools such as
@@ -113,12 +123,6 @@ use, which is better than 1password and rclone with other servers. P2P for
 personal using is enough.
 Emacs can also manage medias with emms and play them with a backend, mpv is my
 choice, which is extensible and simple.
-
-Emacs and Vim are both magic editor. We can customize them what we
-want. Furthermore using lisp to do that is happy. I really lvoe the editing
-style with mode in vim and freely customizing in emacs, so I run emacs with
-vim. By the way, they are native application without web technology, which I
-never like to.
 
 I use org-mode to do GTD, diary and notes. And capturing web by pdf, which is
 not easy like evernote, but I like it. Some website use eww with org for
