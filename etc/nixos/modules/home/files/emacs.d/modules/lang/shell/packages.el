@@ -16,6 +16,9 @@
   (eshell-prompt-regexp +eshell--prompt-regexp)
   :general
   (nmap-leader "$" 'eshell)
+  (:kepmaps 'eshell-mode-map
+   "C-d" 'consult-history
+   "C-t" 'consult-fd)
   (nmap-mode :keymaps 'eshell-mode-map
     "r" 'consult-history
     "f" 'consult-fd))
