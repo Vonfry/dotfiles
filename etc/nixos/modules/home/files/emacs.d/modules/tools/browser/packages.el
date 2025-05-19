@@ -13,5 +13,7 @@
   (nmap-at
     "w w" 'eww
     "w m" 'eww-list-bookmarks
+    "w f" 'eww-open-file
+    "w n" 'eww-open-in-new-buffer
     "w b" 'eww-list-buffers
     "w o" 'browse-url))
