@@ -15,10 +15,10 @@
   (eshell-prompt-function #'+eshell--prompt)
   (eshell-prompt-regexp +eshell--prompt-regexp)
   :general
+  (imap :keymaps 'eshell-mode-map
+    "C-d" 'consult-history
+    "C-t" 'consult-fd)
   (nmap-leader "$" 'eshell)
-  (:kepmaps 'eshell-mode-map
-   "C-d" 'consult-history
-   "C-t" 'consult-fd)
   (nmap-mode :keymaps 'eshell-mode-map
     "r" 'consult-history
     "f" 'consult-fd))

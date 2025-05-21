@@ -34,7 +34,7 @@
   ;; is using `evil-make-overriding-map' which has higher precedence than global
   ;; one but lower than other maps. and the overriding map is used by
   ;; `evil-collection'.
-  (defmacro vonfry--keybind-definer(map)
+  (defmacro vonfry--keybind-definer (map)
     (let* ((map-str (symbol-name map))
            (map-leader (intern (concat map-str "-leader")))
            (map-mode   (intern (concat map-str "-mode")))
