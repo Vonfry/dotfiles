@@ -175,6 +175,7 @@
   (use-package ob-sqlite :ensure nil)
   (use-package ob-lisp :ensure nil)
   (use-package ob-calc :ensure nil)
+  (use-package ob-eshell :ensure nil)
   :custom
   (org-babel-load-languages '((emacs-lisp . t)
                               (org        . t)
@@ -185,7 +186,8 @@
                               (latex      . t)
                               (sql        . t)
                               (sqlite     . t)
-                              (lisp       . t)))
+                              (lisp       . t)
+                              (eshell     . t)))
   (org-babel-lisp-eval-fn #'sly-eval)
   :after org)
 
