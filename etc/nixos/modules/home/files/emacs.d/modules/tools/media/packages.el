@@ -5,14 +5,14 @@
   :custom
   (emms-directory (expand-file-name "emms" vonfry-cache-dir))
   (emms-setup-default-player-list '(emms-player-mpv))
-  (emms-cache-file (expand-file-name "emms" vonfry-cache-dir))
+  (emms-cache-file (expand-file-name "cache" emms-directory))
   (emms-browser-covers 'emms-browser-cache-thumbnail-async)
   (emms-info-asynchronously t)
   (emms-browser-thumbnail-directory
-   (expand-file-name "emms-thumbnails" vonfry-cache-dir))
-  (emms-history-file (expand-file-name "emms-history" vonfry-local-dir))
-  (emms-score-file (expand-file-name "emms-score" vonfry-local-dir))
-  (emms-streams-file (expand-file-name "emms-streams" vonfry-local-dir))
+   (expand-file-name "emms/thumbnails" vonfry-cache-dir))
+  (emms-history-file (expand-file-name "emms/history" vonfry-local-dir))
+  (emms-score-file (expand-file-name "emms/score" vonfry-local-dir))
+  (emms-streams-file (expand-file-name "emms/streams" vonfry-local-dir))
   (emms-info-functions '(emms-info-native emms-info-cueinfo))
   (emms-lyrics-dir (expand-file-name "lyrics" (xdg-user-dir "MUSIC")))
   :general
@@ -27,7 +27,7 @@
     "m k" 'emms-previous
     "m '" 'emms-show
     "m g" 'emms-playlist-mode-go
-    "m b" 'emms-smart-browse)
+    "m b" 'emms-browser)
   :config
   (emms-all)
   (emms-default-players)
