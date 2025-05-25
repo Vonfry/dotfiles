@@ -16,7 +16,7 @@ let
   emacsExtraBin =
     pkgs.buildEnv {
       name = "emacs-extra-bin";
-      paths = with pkgs; optional ishome hugo;
+      paths = with pkgs; [ imagemagick ] ++ optional ishome hugo;
       pathsToLink = [
         "/bin"
         "/share"
