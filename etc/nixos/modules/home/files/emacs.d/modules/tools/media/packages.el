@@ -27,6 +27,7 @@
     "m k" 'emms-previous
     "m '" 'emms-show
     "m g" 'emms-playlist-mode-go
+    "m m" 'emms-metaplaylist-mode-go
     "m b" 'emms-browser)
   :config
   (emms-all)
