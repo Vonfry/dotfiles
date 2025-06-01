@@ -7,7 +7,6 @@ import XMonad (def, Tall(Tall), Full(Full), Mirror(Mirror))
 import XMonad.Layout.LayoutCombinators ((|||))
 import XMonad.Layout.Renamed (renamed, Rename(..))
 import XMonad.Layout.ShowWName (showWName', SWNConfig(..))
-import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Minimize (minimize)
 import XMonad.Layout.GridVariants (SplitGrid(..), Grid(..))
 import qualified XMonad.Layout.GridVariants as GridVariants
@@ -40,7 +39,6 @@ layoutHook = beforeLayouts layouts
     cleanupNames  = renamed [ CutWordsLeft 1 ]
     beforeLayouts = cleanupNames
                   . showWName' showWNameConfig
-                  . smartBorders
                   . minimize
                   . smartSpacing 2
 
