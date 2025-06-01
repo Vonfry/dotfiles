@@ -15,6 +15,8 @@
   (emms-streams-file (expand-file-name "emms/streams" vonfry-local-dir))
   (emms-info-functions '(emms-info-native emms-info-cueinfo))
   (emms-lyrics-dir (expand-file-name "lyrics" (xdg-user-dir "MUSIC")))
+  (emms-player-mpv-ipc-socket
+   (expand-file-name "emms-mpv-ipc.socket" temporary-file-directory))
   :general
   (nmap-at
     "m s" 'emms-start
