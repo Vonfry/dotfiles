@@ -26,6 +26,7 @@
     "F i"    'consult-info
     "F f"    'consult-fd
     "F '"    'consult-mark
+    "F x"    'consult-complex-command
     "a"      'consult-ripgrep
     "b"      'consult-buffer
     "y"      'consult-yank-pop
