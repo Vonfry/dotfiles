@@ -62,10 +62,11 @@ let
            . (:command "${getExe mcp-server-git}"))
           ("github"
            . (:command "${getExe github-mcp-server}"
-             :env (:GITHUB_PERSONAL_ACCESS_TOKEN
-                   ,(auth-source-pick-first-password
-                     :host "api.github.com"
-                     :user "mcp")))))))
+              :args ("stdio")
+              :env (:GITHUB_PERSONAL_ACCESS_TOKEN
+                    ,(auth-source-pick-first-password
+                      :host "api.github.com"
+                      :user "mcp")))))))
   '';
 in
 {
