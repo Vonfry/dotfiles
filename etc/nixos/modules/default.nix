@@ -11,5 +11,6 @@
     ./misc.nix
     ./user
     ./workspace.nix
+    ./game.nix
   ];
 }
