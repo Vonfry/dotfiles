@@ -42,7 +42,9 @@
   :config
   (evil-set-initial-state 'mcp-hub-mode 'emacs)
   :general
-  (nmap-leader "' q m" 'mcp-hub))
+  (nmap-leader
+    "' q m" 'mcp-hub
+    "' q M" '+mcp/init-servers))
 
 (use-package gptel-magit
   :after (magit gptel)

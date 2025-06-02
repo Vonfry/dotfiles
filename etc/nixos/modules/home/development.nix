@@ -41,7 +41,7 @@ let
   gpgKey = config.programs.gpg.settings.default-key;
 
   emacs-mcp-config = with pkgs; ''
-    (defun +gptel/init-mcp-servers ()
+    (defun +mcp/init-servers ()
       "init mcp servers. This is a function because it is depended on password,
        which sould be prompted."
       (interactive)
