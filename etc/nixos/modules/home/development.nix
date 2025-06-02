@@ -41,7 +41,7 @@ let
   gpgKey = config.programs.gpg.settings.default-key;
 
   emacs-mcp-config = with pkgs; ''
-    (defun init-mcp-servers ()
+    (defun +gptel/init-mcp-servers ()
       "init mcp servers. This is a function because it is depended on password,
        which sould be prompted."
       (interactive)
@@ -65,15 +65,7 @@ let
              :env (:GITHUB_PERSONAL_ACCESS_TOKEN
                    ,(auth-source-pick-first-password
                      :host "api.github.com"
-                     :user "mcp"))))
-          ("gitlab"
-           . (:command "${getExe mcp-server-gitlab}"
-              :env (:GITLAB_PERSONAL_ACCESS_TOKEN
-                    ,(auth-source-pick-first-password
-                     :host "api.gitlab.com"
-                     :user "mcp")
-                    :GITLAB_API_URL
-                    "https://gitlab.com/api/v4"))))))
+                     :user "mcp")))))))
   '';
 in
 {

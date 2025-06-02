@@ -15,7 +15,6 @@
   :custom
   (gptel-use-curl t)
   (gptel-backend gptel--openai)
-  (gptel-model 'gpt-4o)
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode)
   (gptel-api-key
@@ -36,15 +35,23 @@
     "' q s" 'gptel-aibo-summon))
 
 (use-package mcp
-  :disabled
-  :after gptel
   ; hm manages this with file paths.
   ; For non-nix based system, set this manually.
   ; :custom
   ; (mcp-hub-servers nil)
+  :config
+  (evil-set-initial-state 'mcp-hub-mode 'emacs)
   :general
   (nmap-leader "' q m" 'mcp-hub))
 
 (use-package gptel-magit
   :after (magit gptel)
   :hook (magit-mode . gptel-magit-install))
+
+(use-package gptel-integrations
+  :after mcp
+  :ensure gptel
+  :genelar
+  (nmap-leader
+    "' q c" 'gptel-mcp-connect
+    "' q d" 'gptel-mcp-disconnect))
