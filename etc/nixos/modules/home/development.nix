@@ -61,7 +61,7 @@ let
           ("git"
            . (:command "${getExe mcp-server-git}"))
           ("github"
-           . (:command "${getExe mcp-server-github}"
+           . (:command "${getExe github-mcp-server}"
              :env (:GITHUB_PERSONAL_ACCESS_TOKEN
                    ,(auth-source-pick-first-password
                      :host "api.github.com"
