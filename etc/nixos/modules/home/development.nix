@@ -264,7 +264,7 @@ in
             eshell-syntax-highlighting
             docker
             gptel-aibo
-            # mcp
+            mcp
             gptel-magit
             emms
           ];
