@@ -51,7 +51,7 @@
 (use-package gptel-integrations
   :after mcp
   :ensure gptel
-  :genelar
+  :general
   (nmap-leader
     "' q c" 'gptel-mcp-connect
     "' q d" 'gptel-mcp-disconnect))
