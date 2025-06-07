@@ -17,6 +17,7 @@
   (gptel-backend gptel--openai)
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode)
+  (gptel-model 'gpt-4.5-preview)
   (gptel-api-key
     (lambda ()
       (auth-source-pick-first-password
