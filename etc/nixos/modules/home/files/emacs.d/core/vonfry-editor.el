@@ -36,7 +36,9 @@
   line-spacing 0
   display-line-numbers nil
 
-  blink-cursor-interval 0.4
+  blink-cursor-mode nil
+  blink-cursor-interval 0.5
+  cursor-type t
   buffers-menu-max-size 32
 
   bookmark-default-file (expand-file-name "bookmarks.el" vonfry-local-dir)
