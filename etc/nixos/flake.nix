@@ -28,6 +28,10 @@
       url = "github:natsukium/mcp-servers-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pyproject-nix = {
+      url = "github:nix-community/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -41,14 +45,17 @@
       disko,
       sops-nix,
       mcp-servers,
+      pyproject-nix,
       ...
     }@flakes:
     let
+      flake-overlays = self: super: { inherit pyproject-nix; };
       overlay = import ./modules/overlay;
       flakeSpecialConfig =
         { pkgs, ... }:
         {
           nixpkgs.overlays = [
+            flake-overlays
             overlay
             emacs-overlay.overlay
             mcp-servers.overlays.default

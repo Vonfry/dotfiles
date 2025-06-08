@@ -196,5 +196,26 @@
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
         "version": "2025-06-08"
+    },
+    "web-scout-mcp": {
+        "cargoLocks": null,
+        "date": "2025-06-01",
+        "extract": null,
+        "name": "web-scout-mcp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pinkpixel-dev",
+            "repo": "web-scout-mcp",
+            "rev": "33c09e089b7974f204a0cb1085ba99b63717a6b8",
+            "sha256": "sha256-bspjN3OJyxSdibq29UvrwGvaMlIJ2UULGQmcTln9/RY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "33c09e089b7974f204a0cb1085ba99b63717a6b8"
     }
 }

@@ -52,12 +52,12 @@ let
               :args (,(expand-file-name "~"))))
           ("fetch"
            . (:command "${getExe mcp-server-fetch}"))
-          ("brave-search"
-           . (:command "${getExe mcp-server-brave-search}"
-              :env (:BRAVE_API_KEY
-                    ,(auth-source-pick-first-password
-                      :host "api.search.brave.com"
-                      :user "mcp"))))
+          ("sequential-thinking"
+           . (:command "${getExe mcp-server-sequential-thinking}"))
+          ("web-scout"
+           . (:command "${getExe vonfryPackages.mcp-servers.web-scout}"))
+          ("time"
+           . (:command "${getExe mcp-server-time}"))
           ("git"
            . (:command "${getExe mcp-server-git}"))
           ("github"

@@ -113,4 +113,16 @@
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
     };
   };
+  web-scout-mcp = {
+    pname = "web-scout-mcp";
+    version = "33c09e089b7974f204a0cb1085ba99b63717a6b8";
+    src = fetchFromGitHub {
+      owner = "pinkpixel-dev";
+      repo = "web-scout-mcp";
+      rev = "33c09e089b7974f204a0cb1085ba99b63717a6b8";
+      fetchSubmodules = false;
+      sha256 = "sha256-bspjN3OJyxSdibq29UvrwGvaMlIJ2UULGQmcTln9/RY=";
+    };
+    date = "2025-06-01";
+  };
 }
