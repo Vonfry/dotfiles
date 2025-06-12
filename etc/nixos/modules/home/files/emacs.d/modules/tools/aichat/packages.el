@@ -21,7 +21,7 @@
   (gptel-api-key
     (lambda ()
       (auth-source-pick-first-password
-       :host "api.openai.com"
+       :host "api.anthropic.com"
        :user "gptel"))))
 
 (use-package gptel-aibo
