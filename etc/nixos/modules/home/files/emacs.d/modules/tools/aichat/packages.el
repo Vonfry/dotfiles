@@ -14,15 +14,10 @@
     "RET" 'gptel-send)
   :custom
   (gptel-use-curl t)
-  (gptel-backend gptel--openai)
+  (gptel-model 'claude-opus-4-20250514)
+  (gptel-backend (gptel-make-anthropic "Claude" :stream t :key 'gptel-api-key))
   (gptel-org-branching-context t)
-  (gptel-default-mode 'org-mode)
-  (gptel-model 'gpt-4.5-preview)
-  (gptel-api-key
-    (lambda ()
-      (auth-source-pick-first-password
-       :host "api.anthropic.com"
-       :user "gptel"))))
+  (gptel-default-mode 'org-mode))
 
 (use-package gptel-aibo
   :after gptel
