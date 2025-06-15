@@ -12,10 +12,14 @@
     "e g a"   'gptel-add)
   (nmap-mode :keymaps 'gptel-mode-map
     "RET" 'gptel-send)
+  :config
+  ; if it is in custom, a recursively requiring will be here.
+  ; see github:karthink/gptel#556
+  (setq gptel-backend
+        (gptel-make-anthropic "Claude" :stream t :key 'gptel-api-key))
   :custom
   (gptel-use-curl t)
   (gptel-model 'claude-opus-4-20250514)
-  (gptel-backend (gptel-make-anthropic "Claude" :stream t :key 'gptel-api-key))
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode))
 
