@@ -21,7 +21,9 @@
   (gptel-use-curl t)
   (gptel-model 'claude-opus-4-20250514)
   (gptel-org-branching-context t)
-  (gptel-default-mode 'org-mode))
+  (gptel-default-mode 'org-mode)
+  ; remove prefix to make llm knew my heading.
+  (gptel-prompt-prefix-alist nil))
 
 (use-package gptel-aibo
   :after gptel
