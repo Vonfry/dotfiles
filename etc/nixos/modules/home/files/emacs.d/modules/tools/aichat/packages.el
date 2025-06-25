@@ -19,7 +19,7 @@
         (gptel-make-anthropic "Claude" :stream t :key 'gptel-api-key))
   :custom
   (gptel-use-curl t)
-  (gptel-model 'claude-opus-4-20250514)
+  (gptel-model 'claude-sonnet-4-20250514)
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode)
   ; remove prefix to make llm knew my heading.
