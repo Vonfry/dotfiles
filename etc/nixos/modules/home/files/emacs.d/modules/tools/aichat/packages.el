@@ -23,7 +23,8 @@
   (gptel-org-branching-context t)
   (gptel-default-mode 'org-mode)
   ; remove prefix to make llm knew my heading.
-  (gptel-prompt-prefix-alist nil))
+  (gptel-prompt-prefix-alist nil)
+  (gptel-include-tool-results t))
 
 (use-package gptel-aibo
   :after gptel
