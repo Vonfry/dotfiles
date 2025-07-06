@@ -68,7 +68,6 @@ in
       initrd.systemd.enable = true;
     };
     system = {
-      switch.enableNg = true;
       etc.overlay = {
         enable = false;
         mutable = false;
