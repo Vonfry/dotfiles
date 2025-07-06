@@ -3,7 +3,7 @@
 {
   background-image = {
     pname = "background-image";
-    version = "2025-06-15";
+    version = "2025-07-06";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -107,7 +107,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2025-06-15";
+    version = "2025-07-06";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
@@ -115,14 +115,14 @@
   };
   web-scout-mcp = {
     pname = "web-scout-mcp";
-    version = "33c09e089b7974f204a0cb1085ba99b63717a6b8";
+    version = "3d8e02791e4df61b8ccf7949069abfa02466336d";
     src = fetchFromGitHub {
       owner = "pinkpixel-dev";
       repo = "web-scout-mcp";
-      rev = "33c09e089b7974f204a0cb1085ba99b63717a6b8";
+      rev = "3d8e02791e4df61b8ccf7949069abfa02466336d";
       fetchSubmodules = false;
-      sha256 = "sha256-bspjN3OJyxSdibq29UvrwGvaMlIJ2UULGQmcTln9/RY=";
+      sha256 = "sha256-d6Tt+WcSrust2Jt2t3yF3WsGyzAd/FK6KxbtFex3hI0=";
     };
-    date = "2025-06-01";
+    date = "2025-06-17";
   };
 }
