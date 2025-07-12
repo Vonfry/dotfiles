@@ -16,7 +16,7 @@ let
   emacsExtraBin =
     pkgs.buildEnv {
       name = "emacs-extra-bin";
-      paths = with pkgs; [ imagemagick ] ++ optional ishome hugo;
+      paths = with pkgs; [ ffmpeg imagemagick ] ++ optional ishome hugo;
       pathsToLink = [
         "/bin"
         "/share"
@@ -50,8 +50,6 @@ let
         `(("filesystem"
            . (:command "${getExe mcp-server-filesystem}"
               :args (,(expand-file-name "~"))))
-          ("fetch"
-           . (:command "${getExe mcp-server-fetch}"))
           ("sequential-thinking"
            . (:command "${getExe mcp-server-sequential-thinking}"))
           ("web-scout"
@@ -260,6 +258,7 @@ in
             mcp
             gptel-magit
             emms
+            mpvi
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {
