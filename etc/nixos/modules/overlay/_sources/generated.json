@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2025-07-06"
+        "version": "2025-07-13"
     },
     "easypulse": {
         "cargoLocks": null,
@@ -195,7 +195,7 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2025-07-06"
+        "version": "2025-07-13"
     },
     "web-scout-mcp": {
         "cargoLocks": null,
