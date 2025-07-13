@@ -56,19 +56,14 @@ let
       packages = with pkgs; [
         curl
         rsync
+        transmission_4
       ];
-
-      shellAliases = {
-        aria2-server = "aria2c --enable-rpc --rpc-allow-origin-all";
-        dl = "aria2c";
-      };
     };
 
     programs = {
       mbsync.enable = true;
       mu.enable = true;
       msmtp.enable = true;
-      aria2.enable = true;
     };
 
     xdg = {

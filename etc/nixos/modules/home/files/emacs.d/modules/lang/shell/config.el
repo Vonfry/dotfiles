@@ -10,8 +10,8 @@
     ("pu" "pushd $@*")
     ("d" "dired $@*")
     ("o" "dired-do-open $@*")
-    ("http-serve" "nix run 'nixpkgs#caddy' -- $@*")
-    ("dl" "aria2c $@*"))
+    ("dlp" "curl --location --parallel --remote-name-all $@*")
+    ("http-serve" "nix run 'nixpkgs#caddy' -- $@*"))
   "Builtin aliases.")
 
 (defun +eshell--init-aliases ()
