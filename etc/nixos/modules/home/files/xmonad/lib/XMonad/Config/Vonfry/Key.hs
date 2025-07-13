@@ -93,9 +93,9 @@ key conf = mkKeymap conf
     , ("M-C-n", spawn "dunstctl history-pop")
 
     -- basic window
-    , ("M-<Return>"  , spawn "emacsclient -c -e \"(eshell t)\"")
+    , ("M-<Return>",   spawn "emacsclient -c"                  )
+    , ("M-S-<Return>", spawn "emacsclient -c -e \"(eshell t)\"")
     , ("M-C-<Return>", spawn "emacsclient -c ."                )
-    , ("M-S-<Return>", spawn "emacsclient -c"                  )
     , ("M-S-c"       , kill                                    )
     , ("M-S-<Space>" , sendMessage NextLayout                  )
     , ("M-C-<Space>" , setLayout $ layoutHook conf             )
