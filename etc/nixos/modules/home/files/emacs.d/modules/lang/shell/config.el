@@ -11,7 +11,6 @@
     ("d" "dired $@*")
     ("o" "dired-do-open $@*")
     ("http-serve" "nix run 'nixpkgs#caddy' -- $@*")
-    ("asciinema" "exec nix run 'nixpkgs#asciinema' -- $@*")
     ("dl" "aria2c $@*"))
   "Builtin aliases.")
 
