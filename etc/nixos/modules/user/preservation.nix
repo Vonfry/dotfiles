@@ -113,7 +113,6 @@ let
         mode = "0700";
       }
     ] ++ map mkCacheRelpath [
-      "aria2"
       "fontconfig"
       "mozilla"
       "mpv"
