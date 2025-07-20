@@ -4,13 +4,14 @@ import Data.List (intercalate)
 
 font' = ["Rec Mono Casual", "Source Han Mono SC"]
 
-mkFontSize size = "xft:" ++ join
+mkFontSize :: [Int] -> String
+mkFontSize sizes = "xft:" ++ join
   where
-    suffix = "-" ++ show size
-    withSize = fmap (++suffix) font'
+    mkSuffix (font, size) = font ++ "-" ++ show size
+    withSize = mkSuffix <$> zip font' sizes
     join = intercalate "," withSize
 
 
-font = mkFontSize 11
+font = mkFontSize $ repeat 11
 
-fontXL = mkFontSize 32
+fontXL = mkFontSize $ repeat 32
