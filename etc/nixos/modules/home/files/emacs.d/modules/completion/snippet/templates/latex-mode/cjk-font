@@ -6,4 +6,4 @@
 # --
 \setmainfont{${0:Source Han Serif SC}}
 \setsansfont{${0:Source Han Sans SC}}
-\setmonofont{${1:Sarasa Mono SC}}
+\setmonofont{${1:Source Han Mono SC}}

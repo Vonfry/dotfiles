@@ -55,11 +55,11 @@ let
     fonts = {
       packages = with pkgs; [
         recursive
-        sarasa-gothic
         symbola
         liberation_ttf
-        source-han-sans-simplified-chinese
-        source-han-serif-simplified-chinese
+        source-han-sans
+        source-han-serif
+        source-han-mono
       ];
       fontconfig = {
         enable = true;
@@ -69,7 +69,7 @@ let
         defaultFonts = {
           monospace = [
             "Rec Mono Casual"
-            "Sarasa Mono SC"
+            "Soruce Han Mono SC"
             "Font Awesome 5 Free"
           ];
           sansSerif = [

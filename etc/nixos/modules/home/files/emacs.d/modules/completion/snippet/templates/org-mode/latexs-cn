@@ -8,4 +8,4 @@
 #+LATEX_HEADER: \usepackage{fontspec}
 #+LATEX_HEADER: \setmainfont{Source Han Serif SC}
 #+LATEX_HEADER: \setsansfont{Source Han Sans SC}
-#+LATEX_HEADER: \setmonofont{Sarasa Mono SC}
+#+LATEX_HEADER: \setmonofont{Source Han Mono SC}

@@ -236,7 +236,6 @@ let
       packages = with pkgs; [
         pkgs.vonfryPackages.fcitx5-theme.nord
         recursive
-        sarasa-gothic
         symbola
         liberation_ttf
         source-han-sans-simplified-chinese

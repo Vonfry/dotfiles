@@ -57,7 +57,7 @@ THEME is a symbol passed to `load-theme'"
   (set-face-font 'default "monospace-11" frame)
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font nil charset
-                      "Sarasa Mono SC-11"
+                      "Source Han Mono SC-11"
                       frame 'append))
   (set-fontset-font nil 'unicode
                     "Symbola"

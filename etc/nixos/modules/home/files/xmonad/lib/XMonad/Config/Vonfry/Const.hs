@@ -1,7 +1,16 @@
 module XMonad.Config.Vonfry.Const where
 
-font' = "xft:Sarasa Mono SC"
+import Data.List (intercalate)
 
-font = font' ++ ":size=11"
+font' = ["Rec Mono Casual", "Source Han Mono SC"]
 
-fontXL = font' ++ ":size=32"
+mkFontSize size = "xft:" ++ join
+  where
+    suffix = "-" ++ show size
+    withSize = fmap (++suffix) font'
+    join = intercalate "," withSize
+
+
+font = mkFontSize 11
+
+fontXL = mkFontSize 32
