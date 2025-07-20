@@ -259,6 +259,7 @@ in
             gptel-magit
             emms
             mpvi
+            eat
           ];
         overrides = self: super: {
           openpgp = super.openpgp.overrideAttrs (old: {

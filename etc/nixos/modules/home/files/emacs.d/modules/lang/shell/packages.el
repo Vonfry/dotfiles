@@ -34,3 +34,8 @@
   :after eshell
   :config
   (eshell-syntax-highlighting-global-mode 1))
+
+(use-package eat
+  :hook
+  ((eshell-load . eat-eshell-mode)
+   (eshell-load . eat-eshell-visual-command-mode)))
