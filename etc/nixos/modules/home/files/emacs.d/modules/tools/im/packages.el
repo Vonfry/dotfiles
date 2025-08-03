@@ -24,13 +24,13 @@
   (telega-open-file-function 'org-open-file)
   (telega-msg-save-dir (xdg-user-dir "DOWNLOAD"))
   (telega-open-message-as-file '(photo video audio video-note voice-note animation))
-
   ; We have to hard code them to make some images showing in daemon.
   (telega-use-images '(scale rotate90))
   (telega-emoji-font-family "Noto Color Emoji")
   (telega-emoji-use-images "Noto Color Emoji")
   (telega-online-status-function 'telega-focus-state)
   (telega-chat-input-markups '("org" nil "markdown2"))
+  (telega-avatar-workaround-gaps-for '(return t))
   :hook
   ((telega-load . telega-notifications-mode)
    (server-after-make-frame .
