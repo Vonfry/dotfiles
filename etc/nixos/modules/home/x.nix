@@ -235,11 +235,12 @@ let
 
       packages = with pkgs; [
         pkgs.vonfryPackages.fcitx5-theme.nord
+
         recursive
-        symbola
-        liberation_ttf
-        source-han-sans-simplified-chinese
-        source-han-serif-simplified-chinese
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
+
         deployFcitx5Rime
 
         screenlocker

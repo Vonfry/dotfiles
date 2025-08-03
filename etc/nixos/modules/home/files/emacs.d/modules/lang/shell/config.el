@@ -23,7 +23,7 @@ of setting directly as its documentation."
       (apply 'eshell/alias alias)))
 
 
-(defconst +eshell--prompt-hint "𝛌" "The prompt hint for user input.")
+(defconst +eshell--prompt-hint "λ" "The prompt hint for user input.")
 
 (defun +eshell--prompt ()
   "For `eshell-prompt-function'."

@@ -55,17 +55,17 @@ THEME is a symbol passed to `load-theme'"
 
 (defun vonfry--set-font (&optional frame)
   (set-face-font 'default "monospace-11" frame)
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font nil charset
-                      "Source Han Mono SC-11"
-                      frame 'append))
-  (set-fontset-font nil 'unicode
-                    "Symbola"
-                    frame 'append)
   (dolist (charset '(greek symbol))
     (set-fontset-font nil charset
-                      "Symbola"
-                      frame 'prepend)))
+                      "Noto Sans"
+                      frame 'prepend))
+  (dolist (charset '(symbol))
+    (dolist (font '("Noto Sans Symbols" "Noto Sans Symbols 2"))
+      (set-fontset-font nil charset font frame 'append)))
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font nil charset
+                      "Noto Sans CJK SC"
+                      frame 'append)))
 
 (defun vonfry--set-font-graphic ()
   (when (display-graphic-p) (vonfry--set-font)))

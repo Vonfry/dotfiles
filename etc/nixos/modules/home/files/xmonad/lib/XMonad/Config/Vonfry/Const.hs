@@ -2,7 +2,7 @@ module XMonad.Config.Vonfry.Const where
 
 import Data.List (intercalate)
 
-font' = ["Rec Mono Casual", "Source Han Mono SC"]
+font' = ["Rec Mono Casual", "Noto Sans CJK SC"]
 
 mkFontSize :: [Int] -> String
 mkFontSize sizes = "xft:" ++ join

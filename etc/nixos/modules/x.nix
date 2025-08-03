@@ -54,11 +54,9 @@ let
     fonts = {
       packages = with pkgs; [
         recursive
-        symbola
-        liberation_ttf
-        source-han-sans
-        source-han-serif
-        source-han-mono
+        noto-fonts
+        noto-fonts-cjk-sans
+        noto-fonts-cjk-serif
       ];
       fontconfig = {
         enable = true;
@@ -68,20 +66,23 @@ let
         defaultFonts = {
           monospace = [
             "Rec Mono Casual"
-            "Soruce Han Mono SC"
-            "Font Awesome 5 Free"
+            "Noto Sans Mono"
+            "Noto Sans CJK SC"
+            "Noto Sans Symbols"
+            "Noto Sans Symbols 2"
           ];
           sansSerif = [
             "Recursive Sans Casual Static"
-            "Liberation Sans"
-            "Soruce Han Sans SC"
-            "Font Awesome 5 Free"
+            "Noto Sans Display"
+            "Noto Sans CJK SC"
+            "Noto Sans Symbols"
+            "Noto Sans Symbols 2"
           ];
           serif = [
-            "Liberation Serif"
-            "Source Han Serif SC"
-            "Symbola"
-            "Font Awesome 5 Free"
+            "Noto Serif Display"
+            "Noto Sans CJK SC"
+            "Noto Sans Symbols"
+            "Noto Sans Symbols 2"
           ];
         };
       };
