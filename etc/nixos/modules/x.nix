@@ -26,7 +26,6 @@ let
           command = "${pkgs.greetd.greetd}/bin/agreety --cmd startx";
         };
       };
-      vt = 2;
     };
     services.xserver = {
       enable = true;
