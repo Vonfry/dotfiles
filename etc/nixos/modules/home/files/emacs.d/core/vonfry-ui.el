@@ -60,11 +60,11 @@ THEME is a symbol passed to `load-theme'"
                       "Noto Sans"
                       frame 'prepend))
   (dolist (charset '(symbol))
-    (dolist (font '("Noto Sans Symbols" "Noto Sans Symbols 2"))
+    (dolist (font '("Noto Sans Symbols-10" "Noto Sans Symbols 2-10"))
       (set-fontset-font nil charset font frame 'append)))
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font nil charset
-                      "Noto Sans CJK SC"
+                      "Noto Sans CJK SC-10"
                       frame 'append)))
 
 (defun vonfry--set-font-graphic ()
