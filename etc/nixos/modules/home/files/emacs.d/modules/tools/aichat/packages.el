@@ -18,6 +18,7 @@
   (setq gptel-backend
         (gptel-make-anthropic "Claude" :stream t :key 'gptel-api-key))
   :custom
+  (gptel-cache t)
   (gptel-use-curl t)
   (gptel-model 'claude-sonnet-4-20250514)
   (gptel-org-branching-context t)
