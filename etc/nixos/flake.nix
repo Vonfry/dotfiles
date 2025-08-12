@@ -83,7 +83,7 @@
           ghcWith = pkgs.ghc.withPackages (p: [ p.nvfetcher ]);
         in
         {
-          formatter = pkgs.nixfmt-rfc-style;
+          formatter = pkgs.nixfmt;
           devShell = pkgs.mkShell {
             packages = [
               ghcWith
