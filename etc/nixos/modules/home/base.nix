@@ -11,13 +11,20 @@ let
 in
 {
   config = mkIf cfg.enable {
-    xdg.configFile = {
-      "nix/nix.conf".text = ''
-        auto-optimise-store = true
-        keep-outputs = true
-        keep-derivations = true
-      '';
-      "nixpkgs/config.nix".source = ./files/nixpkgs.nix;
+    nix.settings = {
+      auto-optimise-store = true;
+      keep-outputs = true;
+      keep-derivations = true;
+
+    };
+    nix.gc = {
+      automatic = mkDefault (!config.submoduleSupport.enable && !config.programs.nh.clean.enable);
+      options = "--delete-older-than 14d";
+      frequency = "Sun 19:00";
+    };
+
+    nixpkgs = mkIf (!config.submoduleSupport.enable) {
+      config = import ./files/nixpkgs.nix;
     };
 
     home = {
@@ -58,6 +65,22 @@ in
         # TODO remove this if I use gpg to manage all ssh keys.
         addKeysToAgent = "yes";
       };
+
+      nh = mkMerge [
+        {
+          enable = true;
+          clean = {
+            enable = !config.submoduleSupport.enable;
+            dates = "Sun 19:00";
+            extraArgs = "--keep-since 14d --keep 5";
+          };
+        }
+        (mkIf cfg.environment.dotfiles.enable {
+          flake = "path:${cfg.environment.dotfiles.absolute_path}/etc/nixos#nixosConfigurations.vonfry";
+        })
+      ];
+
+      home-manager.enable = mkDefault (!config.programs.nh.enable);
     };
   };
 }

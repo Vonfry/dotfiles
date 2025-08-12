@@ -14,9 +14,7 @@ let
     with pkgs;
     writeScriptBin "fryos-rebuild" ''
       #!/usr/bin/env bash
-      ${pkgs.nixos-rebuild}/bin/nixos-rebuild --flake \
-        "path:${envcfg.dotfiles.absolute_path}/etc/nixos#vonfry"   \
-        "$@"
+      nh os "$@"
     '';
   easyeffctsCommunityPresets = optionals config.services.easyeffects.enable (
     with pkgs.vonfryPackages.easyeffects-presets;

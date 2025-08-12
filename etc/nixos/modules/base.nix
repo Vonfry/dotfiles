@@ -8,6 +8,9 @@
 with lib;
 let
   cfg = config.vonfry;
+  hmCfg = config.home-manager.users.vonfry;
+  hmCfg' = hmCfg.vonfry;
+  hmCfgEnv = hmCfg'.environment;
 in
 {
   config = mkIf cfg.enable {
@@ -48,17 +51,16 @@ in
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
         substituters = lib.mkBefore [ "https://nix-community.cachix.org" ];
+        keep-outputs = true;
+        keep-derivations = true;
       };
+
+      # These don't read from hm ones because hm module can be disable.
       gc = {
-        automatic = mkDefault true;
+        automatic = mkDefault (!config.programs.nh.clean.enable);
         options = "--delete-older-than 14d";
         dates = "Sun 19:00";
       };
-      extraOptions = ''
-        keep-outputs = true
-        keep-derivations = true
-      '';
-
     };
 
     nixpkgs.config = import ./home/files/nixpkgs.nix;
@@ -120,6 +122,24 @@ in
         };
       };
     };
+
+    # These don't read from hm ones because hm module can be disable.
+    programs.nh = mkMerge [
+      {
+        enable = true;
+        clean = {
+          enable = true;
+          dates = "Sun 19:00";
+          extraArgs = "--keep-since 14d --keep 5";
+        };
+      }
+      (mkIf hmCfgEnv.dotfiles.enable {
+        flake = mkDefault "path:${hmCfgEnv.dotfiles.absolute_path}/etc/nixos#nixosConfigurations.vonfry";
+      })
+    ];
+
+    # FIXME open this if nh implement all features.
+    # system.tools.nixos-rebuild.enable = mkDefault (!programs.nh.enable);
 
     system.stateVersion = mkDefault "25.05";
   };
