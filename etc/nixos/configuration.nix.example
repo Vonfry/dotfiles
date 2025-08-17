@@ -28,7 +28,6 @@
         # home.packages = with pkgs; [
         #   # simplescreenrecorder
         #   mountpoint-s3
-        #   minio-client
         #   restic
         # ];
 
