@@ -57,6 +57,7 @@ let
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
+        font-awesome
       ];
       fontconfig = {
         enable = true;
