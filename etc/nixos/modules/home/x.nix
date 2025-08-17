@@ -190,7 +190,31 @@ let
       };
     };
 
-    fonts.fontconfig.enable = true;
+    fonts.fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [
+          "Rec Mono Casual"
+          "Noto Sans Mono"
+          "Noto Sans CJK SC"
+          "Noto Sans Symbols"
+          "Noto Sans Symbols 2"
+        ];
+        sansSerif = [
+          "Recursive Sans Casual Static"
+          "Noto Sans Display"
+          "Noto Sans CJK SC"
+          "Noto Sans Symbols"
+          "Noto Sans Symbols 2"
+        ];
+        serif = [
+          "Noto Serif Display"
+          "Noto Sans CJK SC"
+          "Noto Sans Symbols"
+          "Noto Sans Symbols 2"
+        ];
+      };
+    };
 
     xdg = {
       configFile = {
@@ -234,12 +258,13 @@ let
       };
 
       packages = with pkgs; [
-        pkgs.vonfryPackages.fcitx5-theme.nord
+        vonfryPackages.fcitx5-theme.nord
 
         recursive
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
+        font-awesome
 
         deployFcitx5Rime
 
