@@ -12,6 +12,6 @@ mkFontSize sizes = "xft:" ++ join
     join = intercalate "," withSize
 
 
-font = mkFontSize $ [11, 9]
+font = mkFontSize $ [11, 10]
 
 fontXL = mkFontSize $ [32, 30]
