@@ -320,6 +320,7 @@ in
         nixpkgs-review
         nurl
         nix-update
+        nixfmt
       ] ++ optionals ishome [
         tokei
 
