@@ -9,8 +9,6 @@ with lib;
 let
   cfg = config.vonfry;
   hmCfg = config.home-manager.users.vonfry;
-  hmCfg' = hmCfg.vonfry;
-  hmCfgEnv = hmCfg'.environment;
 in
 {
   config = mkIf cfg.enable {
@@ -58,8 +56,8 @@ in
       # These don't read from hm ones because hm module can be disable.
       gc = {
         automatic = mkDefault (!config.programs.nh.clean.enable);
-        options = "--delete-older-than 14d";
-        dates = "Sun 19:00";
+        options = hmCfg.nix.gc.automatic;
+        dates = hmCfg.nix.gc.dates;
       };
     };
 

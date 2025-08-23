@@ -20,7 +20,7 @@ in
     nix.gc = {
       automatic = mkDefault (!config.submoduleSupport.enable && !config.programs.nh.clean.enable);
       options = "--delete-older-than 14d";
-      frequency = "Sun 19:00";
+      dates = "Sun 19:00";
     };
 
     nixpkgs = mkIf (!config.submoduleSupport.enable) {
