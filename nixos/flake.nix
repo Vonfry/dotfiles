@@ -84,7 +84,7 @@
         in
         {
           formatter = pkgs.nixfmt;
-          devShell = pkgs.mkShell {
+          devShells.default = pkgs.mkShell {
             packages = [
               ghcWith
               pkgs.nvchecker
