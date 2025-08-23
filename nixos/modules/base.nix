@@ -124,19 +124,15 @@ in
     };
 
     # These don't read from hm ones because hm module can be disable.
-    programs.nh = mkMerge [
-      {
+    programs.nh = {
+      enable = true;
+      clean = {
         enable = true;
-        clean = {
-          enable = true;
-          dates = "Sun 19:00";
-          extraArgs = "--keep-since 14d --keep 5";
-        };
-      }
-      (mkIf hmCfgEnv.dotfiles.enable {
-        flake = mkDefault "path:${hmCfgEnv.dotfiles.absolute_path}/etc/nixos#nixosConfigurations.vonfry";
-      })
-    ];
+        dates = hmCfg.programs.nh.clean.dates;
+        extraArgs = hmCfg.programs.nh.clean.extraArgs;
+      };
+      flake = mkDefault hmCfg.programs.nh.flake;
+    };
 
     # FIXME open this if nh implement all features.
     # system.tools.nixos-rebuild.enable = mkDefault (!programs.nh.enable);

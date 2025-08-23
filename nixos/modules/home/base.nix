@@ -76,7 +76,7 @@ in
           };
         }
         (mkIf cfg.environment.dotfiles.enable {
-          flake = "path:${cfg.environment.dotfiles.absolute_path}/etc/nixos#nixosConfigurations.vonfry";
+          flake = "path:${cfg.environment.dotfiles.absolute_path}/nixos#nixosConfigurations.vonfry";
         })
       ];
 
