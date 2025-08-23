@@ -56,7 +56,7 @@ in
       # These don't read from hm ones because hm module can be disable.
       gc = {
         automatic = mkDefault (!config.programs.nh.clean.enable);
-        options = hmCfg.nix.gc.automatic;
+        options = hmCfg.nix.gc.options;
         dates = hmCfg.nix.gc.dates;
       };
     };
