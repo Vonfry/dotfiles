@@ -14,6 +14,8 @@
   (eshell-directory-name (expand-file-name "eshell/" vonfry-local-dir))
   (eshell-prompt-function #'+eshell--prompt)
   (eshell-prompt-regexp +eshell--prompt-regexp)
+  :config
+  (add-to-list 'eshell-modules-list 'eshell-elecslash)
   :general
   (imap :keymaps 'eshell-mode-map
     "C-d" 'consult-history
