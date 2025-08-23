@@ -1,7 +1,16 @@
 ;;; media/packages.el --- -*- lexical-binding: t -*-
 ;;
 
+(use-package mpvi
+  :general
+  (nmap-at
+    "v v" 'mpvi-open
+    "v c" 'mpvi-clip
+    "v e" 'mpvi-emms-add
+    "v s" 'mpvi-seek))
+
 (use-package emms
+  :after mpvi
   :custom
   (emms-directory (expand-file-name "emms" vonfry-cache-dir))
   (emms-setup-default-player-list '(emms-player-mpv))
@@ -35,11 +44,3 @@
   (emms-all)
   (emms-default-players)
   (emms-history-load))
-
-(use-package mpvi
-  :general
-  (nmap-at
-    "v v" 'mpvi-open
-    "v c" 'mpvi-clip
-    "v e" 'mpvi-emms-add
-    "v s" 'mpvi-seek))
