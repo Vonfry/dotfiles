@@ -4,7 +4,7 @@
 (use-package mpvi
   :general
   (nmap-at
-    "v v" 'mpvi-open
+    "v v" 'mpvi-play
     "v c" 'mpvi-clip
     "v e" 'mpvi-emms-add
     "v s" 'mpvi-seek))
