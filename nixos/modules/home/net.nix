@@ -84,13 +84,14 @@ let
     };
     home = {
       sessionVariables = {
-        BROWSER = "nyxt";
+        # BROWSER = "nyxt";
+        BROWSER = "firefox";
       };
 
       packages = with pkgs; [
         # tor-browser-bundle-bin
         firefox
-        nyxt
+        # nyxt
 
         sniffnet
       ];

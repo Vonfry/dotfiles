@@ -162,7 +162,8 @@ let
             horizontal_padding = 6;
             separator_color = "frame";
             startup_notification = false;
-            browser = "nyxt";
+            # browser = "nyxt";
+            browser = "firefox";
             icon_position = "off";
             max_icon_size = 80;
             frame_width = 3;
