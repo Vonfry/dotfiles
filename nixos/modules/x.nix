@@ -23,7 +23,7 @@ let
           # This is a personal configuration, so only x is used. For public one
           # or person wants to use multiple WM, tuigreet or a custom script can
           # be here to launch per-user customized wayland or x client instead.
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd startx";
+          command = "${pkgs.greetd}/bin/agreety --cmd startx";
         };
       };
     };
