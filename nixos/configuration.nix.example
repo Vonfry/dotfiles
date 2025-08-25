@@ -104,7 +104,6 @@
   # };
 
   # networking.hostName = "nixos"; # Define your hostname.
-
   # networking.hosts = {
   # };
   # networking.firewall = {
@@ -124,6 +123,24 @@
   # N.B. boot loader
 
   # N.B. network
+  # networking = {
+  #   useDHCP = false;
+  #   dhcpcd.enable = false;
+  # };
+  # systemd.network.networks = {
+  #   "10-lan" = {
+  #     dns = [ "127.0.0.53:10053" ];
+  #     DHCP = "ipv4";
+  #     matchConfig.Name = "enp9s0";
+  #     linkConfig.RequiredForOnline = true;
+  #   };
+  #   "50-wlo1" = {
+  #     name = "wlo1";
+  #     DHCP = "ipv4";
+  #     linkConfig.ActivationPolicy = "always-down";
+  #   };
+  # };
+
 
 
   # environment.systemPackages = with pkgs; [ nvtopPackages.intel intel-gpu-tools ];
