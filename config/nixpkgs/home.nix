@@ -1,1 +1,1 @@
-../../etc/nixos/modules/user/home.nix
+../../nixos/modules/home/home.nix
