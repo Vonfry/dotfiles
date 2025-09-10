@@ -68,26 +68,6 @@ let
 
   shell = {
     files = [
-      {
-        file = ".ssh/id_ed25519";
-        mode = "0600";
-      }
-      {
-        file = ".ssh/id_ed25519.pub";
-        mode = "0600";
-      }
-      {
-        file = ".ssh/rsa";
-        mode = "0600";
-      }
-      {
-        file = ".ssh/rsa.pub";
-        mode = "0600";
-      }
-      {
-        file = ".ssh/known_hosts";
-        mode = "0600";
-      }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
     ];
