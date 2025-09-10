@@ -135,10 +135,6 @@ let
       ".sly-mrepl-history"
 
       {
-        file = "${gpgbase}/sshcontrol";
-        mode = "0600";
-      }
-      {
         file = "${gpgbase}/trustdb.gpg";
         mode = "0600";
       }
