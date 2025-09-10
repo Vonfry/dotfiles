@@ -69,6 +69,7 @@ in
     ./application.nix
     ./x.nix
     ./secrets.nix
+    ./development.nix
   ];
 
   config = mkIf cfg.enable userconfig;
