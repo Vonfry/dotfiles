@@ -68,6 +68,10 @@ let
 
   shell = {
     files = [
+      {
+        file = ".ssh/known_hosts";
+        mode = "0600";
+      }
     ] ++ map mkDataRelpath [
     ] ++ map mkConfigRelpath [
     ];
