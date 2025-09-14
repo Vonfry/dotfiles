@@ -9,10 +9,12 @@ let
   cfg = cfg'.vonfry;
 
   homeDir = cfg'.home.homeDirectory;
-  inherit (cfg'.xdg) cacheHome configHome dataHome stateHome;
-
-  username = config.users.users.vonfry.name;
-  usergroup = config.users.users.vonfry.group;
+  inherit (cfg'.xdg)
+    cacheHome
+    configHome
+    dataHome
+    stateHome
+    ;
 
   mkHomeRelpath = path: removePrefix "${homeDir}/" path;
 
@@ -21,31 +23,36 @@ let
   mkConfigRelpath = path: mkHomeRelpath "${configHome}/${path}";
 
   envcfg = cfg.environment;
-  mkEnvdir = name:
-    optional
-      (envcfg.${name}.enable && !envcfg.${name}.manual)
-      (mkHomeRelpath envcfg.${name}.absolute_path);
+  mkEnvdir =
+    name:
+    optional (envcfg.${name}.enable && !envcfg.${name}.manual) (
+      mkHomeRelpath envcfg.${name}.absolute_path
+    );
   envdir = {
-    directories = mkMerge (map mkEnvdir [
-      "dotfiles"
-      "repos"
-      "orgmode"
-      "financial"
-    ]);
+    directories = mkMerge (
+      map mkEnvdir [
+        "dotfiles"
+        "repos"
+        "orgmode"
+        "financial"
+      ]
+    );
   };
 
   xdg = mkIf cfg'.xdg.enable {
     directories = mkMerge [
-      (mkIf cfg'.xdg.userDirs.enable (map mkHomeRelpath [
-        # user dirs
-        # download and desktop aren't here. Let us clean it everytime!
-        cfg'.xdg.userDirs.documents
-        cfg'.xdg.userDirs.music
-        cfg'.xdg.userDirs.pictures
-        cfg'.xdg.userDirs.publicShare
-        cfg'.xdg.userDirs.templates
-        cfg'.xdg.userDirs.videos
-      ]))
+      (mkIf cfg'.xdg.userDirs.enable (
+        map mkHomeRelpath [
+          # user dirs
+          # download and desktop aren't here. Let us clean it everytime!
+          cfg'.xdg.userDirs.documents
+          cfg'.xdg.userDirs.music
+          cfg'.xdg.userDirs.pictures
+          cfg'.xdg.userDirs.publicShare
+          cfg'.xdg.userDirs.templates
+          cfg'.xdg.userDirs.videos
+        ]
+      ))
       [
         (mkHomeRelpath stateHome)
         (mkDataRelpath "Trash")
@@ -57,7 +64,7 @@ let
     files = [
       {
         file = (mkHomeRelpath "${configHome}/emacs/local/custom.el");
-	how = "symlink";
+        how = "symlink";
       }
     ];
     directories = [
@@ -66,20 +73,30 @@ let
     ];
   };
 
+  useronlydir = {
+    mode = "0700";
+  };
+
   shell = {
     files = [
       {
         file = ".ssh/known_hosts";
         mode = "0600";
+        parent = useronlydir;
       }
-    ] ++ map mkDataRelpath [
-    ] ++ map mkConfigRelpath [
+    ]
+    ++ map mkDataRelpath [
+    ]
+    ++ map mkConfigRelpath [
     ];
-    directories = map mkCacheRelpath [
-      "fsh"
-    ] ++ map mkConfigRelpath [
-    ] ++ map mkDataRelpath [
-    ];
+    directories =
+      map mkCacheRelpath [
+        "fsh"
+      ]
+      ++ map mkConfigRelpath [
+      ]
+      ++ map mkDataRelpath [
+      ];
   };
 
   application = {
@@ -90,13 +107,14 @@ let
     ];
     directories = [
       ".mozilla"
-    ] ++ [
+    ]
+    ++ [
       {
-        directory = mkHomeRelpath
-          cfg'.programs.password-store.settings.PASSWORD_STORE_DIR;
+        directory = mkHomeRelpath cfg'.programs.password-store.settings.PASSWORD_STORE_DIR;
         mode = "0700";
       }
-    ] ++ map mkCacheRelpath [
+    ]
+    ++ map mkCacheRelpath [
       "fontconfig"
       "mozilla"
       "mpv"
@@ -107,11 +125,13 @@ let
 
       "nyxt"
       "yt-dlp"
-    ] ++ map mkConfigRelpath [
+    ]
+    ++ map mkConfigRelpath [
       "easyeffects"
       "fcitx5"
       "ibus"
-    ] ++ map mkDataRelpath [
+    ]
+    ++ map mkDataRelpath [
       "fcitx5/rime/build"
       "fcitx5/rime/hangyl.userdb"
       "fcitx5/rime/hannomPS.userdb"
@@ -141,15 +161,16 @@ let
       {
         file = "${gpgbase}/trustdb.gpg";
         mode = "0600";
+        parent = useronlydir;
       }
       {
         file = "${gpgbase}/random_seed";
         mode = "0600";
+        parent = useronlydir;
       }
       {
         file = "${gpgbase}/pubring.kbx";
-	configureParent = false;
-	how = "symlink";
+        parent = useronlydir;
         mode = "0600";
       }
     ];
@@ -159,14 +180,27 @@ let
       ".cargo/git"
       ".cargo/registry"
 
-      "${gpgbase}/crls.d"
-      "${gpgbase}/openpgp-revocs.d"
-      "${gpgbase}/private-keys-v1.d"
+      {
+        directory = "${gpgbase}/crls.d";
+        mode = "0700";
+        parent = useronlydir;
+      }
+      {
+        directory = "${gpgbase}/openpgp-revocs.d";
+        parent = useronlydir;
+        mode = "0700";
+      }
+      {
+        directory = "${gpgbase}/private-keys-v1.d";
+        parent = useronlydir;
+        mode = "0700";
+      }
 
       ".texlive2023"
       ".texlive2024"
       ".texlive2025"
-    ] ++ map mkCacheRelpath [
+    ]
+    ++ map mkCacheRelpath [
       "cabal"
       "common-lisp"
       "containers"
@@ -175,9 +209,11 @@ let
       "hie-bios"
       "mesa_shader_cache"
       "mesa_shader_cache_db"
-    ] ++ map mkConfigRelpath [
+    ]
+    ++ map mkConfigRelpath [
       "cabal"
-    ] ++ map mkDataRelpath [
+    ]
+    ++ map mkDataRelpath [
       "containers"
       "direnv"
       "nix"
@@ -188,20 +224,25 @@ let
   x = {
     files = [
       ".xmonad/prompt-history"
-    ] ++ map mkConfigRelpath [
+    ]
+    ++ map mkConfigRelpath [
       "QtProject.conf"
-    ] ++ map mkDataRelpath [
+    ]
+    ++ map mkDataRelpath [
     ];
     directories = [
       ".vnc"
-    ] ++ map mkCacheRelpath [
+    ]
+    ++ map mkCacheRelpath [
       "gstreamer-1.0"
-    ] ++ map mkConfigRelpath [
+    ]
+    ++ map mkConfigRelpath [
       "dconf"
       "qt5ct"
       "qt6ct"
       "weylus"
-    ] ++ map mkDataRelpath [
+    ]
+    ++ map mkDataRelpath [
       "xorg"
     ];
   };
@@ -224,26 +265,5 @@ in
       application
       game
     ];
-
-    # Create some directories with custom permissions.
-    #
-    # This is manily for hm service to make links and normal program usage.
-    systemd.tmpfiles.settings.preservation = {
-      "${homeDir}/${gpgbase}".d = { user = username; group = usergroup; mode = "0700"; };
-      "${homeDir}/.ssh".d = { user = username; group = usergroup; mode = "0700"; };
-      "${homeDir}/.xmonad".d = { user = username; group = usergroup; mode = "0755"; };
-      ${cacheHome}.d = { user = username; group = usergroup; mode = "0755"; };
-      ${configHome}.d = { user = username; group = usergroup; mode = "0755"; };
-      "${configHome}/emacs".d = { user = username; group = usergroup; mode = "0755"; };
-      "${configHome}/emacs/local".d = { user = username; group = usergroup; mode = "0755"; };
-      "${homeDir}/.local".d = { user = username; group = usergroup; mode = "0755"; };
-      ${dataHome}.d = { user = username; group = usergroup; mode = "0755"; };
-      "${dataHome}/nyxt".d = { user = username; group = usergroup; mode = "0755"; };
-      "${dataHome}/fcitx5".d = { user = username; group = usergroup; mode = "0755"; };
-      "${dataHome}/fcitx5/rime".d = { user = username; group = usergroup; mode = "0755"; };
-      "${dataHome}/icons".d = { user = username; group = usergroup; mode = "0755"; };
-      "${homeDir}/.cargo".d = { user = username; group = usergroup; mode = "0755"; };
-      "${homeDir}/.ghc".d = { user = username; group = usergroup; mode = "0755"; };
-    };
   };
 }
