@@ -228,7 +228,6 @@ in
             sly
             flymake-collection
             consult-eglot
-            openpgp
             ement
             wgrep
             (treesit-grammars.with-grammars cfg.emacs.treesistWith)
@@ -261,13 +260,6 @@ in
             mpvi
             eat
           ];
-        overrides = self: super: {
-          openpgp = super.openpgp.overrideAttrs (old: {
-            # FIXME github:nixos/nixpkg#328573 and emacs-dev:bug#67916
-            turnCompilationWarningToError = false;
-            ignoreCompilationError = true;
-          });
-        };
       };
 
       git = {
