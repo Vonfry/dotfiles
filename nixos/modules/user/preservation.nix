@@ -83,6 +83,7 @@ let
         file = ".ssh/known_hosts";
         mode = "0600";
         parent = useronlydir;
+        # configureParent = true;
       }
     ]
     ++ map mkDataRelpath [
@@ -162,15 +163,18 @@ let
         file = "${gpgbase}/trustdb.gpg";
         mode = "0600";
         parent = useronlydir;
+        # configureParent = true;
       }
       {
         file = "${gpgbase}/random_seed";
         mode = "0600";
         parent = useronlydir;
+        # configureParent = true;
       }
       {
         file = "${gpgbase}/pubring.kbx";
         parent = useronlydir;
+        # configureParent = true;
         mode = "0600";
       }
     ];
@@ -184,15 +188,18 @@ let
         directory = "${gpgbase}/crls.d";
         mode = "0700";
         parent = useronlydir;
+        # configureParent = true;
       }
       {
         directory = "${gpgbase}/openpgp-revocs.d";
         parent = useronlydir;
+        # configureParent = true;
         mode = "0700";
       }
       {
         directory = "${gpgbase}/private-keys-v1.d";
         parent = useronlydir;
+        # configureParent = true;
         mode = "0700";
       }
 
@@ -265,5 +272,13 @@ in
       application
       game
     ];
+    # Create some directories with custom permissions.
+    #
+    # There is an issue on parents with conflictions caused by #16.
+    # FIXME Before it is fixed, we override it manually.
+    systemd.tmpfiles.settings.preservation = {
+      "${homeDir}/${gpgbase}".d = mkForce useronlydir;
+      "${homeDir}/.ssh".d = mkForce useronlydir;
+    };
   };
 }
