@@ -58,12 +58,12 @@ in
       man.enable = true;
       ssh = {
         enable = true;
-        compression = true;
-        forwardAgent = true;
-        serverAliveInterval = 60;
-        serverAliveCountMax = 4;
-        # TODO remove this if I use gpg to manage all ssh keys.
-        addKeysToAgent = "yes";
+        matchBlocks."*" = {
+            compression = true;
+            forwardAgent = true;
+            serverAliveInterval = 60;
+            serverAliveCountMax = 4;
+        };
       };
 
       nh = mkMerge [
