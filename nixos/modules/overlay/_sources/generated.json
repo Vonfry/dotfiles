@@ -12,11 +12,11 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2025-08-23"
+        "version": "2025-09-14"
     },
     "easypulse": {
         "cargoLocks": null,
-        "date": "2025-08-19",
+        "date": "2025-08-27",
         "extract": null,
         "name": "easypulse",
         "passthru": null,
@@ -28,12 +28,12 @@
             "name": null,
             "owner": "p-chan5",
             "repo": "EasyPulse",
-            "rev": "7c012d73a2e3e4c047d8cd818d174d80fe59abe7",
-            "sha256": "sha256-ocwXqoJe/W1GXYo8/6l9asJXDUKH26L9PL/L9pI4DwA=",
+            "rev": "cf78ac20c76bc3e5b82ce3d21475a32c8a1f76d3",
+            "sha256": "sha256-xielIfPNTdSx/mHRuoOLHQKaeo3jOTdBitin6A/QBh4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "7c012d73a2e3e4c047d8cd818d174d80fe59abe7"
+        "version": "cf78ac20c76bc3e5b82ce3d21475a32c8a1f76d3"
     },
     "fcitx5-nord": {
         "cargoLocks": null,
@@ -195,7 +195,7 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2025-08-23"
+        "version": "2025-09-14"
     },
     "web-scout-mcp": {
         "cargoLocks": null,

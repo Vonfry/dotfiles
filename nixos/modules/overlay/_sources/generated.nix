@@ -3,7 +3,7 @@
 {
   background-image = {
     pname = "background-image";
-    version = "2025-08-23";
+    version = "2025-09-14";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -11,15 +11,15 @@
   };
   easypulse = {
     pname = "easypulse";
-    version = "7c012d73a2e3e4c047d8cd818d174d80fe59abe7";
+    version = "cf78ac20c76bc3e5b82ce3d21475a32c8a1f76d3";
     src = fetchFromGitHub {
       owner = "p-chan5";
       repo = "EasyPulse";
-      rev = "7c012d73a2e3e4c047d8cd818d174d80fe59abe7";
+      rev = "cf78ac20c76bc3e5b82ce3d21475a32c8a1f76d3";
       fetchSubmodules = false;
-      sha256 = "sha256-ocwXqoJe/W1GXYo8/6l9asJXDUKH26L9PL/L9pI4DwA=";
+      sha256 = "sha256-xielIfPNTdSx/mHRuoOLHQKaeo3jOTdBitin6A/QBh4=";
     };
-    date = "2025-08-19";
+    date = "2025-08-27";
   };
   fcitx5-nord = {
     pname = "fcitx5-nord";
@@ -107,7 +107,7 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2025-08-23";
+    version = "2025-09-14";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
