@@ -60,7 +60,9 @@
        (setopt ement-room-images t))))
   :general
   (nmap-at
-    "e" 'ement-connect
-    "E e" 'ement-room-list
+    "E c" 'ement-connect
+    "e"   'ement-room-list
     "E d" 'ement-disconnect
-    "E K" 'ement-kill-buffers))
+    "E K" 'ement-kill-buffers
+    "E N" 'ement-notify-switch-to-notifications-buffer
+    "E n" 'ement-notify-switch-to-mentions-buffer))
