@@ -8,6 +8,8 @@ let
   cfg' = config.home-manager.users.vonfry;
   cfg = cfg'.vonfry;
 
+  username = config.users.users.vonfry.name;
+  usergroup = config.users.users.vonfry.group;
   homeDir = cfg'.home.homeDirectory;
   inherit (cfg'.xdg)
     cacheHome
@@ -74,6 +76,8 @@ let
   };
 
   useronlydir = {
+    user = username;
+    group = usergroup;
     mode = "0700";
   };
 
