@@ -273,7 +273,6 @@ in
         enable = true;
         extraConfig = {
           rebase.autoSquash = mkDefault true;
-          github.user = "Vonfry";
           color.pager = true;
           sendemail = mkIf config.programs.msmtp.enable {
             sendmailCmd = concatStringsSep " " [
