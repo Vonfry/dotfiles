@@ -76,7 +76,6 @@ key conf = mkKeymap conf
     , ("M-/"  , promptSearch promptConfigNoAc multi)
     , ("M-z"  , sshPrompt promptConfig             )
 
-    -- , ("M-o b", spawn "nyxt"        )
     , ("M-o b", spawn "firefox"     )
     , ("M-o k", spawn "easyeffects" )
 

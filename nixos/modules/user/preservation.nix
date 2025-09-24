@@ -106,8 +106,6 @@ let
 
   application = {
     files = map mkDataRelpath [
-      "nyxt/default-cookies"
-      "nyxt/nyxt.log"
       "ytdl-netrc.gpg"
     ];
     directories = [
@@ -128,7 +126,6 @@ let
       "nix"
       "nixpkgs-review"
 
-      "nyxt"
       "yt-dlp"
     ]
     ++ map mkConfigRelpath [
@@ -143,8 +140,6 @@ let
       "fcitx5/rime/japanese.userdb"
       "fonts"
       "mpd"
-      "nyxt/default-web-context"
-      "nyxt/history"
       "pipewire"
     ];
   };

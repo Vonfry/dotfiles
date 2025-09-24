@@ -76,22 +76,15 @@ let
   };
 
   xcfg = {
-    xdg.configFile = {
-      "nyxt" = {
-        source = ./files/nyxt;
-        recursive = true;
-      };
-    };
+    xdg.configFile = {};
     home = {
       sessionVariables = {
-        # BROWSER = "nyxt";
         BROWSER = "firefox";
       };
 
       packages = with pkgs; [
         # tor-browser-bundle-bin
         firefox
-        # nyxt
 
         sniffnet
       ];
