@@ -1,9 +1,10 @@
 ;;; org/config.el --- -*- lexical-binding: t -*-
 ;;
 
+
 (defcustom +org-dir (if-let* ((env-orgmode-dir (getenv "ORGMODE_DIR")))
                         env-orgmode-dir
-                      "~/orgmode")
+                      (expand-file-name "orgmode" (xdg-data-home)))
   "org dir"
   :type 'directory
   :group 'vonfry-modules)
