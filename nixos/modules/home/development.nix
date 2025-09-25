@@ -259,7 +259,6 @@ in
             emms
             mpvi
             eat
-            minions
           ];
       };
 
