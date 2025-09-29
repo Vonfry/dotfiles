@@ -13,16 +13,21 @@ let
 
   ishome = cfg'.workspace.home;
 
-  emacsExtraBin =
-    pkgs.buildEnv {
-      name = "emacs-extra-bin";
-      paths = with pkgs; [ ffmpeg imagemagick ] ++ optional ishome hugo;
-      pathsToLink = [
-        "/bin"
-        "/share"
-        "/lib"
-      ];
-    };
+  emacsExtraBin = pkgs.buildEnv {
+    name = "emacs-extra-bin";
+    paths =
+      with pkgs;
+      [
+        ffmpeg
+        imagemagick
+      ]
+      ++ optional ishome hugo;
+    pathsToLink = [
+      "/bin"
+      "/share"
+      "/lib"
+    ];
+  };
 
   hasOrg = envcfg.orgmode.enable;
 
@@ -136,6 +141,7 @@ in
         };
 
         "emacs/local/pre-custom.el".text = concatStringsSep "\n" [
+          ";;; pre-custom.el --- -*- lexical-binding: t; -*-"
           ''
             (setopt
               vonfry-exclude-modules '(${concatMapStringsSep " " (e: ''"${e}"'') cfg.emacs.excludeModules}))
@@ -144,7 +150,10 @@ in
           cfg.emacs.preCustom
         ];
 
-        "emacs/local/post-custom.el".text = cfg.emacs.postCustom;
+        "emacs/local/post-custom.el".text = concatStringsSep "\n" [
+          ";;; post-custom.el --- -*- lexical-binding: t; -*-"
+          cfg.emacs.postCustom
+        ];
       };
 
       dataFile = {
@@ -304,20 +313,23 @@ in
     };
 
     home = {
-      packages = with pkgs; [
-        gitAndTools.git-extras
+      packages =
+        with pkgs;
+        [
+          gitAndTools.git-extras
 
-        nixpkgs-review
-        nurl
-        nix-update
-        nixfmt
-      ] ++ optionals ishome [
-        tokei
+          nixpkgs-review
+          nurl
+          nix-update
+          nixfmt
+        ]
+        ++ optionals ishome [
+          tokei
 
-        pandoc
+          pandoc
 
-        nixd
-      ];
+          nixd
+        ];
 
       # Use home.file instead of programs.<editor> due to I want to have a
       # structure # config file for them.
