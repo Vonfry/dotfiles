@@ -40,4 +40,4 @@
 (use-package eat
   :custom
   (eat-eshell-mode t)
-  (eat-eshell-visual-command-mode t))
+  (eat-eshell-visual-command-mode nil))
