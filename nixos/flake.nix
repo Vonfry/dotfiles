@@ -32,14 +32,6 @@
       url = "github:nix-community/pyproject.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mcp-serena = {
-      url = "github:oraios/serena";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        pyproject-nix.follows = "pyproject-nix";
-      };
-    };
   };
   outputs =
     {
@@ -54,14 +46,10 @@
       sops-nix,
       mcp-servers,
       pyproject-nix,
-      mcp-serena,
       ...
     }@flakes:
     let
-      flake-overlays = self: super: {
-        inherit pyproject-nix;
-        mcp-serena = mcp-serena.packages.${self.system}.default;
-      };
+      flake-overlays = self: super: { inherit pyproject-nix; };
       overlay = import ./modules/overlay;
       flakeSpecialConfig =
         { pkgs, ... }:
