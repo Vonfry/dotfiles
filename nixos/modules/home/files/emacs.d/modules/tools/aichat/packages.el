@@ -21,7 +21,7 @@
   (gptel-cache t)
   (gptel-use-curl t)
   (gptel-model 'claude-sonnet-4-20250514)
-  (gptel-org-branching-context t)
+  (gptel-org-branching-context nil)
   (gptel-default-mode 'org-mode)
   ; remove prefix to make llm knew my heading.
   (gptel-prompt-prefix-alist nil)
