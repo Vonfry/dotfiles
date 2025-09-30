@@ -265,7 +265,6 @@ in
             treesit-fold
             eshell-syntax-highlighting
             docker
-            gptel-aibo
             mcp
             gptel-magit
             emms

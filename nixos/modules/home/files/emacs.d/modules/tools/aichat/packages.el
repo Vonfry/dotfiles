@@ -27,17 +27,6 @@
   (gptel-prompt-prefix-alist nil)
   (gptel-include-tool-results t))
 
-(use-package gptel-aibo
-  :after gptel
-  :general
-  (nmap-leader
-    "' q q" 'gptel-aibo)
-  (nmap-mode :keymaps 'gptel-aibo-mode-map
-    "RET" 'gptel-aibo-send
-    "a"   'gptel-aibo-apply-last-suggestions)
-  (vmap-leader :keymaps 'prog-mode-map
-    "' q s" 'gptel-aibo-summon))
-
 (use-package mcp
   ; hm manages this with file paths.
   ; For non-nix based system, set this manually.
