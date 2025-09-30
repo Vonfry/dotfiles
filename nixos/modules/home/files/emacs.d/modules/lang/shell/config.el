@@ -35,6 +35,9 @@ of setting directly as its documentation."
 
          (username-text (propertize username 'face 'font-lock-builtin-face))
          (usersep-text (propertize usersep 'face 'warning))
+         (current-datetime (format-time-string "%FT%T%z"))
+         (current-datetime-text (propertize current-datetime 'face
+                                            'font-lock-number-face))
          (current-dir-text (propertize current-dir 'face
                                        'font-lock-keyword-face))
          (exit-status-text (when exit-status
@@ -46,6 +49,8 @@ of setting directly as its documentation."
      "\n"
      username-text
      usersep-text
+     current-datetime-text
+     " "
      current-dir-text
      " "
      exit-status-text
