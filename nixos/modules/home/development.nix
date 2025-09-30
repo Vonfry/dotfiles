@@ -69,7 +69,10 @@ let
               :env (:GITHUB_PERSONAL_ACCESS_TOKEN
                     ,(auth-source-pick-first-password
                       :host "api.github.com"
-                      :user "mcp")))))))
+                      :user "mcp"))))
+          ("serena"
+           . (:command "${mcp-serena}/bin/serena"
+              :args ("start-mcp-server" "--transport" "stdio"))))))
   '';
 in
 {
