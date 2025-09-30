@@ -70,6 +70,9 @@ let
                     ,(auth-source-pick-first-password
                       :host "api.github.com"
                       :user "mcp"))))
+          ("context7"
+           . (:command "${getExe context7-mcp}"
+              :args ("stdio")))
           ("serena"
            . (:command "${getExe serena}"
               :args ("start-mcp-server" "--transport" "stdio"))))))
