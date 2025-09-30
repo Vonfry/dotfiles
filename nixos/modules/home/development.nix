@@ -72,7 +72,7 @@ let
                       :user "mcp"))))
           ("context7"
            . (:command "${getExe context7-mcp}"
-              :args ("stdio")))
+              :args ("--transport" "stdio")))
           ("serena"
            . (:command "${getExe serena}"
               :args ("start-mcp-server" "--transport" "stdio"))))))
