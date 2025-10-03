@@ -64,7 +64,3 @@ packageSet (PkgSetArg {..}) = do
   define $ package "jackhack96Easyeffects"
       `sourceGit` "https://github.com/JackHack96/EasyEffects-Presets.git"
       `fetchGitHub` ("JackHack96", "EasyEffects-Presets")
-
-  define $ package "web-scout-mcp"
-      `sourceGit` "https://github.com/pinkpixel-dev/web-scout-mcp.git"
-      `fetchGitHub` ("pinkpixel-dev", "web-scout-mcp")

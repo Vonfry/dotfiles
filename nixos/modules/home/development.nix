@@ -57,8 +57,6 @@ let
               :args (,(expand-file-name "~"))))
           ("sequential-thinking"
            . (:command "${getExe mcp-server-sequential-thinking}"))
-          ("web-scout"
-           . (:command "${getExe vonfryPackages.mcp-servers.web-scout}"))
           ("time"
            . (:command "${getExe mcp-server-time}"))
           ("git"
@@ -72,7 +70,11 @@ let
                       :user "mcp"))))
           ("context7"
            . (:command "${getExe context7-mcp}"
-              :args ("--transport" "stdio")))
+              :args ("--transport" "stdio"
+                    "--api-key"
+                    ,(auth-source-pick-first-password
+                        :host "context7.com"
+                        :user "api"))))
           ("serena"
            . (:command "${getExe serena}"
               :args ("start-mcp-server" "--transport" "stdio"))))))

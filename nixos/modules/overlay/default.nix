@@ -8,8 +8,6 @@ in
   vonfryPackages = {
     rimePlugins = callPackage ./applications/rime-plugins { inherit sources; };
 
-    mcp-servers = callPackage ./applications/mcp-servers { inherit sources; };
-
     iconFace = sources.vonfry-icon.src;
 
     fortuneChinese = callPackage ./data/fortune-chinese { inherit sources; };
