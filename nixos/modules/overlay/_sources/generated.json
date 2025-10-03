@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2025-09-14"
+        "version": "2025-10-03"
     },
     "easypulse": {
         "cargoLocks": null,
@@ -195,11 +195,11 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2025-09-14"
+        "version": "2025-10-03"
     },
     "web-scout-mcp": {
         "cargoLocks": null,
-        "date": "2025-06-17",
+        "date": "2025-09-20",
         "extract": null,
         "name": "web-scout-mcp",
         "passthru": null,
@@ -211,11 +211,11 @@
             "name": null,
             "owner": "pinkpixel-dev",
             "repo": "web-scout-mcp",
-            "rev": "3d8e02791e4df61b8ccf7949069abfa02466336d",
-            "sha256": "sha256-d6Tt+WcSrust2Jt2t3yF3WsGyzAd/FK6KxbtFex3hI0=",
+            "rev": "c54b5db0fbad7894deee87825d38125e0b30e3cb",
+            "sha256": "sha256-GiwWiVQf5vp/NnTtpZch5v2RrW+7El4koNGodQTIOac=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "3d8e02791e4df61b8ccf7949069abfa02466336d"
+        "version": "c54b5db0fbad7894deee87825d38125e0b30e3cb"
     }
 }
