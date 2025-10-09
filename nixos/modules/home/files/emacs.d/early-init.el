@@ -1,3 +1,4 @@
+;;; early-init --- -*- lexical-binding: t; -*-
 ;; This file is used to config some frame variables. If you want to modify them,
 ;; you can use `custom-set-variables' in `custom-file'.
 
