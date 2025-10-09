@@ -1,4 +1,4 @@
-;;; init.el -*- lexical-binding: t; -*-
+;;; init.el --- -*- lexical-binding: t; -*-
 ;;
 ;; This file is only usod to load core file.
 
