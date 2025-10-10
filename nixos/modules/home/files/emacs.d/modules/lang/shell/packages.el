@@ -7,6 +7,8 @@
   (eshell-cmpl-cycle-completions nil)
   (eshell-buffer-maximum-lines 20000)
   (eshell-history-size 100000)
+  (eshell-save-history-on-exit t)
+  (eshell-history-append t)
   (eshell-hist-ignoredups t)
   (eshell-buffer-shorthand t)
   (eshell-highlight-prompt nil)
