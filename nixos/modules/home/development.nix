@@ -271,7 +271,7 @@ in
             eshell-syntax-highlighting
             docker
             mcp
-            gptel-magit
+            gptel-commit
             emms
             mpvi
             eat

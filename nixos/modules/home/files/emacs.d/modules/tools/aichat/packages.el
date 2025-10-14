@@ -39,9 +39,8 @@
     "' q m" 'mcp-hub
     "' q M" '+mcp/init-servers))
 
-(use-package gptel-magit
-  :after (magit gptel)
-  :hook (magit-mode . gptel-magit-install))
+(use-package gptel-commit
+  :after (magit gptel))
 
 (use-package gptel-integrations
   :after mcp
