@@ -1,17 +1,21 @@
 {
-  runCommand,
-  fortune,
+  runCommandNoCC,
   sources,
 }:
 
 let
-  src = sources.fcitx5-nord.src;
+  src = sources.fcitx5-dracula.src;
 in
 {
-  nord = runCommand "nord" { } ''
-    mkdir -p $out/share/fcitx5/themes/
-    for f in ${src}/Nord-*; do
-        cp -r $f $out/share/fcitx5/themes/
-    done
+  dracula = runCommandNoCC "fcitx5-dracula" { } ''
+    outbase=$out/share/fcitx5/themes/dracula
+    install -D -t $outbase \
+        ${src}/theme.conf \
+        ${src}/radio.png \
+        ${src}/panel.png \
+        ${src}/arrow.png \
+        ${src}/paneltrans.png
+    substituteInPlace $outbase/theme.conf \
+        --replace-fail "Image=" "Image=$outbase/"
   '';
 }

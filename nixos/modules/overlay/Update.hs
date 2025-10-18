@@ -28,9 +28,9 @@ papareArguments = do
                       }
 
 packageSet (PkgSetArg {..}) = do
-  define $ package "fcitx5-nord"
-      `sourceGit` "https://github.com/tonyfettes/fcitx5-nord"
-      `fetchGitHub` ("tonyfettes", "fcitx5-nord")
+  define $ package "fcitx5-dracula"
+      `sourceGit` "https://github.com/drbbr/fcitx5-dracula-theme"
+      `fetchGitHub` ("drbbr", "fcitx5-dracula-theme")
 
   define $ package "rime-prelude"
       `sourceGit` "https://github.com/rime/rime-prelude"

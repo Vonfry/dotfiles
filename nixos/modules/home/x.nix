@@ -258,7 +258,7 @@ let
       };
 
       packages = with pkgs; [
-        vonfryPackages.fcitx5-theme.nord
+        vonfryPackages.fcitx5-theme.dracula
 
         recursive
         noto-fonts
