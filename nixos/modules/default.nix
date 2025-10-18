@@ -4,6 +4,7 @@
   imports = [
     ./base.nix
     ./preservation.nix
+    ./application.nix
     ./development.nix
     ./network.nix
     ./shell.nix
