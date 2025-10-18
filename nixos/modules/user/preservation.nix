@@ -130,7 +130,6 @@ let
     ]
     ++ map mkConfigRelpath [
       "easyeffects"
-      "ibus"
     ]
     ++ map mkDataRelpath [
       "fcitx5/rime/hangyl.userdb"
