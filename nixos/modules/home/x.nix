@@ -90,7 +90,91 @@ let
     i18n.inputMethod = {
       enable = true;
       type = "fcitx5";
-      fcitx5.addons = [ pkgs.vonfryPackages.fcitx5-rime ];
+      fcitx5 = {
+        addons = [ pkgs.vonfryPackages.fcitx5-rime ];
+        settings = {
+          globalOptions = {
+            "Hotkey/TriggerKeys" = {
+              "0" = "Super+space";
+              "1" = "Zenkaku_Hankaku";
+              "2" = "Hangul";
+            };
+            "Hotkey/PrevPage" = {
+              "0" = "Up";
+            };
+            "Hotkey/NextPage" = {
+              "0" = "Down";
+            };
+            "Hotkey/PrevCandidate" = {
+              "0" = "Shift+Tab";
+            };
+            "Hotkey/NextCandidate" = {
+              "0" = "Tab";
+            };
+            "Hotkey/TogglePreedit" = {
+              "0" = "Control+Alt+P";
+            };
+            "Behavior" = {
+              "ActiveByDefault" = "False";
+              "ShareInputState" = "No";
+              "ShowInputMethodInformation" = "True";
+              "DefaultPageSize" = "5";
+              "PreloadInputMethod" = "True";
+              "AllowInputMethodForPassword" = "False";
+              "OverrideXkbOption" = "False";
+            };
+          };
+          inputMethod = {
+            "Groups/0" = {
+              Name = "rime";
+              "Default Layout" = "us-dvp";
+              "DefaultIM" = "rime";
+            };
+            "Groups/0/Items/0" = {
+              "Name" = "keyboard-us-dvp";
+              "Layout" = "";
+            };
+
+            "Groups/0/Items/1" = {
+              "Name" = "rime";
+              "Layout" = "us";
+            };
+            "GroupOrder"."0" = "rime";
+          };
+          addons = {
+            classicui.globalSection = {
+              Theme = "dracula";
+              DarkTheme = "dracula";
+              Font = "Sans 10";
+              MenuFont = "Sans 10";
+              TrayFont = "Sans Bold 10";
+              "Vertical Candidate List" = "False";
+              PerScreenDPI = "True";
+              "Number of entries" = "5";
+            };
+            clipboard.sections.TriggerKey."0" = "Control+colon";
+            unicode = {
+              sections = {
+                TriggerKey."0" = "Control+Alt+Shift+U";
+                DirectUnicodeMode."0" = "Control+Shift+U";
+              };
+            };
+            rime = {
+              globalSection = {
+                PreeditMode = "Composing text";
+                InputState = "All";
+                PreeditCursorPositionAtBeginning = "True";
+                SwitchInputMethodBehavior = "Commit commit preview";
+                Deploy = "";
+                Synchronize = "";
+              };
+            };
+          };
+        };
+        themes = {
+          dracula.theme = builtins.readFile "${pkgs.vonfryPackages.fcitx5-theme.dracula}/share/fcitx5/themes/dracula/theme.conf";
+        };
+      };
     };
 
     xsession = {
@@ -258,8 +342,6 @@ let
       };
 
       packages = with pkgs; [
-        vonfryPackages.fcitx5-theme.dracula
-
         recursive
         noto-fonts
         noto-fonts-cjk-sans

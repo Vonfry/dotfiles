@@ -130,11 +130,9 @@ let
     ]
     ++ map mkConfigRelpath [
       "easyeffects"
-      "fcitx5"
       "ibus"
     ]
     ++ map mkDataRelpath [
-      "fcitx5/rime/build"
       "fcitx5/rime/hangyl.userdb"
       "fcitx5/rime/hannomPS.userdb"
       "fcitx5/rime/japanese.userdb"
