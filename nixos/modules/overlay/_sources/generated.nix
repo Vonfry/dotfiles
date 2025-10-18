@@ -3,7 +3,7 @@
 {
   background-image = {
     pname = "background-image";
-    version = "2025-10-03";
+    version = "2025-10-18";
     src = fetchurl {
       url = "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png";
       sha256 = "sha256-NVUPqd/3lxzRPrTfBCBXgxrXR3blEJC/XiJ1nAEcaPQ=";
@@ -21,17 +21,17 @@
     };
     date = "2025-08-27";
   };
-  fcitx5-nord = {
-    pname = "fcitx5-nord";
-    version = "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1";
+  fcitx5-dracula = {
+    pname = "fcitx5-dracula";
+    version = "a267e6f6aea361f3ebf2f8cd3b1e56c134321a2d";
     src = fetchFromGitHub {
-      owner = "tonyfettes";
-      repo = "fcitx5-nord";
-      rev = "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1";
+      owner = "drbbr";
+      repo = "fcitx5-dracula-theme";
+      rev = "a267e6f6aea361f3ebf2f8cd3b1e56c134321a2d";
       fetchSubmodules = false;
-      sha256 = "sha256-qVo/0ivZ5gfUP17G29CAW0MrRFUO0KN1ADl1I/rvchE=";
+      sha256 = "sha256-aah25igObbTXjQZEFIsfmj94S4PeZ0ay3P/OBtE6WnE=";
     };
-    date = "2021-07-27";
+    date = "2023-07-02";
   };
   fortune-chinese = {
     pname = "fortune-chinese";
@@ -107,22 +107,10 @@
   };
   vonfry-icon = {
     pname = "vonfry-icon";
-    version = "2025-10-03";
+    version = "2025-10-18";
     src = fetchurl {
       url = "https://vonfry.name/images/default/logo-white.png";
       sha256 = "sha256-57Vf7OS5H6va5M5Tmx87FmpSZtIlqldeiBkwcbrrEm0=";
     };
-  };
-  web-scout-mcp = {
-    pname = "web-scout-mcp";
-    version = "c54b5db0fbad7894deee87825d38125e0b30e3cb";
-    src = fetchFromGitHub {
-      owner = "pinkpixel-dev";
-      repo = "web-scout-mcp";
-      rev = "c54b5db0fbad7894deee87825d38125e0b30e3cb";
-      fetchSubmodules = false;
-      sha256 = "sha256-GiwWiVQf5vp/NnTtpZch5v2RrW+7El4koNGodQTIOac=";
-    };
-    date = "2025-09-20";
   };
 }

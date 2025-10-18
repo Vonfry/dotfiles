@@ -12,7 +12,7 @@
             "type": "url",
             "url": "https://wiki.haskell.org/wikistatic/haskellwiki_logo.png"
         },
-        "version": "2025-10-03"
+        "version": "2025-10-18"
     },
     "easypulse": {
         "cargoLocks": null,
@@ -35,11 +35,11 @@
         },
         "version": "cf78ac20c76bc3e5b82ce3d21475a32c8a1f76d3"
     },
-    "fcitx5-nord": {
+    "fcitx5-dracula": {
         "cargoLocks": null,
-        "date": "2021-07-27",
+        "date": "2023-07-02",
         "extract": null,
-        "name": "fcitx5-nord",
+        "name": "fcitx5-dracula",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -47,14 +47,14 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "tonyfettes",
-            "repo": "fcitx5-nord",
-            "rev": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1",
-            "sha256": "sha256-qVo/0ivZ5gfUP17G29CAW0MrRFUO0KN1ADl1I/rvchE=",
+            "owner": "drbbr",
+            "repo": "fcitx5-dracula-theme",
+            "rev": "a267e6f6aea361f3ebf2f8cd3b1e56c134321a2d",
+            "sha256": "sha256-aah25igObbTXjQZEFIsfmj94S4PeZ0ay3P/OBtE6WnE=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "bdaa8fb723b8d0b22f237c9a60195c5f9c9d74d1"
+        "version": "a267e6f6aea361f3ebf2f8cd3b1e56c134321a2d"
     },
     "fortune-chinese": {
         "cargoLocks": null,
@@ -195,27 +195,6 @@
             "type": "url",
             "url": "https://vonfry.name/images/default/logo-white.png"
         },
-        "version": "2025-10-03"
-    },
-    "web-scout-mcp": {
-        "cargoLocks": null,
-        "date": "2025-09-20",
-        "extract": null,
-        "name": "web-scout-mcp",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "pinkpixel-dev",
-            "repo": "web-scout-mcp",
-            "rev": "c54b5db0fbad7894deee87825d38125e0b30e3cb",
-            "sha256": "sha256-GiwWiVQf5vp/NnTtpZch5v2RrW+7El4koNGodQTIOac=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "c54b5db0fbad7894deee87825d38125e0b30e3cb"
+        "version": "2025-10-18"
     }
 }
