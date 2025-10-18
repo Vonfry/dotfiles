@@ -148,20 +148,18 @@ in
           recursive = true;
         };
 
-        "emacs/local/pre-custom.el".text = concatStringsSep "\n" [
-          ";;; pre-custom.el --- -*- lexical-binding: t; -*-"
-          ''
-            (setopt
-              vonfry-exclude-modules '(${concatMapStringsSep " " (e: ''"${e}"'') cfg.emacs.excludeModules}))
-            (add-to-list 'exec-path "${emacsExtraBin}/bin")
-          ''
-          cfg.emacs.preCustom
-        ];
+        "emacs/local/pre-custom.el".text = ''
+          ;;; pre-custom.el --- -*- lexical-binding: t; -*-
+          (setopt
+            vonfry-exclude-modules '(${concatMapStringsSep " " (e: "\"${e}\"") cfg.emacs.excludeModules}))
+          (add-to-list 'exec-path "${emacsExtraBin}/bin")
+          ${cfg.emacs.preCustom}
+        '';
 
-        "emacs/local/post-custom.el".text = concatStringsSep "\n" [
+        "emacs/local/post-custom.el".text = ''
           ";;; post-custom.el --- -*- lexical-binding: t; -*-"
-          cfg.emacs.postCustom
-        ];
+          ${cfg.emacs.postCustom}
+        '';
       };
 
       dataFile = {
