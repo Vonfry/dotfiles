@@ -56,7 +56,7 @@ let
       packages = with pkgs; [
         curl
         rsync
-        transmission_4
+        rqbit
       ];
     };
 
