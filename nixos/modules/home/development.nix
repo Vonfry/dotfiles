@@ -157,7 +157,7 @@ in
         '';
 
         "emacs/local/post-custom.el".text = ''
-          ";;; post-custom.el --- -*- lexical-binding: t; -*-"
+          ;;; post-custom.el --- -*- lexical-binding: t; -*-
           ${cfg.emacs.postCustom}
         '';
       };
