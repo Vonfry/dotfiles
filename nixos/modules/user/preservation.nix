@@ -199,9 +199,7 @@ let
         mode = "0700";
       }
 
-      ".texlive2023"
-      ".texlive2024"
-      ".texlive2025"
+      ".texlive2026"
     ]
     ++ map mkCacheRelpath [
       "cabal"
