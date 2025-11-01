@@ -13,7 +13,7 @@
   (emms-history-file (expand-file-name "emms/history" vonfry-local-dir))
   (emms-score-file (expand-file-name "emms/score" vonfry-local-dir))
   (emms-streams-file (expand-file-name "emms/streams" vonfry-local-dir))
-  (emms-info-functions '(emms-info-native emms-info-cueinfo))
+  (emms-info-functions '(emms-info-exiftool emms-info-cueinfo))
   (emms-lyrics-dir (expand-file-name "lyrics" (xdg-user-dir "MUSIC")))
   (emms-player-mpv-ipc-socket
    (expand-file-name "emms-mpv-ipc.socket" temporary-file-directory))
