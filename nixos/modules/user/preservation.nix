@@ -239,9 +239,6 @@ let
     ]
     ++ map mkConfigRelpath [
       "dconf"
-      "qt5ct"
-      "qt6ct"
-      "weylus"
     ]
     ++ map mkDataRelpath [
       "xorg"
