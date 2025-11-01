@@ -180,6 +180,8 @@ let
       ".cargo/git"
       ".cargo/registry"
 
+      ".serena"
+
       {
         directory = "${gpgbase}/crls.d";
         mode = "0700";
