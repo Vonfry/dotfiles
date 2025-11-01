@@ -55,7 +55,6 @@ let
       {
         packages = with pkgs; [
           fortune
-          figlet
 
           # They are needed by emacs plugins and are useful for daily usage as
           # well.
