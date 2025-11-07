@@ -20,7 +20,7 @@
   :custom
   (gptel-cache t)
   (gptel-use-curl t)
-  (gptel-model 'claude-sonnet-4-20250514)
+  (gptel-model 'claude-sonnet-4-5-20250929)
   (gptel-org-branching-context nil)
   (gptel-default-mode 'org-mode)
   ; remove prefix to make llm knew my heading.
