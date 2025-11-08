@@ -89,7 +89,7 @@ in user environment only when the language is used directly, i.e., tex and nix.
 - ~~Perl :: script lang~~
 - ~~Julia :: main data-analysis lang~~
 - orgmode & latex :: main doc lang
-- Agda :: For fun!
+- ~~Agda :: For fun!~~
 - ~~Coq :: proof only~~
 - C/C++
 - ~~R~~

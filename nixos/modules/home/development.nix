@@ -232,7 +232,6 @@ in
             embark-consult
             marginalia
             vertico
-            agda2-mode
             ligature
             sly
             flymake-collection
