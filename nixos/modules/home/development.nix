@@ -272,7 +272,7 @@ in
       git = {
         userName = "Vonfry";
         userEmail = "dev@vonfry.name";
-        package = pkgs.gitAndTools.gitFull;
+        package = pkgs.gitFull;
         signing = mkIf gpgHasKey {
           signByDefault = true;
           key = gpgKey;
@@ -314,7 +314,7 @@ in
       packages =
         with pkgs;
         [
-          gitAndTools.git-extras
+          git-extras
 
           nixpkgs-review
           nurl
